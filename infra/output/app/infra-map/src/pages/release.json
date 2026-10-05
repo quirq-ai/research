@@ -1,0 +1,94 @@
+{
+  "id": "release",
+  "sha": "83ef917771375ae0d1ed51829c9e762a57e01e7e",
+  "language": "Python 3.11+",
+  "summary": "release moves builds through release channels: it keeps an lkgr (last known good) pointer and channel pointers such as canary, each naming a commit and an artifact digest. It exists so that what ships is always a build that passed its checks, with every move recorded and reversible.",
+  "how_it_works": [
+    {
+      "title": "lkgr",
+      "text": "lkgr is the newest main commit whose required post-submit builders are all green, using the gardener's definitions. A pending, missing or cancelled result is not green, so a missing signal holds lkgr in place; the workflow recomputes it every 10 minutes.",
+      "source": [
+        "src/qqrelease/lkgr.py",
+        ".github/workflows/lkgr.yml"
+      ]
+    },
+    {
+      "title": "The release executor",
+      "text": "Only the executor moves lkgr and channel pointers. Each move is an operation whose key is committed to the release-state branch before anything else changes, so a retry with the same intent does nothing twice.",
+      "source": "src/qqrelease/executor.py"
+    },
+    {
+      "title": "Channels and rollback",
+      "text": "A channel pointer names a commit and an artifact digest; canary is promoted from lkgr, and dev would take canary's. Rollback points the channel at the newest earlier value from its history without rebuilding, and after every move a channels.json manifest is written for the installer.",
+      "source": "src/qqrelease/channels.py"
+    },
+    {
+      "title": "The daily canary",
+      "text": "Once a day the canary workflow takes lkgr's commit, builds it, runs the full tests, runs property tests again as a fuzz smoke, deploys and probes it, and only then promotes it. The first failing stage holds that commit and keeps the previous canary, and a watchdog restarts the run if GitHub drops it.",
+      "source": "src/qqrelease/canary.py"
+    },
+    {
+      "title": "Daily report",
+      "text": "After each day's canary a report job files one issue saying what shipped, what was held and why, and what canary names now. The same text is kept on release-state.",
+      "source": "src/qqrelease/report.py"
+    }
+  ],
+  "key_files": [
+    {
+      "path": "src/qqrelease/cli.py",
+      "what": "The qqrelease command line: lkgr, channel and canary subcommands."
+    },
+    {
+      "path": "src/qqrelease/lkgr.py",
+      "what": "Decides which main commit is the last known good."
+    },
+    {
+      "path": "src/qqrelease/executor.py",
+      "what": "Records an operation key before every pointer move and settles pending ones."
+    },
+    {
+      "path": "src/qqrelease/channels.py",
+      "what": "Channel promote, rollback and the channels.json manifest."
+    },
+    {
+      "path": "src/qqrelease/canary.py",
+      "what": "The daily canary stages and hold logic."
+    },
+    {
+      "path": "tools/rollback_drill.py",
+      "what": "Ships two canaries, rolls one back and checks it within a time budget."
+    }
+  ],
+  "try_it": {
+    "commands": [
+      "python3 -m venv .venv",
+      ". .venv/bin/activate",
+      "[ -d .qq/infra-config/.git ] || git clone https://github.com/quirq-ai/infra-config .qq/infra-config",
+      "git -C .qq/infra-config checkout a698da40d6ef9a3d79ccd9393417f094ec935123",
+      "python3 -m pip install -e \".[test]\"",
+      "python3 -m pytest -q -p no:cacheprovider",
+      "python3 tools/lkgr_demo.py --config .qq/infra-config",
+      "python3 tools/rollback_drill.py --config .qq/infra-config --budget-seconds 600"
+    ],
+    "source": ".github/workflows/presubmit.yml"
+  },
+  "status": [
+    {
+      "text": "lkgr, channel pointers with rollback, the daily canary and its report are all merged. In v0 only canary can be promoted: dev and stable are declared, but a channel that needs an approval, a soak or health signals is refused.",
+      "source": "README.md"
+    },
+    {
+      "text": "A day when lkgr has not moved, or its commit was held before, leaves a recorded no-op instead of a new canary.",
+      "source": "README.md"
+    },
+    {
+      "text": "The release executor's identity does not exist yet, so target-repo ref writes are skipped and recorded as such, while the pointer still moves on release-state. That branch is only as safe as push access to this repo until a ruleset protects it.",
+      "source": "README.md"
+    },
+    {
+      "text": "Soak, automatic rollback, a real fuzz stage and the dev channel are out of scope for v0 and planned for v1; stable and staged rollout are planned for v2.",
+      "source": "README.md"
+    }
+  ],
+  "readme_url": "https://github.com/quirq-ai/release/blob/83ef917771375ae0d1ed51829c9e762a57e01e7e/README.md"
+}

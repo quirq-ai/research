@@ -1,0 +1,94 @@
+{
+  "id": "gardener",
+  "sha": "bf7d24d0fd81ec02c51051e63f46971455b596f2",
+  "language": "Python 3.11+",
+  "summary": "gardener keeps main green in each onboarded repo: it watches the post-submit run on every main commit, publishes a tree status, groups failures by regression range, bisects them to a culprit and opens clean reverts within capped limits. It is the counterpart of Chromium's sheriff rotations, Sheriff-o-Matic and LUCI Bisection.",
+  "how_it_works": [
+    {
+      "title": "Tree status",
+      "text": "For each repo the tree is closed while any post-submit builder's newest verdict is red, open when all are green, and unknown while a builder has no verdict yet. The tree-status workflow publishes status/<repo>.json and status/README.md to this repo's tree-status branch, committing only when something changes.",
+      "source": "README.md"
+    },
+    {
+      "title": "Coverage and backfill",
+      "text": "Every main commit since a repo's first post-submit run must have a result, and a missing one fails the check. When a push of several commits ran only the newest, the cycle dispatches the post-submit workflow for each skipped commit, at most 10 in flight per repo.",
+      "source": "README.md"
+    },
+    {
+      "title": "Grouping and bisection",
+      "text": "Red builders that share the same last-good to first-bad range form one failure group, typed as build, test, infra or unknown from the failed step names. qqgarden bisect binary-searches a range with a probe command, like git bisect run, and can verify the culprit by probing it and its parent again.",
+      "source": [
+        "src/qqgarden/groups.py",
+        "README.md",
+        "src/qqgarden/bisect.py"
+      ]
+    },
+    {
+      "title": "Capped reverts",
+      "text": "Every cap comes from infra-config's auto_revert.toml at the pinned commit: at most daily_cap (10) reverts created per rolling 24 hours across all repos, plus per-type create and submit limits. A revert lands on its own only if the repo is in auto_land_repos; otherwise it is proposed as a PR, and infra and unknown failures are never reverted.",
+      "source": "src/qqgarden/policy.py"
+    },
+    {
+      "title": "Ledger",
+      "text": "Each revert is reserved as a write-once record on the ledger branch before its branch and PR exist, so a run that dies midway has still counted it. The cap counts only the gardener's own records.",
+      "source": "src/qqgarden/ledger.py"
+    }
+  ],
+  "key_files": [
+    {
+      "path": "src/qqgarden/postsubmit.py",
+      "what": "Works out per-commit builder states and each repo's tree status."
+    },
+    {
+      "path": "src/qqgarden/policy.py",
+      "what": "Reads the revert caps and decides refuse, propose or land for each culprit."
+    },
+    {
+      "path": "src/qqgarden/cycle.py",
+      "what": "The 5-minute gardening cycle: groups, verifies culprits and makes reverts."
+    },
+    {
+      "path": "src/qqgarden/bisect.py",
+      "what": "Binary search for a culprit with a probe command."
+    },
+    {
+      "path": ".github/workflows/tree-status.yml",
+      "what": "Runs the status and cycle jobs and publishes to the tree-status and ledger branches."
+    },
+    {
+      "path": "pins.toml",
+      "what": "The infra-config, test-pipelines and gate commits this repo reads."
+    }
+  ],
+  "try_it": {
+    "commands": [
+      "[ -d .qq/infra-config/.git ] || git clone https://github.com/quirq-ai/infra-config .qq/infra-config",
+      "git -C .qq/infra-config checkout -q bf3ad29834d85489c49aa6d41ec3c7e59474b746",
+      "python3 -m venv .venv",
+      ". .venv/bin/activate",
+      "python3 -m pip install --quiet -e \".[test]\"",
+      "python3 -m pytest -q -p no:cacheprovider"
+    ],
+    "source": ".github/workflows/presubmit.yml",
+    "note": "The tests read infra-config at the commit pins.toml names, checked out under .qq/infra-config (tests/conftest.py)."
+  },
+  "status": [
+    {
+      "text": "Tree status is live: the tree-status branch holds status files for xo-space and innernet, and the workflow re-runs about every 5 minutes.",
+      "source": ".github/workflows/tree-status.yml"
+    },
+    {
+      "text": "auto_land_repos is empty at the pinned infra-config commit, so every revert is only proposed and a person merges it. Test-failure reverts are proposed only in any case (submit limit 0).",
+      "source": "src/qqgarden/policy.py"
+    },
+    {
+      "text": "Creating revert PRs, re-runs and backfills needs the gardener's own GitHub App; without it the cycle reports what it would do and creates nothing. Live reverts also wait on a manual ledger bootstrap and rulesets for the ledger and tree-status branches.",
+      "source": "README.md"
+    },
+    {
+      "text": "The tests need an infra-config checkout at the pins.toml commit in .qq/infra-config, or a path in QQ_INFRA_CONFIG.",
+      "source": "tests/conftest.py"
+    }
+  ],
+  "readme_url": "https://github.com/quirq-ai/gardener/blob/bf7d24d0fd81ec02c51051e63f46971455b596f2/README.md"
+}

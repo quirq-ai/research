@@ -1,0 +1,85 @@
+{
+  "id": "recipes",
+  "sha": "db6ce0a19ea0adb6bc71cd553524064bdd18d5b0",
+  "language": "Python 3.11+ (CI runs 3.14.8); adapters drive Python and Node.js projects",
+  "summary": "recipes turns the typed targets in a repo's manifest into concrete actions, with one adapter per target kind found by a single loader. It is the only place in qq allowed to name a language, build tool or test runner, which keeps the rest of the system language-agnostic.",
+  "how_it_works": [
+    {
+      "title": "Kinds map to adapter modules",
+      "text": "loader.load(kind) imports qqrecipes.adapters.<kind with - replaced by _> and returns its ADAPTER, so adding a kind is adding a module. A missing module is AdapterNotFound, while an adapter that fails to import raises so a broken install never looks like a missing kind.",
+      "source": "src/qqrecipes/loader.py"
+    },
+    {
+      "title": "Capabilities produce actions",
+      "text": "An adapter implements some of fetch, build, test, package, run, deploy, bench and fuzz, and an unimplemented one is a declared state rather than an error. Each capability returns REAPI-shaped actions: a command, an input root digest, environment, outputs and toolchain pins.",
+      "source": "src/qqrecipes/contract.py"
+    },
+    {
+      "title": "A digest is the cache key",
+      "text": "Action.digest() covers the command, inputs, environment, outputs, toolchain pins, platform and a fingerprint of the recipes code. Commands use placeholders like {toolchain:NAME} and {out} that the runner resolves, so the key is the same on every machine of a platform.",
+      "source": "src/qqrecipes/contract.py"
+    },
+    {
+      "title": "Every step leaves JUnit",
+      "text": "The v0 runner executes each action as a subprocess on this machine. A step that writes no JUnit XML of its own, such as a typecheck, gets a one-case report from its exit code.",
+      "source": "src/qqrecipes/runner.py"
+    }
+  ],
+  "key_files": [
+    {
+      "path": "src/qqrecipes/contract.py",
+      "what": "Adapter base class, Target, Context and the REAPI-shaped Action."
+    },
+    {
+      "path": "src/qqrecipes/loader.py",
+      "what": "Resolves a kind string to its adapter module."
+    },
+    {
+      "path": "src/qqrecipes/runner.py",
+      "what": "Runs one action locally and writes JUnit for it."
+    },
+    {
+      "path": "src/qqrecipes/adapters/node_app/__init__.py",
+      "what": "The node-app adapter: pnpm install, build, typecheck, vitest, next start."
+    },
+    {
+      "path": "src/qqrecipes/adapters/pytest/__init__.py",
+      "what": "The pytest adapter, which writes JUnit to {out}/junit."
+    },
+    {
+      "path": "tools/agnostic_guard.py",
+      "what": "CI check that only adapters name a language or tool."
+    }
+  ],
+  "try_it": {
+    "commands": [
+      "python3 -m venv .venv",
+      ". .venv/bin/activate",
+      "python3 -m pip install -e \".[test]\"",
+      "python3 -m pytest -q -p no:cacheprovider",
+      "python3 tools/agnostic_guard.py",
+      "qqrecipes execute test --repo examples/node-app --out .qq/out/example-node"
+    ],
+    "source": ".github/workflows/presubmit.yml",
+    "note": "The last command needs Node 24 and pnpm on PATH."
+  },
+  "status": [
+    {
+      "text": "Three adapters exist: python-service, pytest and node-app. All five v0 items (contract and loader, Python adapters, node-app, property tests, canary deploy) are marked merged.",
+      "source": "README.md"
+    },
+    {
+      "text": "This all runs in recipes' own presubmit, not yet in the gate. xo-space and innernet are checked out at pinned commits and read through sync's fixture manifests rather than their own.",
+      "source": "README.md"
+    },
+    {
+      "text": "In presubmit, toolchains come from GitHub's setup actions at the pinned versions, not yet from quirq-ai/toolchains.",
+      "source": ".github/workflows/presubmit.yml"
+    },
+    {
+      "text": "Deploy's only backend in v0 is local: on GitHub that is the Actions runner, where the service is started, probed and always torn down.",
+      "source": "README.md"
+    }
+  ],
+  "readme_url": "https://github.com/quirq-ai/recipes/blob/db6ce0a19ea0adb6bc71cd553524064bdd18d5b0/README.md"
+}

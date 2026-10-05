@@ -1,0 +1,80 @@
+{
+  "id": "installer",
+  "sha": "d39f30201c32d41052f61d2e592bc0fd7f295440",
+  "language": "Python 3.11+",
+  "summary": "installer lets a client follow a release channel instead of main: it reads which commit and artifact digest a channel names and puts a checkout on exactly that commit. It only reads channels, which the release repo moves, and in v0 it is used only for xo-space test installs in quirq's research and test environments.",
+  "how_it_works": [
+    {
+      "title": "Reading the channel manifest",
+      "text": "qqinstall reads release's channels.json from its release-state branch and resolves a repo and channel to a commit, digest and generation. Every field is validated, and one bad entry makes the whole file refused.",
+      "source": "src/qqinstall/manifest.py"
+    },
+    {
+      "title": "Exit codes for scripts",
+      "text": "Commands exit 0 when resolved or verified, 1 on a mismatch or local changes, 2 on any error, and 3 when nothing is published yet. Scripts are meant to decide on these codes, never on output text.",
+      "source": "README.md"
+    },
+    {
+      "title": "Checking out a channel",
+      "text": "qqinstall checkout fetches the repo, detaches at the manifest's commit by id, confirms that commit is on the remote's main branch, and verifies the result. It records the manifest generation and refuses a later manifest with a lower one, so a replayed old manifest cannot move an install back.",
+      "source": "README.md"
+    },
+    {
+      "title": "Contract and drill checks",
+      "text": "Presubmit runs release's own code at a pinned commit to ship and roll back canaries and checks that qqinstall resolves each move. A second drill runs xo-space's real install.sh against a local stand-in repo through promotions and a rollback.",
+      "source": ".github/workflows/presubmit.yml"
+    }
+  ],
+  "key_files": [
+    {
+      "path": "src/qqinstall/cli.py",
+      "what": "The qqinstall command line: resolve, checkout, verify and show."
+    },
+    {
+      "path": "src/qqinstall/manifest.py",
+      "what": "Reads and validates channels.json and resolves a channel."
+    },
+    {
+      "path": "src/qqinstall/gitsafe.py",
+      "what": "Hardened git calls used for checkout and verification."
+    },
+    {
+      "path": "tools/contract_check.py",
+      "what": "Checks qqinstall against release's real channel moves."
+    },
+    {
+      "path": "docs/xo-space-canary.md",
+      "what": "How an xo-space test install follows canary."
+    },
+    {
+      "path": ".github/workflows/live-manifest.yml",
+      "what": "Scheduled, non-required check of release's live manifest."
+    }
+  ],
+  "try_it": {
+    "commands": [
+      "python3 -m venv .venv",
+      ". .venv/bin/activate",
+      "python3 -m pip install --require-hashes --no-deps -r requirements-ci.txt",
+      "python3 -m pip install --no-deps --no-build-isolation -e .",
+      "python3 tools/check_pins.py",
+      "python3 -m pytest -q -p no:cacheprovider"
+    ],
+    "source": ".github/workflows/presubmit.yml"
+  },
+  "status": [
+    {
+      "text": "Channel resolution and the xo-space canary test-install flow are merged and pass their offline drills. The live half waits on release shipping its first canary, so until then every resolve exits 3.",
+      "source": "README.md"
+    },
+    {
+      "text": "The live-manifest workflow runs every 6 hours and passes when the manifest resolves, or when it is missing and release has no release-state branch at all. It fails when release-state exists but channels.json cannot be read, which is the case after release has written state but before its first channel move.",
+      "source": ".github/workflows/live-manifest.yml"
+    },
+    {
+      "text": "The manifest is only as trustworthy as push access to the release repo until release pushes release-state with its executor identity behind a ruleset. verify does not check the artifact digest or submodules.",
+      "source": "README.md"
+    }
+  ],
+  "readme_url": "https://github.com/quirq-ai/installer/blob/d39f30201c32d41052f61d2e592bc0fd7f295440/README.md"
+}

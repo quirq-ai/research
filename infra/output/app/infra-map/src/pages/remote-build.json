@@ -1,0 +1,85 @@
+{
+  "id": "remote-build",
+  "sha": "62b2f04865ffbba5dafd0ab23ce4c1ae253de33e",
+  "language": "Python 3.11+ (CI runs 3.14)",
+  "summary": "remote-build is where qq actions run and how their results are reused: an executor interface with pluggable backends plus a local action cache. It exists so the same REAPI-shaped action can run on this machine or on a GitHub Actions runner and give the same output digests.",
+  "how_it_works": [
+    {
+      "title": "Backends are discovered modules",
+      "text": "executor.load(backend) imports qqrbe.backends.<name>; nothing registers backends. v0 ships local and github, so a future backend is one new module.",
+      "source": "src/qqrbe/executor.py"
+    },
+    {
+      "title": "Inputs and platform are checked first",
+      "text": "Before running, an executor checks that the files it sees hash to the action's input root digest and that it is on the action's platform. A failure is a typed error, never a silent run on the wrong inputs, while a non-zero exit code is a normal result.",
+      "source": "README.md"
+    },
+    {
+      "title": "The github backend dispatches a worker",
+      "text": "It triggers the execute workflow with the request, finds the run by name, waits, downloads the result artifact and checks every output against the digest the worker reported. It needs a token with actions: write.",
+      "source": "src/qqrbe/backends/github.py"
+    },
+    {
+      "title": "A local action cache",
+      "text": "Results are stored under <repo>/.qq/cache, keyed by the action digest, and a hit restores outputs, log and JUnit and is reported as a hit. Only successful runs of cacheable actions are stored.",
+      "source": "src/qqrbe/cache.py"
+    },
+    {
+      "title": "Counted fallbacks",
+      "text": "With --fallback local, an unavailable backend or a failed remote run falls back to local execution, prints a FALLBACK line and is counted in stats.json. Wrong inputs, a wrong platform or a bad request never fall back.",
+      "source": "src/qqrbe/cache.py"
+    }
+  ],
+  "key_files": [
+    {
+      "path": "src/qqrbe/executor.py",
+      "what": "The executor interface, ActionResult and backend loader."
+    },
+    {
+      "path": "src/qqrbe/backends/local.py",
+      "what": "Runs an action on this machine through recipes' runner."
+    },
+    {
+      "path": "src/qqrbe/backends/github.py",
+      "what": "Runs an action on a GitHub Actions runner via the execute workflow."
+    },
+    {
+      "path": "src/qqrbe/cache.py",
+      "what": "The local action cache and fallback counters."
+    },
+    {
+      "path": ".github/workflows/execute.yml",
+      "what": "The worker workflow the github backend dispatches."
+    }
+  ],
+  "try_it": {
+    "commands": [
+      "python3 -m venv .venv",
+      ". .venv/bin/activate",
+      "python3 -m pip install -e \".[test]\"",
+      "python3 -m pytest",
+      "qqrbe selftest --backend local",
+      "qqrbe stats"
+    ],
+    "source": "README.md"
+  },
+  "status": [
+    {
+      "text": "The executor interface with local and github backends, and the local action cache with fallback counters, are both marked merged.",
+      "source": "README.md"
+    },
+    {
+      "text": "The cache is local to one checkout. A shared bazel-remote cache is planned for v1 and Buildbarn remote execution for v2, and v0 uses git rather than a content-addressed store for inputs.",
+      "source": "README.md"
+    },
+    {
+      "text": "CI's cross-backend job runs the selftest on both backends and fails unless both give the same action digest and output digests. Pull requests from forks skip that job, and the merge queue still runs it.",
+      "source": ".github/workflows/presubmit.yml"
+    },
+    {
+      "text": "The worker always runs on ubuntu-24.04; choosing a runner from the action's platform is a TODO.",
+      "source": ".github/workflows/execute.yml"
+    }
+  ],
+  "readme_url": "https://github.com/quirq-ai/remote-build/blob/62b2f04865ffbba5dafd0ab23ce4c1ae253de33e/README.md"
+}

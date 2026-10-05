@@ -1,0 +1,94 @@
+{
+  "id": "rollers",
+  "sha": "4285aa4dd3211eda2df28d2bd4bebb2267a01f0d",
+  "language": "Python 3.11+",
+  "summary": "rollers moves pinned dependencies and toolchains forward in the repos quirq infra builds, so they do not drift out of date. Every roll is an ordinary pull request that goes through the same gate as any other change, and the design lets a clean roll land without a person once the safety conditions are met.",
+  "how_it_works": [
+    {
+      "title": "Two kinds of roll",
+      "text": "Toolchain pins in each repo's infra/repo.toml are moved by qqroll's own roller, while Python requirements and pnpm-lock.yaml files are updated by Dependabot. Which repos get which roller, and how often, is read from rollers.toml in the infra-config repo.",
+      "source": "README.md"
+    },
+    {
+      "title": "Generated Dependabot config and land workflow",
+      "text": "qqroll dependabot generates a dependabot.yml and a qq-roll-land.yml workflow for each covered repo under generated/github/<repo>/, to be copied into that repo as is. Presubmit fails if the generated files are stale against the pinned infra-config commit.",
+      "source": "src/qqroll/dependabot.py"
+    },
+    {
+      "title": "The land check",
+      "text": "Before a Dependabot PR may auto-merge, land_check.py checks that Dependabot made a single verified commit, that only dependency files changed and only version lines moved, that the bump is one patch or minor version, and that the base branch has a gate a workflow cannot fake. Anything it cannot verify leaves the PR to a human.",
+      "source": "src/qqroll/land_check.py"
+    },
+    {
+      "title": "Toolchain rolls",
+      "text": "The roller reads the digests that the toolchains repo promoted and edits each manifest only through qqsync, so a roll changes just the pin and its version label. Before writing, it re-checks each new pin's image manifest with oras and its build provenance with gh attestation verify, failing closed.",
+      "source": "src/qqroll/roll.py"
+    },
+    {
+      "title": "Weekly rotation",
+      "text": "The roll-toolchains workflow runs qqroll rotation weekly, on a toolchain-promoted dispatch, or by hand, and opens or refreshes one PR per repo on the branch qq-roll/toolchains. Without the rollers GitHub App's secrets it only prints the diffs it would open.",
+      "source": ".github/workflows/roll-toolchains.yml"
+    }
+  ],
+  "key_files": [
+    {
+      "path": "src/qqroll/cli.py",
+      "what": "The qqroll command line: dependabot, roll, rotation and repos."
+    },
+    {
+      "path": "src/qqroll/land_check.py",
+      "what": "The clean-roll check embedded byte for byte in the generated land workflow."
+    },
+    {
+      "path": "src/qqroll/roll.py",
+      "what": "Moves one manifest's toolchain pins to the promoted digests."
+    },
+    {
+      "path": "src/qqroll/rotation.py",
+      "what": "Runs the toolchain roll across every listed repo and opens roll PRs."
+    },
+    {
+      "path": "generated/github/innernet/.github/workflows/qq-roll-land.yml",
+      "what": "A generated land workflow, as delivered to a product repo."
+    },
+    {
+      "path": ".github/workflows/roll-toolchains.yml",
+      "what": "The scheduled toolchain rotation, with the bot token minted only after pinned installs."
+    }
+  ],
+  "try_it": {
+    "commands": [
+      "python3 -m venv .venv",
+      ". .venv/bin/activate",
+      "python3 -m pip install -e \".[test]\"",
+      "python3 -m pytest -q",
+      "QQ_TOOLCHAINS=../toolchains QQ_SYNC=../sync python3 -m pytest -q"
+    ],
+    "source": "README.md",
+    "note": "The last command needs clones of toolchains and sync next to this one (../toolchains, ../sync)."
+  },
+  "status": [
+    {
+      "text": "The Dependabot config and land workflow are delivered to both product repos (identical to generated/). Auto-land of Dependabot rolls stays off until the admin settings are applied; xo-space also has auto-merge turned off.",
+      "source": [
+        "README.md",
+        "https://github.com/quirq-ai/innernet/blob/8f383a3d6c28f1e4495ff177efe70dca43d17604/.github/dependabot.yml",
+        "https://github.com/quirq-ai/innernet/blob/8f383a3d6c28f1e4495ff177efe70dca43d17604/.github/workflows/qq-roll-land.yml",
+        "https://github.com/quirq-ai/xo-space/blob/14b21a41668bc8124b4cf5cf9cd59fb44dc7d419/.github/dependabot.yml",
+        "https://github.com/quirq-ai/xo-space/blob/14b21a41668bc8124b4cf5cf9cd59fb44dc7d419/.github/workflows/qq-roll-land.yml",
+        "https://github.com/quirq-ai/gate/blob/c3721365186a35c4b2b5acdc0635e281e754ac13/settings/github.toml#L116"
+      ]
+    },
+    {
+      "text": "Toolchain roll PRs are opened without auto-merge until the toolchains repo enforces review of promotions on its main, so for now a roll stops at an open PR.",
+      "source": ".github/workflows/roll-toolchains.yml"
+    },
+    {
+      "text": "The registry checks read ghcr anonymously; the toolchain packages are public now (an anonymous pull works, checked 5 October 2026), although roll-toolchains.yml's header still says they are not. Without the rollers GitHub App's secrets the workflow is a dry run that opens nothing.",
+      "source": [
+        ".github/workflows/roll-toolchains.yml"
+      ]
+    }
+  ],
+  "readme_url": "https://github.com/quirq-ai/rollers/blob/4285aa4dd3211eda2df28d2bd4bebb2267a01f0d/README.md"
+}
