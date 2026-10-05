@@ -33,6 +33,11 @@ and research action live in [GOAL.md](GOAL.md).
 Each finding was checked against the repos at the commits listed in the app's
 footer on 2026-10-05.
 
+Every link on the map is backed by a pin or README line in the repo it
+starts from. On each repo page, every "How it works", key file, "Try it" and
+status item links the file it comes from at a recorded commit; the page
+summary, badges and link list rest on the same READMEs and pins.
+
 - **The 13 repos fall into four stages: your machine (depot, sync, recipes,
   toolchains, remote-build), before landing (infra-config, gate,
   test-pipelines), after landing (gardener, rollers, perf) and shipping
@@ -64,11 +69,6 @@ footer on 2026-10-05.
   executor identity). Since 2026-10-05 a daily backstop is live: a routine at 07:37 UTC dispatches lkgr and then the canary watchdog. Its first run was green: lkgr run 37278808086, then watchdog run 37279000484, which reported "today's canary ran for every repo".** Source:
   [release-state branch at d08a2fd](https://github.com/quirq-ai/release/tree/d08a2fd01799d362da2d956e5122053f75cf8e23),
   [canary report](https://github.com/quirq-ai/release/blob/d08a2fd01799d362da2d956e5122053f75cf8e23/reports/2026-10-05.md). Verified: 2026-10-05.
-
-Every link on the map is backed by a pin or README line in the repo it
-starts from. On each repo page, every "How it works", key file, "Try it" and
-status item links the file it comes from at a recorded commit; the page
-summary, badges and link list rest on the same READMEs and pins.
 
 - **gate's settings run has happened: suraj ran `scripts/apply.sh` at gate
   `6610664`, which applied the repo rulesets (merge queue, required checks,

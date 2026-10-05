@@ -23,24 +23,11 @@ reproducible experiments._
 - Reproduce numbers where possible; otherwise quote them with their source.
 - _Topic-specific checks: ..._
 
-## How to put results into output/
+## Publishing
 
-1. Check "Requested outputs" in [GOAL.md](GOAL.md). Publish only into the
-   ticked formats.
-2. Write to the matching folder:
-   - onepager: `output/onepager/`
-   - slide: `output/slide/`
-   - report: `output/report/`
-   - app: `output/app/<app-name>/`
-3. Name files `YYYY-MM-DD-<short-name>.<ext>`.
-4. Follow the README in each format folder.
-5. List sources in every output.
-
-## After publishing
-
-Update [README.md](README.md): findings so far, status, progress checklist,
-published outputs table and "Last updated". Then update this topic's row in the
-root README Topics table.
+Follow steps 5 to 8 of the root [AGENTS.md](../AGENTS.md): publish only into
+the formats ticked in [GOAL.md](GOAL.md), then update [README.md](README.md)
+and the root Topics table.
 
 ## Topic-specific notes
 

@@ -8,41 +8,22 @@ sources and is safe to share outside the team.
 
 ## How it is organised
 
-Every research topic is a top-level folder named with a short slug. Each topic
-folder has the same four parts:
+Every research topic is a top-level folder named with a short slug, created
+from `_template/` and holding the same parts:
 
 | Part | What it holds |
 |---|---|
 | `README.md` | What the topic is, the research and verified findings so far, and current status/progress. |
 | `GOAL.md` | The purpose of the research, the research action, and which output formats were requested. |
 | `AGENTS.md` | Instructions for an agent: what to research, how to verify it, and how to put results into `output/`. |
+| `package.json` | The topic's `build` and `dev` scripts, which decide how it is presented (see below). |
 | `output/` | Published results, split by format: `onepager/`, `slide/`, `report/`, `app/`. |
 
-### Worked example: `claude/`
-
-`claude` is used here only as an example name to show the layout. It is not a
-topic in this repository.
-
-```text
-claude/
-├── README.md        # what the "claude" research covers, findings so far, status
-├── GOAL.md          # purpose and research action
-├── AGENTS.md        # what an agent researches and how it publishes to output/
-└── output/
-    ├── onepager/    # single-page summary
-    ├── slide/       # slide deck
-    ├── report/      # long-form report
-    └── app/         # runnable demo, with run instructions
-```
-
-You would create it from the repo root with:
-
-```sh
-scripts/new-topic.sh claude
-```
-
-The script copies `_template/` to `claude/` and fills in the topic name and
-today's date. It refuses to overwrite a folder that already exists.
+Create a topic from the repo root with `scripts/new-topic.sh <slug>`, for
+example `scripts/new-topic.sh agent-evals`. The script copies `_template/` to
+`<slug>/` and fills in the topic name and today's date. It refuses to
+overwrite a folder that already exists. [AGENTS.md](AGENTS.md) has the full
+workflow.
 
 ## Output formats
 
@@ -102,7 +83,9 @@ Each topic README carries one status:
 │   └── present/          # default presentation: Markdown to a static site
 ├── scripts/
 │   ├── new-topic.sh      # creates a topic folder from _template/
+│   ├── check.mjs         # checks every topic follows the rules (npm run check)
 │   └── build-hub.mjs     # puts every topic into one site with an index page
+├── .github/workflows/    # CI: npm run check and npm run build on every PR
 └── <topic>/              # one folder per topic
 ```
 
@@ -140,6 +123,7 @@ Node.js 22 or newer. From the repo root:
 
 ```sh
 npm install                          # installs every workspace
+npm run check                        # checks every topic follows the repo rules
 npm run build                        # builds the whole hub into dist/
 npm run dev                          # builds it and serves it on http://localhost:3000
 npx turbo run build --filter=infra   # builds one topic and what it depends on
