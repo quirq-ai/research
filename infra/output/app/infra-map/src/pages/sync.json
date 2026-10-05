@@ -65,7 +65,7 @@
   },
   "status": [
     {
-      "text": "All four v0 items (schema, parser and editor, pin check, no-other-parser check) are marked merged. The parser item's done-when waits on the depot and roller items adopting it.",
+      "text": "All four v0 items (schema, parser and editor, pin check, no-other-parser check) are marked merged, and depot and rollers now read and edit manifests through it.",
       "source": "README.md"
     },
     {

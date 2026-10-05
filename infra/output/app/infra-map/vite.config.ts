@@ -8,5 +8,5 @@ import { viteSingleFile } from "vite-plugin-singlefile"
 export default defineConfig(({ mode }) => ({
   base: "./",
   plugins: [react(), tailwindcss(), ...(mode === "single" ? [viteSingleFile()] : [])],
-  resolve: { alias: { "@": path.resolve(__dirname, "src") } },
+  resolve: { alias: { "@": path.resolve(import.meta.dirname, "src") } },
 }))

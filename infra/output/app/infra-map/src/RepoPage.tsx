@@ -11,7 +11,7 @@ export type PageData = {
   id: string; sha: string; language: string; summary: string
   how_it_works: { title: string; text: string; source: string }[]
   key_files: { path: string; what: string }[]
-  try_it: { commands: string[]; source: string }
+  try_it: { commands: string[]; source: string; note?: string }
   status: { text: string; source: string }[]
   readme_url: string
 }
@@ -99,7 +99,7 @@ export function RepoPage({ id }: { id: string }) {
         {p.try_it.commands.length > 0 && (
           <section className="grid gap-2">
             <h3 className="text-lg font-semibold">Try it</h3>
-            <p className="text-sm text-muted-foreground">From a clone of {id}. Source: <Src repo={id} sha={p.sha} path={p.try_it.source} /></p>
+            <p className="text-sm text-muted-foreground">From a clone of {id}.{p.try_it.note && <> {p.try_it.note}</>} Source: <Src repo={id} sha={p.sha} path={p.try_it.source} /></p>
             <pre className="m-0 overflow-x-auto rounded-lg bg-code p-4 font-mono text-[13px] leading-relaxed text-code-foreground">{p.try_it.commands.join("\n")}</pre>
           </section>
         )}

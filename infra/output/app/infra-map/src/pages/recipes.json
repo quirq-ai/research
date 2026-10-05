@@ -58,7 +58,8 @@
       "python tools/agnostic_guard.py",
       "qqrecipes execute test --repo examples/node-app --out .qq/out/example-node"
     ],
-    "source": ".github/workflows/presubmit.yml"
+    "source": ".github/workflows/presubmit.yml",
+    "note": "The last command needs Node 24 and pnpm on PATH."
   },
   "status": [
     {

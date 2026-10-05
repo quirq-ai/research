@@ -72,7 +72,7 @@
       "source": "README.md"
     },
     {
-      "text": "The channels, fuzz, health, perf and postmortem areas have no reader yet; their readers arrive with later work items.",
+      "text": "The README's reader table predates later work: release now reads channels and health, and gardener reads postmortem. fuzz and perf still have no reader; perf's own workflow hard-codes its benchmarks (a TODO there).",
       "source": "README.md"
     },
     {
@@ -82,6 +82,10 @@
     {
       "text": "Several values are still open decisions marked TODO in the config, including the monthly CI compute ceiling, the canary deploy hour, and the owners of every area; validate --todos lists them.",
       "source": "README.md"
+    },
+    {
+      "text": "The generated product builders pin the result sink with rerun left off, so retries are not used on the product repos yet.",
+      "source": "config/pipelines.toml"
     }
   ],
   "readme_url": "https://github.com/quirq-ai/infra-config/blob/310e3264f5de3cd9822b3a4712ae0a372b97dac3/README.md"

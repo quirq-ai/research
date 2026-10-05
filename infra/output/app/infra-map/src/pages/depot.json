@@ -15,8 +15,8 @@
       "source": "src/qqdepot/store.py"
     },
     {
-      "title": "qq build and qq test reuse CI's runner",
-      "text": "Both commands hand the manifest to recipes, the same planner and runner CI uses, so a local run and a CI run of one commit execute the same actions and leave the same JUnit XML and results.json under .qq/out.",
+      "title": "qq build and qq test run recipes locally",
+      "text": "Both commands hand the manifest to recipes, which plans and runs each action and leaves JUnit XML and results.json under .qq/out. Product CI does not run through recipes yet; depot's presubmit parity job shows qq test and qqrecipes execute give the same JUnit.",
       "source": "src/qqdepot/commands/build.py"
     },
     {

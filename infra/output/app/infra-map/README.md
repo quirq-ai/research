@@ -55,14 +55,16 @@ npm run dev
 Open the address it prints (normally http://localhost:5173).
 
 To build a static site instead, run `npm run build` (output in `dist/`, serve
-it with any static server) or `npm run build:single` (one self-contained
-`dist/index.html` you can open straight from disk).
+it with any static server) or `npm run build:single` (one
+`dist/index.html` you can open straight from disk; fonts load from Google
+Fonts when online).
 
 ## What you should see
 
 A page titled "How quirq infra fits together" with three tabs: Map, All
 repos, and Commands and terms. On the map, tapping **gardener** lights up
-gardener, test-pipelines, infra-config and release, and the card below the
+gardener, test-pipelines, infra-config, release and the product repos box,
+and the card below the
 map shows an **Open the gardener page** button. That page lists gardener's
 key files, each linking to github.com/quirq-ai/gardener at commit
 bf7d24d0fd81.

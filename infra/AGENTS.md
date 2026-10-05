@@ -31,6 +31,8 @@ code does not back stays out.
   repo.
 - Commands shown on a page contain no `#` comments (they break zsh pastes).
 - `npm run build` passes in `output/app/infra-map/`.
+- The template check `grep -rn '{{' infra/` also matches JSX `{{` in
+  `src/components/ui/toggle-group.tsx`; those are not placeholders.
 
 ## How to put results into output/
 

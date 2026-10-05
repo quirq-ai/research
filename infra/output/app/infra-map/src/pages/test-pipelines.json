@@ -69,8 +69,8 @@
       "source": "README.md"
     },
     {
-      "text": "Retry and base comparison only run when a builder passes a rerun command. infra-config's generated product builders pin the sink with rerun left off, so product presubmits do not use it yet; this repo's own CI exercises it through tools/planted_demo.sh.",
-      "source": "README.md"
+      "text": "Retry and base comparison only run when a builder passes a rerun command; this repo's own CI exercises them through tools/planted_demo.sh.",
+      "source": "tools/planted_demo.sh"
     },
     {
       "text": "The exoneration rule is a heuristic that compares failure kinds and cannot tell two failures of the same kind apart. In a rebase-style queue with entries ahead, the base cannot be derived, so failures stay UNEXPECTED.",

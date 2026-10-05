@@ -66,7 +66,7 @@
   },
   "status": [
     {
-      "text": "Auto-land of Dependabot rolls stays off until the land check with its lockfile tree check is delivered to both product repos, the admin settings are applied, and runners can reach the npm registry. The lockfile roller is merged here and in xo-space, and its innernet delivery waits on innernet's gate.",
+      "text": "The Dependabot config and land workflow are delivered to both product repos (identical to generated/). Auto-land of Dependabot rolls stays off until the admin settings are applied; xo-space also has auto-merge turned off.",
       "source": "README.md"
     },
     {
@@ -74,7 +74,7 @@
       "source": ".github/workflows/roll-toolchains.yml"
     },
     {
-      "text": "The registry checks read the container registry anonymously, so every toolchain roll fails closed until the toolchain packages are public, and the workflow is a dry run until the rollers GitHub App's secrets exist.",
+      "text": "The registry checks read ghcr anonymously (the toolchain packages are public), and without the rollers GitHub App's secrets the workflow is a dry run that opens nothing.",
       "source": ".github/workflows/roll-toolchains.yml"
     }
   ],
