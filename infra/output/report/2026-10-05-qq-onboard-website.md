@@ -228,9 +228,11 @@ that also recomputes the `# qq-digest:` line passes the check (the audit of
 this onboarding showed it by turning the test step into `true`). On GitHub
 Free, with 0 required approvals and no CODEOWNERS, nothing else stops it
 either, so a website PR, an agent's included, can weaken `website-presubmit`
-itself and land. Only the org-level `qq-drift` check (it needs a paid plan) or
-an owner's review of `.github/` closes that; see the code-owner option in
-step 8. xo-space and innernet have the same gap today.
+itself and land. What closes that is an owner's review of `/.github/`,
+`/infra/`, `package.json`, the lockfile and the test files, because the
+presubmit runs the PR's own build and tests; see the code-owner option in
+step 8. The org-level `qq-drift` check (it needs a paid plan) covers only the
+workflow files, not the rest. xo-space and innernet have the same gap today.
 
 Never edit a `qq-*.yml` in the repo: change infra-config and
 deliver again. If the repo formats files on commit (website runs
@@ -281,8 +283,10 @@ commit. The gate PR moves the pin, and the apply clones exactly that commit.
 Moving the pin carries every infra-config commit since the last one, not just
 the new repo's. website's gate PR moves it 29 commits, infra-config #4 to #32.
 Run `qqgate settings plan` at gate's `main` and again at the PR, then compare
-every repo except the new one: here the other repos' rulesets were identical,
-and only website's changed. (A plan with the PR's settings at the old pin
+every repo except the new one. Here the pin move changed no other repo's
+rulesets; the one other difference, release's `qq-main`
+(`require_code_owner_review`), comes from the release App change (gate #26)
+that the website PR carries, not from the pin. (A plan with the PR's settings at the old pin
 cannot run, because gate stops when settings name a repo infra-config does
 not list.)
 
@@ -339,10 +343,12 @@ Before you type **yes**, check two things:
    are 5: four `create ruleset` lines and `update setting allow_auto_merge =
    true`. The real apply that carries website also carries other pending gate
    changes: toolchains' promotion gate, the release App bypass and, if suraj
-   says yes, release's code-owner review. That makes 13 lines, if suraj says
-   yes to release's code-owner review (12 without it) and if `allow_auto_merge`
-   is already on in the other repos (each repo where it is off adds one
-   `update setting` line). The ask that hands suraj the command lists each
+   says yes, release's code-owner review. Once the App's ID is in gate's
+   settings, that makes 13 lines (12 without code-owner review). Until the ID
+   is in, the six bypass lines are absent and the dry run shows 7 (6 without
+   code-owner review). Both counts assume `allow_auto_merge` is already on in
+   the other repos; each repo where it is off adds one `update setting` line.
+   The ask that hands suraj the command lists each
    line. If a line appears that nobody listed, answer no.
 
 The full walk-through is gate's
