@@ -78,6 +78,13 @@
       "source": "README.md"
     },
     {
+      "text": "The first canary ran on 5 October, started by hand because GitHub skipped the 06:17 schedule. Both repos passed every stage, nothing was held, and canary moved on release-state; the report is issue 15. GitHub runs this repo's schedules far less often than written (lkgr ran 4 times in about 9 hours), and canary-watchdog uses the same scheduler. A daily backstop is planned.",
+      "source": [
+        "https://github.com/quirq-ai/release/tree/d08a2fd01799d362da2d956e5122053f75cf8e23",
+        "https://github.com/quirq-ai/release/issues/15"
+      ]
+    },
+    {
       "text": "A day when lkgr has not moved, or its commit was held before, leaves a recorded no-op instead of a new canary.",
       "source": "README.md"
     },

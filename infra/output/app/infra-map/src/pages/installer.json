@@ -64,12 +64,18 @@
   },
   "status": [
     {
-      "text": "Channel resolution and the xo-space canary test-install flow are merged and pass their offline drills. The live half waits on release shipping its first canary, so until then every resolve exits 3.",
-      "source": "README.md"
+      "text": "Channel resolution and the xo-space canary test-install flow are merged and pass their offline drills. Since the first canary shipped on 5 October, qqinstall show resolves the canary channel for innernet and xo-space (checked 07:10 UTC that day).",
+      "source": [
+        "README.md",
+        "https://github.com/quirq-ai/release/tree/d08a2fd01799d362da2d956e5122053f75cf8e23"
+      ]
     },
     {
-      "text": "The live-manifest workflow runs every 6 hours and passes when the manifest resolves, or when it is missing and release has no release-state branch at all. It fails when release-state exists but channels.json cannot be read, which is the case after release has written state but before its first channel move.",
-      "source": ".github/workflows/live-manifest.yml"
+      "text": "The live-manifest workflow runs every 6 hours and passes when the manifest resolves, or when it is missing and release has no release-state branch at all. It fails when release-state exists but channels.json cannot be read. With channels.json published on 5 October, its check now resolves; its next scheduled run should be green.",
+      "source": [
+        ".github/workflows/live-manifest.yml",
+        "https://github.com/quirq-ai/release/tree/d08a2fd01799d362da2d956e5122053f75cf8e23"
+      ]
     },
     {
       "text": "The manifest is only as trustworthy as push access to the release repo until release pushes release-state with its executor identity behind a ruleset. verify does not check the artifact digest or submodules.",

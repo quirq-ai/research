@@ -195,8 +195,9 @@ const USER_STEPS: Step[] = [
       { id: "roll", button: "A roll PR touched my area", title: "A roll PR touched your area.", body: <>No action needed; it passed the same checks as your PRs. If something you own broke after it landed, open an alpha issue with the roll PR link.</> },
     ]} />
   </> },
-  { id: "canary", title: "See your change ship in the canary", sub: "Daily at 06:17 UTC", body: <>
+  { id: "canary", title: "See your change ship in the canary", sub: "Daily, set for 06:17 UTC", body: <>
     <p>Once a day, release takes each product repo's lkgr (the newest <code>main</code> commit with every post-submit builder green), builds it, runs the full tests and the property tests again, starts it and runs its health probes (xo-space's /health; innernet's home page for now). Only if all of that passes does the <b>canary</b> channel move to that build. Your change ships in the first canary after it lands and post-submit goes green.</p>
+    <p>GitHub can delay or skip scheduled runs, and it does for the release repo: on 5 October the 06:17 run never started and the canary was started by hand. A daily backstop that starts a skipped run is planned; until it is live, the report can come late or need a manual start.</p>
     <p>Each day's result is a <a href="https://github.com/quirq-ai/release/issues?q=label%3Acanary-report" target="_blank" rel="noreferrer">Canary report issue</a> in the release repo: what shipped, what was held and why, and what canary names now.</p>
     <Outcomes label="Canary result" prompt="Pick what the report says about your repo." options={[
       { id: "shipped", button: "shipped", title: "Shipped.", body: <>The canary channel now names that commit. If it includes your change, it passed the full tests and the health check. Nothing to do.</> },
@@ -254,9 +255,11 @@ const TEAM_STEPS: Step[] = [
     <p>No machines are needed: in v0 the canary is built, started and checked on the GitHub runner. Persistent canary environments come in v1.</p>
   </> },
   { id: "t12", title: "Prove the canary end to end", sub: "Claude's part", body: <ul>
-    <li>Watch the first canary runs for both repos and fix whatever holds them.</li>
+    <li>Watch the canary runs for both repos and fix whatever holds them. The first, on 5 October, passed for both with nothing held (<a href="https://github.com/quirq-ai/release/issues/15" target="_blank" rel="noreferrer">report</a>).</li>
+    <li>Back up GitHub's throttled schedules with a daily routine, so a skipped 06:17 run still happens; the watchdog runs on the same scheduler.</li>
+    <li>Once the App is in, check that canary also moves <code>channels/canary</code> in innernet and xo-space; today it moves only in release's own record.</li>
     <li>Give innernet a real health page; its probe checks the home page today.</li>
-    <li>Install from the canary channel on a test account, and see the installer's live-manifest check turn green.</li>
+    <li>Install from the canary channel on a test account, and see the installer's live-manifest check turn green. The manifest resolves since 5 October.</li>
     <li>Run the rollback drill against the live channel.</li></ul> },
   { id: "t13", who: "suraj", title: "Create the gardener App", sub: "So reverts are really opened", body: <p>Without its own GitHub App, gardener only reports the reverts it would open. Claude prepares the steps and the ledger setup that follows.</p> },
   { id: "t10", who: "suraj", title: "Send the invites", sub: "Pilot first, everyone a week later", body: <>
