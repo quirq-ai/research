@@ -1,0 +1,11 @@
+{
+  "name": "infra",
+  "private": true,
+  "scripts": {
+    "build": "rm -rf dist && cp -R output/app/infra-map/dist dist",
+    "dev": "npm run dev --workspace infra-map"
+  },
+  "devDependencies": {
+    "infra-map": "*"
+  }
+}

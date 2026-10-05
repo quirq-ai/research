@@ -40,8 +40,8 @@ It supports the topic's findings in [../../../README.md](../../../README.md).
 ## Requirements
 
 - Node.js 22 or newer, with npm.
-- Exact dependency versions are pinned in `package.json` and
-  `package-lock.json`.
+- Exact dependency versions are pinned in `package.json` and in the
+  repo root's `package-lock.json` (this app is an npm workspace).
 
 The UI is built from [shadcn/ui](https://ui.shadcn.com) components, copied
 from `apps/v4/registry/new-york-v4/ui` in shadcn-ui/ui into
@@ -52,13 +52,15 @@ environment variables are needed.
 
 ## Setup
 
-From this folder:
+From the repo root:
 
 ```sh
 npm ci
 ```
 
 ## Run
+
+From this folder:
 
 ```sh
 npm run dev
@@ -69,6 +71,9 @@ Open the address it prints (normally http://localhost:5173).
 To build a static site instead, run `npm run build` (output in `dist/`, serve
 it with any static server) or `npm run build:single` (one
 self-contained `dist/index.html` you can open straight from disk).
+
+The deployed `infra` site is this app: `infra/package.json` builds it and
+copies its `dist/` into `infra/dist/`.
 
 ## What you should see
 

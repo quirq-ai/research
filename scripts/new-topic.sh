@@ -5,7 +5,7 @@
 #
 # Copies _template/ to <topic-slug>/ at the repo root, then replaces
 # {{TOPIC}} with the slug and {{DATE}} with today's date (YYYY-MM-DD) in every
-# Markdown file. Refuses to overwrite an existing path.
+# Markdown and JSON file. Refuses to overwrite an existing path.
 
 set -euo pipefail
 
@@ -42,7 +42,7 @@ if ! [[ $slug =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]]; then
 fi
 
 case "$slug" in
-  scripts)
+  scripts | packages | node_modules)
     echo "error: '$slug' is a reserved name; pick another slug" >&2
     exit 1
     ;;
@@ -79,7 +79,7 @@ cp -R "$template/." "$dest/"
 today=$(date +%Y-%m-%d)
 
 # Portable in-place substitution (works with GNU and BSD sed).
-find "$dest" -type f -name '*.md' -print | while IFS= read -r file; do
+find "$dest" -type f \( -name '*.md' -o -name '*.json' \) -print | while IFS= read -r file; do
   sed -e "s/[{][{]TOPIC[}][}]/$slug/g" \
       -e "s/[{][{]DATE[}][}]/$today/g" \
       "$file" > "$file.tmp"
@@ -94,5 +94,6 @@ echo "Next steps:"
 echo "  1. Fill in $slug/GOAL.md: purpose, research action, requested outputs."
 echo "  2. Fill in $slug/AGENTS.md: what to research and how to verify it."
 echo "  3. Add $slug to the Topics table in README.md."
+echo "  4. Run npm install at the repo root so the new workspace is linked."
 echo
 echo "See AGENTS.md for the full workflow."

@@ -89,15 +89,67 @@ Each topic README carries one status:
 ├── README.md             # this file
 ├── AGENTS.md             # how agents create and work a topic
 ├── LICENSE
+├── package.json          # npm workspaces: every topic, every app, packages/*
+├── turbo.json            # Turborepo tasks: build and dev
 ├── _template/            # copied for every new topic
 │   ├── README.md
 │   ├── GOAL.md
 │   ├── AGENTS.md
+│   ├── package.json      # the topic's build and dev scripts
+│   ├── vercel.json       # how Vercel deploys the topic
 │   └── output/{onepager,slide,report,app}/
+├── packages/
+│   └── present/          # default presentation: Markdown to a static site
 ├── scripts/
-│   └── new-topic.sh      # creates a topic folder from _template/
+│   ├── new-topic.sh      # creates a topic folder from _template/
+│   └── vercel-ignore.sh  # skips a topic's deploy when it did not change
 └── <topic>/              # one folder per topic
 ```
+
+## How topics are presented and deployed
+
+The repo is a [Turborepo](https://turborepo.dev) monorepo using npm
+workspaces. Each topic folder is a workspace with its own `package.json`, and
+each topic decides how it presents its findings. The only contract is:
+
+- `npm run build` in the topic writes a static site to `<topic>/dist/`.
+- `npm run dev` in the topic serves it locally.
+
+A new topic starts with the default presentation, `@research/present`, which
+renders the topic's `README.md`, `GOAL.md` and the files in
+`output/onepager/`, `output/slide/` and `output/report/` into a small site
+(Markdown becomes HTML pages, other files such as PDFs are copied as-is).
+
+To present a topic another way, change the scripts in its `package.json`. For
+example `infra` publishes its app: its build copies the output of
+`output/app/infra-map` (a Vite app, and its own workspace) into `infra/dist/`.
+Any tool works as long as the build ends with a static site in `dist/`.
+
+### Run locally
+
+Node.js 22 or newer. From the repo root:
+
+```sh
+npm install                          # installs every workspace
+npx turbo run build                  # builds every topic
+npx turbo run build --filter=infra   # builds one topic and what it depends on
+cd infra && npm run dev              # works on one topic
+```
+
+### Deploy on Vercel
+
+Each topic is its own Vercel project, all imported from this one repository.
+For each topic:
+
+1. In Vercel, add a new project and import `quirq-ai/research`.
+2. Set **Root Directory** to the topic folder, for example `infra`. Leave
+   "Include files outside the root directory" on.
+3. Deploy. The topic's `vercel.json` sets the install, build and output
+   settings, so nothing else needs changing.
+
+The topic's `vercel.json` runs `scripts/vercel-ignore.sh` as the Ignored Build
+Step, so a push redeploys only the topics it changed (or whose dependencies
+it changed).
 
 ## Topics
 
