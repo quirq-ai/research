@@ -20,14 +20,16 @@ spot, **Screenshot needed**, for an operator to fill in.
 | 3 | The repo's manifest, `infra/repo.toml` | website PR | [website #1](https://github.com/quirq-ai/website/pull/1), CI green, waiting to merge |
 | 4 | Registry entry, kind and builders | infra-config PR | Merged: [infra-config #31](https://github.com/quirq-ai/infra-config/pull/31) and [#32](https://github.com/quirq-ai/infra-config/pull/32), main `41a8cb0` |
 | 5 | Generated workflows delivered into the repo | website PR | In [website #1](https://github.com/quirq-ai/website/pull/1); `website-presubmit` passed in 3 min 54 s |
-| 6 | Rulesets and settings for the repo | gate PR | [gate #28](https://github.com/quirq-ai/gate/pull/28), draft; its CI turns green once website #1 merges |
-| 7 | Apply the rulesets to GitHub | suraj's terminal | After step 6 |
+| 6 | Rulesets and settings for the repo | gate PR | [gate #28](https://github.com/quirq-ai/gate/pull/28). Its CI is green, but that does not mean website is ready: see step 7 |
+| 7 | Apply the rulesets to GitHub | suraj's terminal | After website #1 is on `main` and gate #28 merges |
 | 8 | Optional: canary, rolls, code owners | several | Not started; see the options |
 
 The order matters. infra-config must list the repo before gate can name it
 (gate refuses settings whose product repos differ from infra-config's), and
 the required check must exist on the repo's `main` before the apply will
-touch it (gate's `verify` reports the repo NOT READY until then).
+touch it (gate's `verify` reports the repo NOT READY until then). So the
+repo's PR merges first and the apply comes last. An apply run too early
+leaves the repo with no rulesets at all (step 7).
 
 ## Before you start
 
@@ -35,8 +37,8 @@ touch it (gate's `verify` reports the repo NOT READY until then).
   rulesets and the merge queue work only on public repos, and qq accepts
   public repos only (`visibility = "public"` is the one value infra-config's
   schema allows).
-- **It has the four org custom properties** that `vision/org/create-repos.sh`
-  sets: `area`, `owner`, `owner-bot` and `stage`. Tools select repos by these
+- **It has the four org custom properties** set when the org's repos were
+  created: `area`, `owner`, `owner-bot` and `stage`. Tools select repos by these
   properties, never by name.
 - **You can run** git, Python 3.11 or newer, and Node and pnpm for a Node repo.
   Clone [infra-config](https://github.com/quirq-ai/infra-config),
@@ -55,6 +57,8 @@ allowed. Anyone with write access can push to `main`.
 
 **Screenshot needed:** Org **Settings › Repository › Custom properties**, the
 row for website (needs an org owner's login).
+
+**Who approves:** nobody. This step only reads; anyone can run it.
 
 **Options at this step**
 
@@ -76,7 +80,7 @@ pnpm 10.23.0, and it said Node 22. None of the existing kinds fits it:
 
 | Kind | Fits website? |
 |---|---|
-| `node-app` | No. Its test step runs `tsc --noEmit` over the inherited PostHog code, and its run and deploy steps run `next start`. |
+| `node-app` | No. Its test step runs `pnpm typecheck` (innernet maps that to `tsc --noEmit`), a script website does not have, and its run and deploy steps run `next start`. |
 | `static-docs` | No. It has no toolchain or commands, so no CI steps can be generated from it. |
 | `python-service`, `pytest` | No. |
 | `container-image` | No, and its phase is `later`, which infra-config refuses. |
@@ -94,6 +98,10 @@ limit for a required check. The built site, served locally:
 ![The built site on a desktop screen](2026-10-05-qq-onboard-website/02c-site-desktop-light.png)
 
 ![The built site at phone width](2026-10-05-qq-onboard-website/02d-site-phone.png)
+
+**Who approves:** the choice itself is not a separate approval. A new kind
+lands in the infra-config PR (step 4), which suraj approves, and a toolchain
+move lands in the repo's own PR (step 3).
 
 **Options at this step**
 
@@ -121,8 +129,9 @@ toolchains promoted, by digest).
 
 The second `qqsync validate` shows what happens when you name a kind
 infra-config does not list. The same PR moves `.nvmrc`, `engines`, the
-devcontainer, `validate.yml`, the README and AGENTS.md to Node 24. Its checks
-pass, and Vercel's GitHub app builds a preview from it:
+devcontainer, the README and AGENTS.md to Node 24. Its first push also moved
+`validate.yml` to Node 24; step 5 then deletes that file. Its checks pass,
+and Vercel's GitHub app builds a preview from it:
 
 ![website PR #1's checks](2026-10-05-qq-onboard-website/03b-pr1-checks.png)
 
@@ -213,8 +222,17 @@ skipped on a pull request.
 
 ![website-presubmit on website PR #1: every qq step passed](2026-10-05-qq-onboard-website/05c-presubmit.png)
 
-Each stub carries a `# qq-digest:` line and checks itself, so a hand edit
-fails the build. Never edit a `qq-*.yml` in the repo: change infra-config and
+Each stub carries a `# qq-digest:` line and checks itself. That catches a
+formatter or an accidental edit. It does not stop a deliberate one: an edit
+that also recomputes the `# qq-digest:` line passes the check (the audit of
+this onboarding showed it by turning the test step into `true`). On GitHub
+Free, with 0 required approvals and no CODEOWNERS, nothing else stops it
+either, so a website PR, an agent's included, can weaken `website-presubmit`
+itself and land. Only the org-level `qq-drift` check (it needs a paid plan) or
+an owner's review of `.github/` closes that; see the code-owner option in
+step 8. xo-space and innernet have the same gap today.
+
+Never edit a `qq-*.yml` in the repo: change infra-config and
 deliver again. If the repo formats files on commit (website runs
 Prettier through lint-staged), add `.github/workflows/qq-*.yml` to the
 formatter's ignore file first, or the hook rewrites the stubs and breaks their
@@ -230,9 +248,10 @@ merges it.
   queue. The default is to delete it in the delivery PR, as xo-space did with
   its `tests.yml`. Keep it only if it checks something the presubmit doesn't;
   it then stays an extra check that is not required.
-- **Redeliver after any builder change.** A stub that `main` of infra-config
-  generated up to `drift_grace_days` (7) ago still passes the drift check with
-  a warning.
+- **Redeliver after any builder change.** The stub's own drift step checks
+  only its digest. infra-config's `drift_grace_days` (7) applies to the
+  org-level `qq-drift` check, which is off on GitHub Free, so nothing flags a
+  stale stub today: redeliver whenever the builders change.
 
 ## Step 6: add the repo to the gate
 
@@ -259,6 +278,16 @@ required), plus the org-wide release-ref and reserved-tag rulesets:
 The WARNING line in these runs is expected: they used an unmerged infra-config
 commit. The gate PR moves the pin, and the apply clones exactly that commit.
 
+Moving the pin carries every infra-config commit since the last one, not just
+the new repo's. website's gate PR moves it 29 commits (infra-config #4 to
+#32). Diff the plan at the old and new pin: here the other repos' rulesets
+were identical, and only website's changed.
+
+gate's CI going green on this PR does not mean the repo is ready. Its
+`settings verify` for product repos is advisory, so the PR is green even
+while website is NOT READY. The real signal is the apply's own `verify`
+(step 7).
+
 **Who approves:** gate is policy; suraj approves the gate PR, and only he
 applies it (step 7).
 
@@ -272,7 +301,7 @@ applies it (step 7).
 | `code_owner_review` | `false` | Requires a code owner's approval on owned paths. Needs a CODEOWNERS file; only toolchains uses it today. It is a policy change. |
 | `queue_group_size` | 5 | How many PRs the merge queue tests together. 1 makes each PR land alone. |
 | `state_branches`, `release_tags` | none | Protect branches a workflow writes to and tags only the release executor may create. |
-| `allow_conditional` | none | Lets a required job skip under a stated condition, with a reason. |
+| `allow_conditional` | none | Lets a required job skip under a stated condition, with a reason. Not for a product repo's generated presubmit: gate refuses an `if:` on generated required jobs. |
 
 Org-wide settings in the same file apply to every repo: squash merges, 0
 required approvals and no bypass for anyone. Changing them is a policy
@@ -290,8 +319,27 @@ any folder; it runs in a subshell and cleans up after itself:
 ```
 
 It clones infra-config at the pinned commit and every repo fresh, runs
-`verify` and a dry run, and writes nothing until you type **yes**. The full
-walk-through is gate's
+`verify` and a dry run, and writes nothing until you type **yes**.
+
+Before you type **yes**, check two things:
+
+1. **`verify` prints `ready` for the new repo.** If it prints
+   `NOT READY website … required check 'website-presubmit' is not a job on
+   the default branch`, the repo's PR is not on `main` yet. The run still
+   offers the other repos' changes, writes them if you say yes, and ends with
+   `Finished, but something above was not ready, skipped or REFUSED (exit 1)`.
+   The new repo stays without rulesets. Merge the repo's PR and run the same
+   command again.
+2. **Every `plan` line is one you expect.** The apply writes everything in
+   gate's `main` that has not been applied yet, not just the new repo. Ignore
+   the `unchanged` lines and read every other one. For website alone there
+   are 5: four `create ruleset` lines and `update setting allow_auto_merge =
+   true`. The real apply that carries website also carries other pending gate
+   changes (toolchains' promotion gate, the release App bypass and, if suraj says
+   yes, release's code-owner review), 13 lines in all; the ask that hands suraj the command
+   lists each one. If a line appears that nobody listed, answer no.
+
+The full walk-through is gate's
 [docs/apply-settings.md](https://github.com/quirq-ai/gate/blob/c3721365186a35c4b2b5acdc0635e281e754ac13/docs/apply-settings.md).
 
 **Screenshot needed:** the apply run in suraj's terminal: the `verify` lines
@@ -309,10 +357,15 @@ and `qq-reserved-tags`.
 
 **Screenshot needed:** website **Settings › Rules › Rulesets**, then
 **qq-main**, showing the merge queue and the required check
-`website-presubmit`.
+`website-presubmit`. A public repo's rulesets can also be viewed without
+admin rights at <https://github.com/quirq-ai/website/rules>, so an operator
+can capture this one after the apply without an admin login.
 
 **Screenshot needed:** website **Settings › General › Pull Requests**, showing
 **Allow auto-merge** on.
+
+**Who approves:** suraj, by running the command and typing **yes**. Only an
+org admin can apply, and an agent never applies its own gate change.
 
 **Options at this step**
 
@@ -320,12 +373,16 @@ and `qq-reserved-tags`.
   Pull Requests**. The ruleset already allows squash only, so this only tidies
   the merge button; gate does not manage those toggles.
 - **Re-run any time.** The command is idempotent: rulesets are created or
-  updated by name, and a ruleset edited on GitHub shows as `differs` and is
+  updated by name. A ruleset shows as `differs` when it was edited on GitHub
+  or when `settings/github.toml` changed since the last apply, and it is
   replaced only after its own `yes`.
 
 ## Step 8: options after onboarding
 
 None of these are needed for the repo to be gated. Each is a separate change.
+
+**Who approves:** each option below is a policy change, so suraj approves its
+PRs. Agents draft them.
 
 ### Put the repo in the daily canary
 
@@ -338,10 +395,17 @@ innernet. Adding it takes:
    expecting 200), and website in the canary health signals' `repos` lists.
 2. recipes: a `gatsby-site` adapter with a `deploy` step, because the probe
    runs against the canary test environment recipes' deploy starts.
-3. release: website in `canary.yml`, and, once the release App exists,
-   that App installed on website and website added to the repos the gate lets
-   the release executor write refs in (the gate's draft release-App change
-   lists xo-space and innernet). Promoting to stable stays suraj's decision.
+3. release: website in `canary.yml`. Promoting to stable stays suraj's
+   decision.
+
+The release App is not part of this list, because website needs it anyway.
+release's `lkgr` job moves the `lkgr` ref of every repo infra-config lists,
+including repos with `channels = []`. So the App must be installed on website
+before release moves its infra-config pin past the commit that added website,
+or the whole `lkgr` job fails for every repo. website is also in the gate's
+`executor_repos`, which lets the App write only website's `lkgr` and
+`channels/…` refs (the `qq-release-refs-*` rulesets), never `main` or the
+reserved tags. For website, the App is installed on it when the App is created.
 
 ### Dependency and toolchain rolls
 
@@ -357,8 +421,13 @@ is cleared.
 ### Code-owner review
 
 Add a `.github/CODEOWNERS` naming owners for the verification surface
-(`infra/`, `.github/`, test files) and set `code_owner_review = true` in gate.
-This is a policy change for suraj, and today only toolchains uses it.
+(`/.github/` and `/infra/`, and test files if you like) and set
+`code_owner_review = true` in gate. This is what closes the gap in step 5:
+without it, a PR can rewrite the repo's own required workflow and land with no
+person's review. The cost is that every PR touching those paths waits for an
+owner's approval, and a PR opened by the only owner cannot merge, because nobody else can approve it. It is
+the repo owner's decision; website ships without it, like xo-space and
+innernet. Today toolchains uses it, and release is about to.
 
 ### Local builds with `qq`
 
@@ -377,11 +446,13 @@ worth measuring.
 Checked on 2026-10-05 at these commits:
 
 - website [48a073c](https://github.com/quirq-ai/website/tree/48a073cf6a3a75c3c975609de59ad5e52ebd116e)
-  (main) and [PR #1](https://github.com/quirq-ai/website/pull/1) at b318e25 (its
-  checks are shown at 654da2d, the first push).
-- infra-config [310e326](https://github.com/quirq-ai/infra-config/tree/310e3264f5de3cd9822b3a4712ae0a372b97dac3):
-  `config/`, `tools/qqcfg.py`, `AGENTS.md`; the website change is local commit
-  1b791cd on top, not merged.
+  (main) and [PR #1](https://github.com/quirq-ai/website/pull/1) at 6d4ebf6
+  (step 3's checks are shown at 654da2d, the first push).
+- infra-config [41a8cb0](https://github.com/quirq-ai/infra-config/tree/41a8cb0a19e4f12ecb0d6407ba1155cd42c498ad)
+  (#32; website was added in #31): `config/`, `tools/qqcfg.py`, `AGENTS.md`.
+  Steps 4 and 6 were captured from the same change before it merged.
+- release [83ef917](https://github.com/quirq-ai/release/tree/83ef917771375ae0d1ed51829c9e762a57e01e7e):
+  `lkgr.yml` and `src/qqrelease/cli.py` (the `lkgr` scope in step 8).
 - gate [c372136](https://github.com/quirq-ai/gate/tree/c3721365186a35c4b2b5acdc0635e281e754ac13):
   `settings/github.toml`, `pins.toml`, `src/qqgate/settings.py`,
   `docs/apply-settings.md`.

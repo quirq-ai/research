@@ -18,7 +18,8 @@ qq is modelled on Chromium's infrastructure (depot_tools, gclient, recipes,
 LUCI, Sheriff-o-Matic, AutoRoll and release channels), rebuilt for small
 GitHub repos. Its parts live in 13 repos under
 [quirq-ai](https://github.com/quirq-ai), and two product repos, innernet
-(Next.js) and xo-space (Python), use it. Reading 13 READMEs is a slow way to
+(Next.js) and xo-space (Python), use it; a third, website (Gatsby), is being
+onboarded. Reading 13 READMEs is a slow way to
 learn how the parts connect, so this topic maps them in one interactive app,
 with a page for each repo. The same app carries the checklist for the qq
 alpha, where 10 to 15 people use qq for their real work and say what hurt. Alongside the app,
