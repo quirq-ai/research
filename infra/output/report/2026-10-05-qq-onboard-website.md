@@ -279,9 +279,12 @@ The WARNING line in these runs is expected: they used an unmerged infra-config
 commit. The gate PR moves the pin, and the apply clones exactly that commit.
 
 Moving the pin carries every infra-config commit since the last one, not just
-the new repo's. website's gate PR moves it 29 commits (infra-config #4 to
-#32). Diff the plan at the old and new pin: here the other repos' rulesets
-were identical, and only website's changed.
+the new repo's. website's gate PR moves it 29 commits, infra-config #4 to #32.
+Run `qqgate settings plan` at gate's `main` and again at the PR, then compare
+every repo except the new one: here the other repos' rulesets were identical,
+and only website's changed. (A plan with the PR's settings at the old pin
+cannot run, because gate stops when settings name a repo infra-config does
+not list.)
 
 gate's CI going green on this PR does not mean the repo is ready. Its
 `settings verify` for product repos is advisory, so the PR is green even
@@ -335,9 +338,12 @@ Before you type **yes**, check two things:
    the `unchanged` lines and read every other one. For website alone there
    are 5: four `create ruleset` lines and `update setting allow_auto_merge =
    true`. The real apply that carries website also carries other pending gate
-   changes (toolchains' promotion gate, the release App bypass and, if suraj says
-   yes, release's code-owner review), 13 lines in all; the ask that hands suraj the command
-   lists each one. If a line appears that nobody listed, answer no.
+   changes: toolchains' promotion gate, the release App bypass and, if suraj
+   says yes, release's code-owner review. That makes 13 lines, if suraj says
+   yes to release's code-owner review (12 without it) and if `allow_auto_merge`
+   is already on in the other repos (each repo where it is off adds one
+   `update setting` line). The ask that hands suraj the command lists each
+   line. If a line appears that nobody listed, answer no.
 
 The full walk-through is gate's
 [docs/apply-settings.md](https://github.com/quirq-ai/gate/blob/c3721365186a35c4b2b5acdc0635e281e754ac13/docs/apply-settings.md).
@@ -403,9 +409,11 @@ release's `lkgr` job moves the `lkgr` ref of every repo infra-config lists,
 including repos with `channels = []`. So the App must be installed on website
 before release moves its infra-config pin past the commit that added website,
 or the whole `lkgr` job fails for every repo. website is also in the gate's
-`executor_repos`, which lets the App write only website's `lkgr` and
+`executor_repos`, so the App's bypass covers only website's `lkgr` and
 `channels/…` refs (the `qq-release-refs-*` rulesets), never `main` or the
-reserved tags. For website, the App is installed on it when the App is created.
+reserved tags. Installing the App still gives it write access to every
+website ref no ruleset protects, such as other branches and tags, as in
+xo-space and innernet. For website, the App is installed on it when the App is created.
 
 ### Dependency and toolchain rolls
 
@@ -421,13 +429,15 @@ is cleared.
 ### Code-owner review
 
 Add a `.github/CODEOWNERS` naming owners for the verification surface
-(`/.github/` and `/infra/`, and test files if you like) and set
-`code_owner_review = true` in gate. This is what closes the gap in step 5:
-without it, a PR can rewrite the repo's own required workflow and land with no
-person's review. The cost is that every PR touching those paths waits for an
+(`/.github/`, `/infra/`, `package.json` and the lockfile, and the test files)
+and set `code_owner_review = true` in gate. This is what closes the gap in
+step 5, and only if all of those are owned: the presubmit runs the PR's own
+`pnpm build` and `pnpm test`, so a PR that changes the scripts or the tests
+can weaken the check as surely as one that edits the workflow. Without it, a
+PR can do either and land with no person's review. The cost is that every PR touching those paths waits for an
 owner's approval, and a PR opened by the only owner cannot merge, because nobody else can approve it. It is
 the repo owner's decision; website ships without it, like xo-space and
-innernet. Today toolchains uses it, and release is about to.
+innernet. Today only toolchains uses it; release will too if suraj says yes.
 
 ### Local builds with `qq`
 
@@ -451,6 +461,9 @@ Checked on 2026-10-05 at these commits:
 - infra-config [41a8cb0](https://github.com/quirq-ai/infra-config/tree/41a8cb0a19e4f12ecb0d6407ba1155cd42c498ad)
   (#32; website was added in #31): `config/`, `tools/qqcfg.py`, `AGENTS.md`.
   Steps 4 and 6 were captured from the same change before it merged.
+- gate [#28](https://github.com/quirq-ai/gate/pull/28) at
+  [5343e63](https://github.com/quirq-ai/gate/tree/5343e63836841fc2c657e97209387068d283db3f):
+  website's `[[repo]]` block, the infra-config pin and `executor_repos` (step 8).
 - release [83ef917](https://github.com/quirq-ai/release/tree/83ef917771375ae0d1ed51829c9e762a57e01e7e):
   `lkgr.yml` and `src/qqrelease/cli.py` (the `lkgr` scope in step 8).
 - gate [c372136](https://github.com/quirq-ai/gate/tree/c3721365186a35c4b2b5acdc0635e281e754ac13):
