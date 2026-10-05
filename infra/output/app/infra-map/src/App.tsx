@@ -89,12 +89,12 @@ export default function App() {
 
       {repo && ORDER.includes(repo) ? <RepoPage id={repo} /> :
       <Tabs value={tab} onValueChange={v => { location.hash = v }} className="gap-5">
-        <TabsList className="sticky top-[env(safe-area-inset-top,0px)] z-10 h-auto w-full flex-wrap justify-start">
-          <TabsTrigger className="flex-none" value="map">Map</TabsTrigger>
-          <TabsTrigger className="flex-none" value="repos">All repos</TabsTrigger>
-          <TabsTrigger className="flex-none" value="alpha">Alpha checklist</TabsTrigger>
-          <TabsTrigger className="flex-none" value="before">Before alpha</TabsTrigger>
-          <TabsTrigger className="flex-none" value="reference">Commands and terms</TabsTrigger>
+        <TabsList className="sticky top-[env(safe-area-inset-top,0px)] z-10 w-full flex-wrap justify-start group-data-[orientation=horizontal]/tabs:h-auto">
+          <TabsTrigger className="flex-none text-muted-foreground" value="map">Map</TabsTrigger>
+          <TabsTrigger className="flex-none text-muted-foreground" value="repos">All repos</TabsTrigger>
+          <TabsTrigger className="flex-none text-muted-foreground" value="alpha">Alpha checklist</TabsTrigger>
+          <TabsTrigger className="flex-none text-muted-foreground" value="before">Before alpha</TabsTrigger>
+          <TabsTrigger className="flex-none text-muted-foreground" value="reference">Commands and terms</TabsTrigger>
         </TabsList>
 
         <TabsContent value="map" className="grid gap-4">
