@@ -227,7 +227,7 @@ const USER_STEPS: Step[] = [
 const TEAM_STEPS: Step[] = [
   { id: "t1", who: "suraj", title: "Run the second settings command", sub: "Makes toolchains' promotion-gate check required", body: <p>gate's settings apply (quirq-ai/gate docs/apply-settings.md) at current main; it applies gate #25, which adds promotion-gate to toolchains' required checks.</p> },
   { id: "t2", title: "Finish the open v0 checks", sub: "Proof each part works live", body: <ul>
-    <li>A deliberately red PR is refused on innernet.</li><li>The first daily canary runs for both product repos.</li><li>Tree status is live on both product repos.</li>
+    <li>A deliberately red PR is refused on innernet.</li><li>Done: the first daily canary ran for both product repos on 5 October, started by hand, both recorded (<a href="https://github.com/quirq-ai/release/issues/15" target="_blank" rel="noreferrer">report 15</a>).</li><li>Tree status is live on both product repos.</li>
     <li>A bot-opened toolchains PR proves code-owner review.</li><li>The first pin-changing toolchains PR lands under the required promotion-gate and rolls into a product repo.</li>
     <li>A planted build break gets a revert PR and a failure record.</li></ul> },
   { id: "t3", title: "Make qq work on a Mac", sub: "Toolchains are Linux x86_64 only today", body: <p>Most users are on macOS. Either publish macos-arm64 toolchains and pin them in both manifests, or make sync skip a missing platform with a clear "bring your own" message. Until then step 4 tells Mac users to install Node 24 and pnpm, or Python 3.14.8, themselves.</p> },
@@ -259,7 +259,7 @@ const TEAM_STEPS: Step[] = [
     <li>Back up GitHub's throttled schedules with a daily routine, so a skipped 06:17 run still happens; the watchdog runs on the same scheduler.</li>
     <li>Once the App is in, check that canary also moves <code>channels/canary</code> in innernet and xo-space; today it moves only in release's own record.</li>
     <li>Give innernet a real health page; its probe checks the home page today.</li>
-    <li>Install from the canary channel on a test account, and see the installer's live-manifest check turn green. The manifest resolves since 5 October.</li>
+    <li>Install from the canary channel on a test account, and see the installer's live-manifest check turn green. The manifest has resolved since 5 October.</li>
     <li>Run the rollback drill against the live channel.</li></ul> },
   { id: "t13", who: "suraj", title: "Create the gardener App", sub: "So reverts are really opened", body: <p>Without its own GitHub App, gardener only reports the reverts it would open. Claude prepares the steps and the ledger setup that follows.</p> },
   { id: "t10", who: "suraj", title: "Send the invites", sub: "Pilot first, everyone a week later", body: <>
