@@ -60,5 +60,6 @@ root README Topics table.
 
 - The app is built from shadcn/ui components (copied from shadcn-ui/ui
   `apps/v4/registry/new-york-v4/ui`). Keep new UI on shadcn components.
+- Phase content (v0, v1, v2) may cite the version plans vision/quirq-infra/v0.md, v1.md and v2.md (project files, not public), always marked as plans; every status claim still needs a repo source.
 - The repos move quickly. When refreshing, bump each page's `sha` and the
   `SOURCES` list in `src/App.tsx` together.

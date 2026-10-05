@@ -38,6 +38,7 @@ passed yet. v1 and v2 are plans.
    PR refused, 7 unattended daily canaries (the first was scheduled for
    2026-10-05 06:17 UTC; no canary record yet), and an automatic revert, which
    needs the gardener's GitHub App.
+   ([phases report](../report/2026-10-05-qq-phases.md), [release-state](https://github.com/quirq-ai/release/tree/f89a9449fc512c05a0b91a11551d9ade0dfc7aa1))
 5. **Limits.** Toolchains are Linux x86_64 only, so on a Mac `qq sync` stops
    and you bring your own Python or Node. Generated builders do not use
    recipes yet; nothing lands on its own (`auto_land_repos` is empty); only
