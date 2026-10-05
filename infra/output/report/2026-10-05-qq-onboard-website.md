@@ -17,10 +17,10 @@ spot, **Screenshot needed**, for an operator to fill in.
 |---|---|---|---|
 | 1 | Read the repo's current state | GitHub API | Done (no rulesets, merge commits allowed) |
 | 2 | Pick the kind, check the toolchain pin | your machine | Done (Gatsby, passes on Node 24.21.0) |
-| 3 | The repo's manifest, `infra/repo.toml` | website PR | [website #1](https://github.com/quirq-ai/website/pull/1), draft, CI green |
-| 4 | Registry entry, kind and builders | infra-config PR | Prepared and validated; with the infra-config owner |
-| 5 | Generated workflows delivered into the repo | website PR | After step 4 merges |
-| 6 | Rulesets and settings for the repo | gate PR | Prepared; with the gate owner, after step 5 |
+| 3 | The repo's manifest, `infra/repo.toml` | website PR | [website #1](https://github.com/quirq-ai/website/pull/1), CI green, waiting to merge |
+| 4 | Registry entry, kind and builders | infra-config PR | Merged: [infra-config #31](https://github.com/quirq-ai/infra-config/pull/31) and [#32](https://github.com/quirq-ai/infra-config/pull/32), main `41a8cb0` |
+| 5 | Generated workflows delivered into the repo | website PR | In [website #1](https://github.com/quirq-ai/website/pull/1); `website-presubmit` passed in 3 min 54 s |
+| 6 | Rulesets and settings for the repo | gate PR | [gate #28](https://github.com/quirq-ai/gate/pull/28), draft; its CI turns green once website #1 merges |
 | 7 | Apply the rulesets to GitHub | suraj's terminal | After step 6 |
 | 8 | Optional: canary, rolls, code owners | several | Not started; see the options |
 
@@ -206,9 +206,19 @@ checkout's stubs match infra-config:
 
 ![The delivered presubmit: its job name, website-presubmit, is the required check](2026-10-05-qq-onboard-website/05b-stub.png)
 
+The PR's first run of the new presubmit, start to finish, passed in under
+four minutes: the drift check, then the kind's fetch, build and test, then the
+result sink. The timing step runs only in the merge queue, so it shows as
+skipped on a pull request.
+
+![website-presubmit on website PR #1: every qq step passed](2026-10-05-qq-onboard-website/05c-presubmit.png)
+
 Each stub carries a `# qq-digest:` line and checks itself, so a hand edit
 fails the build. Never edit a `qq-*.yml` in the repo: change infra-config and
-deliver again.
+deliver again. If the repo formats files on commit (website runs
+Prettier through lint-staged), add `.github/workflows/qq-*.yml` to the
+formatter's ignore file first, or the hook rewrites the stubs and breaks their
+digest. website's `.prettierignore` does this.
 
 **Who approves:** a product PR that only adds generated workflows; suraj
 merges it.
