@@ -96,7 +96,7 @@ code { font-size: 0.92em; }
 </style>
 </head>
 <body>
-<header><div><strong>${escapeHtml(topic)}</strong>${links}</div></header>
+<header><div><a href="/">All research</a><strong>${escapeHtml(topic)}</strong>${links}</div></header>
 <main>
 ${body}
 </main>
