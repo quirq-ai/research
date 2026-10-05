@@ -46,7 +46,7 @@ const LIMITS = [
   "On xo-space, auto-merge is off, so qq land cannot queue there; changes land with Merge when ready on GitHub.",
   "gardener cannot open revert PRs until its GitHub App exists; even then, a person merges each revert.",
   "No review is required on product PRs yet.",
-  "Only the canary channel can move in v0; dev and stable are declared but refused. The installer resolves nothing until the first canary ships.",
+  "Only the canary channel can move in v0; dev and stable are declared but refused. The first canary shipped on 5 October, so the installer resolves canary for both product repos; dev and stable resolve nothing yet.",
 ]
 
 /** The commits this page was checked against on 5 October 2026. */

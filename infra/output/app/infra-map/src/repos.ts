@@ -19,7 +19,7 @@ export const REPOS: Record<string, Repo> = {
   rollers: { lane: 2, row: 1, sub: "moves pins forward", role: "Moves pins forward: configures Dependabot for lockfiles and runs the toolchain-pin roller. Roll PRs pass the same gate as yours.", counterpart: "AutoRoll" },
   perf: { lane: 2, row: 2, sub: "benchmarks + size", role: "Records one benchmark per product repo, plus innernet's Next.js build size, for each commit that lands on main. It polls main every 30 minutes rather than running inside post-submit.", counterpart: "the perf dashboard" },
   release: { lane: 3, row: 0, sub: "lkgr + channels", role: "Tracks lkgr, the newest all-green main commit, and the channel pointers with rollback. lkgr already moves for both product repos; canary is the only channel v0 can promote, once a day after build, tests and a health probe pass.", counterpart: "lkgr and release channels" },
-  installer: { lane: 3, row: 1, sub: "follows channels", role: "Reads which commit and digest each channel names, so test installs can follow it. It resolves nothing until the first canary ships.", counterpart: "Omaha" },
+  installer: { lane: 3, row: 1, sub: "follows channels", role: "Reads which commit and digest each channel names, so test installs can follow it. It has resolved canary since the first one shipped on 5 October.", counterpart: "Omaha" },
 }
 
 /** [from, to, why]: `from` uses `to`. */
