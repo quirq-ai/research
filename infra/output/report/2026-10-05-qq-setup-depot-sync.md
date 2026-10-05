@@ -218,9 +218,7 @@ As of 2026-10-04, re-checked against the repos on 2026-10-05:
   another version cannot be pinned until the release executor exists.
 - **Live on GitHub, not checked here.** Fetching the toolchains from ghcr runs
   every day in depot's `e2e-sync` workflow (06:17 UTC) for xo-space and
-  innernet; that workflow does not run `qq test`. This page's own check ran
-  everything else in a sandbox that cannot download ghcr layers, including
-  step 3b's test with a real CPython 3.14.8.
+  innernet; that workflow does not run `qq test`.
 
 To remove everything (the `chmod` is needed because fetched toolchains are
 read-only):

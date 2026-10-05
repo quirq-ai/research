@@ -15,7 +15,7 @@
     <div style="display:flex;flex-direction:column;gap:16px;flex:1;background:#19161e;border-radius:14px;padding:32px;font-size:24px;line-height:1.35">
       <div style="font-size:34px;font-weight:600">Agents and bots</div>
       <div>Policy allows agents to land clean reverts, dependency rolls and docs alone. In v0 none of these land on their own (auto_land_repos is empty and roll auto-land is off). Canary promotion is the one thing agents do alone today.</div>
-      <div>One GitHub App per tool. Exists: quirqer (rollers). Not yet created: the gardener App (needed before exit test 4 can pass) and the release executor (only for git refs).</div>
+      <div>One GitHub App per tool. Exists: quirqer (rollers). Not yet created: the gardener App (needed before exit test 4 can pass) and the release executor (product-repo refs and, later, depot release tags).</div>
       <div style="color:#eac17a">GitHub does not let a PR's author approve it: suraj can approve agent PRs (opened as quirq-gates), but suraj's own PRs need a second owner or a bot.</div>
     </div>
   </div>

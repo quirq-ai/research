@@ -260,9 +260,7 @@ As of 2026-10-04, re-checked against the repos on 2026-10-05:
 - **Toolchains for Linux x86_64 only.** On a Mac you install the pinned Python
   and Node yourself.
 - **Live on GitHub, not checked here.** Downloading toolchains from ghcr runs
-  daily in depot's `e2e-sync` workflow for xo-space and innernet. This page's
-  own check ran every other step in a sandbox that cannot reach ghcr, with the
-  pinned CPython 3.14.8 and Node 24.21.0 put in place by hand.
+  daily in depot's `e2e-sync` workflow for xo-space and innernet.
 - Only `qq` 0.1.0 exists; no depot release tag has been cut yet (none on
   2026-10-05).
 

@@ -55,11 +55,11 @@ footer on 2026-10-05.
   is empty), and opens none until its GitHub App exists.** Source:
   [gardener](https://github.com/quirq-ai/gardener/tree/bf7d24d0fd81ec02c51051e63f46971455b596f2). Verified: 2026-10-05.
 - **release and installer are built, lkgr advances for both product repos,
-  and the first canary shipped both repos on 2026-10-05 (day 1 of 7). GitHub
-  dropped the 06:17 UTC schedule (it throttles the release repo's timers), so
-  day 1 was started by hand; the pointers moved in release's state branch, but
+  and the first canary shipped both repos on 2026-10-05, but the unattended
+  7-day streak hasn't started yet: day 1 shipped but was started by hand.
+  GitHub never fired the 06:17 UTC slot, and lkgr, scheduled every 10 minutes, ran only 4 times between 17:48 and 02:25 UTC and not again before 07:00 UTC; the pointers moved in release's state branch, but
   no `channels/canary` git ref was written in the product repos (no release
-  executor identity).** Source:
+  executor identity). Since 2026-10-05 a daily backstop is live: a routine at 07:37 UTC dispatches lkgr and then the canary watchdog. Its first run was green: lkgr run 37278808086, then watchdog run 37279000484, which reported "today's canary ran for every repo".** Source:
   [release-state branch at d08a2fd](https://github.com/quirq-ai/release/tree/d08a2fd01799d362da2d956e5122053f75cf8e23),
   [canary report](https://github.com/quirq-ai/release/blob/d08a2fd01799d362da2d956e5122053f75cf8e23/reports/2026-10-05.md). Verified: 2026-10-05.
 
@@ -85,7 +85,8 @@ summary, badges and link list rest on the same READMEs and pins.
   fuzzing) and v2 (25 items, Launchpad, remote execution, stable). v0's code
   is merged in all 13 repos except GAT-03 (waits on owners), CFG-05 (partial)
   and suraj's items (CFG-04, ORG-02, ORG-04); none of its live exit tests has
-  passed yet (the canary is on day 1 of 7); v1 and v2 have not
+  passed yet (the unattended 7-day canary streak hasn't started yet; day 1 shipped but
+  was started by hand); v1 and v2 have not
   started.** Source: the v0 plan, infra-config
   [`docs/v0.md`](https://github.com/quirq-ai/infra-config/blob/310e3264f5de3cd9822b3a4712ae0a372b97dac3/docs/v0.md); the v1 and v2 plans
   (quirq internal planning docs, not public); and the repos; see
@@ -96,8 +97,8 @@ summary, badges and link list rest on the same READMEs and pins.
 
 - Which repos the applied rulesets cover, and whether "Allow auto-merge" is on
   where gate's settings declare it. Live GitHub settings could not be read.
-- Whether days 2 to 7 of the canary run on their timer with no human touch;
-  day 1 was started by hand after GitHub dropped the 06:17 UTC schedule.
+- Whether the canary runs on its timer for 7 days in a row with no human
+  touch; day 1 was started by hand after GitHub never fired the 06:17 UTC slot.
 
 ## Status and progress
 

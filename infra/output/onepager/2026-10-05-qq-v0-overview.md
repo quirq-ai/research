@@ -9,8 +9,9 @@ stand today?
 split across 13 public repos. v0 is a thin first version of every repo on
 GitHub: v0 code is merged in all 13 repos except GAT-03 (waits on owners),
 CFG-05 (partial) and suraj's items (CFG-04, ORG-02, ORG-04), and its repo
-settings are applied, but its live exit tests have not passed yet (the canary
-is on day 1 of 7). v1 and v2 are plans.
+settings are applied, but its live exit tests have not passed yet (the unattended
+7-day canary streak hasn't started yet; day 1 shipped but was started by
+hand). v1 and v2 are plans.
 
 ## Key findings
 
@@ -30,7 +31,7 @@ is on day 1 of 7). v1 and v2 are plans.
 3. **What is live.** Generated presubmit and post-submit builders in both
    product repos; repo rulesets applied at gate `6610664`; a `qq sync` of both
    repos on a fresh runner, scheduled daily; `lkgr` at both repos' current
-   `main`; the first canary shipped both repos (day 1 of 7, started by hand);
+   `main`; the first canary shipped both repos (started by hand);
    gardener tree status open for both; perf records per commit; suraj named
    owner of the org and all 13 infra repos.
    ([gate README](https://github.com/quirq-ai/gate/blob/c3721365186a35c4b2b5acdc0635e281e754ac13/README.md),
@@ -42,9 +43,9 @@ is on day 1 of 7). v1 and v2 are plans.
    next settings run); switching the generated product builders from interim
    commands to the recipes adapters (exit test 2); then the live tests: a red
    PR refused, 7 unattended daily canaries, and an automatic revert, which
-   needs the gardener's GitHub App. The canary is on day 1 of 7: GitHub dropped
-   the 06:17 UTC schedule (it throttles the release repo's timers), so day 1
-   was started by hand at 06:54 UTC, and both repos shipped at 06:59 UTC.
+   needs the gardener's GitHub App. The unattended 7-day streak hasn't started
+   yet; day 1 shipped but was started by hand. GitHub never fired the 06:17 UTC slot, and `lkgr`, scheduled every 10 minutes, ran only 4 times between 17:48 and 02:25 UTC and not again before 07:00 UTC. The hand-started run began at
+   06:54 UTC, and both repos shipped at 06:59 UTC. Since 2026-10-05 a daily backstop is live: a routine at 07:37 UTC dispatches `lkgr` and then the canary watchdog. Its first run was green: `lkgr` run 37278808086, then watchdog run 37279000484, which reported "today's canary ran for every repo".
    ([phases report](../report/2026-10-05-qq-phases.md), [release-state `d08a2fd`](https://github.com/quirq-ai/release/tree/d08a2fd01799d362da2d956e5122053f75cf8e23))
 5. **Limits.** Toolchains are Linux x86_64 only, so on a Mac `qq sync` stops
    and you bring your own Python or Node. Generated builders do not use
