@@ -18,12 +18,14 @@ qq is modelled on Chromium's infrastructure (depot_tools, gclient, recipes,
 LUCI, Sheriff-o-Matic, AutoRoll and release channels), rebuilt for small
 GitHub repos. Its parts live in 13 repos under
 [quirq-ai](https://github.com/quirq-ai), and two product repos, innernet
-(Next.js) and xo-space (Python), use it. Reading 13 READMEs is a slow way to
+(Next.js) and xo-space (Python), use it; a third, website (Gatsby), is being
+onboarded. Reading 13 READMEs is a slow way to
 learn how the parts connect, so this topic maps them in one interactive app,
 with a page for each repo. The same app carries the checklist for the qq
 alpha, where 10 to 15 people use qq for their real work and say what hurt. Alongside the app,
-a one-pager, a slide deck and four reports cover qq's phases (v0, v1 and v2),
-the v0 status, and how to set up qq and build and run a repo with it. Purpose
+a one-pager, a slide deck and five reports cover qq's phases (v0, v1 and v2),
+the v0 status, how to set up qq and build and run a repo with it, and how an
+operator adds a new repo to qq. Purpose
 and research action live in [GOAL.md](GOAL.md).
 
 ## Research and findings so far
@@ -118,6 +120,7 @@ summary, badges and link list rest on the same READMEs and pins.
 | report | [output/report/2026-10-05-qq-v0-status.md](output/report/2026-10-05-qq-v0-status.md) | 2026-10-05 | The v0 one-pager in full, refreshed: per-repo status, how a developer uses qq, policies, owners, limits, what's next. |
 | report | [output/report/2026-10-05-qq-setup-depot-sync.md](output/report/2026-10-05-qq-setup-depot-sync.md) | 2026-10-05 | Guide: install depot (`qq`) and sync (`qqsync`) and use them; commands from the 2026-10-04 guide. |
 | report | [output/report/2026-10-05-qq-build-run-locally.md](output/report/2026-10-05-qq-build-run-locally.md) | 2026-10-05 | Guide: build, test and run xo-space, innernet or any repo locally with qq; commands from the 2026-10-04 guide. |
+| report | [output/report/2026-10-05-qq-onboard-website.md](output/report/2026-10-05-qq-onboard-website.md) | 2026-10-05 | Operator guide: add a repo to qq with its landing policy enforced, step by step with real screenshots and the options at each step; quirq-ai/website as the worked example. Screenshots in [output/report/2026-10-05-qq-onboard-website/](output/report/2026-10-05-qq-onboard-website/). |
 | slide | [output/slide/2026-10-05-qq-v0-how-to-use.pdf](output/slide/2026-10-05-qq-v0-how-to-use.pdf) | 2026-10-05 | 32-slide deck "quirq infra v0: how to use it", status refreshed, with a sources slide. |
 | slide | [output/slide/2026-10-05-qq-v0-how-to-use/](output/slide/2026-10-05-qq-v0-how-to-use/) | 2026-10-05 | The deck's source: `deck.json`, one HTML file per slide, `gen/gen.py` (phase and repo slides) and `gen/render.js` (overflow check and PDF). |
 
