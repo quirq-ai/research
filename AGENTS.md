@@ -88,7 +88,9 @@ Write results only into the folders for the requested formats:
 ### 6. Check how the topic is presented
 
 Each topic is a workspace with its own `package.json`. Its `build` script
-must write a static site to `<slug>/dist/`; that is what Vercel deploys.
+must write a static site to `<slug>/dist/` with relative links; the hub
+deploys it at `/<slug>/` and lists it on the index page, using the title,
+first paragraph and status from `<slug>/README.md`.
 
 - By default the topic uses `@research/present`, which turns `README.md`,
   `GOAL.md` and the onepager, slide and report files into a site. Nothing
@@ -96,8 +98,8 @@ must write a static site to `<slug>/dist/`; that is what Vercel deploys.
 - If the topic should present itself another way (for example as its app),
   change the `build` and `dev` scripts in `<slug>/package.json`. See
   `infra/package.json`, which publishes its app.
-- Run `npx turbo run build --filter=<slug>` from the repo root and check the
-  result in `<slug>/dist/` before you commit. Do not commit `dist/`.
+- Run `npm run dev` from the repo root and check the topic on the hub at
+  `http://localhost:3000/<slug>/` before you commit. Do not commit `dist/`.
 
 ### 7. Update the topic README
 
@@ -123,5 +125,5 @@ Then update the topic's row in the root `README.md` Topics table.
 - [ ] Every claim has a source and was checked against it.
 - [ ] Topic README findings, status, progress and outputs table are current.
 - [ ] Root README Topics table is current.
-- [ ] `npx turbo run build --filter=<slug>` succeeds.
+- [ ] `npm run build` at the repo root succeeds.
 - [ ] No secrets, personal data or internal-only material.

@@ -72,8 +72,8 @@ To build a static site instead, run `npm run build` (output in `dist/`, serve
 it with any static server) or `npm run build:single` (one
 self-contained `dist/index.html` you can open straight from disk).
 
-The deployed `infra` site is this app: `infra/package.json` builds it and
-copies its `dist/` into `infra/dist/`.
+On the research hub this app is the `infra` topic, at `/infra/`:
+`infra/package.json` builds it and copies its `dist/` into `infra/dist/`.
 
 ## What you should see
 

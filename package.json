@@ -12,8 +12,8 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev"
+    "build": "turbo run build && node scripts/build-hub.mjs",
+    "dev": "turbo run build && node scripts/build-hub.mjs serve"
   },
   "devDependencies": {
     "turbo": "2.11.7"
