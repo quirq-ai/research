@@ -66,7 +66,7 @@
   },
   "status": [
     {
-      "text": "The Dependabot config and land workflow are delivered to both product repos (identical to generated/). Auto-land of Dependabot rolls stays off until the admin settings are applied; xo-space also has auto-merge turned off.",
+      "text": "The Dependabot config and land workflow are delivered to both product repos (identical to generated/). Auto-land of Dependabot rolls stays off until the admin settings are applied; xo-space also has auto-merge turned off (checked in the product repos).",
       "source": "README.md"
     },
     {
@@ -74,7 +74,7 @@
       "source": ".github/workflows/roll-toolchains.yml"
     },
     {
-      "text": "The registry checks read ghcr anonymously (the toolchain packages are public), and without the rollers GitHub App's secrets the workflow is a dry run that opens nothing.",
+      "text": "The registry checks read ghcr anonymously (the toolchain packages are public), and without the rollers GitHub App's secrets the workflow is a dry run that opens nothing (checked against ghcr).",
       "source": ".github/workflows/roll-toolchains.yml"
     }
   ],

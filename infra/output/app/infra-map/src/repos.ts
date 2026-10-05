@@ -44,7 +44,7 @@ export const EDGES: [string, string, string][] = [
 export const ON_PRODUCTS: Record<string, string> = {
   depot: "is how you work on them", "infra-config": "generates their CI workflows",
   gate: "decides what must pass in them", "test-pipelines": "stores the results of their runs",
-  gardener: "watches their main and publishes tree status (reverts wait on its GitHub App)", rollers: "opens roll PRs in them",
+  gardener: "watches their main and publishes tree status (reverts wait on its GitHub App)", rollers: "configures the Dependabot roll PRs in them",
   toolchains: "is pinned in their manifests", perf: "records their benchmarks",
 }
 

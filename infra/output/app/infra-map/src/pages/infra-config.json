@@ -72,7 +72,7 @@
       "source": "README.md"
     },
     {
-      "text": "The README's reader table predates later work: release now reads channels and health, and gardener reads postmortem. fuzz and perf still have no reader; perf's own workflow hard-codes its benchmarks (a TODO there).",
+      "text": "The README's reader table predates later work: release now reads channels and health, and gardener reads postmortem. fuzz and perf still have no reader; perf's own workflow hard-codes its benchmarks (a TODO there) (checked in release and gardener).",
       "source": "README.md"
     },
     {
