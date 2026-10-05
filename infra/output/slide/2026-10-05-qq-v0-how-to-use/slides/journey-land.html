@@ -1,0 +1,21 @@
+<section id="journey-land" style="display:flex;flex-direction:column;gap:28px;width:1920px;height:1080px;padding:128px;box-sizing:border-box;background:#100f14;color:#f3ece4;font-family:'Inter'">
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div style="font-family:'JetBrains Mono';font-size:24px;color:#f2a2d5">HOW TO USE IT · 2 OF 2</div>
+    <div style="font-family:'Poppins';font-size:64px;font-weight:600;line-height:1.1">From a verdict to a channel</div>
+  </div>
+  <div style="display:flex;gap:40px">
+    <div style="display:flex;flex-direction:column;gap:22px;flex:1;font-size:26px;line-height:1.4">
+      <div><span style="font-family:'JetBrains Mono';font-weight:600;color:#f2a2d5">qq try</span> returns a run ID at once and delivers the verdict later to $QQ_HOME/verdicts/, so an agent never holds a call open.</div>
+      <div><span style="font-family:'JetBrains Mono';font-weight:600;color:#f2a2d5">qq status</span> gives it on demand: exit 0 pass, 1 refused, 3 pending.</div>
+      <div><span style="font-family:'JetBrains Mono';font-weight:600;color:#f2a2d5">qq land</span> queues the PR once the gate passes; the merge queue re-tests the exact merge result and squash-merges.</div>
+      <div><span style="font-weight:600">After it lands</span>, the post-submit builder runs on every main commit and gardener checks the tree every 5 minutes, proposing a revert if main goes red.</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px;flex:1;font-size:26px;line-height:1.4">
+      <div><span style="font-weight:600">Dependencies</span> move by Dependabot PRs, checked by qq-roll-land, and toolchain roll PRs from quirqer. A person merges every roll in v0.</div>
+      <div><span style="font-weight:600">Ship.</span> release moves lkgr to the newest all-green main commit; the daily canary at 06:17 UTC builds, tests, deploys and probes it before moving channels/canary.</div>
+      <div><span style="font-family:'JetBrains Mono';font-weight:600;color:#f2a2d5">qqinstall resolve --repo xo-space --channel canary</span> gives the commit and digest to install; exit 3 until the first canary ships.</div>
+      <div><span style="font-weight:600">Measure.</span> perf records build size and a benchmark per main commit.</div>
+    </div>
+  </div>
+  <div style="background:#231e2a;border-left:6px solid #eac17a;padding:20px 28px;font-size:26px;line-height:1.4">Today: gate&#39;s repo rulesets (merge queue, required checks) were applied at gate 6610664. Reverts and git refs for lkgr and channels wait on bots that come after v0; the first canary was scheduled for 2026-10-05 06:17 UTC.</div>
+</section>

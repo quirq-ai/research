@@ -1,0 +1,24 @@
+<section id="journey-local" style="display:flex;flex-direction:column;gap:40px;width:1920px;height:1080px;padding:128px;box-sizing:border-box;background:#100f14;color:#f3ece4;font-family:'Inter'">
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div style="font-family:'JetBrains Mono';font-size:24px;color:#f2a2d5">HOW TO USE IT · 1 OF 2</div>
+    <div style="font-family:'Poppins';font-size:64px;font-weight:600;line-height:1.1">From a fresh clone to an open PR</div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:24px">
+    <div style="display:flex;gap:32px;align-items:flex-start;background:#19161e;border-radius:14px;padding:24px 32px">
+      <div style="font-family:'JetBrains Mono';font-size:40px;font-weight:600;color:#f2a2d5;width:60px">1</div>
+      <div style="display:flex;flex-direction:column;gap:8px;flex:1"><div style="font-size:32px;font-weight:600">Set up once</div><div style="font-size:26px;color:#d0c3cc">Clone depot and put its bin on PATH. In a product repo, qq runs the version pinned in infra/repo.toml (both pin 0.1.0, depot main).</div></div>
+    </div>
+    <div style="display:flex;gap:32px;align-items:flex-start;background:#19161e;border-radius:14px;padding:24px 32px">
+      <div style="font-family:'JetBrains Mono';font-size:40px;font-weight:600;color:#f2a2d5;width:60px">2</div>
+      <div style="display:flex;flex-direction:column;gap:8px;flex:1"><div style="font-size:32px;font-weight:600">Get toolchains: <span style="font-family:'JetBrains Mono';font-weight:400">qq sync</span></div><div style="font-size:26px;color:#d0c3cc">Fetches every pinned toolchain from public ghcr, checks its digest, links it under .qq/toolchains/. Runs daily for both repos.</div></div>
+    </div>
+    <div style="display:flex;gap:32px;align-items:flex-start;background:#19161e;border-radius:14px;padding:24px 32px">
+      <div style="font-family:'JetBrains Mono';font-size:40px;font-weight:600;color:#f2a2d5;width:60px">3</div>
+      <div style="display:flex;flex-direction:column;gap:8px;flex:1"><div style="font-size:32px;font-weight:600">Build and test: <span style="font-family:'JetBrains Mono';font-weight:400">qq build</span>, <span style="font-family:'JetBrains Mono';font-weight:400">qq test</span></div><div style="font-size:26px;color:#d0c3cc">Recipes run the targets and leave JUnit and results.json in .qq/out.</div></div>
+    </div>
+    <div style="display:flex;gap:32px;align-items:flex-start;background:#19161e;border-radius:14px;padding:24px 32px">
+      <div style="font-family:'JetBrains Mono';font-size:40px;font-weight:600;color:#f2a2d5;width:60px">4</div>
+      <div style="display:flex;flex-direction:column;gap:8px;flex:1"><div style="font-size:32px;font-weight:600">Open a PR: <span style="font-family:'JetBrains Mono';font-weight:400">qq upload</span> or a plain push</div><div style="font-size:26px;color:#d0c3cc">The &lt;repo&gt;-presubmit check runs a drift check, then fetch, build and test, then stores every result in test-pipelines.</div></div>
+    </div>
+  </div>
+</section>

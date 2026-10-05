@@ -163,7 +163,7 @@ A new topic appears on the hub after its next push, with no Vercel changes.
 
 | Topic | Status | Summary |
 |---|---|---|
-| [infra](infra/) | Published | How quirq infra (qq) fits together across its 13 repos, as an interactive map with a page per repo. |
+| [infra](infra/) | Published | How quirq infra (qq) fits together across its 13 repos, as an interactive map with a page per repo, plus its phases (v0, v1, v2), a v0 one-pager, setup and build guides, and slides. |
 
 When you create a topic, add a row here and keep its status in step with the
 topic README.
