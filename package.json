@@ -12,6 +12,7 @@
     "packages/*"
   ],
   "scripts": {
+    "check": "node scripts/check.mjs",
     "build": "turbo run build && node scripts/build-hub.mjs",
     "dev": "turbo run build && node scripts/build-hub.mjs serve"
   },

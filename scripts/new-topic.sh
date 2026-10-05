@@ -42,7 +42,7 @@ if ! [[ $slug =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]]; then
 fi
 
 case "$slug" in
-  scripts | packages | node_modules)
+  dist | node_modules | packages | scripts)
     echo "error: '$slug' is a reserved name; pick another slug" >&2
     exit 1
     ;;
@@ -95,5 +95,6 @@ echo "  1. Fill in $slug/GOAL.md: purpose, research action, requested outputs."
 echo "  2. Fill in $slug/AGENTS.md: what to research and how to verify it."
 echo "  3. Add $slug to the Topics table in README.md."
 echo "  4. Run npm install at the repo root so the new workspace is linked."
+echo "  5. Run npm run check before you commit."
 echo
 echo "See AGENTS.md for the full workflow."
