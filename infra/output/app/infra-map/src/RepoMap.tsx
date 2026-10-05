@@ -72,9 +72,9 @@ export function RepoMap({ focus }: { focus?: string }) {
         <Button variant="ghost" onClick={() => setSel({ kind: "none" })}>Show everything</Button>
       </div>
 
-      <p className="text-sm text-muted-foreground sm:hidden">The map is wider than a phone screen. Swipe it sideways to see every lane.</p>
+      <p className="text-sm text-muted-foreground md:hidden">The map is wider than a phone screen. Swipe it sideways to see every lane.</p>
       <Card className="overflow-x-auto p-0">
-        <svg viewBox="0 0 760 452" className="block h-auto w-full min-w-[640px]" role="group" aria-label="Map of the qq repos and how they use each other">
+        <svg viewBox="0 0 760 452" className="block h-auto w-full min-w-[760px] md:min-w-0" role="group" aria-label="Map of the qq repos and how they use each other">
           <defs>
             {(["dim", "lit"] as const).map(k => (
               <marker key={k} id={`qq-arrow-${k}`} viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
@@ -93,13 +93,13 @@ export function RepoMap({ focus }: { focus?: string }) {
             const b = box(id), on = selected === id
             return (
               <g key={id} {...nodeKeys(id)} className="cursor-pointer outline-none [&:focus-visible_rect]:stroke-primary">
-                <rect x={b.x} y={b.y} width={W} height={H} rx={8} className={cn(on ? "fill-accent stroke-primary" : isLit(id) ? "fill-card stroke-edge hover:stroke-primary" : "fill-muted stroke-border hover:stroke-primary")} strokeWidth={on ? 2.5 : 1.25} />
+                <rect x={b.x} y={b.y} width={W} height={H} rx={8} className={cn(on ? "fill-accent stroke-primary" : isLit(id) ? "fill-card stroke-edge hover:stroke-primary" : "fill-muted stroke-edge-soft hover:stroke-primary")} strokeWidth={on ? 2.5 : 1.25} />
                 <text x={b.x + 12} y={b.y + 20} className={cn("font-mono text-[13px] font-medium", isLit(id) ? "fill-foreground" : "fill-muted-foreground")}>{id}</text>
                 <text x={b.x + 12} y={b.y + 36} className="fill-muted-foreground text-[11px]">{r.sub}</text>
               </g>)
           })}
           <g {...nodeKeys("products")} className="cursor-pointer outline-none [&:focus-visible_rect]:stroke-primary">
-            <rect x={PRODUCTS.x} y={PRODUCTS.y} width={PRODUCTS.w} height={PRODUCTS.h} rx={8} className={cn(selected === "products" ? "fill-accent stroke-primary" : isLit("products") ? "fill-card stroke-edge hover:stroke-primary" : "fill-muted stroke-border hover:stroke-primary")} strokeWidth={selected === "products" ? 2.5 : 1.25} />
+            <rect x={PRODUCTS.x} y={PRODUCTS.y} width={PRODUCTS.w} height={PRODUCTS.h} rx={8} className={cn(selected === "products" ? "fill-accent stroke-primary" : litNodes === null ? "fill-muted stroke-edge hover:stroke-primary" : isLit("products") ? "fill-card stroke-edge hover:stroke-primary" : "fill-muted stroke-edge-soft hover:stroke-primary")} strokeWidth={selected === "products" ? 2.5 : 1.25} />
             <text x={60} y={398} className={cn("font-mono text-[13px] font-medium", isLit("products") ? "fill-foreground" : "fill-muted-foreground")}>innernet · xo-space</text>
             <text x={60} y={415} className="fill-muted-foreground text-[11px]">the product repos you work on: a manifest, infra/repo.toml, plus generated CI and roll workflows</text>
           </g>

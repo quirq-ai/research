@@ -20,7 +20,7 @@
   --destructive: #b3261e; --border: #ddd0da; --input: #ddd0da; --ring: #b0478c;
   --warn: #8a6114; --good: #4f6b22; --code: #1d1822; --code-foreground: #f3ece4;
   /* Map lines and box outlines: at least 3:1 on card and muted. */
-  --edge: #857582;
+  --edge: #857582; --edge-soft: #8f808d;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --background: #100f14; --foreground: #f3ece4;
@@ -32,7 +32,7 @@
   --accent: #3a2535; --accent-foreground: #f3ece4;
   --destructive: #f09a9a; --border: #39303f; --input: #39303f; --ring: #f2a2d5;
   --warn: #eac17a; --good: #b7cc91; --code: #0b0a0e; --code-foreground: #f3ece4;
-  --edge: #7f7086;
+  --edge: #7f7086; --edge-soft: #76687d;
   color-scheme: dark;
 } }
 :root[data-theme="dark"] {
@@ -45,7 +45,7 @@
   --accent: #3a2535; --accent-foreground: #f3ece4;
   --destructive: #f09a9a; --border: #39303f; --input: #39303f; --ring: #f2a2d5;
   --warn: #eac17a; --good: #b7cc91; --code: #0b0a0e; --code-foreground: #f3ece4;
-  --edge: #7f7086;
+  --edge: #7f7086; --edge-soft: #76687d;
   color-scheme: dark;
 }
 
@@ -64,7 +64,7 @@
   --color-accent: var(--accent); --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive); --color-border: var(--border); --color-input: var(--input); --color-ring: var(--ring);
   --color-warn: var(--warn); --color-good: var(--good); --color-code: var(--code); --color-code-foreground: var(--code-foreground);
-  --color-edge: var(--edge);
+  --color-edge: var(--edge); --color-edge-soft: var(--edge-soft);
 }
 
 @layer base {
