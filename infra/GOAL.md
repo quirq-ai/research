@@ -33,11 +33,15 @@ interactive map with one page per repo.
   infra-config, gate, test-pipelines, gardener, rollers, perf, release,
   installer.
 - How they act on the two product repos, innernet and xo-space.
+- The qq alpha checklist and before-alpha list, which suraj asked to live in
+  this app. These two tabs are operational content for the alpha, not
+  sourced research findings; their facts are still checked against the repos.
 
 **Out of scope:**
 
 - The product repos' own code.
-- Plans for later versions, except where a repo states what is not live yet.
+- Plans for later versions, except where a repo states what is not live yet
+  and the alpha tabs above.
 
 ## Done when
 

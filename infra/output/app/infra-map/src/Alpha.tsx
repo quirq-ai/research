@@ -124,7 +124,7 @@ function GetRepo() {
     </ToggleGroup>
     <Command label="Terminal" text={getRepoSh.trimEnd().replace("__REPO__", repo)} />
     <How>The first time, <code>qq fetch</code> clones the repo into <code>~/quirq</code> and runs <code>qq sync</code>. Sync reads the repo's manifest, <code>infra/repo.toml</code>, downloads each pinned toolchain once per machine (checked against its digest) and links it under <code>.qq/</code>. Later runs only sync. It runs in a subshell, so your terminal stays where it was.</How>
-    <Warn title="On a Mac, sync stops at the toolchains">Toolchains are built for Linux x86_64 only so far, so on a Mac sync stops with <b>no pin for platform macos-arm64</b> (or macos-x86_64 on an Intel Mac; linux-arm64 on Linux ARM machines). The clone is fine. Install the tools yourself and carry on: Node 24 and pnpm for innernet; for xo-space, Python 3.14.8 exactly, as <code>python3</code> on your PATH (qq checks the full version). <code>qq build</code> and <code>qq test</code> use what is on your PATH.</Warn>
+    <Warn title="On a Mac, sync stops at the toolchains">Toolchains are built for Linux x86_64 only so far, so on a Mac sync stops with <b>no pin for platform macos-arm64</b> (or macos-x86_64 on an Intel Mac; linux-arm64 on Linux ARM machines). The clone is fine. Install the tools yourself and carry on: Node 24 and pnpm for innernet; for xo-space, Python 3.14.8 exactly, as <code>python3</code> on your PATH (qq checks the full version). Homebrew gives the newest 3.14 patch, so use pyenv (<code>pyenv install 3.14.8</code>, then <code>pyenv local 3.14.8</code> in the xo-space folder) or uv instead. <code>qq build</code> and <code>qq test</code> use what is on your PATH.</Warn>
     <p>On Linux, if it stops with <b>cloned into …; fix the problem and run qq sync there</b>, a download failed. Paste the command again once your network is fine.</p>
   </>)
 }
@@ -245,9 +245,9 @@ const TEAM_STEPS: Step[] = [
     <li>Feedback in quirq-ai/wiki? (recommended)</li><li>Document the local and CI tool mismatch instead of fixing it now? (recommended)</li></ul> },
   { id: "t11", who: "suraj", title: "Set up the canary", sub: "In the alpha, decided 5 October", body: <>
     <ul>
-      <li>Create the release executor GitHub App and add its client ID and private key to the release repo (one checked command from Claude); release's executor jobs (lkgr, canary, channel rollback) mint <code>QQ_RELEASE_TOKEN</code> from them. Without it the canary still moves in release's own record, but not as a branch in the product repos, and that record is only as safe as push access to release.</li>
+      <li>Create the release executor GitHub App and add its client ID and private key to the release repo (one checked command from Claude); three of release's jobs (lkgr, the canary's finish, channel rollback) mint <code>QQ_RELEASE_TOKEN</code> from them; the canary report and release-hold jobs still push with the workflow's own token. Without it the canary still moves in release's own record, but not as a branch in the product repos, and that record is only as safe as push access to release.</li>
       <li>Approve the gate change that adds the App to the qq-release-refs bypass, and apply it; until then the rulesets refuse its writes of lkgr and channels/canary.</li>
-      <li>Approve the ruleset that lets only that App write release's state branch, after Claude switches every job that pushes release-state (lkgr, canary, channel rollback, release-hold) to its token.</li>
+      <li>Approve the ruleset that lets only that App write release's state branch, after Claude switches all five jobs that push release-state (lkgr, the canary's finish and report, channel rollback, release-hold) to its token. Until report and release-hold switch, that ruleset would refuse the daily report.</li>
       <li>Approve the infra-config change that opens the canary to alpha users; channels.toml says agents only today.</li>
       <li>Keep 06:17 UTC as the canary hour, or pick another.</li>
     </ul>
@@ -295,7 +295,7 @@ export function BeforeAlpha() {
   return (
     <div className="grid min-w-0 gap-3">
       <h2 className="text-xl font-semibold">Before the alpha starts</h2>
-      <p className="text-muted-foreground">Nobody is invited until every box here is ticked. Items marked <Badge variant="secondary" className="font-mono text-[10px] uppercase">suraj</Badge> need suraj; Claude does the rest. Ticks are per browser, for whoever is tracking.</p>
+      <p className="text-muted-foreground">Nobody is invited until every box above the invites is ticked. Items marked <Badge variant="secondary" className="font-mono text-[10px] uppercase">suraj</Badge> need suraj; Claude does the rest. Ticks are per browser, for whoever is tracking.</p>
       <Checklist steps={TEAM_STEPS} ticks={ticks} toggle={toggle} idPrefix="t" />
     </div>
   )

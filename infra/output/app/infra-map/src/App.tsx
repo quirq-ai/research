@@ -29,7 +29,7 @@ const GLOSSARY: [string, string][] = [
   ["Manifest", "infra/repo.toml: what a repo is, which toolchains and dependencies it pins, which targets it has."],
   ["Pin", "An exact toolchain or dependency version, fixed by a digest so everyone gets the same bytes."],
   ["Roll", "A PR that moves a pin forward."],
-  ["Post-submit", "The build and tests that run on every commit after it lands on main."],
+  ["Post-submit", "The build and tests that run on each push to main, after a change lands."],
   ["Tree status", "Open when every post-submit builder is green, closed while any is red, unknown while one has no result."],
   ["Gardener", "The agent and service that keeps main green: tree status, bisection, revert PRs."],
   ["Failure record", "A stored note for each revert or held canary, linking culprit and fix, mirrored to a GitHub issue."],
