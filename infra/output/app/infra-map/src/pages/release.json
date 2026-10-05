@@ -7,7 +7,10 @@
     {
       "title": "lkgr",
       "text": "lkgr is the newest main commit whose required post-submit builders are all green, using the gardener's definitions. A pending, missing or cancelled result is not green, so a missing signal holds lkgr in place; the workflow recomputes it every 10 minutes.",
-      "source": "src/qqrelease/lkgr.py"
+      "source": [
+        "src/qqrelease/lkgr.py",
+        ".github/workflows/lkgr.yml"
+      ]
     },
     {
       "title": "The release executor",
@@ -58,12 +61,14 @@
   ],
   "try_it": {
     "commands": [
-      "git clone https://github.com/quirq-ai/infra-config .qq/infra-config",
+      "python3 -m venv .venv",
+      ". .venv/bin/activate",
+      "[ -d .qq/infra-config/.git ] || git clone https://github.com/quirq-ai/infra-config .qq/infra-config",
       "git -C .qq/infra-config checkout a698da40d6ef9a3d79ccd9393417f094ec935123",
-      "python -m pip install -e \".[test]\"",
-      "python -m pytest -q -p no:cacheprovider",
-      "python tools/lkgr_demo.py --config .qq/infra-config",
-      "python tools/rollback_drill.py --config .qq/infra-config --budget-seconds 600"
+      "python3 -m pip install -e \".[test]\"",
+      "python3 -m pytest -q -p no:cacheprovider",
+      "python3 tools/lkgr_demo.py --config .qq/infra-config",
+      "python3 tools/rollback_drill.py --config .qq/infra-config --budget-seconds 600"
     ],
     "source": ".github/workflows/presubmit.yml"
   },

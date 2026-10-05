@@ -58,6 +58,8 @@
   ],
   "try_it": {
     "commands": [
+      "python3 -m venv .venv",
+      ". .venv/bin/activate",
       "python3 -m pip install -r requirements.txt",
       "python3 tools/qqcfg.py validate",
       "python3 tools/qqcfg.py validate --todos",
@@ -72,8 +74,12 @@
       "source": "README.md"
     },
     {
-      "text": "The README's reader table predates later work: release now reads channels and health, and gardener reads postmortem. fuzz and perf still have no reader; perf's own workflow hard-codes its benchmarks (a TODO there) (checked in release and gardener).",
-      "source": "README.md"
+      "text": "The README's reader table predates later work: release now reads channels and health, and gardener reads postmortem. fuzz and perf still have no reader; perf's own workflow hard-codes its benchmarks (a TODO there).",
+      "source": [
+        "README.md",
+        "https://github.com/quirq-ai/release/blob/83ef917771375ae0d1ed51829c9e762a57e01e7e/src/qqrelease/config.py",
+        "https://github.com/quirq-ai/gardener/blob/bf7d24d0fd81ec02c51051e63f46971455b596f2/src/qqgarden/records.py"
+      ]
     },
     {
       "text": "auto_land_repos is empty in v0, so the gardener only proposes reverts and a person merges them.",

@@ -30,6 +30,9 @@ code does not back stays out.
 - Every edge in `repos.ts` is backed by a pin or a README line in the `from`
   repo.
 - Commands shown on a page contain no `#` comments (they break zsh pastes).
+- The alpha checklist's commands (`output/app/infra-map/src/commands/*.sh`)
+  run cleanly twice in bash, dash, `zsh -c` and `zsh -i` with CDPATH set, and
+  leave the caller's directory alone.
 - `npm run build` passes in `output/app/infra-map/`.
 - The template check `grep -rn '{{' infra/` also matches JSX `{{` in
   `src/components/ui/toggle-group.tsx`; those are not placeholders.

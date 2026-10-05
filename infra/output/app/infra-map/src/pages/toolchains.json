@@ -53,17 +53,22 @@
   ],
   "try_it": {
     "commands": [
-      "python -m pip install -r requirements-dev.txt",
-      "python tools/qqtc.py validate",
-      "python tools/gate.py check-workflows .github/workflows",
-      "python -m pytest -q -p no:cacheprovider"
+      "python3 -m venv .venv",
+      ". .venv/bin/activate",
+      "python3 -m pip install -r requirements-dev.txt",
+      "python3 tools/qqtc.py validate",
+      "python3 tools/gate.py check-workflows .github/workflows",
+      "python3 -m pytest -q -p no:cacheprovider"
     ],
     "source": ".github/workflows/ci.yml"
   },
   "status": [
     {
       "text": "Two toolchains are built and promoted by digest: CPython 3.14.8 and Node.js 24.21.0 with pnpm 11.28.2.",
-      "source": "promoted.toml"
+      "source": [
+        "promoted.toml",
+        "toolchains/node/toolchain.toml"
+      ]
     },
     {
       "text": "Only one platform is supported: qqtc accepts linux-x86_64 and nothing else.",
@@ -74,8 +79,11 @@
       "source": "toolchains/python/toolchain.toml"
     },
     {
-      "text": "promotion-gate is advisory until the toolchains ruleset makes it a required check.",
-      "source": "README.md"
+      "text": "promotion-gate is advisory today. gate's settings at its current main already list it as a required check on toolchains; it becomes required when those settings are next applied.",
+      "source": [
+        "README.md",
+        "https://github.com/quirq-ai/gate/blob/c3721365186a35c4b2b5acdc0635e281e754ac13/settings/github.toml"
+      ]
     }
   ],
   "readme_url": "https://github.com/quirq-ai/toolchains/blob/44f8f959458eab59baf46cbae5866a36657f7eeb/README.md"

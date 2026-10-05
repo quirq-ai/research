@@ -53,9 +53,11 @@
   ],
   "try_it": {
     "commands": [
-      "python -m pip install -e \".[test]\"",
-      "python -m pytest -q -p no:cacheprovider",
-      "python tools/agnostic_guard.py",
+      "python3 -m venv .venv",
+      ". .venv/bin/activate",
+      "python3 -m pip install -e \".[test]\"",
+      "python3 -m pytest -q -p no:cacheprovider",
+      "python3 tools/agnostic_guard.py",
       "qqrecipes execute test --repo examples/node-app --out .qq/out/example-node"
     ],
     "source": ".github/workflows/presubmit.yml",

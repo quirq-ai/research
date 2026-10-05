@@ -58,8 +58,10 @@
   ],
   "try_it": {
     "commands": [
-      "python -m pip install --quiet --only-binary=:all: \"pytest==9.1.1\"",
-      "python -m pytest -q -p no:cacheprovider --junitxml=.qq/out/junit/tests.xml"
+      "python3 -m venv .venv",
+      ". .venv/bin/activate",
+      "python3 -m pip install --quiet --only-binary=:all: \"pytest==9.1.1\"",
+      "python3 -m pytest -q -p no:cacheprovider --junitxml=.qq/out/junit/tests.xml"
     ],
     "source": ".github/workflows/presubmit.yml"
   },

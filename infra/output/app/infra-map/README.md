@@ -1,7 +1,7 @@
 # infra-map
 
 An interactive map of the 13 quirq infra (qq) repos, with a page for each
-repo.
+repo, and the checklist for the qq alpha.
 
 ## What it shows
 
@@ -13,8 +13,17 @@ repo.
   modelled on.
 - **A page per repo** (`#repo/<name>`, for example `#repo/gardener`): what it
   is, where it sits on the map, its links to other repos, how it works, key
-  files, how to try it, and its status and limits. Every claim links to the
-  file it comes from, at a recorded commit.
+  files, how to try it, and its status and limits. Each "How it works", key
+  file, "Try it" and status item links the file it comes from at a recorded
+  commit; the summary, badges and link list rest on the same READMEs and pins.
+- **Alpha checklist:** the steps an alpha user follows, from installing qq to
+  seeing their change ship in the daily canary. Each step has a copyable
+  command where there is one and buttons that explain the outcomes they may
+  hit. The two commands are `src/commands/setup.sh` and
+  `src/commands/get-repo.sh`, imported raw so the page shows the tested text.
+- **Before alpha:** what the team finishes before anyone is invited,
+  including the canary setup. Ticks on both checklists are kept in the
+  viewer's browser only.
 - **Commands and terms:** the qq commands, a glossary and the known limits.
 
 It supports the topic's findings in [../../../README.md](../../../README.md).
@@ -36,7 +45,10 @@ It supports the topic's findings in [../../../README.md](../../../README.md).
 
 The UI is built from [shadcn/ui](https://ui.shadcn.com) components, copied
 from `apps/v4/registry/new-york-v4/ui` in shadcn-ui/ui into
-`src/components/ui/`. No API keys or environment variables are needed.
+`src/components/ui/` at commit 295a1f114a138f23b5dfee0e0c6812394dfeb90c and used
+under the MIT licence, whose notice is in `src/components/ui/LICENSE`. The page
+uses the system font stack and loads nothing from third parties. No API keys or
+environment variables are needed.
 
 ## Setup
 
@@ -56,13 +68,12 @@ Open the address it prints (normally http://localhost:5173).
 
 To build a static site instead, run `npm run build` (output in `dist/`, serve
 it with any static server) or `npm run build:single` (one
-`dist/index.html` you can open straight from disk; fonts load from Google
-Fonts when online).
+self-contained `dist/index.html` you can open straight from disk).
 
 ## What you should see
 
-A page titled "How quirq infra fits together" with three tabs: Map, All
-repos, and Commands and terms. On the map, tapping **gardener** lights up
+A page titled "How quirq infra fits together" with five tabs: Map, All
+repos, Alpha checklist, Before alpha, and Commands and terms. On the map, tapping **gardener** lights up
 gardener, test-pipelines, infra-config, release and the product repos box,
 and the card below the
 map shows an **Open the gardener page** button. That page lists gardener's

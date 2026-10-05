@@ -58,24 +58,35 @@
   ],
   "try_it": {
     "commands": [
-      "python -m pip install -e \".[test]\"",
-      "python -m pytest -q",
-      "QQ_TOOLCHAINS=../toolchains QQ_SYNC=../sync python -m pytest -q"
+      "python3 -m venv .venv",
+      ". .venv/bin/activate",
+      "python3 -m pip install -e \".[test]\"",
+      "python3 -m pytest -q",
+      "QQ_TOOLCHAINS=../toolchains QQ_SYNC=../sync python3 -m pytest -q"
     ],
     "source": "README.md"
   },
   "status": [
     {
-      "text": "The Dependabot config and land workflow are delivered to both product repos (identical to generated/). Auto-land of Dependabot rolls stays off until the admin settings are applied; xo-space also has auto-merge turned off (checked in the product repos).",
-      "source": "README.md"
+      "text": "The Dependabot config and land workflow are delivered to both product repos (identical to generated/). Auto-land of Dependabot rolls stays off until the admin settings are applied; xo-space also has auto-merge turned off.",
+      "source": [
+        "README.md",
+        "https://github.com/quirq-ai/innernet/blob/8f383a3d6c28f1e4495ff177efe70dca43d17604/.github/dependabot.yml",
+        "https://github.com/quirq-ai/innernet/blob/8f383a3d6c28f1e4495ff177efe70dca43d17604/.github/workflows/qq-roll-land.yml",
+        "https://github.com/quirq-ai/xo-space/blob/14b21a41668bc8124b4cf5cf9cd59fb44dc7d419/.github/dependabot.yml",
+        "https://github.com/quirq-ai/xo-space/blob/14b21a41668bc8124b4cf5cf9cd59fb44dc7d419/.github/workflows/qq-roll-land.yml"
+      ]
     },
     {
       "text": "Toolchain roll PRs are opened without auto-merge until the toolchains repo enforces review of promotions on its main, so for now a roll stops at an open PR.",
       "source": ".github/workflows/roll-toolchains.yml"
     },
     {
-      "text": "The registry checks read ghcr anonymously (the toolchain packages are public), and without the rollers GitHub App's secrets the workflow is a dry run that opens nothing (checked against ghcr).",
-      "source": ".github/workflows/roll-toolchains.yml"
+      "text": "The registry checks read ghcr anonymously (the toolchain packages are public), and without the rollers GitHub App's secrets the workflow is a dry run that opens nothing.",
+      "source": [
+        ".github/workflows/roll-toolchains.yml",
+        "https://github.com/quirq-ai/depot/blob/741967cc7fba1e486a65856b05c4abb2b1486b8b/README.md"
+      ]
     }
   ],
   "readme_url": "https://github.com/quirq-ai/rollers/blob/4285aa4dd3211eda2df28d2bd4bebb2267a01f0d/README.md"

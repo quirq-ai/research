@@ -54,8 +54,10 @@
   ],
   "try_it": {
     "commands": [
-      "pip install -e \".[test]\"",
-      "pytest",
+      "python3 -m venv .venv",
+      ". .venv/bin/activate",
+      "python3 -m pip install -e \".[test]\"",
+      "python3 -m pytest",
       "qqrbe selftest --backend local",
       "qqrbe stats"
     ],

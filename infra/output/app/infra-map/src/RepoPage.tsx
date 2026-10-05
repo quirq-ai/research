@@ -6,13 +6,17 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { RepoMap } from "@/RepoMap"
 import { EDGES, LANES, ON_PRODUCTS, REPOS } from "@/repos"
 
+/** Where a claim comes from: a path in this repo at `sha` (optionally with a #L anchor), or a full
+ *  https URL pinned to a commit in another repo. */
+type Source = string | string[]
+
 /** One repo's page content, written from the repo at `sha` (see src/pages/*.json). */
 export type PageData = {
   id: string; sha: string; language: string; summary: string
-  how_it_works: { title: string; text: string; source: string }[]
+  how_it_works: { title: string; text: string; source: Source }[]
   key_files: { path: string; what: string }[]
   try_it: { commands: string[]; source: string; note?: string }
-  status: { text: string; source: string }[]
+  status: { text: string; source: Source }[]
   readme_url: string
 }
 
@@ -22,7 +26,16 @@ const PAGES = Object.fromEntries(Object.values(import.meta.glob<PageData>("./pag
 export const ORDER = Object.keys(REPOS).sort((a, b) => REPOS[a].lane - REPOS[b].lane || REPOS[a].row - REPOS[b].row)
 
 function Src({ repo, sha, path }: { repo: string; sha: string; path: string }) {
+  if (path.startsWith("https://")) {
+    const m = path.match(/github\.com\/quirq-ai\/([^/]+)\/blob\/[0-9a-f]{40}\/(.+)$/)
+    return <a href={path} target="_blank" rel="noreferrer" className="font-mono text-xs">{m ? `${m[1]}: ${m[2]}` : path}</a>
+  }
   return <a href={`https://github.com/quirq-ai/${repo}/blob/${sha}/${path}`} target="_blank" rel="noreferrer" className="font-mono text-xs">{path}</a>
+}
+
+function Srcs({ repo, sha, source }: { repo: string; sha: string; source: Source }) {
+  const list = Array.isArray(source) ? source : [source]
+  return <>{list.map((s, i) => <span key={s}>{i > 0 && ", "}<Src repo={repo} sha={sha} path={s} /></span>)}</>
 }
 
 function RepoLink({ id }: { id: string }) {
@@ -80,7 +93,7 @@ export function RepoPage({ id }: { id: string }) {
               <CardHeader className="px-4"><CardTitle className="text-base">{h.title}</CardTitle></CardHeader>
               <CardContent className="grid gap-1 px-4 text-[15px] leading-relaxed">
                 <p>{h.text}</p>
-                <div className="text-muted-foreground">Source: <Src repo={id} sha={p.sha} path={h.source} /></div>
+                <div className="text-muted-foreground">Source: <Srcs repo={id} sha={p.sha} source={h.source} /></div>
               </CardContent>
             </Card>
           ))}
@@ -99,7 +112,7 @@ export function RepoPage({ id }: { id: string }) {
         {p.try_it.commands.length > 0 && (
           <section className="grid gap-2">
             <h3 className="text-lg font-semibold">Try it</h3>
-            <p className="text-sm text-muted-foreground">From a clone of {id}.{p.try_it.note && <> {p.try_it.note}</>} Source: <Src repo={id} sha={p.sha} path={p.try_it.source} /></p>
+            <p className="text-sm text-muted-foreground">Paste in a terminal at the top of a clone of {id}. It needs python3 at 3.11 or newer and works in a virtual environment, .venv, inside the clone.{p.try_it.note && <> {p.try_it.note}</>} Source: <Src repo={id} sha={p.sha} path={p.try_it.source} /></p>
             <pre className="m-0 overflow-x-auto rounded-lg bg-code p-4 font-mono text-[13px] leading-relaxed text-code-foreground">{p.try_it.commands.join("\n")}</pre>
           </section>
         )}
@@ -107,7 +120,7 @@ export function RepoPage({ id }: { id: string }) {
         <section className="grid gap-2">
           <h3 className="text-lg font-semibold">Status and limits</h3>
           <ul className="list-disc pl-5 [&_li]:mb-1.5">
-            {p.status.map(s => <li key={s.text}>{s.text} <span className="text-muted-foreground">(<Src repo={id} sha={p.sha} path={s.source} />)</span></li>)}
+            {p.status.map(s => <li key={s.text}>{s.text} <span className="text-muted-foreground">(<Srcs repo={id} sha={p.sha} source={s.source} />)</span></li>)}
           </ul>
         </section>
 

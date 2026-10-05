@@ -27,7 +27,10 @@
     {
       "title": "Land only after the gate passes",
       "text": "qq land asks the pinned qqgate for a verdict first and refuses a change the gate refused. Only after a pass does it call gh pr merge with --auto and --match-head-commit, which enters the merge queue where the repo has one.",
-      "source": "src/qqdepot/commands/change.py"
+      "source": [
+        "src/qqdepot/commands/change.py",
+        "src/qqdepot/backends/github.py#L125-L129"
+      ]
     }
   ],
   "key_files": [
@@ -58,8 +61,10 @@
   ],
   "try_it": {
     "commands": [
-      "python -m pip install -e \".[test]\"",
-      "python -m pytest -q"
+      "python3 -m venv .venv",
+      ". .venv/bin/activate",
+      "python3 -m pip install -e \".[test]\"",
+      "python3 -m pytest -q"
     ],
     "source": "README.md"
   },
