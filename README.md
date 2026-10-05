@@ -103,7 +103,7 @@ Each topic README carries one status:
 
 | Topic | Status | Summary |
 |---|---|---|
-| _None yet_ | | |
+| [infra](infra/) | Published | How quirq infra (qq) fits together across its 13 repos, as an interactive map with a page per repo. |
 
 When you create a topic, add a row here and keep its status in step with the
 topic README.

@@ -1,0 +1,81 @@
+{
+  "id": "sync",
+  "sha": "d97e2f747cfa7dd04fac3cd8e9973eb7eab091dd",
+  "language": "Python 3.11+ (CI runs 3.14)",
+  "summary": "sync owns infra/repo.toml, the manifest every qq-built repo keeps to list its pinned toolchains, dependencies and typed build targets. It provides the versioned schema, the only library allowed to read or edit the manifest, digest checks for fetched pins, and a guard that rejects any other parser.",
+  "how_it_works": [
+    {
+      "title": "A versioned, strict schema",
+      "text": "Manifests declare schema quirq-repo/1 and are checked against a JSON Schema in which unknown keys are errors. On top of that, target names must be unique, target deps must name targets in the same manifest, and the target graph must have no cycle.",
+      "source": "src/qqsync/schema.py"
+    },
+    {
+      "title": "One parser that edits in place",
+      "text": "qqsync reads the manifest and also edits it with tomlkit, so untouched lines keep their exact bytes. If the standard TOML parser and the editor disagree, or the editor cannot reproduce the file exactly, edits are refused, and an edit that would make the manifest invalid is undone.",
+      "source": "src/qqsync/manifest.py"
+    },
+    {
+      "title": "Pins are checked on every fetch",
+      "text": "fetch downloads to a temporary file, hashes it while downloading, and moves it into place only when the digest matches. A mismatch raises PinMismatch and leaves nothing at the destination.",
+      "source": "src/qqsync/pins.py"
+    },
+    {
+      "title": "Public registries only",
+      "text": "For oci:// sources the pin names the image manifest and pins the layer digest, and both are checked. fetch asks the registry for an anonymous token and never sends credentials, and redirects are followed only to https.",
+      "source": "src/qqsync/pins.py"
+    },
+    {
+      "title": "No second parser",
+      "text": "qqsync guard scans a repo's tracked files and fails when a line reads TOML near a place that names the manifest. It is a heuristic, and the README lists the bypasses it does not catch.",
+      "source": "src/qqsync/guard.py"
+    }
+  ],
+  "key_files": [
+    {
+      "path": "src/qqsync/schema/quirq-repo-1.schema.json",
+      "what": "The full quirq-repo/1 manifest schema."
+    },
+    {
+      "path": "src/qqsync/manifest.py",
+      "what": "load and the Manifest editor, the only reader and writer of infra/repo.toml."
+    },
+    {
+      "path": "src/qqsync/pins.py",
+      "what": "Pin lookup, fetching over https, file and oci, and digest verification."
+    },
+    {
+      "path": "src/qqsync/guard.py",
+      "what": "The check that fails when another file parses the manifest."
+    },
+    {
+      "path": "src/qqsync/cli.py",
+      "what": "The qqsync command: validate, show, pin, pins, fetch, verify, guard."
+    },
+    {
+      "path": "tests/fixtures/xo-space.repo.toml",
+      "what": "Onboarding fixture manifest for xo-space, used by other repos' CI."
+    }
+  ],
+  "try_it": {
+    "commands": [
+      "python -m pip install -e \".[test]\"",
+      "python -m pytest -q"
+    ],
+    "source": "README.md"
+  },
+  "status": [
+    {
+      "text": "All four v0 items (schema, parser and editor, pin check, no-other-parser check) are marked merged. The parser item's done-when waits on the depot and roller items adopting it.",
+      "source": "README.md"
+    },
+    {
+      "text": "Presubmit validates the xo-space and innernet fixture manifests against the kinds infra-config lists, proves a tampered artifact fails its pin, and proves a planted second parser fails the guard.",
+      "source": ".github/workflows/presubmit.yml"
+    },
+    {
+      "text": "The guard does not catch a parser that reads the file as plain text, paths built at run time, or a path passed to another function and read there.",
+      "source": "README.md"
+    }
+  ],
+  "readme_url": "https://github.com/quirq-ai/sync/blob/d97e2f747cfa7dd04fac3cd8e9973eb7eab091dd/README.md"
+}

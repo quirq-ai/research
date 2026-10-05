@@ -1,0 +1,88 @@
+{
+  "id": "infra-config",
+  "sha": "310e3264f5de3cd9822b3a4712ae0a372b97dac3",
+  "language": "Python 3.11+ (TOML config checked against JSON Schema)",
+  "summary": "infra-config describes the whole quirq infra system as data: which repos are onboarded, which builders run on them, how a change lands, and the limits on what agents may do alone. It exists so that CI policy is reviewed, tested and reverted like code, with one validator that refuses unsafe settings.",
+  "how_it_works": [
+    {
+      "title": "One TOML file per area",
+      "text": "Each area (org, kinds, repos, pipelines, gate, flakes, auto_revert, rollers, channels, fuzz, postmortem, health, perf) is a TOML file in config/ that is parsed and never executed. Every file starts with an [area] header saying whether its values are decided (seed) or placeholders (stub) and which tools read it.",
+      "source": "README.md"
+    },
+    {
+      "title": "Validate checks five things",
+      "text": "qqcfg validate checks that the TOML parses, that each area matches its JSON Schema, that every cross-reference resolves, that the policy invariants hold, and that generated/ matches what generate would write. The validate workflow runs it with the unit tests on every pull request and in the merge queue.",
+      "source": "tools/qqcfg.py"
+    },
+    {
+      "title": "Policy that config cannot loosen",
+      "text": "Some limits are hard-coded in the validator, such as at most 10 auto-reverts per rolling 24 hours, the LUCI Bisection per-type limits, untrusted pools holding no secrets, and post-submit builders never being cancelled. Raising one means changing tools/qqcfg.py itself, which is a policy path.",
+      "source": "tools/qqcfg.py"
+    },
+    {
+      "title": "Generated GitHub workflows",
+      "text": "qqcfg generate writes a presubmit and a post-submit workflow for each product repo into generated/github/, and deliver copies them into a product checkout. Each delivered file carries a qq-digest line so a hand edit is detected.",
+      "source": "tools/qqcfg.py"
+    },
+    {
+      "title": "Drift check for product repos",
+      "text": "qq-drift.yml is meant to run as an organization-required workflow in each product repo and fails a pull request whose qq-*.yml files differ from what infra-config generates. It runs qqcfg from a pinned infra-config commit rather than from main at run time.",
+      "source": ".github/workflows/qq-drift.yml"
+    }
+  ],
+  "key_files": [
+    {
+      "path": "tools/qqcfg.py",
+      "what": "The validator, generator and delivery tool (the lucicfg counterpart)."
+    },
+    {
+      "path": "config/pipelines.toml",
+      "what": "Builders for presubmit, post-submit and release, including the pinned result sink."
+    },
+    {
+      "path": "config/gate.toml",
+      "what": "Merge queue settings, admission limits, the verification surface and change classes."
+    },
+    {
+      "path": "config/auto_revert.toml",
+      "what": "The gardener's revert caps and the auto_land_repos list."
+    },
+    {
+      "path": "generated/github/xo-space/qq-xo-space-presubmit.yml",
+      "what": "An example of a generated presubmit workflow; never edited by hand."
+    },
+    {
+      "path": "tests/test_qqcfg.py",
+      "what": "Unit tests showing the seed config passes and known-bad changes fail."
+    }
+  ],
+  "try_it": {
+    "commands": [
+      "python3 -m pip install -r requirements.txt",
+      "python3 tools/qqcfg.py validate",
+      "python3 tools/qqcfg.py validate --todos",
+      "python3 tools/qqcfg.py generate",
+      "python3 -m unittest discover -s tests"
+    ],
+    "source": "README.md"
+  },
+  "status": [
+    {
+      "text": "The README calls this a v0 skeleton. Every area is declared and each file says whether it is seed or stub; perf is still a stub.",
+      "source": "README.md"
+    },
+    {
+      "text": "The channels, fuzz, health, perf and postmortem areas have no reader yet; their readers arrive with later work items.",
+      "source": "README.md"
+    },
+    {
+      "text": "auto_land_repos is empty in v0, so the gardener only proposes reverts and a person merges them.",
+      "source": "config/auto_revert.toml"
+    },
+    {
+      "text": "Several values are still open decisions marked TODO in the config, including the monthly CI compute ceiling, the canary deploy hour, and the owners of every area; validate --todos lists them.",
+      "source": "README.md"
+    }
+  ],
+  "readme_url": "https://github.com/quirq-ai/infra-config/blob/310e3264f5de3cd9822b3a4712ae0a372b97dac3/README.md"
+}

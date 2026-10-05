@@ -1,0 +1,82 @@
+{
+  "id": "toolchains",
+  "sha": "44f8f959458eab59baf46cbae5866a36657f7eeb",
+  "language": "Python 3.11+ standard library (CI runs 3.14) and Bash build scripts",
+  "summary": "toolchains builds the compilers and runtimes that qq builds use, currently CPython and Node.js with pnpm, publishes them to a registry, and pins each by content digest. A build then refers to a toolchain only by that digest, and a new one reaches products only after a reviewed promotion.",
+  "how_it_works": [
+    {
+      "title": "A spec per toolchain",
+      "text": "Each toolchain is a toolchain.toml with its version, upstream source URLs and sha256 checksums, smoke-test commands and pinned consumer repos, plus a build.sh. qqtc builds it into a reproducible tarball with a fixed timestamp.",
+      "source": "tools/qqtc.py"
+    },
+    {
+      "title": "Build, smoke-test, stage",
+      "text": "The build workflow builds and smoke-tests every toolchain on pull requests. On main it also pushes each one to ghcr.io/quirq-ai/toolchains/<name> with a staging tag as a single-layer OCI artifact, signs build provenance, then builds the pinned consumer repos with it.",
+      "source": ".github/workflows/build.yml"
+    },
+    {
+      "title": "Promotion by reviewed PR",
+      "text": "qqtc promote writes the staged digest into promoted.toml in one canonical form. The promotion-gate check verifies the provenance came from build.yml on main, that the manifest is exactly one toolchain layer, and re-runs smoke tests and consumer builds on the pulled bytes.",
+      "source": ".github/workflows/promotion-gate.yml"
+    },
+    {
+      "title": "The gate judges with main's tools",
+      "text": "On a pull request, promotion-gate runs main's copy of gate.py, qqtc and the specs, reading the PR's files only as data. It also refuses workflows that could fake the check, such as one that can write checks or statuses.",
+      "source": "tools/gate.py"
+    }
+  ],
+  "key_files": [
+    {
+      "path": "tools/qqtc.py",
+      "what": "Validates specs, builds, unpacks, smoke-tests and promotes toolchains."
+    },
+    {
+      "path": "tools/gate.py",
+      "what": "The promotion gate's logic and the workflow rules it enforces."
+    },
+    {
+      "path": "promoted.toml",
+      "what": "One promoted digest per toolchain; what the roller reads."
+    },
+    {
+      "path": "toolchains/python/toolchain.toml",
+      "what": "CPython 3.14.8 spec, built from the python.org source release."
+    },
+    {
+      "path": "toolchains/node/toolchain.toml",
+      "what": "Node.js 24.21.0 with pnpm 11.28.2, repackaged from upstream binaries."
+    },
+    {
+      "path": ".github/workflows/build.yml",
+      "what": "Builds, publishes to staging, attests and builds consumers."
+    }
+  ],
+  "try_it": {
+    "commands": [
+      "python -m pip install -r requirements-dev.txt",
+      "python tools/qqtc.py validate",
+      "python tools/gate.py check-workflows .github/workflows",
+      "python -m pytest -q -p no:cacheprovider"
+    ],
+    "source": ".github/workflows/ci.yml"
+  },
+  "status": [
+    {
+      "text": "Two toolchains are built and promoted by digest: CPython 3.14.8 and Node.js 24.21.0 with pnpm 11.28.2.",
+      "source": "promoted.toml"
+    },
+    {
+      "text": "Only one platform is supported: qqtc accepts linux-x86_64 and nothing else.",
+      "source": "tools/qqtc.py"
+    },
+    {
+      "text": "The CPython build links the runner's shared libraries such as OpenSSL and libffi, so it is not yet hermetic.",
+      "source": "toolchains/python/toolchain.toml"
+    },
+    {
+      "text": "promotion-gate is advisory until the toolchains ruleset makes it a required check.",
+      "source": "README.md"
+    }
+  ],
+  "readme_url": "https://github.com/quirq-ai/toolchains/blob/44f8f959458eab59baf46cbae5866a36657f7eeb/README.md"
+}

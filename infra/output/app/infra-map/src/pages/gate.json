@@ -1,0 +1,86 @@
+{
+  "id": "gate",
+  "sha": "c3721365186a35c4b2b5acdc0635e281e754ac13",
+  "language": "Python 3.11+",
+  "summary": "gate decides what must pass before a change lands in a quirq-ai repo: it computes the required checks from infra-config and holds the merge queue and branch rulesets as code. It exists so landing is decided by deterministic config that no agent can override, and every required check also runs on the exact merge result.",
+  "how_it_works": [
+    {
+      "title": "Required checks come from config",
+      "text": "With required set to blocking-builders in gate.toml, every builder with blocking = true for a repo becomes a required check named after the builder. A blocking builder that does not run on both the change and the merge queue is an error, and a repo with no blocking builder is refused as ungated.",
+      "source": "src/qqgate/required.py"
+    },
+    {
+      "title": "Only success passes",
+      "text": "A verdict passes only when every required check reported success. Missing, running, skipped and neutral checks are refusals, which is stricter than GitHub's own required-check rule.",
+      "source": "src/qqgate/verdict.py"
+    },
+    {
+      "title": "Rulesets as code",
+      "text": "settings/github.toml holds the merge queue and rulesets for the infra repos and both product repos. qqgate settings plan prints them, verify says which repos are safe to switch on, and an org admin applies them with scripts/apply.sh after a dry run and a typed confirmation.",
+      "source": "settings/github.toml"
+    },
+    {
+      "title": "Agnosticism guard",
+      "text": "qqgate guard fails if shipped code in a core repo names a language, build tool or deploy target. Python files are read with ast and tokenize, other files are grepped, and the terms and reviewed exceptions live in guard/terms.toml.",
+      "source": "src/qqgate/guard.py"
+    },
+    {
+      "title": "Gate timing",
+      "text": "A small timing action reads when a pull request entered the merge queue and exports QQ_QUEUED_AT for the result sink, so the scorecard can report time from queue entry to verdict. It never fails the job.",
+      "source": "timing/action.yml"
+    }
+  ],
+  "key_files": [
+    {
+      "path": "src/qqgate/required.py",
+      "what": "Computes a repo's required checks from infra-config and its manifest."
+    },
+    {
+      "path": "src/qqgate/verdict.py",
+      "what": "Turns observed check results into pass or refused."
+    },
+    {
+      "path": "settings/github.toml",
+      "what": "Merge queue and ruleset settings for every repo, applied by an org admin."
+    },
+    {
+      "path": "src/qqgate/backends/github.py",
+      "what": "GitHub-specific code: workflow checks, ruleset JSON and reading check runs."
+    },
+    {
+      "path": "guard/terms.toml",
+      "what": "The agnosticism guard's term list, core repos and reviewed exceptions."
+    },
+    {
+      "path": "pins.toml",
+      "what": "The infra-config and sync commits the gate reads policy and manifests from."
+    }
+  ],
+  "try_it": {
+    "commands": [
+      "python -m pip install --quiet -e \".[test]\"",
+      "python -m pytest -q -p no:cacheprovider",
+      "qqgate guard --repo gate --github ."
+    ],
+    "source": ".github/workflows/presubmit.yml"
+  },
+  "status": [
+    {
+      "text": "Required checks, rulesets as code, the agnosticism guard and gate timing are merged. The repo rulesets have been applied; the organization rulesets in settings/github.toml are all set to enabled = false, because the organization is on GitHub Free.",
+      "source": "README.md"
+    },
+    {
+      "text": "Branch approvals are one global setting: [main] required_approvals = 0 applies to every repo, and only code_owner_review is set per repo (true only for toolchains). Owner review of the verification surface is a later work item that waits on owners being assigned.",
+      "source": "settings/github.toml"
+    },
+    {
+      "text": "Result reuse, admission-bar enforcement and tree status are out of scope for v0; cross-repo gating and a Launchpad queue are planned for v2.",
+      "source": "README.md"
+    },
+    {
+      "text": "The tests need an infra-config checkout at the pins.toml commit in .qq/infra-config, or a path in QQ_INFRA_CONFIG; CI checks it out before running them.",
+      "source": "tests/conftest.py"
+    }
+  ],
+  "readme_url": "https://github.com/quirq-ai/gate/blob/c3721365186a35c4b2b5acdc0635e281e754ac13/README.md"
+}

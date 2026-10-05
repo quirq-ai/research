@@ -1,0 +1,85 @@
+{
+  "id": "test-pipelines",
+  "sha": "a642399644ee4a463168773cacd5eabd48ac5a16",
+  "language": "Python 3.11+ (standard library only at runtime)",
+  "summary": "test-pipelines turns test output (JUnit XML) into stored, write-once results and computes mechanical verdicts, failure records and a scorecard from them. It plays the role of Chromium's ResultDB and LUCI Analysis, so every builder's results are kept and judged the same way.",
+  "how_it_works": [
+    {
+      "title": "The sink",
+      "text": "A builder adds the sink action after its test steps. It normalizes every JUnit report into Result records, computes the run's verdict, and keeps the bundle (run.json, results.jsonl, verdict.json) as a workflow artifact. A job with no reports still stores a run marked as failing, because a missing signal is not a pass.",
+      "source": "sink/action.yml"
+    },
+    {
+      "title": "Only short messages are kept",
+      "text": "Each stored Result keeps the first 20 lines and at most 1,000 characters of its failure or skip message, plus a short truncation marker, and never stores captured stdout or stderr. The full raw testcase is kept only with the opt-in keep-raw-junit flag, capped at 16,000 characters.",
+      "source": "src/qqresults/junit.py"
+    },
+    {
+      "title": "Store and scorecard",
+      "text": "The scorecard workflow runs every six hours, collects qq-results artifacts from trusted workflow runs into the write-once results branch, and writes scorecard.md and scorecard.json. It reports gate time, main-red minutes, flake rate and pass rates, and lists unmeasured metrics instead of showing zero.",
+      "source": ".github/workflows/scorecard.yml"
+    },
+    {
+      "title": "Retry, then compare with base",
+      "text": "Given a rerun command, the sink reruns failed tests and then runs those still failing at the base commit. A test that passes on retry is FLAKY, one that fails the same way on base is EXONERATED, and anything else is UNEXPECTED and fails the change.",
+      "source": "src/qqresults/retry.py"
+    },
+    {
+      "title": "Failure records",
+      "text": "Held canaries, canary rollbacks and auto-reverts each open one write-once Failure record mirrored to a labelled GitHub issue. Free text is withheld unless explicitly opted in, and records that look security-related are never mirrored to a public issue.",
+      "source": "src/qqresults/failures.py"
+    }
+  ],
+  "key_files": [
+    {
+      "path": "src/qqresults/model.py",
+      "what": "The record types: Change, Run, Result, Verdict and Failure."
+    },
+    {
+      "path": "src/qqresults/junit.py",
+      "what": "Parses JUnit XML into normalized Results and caps stored message size."
+    },
+    {
+      "path": "src/qqresults/retry.py",
+      "what": "Retry and compare-with-base logic behind FLAKY and EXONERATED verdicts."
+    },
+    {
+      "path": "src/qqresults/scorecard.py",
+      "what": "Computes the scorecard metrics from the results store."
+    },
+    {
+      "path": "sink/action.yml",
+      "what": "The GitHub Action builders use to store their results."
+    },
+    {
+      "path": "tools/planted_demo.sh",
+      "what": "End-to-end demo that a planted base failure is exonerated while real breaks still block."
+    }
+  ],
+  "try_it": {
+    "commands": [
+      "python -m pip install --quiet --only-binary=:all: \"pytest==9.1.1\"",
+      "python -m pytest -q -p no:cacheprovider --junitxml=.qq/out/junit/tests.xml"
+    ],
+    "source": ".github/workflows/presubmit.yml"
+  },
+  "status": [
+    {
+      "text": "All four v0 items are merged: the result schema and sink, the store and scorecard, retry with base comparison, and failure records with issue mirrors.",
+      "source": "README.md"
+    },
+    {
+      "text": "Retry and base comparison only run when a builder passes a rerun command. infra-config's generated product builders pin the sink with rerun left off, so product presubmits do not use it yet; this repo's own CI exercises it through tools/planted_demo.sh.",
+      "source": "README.md"
+    },
+    {
+      "text": "The exoneration rule is a heuristic that compares failure kinds and cannot tell two failures of the same kind apart. In a rebase-style queue with entries ahead, the base cannot be derived, so failures stay UNEXPECTED.",
+      "source": "README.md"
+    },
+    {
+      "text": "A ruleset blocking force-pushes and deletion on the results branch is still an open TODO.",
+      "source": "README.md"
+    }
+  ],
+  "readme_url": "https://github.com/quirq-ai/test-pipelines/blob/a642399644ee4a463168773cacd5eabd48ac5a16/README.md"
+}

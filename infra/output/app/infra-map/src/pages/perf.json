@@ -1,0 +1,76 @@
+{
+  "id": "perf",
+  "sha": "d1d9765ea65df2b7d4824fd3845fdf371907857c",
+  "language": "Python 3.11+",
+  "summary": "perf records raw performance numbers for each commit that lands on the product repos' main branches. In v0 it only builds a history of numbers, so that later versions can alert on regressions and bisect them.",
+  "how_it_works": [
+    {
+      "title": "Three measurements",
+      "text": "The perf workflow measures innernet's Next.js build output size, xo-space's server start time over 5 starts, and innernet's search latency on a demo build with a fixed committed index. Builds and benchmarks run through the recipes repo's adapters on pinned Python, Node and pnpm versions.",
+      "source": ".github/workflows/perf.yml"
+    },
+    {
+      "title": "Polling main, one commit per run",
+      "text": "The workflow runs every 30 minutes and, for each measurement, takes the newest commit on main that has no record yet. Every commit since the oldest record is owed one, a backlog drains one commit per run, and a commit that fails three times is given up.",
+      "source": "README.md"
+    },
+    {
+      "title": "Raw records on a data branch",
+      "text": "Each record is appended as a JSON Lines entry to this repo's perf-data branch, one file per repo and metric, with its unit and runner type. Lines are never edited and a commit gets at most one ok record.",
+      "source": "src/qqperf/store.py"
+    },
+    {
+      "title": "Split trust between jobs",
+      "text": "The measure job runs product code with read access only and uploads a ledger; the store job runs no product code and accepts only valid records for commits still pending before pushing perf-data. A separate perf-publish workflow then turns those records into results bundles for the test-pipelines results store.",
+      "source": ".github/workflows/perf-publish.yml"
+    }
+  ],
+  "key_files": [
+    {
+      "path": "src/qqperf/cli.py",
+      "what": "The qqperf command line: pending, backlog, record, history, merge, bundle and manifest."
+    },
+    {
+      "path": "src/qqperf/size.py",
+      "what": "Measures a Next.js .next build output in raw bytes, raw and gzipped."
+    },
+    {
+      "path": "src/qqperf/store.py",
+      "what": "The JSON Lines record store and its retry limit."
+    },
+    {
+      "path": "src/qqperf/results.py",
+      "what": "Turns stored records into test-pipelines results bundles."
+    },
+    {
+      "path": ".github/workflows/perf.yml",
+      "what": "The scheduled measure and store workflow."
+    },
+    {
+      "path": ".github/workflows/perf-publish.yml",
+      "what": "The only workflow that uploads perf results bundles."
+    }
+  ],
+  "try_it": {
+    "commands": [
+      "python -m pip install -e \".[test]\"",
+      "python -m pytest -q -p no:cacheprovider"
+    ],
+    "source": ".github/workflows/presubmit.yml"
+  },
+  "status": [
+    {
+      "text": "Build-size records for innernet and the two benchmarks are merged and recording. The numbers are a record, not a regression signal: one measurement per commit on shared runners with no baseline, so nothing alerts or gates on them in v0.",
+      "source": "README.md"
+    },
+    {
+      "text": "perf polls main on a schedule rather than running inside each product repo's post-submit, which is still a TODO. Records can lag when main lands faster than one commit per 30-minute run, and commits that landed before a metric's first record are not owed one.",
+      "source": ".github/workflows/perf.yml"
+    },
+    {
+      "text": "Whoever can push to perf-data or create a tag named main could still publish numbers until rulesets protect both.",
+      "source": "README.md"
+    }
+  ],
+  "readme_url": "https://github.com/quirq-ai/perf/blob/d1d9765ea65df2b7d4824fd3845fdf371907857c/README.md"
+}

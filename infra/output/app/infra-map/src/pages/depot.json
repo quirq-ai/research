@@ -1,0 +1,85 @@
+{
+  "id": "depot",
+  "sha": "741967cc7fba1e486a65856b05c4abb2b1486b8b",
+  "language": "Python 3.11.4+ (CI runs 3.14), with a POSIX sh bootstrap",
+  "summary": "depot is qq, the one command line a contributor puts on their PATH to fetch a repo's toolchains, build and test it the way CI does, and send changes through the gate. It exists so every repo runs exactly the qq version its manifest pins, and so long-running work like CI never ties up the caller.",
+  "how_it_works": [
+    {
+      "title": "Self-pinning bootstrap",
+      "text": "bin/qq checks for Python 3.11.4 or newer and hands off to a launcher that reads the current repo's [qq] pin through qqsync. The first run installs that version into its own environment under $QQ_HOME, and later runs reuse it, so moving the pin is how qq updates.",
+      "source": "src/qqdepot/pin.py"
+    },
+    {
+      "title": "qq sync fills a sealed store",
+      "text": "Each toolchain and dependency pin is fetched once per machine into $QQ_HOME/store, checked against its digest, unpacked if it is a tarball and made read only. Every later sync checks the entry is unchanged before linking it into <repo>/.qq/toolchains or <repo>/.qq/deps.",
+      "source": "src/qqdepot/store.py"
+    },
+    {
+      "title": "qq build and qq test reuse CI's runner",
+      "text": "Both commands hand the manifest to recipes, the same planner and runner CI uses, so a local run and a CI run of one commit execute the same actions and leave the same JUnit XML and results.json under .qq/out.",
+      "source": "src/qqdepot/commands/build.py"
+    },
+    {
+      "title": "Acknowledge, then push",
+      "text": "qq try and qq land return a run ID at once and start a detached watcher. The watcher polls the change and writes the final verdict to $QQ_HOME/verdicts/<run ID>.json and to an optional --notify command.",
+      "source": "src/qqdepot/watch.py"
+    },
+    {
+      "title": "Land only after the gate passes",
+      "text": "qq land asks the pinned qqgate for a verdict first and refuses a change the gate refused. Only after a pass does it call gh pr merge with --auto and --match-head-commit, which enters the merge queue where the repo has one.",
+      "source": "src/qqdepot/commands/change.py"
+    }
+  ],
+  "key_files": [
+    {
+      "path": "bin/qq",
+      "what": "The shell entry point you put on PATH; checks Python and starts the bootstrap."
+    },
+    {
+      "path": "src/qqdepot/pin.py",
+      "what": "Reads the repo's [qq] pin and installs or runs exactly that version from a trusted source."
+    },
+    {
+      "path": "src/qqdepot/store.py",
+      "what": "Content-addressed, read-only store for fetched toolchains and dependencies."
+    },
+    {
+      "path": "src/qqdepot/commands/change.py",
+      "what": "qq upload, try, land and status."
+    },
+    {
+      "path": "src/qqdepot/backends/github.py",
+      "what": "Thin wrappers over the gh command line for the GitHub backend."
+    },
+    {
+      "path": "src/qqdepot/gate.py",
+      "what": "Runs quirq-ai/gate's qqgate at a pinned commit to get required checks and verdicts."
+    }
+  ],
+  "try_it": {
+    "commands": [
+      "python -m pip install -e \".[test]\"",
+      "python -m pytest -q"
+    ],
+    "source": "README.md"
+  },
+  "status": [
+    {
+      "text": "The v0 items for version pinning, qq fetch and qq sync, qq build and qq test, and qq upload, try, land and status are all marked merged.",
+      "source": "README.md"
+    },
+    {
+      "text": "Presubmit shows try and land end to end with a fake gh, and runs qq status read-only through the real gh.",
+      "source": "README.md"
+    },
+    {
+      "text": "Presubmit's parity job builds xo-space and innernet with sync's fixture manifests rather than the manifests those repos carry.",
+      "source": ".github/workflows/presubmit.yml"
+    },
+    {
+      "text": "The watcher polls the backend every 30 seconds by default and gives up after 3 hours; replacing polling with events is an open TODO.",
+      "source": "src/qqdepot/watch.py"
+    }
+  ],
+  "readme_url": "https://github.com/quirq-ai/depot/blob/741967cc7fba1e486a65856b05c4abb2b1486b8b/README.md"
+}
