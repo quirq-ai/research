@@ -1,0 +1,20 @@
+<section id="flows" style="display:flex;flex-direction:column;gap:36px;width:1920px;height:1080px;padding:128px;box-sizing:border-box;background:#100f14;color:#f3ece4;font-family:'Inter'">
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div style="font-family:'JetBrains Mono';font-size:24px;color:#f2a2d5">HOW THEY INTERACT</div>
+    <div style="font-family:'Poppins';font-size:64px;font-weight:600;line-height:1.1">Every link is a pinned commit, never copied code</div>
+  </div>
+  <table style="border-collapse:collapse;width:100%;font-size:24px;line-height:1.3">
+    <tr style="background:#231e2a;color:#f3ece4;text-align:left"><th style="padding:10px 16px;width:300px">From</th><th style="padding:10px 16px;width:440px">To</th><th style="padding:10px 16px">What flows</th></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">infra-config</td><td style="padding:6px 16px">gate, gardener, release, installer, rollers</td><td style="padding:6px 16px">Policy via qqcfg at each tool's pin (pins.toml; rollers: infra-config.commit)</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">infra-config</td><td style="padding:6px 16px">product repos</td><td style="padding:6px 16px">Generated qq-*.yml workflows, written by qqcfg deliver into a PR</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">sync</td><td style="padding:6px 16px">depot, recipes, gate, rollers, release, perf</td><td style="padding:6px 16px">The manifest, read only through qqsync</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">toolchains</td><td style="padding:6px 16px">rollers, then product repos</td><td style="padding:6px 16px">promoted.toml digests, turned into pin-roll PRs</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">depot</td><td style="padding:6px 16px">recipes; gate</td><td style="padding:6px 16px">qq build and test run through recipes; qq land and status run the pinned qqgate</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">recipes</td><td style="padding:6px 16px">release, perf; remote-build</td><td style="padding:6px 16px">Canary and perf builds run through recipes; remote-build runs its actions (not yet called)</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">gate</td><td style="padding:6px 16px">product repos</td><td style="padding:6px 16px">Required checks and rulesets (repo rulesets applied at gate 6610664)</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">product CI, perf</td><td style="padding:6px 16px">test-pipelines</td><td style="padding:6px 16px">JUnit through the sink; perf result bundles; the scorecard</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">test-pipelines</td><td style="padding:6px 16px">gardener</td><td style="padding:6px 16px">Failing tests per run; gardener writes one failure record back per revert</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">gardener</td><td style="padding:6px 16px">release</td><td style="padding:6px 16px">What counts as a green post-submit (qqgarden), used to move lkgr</td></tr>
+    <tr><td style="padding:6px 16px;font-family:'JetBrains Mono'">release</td><td style="padding:6px 16px">installer, depot</td><td style="padding:6px 16px">channels.json for installs; the qq channel rollback subcommand</td></tr>
+  </table>
+</section>

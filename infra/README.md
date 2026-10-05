@@ -21,8 +21,10 @@ GitHub repos. Its parts live in 13 repos under
 (Next.js) and xo-space (Python), use it. Reading 13 READMEs is a slow way to
 learn how the parts connect, so this topic maps them in one interactive app,
 with a page for each repo. The same app carries the checklist for the qq
-alpha, where 10 to 15 people use qq for their real work and say what hurt. Purpose and research action live in
-[GOAL.md](GOAL.md).
+alpha, where 10 to 15 people use qq for their real work and say what hurt. Alongside the app,
+a one-pager, a slide deck and four reports cover qq's phases (v0, v1 and v2),
+the v0 status, and how to set up qq and build and run a repo with it. Purpose
+and research action live in [GOAL.md](GOAL.md).
 
 ## Research and findings so far
 
@@ -52,20 +54,51 @@ footer on 2026-10-05.
   open at most 10 revert PRs in any 24 hours, lands none on its own (its auto-land list
   is empty), and opens none until its GitHub App exists.** Source:
   [gardener](https://github.com/quirq-ai/gardener/tree/bf7d24d0fd81ec02c51051e63f46971455b596f2). Verified: 2026-10-05.
-- **release and installer are built, and lkgr already advances for both
-  product repos, but no channel has shipped yet: release's state branch holds
-  lkgr pointers and no canary record.** Source:
-  [release-state branch at f89a944](https://github.com/quirq-ai/release/tree/f89a9449fc512c05a0b91a11551d9ade0dfc7aa1). Verified:
-  2026-10-05.
+- **release and installer are built, lkgr advances for both product repos,
+  and the first canary shipped both repos on 2026-10-05, but the unattended
+  7-day streak hasn't started yet: day 1 shipped but was started by hand.
+  GitHub never fired the 06:17 UTC slot, and lkgr, scheduled every 10 minutes, ran only 4 times between 17:48 and 02:25 UTC and not again before 07:00 UTC; the pointers moved in release's state branch, but
+  no `channels/canary` git ref was written in the product repos (no release
+  executor identity). Since 2026-10-05 a daily backstop is live: a routine at 07:37 UTC dispatches lkgr and then the canary watchdog. Its first run was green: lkgr run 37278808086, then watchdog run 37279000484, which reported "today's canary ran for every repo".** Source:
+  [release-state branch at d08a2fd](https://github.com/quirq-ai/release/tree/d08a2fd01799d362da2d956e5122053f75cf8e23),
+  [canary report](https://github.com/quirq-ai/release/blob/d08a2fd01799d362da2d956e5122053f75cf8e23/reports/2026-10-05.md). Verified: 2026-10-05.
 
 Every link on the map is backed by a pin or README line in the repo it
 starts from. On each repo page, every "How it works", key file, "Try it" and
 status item links the file it comes from at a recorded commit; the page
 summary, badges and link list rest on the same READMEs and pins.
 
+- **gate's settings run has happened: suraj ran `scripts/apply.sh` at gate
+  `6610664`, which applied the repo rulesets (merge queue, required checks,
+  squash merges); organization rulesets are all off because quirq-ai is on
+  GitHub Free.** Source:
+  [gate README](https://github.com/quirq-ai/gate/blob/c3721365186a35c4b2b5acdc0635e281e754ac13/README.md).
+  Verified: 2026-10-05.
+- **suraj is named owner of the org and all 13 infra repos, and every infra
+  repo's CODEOWNERS names him on its policy and trust paths; the other config
+  areas and the product repos still have empty owners lists.** Source:
+  [infra-config `config/org.toml`](https://github.com/quirq-ai/infra-config/blob/310e3264f5de3cd9822b3a4712ae0a372b97dac3/config/org.toml),
+  [`config/repos.toml`](https://github.com/quirq-ai/infra-config/blob/310e3264f5de3cd9822b3a4712ae0a372b97dac3/config/repos.toml).
+  Verified: 2026-10-05.
+- **qq is planned in three versions: v0 (51 items, a thin first version of
+  every repo on GitHub), v1 (45 items, unattended canary, dev channel,
+  fuzzing) and v2 (25 items, Launchpad, remote execution, stable). v0's code
+  is merged in all 13 repos except GAT-03 (waits on owners), CFG-05 (partial)
+  and suraj's items (CFG-04, ORG-02, ORG-04); none of its live exit tests has
+  passed yet (the unattended 7-day canary streak hasn't started yet; day 1 shipped but
+  was started by hand); v1 and v2 have not
+  started.** Source: the v0 plan, infra-config
+  [`docs/v0.md`](https://github.com/quirq-ai/infra-config/blob/310e3264f5de3cd9822b3a4712ae0a372b97dac3/docs/v0.md); the v1 and v2 plans
+  (quirq internal planning docs, not public); and the repos; see
+  [the phases report](output/report/2026-10-05-qq-phases.md). Verified:
+  2026-10-05.
+
 ### Open questions
 
-- None recorded yet.
+- Which repos the applied rulesets cover, and whether "Allow auto-merge" is on
+  where gate's settings declare it. Live GitHub settings could not be read.
+- Whether the canary runs on its timer for 7 days in a row with no human
+  touch; day 1 was started by hand after GitHub never fired the 06:17 UTC slot.
 
 ## Status and progress
 
@@ -80,3 +113,16 @@ summary, badges and link list rest on the same READMEs and pins.
 | Format | File | Date | Notes |
 |---|---|---|---|
 | app | [output/app/infra-map/](output/app/infra-map/) | 2026-10-05 | Interactive map of the 13 repos, a page per repo, a step-by-step walk of one change, and the alpha checklist. |
+| onepager | [output/onepager/2026-10-05-qq-v0-overview.md](output/onepager/2026-10-05-qq-v0-overview.md) | 2026-10-05 | qq v0 in one page: what qq is, the phases, what is live, what is left, limits. |
+| report | [output/report/2026-10-05-qq-phases.md](output/report/2026-10-05-qq-phases.md) | 2026-10-05 | The phases v0, v1 and v2: goal, contents, exit test and status; v1 and v2 marked as plans. |
+| report | [output/report/2026-10-05-qq-v0-status.md](output/report/2026-10-05-qq-v0-status.md) | 2026-10-05 | The v0 one-pager in full, refreshed: per-repo status, how a developer uses qq, policies, owners, limits, what's next. |
+| report | [output/report/2026-10-05-qq-setup-depot-sync.md](output/report/2026-10-05-qq-setup-depot-sync.md) | 2026-10-05 | Guide: install depot (`qq`) and sync (`qqsync`) and use them; commands from the 2026-10-04 guide. |
+| report | [output/report/2026-10-05-qq-build-run-locally.md](output/report/2026-10-05-qq-build-run-locally.md) | 2026-10-05 | Guide: build, test and run xo-space, innernet or any repo locally with qq; commands from the 2026-10-04 guide. |
+| slide | [output/slide/2026-10-05-qq-v0-how-to-use.pdf](output/slide/2026-10-05-qq-v0-how-to-use.pdf) | 2026-10-05 | 32-slide deck "quirq infra v0: how to use it", status refreshed, with a sources slide. |
+| slide | [output/slide/2026-10-05-qq-v0-how-to-use/](output/slide/2026-10-05-qq-v0-how-to-use/) | 2026-10-05 | The deck's source: `deck.json`, one HTML file per slide, `gen/gen.py` (phase and repo slides) and `gen/render.js` (overflow check and PDF). |
+
+The hub site (`npm run build`) publishes only the app for this topic (see
+`package.json`); the onepager, reports and slides are read on GitHub. To
+rebuild the deck PDF: `python3 gen/gen.py`, then
+`node gen/render.js . pdf ../2026-10-05-qq-v0-how-to-use.pdf` in the deck
+folder, with Playwright installed.

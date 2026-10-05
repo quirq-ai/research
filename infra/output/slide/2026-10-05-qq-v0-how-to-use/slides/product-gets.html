@@ -1,0 +1,20 @@
+<section id="product-gets" style="display:flex;flex-direction:column;gap:36px;width:1920px;height:1080px;padding:128px;box-sizing:border-box;background:#100f14;color:#f3ece4;font-family:'Inter'">
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div style="font-family:'JetBrains Mono';font-size:24px;color:#f2a2d5">WHAT A PRODUCT REPO GETS</div>
+    <div style="font-family:'Poppins';font-size:64px;font-weight:600;line-height:1.1">Write one manifest; the rest is generated</div>
+  </div>
+  <table style="border-collapse:collapse;width:100%;font-size:24px;line-height:1.3">
+    <tr style="background:#231e2a;color:#f3ece4;text-align:left"><th style="padding:10px 16px">What</th><th style="padding:10px 16px;width:620px">Lands as</th><th style="padding:10px 16px;width:330px">Live today</th></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px">Manifest: qq version, toolchain pins by digest, targets</td><td style="padding:6px 16px;font-family:'JetBrains Mono'">infra/repo.toml</td><td style="padding:6px 16px">both repos</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px">Presubmit builder, the required check</td><td style="padding:6px 16px;font-family:'JetBrains Mono'">qq-&lt;repo&gt;-presubmit.yml</td><td style="padding:6px 16px">both repos</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px">Post-submit builder on every main push</td><td style="padding:6px 16px;font-family:'JetBrains Mono'">qq-&lt;repo&gt;-postsubmit.yml</td><td style="padding:6px 16px">both repos</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px">Drift check against infra-config</td><td style="padding:6px 16px">a step in each qq-*.yml; org qq-drift</td><td style="padding:6px 16px">step yes; org rule off (Free plan)</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px">Merge queue, required checks, squash only</td><td style="padding:6px 16px">the qq-main ruleset (gate)</td><td style="padding:6px 16px">applied (gate 6610664)</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px">Every test result stored</td><td style="padding:6px 16px">a sink step in each builder</td><td style="padding:6px 16px">yes</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px">Tree status, culprits, revert PRs</td><td style="padding:6px 16px">gardener's tree-status branch</td><td style="padding:6px 16px">status yes; reverts need the gardener App</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px">Dependabot + land check; toolchain rolls</td><td style="padding:6px 16px">dependabot.yml, qq-roll-land.yml</td><td style="padding:6px 16px">yes, auto-land off</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px">Build size and benchmark per commit</td><td style="padding:6px 16px">perf's perf-data branch</td><td style="padding:6px 16px">yes</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px">lkgr, daily canary, channels/canary</td><td style="padding:6px 16px">release-state record; refs later</td><td style="padding:6px 16px">lkgr yes; canary ran once, by hand</td></tr>
+    <tr><td style="padding:6px 16px">Test installs follow canary</td><td style="padding:6px 16px">qqinstall checkout and verify</td><td style="padding:6px 16px;color:#eac17a">canary to resolve; no test machines yet</td></tr>
+  </table>
+</section>

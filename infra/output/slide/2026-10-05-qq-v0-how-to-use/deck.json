@@ -1,0 +1,92 @@
+{
+  "v": 4,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-04T21:20:00Z"
+  },
+  "lists": "css",
+  "title": "quirq infra v0: how to use it",
+  "order": [
+    "cover",
+    "minute",
+    "phase-v0",
+    "phase-v1",
+    "phase-v2",
+    "repos",
+    "repo-infra-config",
+    "repo-depot",
+    "repo-sync",
+    "repo-recipes",
+    "repo-toolchains",
+    "repo-remote-build",
+    "repo-test-pipelines",
+    "repo-gate",
+    "repo-gardener",
+    "repo-rollers",
+    "repo-release",
+    "repo-installer",
+    "repo-perf",
+    "diagram",
+    "flows",
+    "journey-local",
+    "journey-land",
+    "product-gets",
+    "policies",
+    "policy-flow",
+    "naming",
+    "owners",
+    "add-repo",
+    "limits",
+    "next",
+    "sources"
+  ],
+  "sections": {
+    "intro": {
+      "description": "What qq is",
+      "start": "cover"
+    },
+    "phases": {
+      "description": "Phases v0, v1, v2",
+      "start": "phase-v0"
+    },
+    "components": {
+      "description": "The 13 repos",
+      "start": "repos"
+    },
+    "interact": {
+      "description": "How they interact",
+      "start": "diagram"
+    },
+    "use": {
+      "description": "How to use it",
+      "start": "journey-local"
+    },
+    "configure": {
+      "description": "Policies, naming and owners",
+      "start": "policies"
+    },
+    "status": {
+      "description": "Limits and what's next",
+      "start": "limits"
+    },
+    "sources": {
+      "description": "Sources",
+      "start": "sources"
+    }
+  },
+  "faces": {
+    "sans": {
+      "family": "Inter",
+      "href": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    },
+    "brand": {
+      "family": "Poppins",
+      "href": "https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap"
+    },
+    "mono": {
+      "family": "JetBrains Mono",
+      "href": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap"
+    }
+  },
+  "designSystems": []
+}

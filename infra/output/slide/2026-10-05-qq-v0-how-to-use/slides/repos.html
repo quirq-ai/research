@@ -1,0 +1,22 @@
+<section id="repos" style="display:flex;flex-direction:column;gap:36px;width:1920px;height:1080px;padding:128px;box-sizing:border-box;background:#100f14;color:#f3ece4;font-family:'Inter'">
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div style="font-family:'JetBrains Mono';font-size:24px;color:#f2a2d5">COMPONENTS</div>
+    <div style="font-family:'Poppins';font-size:64px;font-weight:600;line-height:1.1">13 infra repos, each one job</div>
+  </div>
+  <table style="border-collapse:collapse;width:100%;font-size:24px;line-height:1.3">
+    <tr style="background:#231e2a;color:#f3ece4;text-align:left"><th style="padding:10px 16px;width:260px">Repo</th><th style="padding:10px 16px">What it does</th><th style="padding:10px 16px;width:420px">Chromium part</th></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">infra-config</td><td style="padding:6px 16px">All policy as TOML; qqcfg validates, generates, delivers</td><td style="padding:6px 16px;color:#b1a2b4">infra/config + lucicfg</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">depot</td><td style="padding:6px 16px">The qq CLI: sync, build, test, upload, try, land, status</td><td style="padding:6px 16px;color:#b1a2b4">depot_tools</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">sync</td><td style="padding:6px 16px">Manifest schema quirq-repo/1 and its only parser, qqsync</td><td style="padding:6px 16px;color:#b1a2b4">gclient / DEPS</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">recipes</td><td style="padding:6px 16px">One adapter per target kind (python-service, pytest, node-app)</td><td style="padding:6px 16px;color:#b1a2b4">recipes</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">toolchains</td><td style="padding:6px 16px">Builds CPython 3.14, Node 24 + pnpm; publishes to ghcr by digest</td><td style="padding:6px 16px;color:#b1a2b4">CIPD / 3pp</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">remote-build</td><td style="padding:6px 16px">Executor interface (local, github) and an action cache</td><td style="padding:6px 16px;color:#b1a2b4">RBE / REAPI</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">test-pipelines</td><td style="padding:6px 16px">JUnit sink, write-once results, verdicts, failure records</td><td style="padding:6px 16px;color:#b1a2b4">ResultDB, LUCI Analysis</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">gate</td><td style="padding:6px 16px">Required checks from config; rulesets and merge queue as code</td><td style="padding:6px 16px;color:#b1a2b4">LUCI CV</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">gardener</td><td style="padding:6px 16px">Tree status, failure grouping, bisection, capped auto-revert</td><td style="padding:6px 16px;color:#b1a2b4">Sheriff-o-Matic, Bisection</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">rollers</td><td style="padding:6px 16px">Dependabot config + land check; toolchain pin roller</td><td style="padding:6px 16px;color:#b1a2b4">AutoRoll</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">release</td><td style="padding:6px 16px">lkgr, channel pointers, rollback, daily canary</td><td style="padding:6px 16px;color:#b1a2b4">lkgr finder, promote.py</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">installer</td><td style="padding:6px 16px">Clients follow a channel instead of main</td><td style="padding:6px 16px;color:#b1a2b4">Omaha</td></tr>
+    <tr><td style="padding:6px 16px;font-family:'JetBrains Mono'">perf</td><td style="padding:6px 16px">Build size and benchmarks per commit, a record never a gate</td><td style="padding:6px 16px;color:#b1a2b4">perf dashboard</td></tr>
+  </table>
+</section>

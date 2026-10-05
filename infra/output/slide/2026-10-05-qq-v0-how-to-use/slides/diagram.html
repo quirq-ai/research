@@ -1,0 +1,73 @@
+<section id="diagram" style="display:flex;flex-direction:column;gap:32px;width:1920px;height:1080px;padding:128px;box-sizing:border-box;background:#100f14;color:#f3ece4;font-family:'Inter'">
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div style="font-family:'JetBrains Mono';font-size:24px;color:#f2a2d5">HOW THEY INTERACT</div>
+    <div style="font-family:'Poppins';font-size:64px;font-weight:600;line-height:1.1">Policy flows down, results flow back</div>
+  </div>
+  <svg width="1664" height="680" viewBox="0 0 1664 680" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#f3ece4"/></marker>
+    </defs>
+    <g fill="none" stroke="#b1a2b4" stroke-width="2.5">
+      <path d="M832 64 V120 M410 120 H1510"/>
+      <path d="M410 120 V178" marker-end="url(#ah)"/>
+      <path d="M650 120 V178" marker-end="url(#ah)"/>
+      <path d="M1010 120 V178" marker-end="url(#ah)"/>
+      <path d="M1250 120 V178" marker-end="url(#ah)"/>
+      <path d="M1510 120 V178" marker-end="url(#ah)"/>
+      <path d="M832 120 V358" stroke="#f2a2d5" marker-end="url(#ah)"/>
+      <path d="M410 244 V358" marker-end="url(#ah)"/>
+      <path d="M1510 244 V410 H1362" marker-end="url(#ah)"/>
+      <path d="M1580 64 V178" marker-end="url(#ah)"/>
+      <path d="M150 64 V178" marker-end="url(#ah)"/>
+      <path d="M150 244 V358" marker-end="url(#ah)"/>
+      <path d="M150 424 V578" marker-end="url(#ah)"/>
+      <path d="M260 212 H280 V400 H298" marker-end="url(#ah)"/>
+      <path d="M630 460 V578" marker-end="url(#ah)"/>
+      <path d="M1110 460 V578" marker-end="url(#ah)"/>
+      <path d="M760 212 H898" stroke-dasharray="8 6" marker-end="url(#ah)"/>
+    </g>
+    <g stroke-width="2">
+      <rect x="672" y="0" width="320" height="64" rx="10" fill="#f2a2d5" stroke="#f2a2d5"/>
+      <rect x="40" y="0" width="240" height="64" rx="10" fill="#19161e" stroke="#b1a2b4"/>
+      <rect x="1384" y="0" width="240" height="64" rx="10" fill="#19161e" stroke="#b1a2b4"/>
+      <rect x="40" y="180" width="220" height="64" rx="10" fill="#19161e" stroke="#b1a2b4"/>
+      <rect x="300" y="180" width="220" height="64" rx="10" fill="#19161e" stroke="#b1a2b4"/>
+      <rect x="540" y="180" width="220" height="64" rx="10" fill="#19161e" stroke="#b1a2b4"/>
+      <rect x="900" y="180" width="220" height="64" rx="10" fill="#19161e" stroke="#b1a2b4"/>
+      <rect x="1140" y="180" width="220" height="64" rx="10" fill="#19161e" stroke="#b1a2b4"/>
+      <rect x="1400" y="180" width="220" height="64" rx="10" fill="#19161e" stroke="#b1a2b4"/>
+      <rect x="40" y="360" width="220" height="64" rx="10" fill="#19161e" stroke="#b1a2b4"/>
+      <rect x="300" y="360" width="1060" height="100" rx="12" fill="#2a1d27" stroke="#f2a2d5"/>
+      <rect x="40" y="580" width="220" height="64" rx="10" fill="#19161e" stroke="#b1a2b4"/>
+      <rect x="480" y="580" width="300" height="64" rx="10" fill="#19161e" stroke="#b1a2b4"/>
+      <rect x="1000" y="580" width="220" height="64" rx="10" fill="#19161e" stroke="#b1a2b4"/>
+    </g>
+    <g font-family="JetBrains Mono" font-size="26" text-anchor="middle" fill="#f3ece4">
+      <text x="832" y="41" fill="#19161e" font-weight="600">infra-config</text>
+      <text x="160" y="41">sync</text>
+      <text x="1504" y="41">toolchains</text>
+      <text x="150" y="221">depot</text>
+      <text x="410" y="221">gate</text>
+      <text x="650" y="221">gardener</text>
+      <text x="1010" y="221">release</text>
+      <text x="1250" y="221">installer</text>
+      <text x="1510" y="221">rollers</text>
+      <text x="150" y="401">recipes</text>
+      <text x="830" y="440" font-size="32" font-weight="600">xo-space · innernet</text>
+      <text x="150" y="621">remote-build</text>
+      <text x="630" y="621">test-pipelines</text>
+      <text x="1110" y="621">perf</text>
+    </g>
+    <g font-family="Inter" font-size="24" fill="#b1a2b4">
+      <text x="850" y="106">policy, read at a pinned commit</text>
+      <text x="164" y="132">manifest</text>
+      <text x="316" y="392">product repos</text>
+      <text x="422" y="306">required checks</text>
+      <text x="876" y="306" fill="#f2a2d5">generated workflows</text>
+      <text x="1524" y="306">rolls</text>
+      <text x="644" y="530">test results</text>
+      <text x="1124" y="530">size, benchmarks</text>
+      <text x="0" y="674">Dashed: gardener tells release which main commits are green, and release moves lkgr. Full list on the next slide.</text>
+    </g>
+  </svg>
+</section>

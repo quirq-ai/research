@@ -17,13 +17,17 @@ joining quirq work, starting with the internal alpha of qq v0.
 3. What path does one change take, from a developer's machine to main and,
    later, to a release channel?
 4. What is live today, and what are the known limits?
+5. What are qq's phases (v0, v1, v2), and how far is v0 from its exit test?
+6. How does a developer set up qq and build and run a repo with it locally?
 
 ## Research action
 
 Read each repo at a recorded main commit: its README, pinned dependencies
 (pyproject.toml, pins.toml), source, workflows and live repository settings.
 Record each finding with the file it comes from, and present them as an
-interactive map with one page per repo.
+interactive map with one page per repo. For the phase plan, read the version
+plans and check each v0 exit test against the repos; publish the phases, the
+v0 status and the two guides as reports, a one-pager and a slide deck.
 
 ## Scope
 
@@ -36,12 +40,19 @@ interactive map with one page per repo.
 - The qq alpha checklist and before-alpha list, which suraj asked to live in
   this app. These two tabs are operational content for the alpha, not
   sourced research findings; their facts are still checked against the repos.
+- The qq phase plan (v0, v1 and v2): each phase's goal, contents and exit
+  test, and where v0 stands against its exit test. v1 and v2 are reported as
+  plans, cited from the version plans, not as findings (suraj, 2026-10-05).
+- The v0 one-pager and slide deck shared on 2026-10-04, refreshed to the
+  repos' current commits, and the two hands-on guides, "qq setup: depot and
+  sync only" and "Build and run any repo locally", kept with their commands
+  (suraj, 2026-10-05).
 
 **Out of scope:**
 
 - The product repos' own code.
-- Plans for later versions, except where a repo states what is not live yet
-  and the alpha tabs above.
+- Plans for later versions, except where a repo states what is not live yet,
+  the alpha tabs above and the phase plan above.
 
 ## Done when
 
@@ -54,9 +65,10 @@ interactive map with one page per repo.
 Tick only the formats the requester asked for. Agents publish into these
 folders and no others.
 
-- [ ] onepager: `output/onepager/`
-- [ ] slide: `output/slide/`
-- [ ] report: `output/report/`
+- [x] onepager: `output/onepager/`
+- [x] slide: `output/slide/`
+- [x] report: `output/report/`
 - [x] app: `output/app/`
 
-Requested by: suraj, on 2026-10-05.
+Requested by: suraj, on 2026-10-05 (app first; onepager, slide and report
+added the same day).
