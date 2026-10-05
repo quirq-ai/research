@@ -1,10 +1,10 @@
 # qq setup: depot and sync only
 
-Guide, 2026-10-05. Requested by suraj. This is the "qq setup: depot and sync
-only" Claude Doc of 2026-10-04, kept here as written. Its commands were
-re-run twice by an independent reviewer on 2026-10-04 and are copied byte for
-byte. Only the dated facts are refreshed: the commits, and a re-check that the
-Mac behaviour of `qq sync` has not changed.
+Guide, 2026-10-05. Requested by suraj. This is the 2026-10-04 "qq setup:
+depot and sync only" guide (quirq internal planning docs, not public), kept
+here as a guide (not re-verified against that doc in this repo). Only the dated
+facts are refreshed: the commits, and a re-check that the Mac behaviour of
+`qq sync` has not changed.
 
 ## What you get
 
@@ -141,7 +141,7 @@ the test with `qq`. It works on any machine: with no toolchain pinned, `qq`
 uses the `python3` on your `PATH`. The last line lists `tests.pytest.xml`.
 
 ```sh
-( set -e; mkdir -p ~/qq-try; cd ~/qq-try; rm -rf demo; mkdir -p demo/tests demo/infra; cd demo; git init -q
+( set -e; mkdir -p ~/qq-try; cd ~/qq-try; rm -rf demo; mkdir -p demo/tests demo/infra; cd ./demo; git init -q
   printf 'pytest\n' > requirements-dev.txt
   printf 'def test_ok():\n    assert 1 + 1 == 2\n' > tests/test_ok.py
   printf 'schema = "quirq-repo/1"\n\n[qq]\nversion = "0.1.0"\n\n[[targets]]\nname = "tests"\nkind = "pytest"\nsrcs = ["tests/**", "requirements-dev.txt"]\n' > infra/repo.toml
@@ -185,7 +185,7 @@ step, drop the `~/qq-tools/…/bin/` prefix).
 | `qqsync validate [FILE]` | check a manifest against `quirq-repo/1` | 0 PASS, 1 problems listed |
 | `qqsync show [FILE]` | the manifest as JSON (for scripts in any language) | 0 ok, 1 manifest unreadable or invalid |
 | `qqsync pins [--strict] [FILE]` | list every pin and digest | 0 ok, 1 manifest unreadable or invalid, or `--strict` found placeholders |
-| `qqsync pin SECTION NAME --digest …` | set one pin; untouched lines stay byte for byte | 0 ok, 1 bad manifest or bad pin |
+| `qqsync pin SECTION NAME --digest …` | set one pin; untouched lines are left exactly as they were | 0 ok, 1 bad manifest or bad pin |
 | `qqsync guard [DIR]` | fail if anything else parses the manifest | 0 PASS, 1 findings |
 
 Usage mistakes exit 2 for every command. After `qq test`, read
@@ -237,8 +237,8 @@ builds and runs xo-space, innernet and any other repo with these tools.
 
 ## Sources
 
-- "qq setup: depot and sync only", Claude Doc, 2026-10-04 (rev 11), whose
-  commands an independent reviewer ran twice on 2026-10-04.
+- "qq setup: depot and sync only", 2026-10-04: quirq internal planning docs
+  (not public).
 - [depot `741967c`](https://github.com/quirq-ai/depot/tree/741967cc7fba1e486a65856b05c4abb2b1486b8b): [README](https://github.com/quirq-ai/depot/blob/741967cc7fba1e486a65856b05c4abb2b1486b8b/README.md),
   [`pyproject.toml`](https://github.com/quirq-ai/depot/blob/741967cc7fba1e486a65856b05c4abb2b1486b8b/pyproject.toml),
   [`e2e-sync.yml`](https://github.com/quirq-ai/depot/blob/741967cc7fba1e486a65856b05c4abb2b1486b8b/.github/workflows/e2e-sync.yml).

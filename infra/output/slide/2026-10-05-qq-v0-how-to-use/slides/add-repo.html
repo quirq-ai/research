@@ -1,20 +1,21 @@
-<section id="add-repo" style="display:flex;flex-direction:column;gap:32px;width:1920px;height:1080px;padding:128px;box-sizing:border-box;background:#100f14;color:#f3ece4;font-family:'Inter'">
+<section id="add-repo" style="display:flex;flex-direction:column;gap:24px;width:1920px;height:1080px;padding:128px;box-sizing:border-box;background:#100f14;color:#f3ece4;font-family:'Inter'">
   <div style="display:flex;flex-direction:column;gap:16px">
     <div style="font-family:'JetBrains Mono';font-size:24px;color:#f2a2d5">ADDING A NEW REPO</div>
     <div style="font-family:'Poppins';font-size:60px;font-weight:600;line-height:1.1">Two PRs and a settings run; no tool code changes</div>
   </div>
   <div style="font-size:26px;color:#d0c3cc;line-height:1.4">The repo must be public in quirq-ai, named by the conventions, and use a known kind: python-service, pytest or node-app.</div>
   <table style="border-collapse:collapse;width:100%;font-size:24px;line-height:1.3">
-    <tr style="background:#231e2a;color:#f3ece4;text-align:left"><th style="padding:10px 16px;width:500px">Where</th><th style="padding:10px 16px">Change</th><th style="padding:10px 16px;width:260px">Approves</th></tr>
+    <tr style="background:#231e2a;color:#f3ece4;text-align:left"><th style="padding:10px 16px;width:500px">Where</th><th style="padding:10px 16px">Change</th><th style="padding:10px 16px;width:260px">Reviews</th></tr>
     <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">infra-config repos.toml</td><td style="padding:6px 16px">one [[repo]] block: source, kinds, manifest, channels, owners</td><td style="padding:6px 16px">suraj</td></tr>
     <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">infra-config pipelines.toml</td><td style="padding:6px 16px">presubmit and post-submit mirror; a canary builder if it ships canary (validate requires them)</td><td style="padding:6px 16px">suraj</td></tr>
     <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">the new repo</td><td style="padding:6px 16px">infra/repo.toml, workflows from qqcfg deliver, Dependabot files</td><td style="padding:6px 16px">repo owner</td></tr>
     <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">gate settings/github.toml</td><td style="padding:6px 16px">a [[repo]] entry, then the apply one-liner (org rulesets are off on GitHub Free)</td><td style="padding:6px 16px">suraj</td></tr>
-    <tr><td style="padding:6px 16px">GitHub</td><td style="padding:6px 16px">add to the gardener and rollers App installs; Dependabot and auto-merge on</td><td style="padding:6px 16px">suraj (admin)</td></tr>
+    <tr><td style="padding:6px 16px">GitHub</td><td style="padding:6px 16px">add to the rollers App install (gardener App once it exists); Dependabot on; auto-merge per gate settings</td><td style="padding:6px 16px">suraj (admin)</td></tr>
   </table>
   <div style="display:flex;gap:32px;font-size:24px;line-height:1.4">
     <div style="flex:1;background:#19161e;border-radius:12px;padding:24px 28px"><span style="font-weight:600">Follows by itself</span> once tools bump their pin: required checks, tree status, channels.</div>
     <div style="flex:1;background:#19161e;border-radius:12px;padding:24px 28px"><span style="font-weight:600">Still a hand edit:</span> the test-pipelines scorecard and perf matrix list repos by name.</div>
     <div style="flex:1;background:#19161e;border-radius:12px;padding:24px 28px"><span style="font-weight:600">New language:</span> a kind in kinds.toml, one recipes adapter, one toolchains build.</div>
+    <div style="flex:1;background:#19161e;border-radius:12px;padding:24px 28px"><span style="font-weight:600">Reviews are advisory today:</span> qq-main requires 0 approvals; code-owner review is enforced only on toolchains.</div>
   </div>
 </section>

@@ -7,13 +7,13 @@
     <div style="display:flex;flex-direction:column;gap:28px;flex:1;font-size:30px;line-height:1.4">
       <div><span style="font-weight:600">Modelled on Chromium.</span> infra-config declares every repo, builder, gate rule and channel as TOML. The tools that apply policy read it at a pinned commit.</div>
       <div><span style="font-weight:600">Repo-agnostic.</span> Core tools never name a language or product; a product repo writes one manifest and gets the rest generated.</div>
-      <div><span style="font-weight:600">Agents first.</span> Agents may land clean reverts, dependency rolls and docs alone. Policy changes and stable promotion need suraj.</div>
+      <div><span style="font-weight:600">Agents first.</span> Policy allows agents to land clean reverts, dependency rolls and docs alone. In v0 none of these land on their own (auto_land_repos is empty and roll auto-land is off). Canary promotion is the one thing agents do alone today.</div>
       <div><span style="font-weight:600">Public, GitHub-hosted.</span> 13 infra repos, all Apache-2.0, serving two product repos: xo-space and innernet.</div>
     </div>
     <div style="display:flex;flex-direction:column;gap:20px;width:640px;background:#19161e;border:2px solid #39303f;border-radius:16px;padding:40px;box-sizing:border-box;font-size:26px;line-height:1.4">
       <div style="font-family:'JetBrains Mono';font-size:24px;color:#b1a2b4">STATUS · 2026-10-05</div>
-      <div><span style="font-weight:600">Built and audited.</span> v0 code merged in all 13 repos; repo rulesets applied (gate 6610664); suraj named owner of the org and every infra repo.</div>
-      <div><span style="font-weight:600">Live:</span> generated CI on both repos, daily qq sync, lkgr at both mains, perf records, tree status open.</div>
+      <div><span style="font-weight:600">Built.</span> v0 code merged in all 13 repos except GAT-03 (waits on owners), CFG-05 (partial) and suraj&#39;s items (CFG-04, ORG-02, ORG-04); repo rulesets applied (gate 6610664); suraj named owner of the org and every infra repo.</div>
+      <div><span style="font-weight:600">Live:</span> generated CI on both repos, lkgr at both mains, perf records, tree status open; canary day 1 of 7 shipped (started by hand).</div>
       <div><span style="font-weight:600;color:#eac17a">Not yet proven:</span> a red PR refused, 7 unattended canaries, an automatic revert.</div>
     </div>
   </div>

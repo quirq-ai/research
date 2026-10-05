@@ -5,13 +5,13 @@
   </div>
   <div style="display:flex;gap:20px;font-size:26px;line-height:1.35">
     <div style="display:flex;flex-direction:column;gap:10px;flex:1;background:#19161e;border-top:6px solid #f2a2d5;padding:24px;border-radius:0 0 12px 12px"><div style="font-family:'JetBrains Mono';font-size:24px;color:#f2a2d5">1 · EDIT</div><div>Change config/&lt;area&gt;.toml in a PR. CI runs qqcfg validate: schemas, references, invariants, generated/ up to date.</div></div>
-    <div style="display:flex;flex-direction:column;gap:10px;flex:1;background:#19161e;border-top:6px solid #f2a2d5;padding:24px;border-radius:0 0 12px 12px"><div style="font-family:'JetBrains Mono';font-size:24px;color:#f2a2d5">2 · APPROVE</div><div>CODEOWNERS names suraj on every policy path. Squash-merge.</div></div>
+    <div style="display:flex;flex-direction:column;gap:10px;flex:1;background:#19161e;border-top:6px solid #f2a2d5;padding:24px;border-radius:0 0 12px 12px"><div style="font-family:'JetBrains Mono';font-size:24px;color:#f2a2d5">2 · REVIEW</div><div>CODEOWNERS requests suraj&#39;s review on every policy path; advisory today (0 approvals required; GAT-03 not started). Squash-merge.</div></div>
     <div style="display:flex;flex-direction:column;gap:10px;flex:1;background:#19161e;border-top:6px solid #f2a2d5;padding:24px;border-radius:0 0 12px 12px"><div style="font-family:'JetBrains Mono';font-size:24px;color:#f2a2d5">3 · DELIVER</div><div>qqcfg deliver &lt;repo&gt; &lt;checkout&gt; writes the workflows into a product-repo checkout, opened as a PR; drift checks fail hand edits.</div></div>
     <div style="display:flex;flex-direction:column;gap:10px;flex:1;background:#19161e;border-top:6px solid #f2a2d5;padding:24px;border-radius:0 0 12px 12px"><div style="font-family:'JetBrains Mono';font-size:24px;color:#f2a2d5">4 · PIN BUMP</div><div>Each tool sees the change only after its own infra-config pin is bumped.</div></div>
   </div>
   <div style="display:flex;flex-direction:column;gap:16px">
     <div style="font-size:30px;font-weight:600">Repo settings are code too: edit gate's settings/github.toml, merge, then an org owner runs one command</div>
     <div style="background:#231e2a;color:#f3ece4;font-family:'JetBrains Mono';font-size:24px;line-height:1.5;padding:28px 32px;border-radius:12px">( mkdir -p ~/qq-apply &amp;&amp; cd ~/qq-apply &amp;&amp; rm -rf qq-gate &amp;&amp; git clone -q https://github.com/quirq-ai/gate qq-gate &amp;&amp; cd ./qq-gate &amp;&amp; git checkout -q &lt;COMMIT&gt; &amp;&amp; scripts/apply.sh )</div>
-    <div style="font-size:26px;color:#d0c3cc">It shows a dry run, writes only what you approve at its prompts, and is safe to re-run. Use the gate commit you are given; details in gate's docs/apply-settings.md.</div>
+    <div style="font-size:26px;color:#d0c3cc">It shows a dry run, writes only what you approve at its prompts, and is safe to re-run. Replace &lt;COMMIT&gt; with the gate commit you are given; details in gate's docs/apply-settings.md.</div>
   </div>
 </section>

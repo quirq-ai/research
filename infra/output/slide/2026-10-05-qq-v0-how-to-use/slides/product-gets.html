@@ -11,10 +11,10 @@
     <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px">Drift check against infra-config</td><td style="padding:6px 16px">a step in each qq-*.yml; org qq-drift</td><td style="padding:6px 16px">step yes; org rule off (Free plan)</td></tr>
     <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px">Merge queue, required checks, squash only</td><td style="padding:6px 16px">the qq-main ruleset (gate)</td><td style="padding:6px 16px">applied (gate 6610664)</td></tr>
     <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px">Every test result stored</td><td style="padding:6px 16px">a sink step in each builder</td><td style="padding:6px 16px">yes</td></tr>
-    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px">Tree status, culprits, revert PRs</td><td style="padding:6px 16px">gardener's tree-status branch</td><td style="padding:6px 16px">status yes; reverts later</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px">Tree status, culprits, revert PRs</td><td style="padding:6px 16px">gardener's tree-status branch</td><td style="padding:6px 16px">status yes; reverts need the gardener App</td></tr>
     <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px">Dependabot + land check; toolchain rolls</td><td style="padding:6px 16px">dependabot.yml, qq-roll-land.yml</td><td style="padding:6px 16px">yes, auto-land off</td></tr>
     <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px">Build size and benchmark per commit</td><td style="padding:6px 16px">perf's perf-data branch</td><td style="padding:6px 16px">yes</td></tr>
-    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px">lkgr, daily canary, channels/canary</td><td style="padding:6px 16px">release-state record; refs later</td><td style="padding:6px 16px">lkgr yes; canary not yet recorded</td></tr>
-    <tr><td style="padding:6px 16px">Test installs follow canary</td><td style="padding:6px 16px">qqinstall checkout and verify</td><td style="padding:6px 16px;color:#eac17a">after first canary</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px">lkgr, daily canary, channels/canary</td><td style="padding:6px 16px">release-state record; refs later</td><td style="padding:6px 16px">lkgr yes; canary day 1 of 7</td></tr>
+    <tr><td style="padding:6px 16px">Test installs follow canary</td><td style="padding:6px 16px">qqinstall checkout and verify</td><td style="padding:6px 16px;color:#eac17a">canary to resolve; no test machines yet</td></tr>
   </table>
 </section>

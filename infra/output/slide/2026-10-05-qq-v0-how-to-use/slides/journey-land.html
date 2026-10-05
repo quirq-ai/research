@@ -11,11 +11,11 @@
       <div><span style="font-weight:600">After it lands</span>, the post-submit builder runs on every main commit and gardener checks the tree every 5 minutes, proposing a revert if main goes red.</div>
     </div>
     <div style="display:flex;flex-direction:column;gap:22px;flex:1;font-size:26px;line-height:1.4">
-      <div><span style="font-weight:600">Dependencies</span> move by Dependabot PRs, checked by qq-roll-land, and toolchain roll PRs from quirqer. A person merges every roll in v0.</div>
+      <div><span style="font-weight:600">Dependencies</span> move by Dependabot PRs, checked by qq-roll-land, and toolchain roll PRs from quirqer (the App exists; none needed yet). A person merges every roll in v0.</div>
       <div><span style="font-weight:600">Ship.</span> release moves lkgr to the newest all-green main commit; the daily canary at 06:17 UTC builds, tests, deploys and probes it before moving channels/canary.</div>
-      <div><span style="font-family:'JetBrains Mono';font-weight:600;color:#f2a2d5">qqinstall resolve --repo xo-space --channel canary</span> gives the commit and digest to install; exit 3 until the first canary ships.</div>
+      <div><span style="font-family:'JetBrains Mono';font-weight:600;color:#f2a2d5">qqinstall resolve --repo xo-space --channel canary</span> gives the commit and digest to install; both repos now have a canary to resolve.</div>
       <div><span style="font-weight:600">Measure.</span> perf records build size and a benchmark per main commit.</div>
     </div>
   </div>
-  <div style="background:#231e2a;border-left:6px solid #eac17a;padding:20px 28px;font-size:26px;line-height:1.4">Today: gate&#39;s repo rulesets (merge queue, required checks) were applied at gate 6610664. Reverts and git refs for lkgr and channels wait on bots that come after v0; the first canary was scheduled for 2026-10-05 06:17 UTC.</div>
+  <div style="background:#231e2a;border-left:6px solid #eac17a;padding:20px 28px;font-size:26px;line-height:1.4">Today: gate&#39;s repo rulesets (merge queue, required checks) were applied at gate 6610664. Canary day 1 of 7 shipped both repos at 06:59 UTC on 2026-10-05, started by hand after GitHub dropped the 06:17 schedule. Reverts wait on the gardener App (needed before exit test 4 can pass); product-repo git refs wait on the release executor.</div>
 </section>

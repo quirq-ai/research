@@ -1,21 +1,21 @@
-<section id="owners" style="display:flex;flex-direction:column;gap:40px;width:1920px;height:1080px;padding:128px;box-sizing:border-box;background:#100f14;color:#f3ece4;font-family:'Inter'">
+<section id="owners" style="display:flex;flex-direction:column;gap:32px;width:1920px;height:1080px;padding:128px;box-sizing:border-box;background:#100f14;color:#f3ece4;font-family:'Inter'">
   <div style="display:flex;flex-direction:column;gap:16px">
     <div style="font-family:'JetBrains Mono';font-size:24px;color:#f2a2d5">OWNERS AND BOTS</div>
     <div style="font-family:'Poppins';font-size:64px;font-weight:600;line-height:1.1">Who decides, who acts</div>
   </div>
   <div style="display:flex;gap:40px;flex:1">
-    <div style="display:flex;flex-direction:column;gap:20px;flex:1;background:#19161e;border-radius:14px;padding:40px;font-size:26px;line-height:1.4">
+    <div style="display:flex;flex-direction:column;gap:16px;flex:1;background:#19161e;border-radius:14px;padding:32px;font-size:24px;line-height:1.35">
       <div style="font-size:34px;font-weight:600">People</div>
-      <div>suraj is the policy owner: policy paths, stable promotion and repo settings.</div>
+      <div>suraj is the policy owner: policy paths, stable promotion and repo settings. Approvals are advisory today: qq-main requires 0, code-owner review is enforced only on toolchains, and gate.toml&#39;s change classes wait on V0-GAT-03.</div>
       <div>org.toml names suraj owner of the org and all 13 infra repos (infra-config 310e326). Other config areas and the product repos in repos.toml still have empty owners lists (V0-ORG-02).</div>
       <div>Every infra repo's CODEOWNERS names suraj on its policy and trust paths, with no catch-all.</div>
       <div style="font-family:'JetBrains Mono';font-size:24px;color:#f2a2d5">qqcfg validate [--todos]</div>
       <div style="color:#d0c3cc">lists every empty owner list and rotation; --todos adds all open TODOs, 3 of them for v0.</div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:20px;flex:1;background:#19161e;border-radius:14px;padding:40px;font-size:26px;line-height:1.4">
+    <div style="display:flex;flex-direction:column;gap:16px;flex:1;background:#19161e;border-radius:14px;padding:32px;font-size:24px;line-height:1.35">
       <div style="font-size:34px;font-weight:600">Agents and bots</div>
-      <div>Agents may land alone only clean reverts, dependency rolls and docs, and promote to canary.</div>
-      <div>One GitHub App per tool. Live: quirqer (rollers). After v0, designed with suraj: the gardener App and the release executor.</div>
+      <div>Policy allows agents to land clean reverts, dependency rolls and docs alone. In v0 none of these land on their own (auto_land_repos is empty and roll auto-land is off). Canary promotion is the one thing agents do alone today.</div>
+      <div>One GitHub App per tool. Exists: quirqer (rollers). Not yet created: the gardener App (needed before exit test 4 can pass) and the release executor (only for git refs).</div>
       <div style="color:#eac17a">GitHub does not let a PR's author approve it: suraj can approve agent PRs (opened as quirq-gates), but suraj's own PRs need a second owner or a bot.</div>
     </div>
   </div>

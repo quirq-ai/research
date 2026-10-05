@@ -45,8 +45,8 @@ v0 status and the two guides as reports, a one-pager and a slide deck.
   plans, cited from the version plans, not as findings (suraj, 2026-10-05).
 - The v0 one-pager and slide deck shared on 2026-10-04, refreshed to the
   repos' current commits, and the two hands-on guides, "qq setup: depot and
-  sync only" and "Build and run any repo locally", kept with their verified
-  commands (suraj, 2026-10-05).
+  sync only" and "Build and run any repo locally", kept with their commands
+  (suraj, 2026-10-05).
 
 **Out of scope:**
 
@@ -70,5 +70,5 @@ folders and no others.
 - [x] report: `output/report/`
 - [x] app: `output/app/`
 
-Requested by: suraj, on 2026-10-05 (onepager, slide and report requested by
-suraj on 2026-10-05).
+Requested by: suraj, on 2026-10-05 (app first; onepager, slide and report
+added the same day).

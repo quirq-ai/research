@@ -1,10 +1,9 @@
 # Build and run any repo locally
 
-Guide, 2026-10-05. Requested by suraj. This is the "Build and run any repo
-locally" Claude Doc of 2026-10-04, kept here as written. An independent
-reviewer ran its commands on 2026-10-04 at the same `main` commits this page
-lists under Sources, and the commands are copied byte for byte. Only
-the dated facts are refreshed.
+Guide, 2026-10-05. Requested by suraj. This is the 2026-10-04 "Build and run
+any repo locally" guide (quirq internal planning docs, not public), kept here
+as a guide (not re-verified against that doc in this repo). Only the dated
+facts are refreshed.
 
 ## What this covers
 
@@ -146,8 +145,7 @@ reads and writes nothing in your home folder apart from pnpm's caches.
 `INNERNET_DEMO=1` makes the build a demo build.
 
 innernet's `main` now includes its first Dependabot roll, typescript 5.9.3 to
-7.0.2 (#43, commit `8f383a3`); the reviewer's runs of the steps below were at
-that commit.
+7.0.2 (#43, commit `8f383a3`), the commit listed under Sources.
 
 **1. Get the code.** On Linux, `qq fetch` clones and syncs; the last line
 prints `node`.
@@ -197,7 +195,7 @@ test extras and runs pytest.
 run the tool it ships. Ends with `158 passed` and `qqsync 0.1.0`.
 
 ```sh
-( set -e; mkdir -p ~/qq-try; cd ~/qq-try; rm -rf sync; git clone -q https://github.com/quirq-ai/sync; cd sync; python3 -m venv .venv; .venv/bin/pip install -q --disable-pip-version-check -e ".[test]"; .venv/bin/python -m pytest -q; .venv/bin/qqsync --version )
+( set -e; mkdir -p ~/qq-try; cd ~/qq-try; rm -rf sync; git clone -q https://github.com/quirq-ai/sync; cd ./sync; python3 -m venv .venv; .venv/bin/pip install -q --disable-pip-version-check -e ".[test]"; .venv/bin/python -m pytest -q; .venv/bin/qqsync --version )
 ```
 
 **Give it a manifest.** This writes a one-target manifest into the practice
@@ -282,8 +280,8 @@ and `~/Library/pnpm` on a Mac; `pnpm store prune` trims pnpm's.
 
 ## Sources
 
-- "Build and run any repo locally", Claude Doc, 2026-10-04 (rev 11), whose
-  commands an independent reviewer ran on 2026-10-04 at the commits below.
+- "Build and run any repo locally", 2026-10-04: quirq internal planning docs
+  (not public).
 - [depot `741967c`](https://github.com/quirq-ai/depot/tree/741967cc7fba1e486a65856b05c4abb2b1486b8b): [README](https://github.com/quirq-ai/depot/blob/741967cc7fba1e486a65856b05c4abb2b1486b8b/README.md),
   [`e2e-sync.yml`](https://github.com/quirq-ai/depot/blob/741967cc7fba1e486a65856b05c4abb2b1486b8b/.github/workflows/e2e-sync.yml).
 - [sync `d97e2f7`](https://github.com/quirq-ai/sync/tree/d97e2f747cfa7dd04fac3cd8e9973eb7eab091dd): [README](https://github.com/quirq-ai/sync/blob/d97e2f747cfa7dd04fac3cd8e9973eb7eab091dd/README.md),

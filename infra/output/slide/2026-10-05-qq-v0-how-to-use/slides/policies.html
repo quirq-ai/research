@@ -1,20 +1,21 @@
-<section id="policies" style="display:flex;flex-direction:column;gap:36px;width:1920px;height:1080px;padding:128px;box-sizing:border-box;background:#100f14;color:#f3ece4;font-family:'Inter'">
+<section id="policies" style="display:flex;flex-direction:column;gap:18px;width:1920px;height:1080px;padding:128px;box-sizing:border-box;background:#100f14;color:#f3ece4;font-family:'Inter'">
   <div style="display:flex;flex-direction:column;gap:16px">
     <div style="font-family:'JetBrains Mono';font-size:24px;color:#f2a2d5">POLICIES</div>
     <div style="font-family:'Poppins';font-size:64px;font-weight:600;line-height:1.1">Every policy is a TOML file in infra-config/config</div>
   </div>
   <table style="border-collapse:collapse;width:100%;font-size:24px;line-height:1.3">
     <tr style="background:#231e2a;color:#f3ece4;text-align:left"><th style="padding:10px 16px;width:420px">File</th><th style="padding:10px 16px">Decides · value today</th></tr>
-    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">gate.toml</td><td style="padding:6px 16px">Who may land what: reverts, rolls and docs need a green gate; code needs an owner; policy needs suraj</td></tr>
-    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">gate.toml</td><td style="padding:6px 16px">Squash merges; a blocking builder needs p50 under 15 min and must finish under 40</td></tr>
-    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">pipelines.toml</td><td style="padding:6px 16px">Builders per repo: blocking presubmit, post-submit mirror, canary deploy (run by release)</td></tr>
-    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">kinds.toml</td><td style="padding:6px 16px">Toolchains and target kinds: Python 3.14, Node 24 with pnpm</td></tr>
-    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">flakes.toml</td><td style="padding:6px 16px">Retries and flakes, read by test-pipelines' verdict</td></tr>
-    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">auto_revert.toml</td><td style="padding:6px 16px">At most 10 reverts per rolling 24 h; auto_land_repos empty, so every revert is proposed</td></tr>
-    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">rollers.toml</td><td style="padding:6px 16px">Dependabot for pip and npm; weekly toolchain rotation</td></tr>
-    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">channels.toml, health.toml</td><td style="padding:6px 16px">canary: agents, daily; dev: a human owner after 24 h soak and 3 green canaries; stable: suraj</td></tr>
-    <tr style="border-bottom:1px solid #39303f"><td style="padding:6px 16px;font-family:'JetBrains Mono'">repos.toml</td><td style="padding:6px 16px">Every repo: source, kinds, manifest path, channels, owners, deploy target</td></tr>
-    <tr><td style="padding:6px 16px;font-family:'JetBrains Mono'">gate settings/github.toml</td><td style="padding:6px 16px">Rulesets as code: qq-main (merge queue, checks), ref and tag locks; repo rulesets applied at 6610664; org rulesets and Dependabot rules off</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:4px 16px;font-family:'JetBrains Mono'">gate.toml</td><td style="padding:4px 16px">Who may land what (declared): reverts, rolls and docs need a green gate; code needs an owner; policy needs suraj</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:4px 16px;font-family:'JetBrains Mono'">gate.toml</td><td style="padding:4px 16px">Squash merges; a blocking builder needs p50 under 15 min and must finish under 40</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:4px 16px;font-family:'JetBrains Mono'">pipelines.toml</td><td style="padding:4px 16px">Builders per repo: blocking presubmit, post-submit mirror, canary deploy (run by release)</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:4px 16px;font-family:'JetBrains Mono'">kinds.toml</td><td style="padding:4px 16px">Toolchains and target kinds: Python 3.14, Node 24 with pnpm</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:4px 16px;font-family:'JetBrains Mono'">flakes.toml</td><td style="padding:4px 16px">Retries and flakes, read by test-pipelines' verdict</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:4px 16px;font-family:'JetBrains Mono'">auto_revert.toml</td><td style="padding:4px 16px">At most 10 reverts per rolling 24 h; auto_land_repos empty, so every revert is proposed</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:4px 16px;font-family:'JetBrains Mono'">rollers.toml</td><td style="padding:4px 16px">Dependabot for pip and npm; weekly toolchain rotation</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:4px 16px;font-family:'JetBrains Mono'">channels.toml, health.toml</td><td style="padding:4px 16px">canary: agents, daily; dev: a human owner after 24 h soak and 3 green canaries; stable: suraj</td></tr>
+    <tr style="border-bottom:1px solid #39303f"><td style="padding:4px 16px;font-family:'JetBrains Mono'">repos.toml</td><td style="padding:4px 16px">Every repo: source, kinds, manifest path, channels, owners, deploy target</td></tr>
+    <tr><td style="padding:4px 16px;font-family:'JetBrains Mono'">gate settings/github.toml</td><td style="padding:4px 16px">Rulesets as code: qq-main (merge queue, checks), ref and tag locks; repo rulesets applied at 6610664; org rulesets and Dependabot rules off</td></tr>
   </table>
-  <div style="font-size:26px;color:#d0c3cc;line-height:1.4">Rules config cannot loosen live in tools/qqcfg.py: stable needs suraj, canary is agents-only, at most 10 auto-reverts a day, no secrets for builders that run PR code, public repos only.</div>
+  <div style="font-size:23px;color:#d0c3cc;line-height:1.35">Rules config cannot loosen live in tools/qqcfg.py: stable needs suraj, canary is agents-only, at most 10 auto-reverts a day, no secrets for builders that run PR code, public repos only.</div>
+  <div style="font-size:23px;color:#d0c3cc;line-height:1.35"><span style="font-weight:600;color:#f3ece4">Approvals.</span> Today this is advisory: the qq-main ruleset requires 0 approvals, and code-owner review is enforced only on toolchains (gate settings/github.toml). The change-class approvals in gate.toml are declared, not enforced, until V0-GAT-03.</div>
 </section>
