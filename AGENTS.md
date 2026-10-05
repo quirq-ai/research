@@ -35,6 +35,8 @@ scripts/new-topic.sh <slug>
   work in it instead of creating a new one.
 - Add a row for the topic to the Topics table in the root `README.md`, with
   status `Proposed`.
+- Run `npm install` at the repo root so the new topic is linked as a
+  workspace, and commit the updated `package-lock.json`.
 
 ### 2. Fill in GOAL.md
 
@@ -83,7 +85,21 @@ Write results only into the folders for the requested formats:
 - Do not create outputs in formats nobody asked for. Unused format folders keep
   only their README.
 
-### 6. Update the topic README
+### 6. Check how the topic is presented
+
+Each topic is a workspace with its own `package.json`. Its `build` script
+must write a static site to `<slug>/dist/`; that is what Vercel deploys.
+
+- By default the topic uses `@research/present`, which turns `README.md`,
+  `GOAL.md` and the onepager, slide and report files into a site. Nothing
+  else is needed.
+- If the topic should present itself another way (for example as its app),
+  change the `build` and `dev` scripts in `<slug>/package.json`. See
+  `infra/package.json`, which publishes its app.
+- Run `npx turbo run build --filter=<slug>` from the repo root and check the
+  result in `<slug>/dist/` before you commit. Do not commit `dist/`.
+
+### 7. Update the topic README
 
 In `<slug>/README.md`:
 
@@ -94,7 +110,7 @@ In `<slug>/README.md`:
 
 Then update the topic's row in the root `README.md` Topics table.
 
-### 7. Commit
+### 8. Commit
 
 - Keep each commit to one topic where possible.
 - Use the message form `<slug>: <what changed>`, for example
@@ -107,4 +123,5 @@ Then update the topic's row in the root `README.md` Topics table.
 - [ ] Every claim has a source and was checked against it.
 - [ ] Topic README findings, status, progress and outputs table are current.
 - [ ] Root README Topics table is current.
+- [ ] `npx turbo run build --filter=<slug>` succeeds.
 - [ ] No secrets, personal data or internal-only material.

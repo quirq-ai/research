@@ -1,0 +1,13 @@
+{
+  "name": "@research/present",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Default presentation for a topic: renders its Markdown into a static site in dist/.",
+  "bin": {
+    "present": "./bin/present.js"
+  },
+  "dependencies": {
+    "marked": "18.0.14"
+  }
+}
