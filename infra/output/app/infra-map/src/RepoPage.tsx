@@ -112,7 +112,7 @@ export function RepoPage({ id }: { id: string }) {
         {p.try_it.commands.length > 0 && (
           <section className="grid gap-2">
             <h3 className="text-lg font-semibold">Try it</h3>
-            <p className="text-sm text-muted-foreground">Paste in a terminal at the top of a clone of {id}. It needs python3 at 3.11 or newer and works in a virtual environment, .venv, inside the clone.{p.try_it.note && <> {p.try_it.note}</>} Source: <Src repo={id} sha={p.sha} path={p.try_it.source} /></p>
+            <p className="text-sm text-muted-foreground">Paste in a terminal at the top of a clone of {id}. It needs python3 at 3.11 or newer (3.11.4 for depot) and works in a virtual environment, .venv, inside the clone.{p.try_it.note && <> {p.try_it.note}</>} Source: <Src repo={id} sha={p.sha} path={p.try_it.source} /></p>
             <pre className="m-0 overflow-x-auto rounded-lg bg-code p-4 font-mono text-[13px] leading-relaxed text-code-foreground">{p.try_it.commands.join("\n")}</pre>
           </section>
         )}

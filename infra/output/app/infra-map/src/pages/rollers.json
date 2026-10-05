@@ -64,7 +64,8 @@
       "python3 -m pytest -q",
       "QQ_TOOLCHAINS=../toolchains QQ_SYNC=../sync python3 -m pytest -q"
     ],
-    "source": "README.md"
+    "source": "README.md",
+    "note": "The last command needs clones of toolchains and sync next to this one (../toolchains, ../sync)."
   },
   "status": [
     {
@@ -74,7 +75,8 @@
         "https://github.com/quirq-ai/innernet/blob/8f383a3d6c28f1e4495ff177efe70dca43d17604/.github/dependabot.yml",
         "https://github.com/quirq-ai/innernet/blob/8f383a3d6c28f1e4495ff177efe70dca43d17604/.github/workflows/qq-roll-land.yml",
         "https://github.com/quirq-ai/xo-space/blob/14b21a41668bc8124b4cf5cf9cd59fb44dc7d419/.github/dependabot.yml",
-        "https://github.com/quirq-ai/xo-space/blob/14b21a41668bc8124b4cf5cf9cd59fb44dc7d419/.github/workflows/qq-roll-land.yml"
+        "https://github.com/quirq-ai/xo-space/blob/14b21a41668bc8124b4cf5cf9cd59fb44dc7d419/.github/workflows/qq-roll-land.yml",
+        "https://github.com/quirq-ai/gate/blob/c3721365186a35c4b2b5acdc0635e281e754ac13/settings/github.toml#L116"
       ]
     },
     {
@@ -82,10 +84,9 @@
       "source": ".github/workflows/roll-toolchains.yml"
     },
     {
-      "text": "The registry checks read ghcr anonymously (the toolchain packages are public), and without the rollers GitHub App's secrets the workflow is a dry run that opens nothing.",
+      "text": "The registry checks read ghcr anonymously; the toolchain packages are public now (an anonymous pull works, checked 5 October 2026), although roll-toolchains.yml's header still says they are not. Without the rollers GitHub App's secrets the workflow is a dry run that opens nothing.",
       "source": [
-        ".github/workflows/roll-toolchains.yml",
-        "https://github.com/quirq-ai/depot/blob/741967cc7fba1e486a65856b05c4abb2b1486b8b/README.md"
+        ".github/workflows/roll-toolchains.yml"
       ]
     }
   ],

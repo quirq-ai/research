@@ -78,7 +78,9 @@
       "source": [
         "README.md",
         "https://github.com/quirq-ai/release/blob/83ef917771375ae0d1ed51829c9e762a57e01e7e/src/qqrelease/config.py",
-        "https://github.com/quirq-ai/gardener/blob/bf7d24d0fd81ec02c51051e63f46971455b596f2/src/qqgarden/records.py"
+        "https://github.com/quirq-ai/gardener/blob/bf7d24d0fd81ec02c51051e63f46971455b596f2/src/qqgarden/records.py",
+        "https://github.com/quirq-ai/release/blob/83ef917771375ae0d1ed51829c9e762a57e01e7e/src/qqrelease/canary.py#L356",
+        "https://github.com/quirq-ai/perf/blob/d1d9765ea65df2b7d4824fd3845fdf371907857c/.github/workflows/perf.yml#L18-L19"
       ]
     },
     {

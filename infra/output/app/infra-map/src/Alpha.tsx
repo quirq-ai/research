@@ -124,7 +124,7 @@ function GetRepo() {
     </ToggleGroup>
     <Command label="Terminal" text={getRepoSh.trimEnd().replace("__REPO__", repo)} />
     <How>The first time, <code>qq fetch</code> clones the repo into <code>~/quirq</code> and runs <code>qq sync</code>. Sync reads the repo's manifest, <code>infra/repo.toml</code>, downloads each pinned toolchain once per machine (checked against its digest) and links it under <code>.qq/</code>. Later runs only sync. It runs in a subshell, so your terminal stays where it was.</How>
-    <Warn title="On a Mac, sync stops at the toolchains">Toolchains are built for Linux x86_64 only so far, so on macOS sync stops with <b>no pin for platform macos-arm64</b>. The clone is fine. Install the tools yourself and carry on: Node 24 and pnpm for innernet, Python 3.14 for xo-space. <code>qq build</code> and <code>qq test</code> use what is on your PATH.</Warn>
+    <Warn title="On a Mac, sync stops at the toolchains">Toolchains are built for Linux x86_64 only so far, so on a Mac sync stops with <b>no pin for platform macos-arm64</b> (or macos-x86_64 on an Intel Mac; linux-arm64 on Linux ARM machines). The clone is fine. Install the tools yourself and carry on: Node 24 and pnpm for innernet; for xo-space, Python 3.14.8 exactly, as <code>python3</code> on your PATH (qq checks the full version). <code>qq build</code> and <code>qq test</code> use what is on your PATH.</Warn>
     <p>On Linux, if it stops with <b>cloned into …; fix the problem and run qq sync there</b>, a download failed. Paste the command again once your network is fine.</p>
   </>)
 }
@@ -156,7 +156,7 @@ const USER_STEPS: Step[] = [
     <Command label="Terminal · inside the repo" text="qq build" />
     <Command text="qq test" />
     <How>qq hands the manifest to <a href="https://github.com/quirq-ai/recipes" target="_blank" rel="noreferrer">recipes</a>, which plans each build and test action, and writes JUnit XML, logs and <code>results.json</code> to <code>.qq/out</code>. Add target names after the command to run fewer.</How>
-    <Warn title="Your laptop and CI can differ">CI does not run through qq yet; its workflows install their own tools. innernet's CI uses pnpm 10 while qq uses pnpm 11.28.2, and innernet's CI "test" is a typecheck. If your laptop and CI disagree, tell us (step 11).</Warn>
+    <Warn title="Your laptop and CI can differ">CI does not run through qq yet; its workflows install their own tools. innernet's CI uses pnpm 10 while qq uses pnpm 11.28.2, and innernet's CI "test" is a typecheck. If your laptop and CI disagree, tell us (step 12).</Warn>
   </> },
   { id: "u6", title: "Open your first PR", sub: "qq try, or plain GitHub", body: <>
     <p>Commit on a branch (not <code>main</code>), then push it, open the PR and get a run ID back at once:</p>
@@ -171,7 +171,7 @@ const USER_STEPS: Step[] = [
       { id: "refused", button: "refused · exit 1", title: "Refused: a required check failed.", body: <>Open the failing check on the PR and fix it locally with <code>qq test</code>, then push again. Today a check fails as soon as a test fails; automatic retry and compare-with-base are built but not switched on yet. If you think a failure is flaky, re-run that check once before you debug it.</> },
       { id: "pending", button: "pending · exit 3", title: "Pending: checks are still running.", body: <>Nothing to do. Run <code>qq status</code> again later; your qq try watcher also writes the final verdict to <code>~/.cache/qq/verdicts/</code>.</> },
       { id: "error", button: "exit 2", title: "qq could not get a verdict.", body: <>The line qq printed says why, for example gh being signed out or no PR for this branch. Fix that (<code>gh auth status</code> is a good first check) and run it again.</> },
-      { id: "notmine", button: "refused, but not by me", title: "A refusal you think is not yours.", body: <>Check whether the same check is red on main (tree status, step 9). If it is, or the error is about runners, downloads or setup, open an alpha issue with the PR link (step 11). We track every infra failure.</> },
+      { id: "notmine", button: "refused, but not by me", title: "A refusal you think is not yours.", body: <>Check whether the same check is red on main (tree status, step 9). If it is, or the error is about runners, downloads or setup, open an alpha issue with the PR link (step 12). We track every infra failure.</> },
     ]} />
     <p className="text-sm text-muted-foreground">The watcher's verdict file can also say dequeued, superseded, timed-out or error, and qq status says landed or closed once the PR is merged or closed. The glossary under <a href="#reference">Commands and terms</a> explains each.</p>
   </> },
@@ -183,31 +183,31 @@ const USER_STEPS: Step[] = [
   </> },
   { id: "u9", title: "Know what happens after you land", sub: "Post-submit, tree status, reverts, rolls", body: <>
     <ul>
-      <li><b>Post-submit</b> runs on every <code>main</code> commit and is never cancelled.</li>
+      <li><b>Post-submit</b> runs on each push to <code>main</code> and is never cancelled.</li>
       <li><b>Tree status</b> is <b>closed</b> while any post-submit builder is red, <b>open</b> when all are green, and <b>unknown</b> while one has no result yet. The <a href="https://github.com/quirq-ai/gardener/tree/tree-status/status" target="_blank" rel="noreferrer">tree-status branch</a> has the live state and its history.</li>
       <li><b>If main goes red</b>, the gardener groups failures, bisects to the culprit commit and opens a revert PR with a failure record (once its GitHub App is set up). During the alpha suraj merges reverts on xo-space and innernet; nothing is reverted behind your back.</li>
       <li><b>Roll PRs</b> from rollers move pinned toolchains and dependencies forward through the same checks. You do not need to act on them.</li>
     </ul>
     <p>Pick what happened to you:</p>
     <Outcomes label="After landing" prompt="Pick a situation to see what to do." options={[
-      { id: "revert", button: "A revert PR names my change", title: "A revert PR names your change.", body: <>Read its failure record: it links the failing builder and the regression range. If the revert is right, fix the break on a new branch and land it again. If it is wrong, comment on the revert PR and open an alpha issue. Wrong reverts are counted.</> },
+      { id: "revert", button: "A revert PR names my change", title: "A revert PR names your change.", body: <>Read its failure record: it links the failing builder and the regression range. If the revert is right, fix the break on a new branch and land it again. If it is wrong, close the revert PR saying why (the gardener then never reverts that commit again) and open an alpha issue. We count wrong reverts from these issues.</> },
       { id: "red", button: "main is red", title: "main is red and you don't know why.", body: <>The <a href="https://github.com/quirq-ai/gardener/tree/tree-status/status" target="_blank" rel="noreferrer">tree-status branch</a> names the red builder and the suspect commits. Hold unrelated landings until it reopens, and ask in Discussions if it stays red.</> },
       { id: "roll", button: "A roll PR touched my area", title: "A roll PR touched your area.", body: <>No action needed; it passed the same checks as your PRs. If something you own broke after it landed, open an alpha issue with the roll PR link.</> },
     ]} />
   </> },
   { id: "canary", title: "See your change ship in the canary", sub: "Daily at 06:17 UTC", body: <>
-    <p>Once a day, release takes each product repo's lkgr (the newest <code>main</code> commit with every post-submit builder green), builds it, runs the full tests, starts it and checks its health page. Only if all of that passes does the <b>canary</b> channel move to that build. Your change ships in the first canary after it lands and post-submit goes green.</p>
+    <p>Once a day, release takes each product repo's lkgr (the newest <code>main</code> commit with every post-submit builder green), builds it, runs the full tests and the property tests again, starts it and runs its health probes (xo-space's /health; innernet's home page for now). Only if all of that passes does the <b>canary</b> channel move to that build. Your change ships in the first canary after it lands and post-submit goes green.</p>
     <p>Each day's result is a <a href="https://github.com/quirq-ai/release/issues?q=label%3Acanary-report" target="_blank" rel="noreferrer">Canary report issue</a> in the release repo: what shipped, what was held and why, and what canary names now.</p>
     <Outcomes label="Canary result" prompt="Pick what the report says about your repo." options={[
       { id: "shipped", button: "shipped", title: "Shipped.", body: <>The canary channel now names that commit. If it includes your change, it passed the full tests and the health check. Nothing to do.</> },
-      { id: "held", button: "held", title: "Held.", body: <>A stage failed, so the previous canary stays. The report links a failure record with the stage and the evidence. If the commit includes your change, read it; a canary that fails only on the runner is tagged as a possible runner fault and is not yours.</> },
+      { id: "held", button: "held", title: "Held.", body: <>A stage failed, so the previous canary stays. The report links a failure record with the stage and the evidence. If the commit includes your change, read it; a hold tagged possible runner fault means the canary could not judge that commit in 3 runs, which usually points at the machine rather than your change; say so in an alpha issue.</> },
       { id: "noop", button: "no-op", title: "No-op.", body: <>lkgr has not moved since the last canary, or its commit was held before, so nothing new was built. Nothing to do.</> },
     ]} />
   </> },
   { id: "u10", title: "Work beside Claude agents", sub: "Same queue, same checks", body: <>
     <p>Claude sessions open PRs in these repos too, through the same checks and queue. You will see their PRs in the list.</p>
     <ul>
-      <li>An agent PR says it was generated with Claude Code and links its project thread. Review it like any colleague's PR.</li>
+      <li>An agent PR says it was generated with Claude Code and links its Claude Code session. Review it like any colleague's PR.</li>
       <li>Agents use the same commands as you; qq try returns at once so an agent never sits waiting on CI.</li>
       <li>Today no review is required on innernet or xo-space, so any green PR, an agent's included, can land. Owner review of tests and <code>infra/</code> is planned.</li>
     </ul>
@@ -224,33 +224,34 @@ const USER_STEPS: Step[] = [
 ]
 
 const TEAM_STEPS: Step[] = [
-  { id: "t1", who: "suraj", title: "Run the second settings command", sub: "Makes toolchains' promotion-gate check required", body: <p>Posted in the project thread, already audited.</p> },
+  { id: "t1", who: "suraj", title: "Run the second settings command", sub: "Makes toolchains' promotion-gate check required", body: <p>gate's settings apply (quirq-ai/gate docs/apply-settings.md) at current main; it applies gate #25, which adds promotion-gate to toolchains' required checks.</p> },
   { id: "t2", title: "Finish the open v0 checks", sub: "Proof each part works live", body: <ul>
     <li>A deliberately red PR is refused on innernet.</li><li>The first daily canary runs for both product repos.</li><li>Tree status is live on both product repos.</li>
     <li>A bot-opened toolchains PR proves code-owner review.</li><li>The first pin-changing toolchains PR lands under the required promotion-gate and rolls into a product repo.</li>
     <li>A planted build break gets a revert PR and a failure record.</li></ul> },
-  { id: "t3", title: "Make qq work on a Mac", sub: "Toolchains are Linux x86_64 only today", body: <p>Most users are on macOS. Either publish macos-arm64 toolchains and pin them in both manifests, or make sync skip a missing platform with a clear "bring your own" message. Until then step 4 tells Mac users to install Node 24 and pnpm, or Python 3.14, themselves.</p> },
+  { id: "t3", title: "Make qq work on a Mac", sub: "Toolchains are Linux x86_64 only today", body: <p>Most users are on macOS. Either publish macos-arm64 toolchains and pin them in both manifests, or make sync skip a missing platform with a clear "bring your own" message. Until then step 4 tells Mac users to install Node 24 and pnpm, or Python 3.14.8, themselves.</p> },
   { id: "t4", who: "suraj", title: "Create the alpha team", sub: "Write access to innernet and xo-space", body: <p>One idempotent command that Claude prepares and audits. Then a test account with write but not admin proves it can push a branch, open a PR and queue it, and is refused a direct push to main.</p> },
-  { id: "t5", title: "Load test the queues", sub: "5 PRs into each queue at once", body: <p>Record queue wait, runner wait and verdict time. GitHub Free limits concurrent Actions jobs per org, so this shows where 15 people start waiting. Split the scorecard's gate timing per repo; today it is pooled.</p> },
+  { id: "t5", title: "Load test the queues", sub: "5 PRs into each queue at once", body: <p>Record queue wait, runner wait and verdict time. GitHub Free limits concurrent Actions jobs per org, so this shows where 15 people start waiting. Compare the result with the scorecard's per-repo gate time-to-green.</p> },
   { id: "t6", title: "Safety sweep", sub: "Logs, kill switches, results store", body: <ul>
     <li>No workflow log prints a token or secret.</li>
     <li>A one-page runbook lists every kill switch: <code>QQ_TREE_STATUS_CHAIN=off</code>, rollers auto-land (off), pausing the queue, pausing reverts.</li>
     <li>Decide the results store retention: now up to 1,000 characters per failure, permanent.</li></ul> },
   { id: "t7", title: "Open the feedback channels", sub: "Wiki issue form, label, Discussions", body: <p>Add an alpha issue form (it sets the label, so users need no triage rights), turn on Discussions with an alpha category, and pin the first Monday check-in and a known-issues issue.</p> },
   { id: "t8", title: "Walk this page on fresh machines", sub: "Every command, macOS and Linux", body: <p>Steps 3 to 8 on a clean macOS and a clean Linux account, timed, in bash and zsh. The goal is a first green PR within 60 minutes with no help.</p> },
-  { id: "t9", who: "suraj", title: "Answer the open decisions", sub: "Recommendations in the alpha plan", body: <ul>
+  { id: "t9", who: "suraj", title: "Answer the open decisions", sub: "Claude's recommendation is marked on each", body: <ul>
     <li>Invite list and the 3 to 5 pilot users.</li><li>Trim stored failure messages to 200 characters? (recommended)</li>
     <li>Require 1 approval on product PRs? (recommended; needs a small gate change)</li>
     <li>Keep the revert cap at 10 a day? (recommended)</li><li>Keep reverts as PRs a person merges? (recommended)</li>
     <li>Feedback in quirq-ai/wiki? (recommended)</li><li>Document the local and CI tool mismatch instead of fixing it now? (recommended)</li></ul> },
   { id: "t11", who: "suraj", title: "Set up the canary", sub: "In the alpha, decided 5 October", body: <>
     <ul>
-      <li>Create the release executor GitHub App and add its client ID and private key to the release repo (one checked command from Claude); the canary jobs mint <code>QQ_RELEASE_TOKEN</code> from them. Without it the canary still moves in release's own record, but not as a branch in the product repos, and that record is only as safe as push access to release.</li>
-      <li>Approve the ruleset that lets only that App write release's state branch, after Claude switches the canary jobs to its token.</li>
+      <li>Create the release executor GitHub App and add its client ID and private key to the release repo (one checked command from Claude); release's executor jobs (lkgr, canary, channel rollback) mint <code>QQ_RELEASE_TOKEN</code> from them. Without it the canary still moves in release's own record, but not as a branch in the product repos, and that record is only as safe as push access to release.</li>
+      <li>Approve the gate change that adds the App to the qq-release-refs bypass, and apply it; until then the rulesets refuse its writes of lkgr and channels/canary.</li>
+      <li>Approve the ruleset that lets only that App write release's state branch, after Claude switches every job that pushes release-state (lkgr, canary, channel rollback, release-hold) to its token.</li>
       <li>Approve the infra-config change that opens the canary to alpha users; channels.toml says agents only today.</li>
       <li>Keep 06:17 UTC as the canary hour, or pick another.</li>
     </ul>
-    <p>No machines are needed: in v0 the canary is built, started and checked on the GitHub runner. Dedicated canary machines come in v1.</p>
+    <p>No machines are needed: in v0 the canary is built, started and checked on the GitHub runner. Persistent canary environments come in v1.</p>
   </> },
   { id: "t12", title: "Prove the canary end to end", sub: "Claude's part", body: <ul>
     <li>Watch the first canary runs for both repos and fix whatever holds them.</li>
@@ -269,7 +270,7 @@ const TEAM_STEPS: Step[] = [
 function useTicks() {
   const [ticks, setTicks] = useState<Record<string, boolean>>(loadTicks)
   useEffect(() => { try { localStorage.setItem(TICKS_KEY, JSON.stringify(ticks)) } catch { /* private window */ } }, [ticks])
-  return { ticks, toggle: (id: string) => setTicks(t => ({ ...t, [id]: !t[id] })), clear: () => setTicks({}) }
+  return { ticks, toggle: (id: string) => setTicks(t => ({ ...t, [id]: !t[id] })), clear: () => setTicks(t => Object.fromEntries(Object.entries(t).filter(([k]) => !USER_STEPS.some(s => s.id === k)))) }
 }
 
 export function AlphaChecklist() {
