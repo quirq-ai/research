@@ -12,12 +12,15 @@
 // - every entry in output/onepager|slide|report/ other than README.md is named
 //   YYYY-MM-DD-<short-name>[.<ext>];
 // - only formats ticked under "Requested outputs" in GOAL.md hold anything
-//   besides their README.
+//   besides their README;
+// - every entry in output/<format>/ is linked from the README "Published
+//   outputs" table (a folder named like a listed file, such as a report's
+//   images, counts as listed), and every file the table links to exists.
 // Exits 1 and lists every problem if any rule is broken.
 
 import { execFileSync } from "node:child_process"
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs"
-import { join, resolve } from "node:path"
+import { join, parse, resolve } from "node:path"
 
 const root = resolve(import.meta.dirname, "..")
 const notTopics = new Set(["_template", "packages", "scripts", "node_modules", "dist"])
@@ -62,6 +65,13 @@ for (const slug of topics) {
   if (!topicRows.has(slug)) fail(slug, "no row in the root README Topics table")
   else if (topicRows.get(slug) !== status) fail(slug, `root Topics table says "${topicRows.get(slug)}", topic README says "${status}"`)
 
+  const outputsTable = readme.split(/^## Published outputs\s*$/m)[1]?.split(/^## /m)[0] ?? ""
+  const listed = [...outputsTable.matchAll(/\]\((output\/[^)#\s]+)\)/g)].map((m) => m[1].replace(/\/$/, ""))
+  for (const link of listed) {
+    if (!existsSync(join(dir, link))) fail(slug, `README Published outputs links to ${link}, which does not exist`)
+  }
+  const listedStems = new Set(listed.map((link) => join(parse(link).dir, parse(link).name)))
+
   const goal = existsSync(join(dir, "GOAL.md")) ? readFileSync(join(dir, "GOAL.md"), "utf8") : ""
   for (const format of formats) {
     const folder = join(dir, "output", format)
@@ -69,6 +79,10 @@ for (const slug of topics) {
     const entries = readdirSync(folder).filter((name) => name !== "README.md" && !name.startsWith("."))
     const ticked = new RegExp(`^- \\[x\\] ${format}:`, "mi").test(goal)
     if (entries.length && !ticked) fail(slug, `output/${format}/ has files but "${format}" is not ticked in GOAL.md`)
+    for (const name of entries) {
+      const path = `output/${format}/${name}`
+      if (!listedStems.has(join(`output/${format}`, parse(name).name))) fail(slug, `${path} is not in the README Published outputs table`)
+    }
     if (format === "app") continue
     for (const name of entries) {
       if (!dated.test(name)) fail(slug, `output/${format}/${name} is not named YYYY-MM-DD-<short-name>.<ext>`)
