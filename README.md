@@ -152,6 +152,7 @@ A new topic appears on the hub after its next push, with no Vercel changes.
 <!-- topics:start -->
 | Topic | Status | Summary | Outputs |
 |---|---|---|---|
+| [design](design/) | Proposed | Design research for quirq. Scope is still being agreed. | None yet |
 | [infra](infra/) | Published | How quirq infra (qq), the build, test and land system behind the quirq repos, fits together across its 13 public repos. | onepager, slide, report, app |
 <!-- topics:end -->
 
