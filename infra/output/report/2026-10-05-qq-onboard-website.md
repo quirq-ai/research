@@ -5,6 +5,9 @@ putting a new repo under quirq infra (qq), with its landing policy enforced,
 using **quirq-ai/website** as the worked example. Each step says what you do,
 who approves it, and the options you can change at that step.
 
+New to qq? [The qq guide](2026-10-06-qq-guide.md) covers all of qq in one
+simplified page; this page goes into more detail on one part.
+
 Every screenshot is a real run on 2026-10-05: terminal output, config diffs,
 the gate's own `verify` and `plan`, and the site itself. Steps that happen on
 a GitHub or Vercel settings screen need an admin login, which the author of

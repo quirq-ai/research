@@ -6,6 +6,9 @@ here as a guide (not re-verified against that doc in this repo). Only the dated
 facts are refreshed: the commits, and a re-check that the Mac behaviour of
 `qq sync` has not changed.
 
+New to qq? [The qq guide](2026-10-06-qq-guide.md) covers all of qq in one
+simplified page; this page goes into more detail on one part.
+
 ## What you get
 
 Two tools, usable on their own without the rest of quirq infra (no gate, no

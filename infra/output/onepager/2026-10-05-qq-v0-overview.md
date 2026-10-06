@@ -2,6 +2,9 @@
 
 One-pager, 2026-10-05. Requested by suraj.
 
+New to qq? [The qq guide](../report/2026-10-06-qq-guide.md) covers all of qq in one
+simplified page; this one-pager is the short status summary.
+
 **Question.** What is quirq infra (qq), what are its phases, and where does v0
 stand today?
 
