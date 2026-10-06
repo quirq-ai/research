@@ -93,7 +93,7 @@ echo
 echo "Next steps:"
 echo "  1. Fill in $slug/GOAL.md: purpose, research action, requested outputs."
 echo "  2. Fill in $slug/AGENTS.md: what to research and how to verify it."
-echo "  3. Add $slug to the Topics table in README.md."
+echo "  3. Run npm run topics to add $slug to the Topics table in README.md."
 echo "  4. Run npm install at the repo root so the new workspace is linked."
 echo "  5. Run npm run check before you commit."
 echo

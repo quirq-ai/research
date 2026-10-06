@@ -11,50 +11,14 @@
 // Title, one-line summary and status come from the topic's README.md.
 
 import { createServer } from "node:http"
-import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs"
+import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs"
 import { extname, join, resolve } from "node:path"
+import { findTopics, readTopic, root } from "./lib/topics.mjs"
 
-const root = resolve(import.meta.dirname, "..")
 const outDir = join(root, "dist")
-const notTopics = new Set(["_template", "packages", "scripts", "node_modules", "dist"])
 
 function escapeHtml(text) {
   return text.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c])
-}
-
-// Strip the Markdown a one-line summary is likely to carry.
-function plain(text) {
-  return text
-    .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
-    .replace(/[*_`]/g, "")
-    .replace(/\s+/g, " ")
-    .trim()
-}
-
-function readTopic(slug) {
-  const readme = join(root, slug, "README.md")
-  const markdown = existsSync(readme) ? readFileSync(readme, "utf8") : ""
-  const lines = markdown.split("\n")
-  const titleAt = lines.findIndex((line) => /^#\s+/.test(line))
-  const title = titleAt >= 0 ? lines[titleAt].replace(/^#\s+/, "").trim() : slug
-  const paragraph = []
-  for (const line of lines.slice(titleAt + 1)) {
-    if (!line.trim()) {
-      if (paragraph.length) break
-      continue
-    }
-    if (/^[|#<]/.test(line)) break
-    paragraph.push(line)
-  }
-  const status = markdown.match(/^\|\s*Status\s*\|\s*([^|]+?)\s*\|/m)?.[1] ?? ""
-  return { slug, title, summary: plain(paragraph.join(" ")), status }
-}
-
-function findTopics() {
-  return readdirSync(root)
-    .filter((name) => !name.startsWith(".") && !notTopics.has(name))
-    .filter((name) => statSync(join(root, name)).isDirectory() && existsSync(join(root, name, "package.json")))
-    .sort()
 }
 
 function indexPage(topics) {

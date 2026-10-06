@@ -84,6 +84,8 @@ Each topic README carries one status:
 ├── scripts/
 │   ├── new-topic.sh      # creates a topic folder from _template/
 │   ├── check.mjs         # checks every topic follows the rules (npm run check)
+│   ├── topics-table.mjs  # writes the Topics table below (npm run topics)
+│   ├── lib/topics.mjs    # finds topics and reads their READMEs, for the scripts
 │   └── build-hub.mjs     # puts every topic into one site with an index page
 ├── .github/workflows/    # CI: npm run check and npm run build on every PR
 └── <topic>/              # one folder per topic
@@ -145,12 +147,16 @@ A new topic appears on the hub after its next push, with no Vercel changes.
 
 ## Topics
 
-| Topic | Status | Summary |
-|---|---|---|
-| [infra](infra/) | Published | How quirq infra (qq) fits together across its 13 repos, as an interactive map with a page per repo, plus its phases (v0, v1, v2), a v0 one-pager, setup and build guides, and slides. |
+<!-- topics:start -->
+| Topic | Status | Summary | Outputs |
+|---|---|---|---|
+| [infra](infra/) | Published | How quirq infra (qq), the build, test and land system behind the quirq repos, fits together across its 13 public repos. | onepager, slide, report, app |
+<!-- topics:end -->
 
-When you create a topic, add a row here and keep its status in step with the
-topic README.
+This table is generated from each topic's README (status, first
+paragraph and published formats). Run `npm run topics` after
+you create a topic or change its README; `npm run check` fails while the
+table is out of date.
 
 ## Licence
 
