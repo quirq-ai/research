@@ -43,3 +43,13 @@ export function readTopic(slug) {
   const status = markdown.match(/^\|\s*Status\s*\|\s*([^|]+?)\s*\|/m)?.[1] ?? ""
   return { slug, title, summary: plain(paragraph.join(" ")), status }
 }
+
+export const formats = ["onepager", "slide", "report", "app"]
+
+// The output formats of a topic that hold anything besides their README.
+export function published(slug) {
+  return formats.filter((format) => {
+    const folder = join(root, slug, "output", format)
+    return existsSync(folder) && readdirSync(folder).some((name) => name !== "README.md" && !name.startsWith("."))
+  })
+}

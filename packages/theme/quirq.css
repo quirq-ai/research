@@ -1,0 +1,167 @@
+/* quirq research theme: tokens, base styles and shared components.
+ *
+ * Tokens use shadcn's names and the quirq brand values from the infra-map app
+ * (infra/output/app/infra-map/src/index.css), so every quirq surface shares
+ * one palette. Dark follows the viewer's OS unless <html data-theme="light|dark">
+ * says otherwise. Every text pair here meets WCAG 2.1 AA.
+ */
+
+:root {
+  color-scheme: light;
+  --radius: 0.625rem;
+  --background: #f7f3f6; --foreground: #1d1822;
+  --card: #ffffff; --card-foreground: #1d1822;
+  --primary: #b0478c; --primary-foreground: #ffffff;
+  --secondary: #f0e9ef; --secondary-foreground: #1d1822;
+  --muted: #f0e9ef; --muted-foreground: #6b5f72;
+  --accent: #f6dcec; --accent-foreground: #1d1822;
+  --destructive: #b3261e; --border: #ddd0da; --ring: #b0478c;
+  --warn: #8a6114; --good: #4f6b22;
+  --code: #1d1822; --code-foreground: #f3ece4;
+  --shadow: 0 1px 2px rgb(29 24 34 / 0.04), 0 4px 16px rgb(29 24 34 / 0.05);
+  --shadow-hover: 0 2px 4px rgb(29 24 34 / 0.06), 0 12px 32px rgb(176 71 140 / 0.12);
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --page: 1080px;
+  --gutter: 16px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --background: #100f14; --foreground: #f3ece4;
+    --card: #19161e; --card-foreground: #f3ece4;
+    --primary: #f2a2d5; --primary-foreground: #100f14;
+    --secondary: #231e2a; --secondary-foreground: #f3ece4;
+    --muted: #231e2a; --muted-foreground: #b1a2b4;
+    --accent: #3a2535; --accent-foreground: #f3ece4;
+    --destructive: #f09a9a; --border: #39303f; --ring: #f2a2d5;
+    --warn: #eac17a; --good: #b7cc91;
+    --code: #0b0a0e; --code-foreground: #f3ece4;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3);
+    --shadow-hover: 0 2px 4px rgb(0 0 0 / 0.3), 0 12px 32px rgb(242 162 213 / 0.08);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #100f14; --foreground: #f3ece4;
+  --card: #19161e; --card-foreground: #f3ece4;
+  --primary: #f2a2d5; --primary-foreground: #100f14;
+  --secondary: #231e2a; --secondary-foreground: #f3ece4;
+  --muted: #231e2a; --muted-foreground: #b1a2b4;
+  --accent: #3a2535; --accent-foreground: #f3ece4;
+  --destructive: #f09a9a; --border: #39303f; --ring: #f2a2d5;
+  --warn: #eac17a; --good: #b7cc91;
+  --code: #0b0a0e; --code-foreground: #f3ece4;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow-hover: 0 2px 4px rgb(0 0 0 / 0.3), 0 12px 32px rgb(242 162 213 / 0.08);
+}
+
+/* Base */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; min-height: 100vh; display: flex; flex-direction: column;
+  background: var(--background); color: var(--foreground);
+  font: 16px/1.6 var(--font-sans); -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { line-height: 1.2; letter-spacing: -0.015em; text-wrap: balance; }
+a { color: var(--primary); text-underline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; border-radius: 4px; }
+.container { width: 100%; max-width: var(--page); margin: 0 auto; padding: 0 var(--gutter); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* Site header */
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--background) 85%, transparent);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.site-header .container { display: flex; align-items: center; gap: 20px; min-height: 56px; flex-wrap: wrap; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--foreground); text-decoration: none; font-weight: 600; }
+.brand-mark {
+  display: grid; place-items: center; width: 26px; height: 26px; border-radius: 7px;
+  background: var(--primary); color: var(--primary-foreground);
+  font: 700 15px/1 var(--font-sans); padding-bottom: 2px;
+}
+.brand-sub { color: var(--muted-foreground); font-weight: 400; }
+.site-nav { display: flex; gap: 4px; margin-left: auto; flex-wrap: wrap; }
+.site-nav a {
+  color: var(--muted-foreground); text-decoration: none; font-size: 0.925rem;
+  padding: 6px 10px; border-radius: calc(var(--radius) - 2px);
+}
+.site-nav a:hover { color: var(--foreground); background: var(--muted); }
+@media (max-width: 480px) { .brand-sub { display: none; } .site-nav a { padding: 6px 8px; } }
+.site-nav a[aria-current="page"] { color: var(--foreground); font-weight: 500; }
+
+/* Site footer */
+.site-footer { margin-top: auto; border-top: 1px solid var(--border); color: var(--muted-foreground); font-size: 0.875rem; }
+.site-footer .container { display: flex; flex-wrap: wrap; gap: 8px 24px; padding-block: 24px; }
+.site-footer a { color: var(--muted-foreground); }
+.site-footer a:hover { color: var(--foreground); }
+.site-footer .spacer { margin-left: auto; }
+
+/* Badge: a status pill. Tones: good, primary, warn, muted. */
+.badge {
+  display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+  font-size: 0.75rem; font-weight: 500; line-height: 1; padding: 5px 9px; border-radius: 999px;
+  color: var(--muted-foreground); background: var(--muted);
+}
+.badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.badge-good { color: var(--good); background: color-mix(in srgb, var(--good) 12%, var(--card)); }
+.badge-primary { color: var(--foreground); background: var(--accent); }
+.badge-primary::before { background: var(--primary); }
+.badge-warn { color: var(--warn); background: color-mix(in srgb, var(--warn) 12%, var(--card)); }
+
+/* Chip: a quiet label, such as an output format. */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.chip {
+  font-size: 0.75rem; line-height: 1; padding: 5px 8px; border-radius: 6px;
+  border: 1px solid var(--border); color: var(--muted-foreground);
+}
+
+/* Card */
+.card {
+  position: relative; display: flex; flex-direction: column; gap: 12px;
+  background: var(--card); color: var(--card-foreground);
+  border: 1px solid var(--border); border-radius: calc(var(--radius) + 4px);
+  padding: 22px; box-shadow: var(--shadow);
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+.card:hover { border-color: color-mix(in srgb, var(--primary) 45%, var(--border)); box-shadow: var(--shadow-hover); transform: translateY(-1px); }
+.card:focus-within { border-color: var(--ring); }
+.card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.card-title { margin: 0; font-size: 1.125rem; font-weight: 600; text-transform: capitalize; }
+/* The title link covers the whole card, so the card is one click target. */
+.card-title a { color: inherit; text-decoration: none; }
+.card-title a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.card-title a:focus-visible { outline: none; }
+.card-text { margin: 0; color: var(--muted-foreground); font-size: 0.95rem; }
+.card-text.placeholder { font-style: italic; }
+.card-foot { margin-top: auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; padding-top: 4px; }
+.card-cta { font-size: 0.875rem; font-weight: 500; color: var(--primary); white-space: nowrap; }
+.card:hover .card-cta { text-decoration: underline; }
+.grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+@media (max-width: 360px) { .grid { grid-template-columns: 1fr; } }
+
+/* Hero */
+.hero { padding: 72px 0 40px; background: radial-gradient(1200px 400px at 15% -10%, var(--accent), transparent 70%); }
+.eyebrow { margin: 0 0 12px; color: var(--primary); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.hero h1 { margin: 0; font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; max-width: 18ch; }
+.lede { margin: 16px 0 0; max-width: 62ch; color: var(--muted-foreground); font-size: 1.125rem; }
+.stats { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 28px 0 0; padding: 0; list-style: none; }
+.stats li { color: var(--muted-foreground); font-size: 0.9rem; }
+.stats strong { display: block; color: var(--foreground); font-size: 1.5rem; font-weight: 650; line-height: 1.2; }
+
+/* Section */
+.section { padding: 32px 0 64px; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+.section-head h2 { margin: 0; font-size: 1.25rem; font-weight: 600; }
+.section-head p { margin: 0; color: var(--muted-foreground); font-size: 0.9rem; }
+
+/* Principles: a short list of what the hub promises. */
+.principles { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 0; padding: 0; list-style: none; }
+.principles li { padding: 18px 20px; border-radius: var(--radius); background: var(--muted); }
+.principles strong { display: block; margin-bottom: 4px; }
+.principles span { color: var(--muted-foreground); font-size: 0.925rem; }
