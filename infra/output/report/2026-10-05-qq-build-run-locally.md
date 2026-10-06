@@ -5,6 +5,9 @@ any repo locally" guide (quirq internal planning docs, not public), kept here
 as a guide (not re-verified against that doc in this repo). Only the dated
 facts are refreshed.
 
+New to qq? [The qq guide](2026-10-06-qq-guide.md) covers all of qq in one
+simplified page; this page goes into more detail on one part.
+
 ## What this covers
 
 Every quirq-ai repo with an `infra/repo.toml` manifest is built and run the
