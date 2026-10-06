@@ -124,8 +124,8 @@ summary, badges and link list rest on the same READMEs and pins.
 | slide | [output/slide/2026-10-05-qq-v0-how-to-use.pdf](output/slide/2026-10-05-qq-v0-how-to-use.pdf) | 2026-10-05 | 32-slide deck "quirq infra v0: how to use it", status refreshed, with a sources slide. |
 | slide | [output/slide/2026-10-05-qq-v0-how-to-use/](output/slide/2026-10-05-qq-v0-how-to-use/) | 2026-10-05 | The deck's source: `deck.json`, one HTML file per slide, `gen/gen.py` (phase and repo slides) and `gen/render.js` (overflow check and PDF). |
 
-The hub site (`npm run build`) publishes only the app for this topic (see
-`package.json`); the onepager, reports and slides are read on GitHub. To
+The hub site (`npm run build`) publishes the app, the onepager, the reports
+and the slides PDF for this topic. To
 rebuild the deck PDF: `python3 gen/gen.py`, then
 `node gen/render.js . pdf ../2026-10-05-qq-v0-how-to-use.pdf` in the deck
 folder, with Playwright installed.
