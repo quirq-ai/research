@@ -12,8 +12,10 @@ fits together across its 13 public repos.
 
 Status is one of: Proposed, Researching, Published, Paused, Archived.
 
-**New to qq? Start with [the qq guide](output/report/2026-10-06-qq-guide.md):**
-everything below in one simplified page, with links to the longer pieces.
+**New to qq? Start with [the qq guide in the docs](https://docs.xo.builders/docs/qq)**
+([source](https://github.com/quirq-ai/docs/blob/main/content/docs/qq/index.mdx)):
+everything below in one simplified page, with links to the longer pieces. The
+[2026-10-06 snapshot](output/report/2026-10-06-qq-guide.md) of it stays here.
 
 ## What this topic is
 
