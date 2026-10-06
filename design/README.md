@@ -1,11 +1,11 @@
 # design
 
-_One sentence: what this topic is about._
+Design research for quirq. Scope is still being agreed.
 
 | | |
 |---|---|
 | Status | Proposed |
-| Owner | _name_ |
+| Owner | suraj |
 | Started | 2026-10-06 |
 | Last updated | 2026-10-06 |
 
