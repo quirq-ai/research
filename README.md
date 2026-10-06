@@ -156,6 +156,7 @@ A new topic appears on the hub after its next push, with no Vercel changes.
 | [engineering](engineering/) | Proposed | Engineering research for quirq. Scope is still being agreed. | None yet |
 | [infra](infra/) | Published | How quirq infra (qq), the build, test and land system behind the quirq repos, fits together across its 13 public repos. | onepager, slide, report, app |
 | [marketing](marketing/) | Proposed | One sentence: what this topic is about. | None yet |
+| [product](product/) | Proposed | One sentence: what this topic is about. | None yet |
 <!-- topics:end -->
 
 This table is generated from each topic's README (status, first
