@@ -13,7 +13,7 @@
 import { createServer } from "node:http"
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs"
 import { extname, join, resolve } from "node:path"
-import { card, chips, escapeHtml, page, repoUrl, siteFooter, siteHeader, statusBadge } from "../packages/theme/index.mjs"
+import { cover, escapeHtml, icon, page, repoUrl, siteFooter, siteHeader, statusBadge, topicMap } from "../packages/theme/index.mjs"
 import { findTopics, published, readTopic, root } from "./lib/topics.mjs"
 
 const outDir = join(root, "dist")
@@ -24,50 +24,57 @@ const rank = (status) => (statusOrder.includes(status) ? statusOrder.indexOf(sta
 
 const formatLabels = { onepager: "One-pager", slide: "Slides", report: "Report", app: "App" }
 
-function topicCard(t, placeholder) {
-  const isPlaceholder = !t.summary || t.summary === placeholder
-  const outputs = t.formats.map((f) => formatLabels[f] ?? f)
-  return card({
-    href: `${t.slug}/`,
-    title: t.title,
-    badge: statusBadge(t.status),
-    text: isPlaceholder ? "Scope is still being defined." : t.summary,
-    placeholder: isPlaceholder,
-    foot: outputs.length ? chips(outputs) : `<span class="card-text">No outputs yet</span>`,
-  })
+function tile(t, placeholder, index) {
+  const summary = t.summary && t.summary !== placeholder ? t.summary : "Scope being defined."
+  const formats = t.formats.map((f) => icon(f, formatLabels[f] ?? f)).join("")
+  return `<article class="tile">
+${cover(t.slug, index)}
+<div class="tile-body">
+<div class="tile-head"><h3 class="tile-title"><a href="${t.slug}/">${escapeHtml(t.title)}</a></h3>${statusBadge(t.status)}</div>
+<p class="tile-text">${escapeHtml(summary)}</p>
+<div class="tile-foot"><span class="formats">${formats}</span><span class="go">${icon("arrow")}</span></div>
+</div>
+</article>`
 }
+
+const standards = [
+  ["sourced", "Sourced", "Every claim links to a source."],
+  ["reproducible", "Reproducible", "Numbers are re-run or cited."],
+  ["candid", "Candid", "Limits and open questions stated."],
+  ["shareable", "Shareable", "No secrets or private data."],
+]
 
 function indexPage(topics) {
   // The template's one-line summary means the topic has not written its own yet.
   const placeholder = readTopic("_template").summary
   const sorted = [...topics].sort((a, b) => rank(a.status) - rank(b.status) || a.slug.localeCompare(b.slug))
   const count = (status) => topics.filter((t) => t.status === status).length
-  const stats = [
-    [topics.length, topics.length === 1 ? "topic" : "topics"],
-    [count("Published"), "published"],
-    [count("Researching"), "in research"],
+  const legend = [
+    ["published", count("Published"), "published"],
+    ["researching", count("Researching"), "in research"],
+    ["", topics.length - count("Published") - count("Researching"), "proposed"],
   ]
-  const body = `${siteHeader({ nav: [["#topics", "Topics"], ["#standards", "Standards"], [repoUrl, "GitHub"]] })}
+  const body = `${siteHeader({ nav: [["#topics", "Topics"], [repoUrl, "GitHub"]] })}
 <main>
 <section class="hero"><div class="container">
-<p class="eyebrow">Research hub</p>
-<h1>Verified, shareable research from quirq.</h1>
-<p class="lede">Everything here has been checked against its sources and is safe to share outside the team. Each topic presents its findings its own way.</p>
-<ul class="stats">${stats.map(([n, label]) => `<li><strong>${n}</strong>${escapeHtml(label)}</li>`).join("")}</ul>
+<div>
+<p class="eyebrow">quirq research hub</p>
+<h1>Research, <em>verified.</em></h1>
+<p class="lede">Checked against sources. Safe to share.</p>
+<div class="actions"><a class="button button-primary" href="#topics">Explore topics ${icon("arrow")}</a><a class="button" href="${repoUrl}">${icon("github")} GitHub</a></div>
+<ul class="legend">${legend.map(([kind, n, label]) => `<li><span class="dot${kind ? ` dot-${kind}` : ""}"></span><strong>${n}</strong> ${label}</li>`).join("")}</ul>
+</div>
+${topicMap(sorted)}
 </div></section>
 <section class="section" id="topics"><div class="container">
-<div class="section-head"><h2>Topics</h2><p>Published work first.</p></div>
-<div class="grid">
-${sorted.map((t) => topicCard(t, placeholder)).join("\n")}
+<div class="section-head"><h2>Topics</h2></div>
+<div class="tiles">
+${sorted.map((t, i) => tile(t, placeholder, i)).join("\n")}
 </div>
 </div></section>
 <section class="section" id="standards"><div class="container">
-<div class="section-head"><h2>What every topic holds to</h2></div>
-<ul class="principles">
-<li><strong>Sourced</strong><span>Every claim traces to a source someone else can check.</span></li>
-<li><strong>Reproducible</strong><span>Numbers are either reproduced or quoted with their source.</span></li>
-<li><strong>Candid</strong><span>Limitations and open questions are stated, not hidden.</span></li>
-<li><strong>Shareable</strong><span>No secrets, credentials, personal, customer or internal-only data.</span></li>
+<ul class="standards">
+${standards.map(([name, title, text]) => `<li>${icon(name)}<div><strong>${title}</strong><br><span>${text}</span></div></li>`).join("\n")}
 </ul>
 </div></section>
 </main>

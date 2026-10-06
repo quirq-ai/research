@@ -7,6 +7,8 @@
 
 import { readFileSync } from "node:fs"
 
+export * from "./visuals.mjs"
+
 export const css = readFileSync(new URL("./quirq.css", import.meta.url), "utf8")
 
 export const repoUrl = "https://github.com/quirq-ai/research"
@@ -44,8 +46,7 @@ ${links ? `<nav class="site-nav" aria-label="Site">${links}</nav>` : ""}
 export function siteFooter() {
   return `<footer class="site-footer"><div class="container">
 <span>quirq research</span>
-<span>Built from the quirq-ai/research repository.</span>
-<a class="spacer" href="${repoUrl}">Source on GitHub</a>
+<a class="spacer" href="${repoUrl}">GitHub</a>
 </div></footer>`
 }
 
