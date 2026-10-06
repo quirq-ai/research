@@ -1,0 +1,11 @@
+{
+  "name": "@research/theme",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Shared quirq look for the research hub and topic pages: CSS tokens, base styles and small HTML partials.",
+  "exports": {
+    ".": "./index.mjs",
+    "./quirq.css": "./quirq.css"
+  }
+}

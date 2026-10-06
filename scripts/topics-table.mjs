@@ -8,22 +8,12 @@
 //   node scripts/topics-table.mjs --check   exit 1 if the table is out of date
 //                                           (npm run check does this too)
 
-import { existsSync, readFileSync, readdirSync, writeFileSync } from "node:fs"
+import { readFileSync, writeFileSync } from "node:fs"
 import { join } from "node:path"
-import { findTopics, readTopic, root } from "./lib/topics.mjs"
+import { findTopics, published, readTopic, root } from "./lib/topics.mjs"
 
 const readmePath = join(root, "README.md")
 const markers = /(<!-- topics:start -->\n)[\s\S]*?(<!-- topics:end -->)/
-
-const formats = ["onepager", "slide", "report", "app"]
-
-// The output formats that hold anything besides their README.
-function published(slug) {
-  return formats.filter((format) => {
-    const folder = join(root, slug, "output", format)
-    return existsSync(folder) && readdirSync(folder).some((name) => name !== "README.md" && !name.startsWith("."))
-  })
-}
 
 export function topicsTable() {
   const rows = findTopics().map((slug) => {
