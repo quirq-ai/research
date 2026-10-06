@@ -13,9 +13,10 @@ fits together across its 13 public repos.
 Status is one of: Proposed, Researching, Published, Paused, Archived.
 
 **New to qq? Start with [the qq guide in the docs](https://docs.xo.builders/docs/qq)**
-([source](https://github.com/quirq-ai/docs/blob/main/content/docs/qq/index.mdx)):
+([source](https://github.com/quirq-ai/docs/blob/main/content/docs/qq.mdx)):
 everything below in one simplified page, with links to the longer pieces. The
-[2026-10-06 snapshot](output/report/2026-10-06-qq-guide.md) of it stays here.
+longer guide it was cut from stays here as a
+[2026-10-06 snapshot](output/report/2026-10-06-qq-guide.md).
 
 ## What this topic is
 
@@ -126,7 +127,7 @@ summary, badges and link list rest on the same READMEs and pins.
 | report | [output/report/2026-10-05-qq-setup-depot-sync.md](output/report/2026-10-05-qq-setup-depot-sync.md) | 2026-10-05 | Guide: install depot (`qq`) and sync (`qqsync`) and use them; commands from the 2026-10-04 guide. |
 | report | [output/report/2026-10-05-qq-build-run-locally.md](output/report/2026-10-05-qq-build-run-locally.md) | 2026-10-05 | Guide: build, test and run xo-space, innernet or any repo locally with qq; commands from the 2026-10-04 guide. |
 | report | [output/report/2026-10-05-qq-onboard-website.md](output/report/2026-10-05-qq-onboard-website.md) | 2026-10-05 | Operator guide: add a repo to qq with its landing policy enforced, step by step with real screenshots and the options at each step; quirq-ai/website as the worked example. Screenshots in [output/report/2026-10-05-qq-onboard-website/](output/report/2026-10-05-qq-onboard-website/). |
-| report | [output/report/2026-10-06-qq-guide.md](output/report/2026-10-06-qq-guide.md) | 2026-10-06 | Start here: all of qq in one simplified guide (what it is, the repos, how a change travels, setup and local builds, adding a repo, policy, status, limits), built from the other outputs here. |
+| report | [output/report/2026-10-06-qq-guide.md](output/report/2026-10-06-qq-guide.md) | 2026-10-06 | Snapshot of the qq guide as of 2026-10-06; the maintained version is [docs.xo.builders/docs/qq](https://docs.xo.builders/docs/qq). |
 | slide | [output/slide/2026-10-05-qq-v0-how-to-use.pdf](output/slide/2026-10-05-qq-v0-how-to-use.pdf) | 2026-10-05 | 32-slide deck "quirq infra v0: how to use it", status refreshed, with a sources slide. |
 | slide | [output/slide/2026-10-05-qq-v0-how-to-use/](output/slide/2026-10-05-qq-v0-how-to-use/) | 2026-10-05 | The deck's source: `deck.json`, one HTML file per slide, `gen/gen.py` (phase and repo slides) and `gen/render.js` (overflow check and PDF). |
 
