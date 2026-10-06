@@ -153,7 +153,7 @@ A new topic appears on the hub after its next push, with no Vercel changes.
 | Topic | Status | Summary | Outputs |
 |---|---|---|---|
 | [design](design/) | Published | Which design system, principles and tokens quirq should use across its product UI, docs and research hub. | onepager, report |
-| [engineering](engineering/) | Proposed | Engineering research for quirq. Scope is still being agreed. | None yet |
+| [engineering](engineering/) | Researching | How quirq engineers build software: how the repos fit together, how changes are tested and reviewed, and how AI agents take part. | None yet |
 | [infra](infra/) | Published | How quirq infra (qq), the build, test and land system behind the quirq repos, fits together across its 13 public repos. | onepager, slide, report, app |
 | [marketing](marketing/) | Proposed | One sentence: what this topic is about. | None yet |
 | [product](product/) | Proposed | One sentence: what this topic is about. | None yet |

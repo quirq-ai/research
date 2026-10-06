@@ -5,23 +5,33 @@ this topic only.
 
 ## What to research
 
-_Derived from [GOAL.md](GOAL.md). List the questions to answer and the
-research action to take, in the order to take it._
+Answer the four questions in [GOAL.md](GOAL.md), in this order:
 
-1. _..._
+1. Agent and UI integration patterns. Compare CopilotKit/AG-UI, LangGraph's
+   React SDK, the Vercel AI SDK and assistant-ui on shared state, generative
+   UI and human-in-the-loop. Start from the write-up in issue #16.
+2. Repo structure: map the quirq repos and their dependencies.
+3. Testing and code review: record each repo's tests, CI and review settings,
+   then list the gaps.
+4. AI agents in the dev loop: record where agents act today and what would
+   help them most.
 
 ## Sources
 
-**Prefer:** _primary sources, official documentation, peer-reviewed papers,
-reproducible experiments._
+**Prefer:** the quirq repos read at a recorded commit, their merged PRs and
+CI runs, each framework's official docs and source repo, and examples you
+ran yourself.
 
-**Avoid:** _sources that cannot be checked or cited._
+**Avoid:** vendor marketing pages and blog comparisons as the only source for
+a claim, and anything that cannot be checked or cited.
 
 ## How to verify
 
 - Open every source and confirm it says what the finding claims.
 - Reproduce numbers where possible; otherwise quote them with their source.
-- _Topic-specific checks: ..._
+- Cite repo claims as a file path at a commit SHA.
+- For framework comparisons, record the package versions you checked. Mark
+  anything you did not run yourself as read from docs.
 
 ## Publishing
 
@@ -31,4 +41,4 @@ and run `npm run topics` at the repo root.
 
 ## Topic-specific notes
 
-_None yet._
+- Don't duplicate the `infra` topic. Link to it where qq is relevant.

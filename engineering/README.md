@@ -1,10 +1,10 @@
 # engineering
 
-Engineering research for quirq. Scope is still being agreed.
+How quirq engineers build software: how the repos fit together, how changes are tested and reviewed, and how AI agents take part.
 
 | | |
 |---|---|
-| Status | Proposed |
+| Status | Researching |
 | Owner | suraj |
 | Started | 2026-10-06 |
 | Last updated | 2026-10-06 |
@@ -13,8 +13,13 @@ Status is one of: Proposed, Researching, Published, Paused, Archived.
 
 ## What this topic is
 
-_Describe the subject, why it matters, and the context a new reader needs.
-Purpose and research action live in [GOAL.md](GOAL.md)._
+This topic looks at engineering practice across the quirq repos: their
+structure and dependencies, testing and code review, and where AI agents fit
+in the dev loop. It also compares agent and UI integration frameworks
+(CopilotKit/AG-UI, LangGraph's React SDK, the Vercel AI SDK, assistant-ui).
+How qq builds, tests and lands changes is covered by the
+[infra](../infra/) topic instead. Purpose and research action live in
+[GOAL.md](GOAL.md).
 
 ## Research and findings so far
 
@@ -32,8 +37,8 @@ _None recorded yet._
 
 ## Status and progress
 
-- [ ] GOAL.md filled in and agreed with the requester
-- [ ] AGENTS.md filled in
+- [x] GOAL.md filled in and agreed with the requester
+- [x] AGENTS.md filled in
 - [ ] Research under way
 - [ ] Findings verified against sources
 - [ ] Requested outputs published
