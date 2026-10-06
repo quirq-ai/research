@@ -105,11 +105,13 @@ decides how it presents its findings. The only contract is:
 A new topic starts with the default presentation, `@research/present`, which
 renders the topic's `README.md`, `GOAL.md` and the files in
 `output/onepager/`, `output/slide/` and `output/report/` into a small site
-(Markdown becomes HTML pages, other files such as PDFs are copied as-is).
+(Markdown becomes HTML pages, other files such as PDFs are copied as-is). It
+also adds each app in `output/app/<name>/` that has a built `dist/`, at
+`output/app/<name>/` with an App link in the menu. For example `infra` lists
+`infra-map` (a Vite app, and its own workspace) as a devDependency, so
+Turborepo builds the app first and the hub shows the map next to the reports.
 
-To present a topic another way, change the scripts in its `package.json`. For
-example `infra` publishes its app: its build copies the output of
-`output/app/infra-map` (a Vite app, and its own workspace) into `infra/dist/`.
+To present a topic another way, change the scripts in its `package.json`.
 Any tool works as long as the build ends with a static site in `dist/`.
 
 The root build runs every topic's build, then `scripts/build-hub.mjs` copies

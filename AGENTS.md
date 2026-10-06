@@ -96,9 +96,12 @@ first paragraph and status from `<slug>/README.md`.
 - By default the topic uses `@research/present`, which turns `README.md`,
   `GOAL.md` and the onepager, slide and report files into a site. Nothing
   else is needed.
-- If the topic should present itself another way (for example as its app),
-  change the `build` and `dev` scripts in `<slug>/package.json`. See
-  `infra/package.json`, which publishes its app.
+- An app in `output/app/<name>/` is added too once it is built: make the app
+  its own workspace whose build writes `dist/` with relative asset paths, and
+  list it as a devDependency in `<slug>/package.json`. See
+  `infra/package.json`.
+- If the topic should present itself another way, change the `build` and
+  `dev` scripts in `<slug>/package.json`.
 - Run `npm run dev` from the repo root and check the topic on the hub at
   `http://localhost:3000/<slug>/` before you commit. Do not commit `dist/`.
 

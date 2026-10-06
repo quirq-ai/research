@@ -3,12 +3,17 @@
 //
 // Run from a topic folder:
 //   present build   render README.md, GOAL.md and output/{onepager,slide,report}
-//                   into a static site in dist/
+//                   into a static site in dist/, and add each built app
 //   present dev     build, then serve dist/ on $PORT (default 3000)
 //
 // Markdown files become .html pages; any other file under those output folders
 // (a PDF, an image, an HTML deck) is copied as-is. The README.md in each
 // output folder only describes the format, so it is skipped.
+//
+// Each app in output/app/<name>/ that has been built to output/app/<name>/dist/
+// is copied to dist/output/app/<name>/, so links to output/app/<name>/ open the
+// running app. List the app as a devDependency of the topic so Turborepo builds
+// it first, and give it relative asset paths (Vite: base: "./").
 
 import { createServer } from "node:http"
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs"
@@ -42,6 +47,22 @@ function collect() {
     }
   }
   return { pages, assets }
+}
+
+// Apps under output/app/ that have a built dist/index.html, by folder name.
+function collectApps() {
+  const appsDir = join(topicDir, "output", "app")
+  if (!existsSync(appsDir)) return []
+  return readdirSync(appsDir)
+    .filter((name) => statSync(join(appsDir, name)).isDirectory())
+    .filter((name) => {
+      if (existsSync(join(appsDir, name, "dist", "index.html"))) return true
+      if (existsSync(join(appsDir, name, "package.json"))) {
+        console.warn(`present: output/app/${name}/ has no dist/index.html; build it first (list it as a devDependency)`)
+      }
+      return false
+    })
+    .sort()
 }
 
 function outPath(src) {
@@ -107,6 +128,7 @@ ${body}
 
 function build() {
   const { pages, assets } = collect()
+  const apps = collectApps()
   rmSync(outDir, { recursive: true, force: true })
   mkdirSync(outDir, { recursive: true })
 
@@ -117,6 +139,7 @@ function build() {
     const first = [...published.entries()].find(([rel]) => rel.startsWith(`output/${format}/`))
     if (first) nav.push([first[1], format[0].toUpperCase() + format.slice(1)])
   }
+  if (apps.length) nav.push([`output/app/${apps[0]}/`, apps.length > 1 ? "Apps" : "App"])
 
   for (const src of pages) {
     const rel = relative(topicDir, src)
@@ -133,7 +156,10 @@ function build() {
     mkdirSync(dirname(dest), { recursive: true })
     cpSync(src, dest)
   }
-  console.log(`present: wrote ${pages.length} page(s) and ${assets.length} file(s) to ${relative(process.cwd(), outDir)}/`)
+  for (const name of apps) {
+    cpSync(join(topicDir, "output", "app", name, "dist"), join(outDir, "output", "app", name), { recursive: true })
+  }
+  console.log(`present: wrote ${pages.length} page(s), ${assets.length} file(s) and ${apps.length} app(s) to ${relative(process.cwd(), outDir)}/`)
 }
 
 const types = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".pdf": "application/pdf" }
