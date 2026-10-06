@@ -18,6 +18,7 @@
 import { createServer } from "node:http"
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs"
 import { basename, dirname, extname, join, relative, resolve, sep } from "node:path"
+import { escapeHtml, page, repoUrl, siteFooter, siteHeader } from "@research/theme"
 import { marked } from "marked"
 
 const topicDir = process.cwd()
@@ -71,10 +72,6 @@ function outPath(src) {
   return extname(rel) === ".md" ? rel.slice(0, -3) + ".html" : rel
 }
 
-function escapeHtml(text) {
-  return text.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c])
-}
-
 // Point relative links at the rendered pages: foo.md -> foo.html, README.md -> index.html.
 // Links that leave the published set (other topics, app source) go to GitHub-style
 // relative paths unchanged, which is the best a static site can do.
@@ -88,42 +85,29 @@ function rewriteLinks(html, fromRel, published) {
   })
 }
 
-function layout({ title, body, nav, depth }) {
+// Pages use the shared quirq theme: the site header links back to the hub,
+// and a topic bar lists this topic's pages.
+function layout({ title, body, nav, current }) {
+  const depth = current.split("/").length - 1
   const up = depth ? "../".repeat(depth) : ""
-  const links = nav.map(([href, label]) => `<a href="${up}${href}">${escapeHtml(label)}</a>`).join("")
-  return `<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${escapeHtml(title)}</title>
-<style>
-:root { color-scheme: light dark; --fg: #1b1b1f; --muted: #5f6068; --bg: #fdfdfc; --line: #e3e3e0; --accent: #2f5bd3; }
-@media (prefers-color-scheme: dark) { :root { --fg: #ececee; --muted: #a0a1a8; --bg: #141416; --line: #2c2c31; --accent: #8aa8ff; } }
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
-header { border-bottom: 1px solid var(--line); }
-header div, main { max-width: 760px; margin: 0 auto; padding: 0 16px; }
-header div { display: flex; flex-wrap: wrap; gap: 16px; align-items: baseline; padding-block: 14px; }
-header strong { margin-right: auto; }
-header a { color: var(--muted); text-decoration: none; }
-header a:hover { color: var(--fg); }
-main { padding-block: 24px 64px; overflow-wrap: anywhere; }
-a { color: var(--accent); }
-table { border-collapse: collapse; display: block; overflow-x: auto; }
-th, td { border: 1px solid var(--line); padding: 6px 10px; text-align: left; }
-pre { overflow-x: auto; padding: 12px; border: 1px solid var(--line); border-radius: 6px; }
-code { font-size: 0.92em; }
-</style>
-</head>
-<body>
-<header><div><a href="/">All research</a><strong>${escapeHtml(topic)}</strong>${links}</div></header>
-<main>
+  const links = nav
+    .map(([href, label]) => {
+      const active = href === current || (href.endsWith("/") && current.startsWith(href))
+      return `<a href="${up}${href}"${active ? ' aria-current="page"' : ""}>${escapeHtml(label)}</a>`
+    })
+    .join("")
+  return page({
+    title: title === topic ? `${topic} · quirq research` : `${title} · ${topic}`,
+    body: `${siteHeader({ nav: [["/#topics", "Topics"], [repoUrl, "GitHub"]] })}
+<div class="topic-bar"><div class="container">
+<span class="crumb"><a href="/">Research</a> / <a href="${up}index.html" class="here">${escapeHtml(topic)}</a></span>
+<nav class="site-nav" aria-label="${escapeHtml(topic)}">${links}</nav>
+</div></div>
+<main class="container prose">
 ${body}
 </main>
-</body>
-</html>
-`
+${siteFooter()}`,
+  })
 }
 
 function build() {
@@ -148,8 +132,7 @@ function build() {
     const body = rewriteLinks(marked.parse(markdown), rel, published)
     const dest = join(outDir, outPath(src))
     mkdirSync(dirname(dest), { recursive: true })
-    const depth = outPath(src).split("/").length - 1
-    writeFileSync(dest, layout({ title, body, nav, depth }))
+    writeFileSync(dest, layout({ title, body, nav, current: outPath(src) }))
   }
   for (const src of assets) {
     const dest = join(outDir, outPath(src))

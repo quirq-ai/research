@@ -165,3 +165,36 @@ a { color: var(--primary); text-underline-offset: 2px; }
 .principles li { padding: 18px 20px; border-radius: var(--radius); background: var(--muted); }
 .principles strong { display: block; margin-bottom: 4px; }
 .principles span { color: var(--muted-foreground); font-size: 0.925rem; }
+
+/* Topic bar: the topic name and its pages, under the site header. */
+.topic-bar { border-bottom: 1px solid var(--border); background: var(--card); }
+.topic-bar .container { display: flex; align-items: center; gap: 4px 16px; flex-wrap: wrap; min-height: 48px; }
+.topic-bar .crumb { font-weight: 600; text-transform: capitalize; margin-right: auto; }
+.topic-bar .crumb a { color: var(--muted-foreground); font-weight: 400; text-decoration: none; }
+.topic-bar .crumb a.here { color: var(--foreground); font-weight: 600; }
+.topic-bar .crumb a:hover { color: var(--foreground); }
+.topic-bar .site-nav { margin-left: 0; }
+
+/* Prose: rendered Markdown. */
+.prose { max-width: 760px; padding-block: 40px 72px; overflow-wrap: anywhere; }
+.prose > :first-child { margin-top: 0; }
+.prose h1 { font-size: clamp(1.75rem, 4vw, 2.25rem); font-weight: 700; margin: 0 0 16px; }
+.prose h2 { font-size: 1.375rem; font-weight: 600; margin: 40px 0 12px; padding-top: 8px; }
+.prose h3 { font-size: 1.125rem; font-weight: 600; margin: 28px 0 8px; }
+.prose p, .prose ul, .prose ol { margin: 0 0 16px; }
+.prose li { margin: 4px 0; }
+.prose li > p { margin: 0; }
+.prose blockquote { margin: 0 0 16px; padding: 4px 16px; border-left: 3px solid var(--primary); color: var(--muted-foreground); }
+.prose hr { border: 0; border-top: 1px solid var(--border); margin: 32px 0; }
+.prose img { max-width: 100%; height: auto; border-radius: var(--radius); }
+.prose table { display: block; overflow-x: auto; border-collapse: collapse; margin: 0 0 20px; font-size: 0.925rem; }
+.prose th, .prose td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; vertical-align: top; }
+.prose th { background: var(--muted); font-weight: 600; }
+.prose code { font: 0.88em var(--font-mono); background: var(--muted); border-radius: 4px; padding: 1px 5px; }
+.prose pre { margin: 0 0 20px; padding: 14px 16px; overflow-x: auto; border-radius: var(--radius); background: var(--code); color: var(--code-foreground); }
+.prose pre code { background: none; padding: 0; color: inherit; }
+.prose table { overflow-wrap: normal; }
+.prose td { min-width: 10ch; }
+.prose thead tr:not(:has(th:not(:empty))) { display: none; }
+.prose li:has(> input[type="checkbox"]) { list-style: none; margin-left: -1.4em; }
+.prose input[type="checkbox"] { accent-color: var(--primary); margin-right: 6px; }
