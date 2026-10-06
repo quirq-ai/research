@@ -2,40 +2,46 @@
 
 ## Purpose
 
-_Why this research is being done. What decision, question or piece of work it
-informs, and who needs the answer._
+Decide how quirq should design its product surfaces (product UI, docs and the
+research hub) so they look and feel consistent. It informs the design choices
+behind those surfaces.
 
 ## Research questions
 
-1. _Question one._
+1. Which design system or component library fits quirq's stack?
+2. Which design principles and tokens should quirq adopt (type, colour,
+   spacing, dark mode)?
+3. How do comparable developer-tool companies handle design?
 
 ## Research action
 
-_What will be done to answer the questions: sources to review, experiments to
-run, comparisons to make, people or datasets to consult._
+Review 4 to 6 public design systems, from their official documentation and
+source, and compare them against quirq's needs.
 
 ## Scope
 
 **In scope:**
 
-- _..._
+- Design of quirq's product UI, docs and the research hub.
+- Public design systems and component libraries.
 
 **Out of scope:**
 
-- _..._
+- System or architecture design.
 
 ## Done when
 
-- _Concrete criteria that tell us the research is finished._
+- Each research question has a sourced answer.
+- The onepager and the report are published.
 
 ## Requested outputs
 
 Tick only the formats the requester asked for. Agents publish into these
 folders and no others.
 
-- [ ] onepager: `output/onepager/`
+- [x] onepager: `output/onepager/`
 - [ ] slide: `output/slide/`
-- [ ] report: `output/report/`
+- [x] report: `output/report/`
 - [ ] app: `output/app/`
 
-Requested by: _name_, on _YYYY-MM-DD_.
+Requested by: suraj, on 2026-10-06.

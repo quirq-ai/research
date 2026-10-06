@@ -1,10 +1,10 @@
 # design
 
-Design research for quirq. Scope is still being agreed.
+Which design system, principles and tokens quirq should use across its product UI, docs and research hub.
 
 | | |
 |---|---|
-| Status | Proposed |
+| Status | Researching |
 | Owner | suraj |
 | Started | 2026-10-06 |
 | Last updated | 2026-10-06 |
@@ -13,8 +13,10 @@ Status is one of: Proposed, Researching, Published, Paused, Archived.
 
 ## What this topic is
 
-_Describe the subject, why it matters, and the context a new reader needs.
-Purpose and research action live in [GOAL.md](GOAL.md)._
+This topic compares public design systems and component libraries and
+recommends the design system, principles and tokens (type, colour, spacing,
+dark mode) for quirq's product UI, docs and research hub. Purpose and research
+action live in [GOAL.md](GOAL.md).
 
 ## Research and findings so far
 
@@ -32,8 +34,8 @@ _None recorded yet._
 
 ## Status and progress
 
-- [ ] GOAL.md filled in and agreed with the requester
-- [ ] AGENTS.md filled in
+- [x] GOAL.md filled in and agreed with the requester
+- [x] AGENTS.md filled in
 - [ ] Research under way
 - [ ] Findings verified against sources
 - [ ] Requested outputs published
