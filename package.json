@@ -13,6 +13,7 @@
   ],
   "scripts": {
     "check": "node scripts/check.mjs",
+    "topics": "node scripts/topics-table.mjs",
     "build": "turbo run build && node scripts/build-hub.mjs",
     "dev": "turbo run build && node scripts/build-hub.mjs serve"
   },
