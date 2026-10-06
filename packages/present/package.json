@@ -8,6 +8,7 @@
     "present": "./bin/present.js"
   },
   "dependencies": {
+    "@research/theme": "*",
     "marked": "18.0.14"
   }
 }
