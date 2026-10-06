@@ -7,7 +7,16 @@ informs, and who needs the answer._
 
 ## Research questions
 
-1. _Question one._
+1. **Agent and UI integration patterns.** How do agent frameworks connect an
+   agent to an app's UI, and how do CopilotKit/AG-UI, LangGraph's React SDK,
+   the Vercel AI SDK and assistant-ui compare on:
+   - shared state that both the agent and the UI read and write,
+   - generative UI, where the agent's output renders as UI components,
+   - human-in-the-loop, where the user approves or edits an agent step?
+
+   Source idea: [#16 Idea: CopilotKit shared state](https://github.com/quirq-ai/research/issues/16).
+
+_More questions to follow once the topic scope is agreed._
 
 ## Research action
 
