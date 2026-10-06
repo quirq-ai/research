@@ -125,8 +125,10 @@ Then run `npm run topics` to regenerate the root `README.md` Topics table.
 
 - [ ] `npm run check` at the repo root passes. It checks the topic's required
       files, that no `{{TOPIC}}` or `{{DATE}}` placeholder is left, output
-      file names, that outputs exist only in ticked formats, and that the
-      root Topics table matches what `npm run topics` generates.
+      file names, that outputs exist only in ticked formats, that every
+      output is in the README Published outputs table and every link there
+      exists, and that the root Topics table matches what `npm run topics`
+      generates.
 - [ ] Outputs exist only in the requested formats.
 - [ ] Every claim has a source and was checked against it.
 - [ ] Topic README findings, status, progress and outputs table are current.
