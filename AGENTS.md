@@ -33,8 +33,9 @@ scripts/new-topic.sh <slug>
   slug and `{{DATE}}` with today's date.
 - It refuses to overwrite an existing folder. If the topic already exists,
   work in it instead of creating a new one.
-- Add a row for the topic to the Topics table in the root `README.md`, with
-  status `Proposed`.
+- Run `npm run topics` to add the topic to the Topics table in the root
+  `README.md`. The table is generated from each topic's README; never edit it
+  by hand.
 - Run `npm install` at the repo root so the new topic is linked as a
   workspace, and commit the updated `package-lock.json`.
 - Slugs `dist`, `node_modules`, `packages` and `scripts` are reserved.
@@ -57,7 +58,7 @@ If the request does not say which output format is wanted, ask. Do not guess.
 Turn `GOAL.md` into concrete instructions in `<slug>/AGENTS.md`: what to
 research, which sources to prefer or avoid, how to verify results, and any
 topic-specific conventions. Then set the topic status to `Researching` in
-`<slug>/README.md` and in the root Topics table.
+`<slug>/README.md` and run `npm run topics`.
 
 ### 4. Research
 
@@ -115,7 +116,7 @@ In `<slug>/README.md`:
 - Add each published file to the "Published outputs" table.
 - Update "Last updated".
 
-Then update the topic's row in the root `README.md` Topics table.
+Then run `npm run topics` to regenerate the root `README.md` Topics table.
 
 ### 8. Commit
 
@@ -127,11 +128,12 @@ Then update the topic's row in the root `README.md` Topics table.
 
 - [ ] `npm run check` at the repo root passes. It checks the topic's required
       files, that no `{{TOPIC}}` or `{{DATE}}` placeholder is left, output
-      file names, that outputs exist only in ticked formats, and that the
-      root Topics table row matches the topic's status.
+      file names, that outputs exist only in ticked formats, that every
+      output is in the README Published outputs table and every link there
+      exists, and that the root Topics table matches what `npm run topics`
+      generates.
 - [ ] Outputs exist only in the requested formats.
 - [ ] Every claim has a source and was checked against it.
 - [ ] Topic README findings, status, progress and outputs table are current.
-- [ ] Root README Topics table is current.
 - [ ] `npm run build` at the repo root succeeds.
 - [ ] No secrets, personal data or internal-only material.

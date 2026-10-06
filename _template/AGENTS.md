@@ -27,7 +27,7 @@ reproducible experiments._
 
 Follow steps 5 to 8 of the root [AGENTS.md](../AGENTS.md): publish only into
 the formats ticked in [GOAL.md](GOAL.md), then update [README.md](README.md)
-and the root Topics table.
+and run `npm run topics` at the repo root.
 
 ## Topic-specific notes
 
