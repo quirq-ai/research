@@ -12,8 +12,8 @@
 
 import { createServer } from "node:http"
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs"
-import { extname, join, resolve } from "node:path"
-import { cover, escapeHtml, icon, page, repoUrl, siteFooter, siteHeader, statusBadge, topicMap } from "../packages/theme/index.mjs"
+import { basename, extname, join, resolve } from "node:path"
+import { cover, escapeHtml, fonts, icon, page, repoUrl, siteFooter, siteHeader, statusBadge, topicMap } from "../packages/theme/index.mjs"
 import { findTopics, published, readTopic, root } from "./lib/topics.mjs"
 
 const outDir = join(root, "dist")
@@ -96,11 +96,13 @@ function build() {
   rmSync(outDir, { recursive: true, force: true })
   mkdirSync(outDir, { recursive: true })
   for (const slug of slugs) cpSync(join(root, slug, "dist"), join(outDir, slug), { recursive: true })
+  mkdirSync(join(outDir, "_fonts"))
+  for (const font of fonts) cpSync(font, join(outDir, "_fonts", basename(font)))
   writeFileSync(join(outDir, "index.html"), indexPage(slugs.map((slug) => ({ ...readTopic(slug), formats: published(slug) }))))
   console.log(`build-hub: wrote ${slugs.length} topic(s) to dist/: ${slugs.join(", ")}`)
 }
 
-const types = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".pdf": "application/pdf" }
+const types = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".pdf": "application/pdf", ".woff2": "font/woff2" }
 
 function serve() {
   const port = Number(process.env.PORT) || 3000

@@ -6,10 +6,16 @@
 // Pages inline the CSS, so they work from any path and offline.
 
 import { readFileSync } from "node:fs"
+import { createRequire } from "node:module"
+import { dirname, join } from "node:path"
 
 export * from "./visuals.mjs"
 
 export const css = readFileSync(new URL("./quirq.css", import.meta.url), "utf8")
+
+// Font files the hub copies to /_fonts/, which quirq.css points at.
+const fontsource = dirname(createRequire(import.meta.url).resolve("@fontsource-variable/geist/package.json"))
+export const fonts = ["geist-latin-wght-normal.woff2", "geist-latin-ext-wght-normal.woff2", "geist-latin-wght-italic.woff2"].map((name) => join(fontsource, "files", name))
 
 export const repoUrl = "https://github.com/quirq-ai/research"
 
@@ -68,6 +74,7 @@ export function page({ title, description = "", head = "", body }) {
 <title>${escapeHtml(title)}</title>
 ${description ? `<meta name="description" content="${escapeHtml(description)}">` : ""}
 <meta name="theme-color" content="#b0478c">
+<link rel="preload" href="/_fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#b0478c"/><text x="16" y="22" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">q</text></svg>')}">
 <style>
 ${css}</style>
