@@ -21,6 +21,7 @@ import { basename, dirname, extname, join, relative, resolve, sep } from "node:p
 import { escapeHtml, page, repoUrl, siteFooter, siteHeader } from "@research/theme"
 import { marked } from "marked"
 import { overview } from "../lib/overview.js"
+import { readingLayout } from "../lib/reading.js"
 
 const topicDir = process.cwd()
 const outDir = join(topicDir, "dist")
@@ -88,7 +89,7 @@ function rewriteLinks(html, fromRel, published) {
 
 // Pages use the shared quirq theme: the site header links back to the hub,
 // and a topic bar lists this topic's pages.
-function layout({ title, body, nav, current, wide = false }) {
+function layout({ title, body, nav, current }) {
   const depth = current.split("/").length - 1
   const up = depth ? "../".repeat(depth) : ""
   const links = nav
@@ -104,7 +105,9 @@ function layout({ title, body, nav, current, wide = false }) {
 <span class="crumb"><a href="/">Research</a> / <a href="${up}index.html" class="here">${escapeHtml(topic)}</a></span>
 <nav class="site-nav" aria-label="${escapeHtml(topic)}">${links}</nav>
 </div></div>
-${wide ? `<main>\n${body}\n</main>` : `<main class="container prose">\n${body}\n</main>`}
+<main>
+${body}
+</main>
 ${siteFooter()}`,
   })
 }
@@ -127,13 +130,13 @@ function build() {
   for (const src of pages) {
     const rel = relative(topicDir, src)
     const markdown = readFileSync(src, "utf8")
-    // The README becomes a visual overview; other pages render as plain prose.
+    // The README becomes a visual overview; other pages get the reading layout.
     const visual = rel === "README.md" ? overview(markdown, topic) : null
     const title = visual?.title ?? markdown.match(/^#\s+(.+)$/m)?.[1] ?? topic
-    const body = rewriteLinks(visual?.html ?? marked.parse(markdown), rel, published)
+    const body = visual ? rewriteLinks(visual.html, rel, published) : readingLayout(rewriteLinks(marked.parse(markdown), rel, published), markdown)
     const dest = join(outDir, outPath(src))
     mkdirSync(dirname(dest), { recursive: true })
-    writeFileSync(dest, layout({ title, body, nav, current: outPath(src), wide: Boolean(visual) }))
+    writeFileSync(dest, layout({ title, body, nav, current: outPath(src) }))
   }
   for (const src of assets) {
     const dest = join(outDir, outPath(src))
