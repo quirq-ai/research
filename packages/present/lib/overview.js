@@ -55,7 +55,7 @@ function progressSteps(items) {
     .map((i) => `<li class="${i.checked ? "done" : ""}"><span class="step-dot">${i.checked ? icon("check") : ""}</span><span>${marked.parseInline(i.text)}</span></li>`)
     .join("")
   return `<div class="progress-head"><h2>Progress</h2><span>${done} of ${items.length}</span></div>
-<ol class="steps" style="--done:${items.length ? done / items.length : 0}">${steps}</ol>`
+<ol class="steps" style="--n:${items.length || 1};--done:${items.length > 1 ? Math.max(0, done - 1) / (items.length - 1) : done}">${steps}</ol>`
 }
 
 // Returns { title, html } for the README, or null if it lacks the template's shape.
@@ -103,9 +103,9 @@ export function overview(markdown, slug) {
   const html = `<section class="topic-hero">
 <div class="topic-cover">${cover(slug)}</div>
 <div class="container"><div class="topic-head">
-<span title="${escapeHtml(legend)}">${statusBadge(status)}</span>
+<div><span title="${escapeHtml(legend)}">${statusBadge(status)}</span>
 <h1>${escapeHtml(title)}</h1>
-${summary ? `<p class="lede">${marked.parseInline(summary.text)}</p>` : ""}
+${summary ? `<p class="lede">${marked.parseInline(summary.text)}</p>` : ""}</div>
 ${facts.length ? `<dl class="facts">${facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${marked.parseInline(v)}</dd></div>`).join("")}</dl>` : ""}
 </div></div>
 </section>

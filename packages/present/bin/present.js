@@ -87,6 +87,9 @@ function rewriteLinks(html, fromRel, published) {
   })
 }
 
+// Tables sit in a scroll box, so wide ones scroll instead of squeezing their columns.
+const wrapTables = (html) => html.replace(/<table>/g, '<div class="table-wrap"><table>').replace(/<\/table>/g, "</table></div>")
+
 // Pages use the shared quirq theme: the site header links back to the hub,
 // and a topic bar lists this topic's pages.
 function layout({ title, body, nav, current }) {
@@ -106,7 +109,7 @@ function layout({ title, body, nav, current }) {
 <nav class="site-nav" aria-label="${escapeHtml(topic)}">${links}</nav>
 </div></div>
 <main>
-${body}
+${wrapTables(body)}
 </main>
 ${siteFooter()}`,
   })
