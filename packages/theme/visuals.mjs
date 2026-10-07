@@ -16,9 +16,9 @@ function hash(text) {
 // Brand hues for artwork. Covers sit under no text, so they need no contrast pair.
 const hues = ["#b0478c", "#7a3fbf", "#e0789f", "#5b4bd1", "#d9864a", "#3d2a5c", "#c2569b"]
 
-// A cover image for a topic: a gradient and a pattern, picked by slug. Pass the
-// tile's position as `index` so neighbouring tiles never share a pattern.
-export function cover(slug, index) {
+// A cover image for a topic: a gradient and a pattern, picked by slug, so the
+// hub tile and the topic's own page always show the same art.
+export function cover(slug) {
   const h = hash(slug)
   const a = hues[h % hues.length]
   const b = hues[(h >>> 3) % hues.length] === a ? hues[(h + 1) % hues.length] : hues[(h >>> 3) % hues.length]
@@ -41,7 +41,7 @@ export function cover(slug, index) {
   return `<svg class="cover" viewBox="0 0 400 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
 <defs><linearGradient id="${id}" gradientTransform="rotate(${angle} .5 .5)"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs>
 <rect width="400" height="220" fill="url(#${id})"/>
-<g fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5" opacity=".9">${shapes[(index ?? h >>> 9) % shapes.length]()}</g>
+<g fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5" opacity=".9">${shapes[(h >>> 27) % shapes.length]()}</g>
 </svg>`
 }
 
@@ -56,6 +56,7 @@ const paths = {
   candid: '<circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/>',
   shareable: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
   github: '<path d="M9 19c-4 1.5-4-2-6-2.5M15 21v-3.5a3 3 0 0 0-.8-2.3c2.7-.3 5.5-1.3 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.3 4.3 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6 0C6.5 2.5 5.5 2.8 5.5 2.8a4.3 4.3 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.2c0 4.6 2.8 5.7 5.5 6a3 3 0 0 0-.8 2.3V21"/>',
+  check: '<path d="M5 12l5 5 9-10"/>',
   arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
 }
 
