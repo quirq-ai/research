@@ -24,11 +24,11 @@ const rank = (status) => (statusOrder.includes(status) ? statusOrder.indexOf(sta
 
 const formatLabels = { onepager: "One-pager", slide: "Slides", report: "Report", app: "App" }
 
-function tile(t, placeholder, index) {
+function tile(t, placeholder) {
   const summary = t.summary && t.summary !== placeholder ? t.summary : "Scope being defined."
   const formats = t.formats.map((f) => icon(f, formatLabels[f] ?? f)).join("")
   return `<article class="tile">
-${cover(t.slug, index)}
+${cover(t.slug)}
 <div class="tile-body">
 <div class="tile-head"><h3 class="tile-title"><a href="${t.slug}/">${escapeHtml(t.title)}</a></h3>${statusBadge(t.status)}</div>
 <p class="tile-text">${escapeHtml(summary)}</p>
@@ -69,7 +69,7 @@ ${topicMap(sorted)}
 <section class="section" id="topics"><div class="container">
 <div class="section-head"><h2>Topics</h2></div>
 <div class="tiles">
-${sorted.map((t, i) => tile(t, placeholder, i)).join("\n")}
+${sorted.map((t) => tile(t, placeholder)).join("\n")}
 </div>
 </div></section>
 <section class="section" id="standards"><div class="container">

@@ -239,6 +239,64 @@ a { color: var(--primary); text-underline-offset: 2px; }
 .topic-bar .crumb a:hover { color: var(--foreground); }
 .topic-bar .site-nav { margin-left: 0; }
 
+/* Topic overview: a cover header, progress stepper and output tiles. */
+.topic-hero { position: relative; }
+.topic-cover { height: 200px; overflow: hidden; }
+.topic-cover .cover { display: block; width: 100%; height: 100%; }
+.topic-head {
+  position: relative; margin-top: -72px; max-width: 760px; padding: 28px 28px 24px;
+  background: var(--card); border: 1px solid var(--border); border-radius: 20px; box-shadow: var(--shadow-hover);
+}
+.topic-head h1 { margin: 14px 0 0; font-size: clamp(2rem, 5vw, 3rem); font-weight: 750; letter-spacing: -0.035em; line-height: 1.05; text-transform: capitalize; }
+.topic-head .lede { margin-top: 12px; max-width: 60ch; font-size: 1.1rem; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 20px 0 0; }
+.facts div { display: flex; flex-direction: column; }
+.facts dt { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-foreground); }
+.facts dd { margin: 2px 0 0; font-weight: 550; }
+.overview { display: grid; gap: 20px; padding-top: 32px; }
+.overview h2 { margin: 0; font-size: 1.25rem; font-weight: 700; letter-spacing: -0.015em; }
+.overview .prose { padding: 0; max-width: none; margin-top: 16px; }
+.overview .prose.small { font-size: 0.9rem; color: var(--muted-foreground); }
+.overview .empty { margin: 12px 0 0; color: var(--muted-foreground); }
+
+.progress { padding: 22px 24px; border: 1px solid var(--border); border-radius: 18px; background: var(--card); }
+.progress-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.progress-head span { color: var(--muted-foreground); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+.steps { position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 16px; margin: 20px 0 0; padding: 0; list-style: none; }
+.steps::before, .steps::after { content: ""; position: absolute; top: 13px; left: 14px; height: 2px; border-radius: 2px; }
+.steps::before { right: 14px; background: var(--border); }
+.steps::after { width: calc((100% - 28px) * var(--done)); background: var(--primary); }
+.steps li { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; color: var(--muted-foreground); line-height: 1.35; }
+.steps li.done { color: var(--foreground); }
+.step-dot { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--card); border: 2px solid var(--border); color: var(--primary-foreground); }
+.steps li.done .step-dot { background: var(--primary); border-color: var(--primary); }
+.step-dot .icon { width: 16px; height: 16px; stroke-width: 3; }
+@media (max-width: 640px) {
+  .steps { grid-template-columns: 1fr; gap: 12px; }
+  .steps::before, .steps::after { display: none; }
+  .steps li { flex-direction: row; align-items: center; }
+}
+
+.outputs-section { padding-top: 12px; }
+.outputs { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); margin-top: 16px; }
+.output {
+  position: relative; display: flex; gap: 16px; padding: 18px; background: var(--card);
+  border: 1px solid var(--border); border-radius: 16px; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.output:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); border-color: color-mix(in srgb, var(--primary) 40%, var(--border)); }
+.output:focus-within { border-color: var(--ring); }
+.output-icon { display: grid; place-items: center; flex: none; width: 44px; height: 44px; border-radius: 12px; background: var(--accent); color: var(--primary); }
+.output-icon .icon { width: 22px; height: 22px; }
+.output-body { min-width: 0; }
+.output-kind { margin: 0; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-foreground); }
+.output-title { margin: 4px 0 0; font-size: 1.05rem; font-weight: 650; letter-spacing: -0.01em; }
+.output-title a { color: inherit; text-decoration: none; }
+.output-title a::after { content: ""; position: absolute; inset: 0; }
+.output-title a:focus-visible { outline: none; }
+.output-notes { margin: 6px 0 0; font-size: 0.875rem; color: var(--muted-foreground); line-height: 1.5; }
+/* Links inside the notes sit above the tile's own link. */
+.output-notes a { position: relative; z-index: 1; }
+
 /* Prose: rendered Markdown. */
 .prose { max-width: 760px; padding-block: 40px 72px; overflow-wrap: anywhere; }
 .prose > :first-child { margin-top: 0; }
