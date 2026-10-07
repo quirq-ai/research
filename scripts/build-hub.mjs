@@ -37,6 +37,13 @@ ${cover(t.slug)}
 </article>`
 }
 
+// The grid's last slot invites a new topic, so a short last row never leaves a hole.
+const proposeTile = `<a class="tile tile-new" href="${repoUrl}/issues/new">
+<span class="tile-new-icon">${icon("plus")}</span>
+<strong>Propose a topic</strong>
+<span>Open an issue with a question.</span>
+</a>`
+
 const standards = [
   ["sourced", "Sourced", "Every claim links to a source."],
   ["reproducible", "Reproducible", "Numbers are re-run or cited."],
@@ -70,6 +77,7 @@ ${topicMap(sorted)}
 <div class="section-head"><h2>Topics</h2></div>
 <div class="tiles">
 ${sorted.map((t) => tile(t, placeholder)).join("\n")}
+${proposeTile}
 </div>
 </div></section>
 <section class="section" id="standards"><div class="container">
