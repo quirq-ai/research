@@ -8,7 +8,7 @@ fits together across its 13 public repos.
 | Status | Published |
 | Owner | suraj |
 | Started | 2026-10-05 |
-| Last updated | 2026-10-06 |
+| Last updated | 2026-10-07 |
 
 Status is one of: Proposed, Researching, Published, Paused, Archived.
 
@@ -29,9 +29,9 @@ onboarded. Reading 13 READMEs is a slow way to
 learn how the parts connect, so this topic maps them in one interactive app,
 with a page for each repo. The same app carries the checklist for the qq
 alpha, where 10 to 15 people use qq for their real work and say what hurt. Alongside the app,
-a one-pager, a slide deck and five reports cover qq's phases (v0, v1 and v2),
-the v0 status, how to set up qq and build and run a repo with it, and how an
-operator adds a new repo to qq. Purpose
+a one-pager, a slide deck and six reports cover qq's phases (v0, v1 and v2),
+the v0 status, how to set up qq and build and run a repo with it, how an
+operator adds a new repo to qq, and qq in one guide (a 2026-10-06 snapshot). Purpose
 and research action live in [GOAL.md](GOAL.md).
 
 ## Research and findings so far

@@ -80,7 +80,8 @@ Each topic README carries one status:
 │   ├── package.json      # the topic's build and dev scripts
 │   └── output/{onepager,slide,report,app}/
 ├── packages/
-│   └── present/          # default presentation: Markdown to a static site
+│   ├── present/          # default presentation: Markdown to a static site
+│   └── theme/            # shared quirq look: CSS tokens, base styles, HTML partials
 ├── scripts/
 │   ├── new-topic.sh      # creates a topic folder from _template/
 │   ├── check.mjs         # checks every topic follows the rules (npm run check)

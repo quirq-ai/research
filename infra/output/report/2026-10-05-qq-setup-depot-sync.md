@@ -1,5 +1,7 @@
 # qq setup: depot and sync only
 
+> **Current install steps:** see the qq guide at [docs.quirq.dev/docs/qq](https://docs.quirq.dev/docs/qq). This 2026-10-05 snapshot installs qqsync from unpinned `sync@main`; the guide pins the commit qq itself uses.
+
 Guide, 2026-10-05. Requested by suraj. This is the 2026-10-04 "qq setup:
 depot and sync only" guide (quirq internal planning docs, not public), kept
 here as a guide (not re-verified against that doc in this repo). Only the dated
