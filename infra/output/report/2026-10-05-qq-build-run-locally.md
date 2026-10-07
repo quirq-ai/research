@@ -1,5 +1,7 @@
 # Build and run any repo locally
 
+> **Current install steps:** see the qq guide at [docs.quirq.dev/docs/qq](https://docs.quirq.dev/docs/qq). This 2026-10-05 snapshot installs qq and qqsync as in the setup guide, which uses unpinned `sync@main`.
+
 Guide, 2026-10-05. Requested by suraj. This is the 2026-10-04 "Build and run
 any repo locally" guide (quirq internal planning docs, not public), kept here
 as a guide (not re-verified against that doc in this repo). Only the dated
