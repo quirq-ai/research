@@ -1,0 +1,11 @@
+{
+  "name": "claude",
+  "private": true,
+  "scripts": {
+    "build": "present build",
+    "dev": "present dev"
+  },
+  "devDependencies": {
+    "@research/present": "*"
+  }
+}
