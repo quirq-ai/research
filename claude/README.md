@@ -51,4 +51,5 @@ Tracked as issues: [#24](https://github.com/quirq-ai/research/issues/24),
 
 | Format | File | Date | Notes |
 |---|---|---|---|
-| _None yet_ | | | |
+| report | [Anatomy of a Claude Code session](output/report/2026-10-08-claude-code-session.md) | 2026-10-08 | suraj's teardown of Claude Code 2.1.280, with its 17 figures |
+| app | [~/.claude.json, key by key](output/app/claude-json-explorer/) | 2026-10-08 | One page per object of the global state file |

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 540" role="img" aria-label="Four groups of paths. Swept with the transcript: the transcript file, the per-session folder with subagent transcripts, workflow records and spilled tool results, file-history snapshots, session-env files, and plans. Live only while the process runs: the registry file, its key file, the inbox socket, and shell snapshots. Project scope: auto memory and the project entry in the global config. Indexes kept by hosts: the desktop app's session records, the background supervisor's roster and job files, and xo-space's session index."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub  { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num  { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1080.0" height="540.0" fill="#ffffff"/>
+                <text x="16" y="24" class="svg-lane">SWEPT WITH THE TRANSCRIPT (cleanupPeriodDays, default 30)</text>
+                <rect x="16" y="36" width="520" height="286" rx="8" fill="#ffffff" stroke="#3c6f97"/>
+                <rect x="30" y="50" width="492" height="46" rx="6" fill="#f7e3c8" stroke="#d98226" stroke-width="1.6"/>
+                <text x="42" y="70" class="svg-step">~/.claude/projects/&lt;encoded-cwd&gt;/&lt;sessionId&gt;.jsonl</text>
+                <text x="42" y="87" class="svg-sub">the conversation: append-only, plaintext, internal format</text>
+                <text x="30" y="118" class="svg-sub">&lt;sessionId&gt;/subagents/agent-a&lt;hex16&gt;.jsonl + .meta.json</text>
+                <text x="30" y="136" class="svg-sub">&lt;sessionId&gt;/subagents/workflows/wf_&lt;id&gt;/agent-*.jsonl, journal.jsonl</text>
+                <text x="30" y="154" class="svg-sub">&lt;sessionId&gt;/workflows/wf_&lt;id&gt;.json, scripts/*.js</text>
+                <text x="30" y="172" class="svg-sub">&lt;sessionId&gt;/tool-results/&lt;id&gt;.txt   (Bash output over 30 KB)</text>
+                <text x="30" y="190" class="svg-sub">&lt;sessionId&gt;/custom-title.json</text>
+                <line x1="30" y1="204" x2="522" y2="204" stroke="#deded9"/>
+                <text x="30" y="224" class="svg-sub">~/.claude/file-history/&lt;sessionId&gt;/&lt;sha256(path):16&gt;@v&lt;N&gt;</text>
+                <text x="30" y="242" class="svg-sub">~/.claude/session-env/&lt;sessionId&gt;/sessionstart-hook-&lt;N&gt;.sh</text>
+                <text x="30" y="260" class="svg-sub">~/.claude/plans/&lt;slug&gt;.md          (plan mode)</text>
+                <text x="30" y="278" class="svg-sub">~/.claude/debug/&lt;sessionId&gt;.txt     (only with --debug)</text>
+                <text x="30" y="296" class="svg-sub">~/.claude/tasks/&lt;list&gt;/             (task tools)</text>
+                <text x="30" y="314" class="svg-note">none of it encrypted; tool output and file contents included</text>
+
+                <text x="560" y="24" class="svg-lane">LIVE ONLY WHILE THE PROCESS RUNS</text>
+                <rect x="560" y="36" width="504" height="130" rx="8" fill="#ffffff" stroke="#765b98" stroke-dasharray="5 4"/>
+                <text x="574" y="60" class="svg-sub">~/.claude/sessions/&lt;pid&gt;.json   registry: sessionId, cwd, status</text>
+                <text x="574" y="78" class="svg-sub">~/.claude/sessions/&lt;pid&gt;.&lt;sha256(socket)&gt;.key</text>
+                <text x="574" y="96" class="svg-sub">/tmp/cc-socks/&lt;pid&gt;.sock        inbox socket, mode 0600</text>
+                <text x="574" y="114" class="svg-sub">~/.claude/shell-snapshots/snapshot-zsh-&lt;ms&gt;-&lt;rand&gt;.sh</text>
+                <text x="574" y="132" class="svg-sub">$TMPDIR/claude-&lt;uid&gt;/&lt;encoded-cwd&gt;/&lt;sessionId&gt;/</text>
+                <text x="574" y="150" class="svg-sub">        scratchpad/, tasks/&lt;id&gt;.output  (background Bash)</text>
+
+                <text x="560" y="194" class="svg-lane">PROJECT AND GLOBAL SCOPE</text>
+                <rect x="560" y="206" width="504" height="116" rx="8" fill="#ffffff" stroke="#367f59"/>
+                <text x="574" y="230" class="svg-sub">~/.claude/projects/&lt;encoded-cwd&gt;/memory/MEMORY.md</text>
+                <text x="574" y="248" class="svg-sub">~/.claude.json  projects["&lt;repo root&gt;"]: trust, MCP,</text>
+                <text x="574" y="266" class="svg-sub">        allowedTools, lastSessionId, lastCost, …</text>
+                <text x="574" y="284" class="svg-sub">&lt;repo&gt;/.claude/settings.local.json  saved approvals</text>
+                <text x="574" y="302" class="svg-sub">~/.claude/history.jsonl  typed prompts, never pruned</text>
+
+                <text x="16" y="352" class="svg-lane">INDEXES KEPT BY HOSTS: THE DESKTOP APP, THE BACKGROUND SUPERVISOR, XO-SPACE</text>
+                <rect x="16" y="364" width="1048" height="112" rx="8" fill="#f7f7f5" stroke="#b8b8b1"/>
+                <text x="30" y="388" class="svg-sub">~/Library/Application Support/Claude/claude-code-sessions/&lt;account&gt;/&lt;org&gt;/local_&lt;uuid&gt;.json</text>
+                <text x="30" y="406" class="svg-sub">        desktop record: title, model, permissionMode, cliSessionId → the transcript, forkedFromSessionId</text>
+                <text x="30" y="424" class="svg-sub">~/.claude/jobs/&lt;id&gt;/state.json, ~/.claude/daemon/roster.json    background supervisor (read via claude agents --json)</text>
+                <text x="30" y="442" class="svg-sub">~/.quirq/projects/&lt;project&gt;/sessions/sessionslist.d/*.json     xo-space: XO key → nativeSessionId</text>
+                <text x="30" y="464" class="svg-note">each host keeps its own index and points into the transcript store by sessionId; none of them is updated when a transcript is swept</text>
+
+                <text x="16" y="506" class="svg-note">Paths from this machine; &lt;encoded-cwd&gt; replaces every character outside [A-Za-z0-9] with "-", so /Users/me/.x becomes -Users-me--x.</text>
+                <text x="16" y="524" class="svg-note">Blue box: deleted by the retention sweep. Dashed purple: removed on exit. Green: kept. Grey: a host's index.</text>
+              </svg>

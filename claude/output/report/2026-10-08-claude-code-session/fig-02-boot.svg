@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 346" role="img" aria-label="Nine boxes in two rows. Row one: parse argv and environment, resolve settings, choose a credential, decide folder trust, register the process. Row two: run Setup and SessionStart hooks, assemble the context, connect MCP servers and plugins, and emit the system init message. Under each box, in orange, the lever an OS controls at that step."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub  { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num  { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1080.0" height="346.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fbt-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#252525"/></marker>
+                </defs>
+                <text x="18" y="22" class="svg-lane">RESOLVE AND REGISTER</text>
+                <rect x="18" y="34" width="196" height="72" rx="8" fill="#f7f7f5" stroke="#b8b8b1"/>
+                <text x="30" y="56" class="svg-num">1</text>
+                <text x="44" y="56" class="svg-step">Parse argv and env</text>
+                <text x="30" y="76" class="svg-sub">subcommand or session;</text>
+                <text x="30" y="92" class="svg-sub">reject bad combinations</text>
+                <text x="30" y="124" class="svg-sub" style="fill:#d98226">flags, environment</text>
+
+                <rect x="230" y="34" width="196" height="72" rx="8" fill="#f7f7f5" stroke="#b8b8b1"/>
+                <text x="242" y="56" class="svg-num">2</text>
+                <text x="256" y="56" class="svg-step">Resolve settings</text>
+                <text x="242" y="76" class="svg-sub">managed, flags, local,</text>
+                <text x="242" y="92" class="svg-sub">project, user</text>
+                <text x="242" y="124" class="svg-sub" style="fill:#d98226">--settings, --setting-sources</text>
+
+                <rect x="442" y="34" width="196" height="72" rx="8" fill="#f7f7f5" stroke="#b8b8b1"/>
+                <text x="454" y="56" class="svg-num">3</text>
+                <text x="468" y="56" class="svg-step">Choose a credential</text>
+                <text x="454" y="76" class="svg-sub">7 sources, first wins;</text>
+                <text x="454" y="92" class="svg-sub">env tokens beat /login</text>
+                <text x="454" y="124" class="svg-sub" style="fill:#d98226">apiKeyHelper, env scrubbing</text>
+
+                <rect x="654" y="34" width="196" height="72" rx="8" fill="#f7f7f5" stroke="#b8b8b1"/>
+                <text x="666" y="56" class="svg-num">4</text>
+                <text x="680" y="56" class="svg-step">Trust the folder</text>
+                <text x="666" y="76" class="svg-sub">dialog if interactive;</text>
+                <text x="666" y="92" class="svg-sub">-p and SDK never ask</text>
+                <text x="666" y="124" class="svg-sub" style="fill:#d98226">--bare, --setting-sources user</text>
+
+                <rect x="866" y="34" width="196" height="72" rx="8" fill="#f7f7f5" stroke="#b8b8b1"/>
+                <text x="878" y="56" class="svg-num">5</text>
+                <text x="892" y="56" class="svg-step">Register the process</text>
+                <text x="878" y="76" class="svg-sub">sessions/&lt;pid&gt;.json,</text>
+                <text x="878" y="92" class="svg-sub">bind the inbox socket</text>
+                <text x="878" y="124" class="svg-sub" style="fill:#d98226">CLAUDE_CONFIG_DIR</text>
+
+                <line x1="214" y1="70" x2="228" y2="70" stroke="#252525" stroke-width="2" marker-end="url(#fbt-k)"/>
+                <line x1="426" y1="70" x2="440" y2="70" stroke="#252525" stroke-width="2" marker-end="url(#fbt-k)"/>
+                <line x1="638" y1="70" x2="652" y2="70" stroke="#252525" stroke-width="2" marker-end="url(#fbt-k)"/>
+                <line x1="850" y1="70" x2="864" y2="70" stroke="#252525" stroke-width="2" marker-end="url(#fbt-k)"/>
+                <path d="M 1040 108 L 1040 150 L 200 150 L 200 184" fill="none" stroke="#252525" stroke-width="2" marker-end="url(#fbt-k)"/>
+
+                <text x="18" y="178" class="svg-lane">LOAD AND ANNOUNCE</text>
+                <rect x="18" y="190" width="196" height="72" rx="8" fill="#ece6f3" stroke="#765b98"/>
+                <text x="30" y="212" class="svg-num">6</text>
+                <text x="44" y="212" class="svg-step">Startup hooks</text>
+                <text x="30" y="232" class="svg-sub">Setup (--init), then</text>
+                <text x="30" y="248" class="svg-sub">SessionStart: startup/resume</text>
+                <text x="30" y="280" class="svg-sub" style="fill:#d98226">context hook, CLAUDE_ENV_FILE</text>
+
+                <rect x="230" y="190" width="196" height="72" rx="8" fill="#f7f7f5" stroke="#b8b8b1"/>
+                <text x="242" y="212" class="svg-num">7</text>
+                <text x="256" y="212" class="svg-step">Assemble the context</text>
+                <text x="242" y="232" class="svg-sub">prompt, CLAUDE.md, memory,</text>
+                <text x="242" y="248" class="svg-sub">skill and agent listings</text>
+                <text x="242" y="280" class="svg-sub" style="fill:#d98226">--append-system-prompt</text>
+
+                <rect x="442" y="190" width="196" height="72" rx="8" fill="#e0ebf2" stroke="#3c6f97"/>
+                <text x="454" y="212" class="svg-num">8</text>
+                <text x="468" y="212" class="svg-step">Connect tool servers</text>
+                <text x="454" y="232" class="svg-sub">MCP, plugins; -p waits up</text>
+                <text x="454" y="248" class="svg-sub">to MCP_TIMEOUT, 30 s</text>
+                <text x="454" y="280" class="svg-sub" style="fill:#d98226">--mcp-config, SDK servers</text>
+
+                <rect x="654" y="190" width="196" height="72" rx="8" fill="#f7e3c8" stroke="#d98226" stroke-width="1.6"/>
+                <text x="666" y="212" class="svg-num">9</text>
+                <text x="680" y="212" class="svg-step">Emit system/init</text>
+                <text x="666" y="232" class="svg-sub">session_id, model, tools,</text>
+                <text x="666" y="248" class="svg-sub">servers, capabilities</text>
+                <text x="666" y="280" class="svg-sub" style="fill:#d98226">record session_id</text>
+
+                <rect x="866" y="190" width="196" height="72" rx="8" fill="#ffffff" stroke="#b8b8b1" stroke-dasharray="4 3"/>
+                <text x="878" y="212" class="svg-step">Wait for a message</text>
+                <text x="878" y="232" class="svg-sub">argv prompt, stdin line,</text>
+                <text x="878" y="248" class="svg-sub">socket post, channel event</text>
+
+                <line x1="214" y1="226" x2="228" y2="226" stroke="#252525" stroke-width="2" marker-end="url(#fbt-k)"/>
+                <line x1="426" y1="226" x2="440" y2="226" stroke="#252525" stroke-width="2" marker-end="url(#fbt-k)"/>
+                <line x1="638" y1="226" x2="652" y2="226" stroke="#252525" stroke-width="2" marker-end="url(#fbt-k)"/>
+                <line x1="850" y1="226" x2="864" y2="226" stroke="#252525" stroke-width="2" marker-end="url(#fbt-k)"/>
+
+                <text x="18" y="322" class="svg-note">Under --await-initialize, the host's initialize request is read from stdin before any plugin is loaded, so the host can hand over</text>
+                <text x="18" y="338" class="svg-note">hooks, in-process MCP servers, agents, plugins and a trust attestation before steps 6 to 8 run.</text>
+              </svg>

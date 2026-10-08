@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 416" role="img" aria-label="A change is queued per file, takes the lock directory ~/.claude.json.lock, and under the lock re-reads the file, applies the change, puts back missing project entries, strips retired and default keys, backs up at most once a minute and writes through a temp file and rename. If the lock is not taken, a fallback writes without it, except when only counters changed or the login would be lost. At exit, stats are written with no lock. Other processes poll the file every second and reload it."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub  { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num  { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1080.0" height="416.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fsw-arr-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#252525"/></marker>
+                  <marker id="fsw-arr-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#3c6f97"/></marker>
+                  <marker id="fsw-arr-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#765b98"/></marker>
+                  <marker id="fsw-arr-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ad4b43"/></marker>
+                </defs>
+
+                <text x="16" y="24" class="svg-lane">ONE PROCESS SAVES A CHANGE</text>
+                <text x="820" y="24" class="svg-lane">ON DISK, AND EVERYONE ELSE</text>
+
+                <rect x="16" y="40" width="170" height="66" rx="8" fill="#f7f7f5" stroke="#b8b8b1"/>
+                <text x="28" y="64" class="svg-step">A change</text>
+                <text x="28" y="82" class="svg-sub">a function of the</text>
+                <text x="28" y="96" class="svg-sub">current state</text>
+                <line x1="186" y1="73" x2="204" y2="73" stroke="#252525" stroke-width="2" marker-end="url(#fsw-arr-k)"/>
+
+                <rect x="206" y="40" width="170" height="66" rx="8" fill="#f7f7f5" stroke="#b8b8b1"/>
+                <text x="218" y="64" class="svg-step">Per-file queue</text>
+                <text x="218" y="82" class="svg-sub">one save at a time</text>
+                <text x="218" y="96" class="svg-sub">in each process</text>
+                <line x1="376" y1="73" x2="394" y2="73" stroke="#252525" stroke-width="2" marker-end="url(#fsw-arr-k)"/>
+
+                <rect x="396" y="40" width="364" height="66" rx="8" fill="#ffffff" stroke="#252525" stroke-width="1.6"/>
+                <text x="408" y="64" class="svg-step">Take the lock: mkdir ~/.claude.json.lock</text>
+                <text x="408" y="82" class="svg-sub">stale after 10 s; a busy lock is retried</text>
+                <text x="408" y="96" class="svg-sub">200 ms to 4 s, 10 to 20 s in all</text>
+
+                <line x1="578" y1="106" x2="578" y2="142" stroke="#252525" stroke-width="2" marker-end="url(#fsw-arr-k)"/>
+                <text x="586" y="128" class="svg-note">taken</text>
+
+                <rect x="396" y="144" width="364" height="178" rx="8" fill="#ffffff" stroke="#252525"/>
+                <text x="408" y="164" class="svg-lane">UNDER THE LOCK</text>
+                <text x="408" y="192" class="svg-num">1</text>
+                <text x="424" y="192" class="svg-step">Re-read the file, apply the change to it</text>
+                <text x="408" y="220" class="svg-num">2</text>
+                <text x="424" y="220" class="svg-step">Put back project entries the change left out</text>
+                <text x="408" y="248" class="svg-num">3</text>
+                <text x="424" y="248" class="svg-step">Strip retired keys, drop default values</text>
+                <text x="408" y="276" class="svg-num">4</text>
+                <text x="424" y="276" class="svg-step">Back up if the newest copy is 60 s old</text>
+                <text x="408" y="304" class="svg-num">5</text>
+                <text x="424" y="304" class="svg-step">Temp file, fsync, rename (0600 if new)</text>
+
+                <path d="M760 272 H790 V194 H818" fill="none" stroke="#3c6f97" stroke-width="1.2" marker-end="url(#fsw-arr-b)"/>
+                <path d="M760 300 H818" fill="none" stroke="#252525" stroke-width="2" marker-end="url(#fsw-arr-k)"/>
+
+                <rect x="820" y="40" width="244" height="66" rx="8" fill="#f7f7f5" stroke="#765b98"/>
+                <text x="832" y="64" class="svg-step">Every other process</text>
+                <text x="832" y="82" class="svg-sub">polls the mtime every 1 s,</text>
+                <text x="832" y="96" class="svg-sub">reloads unless it has a save</text>
+                <path d="M1064 304 H1074 V73 H1066" fill="none" stroke="#765b98" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#fsw-arr-p)"/>
+
+                <rect x="820" y="166" width="244" height="56" rx="8" fill="#f7f7f5" stroke="#3c6f97"/>
+                <text x="832" y="188" class="svg-step">backups/</text>
+                <text x="832" y="208" class="svg-sub">.claude.json.backup.&lt;ms&gt;, 5 kept</text>
+
+                <rect x="820" y="268" width="244" height="72" rx="8" fill="#f7e3c8" stroke="#d98226" stroke-width="1.6"/>
+                <text x="832" y="292" class="svg-step">~/.claude.json</text>
+                <text x="832" y="310" class="svg-sub">82 keys, 2-space JSON,</text>
+                <text x="832" y="324" class="svg-sub">unknown keys kept</text>
+
+                <path d="M430 106 V126 H101 V142" fill="none" stroke="#ad4b43" stroke-width="1.4" marker-end="url(#fsw-arr-r)"/>
+                <text x="232" y="121" class="svg-note">not taken</text>
+
+                <rect x="16" y="144" width="170" height="130" rx="8" fill="#ffffff" stroke="#ad4b43"/>
+                <text x="28" y="168" class="svg-step">Fallback</text>
+                <text x="28" y="186" class="svg-sub">re-read, apply, write</text>
+                <text x="28" y="200" class="svg-sub">with no lock: last</text>
+                <text x="28" y="214" class="svg-sub">writer wins the file</text>
+                <text x="28" y="236" class="svg-sub">skipped if only</text>
+                <text x="28" y="250" class="svg-sub">counters changed;</text>
+                <text x="28" y="264" class="svg-sub">refused if login lost</text>
+
+                <rect x="206" y="144" width="170" height="130" rx="8" fill="#ffffff" stroke="#ad4b43"/>
+                <text x="218" y="168" class="svg-step">At exit</text>
+                <text x="218" y="186" class="svg-sub">session stats and</text>
+                <text x="218" y="200" class="svg-sub">plugin usage, written</text>
+                <text x="218" y="214" class="svg-sub">synchronously: no</text>
+                <text x="218" y="228" class="svg-sub">lock, no backup</text>
+
+                <path d="M101 274 V368 H942 V342" fill="none" stroke="#ad4b43" stroke-width="1.4" marker-end="url(#fsw-arr-r)"/>
+                <path d="M291 274 V368" fill="none" stroke="#ad4b43" stroke-width="1.4"/>
+                <text x="430" y="362" class="svg-note">unlocked writes: a whole-file rename that can undo a concurrent save</text>
+
+                <text x="16" y="404" class="svg-sub">thick black: the locked path · thin blue: a copy · dashed purple: a change other processes see · red: no lock</text>
+              </svg>
