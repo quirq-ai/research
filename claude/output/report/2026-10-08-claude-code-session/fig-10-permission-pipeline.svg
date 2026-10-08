@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 372" role="img" aria-label="Seven stages from left to right: tool in context, PreToolUse hooks, permission rules, mode baseline, the auto-mode classifier, PermissionRequest hooks, and asking the host. Green arrows rise from stages three to seven to a top lane where the tool runs. Red arrows fall from every stage to a bottom lane where the call is denied and the reason goes to Claude. A dashed purple arrow from the PreToolUse stage leads to a deferred exit that only exists in print mode."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub  { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num  { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1080.0" height="372.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fpp-arr-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#252525"/></marker>
+                  <marker id="fpp-arr-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#367f59"/></marker>
+                  <marker id="fpp-arr-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ad4b43"/></marker>
+                  <marker id="fpp-arr-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#765b98"/></marker>
+                </defs>
+
+                <text x="10" y="22" class="svg-lane">RUNS</text>
+                <text x="62" y="22" class="svg-sub">the tool executes, then PostToolUse or PostToolUseFailure fires</text>
+                <line x1="10" y1="38" x2="1062" y2="38" stroke="#367f59" stroke-width="2"/>
+
+                <rect x="10" y="118" width="140" height="78" rx="8" fill="#f7f7f5" stroke="#b8b8b1"/>
+                <text x="20" y="112" class="svg-num">1</text>
+                <text x="22" y="142" class="svg-step">In context?</text>
+                <text x="22" y="162" class="svg-sub">--tools, or a</text>
+                <text x="22" y="177" class="svg-sub">bare deny rule</text>
+
+                <rect x="162" y="118" width="140" height="78" rx="8" fill="#ece6f3" stroke="#765b98"/>
+                <text x="172" y="112" class="svg-num">2</text>
+                <text x="174" y="142" class="svg-step">PreToolUse hooks</text>
+                <text x="174" y="162" class="svg-sub">exit 2 blocks;</text>
+                <text x="174" y="177" class="svg-sub">may rewrite input</text>
+
+                <rect x="314" y="118" width="140" height="78" rx="8" fill="#f7f7f5" stroke="#b8b8b1"/>
+                <text x="324" y="112" class="svg-num">3</text>
+                <text x="326" y="142" class="svg-step">Rules, all scopes</text>
+                <text x="326" y="162" class="svg-sub">deny, then ask,</text>
+                <text x="326" y="177" class="svg-sub">then allow</text>
+
+                <rect x="466" y="118" width="140" height="78" rx="8" fill="#f7f7f5" stroke="#b8b8b1"/>
+                <text x="476" y="112" class="svg-num">4</text>
+                <text x="478" y="142" class="svg-step">Mode baseline</text>
+                <text x="478" y="162" class="svg-sub">what runs without</text>
+                <text x="478" y="177" class="svg-sub">asking, per mode</text>
+
+                <rect x="618" y="118" width="140" height="78" rx="8" fill="#f7f7f5" stroke="#b8b8b1"/>
+                <text x="628" y="112" class="svg-num">5</text>
+                <text x="630" y="142" class="svg-step">auto: classifier</text>
+                <text x="630" y="162" class="svg-sub">reviews the call;</text>
+                <text x="630" y="177" class="svg-sub">PermissionDenied</text>
+
+                <rect x="770" y="118" width="140" height="78" rx="8" fill="#ece6f3" stroke="#765b98"/>
+                <text x="780" y="112" class="svg-num">6</text>
+                <text x="782" y="142" class="svg-step">PermissionRequest</text>
+                <text x="782" y="162" class="svg-sub">hooks decide for</text>
+                <text x="782" y="177" class="svg-sub">the user, or pass</text>
+
+                <rect x="922" y="118" width="140" height="78" rx="8" fill="#f7e3c8" stroke="#d98226" stroke-width="1.6"/>
+                <text x="932" y="112" class="svg-num">7</text>
+                <text x="934" y="142" class="svg-step">Ask the host</text>
+                <text x="934" y="162" class="svg-sub">terminal, SDK,</text>
+                <text x="934" y="177" class="svg-sub">prompt tool, relay</text>
+
+                <line x1="150" y1="157" x2="160" y2="157" stroke="#252525" stroke-width="2.2" marker-end="url(#fpp-arr-k)"/>
+                <line x1="302" y1="157" x2="312" y2="157" stroke="#252525" stroke-width="2.2" marker-end="url(#fpp-arr-k)"/>
+                <line x1="454" y1="157" x2="464" y2="157" stroke="#252525" stroke-width="2.2" marker-end="url(#fpp-arr-k)"/>
+                <line x1="606" y1="157" x2="616" y2="157" stroke="#252525" stroke-width="2.2" marker-end="url(#fpp-arr-k)"/>
+                <line x1="758" y1="157" x2="768" y2="157" stroke="#252525" stroke-width="2.2" marker-end="url(#fpp-arr-k)"/>
+                <line x1="910" y1="157" x2="920" y2="157" stroke="#252525" stroke-width="2.2" marker-end="url(#fpp-arr-k)"/>
+
+                <line x1="384" y1="116" x2="384" y2="42" stroke="#367f59" stroke-width="1.5" marker-end="url(#fpp-arr-g)"/>
+                <text x="390" y="86" class="svg-sub">allow rule</text>
+                <line x1="536" y1="116" x2="536" y2="42" stroke="#367f59" stroke-width="1.5" marker-end="url(#fpp-arr-g)"/>
+                <text x="542" y="86" class="svg-sub">mode permits</text>
+                <line x1="688" y1="116" x2="688" y2="42" stroke="#367f59" stroke-width="1.5" marker-end="url(#fpp-arr-g)"/>
+                <text x="694" y="86" class="svg-sub">approved</text>
+                <line x1="840" y1="116" x2="840" y2="42" stroke="#367f59" stroke-width="1.5" marker-end="url(#fpp-arr-g)"/>
+                <text x="846" y="86" class="svg-sub">behavior allow</text>
+                <line x1="992" y1="116" x2="992" y2="42" stroke="#367f59" stroke-width="1.5" marker-end="url(#fpp-arr-g)"/>
+                <text x="998" y="86" class="svg-sub">yes</text>
+
+                <line x1="80" y1="198" x2="80" y2="276" stroke="#ad4b43" stroke-width="1.5" marker-end="url(#fpp-arr-r)"/>
+                <text x="86" y="236" class="svg-sub">not callable</text>
+                <line x1="232" y1="198" x2="232" y2="276" stroke="#ad4b43" stroke-width="1.5" marker-end="url(#fpp-arr-r)"/>
+                <text x="238" y="236" class="svg-sub">deny, exit 2</text>
+                <line x1="384" y1="198" x2="384" y2="276" stroke="#ad4b43" stroke-width="1.5" marker-end="url(#fpp-arr-r)"/>
+                <text x="390" y="236" class="svg-sub">deny rule</text>
+                <line x1="536" y1="198" x2="536" y2="276" stroke="#ad4b43" stroke-width="1.5" marker-end="url(#fpp-arr-r)"/>
+                <text x="542" y="236" class="svg-sub">dontAsk</text>
+                <line x1="688" y1="198" x2="688" y2="276" stroke="#ad4b43" stroke-width="1.5" marker-end="url(#fpp-arr-r)"/>
+                <text x="694" y="236" class="svg-sub">blocked</text>
+                <line x1="840" y1="198" x2="840" y2="276" stroke="#ad4b43" stroke-width="1.5" marker-end="url(#fpp-arr-r)"/>
+                <text x="846" y="236" class="svg-sub">behavior deny</text>
+                <line x1="992" y1="198" x2="992" y2="276" stroke="#ad4b43" stroke-width="1.5" marker-end="url(#fpp-arr-r)"/>
+                <text x="998" y="236" class="svg-sub">no, or none</text>
+
+                <line x1="10" y1="280" x2="1062" y2="280" stroke="#ad4b43" stroke-width="2"/>
+                <text x="10" y="300" class="svg-lane">DENIED</text>
+                <text x="250" y="300" class="svg-sub">the reason goes to Claude; -p lists it in permission_denials</text>
+
+                <path d="M 190 198 C 190 250, 150 318, 120 334" fill="none" stroke="#765b98" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#fpp-arr-p)"/>
+                <text x="10" y="352" class="svg-lane">DEFERRED</text>
+                <text x="90" y="352" class="svg-sub">-p only: the process exits with stop_reason tool_deferred; resuming re-fires the hook</text>
+              </svg>

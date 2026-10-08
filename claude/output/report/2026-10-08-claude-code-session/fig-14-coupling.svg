@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 356" role="img" aria-label="A staircase of seven steps rising from left to right. One, a CLI on PATH called through Bash. Two, a skill that teaches Claude when to call it. Three, an MCP server with typed tools. Four, a channel or socket post for asynchronous completion. Five, hooks that observe and gate. Six, a plugin that packages the rest. Seven, the app as the session's host. Each step lists what it gives the app and what it costs."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub  { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num  { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1080.0" height="356.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fcp-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#252525"/></marker>
+                </defs>
+                <line x1="14" y1="336" x2="1066" y2="36" stroke="#b8b8b1" stroke-width="1" stroke-dasharray="3 5"/>
+                <text x="14" y="352" class="svg-note">loose: Claude decides when and how</text>
+                <text x="1066" y="100" text-anchor="end" class="svg-note">tight: your app decides</text>
+
+                <rect x="14" y="262" width="142" height="66" rx="8" fill="#f7f7f5" stroke="#b8b8b1"/>
+                <text x="24" y="282" class="svg-num">1</text>
+                <text x="38" y="282" class="svg-step">CLI on PATH</text>
+                <text x="24" y="300" class="svg-sub">Bash(mytool *)</text>
+                <text x="24" y="316" class="svg-sub">30k chars back</text>
+
+                <rect x="164" y="220" width="142" height="66" rx="8" fill="#f7f7f5" stroke="#b8b8b1"/>
+                <text x="174" y="240" class="svg-num">2</text>
+                <text x="188" y="240" class="svg-step">Skill</text>
+                <text x="174" y="258" class="svg-sub">when to call it;</text>
+                <text x="174" y="274" class="svg-sub">allowed-tools</text>
+
+                <rect x="314" y="178" width="142" height="66" rx="8" fill="#e0ebf2" stroke="#3c6f97"/>
+                <text x="324" y="198" class="svg-num">3</text>
+                <text x="338" y="198" class="svg-step">MCP tools</text>
+                <text x="324" y="216" class="svg-sub">typed input;</text>
+                <text x="324" y="232" class="svg-sub">mcp__srv__tool</text>
+
+                <rect x="464" y="136" width="142" height="66" rx="8" fill="#e0ebf2" stroke="#3c6f97"/>
+                <text x="474" y="156" class="svg-num">4</text>
+                <text x="488" y="156" class="svg-step">Push back</text>
+                <text x="474" y="174" class="svg-sub">channel event or</text>
+                <text x="474" y="190" class="svg-sub">socket post</text>
+
+                <rect x="614" y="94" width="142" height="66" rx="8" fill="#ece6f3" stroke="#765b98"/>
+                <text x="624" y="114" class="svg-num">5</text>
+                <text x="638" y="114" class="svg-step">Hooks</text>
+                <text x="624" y="132" class="svg-sub">observe and gate;</text>
+                <text x="624" y="148" class="svg-sub">33 events</text>
+
+                <rect x="764" y="52" width="142" height="66" rx="8" fill="#f7f7f5" stroke="#b8b8b1"/>
+                <text x="774" y="72" class="svg-num">6</text>
+                <text x="788" y="72" class="svg-step">Plugin</text>
+                <text x="774" y="90" class="svg-sub">bundles 1 to 5;</text>
+                <text x="774" y="106" class="svg-sub">bin/ on PATH</text>
+
+                <rect x="914" y="10" width="152" height="66" rx="8" fill="#f7e3c8" stroke="#d98226" stroke-width="1.6"/>
+                <text x="924" y="30" class="svg-num">7</text>
+                <text x="938" y="30" class="svg-step">Be the host</text>
+                <text x="924" y="48" class="svg-sub">SDK or stream-json;</text>
+                <text x="924" y="64" class="svg-sub">in-process tools</text>
+
+                <text x="14" y="110" class="svg-lane">WHAT EACH STEP ADDS</text>
+                <text x="14" y="130" class="svg-sub">1 works today, no install</text>
+                <text x="14" y="146" class="svg-sub">2 Claude reaches for it unprompted</text>
+                <text x="14" y="162" class="svg-sub">3 schemas, per-tool permission rules</text>
+                <text x="614" y="208" class="svg-sub">4 the work may outlive the turn</text>
+                <text x="614" y="224" class="svg-sub">5 deterministic, not left to the model</text>
+                <text x="614" y="240" class="svg-sub">6 one install, versioned, shareable</text>
+                <text x="614" y="256" class="svg-sub">7 permissions, events and lifecycle are yours</text>
+              </svg>

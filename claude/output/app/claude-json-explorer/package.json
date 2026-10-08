@@ -1,0 +1,7 @@
+{
+  "name": "claude-json-explorer",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs"
+  }
+}

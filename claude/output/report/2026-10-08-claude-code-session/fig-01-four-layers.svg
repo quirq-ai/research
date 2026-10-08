@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 420" role="img" aria-label="Four stacked bands. The host, such as a terminal, the desktop app, an SDK app or xo-space, spawns and holds the process. The process has a pid, a registry file and a socket, and lives for one launch. It writes the conversation, identified by a session UUID and a JSONL file, which lives until the retention sweep. The conversation runs in a workspace, identified by its absolute path, which supplies instructions, settings and trust. Cardinalities are noted between the bands."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub  { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num  { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1080.0" height="420.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="f4l-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#252525"/></marker>
+                </defs>
+                <rect x="16" y="14" width="1048" height="84" rx="9" fill="#f7f7f5" stroke="#b8b8b1"/>
+                <text x="32" y="38" class="svg-lane">HOST</text>
+                <text x="32" y="60" class="svg-step">terminal, desktop app, SDK app, xo-space, supervisor</text>
+                <text x="32" y="80" class="svg-sub">here: desktop, hostSessionId local_a1db…</text>
+                <text x="600" y="46" class="svg-sub">owns: stdin and stdout, the permission seat, the UI</text>
+                <text x="600" y="66" class="svg-sub">lives: as long as the user or the app wants</text>
+                <text x="600" y="86" class="svg-sub">many processes per host</text>
+
+                <rect x="16" y="112" width="1048" height="92" rx="9" fill="#ffffff" stroke="#252525"/>
+                <text x="32" y="136" class="svg-lane">PROCESS</text>
+                <text x="32" y="158" class="svg-step">claude, pid 19680, version 2.1.280</text>
+                <text x="32" y="178" class="svg-sub">~/.claude/sessions/19680.json, /tmp/cc-socks/19680.sock</text>
+                <text x="32" y="196" class="svg-sub">status busy or idle; kind interactive or background</text>
+                <text x="600" y="136" class="svg-sub">owns: MCP connections, flags, session grants,</text>
+                <text x="600" y="152" class="svg-sub">        background tasks, the context in memory</text>
+                <text x="600" y="172" class="svg-sub">lives: one launch; exit, crash, SIGTERM, or parking</text>
+                <text x="600" y="192" class="svg-sub">serves one conversation at a time</text>
+
+                <rect x="16" y="218" width="1048" height="92" rx="9" fill="#f7e3c8" stroke="#d98226" stroke-width="1.6"/>
+                <text x="32" y="242" class="svg-lane">CONVERSATION</text>
+                <text x="32" y="264" class="svg-step">sessionId 07ed001e-…, a UUID</text>
+                <text x="32" y="284" class="svg-sub">~/.claude/projects/-Users-…-writings/07ed001e-….jsonl</text>
+                <text x="32" y="302" class="svg-sub">plus the &lt;sessionId&gt;/ folder, file-history, session-env</text>
+                <text x="600" y="242" class="svg-sub">owns: messages, tool results, compactions, names,</text>
+                <text x="600" y="258" class="svg-sub">        checkpoint records</text>
+                <text x="600" y="278" class="svg-sub">lives: until the retention sweep, 30 days by default</text>
+                <text x="600" y="298" class="svg-sub">one writer intended; two writers interleave</text>
+
+                <rect x="16" y="324" width="1048" height="84" rx="9" fill="#ffffff" stroke="#367f59"/>
+                <text x="32" y="348" class="svg-lane">WORKSPACE</text>
+                <text x="32" y="370" class="svg-step">…/ClaudeWorkspace/writings, an absolute path</text>
+                <text x="32" y="390" class="svg-sub">plus --add-dir directories, or a .claude/worktrees/ checkout</text>
+                <text x="600" y="348" class="svg-sub">owns: CLAUDE.md, .claude/ settings, skills, agents,</text>
+                <text x="600" y="364" class="svg-sub">        .mcp.json, trust, auto memory</text>
+                <text x="600" y="384" class="svg-sub">lives: as long as the directory</text>
+                <text x="600" y="400" class="svg-sub">many conversations per workspace</text>
+
+                <line x1="560" y1="98" x2="560" y2="110" stroke="#252525" stroke-width="2.2" marker-end="url(#f4l-k)"/>
+                <text x="470" y="108" class="svg-note">spawns</text>
+                <line x1="560" y1="204" x2="560" y2="216" stroke="#252525" stroke-width="2.2" marker-end="url(#f4l-k)"/>
+                <text x="476" y="214" class="svg-note">writes</text>
+                <line x1="560" y1="310" x2="560" y2="322" stroke="#252525" stroke-width="2.2" marker-end="url(#f4l-k)"/>
+                <text x="470" y="320" class="svg-note">runs in</text>
+              </svg>
