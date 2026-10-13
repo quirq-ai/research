@@ -8,6 +8,7 @@
 import { readFileSync } from "node:fs"
 import { createRequire } from "node:module"
 import { dirname, join } from "node:path"
+import { fileURLToPath } from "node:url"
 
 export * from "./visuals.mjs"
 
@@ -15,7 +16,9 @@ export const css = readFileSync(new URL("./quirq.css", import.meta.url), "utf8")
 
 // Font files the hub copies to /_fonts/, which quirq.css points at: Source Serif 4
 // for reading, Geist for the small interface text around it. Each family's OFL
-// licence is copied alongside as <family>-OFL.txt.
+// licence is copied alongside as <family>-OFL.txt. Source Serif's comes from
+// upstream (adobe-fonts/source-serif LICENSE.md, release 80d3f88), since
+// fontsource's copy lacks Adobe's copyright line and Reserved Font Name.
 const fontDir = (pkg) => dirname(createRequire(import.meta.url).resolve(`${pkg}/package.json`))
 const serif = fontDir("@fontsource-variable/source-serif-4")
 const sans = fontDir("@fontsource-variable/geist")
@@ -23,7 +26,7 @@ export const fonts = [
   ...["source-serif-4-latin-wght-normal.woff2", "source-serif-4-latin-ext-wght-normal.woff2", "source-serif-4-latin-wght-italic.woff2"].map((name) => join(serif, "files", name)),
   ...["geist-latin-wght-normal.woff2", "geist-latin-ext-wght-normal.woff2"].map((name) => join(sans, "files", name)),
 ]
-export const fontLicenses = { "source-serif-4-OFL.txt": join(serif, "LICENSE"), "geist-OFL.txt": join(sans, "LICENSE") }
+export const fontLicenses = { "source-serif-4-OFL.txt": fileURLToPath(new URL("./licenses/source-serif-4-OFL.txt", import.meta.url)), "geist-OFL.txt": join(sans, "LICENSE") }
 
 export const repoUrl = "https://github.com/quirq-ai/research"
 

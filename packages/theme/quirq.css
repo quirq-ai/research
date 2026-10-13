@@ -184,7 +184,9 @@ a:hover { text-decoration-color: currentColor; }
   letter-spacing: var(--tracking-caps); text-transform: uppercase;
 }
 .hero h1 { margin: 0; font-size: var(--text-display); line-height: var(--leading-display); font-weight: var(--weight-semibold); }
-.hero h1 em { font-style: italic; font-weight: var(--weight-regular); color: var(--link); }
+/* "verified." always takes its own line, so the hero is two lines in the
+   fallback font and in Source Serif alike, and the swap moves nothing. */
+.hero h1 em { display: block; font-style: italic; font-weight: var(--weight-regular); color: var(--link); }
 .lede { margin: var(--space-5) 0 0; max-width: 36ch; color: var(--muted-foreground); font-size: var(--text-xl); line-height: var(--leading-xl); font-style: italic; }
 
 /* Topic map */
@@ -401,6 +403,7 @@ a:hover { text-decoration-color: currentColor; }
 /* Phones: every link in the header, topic bar and footer is at least 44px tall. */
 @media (max-width: 640px) {
   .brand, .site-nav a, .topic-bar .crumb a, .site-footer a { display: inline-flex; align-items: center; min-height: 44px; }
+  .topic-bar .crumb a { min-width: 44px; justify-content: center; }
   .site-nav a { height: auto; }
 }
 
@@ -411,7 +414,7 @@ a:hover { text-decoration-color: currentColor; }
   body { background: #fff; display: block; }
   .site-header, .topic-bar, .site-footer, .read-progress, .reading > aside, .anchor, .actions { display: none !important; }
   .reading { display: block; }
-  .prose { max-width: none; padding: 0; font-size: 11pt; line-height: 1.5; }
+  .prose { max-width: 34em; padding: 0; font-size: 11pt; line-height: 1.5; }
   .prose h1 { font-size: 20pt; }
   .prose h2 { font-size: 14pt; break-after: avoid; }
   .prose h3 { font-size: 12pt; break-after: avoid; }
