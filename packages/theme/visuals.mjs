@@ -1,49 +1,7 @@
-// Visual partials: cover art, icons and the topic map. All are inline SVG
+// Visual partials: icons and the topic map. All are inline SVG
 // strings, generated from data, so they need no image files and stay sharp.
 
 import { escapeHtml } from "./index.mjs"
-
-// A stable 32-bit hash, so a topic always gets the same cover.
-function hash(text) {
-  let h = 2166136261
-  for (const c of text) h = Math.imul(h ^ c.codePointAt(0), 16777619)
-  // Final mix so nearby slugs still spread across colours and patterns.
-  h = Math.imul(h ^ (h >>> 16), 0x85ebca6b)
-  h = Math.imul(h ^ (h >>> 13), 0xc2b2ae35)
-  return (h ^ (h >>> 16)) >>> 0
-}
-
-// Brand hues for artwork. Covers sit under no text, so they need no contrast pair.
-const hues = ["#b0478c", "#7a3fbf", "#e0789f", "#5b4bd1", "#d9864a", "#3d2a5c", "#c2569b"]
-
-// A cover image for a topic: a gradient and a pattern, picked by slug, so the
-// hub tile and the topic's own page always show the same art.
-export function cover(slug) {
-  const h = hash(slug)
-  const a = hues[h % hues.length]
-  const b = hues[(h >>> 3) % hues.length] === a ? hues[(h + 1) % hues.length] : hues[(h >>> 3) % hues.length]
-  const id = `c${h.toString(36)}`
-  const angle = (h >>> 6) % 360
-  const shapes = [
-    // Concentric rings off one corner.
-    () => [1, 2, 3, 4, 5, 6].map((i) => `<circle cx="${320 + (h % 60)}" cy="${40 + (h % 50)}" r="${i * 34}" />`).join(""),
-    // A dot grid.
-    () => Array.from({ length: 60 }, (_, i) => `<circle cx="${20 + (i % 12) * 34}" cy="${20 + Math.floor(i / 12) * 44}" r="${2 + ((h >>> i % 16) & 3)}" fill="#fff" stroke="none" />`).join(""),
-    // Diagonal bands.
-    () => Array.from({ length: 9 }, (_, i) => `<path d="M${-100 + i * 60} 220 L${40 + i * 60} 0" stroke-width="${10 + ((h >>> i) & 15)}" />`).join(""),
-    // Waves.
-    () => Array.from({ length: 8 }, (_, i) => `<path d="M0 ${40 + i * 22} C 100 ${10 + i * 22 + (h % 30)}, 300 ${70 + i * 22 - (h % 30)}, 400 ${40 + i * 22}" />`).join(""),
-    // A tilted grid of squares.
-    () => Array.from({ length: 24 }, (_, i) => `<rect x="${(i % 8) * 56 - 20}" y="${Math.floor(i / 8) * 76 - 10}" width="40" height="40" rx="8" transform="rotate(${12 + (h % 20)} 200 110)" ${(h >>> i) & 1 ? 'fill="#fff" fill-opacity=".14"' : ""}/>`).join(""),
-    // Orbits with planets.
-    () => [60, 100, 140].map((r, i) => `<ellipse cx="200" cy="110" rx="${r * 1.6}" ry="${r * 0.55}" /><circle cx="${200 + r * 1.6 * Math.cos(h + i)}" cy="${110 + r * 0.55 * Math.sin(h + i)}" r="7" fill="#fff" stroke="none" />`).join(""),
-  ]
-  return `<svg class="cover" viewBox="0 0 400 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-<defs><linearGradient id="${id}" gradientTransform="rotate(${angle} .5 .5)"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs>
-<rect width="400" height="220" fill="url(#${id})"/>
-<g fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5" opacity=".9">${shapes[(h >>> 27) % shapes.length]()}</g>
-</svg>`
-}
 
 // 20px line icons. Each takes the current text colour.
 const paths = {

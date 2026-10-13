@@ -134,7 +134,7 @@ function build() {
     const rel = relative(topicDir, src)
     const markdown = readFileSync(src, "utf8")
     // The README becomes a visual overview; other pages get the reading layout.
-    const visual = rel === "README.md" ? overview(markdown, topic) : null
+    const visual = rel === "README.md" ? overview(markdown) : null
     const title = visual?.title ?? markdown.match(/^#\s+(.+)$/m)?.[1] ?? topic
     const body = visual ? rewriteLinks(visual.html, rel, published) : readingLayout(rewriteLinks(marked.parse(markdown), rel, published), markdown)
     const dest = join(outDir, outPath(src))

@@ -35,7 +35,7 @@ function Command({ text, label }: { text: string; label?: string }) {
       {label && <div className="font-mono text-xs text-muted-foreground">{label}</div>}
       <div className="relative min-w-0">
         <pre ref={pre} className="m-0 overflow-x-auto rounded-lg bg-code p-4 pr-24 font-mono text-[13px] leading-relaxed whitespace-pre text-code-foreground">{text}</pre>
-        <Button size="sm" variant="secondary" className="absolute top-2 right-2 h-7" onClick={copy}>
+        <Button size="sm" variant="outline" className="absolute top-2 right-2 h-7" onClick={copy}>
           {state === "copied" ? <><CheckIcon /> Copied</> : state === "select" ? "Selected" : <><CopyIcon /> Copy</>}
         </Button>
       </div>
