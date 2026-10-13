@@ -13,7 +13,7 @@
 import { createServer } from "node:http"
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs"
 import { basename, extname, join, resolve } from "node:path"
-import { cover, escapeHtml, fonts, icon, page, repoUrl, siteFooter, siteHeader, statusBadge, topicMap } from "../packages/theme/index.mjs"
+import { escapeHtml, fonts, icon, page, repoUrl, siteFooter, siteHeader, statusBadge, topicMap } from "../packages/theme/index.mjs"
 import { findTopics, published, readTopic, root } from "./lib/topics.mjs"
 
 const outDir = join(root, "dist")
@@ -24,25 +24,19 @@ const rank = (status) => (statusOrder.includes(status) ? statusOrder.indexOf(sta
 
 const formatLabels = { onepager: "One-pager", slide: "Slides", report: "Report", app: "App" }
 
-function tile(t, placeholder) {
+// One entry in the contents list: number, title, summary, then status and formats.
+function entry(t, n, placeholder) {
   const summary = t.summary && t.summary !== placeholder ? t.summary : "Scope being defined."
   const formats = t.formats.map((f) => icon(f, formatLabels[f] ?? f)).join("")
-  return `<article class="tile">
-${cover(t.slug)}
-<div class="tile-body">
-<div class="tile-head"><h3 class="tile-title"><a href="${t.slug}/">${escapeHtml(t.title)}</a></h3>${statusBadge(t.status)}</div>
-<p class="tile-text">${escapeHtml(summary)}</p>
-<div class="tile-foot"><span class="formats">${formats}</span><span class="go">${icon("arrow")}</span></div>
+  return `<li class="entry">
+<span class="entry-num" aria-hidden="true">${n}</span>
+<div class="entry-body">
+<h3 class="entry-title"><a href="${t.slug}/">${escapeHtml(t.title)}</a></h3>
+<p class="entry-text">${escapeHtml(summary)}</p>
 </div>
-</article>`
+<div class="entry-meta">${statusBadge(t.status)}${formats ? `<span class="formats">${formats}</span>` : ""}</div>
+</li>`
 }
-
-// The grid's last slot invites a new topic, so a short last row never leaves a hole.
-const proposeTile = `<a class="tile tile-new" href="${repoUrl}/issues/new">
-<span class="tile-new-icon">${icon("plus")}</span>
-<strong>Propose a topic</strong>
-<span>Open an issue with a question.</span>
-</a>`
 
 const standards = [
   ["sourced", "Sourced", "Every claim links to a source."],
@@ -63,7 +57,7 @@ function indexPage(topics) {
   ]
   const body = `${siteHeader({ nav: [["#topics", "Topics"], [repoUrl, "GitHub"]] })}
 <main>
-<section class="hero"><div class="container">
+<section class="hero masthead"><div class="container">
 <div>
 <p class="eyebrow">quirq research hub</p>
 <h1>Research, <em>verified.</em></h1>
@@ -75,10 +69,10 @@ ${topicMap(sorted)}
 </div></section>
 <section class="section" id="topics"><div class="container">
 <div class="section-head"><h2>Topics</h2></div>
-<div class="tiles">
-${sorted.map((t) => tile(t, placeholder)).join("\n")}
-${proposeTile}
-</div>
+<ol class="contents">
+${sorted.map((t, i) => entry(t, i + 1, placeholder)).join("\n")}
+</ol>
+<p class="propose">${icon("plus")} <a href="${repoUrl}/issues/new">Propose a topic</a>: open an issue with a question.</p>
 </div></section>
 <section class="section" id="standards"><div class="container">
 <ul class="standards">

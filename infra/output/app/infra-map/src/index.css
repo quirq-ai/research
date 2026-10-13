@@ -1,14 +1,13 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Dark follows the viewer: the OS setting unless data-theme on <html> says otherwise. */
-@custom-variant dark {
-  @media (prefers-color-scheme: dark) { &:where(:root:not([data-theme="light"]) *) { @slot; } }
-  &:where([data-theme="dark"] *) { @slot; }
-}
+/* Light only, like the rest of the research hub: nothing sets .dark, so the
+   dark: utilities in the shadcn components never apply, whatever the OS says. */
+@custom-variant dark (&:is(.dark *));
 
 /* quirq brand (xo-space "quirq" theme) mapped onto shadcn's tokens. */
 :root {
+  color-scheme: light;
   --radius: 0.625rem;
   --background: #f7f3f6; --foreground: #1d1822;
   --card: #ffffff; --card-foreground: #1d1822;
@@ -21,32 +20,6 @@
   --warn: #8a6114; --good: #4f6b22; --code: #1d1822; --code-foreground: #f3ece4;
   /* Map lines and box outlines: at least 3:1 on card and muted. */
   --edge: #857582; --edge-soft: #8f808d;
-}
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --background: #100f14; --foreground: #f3ece4;
-  --card: #19161e; --card-foreground: #f3ece4;
-  --popover: #19161e; --popover-foreground: #f3ece4;
-  --primary: #f2a2d5; --primary-foreground: #100f14;
-  --secondary: #231e2a; --secondary-foreground: #f3ece4;
-  --muted: #231e2a; --muted-foreground: #b1a2b4;
-  --accent: #3a2535; --accent-foreground: #f3ece4;
-  --destructive: #f09a9a; --border: #39303f; --input: #39303f; --ring: #f2a2d5;
-  --warn: #eac17a; --good: #b7cc91; --code: #0b0a0e; --code-foreground: #f3ece4;
-  --edge: #7f7086; --edge-soft: #76687d;
-  color-scheme: dark;
-} }
-:root[data-theme="dark"] {
-  --background: #100f14; --foreground: #f3ece4;
-  --card: #19161e; --card-foreground: #f3ece4;
-  --popover: #19161e; --popover-foreground: #f3ece4;
-  --primary: #f2a2d5; --primary-foreground: #100f14;
-  --secondary: #231e2a; --secondary-foreground: #f3ece4;
-  --muted: #231e2a; --muted-foreground: #b1a2b4;
-  --accent: #3a2535; --accent-foreground: #f3ece4;
-  --destructive: #f09a9a; --border: #39303f; --input: #39303f; --ring: #f2a2d5;
-  --warn: #eac17a; --good: #b7cc91; --code: #0b0a0e; --code-foreground: #f3ece4;
-  --edge: #7f7086; --edge-soft: #76687d;
-  color-scheme: dark;
 }
 
 @theme inline {

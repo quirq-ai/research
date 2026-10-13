@@ -2,10 +2,10 @@
 //
 // The README's fixed parts (title, summary, the Status/Owner/dates table, the
 // "Status and progress" checklist and the "Published outputs" table) become a
-// cover header, a progress stepper and output tiles. Everything else in the
+// title block, a progress stepper and output entries. Everything else in the
 // README renders as prose below them, unchanged.
 
-import { cover, escapeHtml, icon, statusBadge } from "@research/theme"
+import { escapeHtml, icon, statusBadge } from "@research/theme"
 import { marked } from "marked"
 
 const formatLabels = { onepager: "One-pager", slide: "Slides", report: "Report", app: "App" }
@@ -59,7 +59,7 @@ function progressSteps(items) {
 }
 
 // Returns { title, html } for the README, or null if it lacks the template's shape.
-export function overview(markdown, slug) {
+export function overview(markdown) {
   const tokens = marked.lexer(markdown)
   const links = tokens.links
   const titleAt = tokens.findIndex((t) => t.type === "heading" && t.depth === 1)
@@ -101,7 +101,6 @@ export function overview(markdown, slug) {
 
   const tiles = outputsTable ? outputTiles(outputsTable.rows) : ""
   const html = `<section class="topic-hero">
-<div class="topic-cover">${cover(slug)}</div>
 <div class="container"><div class="topic-head">
 <div><span title="${escapeHtml(legend)}">${statusBadge(status)}</span>
 <h1>${escapeHtml(title)}</h1>
