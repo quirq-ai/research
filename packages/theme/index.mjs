@@ -1,7 +1,7 @@
 // Shared quirq look for the research hub and topic pages.
 //
 // The CSS in quirq.css holds the tokens and components. The helpers below
-// return small HTML strings (a page shell, header, footer, badge, card), so
+// return small HTML strings (a page shell, header, footer, badge), so
 // the hub and any topic build can compose the same pieces without a framework.
 // Pages inline the CSS, so they work from any path and offline.
 
@@ -14,15 +14,16 @@ export * from "./visuals.mjs"
 export const css = readFileSync(new URL("./quirq.css", import.meta.url), "utf8")
 
 // Font files the hub copies to /_fonts/, which quirq.css points at: Source Serif 4
-// for reading, Geist for the small interface text around it.
-const fontFiles = (pkg, names) => {
-  const dir = dirname(createRequire(import.meta.url).resolve(`${pkg}/package.json`))
-  return names.map((name) => join(dir, "files", name))
-}
+// for reading, Geist for the small interface text around it. Each family's OFL
+// licence is copied alongside as <family>-OFL.txt.
+const fontDir = (pkg) => dirname(createRequire(import.meta.url).resolve(`${pkg}/package.json`))
+const serif = fontDir("@fontsource-variable/source-serif-4")
+const sans = fontDir("@fontsource-variable/geist")
 export const fonts = [
-  ...fontFiles("@fontsource-variable/source-serif-4", ["source-serif-4-latin-opsz-normal.woff2", "source-serif-4-latin-ext-opsz-normal.woff2", "source-serif-4-latin-opsz-italic.woff2"]),
-  ...fontFiles("@fontsource-variable/geist", ["geist-latin-wght-normal.woff2", "geist-latin-ext-wght-normal.woff2"]),
+  ...["source-serif-4-latin-wght-normal.woff2", "source-serif-4-latin-ext-wght-normal.woff2", "source-serif-4-latin-wght-italic.woff2"].map((name) => join(serif, "files", name)),
+  ...["geist-latin-wght-normal.woff2", "geist-latin-ext-wght-normal.woff2"].map((name) => join(sans, "files", name)),
 ]
+export const fontLicenses = { "source-serif-4-OFL.txt": join(serif, "LICENSE"), "geist-OFL.txt": join(sans, "LICENSE") }
 
 export const repoUrl = "https://github.com/quirq-ai/research"
 
@@ -38,11 +39,6 @@ export function statusBadge(status) {
   if (!status) return ""
   const tone = tones[status.toLowerCase()] ?? "muted"
   return `<span class="badge badge-${tone}">${escapeHtml(status)}</span>`
-}
-
-export function chips(labels) {
-  if (!labels.length) return ""
-  return `<ul class="chips">${labels.map((l) => `<li class="chip">${escapeHtml(l)}</li>`).join("")}</ul>`
 }
 
 // home: link to the hub root. nav: [[href, label, current?]].
@@ -63,15 +59,6 @@ export function siteFooter() {
 </div></footer>`
 }
 
-// A clickable card: the title link covers the card.
-export function card({ href, title, badge = "", text = "", placeholder = false, foot = "", cta = "Open" }) {
-  return `<article class="card">
-<div class="card-head"><h3 class="card-title"><a href="${href}">${escapeHtml(title)}</a></h3>${badge}</div>
-${text ? `<p class="card-text${placeholder ? " placeholder" : ""}">${escapeHtml(text)}</p>` : ""}
-<div class="card-foot">${foot || "<span></span>"}<span class="card-cta" aria-hidden="true">${escapeHtml(cta)} →</span></div>
-</article>`
-}
-
 export function page({ title, description = "", head = "", body }) {
   return `<!doctype html>
 <html lang="en">
@@ -82,7 +69,7 @@ export function page({ title, description = "", head = "", body }) {
 ${description ? `<meta name="description" content="${escapeHtml(description)}">` : ""}
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#fbf9f4">
-<link rel="preload" href="/_fonts/source-serif-4-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/_fonts/source-serif-4-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#b0478c"/><text x="16" y="22" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">q</text></svg>')}">
 <style>
 ${css}</style>

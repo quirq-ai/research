@@ -13,7 +13,7 @@
 import { createServer } from "node:http"
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs"
 import { basename, extname, join, resolve } from "node:path"
-import { escapeHtml, fonts, icon, page, repoUrl, siteFooter, siteHeader, statusBadge, topicMap } from "../packages/theme/index.mjs"
+import { escapeHtml, fontLicenses, fonts, icon, page, repoUrl, siteFooter, siteHeader, statusBadge, topicMap } from "../packages/theme/index.mjs"
 import { findTopics, published, readTopic, root } from "./lib/topics.mjs"
 
 const outDir = join(root, "dist")
@@ -57,7 +57,7 @@ function indexPage(topics) {
   ]
   const body = `${siteHeader({ nav: [["#topics", "Topics"], [repoUrl, "GitHub"]] })}
 <main>
-<section class="hero masthead"><div class="container">
+<section class="hero"><div class="container">
 <div>
 <p class="eyebrow">quirq research hub</p>
 <h1>Research, <em>verified.</em></h1>
@@ -72,7 +72,7 @@ ${topicMap(sorted)}
 <ol class="contents">
 ${sorted.map((t, i) => entry(t, i + 1, placeholder)).join("\n")}
 </ol>
-<p class="propose">${icon("plus")} <a href="${repoUrl}/issues/new">Propose a topic</a>: open an issue with a question.</p>
+<p class="propose"><a href="${repoUrl}/issues/new">${icon("plus")}<span>Propose a topic</span></a><span>: open an issue with a question.</span></p>
 </div></section>
 <section class="section" id="standards"><div class="container">
 <ul class="standards">
@@ -100,6 +100,7 @@ function build() {
   for (const slug of slugs) cpSync(join(root, slug, "dist"), join(outDir, slug), { recursive: true })
   mkdirSync(join(outDir, "_fonts"))
   for (const font of fonts) cpSync(font, join(outDir, "_fonts", basename(font)))
+  for (const [name, license] of Object.entries(fontLicenses)) cpSync(license, join(outDir, "_fonts", name))
   writeFileSync(join(outDir, "index.html"), indexPage(slugs.map((slug) => ({ ...readTopic(slug), formats: published(slug) }))))
   console.log(`build-hub: wrote ${slugs.length} topic(s) to dist/: ${slugs.join(", ")}`)
 }

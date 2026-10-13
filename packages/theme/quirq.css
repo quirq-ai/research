@@ -2,9 +2,10 @@
  *
  * Light only, set like a printed journal: serif text on warm paper, near-black
  * ink, hairline rules, and the quirq purple (#b0478c) as the one accent for
- * links, highlights and small rules. There is no dark theme and no switch:
- * a viewer whose OS is in dark mode still gets this page.
- * Every text pair here meets WCAG 2.1 AA.
+ * rules, dots and fills. Purple text (links, section numbers) uses --link, a
+ * darker shade of the same purple. There is no dark theme and no switch: a
+ * viewer whose OS is in dark mode still gets this page.
+ * Every text pair here meets WCAG 2.1 AA; the lowest is the brand mark, 5.09:1.
  */
 
 :root {
@@ -68,9 +69,9 @@
 
 /* Source Serif 4 and Geist (both SIL OFL 1.1), self-hosted: the hub build copies
    the files to /_fonts/. A topic served on its own falls back to system fonts. */
-@font-face { font-family: "Source Serif 4"; font-style: normal; font-weight: 200 900; font-display: swap; src: url("/_fonts/source-serif-4-latin-opsz-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: "Source Serif 4"; font-style: normal; font-weight: 200 900; font-display: swap; src: url("/_fonts/source-serif-4-latin-ext-opsz-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-@font-face { font-family: "Source Serif 4"; font-style: italic; font-weight: 200 900; font-display: swap; src: url("/_fonts/source-serif-4-latin-opsz-italic.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Source Serif 4"; font-style: normal; font-weight: 200 900; font-display: swap; src: url("/_fonts/source-serif-4-latin-wght-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Source Serif 4"; font-style: normal; font-weight: 200 900; font-display: swap; src: url("/_fonts/source-serif-4-latin-ext-wght-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Source Serif 4"; font-style: italic; font-weight: 200 900; font-display: swap; src: url("/_fonts/source-serif-4-latin-wght-italic.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: "Geist"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("/_fonts/geist-latin-wght-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: "Geist"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("/_fonts/geist-latin-ext-wght-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 
@@ -81,7 +82,7 @@ body {
   margin: 0; min-height: 100vh; display: flex; flex-direction: column;
   background: var(--background); color: var(--foreground);
   font-family: var(--font-serif); font-size: var(--text-base); line-height: var(--leading-base);
-  font-optical-sizing: auto; font-kerning: normal; font-variant-ligatures: common-ligatures;
+  font-kerning: normal; font-variant-ligatures: common-ligatures;
   -webkit-font-smoothing: antialiased;
 }
 h1, h2, h3 { font-family: var(--font-serif); letter-spacing: var(--tracking-tight); text-wrap: balance; }
@@ -95,7 +96,7 @@ a:hover { text-decoration-color: currentColor; }
 
 /* Interface text: the header, bars, labels and controls are set in a small
    sans, so the serif is left to the reading text. */
-.site-header, .topic-bar, .site-footer, .badge, .chip, .button, .eyebrow, .legend,
+.site-header, .topic-bar, .site-footer, .badge, .button, .eyebrow, .legend,
 .facts, .progress-head span, .steps, .output-kind, .toc, .read-meta, .entry-meta, .propose, .standards span {
   font-family: var(--font-sans);
 }
@@ -141,41 +142,23 @@ a:hover { text-decoration-color: currentColor; }
 .badge-primary::before { background: var(--primary); }
 .badge-warn { color: var(--warn); }
 
-/* Chip: a quiet label, such as an output format. */
-.chips { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
-.chip {
-  display: inline-flex; align-items: center; height: var(--space-6); padding-inline: var(--space-2);
-  border: 1px solid var(--border); border-radius: var(--radius-sm);
-  font-size: var(--text-xs); line-height: 1; color: var(--muted-foreground);
-}
-
 /* Surface: flat boxes with a hairline border, no shadows. */
-.card, .output, .progress {
+.output, .progress {
   background: var(--card); color: var(--card-foreground);
   border: 1px solid var(--border); border-radius: var(--radius-lg);
 }
-.card, .output { position: relative; transition: border-color var(--duration); }
-.card:hover, .output:hover { border-color: var(--primary); }
-.card:focus-within, .output:focus-within { border-color: var(--ring); box-shadow: var(--focus-ring); }
+.output { position: relative; transition: border-color var(--duration); }
+.output:hover { border-color: var(--primary); }
+.output:focus-within { border-color: var(--ring); box-shadow: var(--focus-ring); }
 /* The title link covers the whole surface, so it is one click target. */
-.card-title a, .entry-title a, .output-title a { color: inherit; text-decoration: none; }
-.card-title a::after, .entry-title a::after, .output-title a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
-.card-title a:focus-visible, .entry-title a:focus-visible, .output-title a:focus-visible { box-shadow: none; }
+.entry-title a, .output-title a { color: inherit; text-decoration: none; }
+.entry-title a::after, .output-title a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.entry-title a:focus-visible, .output-title a:focus-visible { box-shadow: none; }
 
-/* Card */
-.card { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-6); }
-.card-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
-.card-title { margin: 0; font-size: var(--text-lg); line-height: var(--leading-lg); font-weight: var(--weight-semibold); text-transform: capitalize; }
-.card-text { margin: 0; color: var(--muted-foreground); font-size: var(--text-sm); line-height: var(--leading-sm); }
-.card-text.placeholder { font-style: italic; }
-.card-foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
-.card-cta { font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--link); white-space: nowrap; }
-.card:hover .card-cta { text-decoration: underline; }
-
-/* Grid: one responsive column system for cards. 3, 2 or 1 columns. */
-.grid, .outputs { display: grid; gap: var(--grid-gap); grid-template-columns: repeat(3, minmax(0, 1fr)); }
-@media (max-width: 960px) { .grid, .outputs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 640px) { .grid, .outputs { grid-template-columns: minmax(0, 1fr); } }
+/* Grid: one responsive column system for output entries. 3, 2 or 1 columns. */
+.outputs { display: grid; gap: var(--grid-gap); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 960px) { .outputs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .outputs { grid-template-columns: minmax(0, 1fr); } }
 
 /* Buttons */
 .actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-8); }
@@ -257,8 +240,9 @@ a:hover { text-decoration-color: currentColor; }
   .entry { grid-template-columns: 2rem minmax(0, 1fr); }
   .entry-meta { grid-column: 2; }
 }
-.propose { display: flex; align-items: center; gap: var(--space-2); margin: var(--space-5) 0 0; color: var(--muted-foreground); font-size: var(--text-sm); }
-.propose .icon { width: var(--icon-sm); height: var(--icon-sm); color: var(--link); }
+.propose { margin: var(--space-3) 0 0; color: var(--muted-foreground); font-size: var(--text-sm); }
+.propose a { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px; font-weight: var(--weight-medium); }
+.propose .icon { width: var(--icon-sm); height: var(--icon-sm); }
 
 /* Standards: four short statements under a rule. */
 .standards { display: grid; gap: var(--grid-gap); grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; }
@@ -293,7 +277,7 @@ a:hover { text-decoration-color: currentColor; }
   font-family: var(--font-sans); font-size: var(--text-xs); line-height: var(--leading-xs); font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--muted-foreground);
 }
-.facts dd { margin: 0; font-size: var(--text-sm); line-height: var(--leading-sm); font-weight: var(--weight-medium); font-variant-numeric: tabular-nums; }
+.facts dd { margin: 0; font-family: var(--font-serif); font-size: var(--text-sm); line-height: var(--leading-sm); font-weight: var(--weight-medium); font-variant-numeric: tabular-nums; }
 .overview { display: grid; gap: var(--space-12); padding-top: var(--space-8); }
 .overview h2 { margin: 0; font-size: var(--text-2xl); line-height: var(--leading-2xl); font-weight: var(--weight-semibold); }
 .overview .prose { padding: 0; max-width: var(--measure); margin-top: var(--space-4); }
@@ -372,8 +356,16 @@ a:hover { text-decoration-color: currentColor; }
 .prose hr { border: 0; margin: var(--space-10) 0; text-align: center; }
 .prose hr::after { content: "* * *"; color: var(--muted-foreground); letter-spacing: 0.5em; }
 .prose img { max-width: 100%; height: auto; }
+/* Figures may run wider than the text, into the space before the contents
+   column, as journals set them. */
+@media (min-width: 1025px) {
+  .reading:not(.no-toc) .prose img { --figure: min(52rem, min(100vw - 2 * var(--gutter), var(--page)) - 17rem); max-width: var(--figure); }
+  /* Diagrams scale to that width; photos and screenshots keep their own size. */
+  .reading:not(.no-toc) .prose img[src$=".svg"] { width: var(--figure); }
+}
 .prose code { font-family: var(--font-mono); font-size: 0.8em; background: var(--muted); border-radius: var(--radius-sm); padding: 0.1em 0.35em; overflow-wrap: anywhere; hyphens: none; }
 .prose pre { margin: 0 0 var(--space-6); padding: var(--space-4) var(--space-5); overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--code); color: var(--code-foreground); font-size: var(--text-sm); line-height: var(--leading-sm); hyphens: none; }
+.prose table code { font-size: 0.875em; }
 .prose pre code { background: none; padding: 0; color: inherit; font-size: inherit; overflow-wrap: normal; }
 /* Front matter: what sits between the title and the first section (a summary,
    a byline or a note), set apart like an abstract. */
@@ -385,8 +377,16 @@ a:hover { text-decoration-color: currentColor; }
 .prose .back-matter ul { padding-left: 0; list-style: none; }
 .prose .back-matter li { padding-left: var(--space-6); text-indent: calc(-1 * var(--space-6)); }
 .prose .back-matter li > * { text-indent: 0; }
-/* Tables: journal style, with rules above and below and none between columns. */
-.table-wrap { margin: 0 0 var(--space-8); overflow-x: auto; border-block: 1.5px solid var(--rule); }
+/* Tables: journal style, with rules above and below and none between columns.
+   A table wider than the column scrolls; a soft shadow on the cut edge says so. */
+.table-wrap {
+  margin: 0 0 var(--space-8); overflow-x: auto; border-block: 1.5px solid var(--rule);
+  background:
+    linear-gradient(to right, var(--background) 30%, transparent) left / 2rem 100% no-repeat local,
+    linear-gradient(to left, var(--background) 30%, transparent) right / 2rem 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, rgb(28 25 21 / 0.18), transparent) left / 0.75rem 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, rgb(28 25 21 / 0.18), transparent) right / 0.75rem 100% no-repeat scroll;
+}
 .prose table { width: 100%; border-collapse: collapse; font-family: var(--font-serif); font-size: var(--text-sm); line-height: var(--leading-sm); font-variant-numeric: lining-nums tabular-nums; overflow-wrap: normal; hyphens: none; }
 .prose th, .prose td { padding: var(--space-2) var(--space-3); text-align: left; vertical-align: top; }
 .prose th:first-child, .prose td:first-child { padding-left: 0; }
@@ -397,3 +397,26 @@ a:hover { text-decoration-color: currentColor; }
 .prose thead tr:not(:has(th:not(:empty))) { display: none; }
 .prose li:has(> input[type="checkbox"]) { list-style: none; margin-left: calc(-1 * var(--space-6)); }
 .prose input[type="checkbox"] { accent-color: var(--primary); margin-right: var(--space-2); }
+
+/* Phones: every link in the header, topic bar and footer is at least 44px tall. */
+@media (max-width: 640px) {
+  .brand, .site-nav a, .topic-bar .crumb a, .site-footer a { display: inline-flex; align-items: center; min-height: 44px; }
+  .site-nav a { height: auto; }
+}
+
+/* Print: just the article, in 11pt serif, with link targets written out in
+   the back matter. */
+@media print {
+  @page { margin: 2cm; }
+  body { background: #fff; display: block; }
+  .site-header, .topic-bar, .site-footer, .read-progress, .reading > aside, .anchor, .actions { display: none !important; }
+  .reading { display: block; }
+  .prose { max-width: none; padding: 0; font-size: 11pt; line-height: 1.5; }
+  .prose h1 { font-size: 20pt; }
+  .prose h2 { font-size: 14pt; break-after: avoid; }
+  .prose h3 { font-size: 12pt; break-after: avoid; }
+  .prose pre, .prose blockquote, .prose img { break-inside: avoid; }
+  .table-wrap { overflow: visible; background: none; }
+  a { color: inherit; text-decoration: none; }
+  .back-matter a[href^="http"]::after { content: " <" attr(href) ">"; overflow-wrap: anywhere; color: var(--muted-foreground); }
+}
