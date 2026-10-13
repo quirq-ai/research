@@ -1,7 +1,8 @@
 import html, os
 OUT = os.path.join(os.path.dirname(__file__), '..', 'slides')
-BG, S1, S2, LINE = '#100f14', '#19161e', '#231e2a', '#39303f'
-INK, INK2, INK3, ACC, AMB, GRN = '#f3ece4', '#d0c3cc', '#b1a2b4', '#f2a2d5', '#eac17a', '#b7cc91'
+# Light, matching the research site: paper, ink and its darker purple (#8e3574) for text.
+BG, S1, S2, LINE = '#fbf9f4', '#f2eee6', '#e9e3d8', '#d8d0c3'
+INK, INK2, INK3, ACC, AMB, GRN = '#1c1915', '#3f3a34', '#5c554d', '#8e3574', '#7a5410', '#46601d'
 ASOF = '2026-10-05'
 e = html.escape
 
@@ -68,7 +69,7 @@ for p in PHASES:
     left = card(label('GOAL') + f'<div style="font-size:26px;line-height:1.4">{e(p["goal"])}</div>'
                 + label('SCOPE') + f'<div style="font-size:24px;line-height:1.4;color:{INK2}">{e(p["scope"])}</div>', gap=16, pad=24, extra='flex:1')
     right = card(label('EXIT TEST' + (f' · AS OF {ASOF}' if p['v']=='v0' else '')) + '\n'.join(rows), gap=14, pad=24, extra='flex:1.4')
-    pill = f'<span style="font-family:\'JetBrains Mono\';font-size:24px;color:{BG};background:{ACC};border-radius:999px;padding:6px 18px">{e(p["state"])}</span>'
+    pill = f'<span style="font-family:\'JetBrains Mono\';font-size:24px;color:#ffffff;background:{ACC};border-radius:999px;padding:6px 18px">{e(p["state"])}</span>'
     body = head(f'PHASE {p["v"]}' + ('' if p['v'] == 'v0' else ' (plan)'), f'{p["v"]}: {e(p["name"])}', size=56) + f'\n  <div style="display:flex">{pill}</div>\n  <div style="display:flex;gap:32px;flex:1">{left}{right}</div>'
     open(os.path.join(OUT, p['id'] + '.html'), 'w').write(section(p['id'], body, gap=28))
 

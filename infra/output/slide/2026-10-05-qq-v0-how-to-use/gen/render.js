@@ -14,7 +14,7 @@ const fontsLink = fontsCss ? '' : `<link href="${GOOGLE}" rel="stylesheet">`;
 const meta = JSON.parse(fs.readFileSync(path.join(deck, 'deck.json'), 'utf8'));
 const order = meta.order;
 const ids = only.length ? only : order;
-const wrap = body => `<!doctype html><html><head><meta charset="utf-8"><title>${meta.title}</title>${fontsLink}<style>${fontsCss}\n@page{size:1920px 1080px;margin:0}html,body{margin:0;padding:0;background:#100f14}section{break-after:page;page-break-after:always;overflow:hidden}</style></head><body>${body}</body></html>`;
+const wrap = body => `<!doctype html><html><head><meta charset="utf-8"><title>${meta.title}</title>${fontsLink}<style>${fontsCss}\n@page{size:1920px 1080px;margin:0}html,body{margin:0;padding:0;background:#fbf9f4}section{break-after:page;page-break-after:always;overflow:hidden}</style></head><body>${body}</body></html>`;
 (async () => {
   const b = await chromium.launch();
   const p = await b.newPage({ viewport: { width: 1920, height: 1080 } });

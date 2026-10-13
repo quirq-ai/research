@@ -2,7 +2,9 @@ The files in this folder are copied from shadcn/ui
 (https://github.com/shadcn-ui/ui, apps/v4/registry/new-york-v4/ui at commit
 295a1f114a138f23b5dfee0e0c6812394dfeb90c). Changes: import paths; the dark:
 utilities removed (the app is light only); focus rings at full ring colour
-instead of ring/50, for 3:1 contrast. They are used under the licence below.
+instead of ring/50, for 3:1 contrast; the link variants of Button and Badge use
+the text purple (text-link), and filled ones darken to it on hover, since white
+on primary/90 is under 4.5:1. They are used under the licence below.
 
 MIT License
 
