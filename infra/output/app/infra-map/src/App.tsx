@@ -82,7 +82,7 @@ export default function App() {
   return (
     <main className="mx-auto max-w-3xl px-4 pt-7 pb-16">
       <header className="mb-5 grid gap-2.5">
-        <span className="font-mono text-xs font-medium tracking-[0.12em] text-primary uppercase">quirq research · infra</span>
+        <span className="font-mono text-xs font-medium tracking-[0.12em] text-link uppercase">quirq research · infra</span>
         <h1 className="text-[28px] leading-tight font-semibold">How quirq infra fits together</h1>
         <p className="text-muted-foreground">quirq infra (<b>qq</b>) is the build, test and land system behind the quirq repos, modelled on Chromium's. It is 13 public repos. This page maps what each one does, how they use each other, and how one change travels through them. If you are in the qq alpha, the <a href="#alpha">Alpha checklist</a> takes you from install to your change shipping in the canary.</p>
       </header>
