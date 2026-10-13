@@ -16,13 +16,15 @@ function slugify(text) {
 }
 
 // Closing sections a journal leaves unnumbered and sets as back matter. The
-// whole title must match, after any number the page gave it ("15 · Sources").
-const backMatter = /^(?:\d+\s*[·.:)]?\s*)?(sources|references|bibliography|notes|further reading)$/i
+// whole title must match, after any number the page gave it ("15 · Sources")
+// and before any closing colon or full stop ("Sources:").
+const backMatter = /^(?:\d+\s*[·.:)]?\s*)?(sources|references|bibliography|notes|further reading)\s*[:.]?$/i
 // Appendices stay unnumbered, in body type.
 const appendix = /^appendix\b/i
 // Headings that already carry a number of their own: "1. What qq is",
-// "Step 1: …", "Example 2: …", "v0: …". One such h2 turns automatic numbering off.
-const ownNumber = /\d|^(step|part|example|phase|stage|chapter|section)\s/i
+// "Step 1: …", "Example 2: …", "v0: …", "First, …". One such h2 turns automatic
+// numbering off.
+const ownNumber = /\d|^(step|part|example|phase|stage|chapter|section)\s|^(first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth)\b/i
 const plainText = (html) => html.replace(/<[^>]+>/g, "").replace(/&[a-z]+;|&#\d+;/g, " ").trim()
 
 // Give each h2 and h3 an id and a hover anchor. Number them journal style
