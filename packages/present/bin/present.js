@@ -18,10 +18,12 @@
 import { createServer } from "node:http"
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs"
 import { basename, dirname, extname, join, relative, resolve, sep } from "node:path"
-import { escapeHtml, page, repoUrl, siteFooter, siteHeader } from "@research/theme"
+import { escapeHtml, icon, page, repoUrl, siteFooter, siteHeader } from "@research/theme"
 import { marked } from "marked"
 import { overview } from "../lib/overview.js"
 import { readingLayout } from "../lib/reading.js"
+import { formatLabels, outputResource, outputSwitcher, readOutputs } from "../lib/outputs.js"
+import { copyPdfReader } from "../lib/pdf-reader.js"
 
 const topicDir = process.cwd()
 const outDir = join(topicDir, "dist")
@@ -74,12 +76,12 @@ function outPath(src) {
   return extname(rel) === ".md" ? rel.slice(0, -3) + ".html" : rel
 }
 
-// Point relative links at the rendered pages: foo.md -> foo.html, README.md -> index.html.
+// Point relative links at rendered pages and the shells for published files.
 // Links that leave the published set (other topics, app source) go to GitHub-style
 // relative paths unchanged, which is the best a static site can do.
 function rewriteLinks(html, fromRel, published) {
-  return html.replace(/href="([^"#:]+\.md)(#[^"]*)?"/g, (match, href, hash = "") => {
-    const target = join(dirname(fromRel), href).split(sep).join("/")
+  return html.replace(/href="([^"#]+)(#[^"]*)?"/g, (match, href, hash = "") => {
+    const target = join(dirname(fromRel), href).split(sep).join("/").replace(/\/$/, "")
     const mapped = published.get(target)
     if (!mapped) return match
     const link = relative(dirname(outPath(join(topicDir, fromRel))), mapped).split(sep).join("/") || "index.html"
@@ -92,13 +94,15 @@ const wrapTables = (html) => html.replace(/<table>/g, '<div class="table-wrap"><
 
 // Pages use the shared quirq theme: the site header links back to the hub,
 // and a topic bar lists this topic's pages.
-function layout({ title, body, nav, current }) {
+function layout({ title, body, nav, current, outputs }) {
   const depth = current.split("/").length - 1
   const up = depth ? "../".repeat(depth) : ""
   const links = nav
-    .map(([href, label]) => {
-      const active = href === current || (href.endsWith("/") && current.startsWith(href))
-      return `<a href="${up}${href}"${active ? ' aria-current="page"' : ""}>${escapeHtml(label)}</a>`
+    .map(([href, label, format]) => {
+      const active = format ? current.startsWith(`output/${format}/`) : href === current || (href.endsWith("/") && current.startsWith(href))
+      const isApp = href.startsWith("output/app/")
+      const appLink = isApp ? ` target="_blank" rel="noopener" aria-label="${escapeHtml(label)} (opens in a new tab)"` : ""
+      return `<a href="${up}${href}"${active ? ' aria-current="page"' : ""}${appLink}>${escapeHtml(label)}${isApp ? icon("external") : ""}</a>`
     })
     .join("")
   return page({
@@ -109,6 +113,7 @@ function layout({ title, body, nav, current }) {
 <nav class="site-nav" aria-label="${escapeHtml(topic)}">${links}</nav>
 </div></div>
 <main>
+${outputSwitcher(outputs, current)}
 ${wrapTables(body)}
 </main>
 ${siteFooter()}`,
@@ -118,15 +123,20 @@ ${siteFooter()}`,
 function build() {
   const { pages, assets } = collect()
   const apps = collectApps()
+  const outputs = readOutputs(topicDir)
+  const resources = Object.values(outputs).flat().filter((entry) => entry.kind !== "md")
   rmSync(outDir, { recursive: true, force: true })
   mkdirSync(outDir, { recursive: true })
 
   const published = new Map(pages.map((src) => [relative(topicDir, src).split(sep).join("/"), outPath(src)]))
+  for (const entries of Object.values(outputs)) {
+    for (const entry of entries) published.set(entry.path, entry.href)
+  }
   const nav = [["index.html", "Overview"]]
   if (published.has("GOAL.md")) nav.push(["GOAL.html", "Goal"])
   for (const format of formatDirs) {
-    const first = [...published.entries()].find(([rel]) => rel.startsWith(`output/${format}/`))
-    if (first) nav.push([first[1], format[0].toUpperCase() + format.slice(1)])
+    const first = outputs[format][0]
+    if (first) nav.push([first.href, formatLabels[format], format])
   }
   if (apps.length) nav.push([`output/app/${apps[0]}/`, apps.length > 1 ? "Apps" : "App"])
 
@@ -139,7 +149,7 @@ function build() {
     const body = visual ? rewriteLinks(visual.html, rel, published) : readingLayout(rewriteLinks(marked.parse(markdown), rel, published), markdown)
     const dest = join(outDir, outPath(src))
     mkdirSync(dirname(dest), { recursive: true })
-    writeFileSync(dest, layout({ title, body, nav, current: outPath(src) }))
+    writeFileSync(dest, layout({ title, body, nav, current: outPath(src), outputs }))
   }
   for (const src of assets) {
     const dest = join(outDir, outPath(src))
@@ -149,10 +159,16 @@ function build() {
   for (const name of apps) {
     cpSync(join(topicDir, "output", "app", name, "dist"), join(outDir, "output", "app", name), { recursive: true })
   }
-  console.log(`present: wrote ${pages.length} page(s), ${assets.length} file(s) and ${apps.length} app(s) to ${relative(process.cwd(), outDir)}/`)
+  for (const entry of resources) {
+    const dest = join(outDir, entry.href)
+    mkdirSync(dirname(dest), { recursive: true })
+    writeFileSync(dest, layout({ title: entry.title, body: outputResource(entry, topicDir), nav, current: entry.href, outputs }))
+  }
+  if (resources.some((entry) => entry.kind === "pdf")) copyPdfReader(outDir)
+  console.log(`present: wrote ${pages.length + resources.length} page(s), ${assets.length} file(s) and ${apps.length} app(s) to ${relative(process.cwd(), outDir)}/`)
 }
 
-const types = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".pdf": "application/pdf" }
+const types = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".mjs": "text/javascript", ".wasm": "application/wasm", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".pdf": "application/pdf" }
 
 function serve() {
   const port = Number(process.env.PORT) || 3000

@@ -3,7 +3,7 @@
   "private": true,
   "packageManager": "npm@10.9.4",
   "engines": {
-    "node": ">=22"
+    "node": ">=22.13.0"
   },
   "workspaces": [
     "*",
@@ -13,6 +13,7 @@
   ],
   "scripts": {
     "check": "node scripts/check.mjs",
+    "test": "node --test packages/present/test/*.test.mjs",
     "topics": "node scripts/topics-table.mjs",
     "build": "turbo run build && node scripts/build-hub.mjs",
     "dev": "turbo run build && node scripts/build-hub.mjs serve"

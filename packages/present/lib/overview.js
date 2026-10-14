@@ -2,11 +2,12 @@
 //
 // The README's fixed parts (title, summary, the Status/Owner/dates table, the
 // "Status and progress" checklist and the "Published outputs" table) become a
-// title block, a progress stepper and output entries. Everything else in the
+// title block, stage tag and output icons. Everything else in the
 // README renders as prose below them, unchanged.
 
-import { escapeHtml, icon, statusBadge } from "@research/theme"
+import { escapeHtml, statusBadge } from "@research/theme"
 import { marked } from "marked"
+import { outputIconLink } from "./output-icons.js"
 
 const formatLabels = { onepager: "One-pager", slide: "Slides", report: "Report", app: "App" }
 
@@ -32,30 +33,16 @@ function outputName(href) {
 function outputTiles(rows) {
   const tiles = rows
     .map((cells) => {
-      const [format, file, date, notes] = cells.map((c) => c.text.trim())
+      const [format, file, date] = cells.map((c) => c.text.trim())
       const href = file.match(/\]\(([^)\s]+)\)/)?.[1]
       if (!href) return ""
       const label = formatLabels[format] ?? format
-      return `<article class="output">
-<div class="output-icon">${icon(format)}</div>
-<div class="output-body">
-<p class="output-kind">${escapeHtml(label)}${date ? ` · <time>${escapeHtml(date)}</time>` : ""}</p>
-<h3 class="output-title"><a href="${href}">${escapeHtml(outputName(href))}</a></h3>
-${notes ? `<p class="output-notes">${marked.parseInline(notes)}</p>` : ""}
-</div>
-</article>`
+      const isApp = format === "app"
+      const name = outputName(href)
+      return outputIconLink({ href, name, format, label, detail: `${label}${date ? ` · ${date}` : ""}`, newTab: isApp })
     })
     .filter(Boolean)
   return tiles.length ? `<div class="outputs">${tiles.join("\n")}</div>` : ""
-}
-
-function progressSteps(items) {
-  const done = items.filter((i) => i.checked).length
-  const steps = items
-    .map((i) => `<li class="${i.checked ? "done" : ""}"><span class="step-dot">${i.checked ? icon("check") : ""}</span><span>${marked.parseInline(i.text)}</span></li>`)
-    .join("")
-  return `<div class="progress-head"><h2>Progress</h2><span>${done} of ${items.length}</span></div>
-<ol class="steps" style="--n:${items.length || 1};--done:${items.length > 1 ? Math.max(0, done - 1) / (items.length - 1) : done}">${steps}</ol>`
 }
 
 // Returns { title, html } for the README, or null if it lacks the template's shape.
@@ -102,14 +89,14 @@ export function overview(markdown) {
   const tiles = outputsTable ? outputTiles(outputsTable.rows) : ""
   const html = `<section class="topic-hero">
 <div class="container"><div class="topic-head">
-<div><span title="${escapeHtml(legend)}">${statusBadge(status)}</span>
-<h1>${escapeHtml(title)}</h1>
+<div>
+<div class="topic-title"><h1>${escapeHtml(title)}</h1><span title="${escapeHtml(legend)}">${statusBadge(status)}</span></div>
 ${summary ? `<p class="lede">${marked.parseInline(summary.text)}</p>` : ""}</div>
 ${facts.length ? `<dl class="facts">${facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${marked.parseInline(v)}</dd></div>`).join("")}</dl>` : ""}
 </div></div>
 </section>
 <div class="container overview">
-${checklist ? `<section class="progress">${progressSteps(checklist.items)}${parse(progressRest) ? `<div class="prose">${parse(progressRest)}</div>` : ""}</section>` : ""}
+${parse(progressRest) ? `<div class="prose small">${parse(progressRest)}</div>` : ""}
 ${outputs ? `<section class="outputs-section"><h2>Outputs</h2>${tiles || `<p class="empty">Nothing published yet.</p>`}${outputsRest.length ? `<div class="prose small">${parse(outputsRest)}</div>` : ""}</section>` : ""}
 </div>
 <div class="container"><div class="prose">
