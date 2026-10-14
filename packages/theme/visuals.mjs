@@ -17,6 +17,11 @@ const paths = {
   clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
   check: '<path d="M5 12l5 5 9-10"/>',
   arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  external: '<path d="M7 17 17 7M7 7h10v10"/>',
+  previous: '<path d="m15 6-6 6 6 6"/>',
+  next: '<path d="m9 6 6 6-6 6"/>',
+  minus: '<path d="M5 12h14"/>',
+  download: '<path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4"/>',
   plus: '<path d="M12 5v14M5 12h14"/>',
 }
 

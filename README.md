@@ -124,7 +124,7 @@ lists the topics with the title, first paragraph and status from each topic's
 
 ### Run locally
 
-Node.js 22 or newer. From the repo root:
+Node.js 22.13 or newer. From the repo root:
 
 ```sh
 npm install                          # installs every workspace

@@ -38,11 +38,10 @@ function entry(t, n, placeholder) {
 </li>`
 }
 
-const standards = [
-  ["sourced", "Sourced", "Every claim links to a source."],
-  ["reproducible", "Reproducible", "Numbers are re-run or cited."],
-  ["candid", "Candid", "Limits and open questions stated."],
-  ["shareable", "Shareable", "No secrets or private data."],
+const workflow = [
+  ["Create a topic", "Start from the topic template. Give it a name and define the research question."],
+  ["Choose output formats", "Set the outputs in the topic goal: one-pagers, slides, reports or an app."],
+  ["Publish the results", "Add the finished files and list them in the topic overview. The hub loads the topic and its outputs automatically on the next build."],
 ]
 
 function indexPage(topics) {
@@ -74,10 +73,11 @@ ${sorted.map((t, i) => entry(t, i + 1, placeholder)).join("\n")}
 </ol>
 <p class="propose"><a href="${repoUrl}/issues/new">${icon("plus")}<span>Propose a topic</span></a><span>: open an issue with a question.</span></p>
 </div></section>
-<section class="section" id="standards"><div class="container">
-<ul class="standards">
-${standards.map(([name, title, text]) => `<li>${icon(name)}<div><strong>${title}</strong><br><span>${text}</span></div></li>`).join("\n")}
-</ul>
+<section class="section" id="how-it-works" aria-labelledby="how-it-works-title"><div class="container">
+<div class="section-head"><h2 id="how-it-works-title">How it works</h2></div>
+<ol class="workflow">
+${workflow.map(([title, text], i) => `<li><span class="workflow-step" aria-hidden="true">${i + 1}</span><h3>${title}</h3><p>${text}</p></li>`).join("\n")}
+</ol>
 </div></section>
 </main>
 ${siteFooter()}`
@@ -105,7 +105,7 @@ function build() {
   console.log(`build-hub: wrote ${slugs.length} topic(s) to dist/: ${slugs.join(", ")}`)
 }
 
-const types = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".pdf": "application/pdf", ".woff2": "font/woff2" }
+const types = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".mjs": "text/javascript", ".wasm": "application/wasm", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".pdf": "application/pdf", ".woff2": "font/woff2" }
 
 function serve() {
   const port = Number(process.env.PORT) || 3000
