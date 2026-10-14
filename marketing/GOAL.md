@@ -2,31 +2,45 @@
 
 ## Purpose
 
-_Why this research is being done. What decision, question or piece of work it
-informs, and who needs the answer._
+quirq has no presence on Reddit. This research informs how Yash and quirq
+should start: which kind of account to use, how moderators and Reddit's
+filters treat new accounts that post, and which way of using Reddit gets
+the most impact for an agent-infrastructure company. Later marketing
+research for quirq can be added to this topic.
 
 ## Research questions
 
-1. _Question one._
+1. Should a founder post from a personal account or a company account?
+2. How do moderators and automatic filters treat new accounts that post,
+   especially posts that link to their own product?
+3. What is the most effective way for quirq to use Reddit, and which
+   communities fit?
+4. What are people in agent communities asking about right now, and where
+   can someone with real agent cost and routing data add something new?
 
 ## Research action
 
-_What will be done to answer the questions: sources to review, experiments to
-run, comparisons to make, people or datasets to consult._
+- Read Reddit's own spam guidance and the AutoModerator documentation.
+- Read the rules of the target community (r/AgentsOfAI) and its size data.
+- Scan new and rising posts in r/AI_Agents, r/AgentsOfAI, r/LLMDevs and
+  r/ClaudeAI over 72 hours, read the best-fitting threads in full with their
+  top comments, and note which questions are still unanswered.
 
 ## Scope
 
 **In scope:**
 
-- _..._
+- Organic participation on Reddit: accounts, posting rules, community fit.
 
 **Out of scope:**
 
-- _..._
+- Paid Reddit ads.
+- Other platforms (X, LinkedIn).
 
 ## Done when
 
-- _Concrete criteria that tell us the research is finished._
+- Each research question has an answer backed by a source or a recorded
+  observation, with inferences marked as such.
 
 ## Requested outputs
 
@@ -35,7 +49,7 @@ folders and no others.
 
 - [ ] onepager: `output/onepager/`
 - [ ] slide: `output/slide/`
-- [ ] report: `output/report/`
+- [x] report: `output/report/`
 - [ ] app: `output/app/`
 
-Requested by: _name_, on _YYYY-MM-DD_.
+Requested by: Yash, on 2026-10-14.

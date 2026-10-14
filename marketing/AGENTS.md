@@ -5,23 +5,28 @@ this topic only.
 
 ## What to research
 
-_Derived from [GOAL.md](GOAL.md). List the questions to answer and the
-research action to take, in the order to take it._
+Derived from [GOAL.md](GOAL.md):
 
-1. _..._
+1. Platform rules first: Reddit's own policy pages, then AutoModerator
+   documentation, then each target community's rules.
+2. Community fit: size and rules of each target subreddit.
+3. Live demand: what people in those communities are asking, read in full
+   with comments, not from titles.
 
 ## Sources
 
-**Prefer:** _primary sources, official documentation, peer-reviewed papers,
-reproducible experiments._
+**Prefer:** Reddit's help centre and policy pages, AutoModerator
+documentation, subreddit wikis and sidebars, and the threads themselves.
 
-**Avoid:** _sources that cannot be checked or cited._
+**Avoid:** Reddit-marketing vendor blogs as the only source for a claim. Use
+them only for a quote they attribute to Reddit, and say so.
 
 ## How to verify
 
 - Open every source and confirm it says what the finding claims.
-- Reproduce numbers where possible; otherwise quote them with their source.
-- _Topic-specific checks: ..._
+- Reddit blocks many cloud networks. If reddit.com can't be reached, use a
+  public read-only mirror of the same page and name the mirror.
+- Subreddit sizes and rules change; record the date checked.
 
 ## Publishing
 
@@ -31,4 +36,5 @@ and run `npm run topics` at the repo root.
 
 ## Topic-specific notes
 
-_None yet._
+- Never name individual Reddit users in outputs. Link to the thread instead.
+- Keep quirq's own product numbers to ones already published publicly.
