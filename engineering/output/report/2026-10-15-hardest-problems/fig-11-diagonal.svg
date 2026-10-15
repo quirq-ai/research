@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 396" role="img" aria-label="Five decimal expansions listed in a column with their diagonal digits highlighted, and a new number built by changing every diagonal digit"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }
+.svg-hd { font: 700 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.09em; }</style><rect x="0.0" y="0.0" width="1000.0" height="396.0" fill="#ffffff"/>
+                <text class="svg-lane" x="40" y="46">SUPPOSE SOMEONE HANDS YOU A COMPLETE LIST OF THE REALS BETWEEN 0 AND 1</text>
+
+                <rect fill="#f7e3c8" height="28" rx="4" stroke="#d98226" stroke-width="1.4" width="28" x="166" y="64"></rect>
+                <rect fill="#f7e3c8" height="28" rx="4" stroke="#d98226" stroke-width="1.4" width="28" x="206" y="104"></rect>
+                <rect fill="#f7e3c8" height="28" rx="4" stroke="#d98226" stroke-width="1.4" width="28" x="246" y="144"></rect>
+                <rect fill="#f7e3c8" height="28" rx="4" stroke="#d98226" stroke-width="1.4" width="28" x="286" y="184"></rect>
+                <rect fill="#f7e3c8" height="28" rx="4" stroke="#d98226" stroke-width="1.4" width="28" x="326" y="224"></rect>
+
+                <text class="svg-step" x="40" y="84">r₁ = 0.</text>
+                <text class="svg-step" text-anchor="middle" x="180" y="84">1</text>
+                <text class="svg-step" text-anchor="middle" x="220" y="84">4</text>
+                <text class="svg-step" text-anchor="middle" x="260" y="84">1</text>
+                <text class="svg-step" text-anchor="middle" x="300" y="84">5</text>
+                <text class="svg-step" text-anchor="middle" x="340" y="84">9</text>
+                <text class="svg-step" text-anchor="middle" x="380" y="84">2</text>
+                <text class="svg-step" text-anchor="middle" x="420" y="84">6</text>
+                <text class="svg-step" text-anchor="middle" x="460" y="84">5</text>
+                <text class="svg-sub" x="496" y="84">…</text>
+
+                <text class="svg-step" x="40" y="124">r₂ = 0.</text>
+                <text class="svg-step" text-anchor="middle" x="180" y="124">7</text>
+                <text class="svg-step" text-anchor="middle" x="220" y="124">1</text>
+                <text class="svg-step" text-anchor="middle" x="260" y="124">8</text>
+                <text class="svg-step" text-anchor="middle" x="300" y="124">2</text>
+                <text class="svg-step" text-anchor="middle" x="340" y="124">8</text>
+                <text class="svg-step" text-anchor="middle" x="380" y="124">1</text>
+                <text class="svg-step" text-anchor="middle" x="420" y="124">8</text>
+                <text class="svg-step" text-anchor="middle" x="460" y="124">2</text>
+                <text class="svg-sub" x="496" y="124">…</text>
+
+                <text class="svg-step" x="40" y="164">r₃ = 0.</text>
+                <text class="svg-step" text-anchor="middle" x="180" y="164">4</text>
+                <text class="svg-step" text-anchor="middle" x="220" y="164">1</text>
+                <text class="svg-step" text-anchor="middle" x="260" y="164">4</text>
+                <text class="svg-step" text-anchor="middle" x="300" y="164">2</text>
+                <text class="svg-step" text-anchor="middle" x="340" y="164">1</text>
+                <text class="svg-step" text-anchor="middle" x="380" y="164">3</text>
+                <text class="svg-step" text-anchor="middle" x="420" y="164">5</text>
+                <text class="svg-step" text-anchor="middle" x="460" y="164">6</text>
+                <text class="svg-sub" x="496" y="164">…</text>
+
+                <text class="svg-step" x="40" y="204">r₄ = 0.</text>
+                <text class="svg-step" text-anchor="middle" x="180" y="204">5</text>
+                <text class="svg-step" text-anchor="middle" x="220" y="204">7</text>
+                <text class="svg-step" text-anchor="middle" x="260" y="204">7</text>
+                <text class="svg-step" text-anchor="middle" x="300" y="204">2</text>
+                <text class="svg-step" text-anchor="middle" x="340" y="204">1</text>
+                <text class="svg-step" text-anchor="middle" x="380" y="204">5</text>
+                <text class="svg-step" text-anchor="middle" x="420" y="204">6</text>
+                <text class="svg-step" text-anchor="middle" x="460" y="204">6</text>
+                <text class="svg-sub" x="496" y="204">…</text>
+
+                <text class="svg-step" x="40" y="244">r₅ = 0.</text>
+                <text class="svg-step" text-anchor="middle" x="180" y="244">6</text>
+                <text class="svg-step" text-anchor="middle" x="220" y="244">1</text>
+                <text class="svg-step" text-anchor="middle" x="260" y="244">8</text>
+                <text class="svg-step" text-anchor="middle" x="300" y="244">0</text>
+                <text class="svg-step" text-anchor="middle" x="340" y="244">3</text>
+                <text class="svg-step" text-anchor="middle" x="380" y="244">3</text>
+                <text class="svg-step" text-anchor="middle" x="420" y="244">9</text>
+                <text class="svg-step" text-anchor="middle" x="460" y="244">8</text>
+                <text class="svg-sub" x="496" y="244">…</text>
+
+                <text class="svg-sub" x="40" y="278">⋮</text>
+                <line stroke="#deded9" x1="40" x2="520" y1="292" y2="292"></line>
+
+                <text class="svg-step" x="40" y="322">d  = 0.</text>
+                <text class="svg-step" style="fill:#367f59" text-anchor="middle" x="180" y="322">2</text>
+                <text class="svg-step" style="fill:#367f59" text-anchor="middle" x="220" y="322">2</text>
+                <text class="svg-step" style="fill:#367f59" text-anchor="middle" x="260" y="322">5</text>
+                <text class="svg-step" style="fill:#367f59" text-anchor="middle" x="300" y="322">3</text>
+                <text class="svg-step" style="fill:#367f59" text-anchor="middle" x="340" y="322">4</text>
+                <text class="svg-sub" x="376" y="322">…</text>
+                <text class="svg-note" x="40" y="356">each digit of d is the highlighted digit above it, plus one</text>
+
+                <line stroke="#deded9" x1="560" x2="560" y1="40" y2="356"></line>
+
+                <text class="svg-hd" x="596" y="62">THE ARGUMENT — CANTOR, 1891</text>
+                <text class="svg-step" x="596" y="94">1 · Take the first digit of the first number, the second</text>
+                <text class="svg-step" x="596" y="114">digit of the second, and so on down the diagonal.</text>
+                <text class="svg-step" x="596" y="146">2 · Build a new number d by changing every one of</text>
+                <text class="svg-step" x="596" y="166">those digits.</text>
+                <text class="svg-step" x="596" y="198">3 · d cannot be r₁ — they differ in the first place. It</text>
+                <text class="svg-step" x="596" y="218">cannot be r₂ — they differ in the second. It cannot be</text>
+                <text class="svg-step" x="596" y="238">rₙ for any n at all.</text>
+                <text class="svg-step" x="596" y="270">4 · So the list was not complete. And the argument</text>
+                <text class="svg-step" x="596" y="290">works against <tspan font-style="italic">every</tspan> list.</text>
+                <text class="svg-note" x="596" y="330">There are strictly more reals than counting numbers:</text>
+                <text class="svg-note" x="596" y="350">2^ℵ₀ &gt; ℵ₀. The same move proves |P(X)| &gt; |X| for every X.</text>
+              </svg>

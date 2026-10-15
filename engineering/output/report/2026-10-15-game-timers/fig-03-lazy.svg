@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 400" role="img" aria-label="Two timelines over twelve hours of a player being offline. The top lane, a tick loop, shows continuous ticks across the whole period and costs four billion field updates per second across ten million daily players. The bottom lane, lazy resolution, is empty across the whole period and has a single resolve step at login, costing 347 resolutions per second in aggregate, or about 139 thousand field touches per second — 28,800 times less."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="400.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="lz-arr" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                </defs>
+                <text class="svg-lane" x="0" y="18">DESIGN A · A TICK LOOP</text>
+                <rect fill="#f3dfdc" height="64" rx="6" stroke="#ad4b43" width="880" x="0" y="34"></rect>
+                <g stroke="#ad4b43" stroke-width="1.4">
+                  <line x1="30" x2="30" y1="46" y2="86"></line><line x1="70" x2="70" y1="46" y2="86"></line><line x1="110" x2="110" y1="46" y2="86"></line>
+                  <line x1="150" x2="150" y1="46" y2="86"></line><line x1="190" x2="190" y1="46" y2="86"></line><line x1="230" x2="230" y1="46" y2="86"></line>
+                  <line x1="270" x2="270" y1="46" y2="86"></line><line x1="310" x2="310" y1="46" y2="86"></line><line x1="350" x2="350" y1="46" y2="86"></line>
+                  <line x1="390" x2="390" y1="46" y2="86"></line><line x1="430" x2="430" y1="46" y2="86"></line><line x1="470" x2="470" y1="46" y2="86"></line>
+                  <line x1="510" x2="510" y1="46" y2="86"></line><line x1="550" x2="550" y1="46" y2="86"></line><line x1="590" x2="590" y1="46" y2="86"></line>
+                  <line x1="630" x2="630" y1="46" y2="86"></line><line x1="670" x2="670" y1="46" y2="86"></line><line x1="710" x2="710" y1="46" y2="86"></line>
+                  <line x1="750" x2="750" y1="46" y2="86"></line><line x1="790" x2="790" y1="46" y2="86"></line><line x1="830" x2="830" y1="46" y2="86"></line>
+                </g>
+                <text class="svg-sub" x="900" y="62">4,000,000,000</text>
+                <text class="svg-note" x="900" y="84">field updates / second</text>
+
+                <text class="svg-lane" x="0" y="146">DESIGN B · LAZY RESOLUTION</text>
+                <rect fill="#dfede5" height="64" rx="6" stroke="#367f59" width="880" x="0" y="162"></rect>
+                <text class="svg-note" x="300" y="200">— nothing at all —</text>
+                <line stroke="#367f59" stroke-width="3" x1="866" x2="866" y1="174" y2="214"></line>
+                <text class="svg-sub" x="900" y="190">138,889</text>
+                <text class="svg-note" x="900" y="212">field touches / second</text>
+
+                <line stroke="#b8b8b1" x1="0" x2="880" y1="250" y2="250"></line>
+                <text class="svg-sub" x="0" y="272">player closes app</text>
+                <text class="svg-sub" x="420" y="272">12 hours</text>
+                <text class="svg-sub" x="780" y="272">player opens app</text>
+
+                <rect fill="#f7f7f5" height="98" rx="8" stroke="#deded9" width="540" x="0" y="296"></rect>
+                <text class="svg-lane" x="16" y="322">ASSUMPTIONS</text>
+                <text class="svg-sub" x="16" y="346">100M installs · 10M daily · 400 objects each</text>
+                <text class="svg-sub" x="16" y="368">3 sessions/day · tick loop at 1 Hz over daily players only</text>
+                <text class="svg-sub" x="16" y="390">→ lazy is 28,800× cheaper; 288,000× against ticking everyone</text>
+
+                <rect fill="#f7e3c8" height="98" rx="8" stroke="#d98226" width="550" x="570" y="296"></rect>
+                <text class="svg-lane" x="586" y="322">AND THE WRITES</text>
+                <text class="svg-sub" x="586" y="346">Lazy: 30M persists/day = 347/s, one per session.</text>
+                <text class="svg-sub" x="586" y="368">A tick loop dirties every record every second, so the</text>
+                <text class="svg-sub" x="586" y="390">write path becomes the system rather than a detail.</text>
+              </svg>

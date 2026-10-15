@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 280" role="img" aria-label="A two-state continuous-time chain between Up and Down, with failure rate one over MTTF and repair rate one over MTTR. A table gives availability and yearly downtime for four combinations: MTTF 720 hours with MTTR 1 hour gives 2.86 nines and 729.5 minutes per year; the same MTTF with a 5-minute repair gives 3.94 nines and 60.6 minutes; MTTF one year with a 4-hour repair gives 3.34 nines; MTTF 3 months with a 30-minute repair gives 3.64 nines."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="280.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="av-arr" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                </defs>
+                <circle cx="120" cy="80" fill="#dfede5" r="42" stroke="#367f59" stroke-width="2"></circle><text class="svg-step" text-anchor="middle" x="120" y="86">Up</text>
+                <circle cx="360" cy="80" fill="#f3dfdc" r="42" stroke="#ad4b43" stroke-width="2"></circle><text class="svg-step" text-anchor="middle" x="360" y="86">Down</text>
+                <path d="M162 64 L 314 64" marker-end="url(#av-arr)" stroke="#252525" stroke-width="2"></path>
+                <text class="svg-sub" x="206" y="50">rate 1/MTTF</text>
+                <path d="M314 100 L 166 100" marker-end="url(#av-arr)" stroke="#252525" stroke-width="2"></path>
+                <text class="svg-sub" x="210" y="122">rate 1/MTTR</text>
+                <text class="svg-sub" x="60" y="176">A = MTTF / (MTTF + MTTR)</text>
+                <text class="svg-note" x="60" y="200">π of the two-state generator — §4 with two states.</text>
+                <text class="svg-note" x="60" y="232">Two independent replicas, either sufficient:</text>
+                <text class="svg-note" x="60" y="254">A₂ = 1 − (1 − A)² = 0.9999981 for row 1.</text>
+
+                <line stroke="#deded9" x1="500" x2="500" y1="20" y2="270"></line>
+                <text class="svg-lane" x="530" y="34">COMPUTED</text>
+                <text class="svg-sub" x="530" y="62">MTTF      MTTR     availability   nines   min/year</text>
+                <line stroke="#deded9" x1="530" x2="990" y1="72" y2="72"></line>
+                <text class="svg-sub" x="530" y="96">720 h     1 h      0.998613       2.86     729.5</text>
+                <text class="svg-sub" x="530" y="120">720 h     5 min    0.999885       3.94      60.6</text>
+                <text class="svg-sub" x="530" y="144">8760 h    4 h      0.999544       3.34     240.1</text>
+                <text class="svg-sub" x="530" y="168">2190 h    30 min   0.999772       3.64     120.1</text>
+                <rect fill="#f7e3c8" height="76" rx="6" stroke="#d98226" width="466" x="524" y="188"></rect>
+                <text class="svg-note" x="538" y="212">Rows 1 and 2 have identical failure rates. Repairing</text>
+                <text class="svg-note" x="538" y="232">12× faster buys a whole nine. MTTR is the cheaper</text>
+                <text class="svg-note" x="538" y="252">lever, and the only one you control after the fact.</text>
+              </svg>

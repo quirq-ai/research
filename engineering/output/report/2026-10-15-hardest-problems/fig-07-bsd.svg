@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 330" role="img" aria-label="Four columns for analytic rank 0, 1, 2 and 3 or more, showing what is proved in each, and a bar showing that 66.48 percent of curves are covered"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }
+.svg-hd { font: 700 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.09em; }
+.svg-big { font: 600 15px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }</style><rect x="0.0" y="0.0" width="1000.0" height="330.0" fill="#ffffff"/>
+                <rect fill="#dfede5" height="156" rx="8" stroke="#367f59" stroke-width="1.4" width="232" x="16" y="24"></rect>
+                <text class="svg-hd" x="34" y="50">ANALYTIC RANK 0</text>
+                <text class="svg-big" x="34" y="78">Proved</text>
+                <text class="svg-step" x="34" y="104">L(E,1) ≠ 0 ⟹ the curve has</text>
+                <text class="svg-step" x="34" y="122">finitely many rational points,</text>
+                <text class="svg-step" x="34" y="140">and Ш is finite.</text>
+                <text class="svg-sub" x="34" y="164">KOLYVAGIN 1989</text>
+
+                <rect fill="#dfede5" height="156" rx="8" stroke="#367f59" stroke-width="1.4" width="232" x="264" y="24"></rect>
+                <text class="svg-hd" x="282" y="50">ANALYTIC RANK 1</text>
+                <text class="svg-big" x="282" y="78">Proved</text>
+                <text class="svg-step" x="282" y="104">A simple zero ⟹ rank exactly 1,</text>
+                <text class="svg-step" x="282" y="122">via an explicit point built from</text>
+                <text class="svg-step" x="282" y="140">modular curves. Ш finite.</text>
+                <text class="svg-sub" x="282" y="164">GROSS–ZAGIER 1986 + KOLYVAGIN</text>
+
+                <rect fill="#f7e3c8" height="156" rx="8" stroke="#d98226" stroke-width="1.4" width="232" x="512" y="24"></rect>
+                <text class="svg-hd" x="530" y="50">ANALYTIC RANK 2</text>
+                <text class="svg-big" x="530" y="78">Nothing</text>
+                <text class="svg-step" x="530" y="104">Not one curve of rank ≥ 2 has</text>
+                <text class="svg-step" x="530" y="122">been proved to satisfy BSD.</text>
+                <text class="svg-step" x="530" y="140">The Euler-system input runs out.</text>
+                <text class="svg-sub" x="530" y="164">OPEN SINCE 1965</text>
+
+                <rect fill="#f7e3c8" height="156" rx="8" stroke="#d98226" stroke-width="1.4" width="224" x="760" y="24"></rect>
+                <text class="svg-hd" x="778" y="50">RANK 3 AND UP</text>
+                <text class="svg-big" x="778" y="78">Nothing</text>
+                <text class="svg-step" x="778" y="104">Curves of rank ≥ 29 are known</text>
+                <text class="svg-step" x="778" y="122">(Elkies–Klagsbrun, 2024). Their</text>
+                <text class="svg-step" x="778" y="140">L-functions are only numerics.</text>
+                <text class="svg-sub" x="778" y="164">OPEN</text>
+
+                <text class="svg-lane" x="16" y="222">HOW MUCH OF THE FAMILY THAT COVERS, ORDERED BY HEIGHT</text>
+                <rect fill="#f7f7f5" height="30" rx="6" stroke="#deded9" width="968" x="16" y="236"></rect>
+                <rect fill="#dfede5" height="30" rx="6" stroke="#367f59" stroke-width="1.2" width="644" x="16" y="236"></rect>
+                <text class="svg-step" x="34" y="256">66.48% of elliptic curves over Q provably satisfy BSD</text>
+                <text class="svg-step" x="678" y="256">the rest: unknown</text>
+                <line stroke="#367f59" stroke-width="1.2" x1="660" x2="660" y1="230" y2="272"></line>
+                <text class="svg-note" x="16" y="298">Bhargava–Skinner–Zhang, 2014 — average-rank bounds from geometry-of-numbers, fed into the Iwasawa-theoretic converse theorems. It is a statement about the family, not about any curve you name.</text>
+              </svg>

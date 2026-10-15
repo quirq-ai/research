@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 350" role="img" aria-label="Four rows. Lazy accrual replaces cron jobs with a timestamp and a formula, and deletes backlog, drift and thundering herds. Commands with sequence numbers replace state PUTs and delete lost updates and unsafe retries. Owner-scoped documents replace cross-entity transactions and delete lock contention. A deterministic core makes replay possible and deletes the argument about what happened."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="350.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="18">TAKE THIS</text>
+                <text class="svg-lane" x="330" y="18">INSTEAD OF</text>
+                <text class="svg-lane" x="620" y="18">OUTSIDE GAMES, IT IS</text>
+                <text class="svg-lane" x="900" y="18">IT DELETES</text>
+                <line stroke="#b8b8b1" x1="0" x2="1120" y1="28" y2="28"></line>
+
+                <rect fill="#dfede5" height="66" rx="6" stroke="#367f59" width="1120" x="0" y="38"></rect>
+                <text class="svg-step" x="14" y="64">Lazy accrual</text>
+                <text class="svg-note" x="14" y="88">a timestamp and a formula</text>
+                <text class="svg-sub" x="330" y="74">a job that runs every minute</text>
+                <text class="svg-sub" x="620" y="66">token buckets, trial expiry,</text>
+                <text class="svg-sub" x="620" y="88">credits, quotas, SLA burn</text>
+                <text class="svg-sub" x="900" y="66">backlog after an outage,</text>
+                <text class="svg-sub" x="900" y="88">drift, midnight herds</text>
+
+                <rect fill="#e0ebf2" height="66" rx="6" stroke="#3c6f97" width="1120" x="0" y="114"></rect>
+                <text class="svg-step" x="14" y="140">Commands + sequence</text>
+                <text class="svg-note" x="14" y="164">say what happened, not what is</text>
+                <text class="svg-sub" x="330" y="150">PUT the new state</text>
+                <text class="svg-sub" x="620" y="142">event sourcing, but with a</text>
+                <text class="svg-sub" x="620" y="164">reducer both sides run</text>
+                <text class="svg-sub" x="900" y="142">lost updates, unsafe</text>
+                <text class="svg-sub" x="900" y="164">retries, no audit trail</text>
+
+                <rect fill="#ece6f3" height="66" rx="6" stroke="#765b98" width="1120" x="0" y="190"></rect>
+                <text class="svg-step" x="14" y="216">Owner-scoped documents</text>
+                <text class="svg-note" x="14" y="240">one writer per aggregate</text>
+                <text class="svg-sub" x="330" y="226">rows joined across owners</text>
+                <text class="svg-sub" x="620" y="218">the aggregate boundary you</text>
+                <text class="svg-sub" x="620" y="240">were going to need anyway</text>
+                <text class="svg-sub" x="900" y="218">lock contention, retry</text>
+                <text class="svg-sub" x="900" y="240">storms, partial writes</text>
+
+                <rect fill="#f7e3c8" height="66" rx="6" stroke="#d98226" width="1120" x="0" y="266"></rect>
+                <text class="svg-step" x="14" y="292">A deterministic core</text>
+                <text class="svg-note" x="14" y="316">same inputs, same outputs</text>
+                <text class="svg-sub" x="330" y="302">logs and hope</text>
+                <text class="svg-sub" x="620" y="294">replayable audit at the size</text>
+                <text class="svg-sub" x="620" y="316">of the input, not the output</text>
+                <text class="svg-sub" x="900" y="294">the argument about</text>
+                <text class="svg-sub" x="900" y="316">what actually happened</text>
+              </svg>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 430" role="img" aria-label="A logarithmic time axis from ten seconds to ninety days, with six loops marked: a thirty-second tap-to-collect loop, an eight-minute raid or level loop, an eight-hour collector and short-upgrade loop, a two-day building upgrade loop, a two-week season or war loop, and a multi-month progression tier. Each is annotated with what the player does and what they receive, and the reward magnitude grows with the period."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="430.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="18">PERIOD — LOGARITHMIC</text>
+                <line stroke="#b8b8b1" x1="120" x2="1060" y1="60" y2="60"></line>
+                <g stroke="#deded9">
+                  <line x1="244" x2="244" y1="56" y2="330"></line>
+                  <line x1="528" x2="528" y1="56" y2="330"></line>
+                  <line x1="748" x2="748" y1="56" y2="330"></line>
+                  <line x1="883" x2="883" y1="56" y2="330"></line>
+                </g>
+                <text class="svg-sub" x="228" y="48">1 min</text>
+                <text class="svg-sub" x="514" y="48">1 hour</text>
+                <text class="svg-sub" x="736" y="48">1 day</text>
+                <text class="svg-sub" x="866" y="48">1 week</text>
+                <text class="svg-sub" x="1030" y="48">90 d</text>
+
+                <rect fill="#dfede5" height="34" rx="6" stroke="#367f59" width="76" x="120" y="76"></rect>
+                <text class="svg-step" x="0" y="98">30 seconds</text>
+                <text class="svg-sub" x="210" y="98">tap the collectors · one match · one spin</text>
+                <text class="svg-note" x="700" y="98">→ a small tick of resource. Makes a 20-second gap worth using.</text>
+
+                <rect fill="#dfede5" height="34" rx="6" stroke="#367f59" width="268" x="120" y="126"></rect>
+                <text class="svg-step" x="0" y="148">8 minutes</text>
+                <text class="svg-sub" x="402" y="148">a raid · a level attempt · a training batch</text>
+                <text class="svg-note" x="790" y="148">→ loot, or a stage cleared.</text>
+
+                <rect fill="#e0ebf2" height="34" rx="6" stroke="#3c6f97" width="552" x="120" y="176"></rect>
+                <text class="svg-step" x="0" y="198">8 hours</text>
+                <text class="svg-sub" x="686" y="198">collectors fill · lives refill · a short upgrade</text>
+                <text class="svg-note" x="686" y="220">→ an errand: come back before it overflows.</text>
+
+                <rect fill="#e0ebf2" height="34" rx="6" stroke="#3c6f97" width="676" x="120" y="242"></rect>
+                <text class="svg-step" x="0" y="264">1–3 days</text>
+                <text class="svg-sub" x="810" y="264">a building, a hero, a lab research</text>
+                <text class="svg-note" x="810" y="286">→ a visible jump in what you can do.</text>
+
+                <rect fill="#ece6f3" height="34" rx="6" stroke="#765b98" width="811" x="120" y="308"></rect>
+                <text class="svg-step" x="0" y="330">2 weeks</text>
+                <text class="svg-sub" x="500" y="330">a war season · a pass · a live event</text>
+                <text class="svg-note" x="500" y="364">→ rank, exclusive rewards, and standing among people you know.</text>
+
+                <rect fill="#f7e3c8" height="34" rx="6" stroke="#d98226" width="940" x="120" y="374"></rect>
+                <text class="svg-step" x="0" y="396">months</text>
+                <text class="svg-sub" x="500" y="396">the next tier of the whole game</text>
+
+                <text class="svg-note" x="0" y="424">Reward magnitude rises with period, so something small is always close and something large is always coming.</text>
+              </svg>

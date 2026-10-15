@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 400" role="img" aria-label="A 24-hour axis showing seven concurrent timers for a mid-game player: troop training every 15 minutes drawn as a dense band, builders finishing at 4, 8 and 24 hours, a collector overflowing at 16 hours, and longer builders at 48 and 72 hours falling outside the day. Counting everything, 108 completion events per day; excluding timers under an hour, 12.3 per day, one every 1.9 hours."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="400.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="18">A MID-GAME PLAYER'S CONCURRENT TIMERS, OVER ONE DAY</text>
+                <line stroke="#b8b8b1" x1="120" x2="1060" y1="300" y2="300"></line>
+                <g stroke="#deded9">
+                  <line x1="120" x2="120" y1="50" y2="300"></line>
+                  <line x1="277" x2="277" y1="50" y2="300"></line>
+                  <line x1="433" x2="433" y1="50" y2="300"></line>
+                  <line x1="590" x2="590" y1="50" y2="300"></line>
+                  <line x1="747" x2="747" y1="50" y2="300"></line>
+                  <line x1="903" x2="903" y1="50" y2="300"></line>
+                  <line x1="1060" x2="1060" y1="50" y2="300"></line>
+                </g>
+                <text class="svg-sub" x="112" y="322">0h</text>
+                <text class="svg-sub" x="269" y="322">4h</text>
+                <text class="svg-sub" x="425" y="322">8h</text>
+                <text class="svg-sub" x="582" y="322">12h</text>
+                <text class="svg-sub" x="739" y="322">16h</text>
+                <text class="svg-sub" x="895" y="322">20h</text>
+                <text class="svg-sub" x="1044" y="322">24h</text>
+
+                <text class="svg-sub" x="0" y="72">training 15 min</text>
+                <rect fill="#dfede5" height="18" stroke="#367f59" width="940" x="120" y="58"></rect>
+                <g stroke="#367f59" stroke-width="1">
+                  <line x1="159" x2="159" y1="58" y2="76"></line><line x1="198" x2="198" y1="58" y2="76"></line><line x1="237" x2="237" y1="58" y2="76"></line>
+                  <line x1="277" x2="277" y1="58" y2="76"></line><line x1="316" x2="316" y1="58" y2="76"></line><line x1="355" x2="355" y1="58" y2="76"></line>
+                  <line x1="394" x2="394" y1="58" y2="76"></line><line x1="433" x2="433" y1="58" y2="76"></line><line x1="473" x2="473" y1="58" y2="76"></line>
+                  <line x1="512" x2="512" y1="58" y2="76"></line><line x1="551" x2="551" y1="58" y2="76"></line><line x1="590" x2="590" y1="58" y2="76"></line>
+                  <line x1="629" x2="629" y1="58" y2="76"></line><line x1="669" x2="669" y1="58" y2="76"></line><line x1="708" x2="708" y1="58" y2="76"></line>
+                  <line x1="747" x2="747" y1="58" y2="76"></line><line x1="786" x2="786" y1="58" y2="76"></line><line x1="825" x2="825" y1="58" y2="76"></line>
+                  <line x1="865" x2="865" y1="58" y2="76"></line><line x1="904" x2="904" y1="58" y2="76"></line><line x1="943" x2="943" y1="58" y2="76"></line>
+                  <line x1="982" x2="982" y1="58" y2="76"></line><line x1="1021" x2="1021" y1="58" y2="76"></line>
+                </g>
+
+                <text class="svg-sub" x="0" y="112">builder A · 4h</text>
+                <line stroke="#3c6f97" stroke-width="7" x1="120" x2="277" y1="104" y2="104"></line>
+                <circle cx="277" cy="104" fill="#d98226" r="6"></circle>
+
+                <text class="svg-sub" x="0" y="152">builder B · 8h</text>
+                <line stroke="#3c6f97" stroke-width="7" x1="120" x2="433" y1="144" y2="144"></line>
+                <circle cx="433" cy="144" fill="#d98226" r="6"></circle>
+
+                <text class="svg-sub" x="0" y="192">collector · 16h</text>
+                <line stroke="#367f59" stroke-width="7" x1="120" x2="747" y1="184" y2="184"></line>
+                <circle cx="747" cy="184" fill="#d98226" r="6"></circle>
+                <text class="svg-note" x="762" y="180">overflows — production wasted from here</text>
+
+                <text class="svg-sub" x="0" y="232">builder C · 24h</text>
+                <line stroke="#3c6f97" stroke-width="7" x1="120" x2="1060" y1="224" y2="224"></line>
+                <circle cx="1060" cy="224" fill="#d98226" r="6"></circle>
+
+                <text class="svg-sub" x="0" y="272">builders D, E</text>
+                <line stroke="#c9c9c2" stroke-width="7" x1="120" x2="1060" y1="264" y2="264"></line>
+                <text class="svg-note" x="440" y="260">48h and 72h — still running, the reason tomorrow exists</text>
+
+                <rect fill="#f7e3c8" height="56" rx="8" stroke="#d98226" width="540" x="0" y="342"></rect>
+                <text class="svg-sub" x="16" y="366">counting everything:  108.3 completions / day</text>
+                <text class="svg-sub" x="16" y="388">ignoring sub-hour timers:  12.3 / day — one every 1.9 h</text>
+                <rect fill="#f7f7f5" height="56" rx="8" stroke="#deded9" width="550" x="570" y="342"></rect>
+                <text class="svg-note" x="586" y="366">There is no hour of the waking day in which nothing is ready,</text>
+                <text class="svg-note" x="586" y="388">and no day on which everything is done.</text>
+              </svg>

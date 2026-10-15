@@ -40,6 +40,18 @@ services. It covers the pull-request utilities for review, checks and merge,
 and the three agent-related preview families. It informs how agents in the dev
 loop should call gh, and what a session OS should record when they do.
 
+This topic also holds three explainers from suraj's writings, read at
+commit `a5a356d`: The State Is Enough, on Markov processes; Nothing Runs
+While You're Gone, on the state model of timer-driven mobile games; and The
+ten hardest open problems in mathematics. They are computer-science and
+mathematics explainers. They are placed in engineering for now, and a new
+top-level topic may be suggested for them later. Each has a passage on
+agents. The Markov essay treats the environment as the state of an agent
+session. The game-timers note says agent sessions are usually stored the
+wrong way round, as a transcript instead of a snapshot plus commands. The
+problems survey says what machines have and have not done in mathematics
+as of August 2026.
+
 ## Research questions
 
 1. **Agent and UI integration patterns.** How do agent frameworks connect an
@@ -71,6 +83,10 @@ loop should call gh, and what a session OS should record when they do.
 16. **GitHub CLI as a tool for agents.** What can a program call through gh 2.102.0, which host, repository and credential does each call use, and where does its result live?
 17. **Review and checks through gh.** How do gh's pull-request utilities observe, check, review and merge a change, and what does an exit code prove?
 18. **gh in a session OS.** How do `gh agent-task`, `gh copilot` and `gh skill` differ in owner and lifetime, and what should a session OS own when it calls gh?
+19. **Markov processes.** What does the Markov assumption buy in computing, where is it used, and where does it fail?
+20. **Timer-driven games.** How do these games keep server state cheap, and where does the timer economy turn extractive?
+21. **Open problems in mathematics.** What does each of the ten claim, what has been proved as of August 2026, and what kinds of "hard" are there?
+22. **Agents.** What do the three explainers say about agent sessions, and about what machines have done in mathematics?
 
 ## Research action
 
@@ -112,6 +128,14 @@ loop should call gh, and what a session OS should record when they do.
   synthesis and proposal.
 - Link the teardown's command inventory, configuration fixture and
   verification record at the recorded commit.
+- Bring the three posts from suraj's writings at `a5a356d` into
+  `output/report/`, with text, tables and figures unchanged. Credit suraj
+  and link each original post.
+- Keep each post's own labels: *[from the literature]*, *[computed here]*
+  and *[my framing]* in the Markov essay; *[from the record]*,
+  *[reconstruction]* and *[computed here]* in the game-timers note; the
+  status labels and the stated judgments in the problems survey.
+- Publish a one-pager with the key numbers and the passages on agents.
 
 ## Scope
 
@@ -125,6 +149,7 @@ loop should call gh, and what a session OS should record when they do.
 - suraj's posts on configuration formats, TOML files and storing JSON, in the writings repo at commit `a5a356d`.
 - suraj's two compression posts at `a5a356d`, What Compression Keeps and What Each File Wants, with their figures.
 - suraj's GitHub CLI teardown: gh 2.102.0 at source commit `fc4b137`, its pinned dependency go-gh v2.16.1, and the session-OS adapter it proposes.
+- suraj's posts `markov-processes`, `game-timers` and `hardest-problems`, read at `a5a356d`.
 
 **Out of scope:**
 
@@ -141,6 +166,9 @@ loop should call gh, and what a session OS should record when they do.
 - New measurements of gh. The teardown describes gh 2.102.0; re-checking later releases would be new research.
 - Running what the teardown did not exercise: authentication changes, remote mutations, GHES, Windows, hosted agent dispatch, Copilot launch, and extension or skill installation.
 - Building the session-OS adapter. The report labels it a proposal.
+- Re-running the posts' computed numbers, or re-checking their cited results against the primary papers. That would be new research.
+- Updating the problems survey past August 2026, or scoring its 2050 forecast.
+- Acting on the related issues #26, #39 and #40. They follow the repo's issue triage.
 
 ## Done when
 
@@ -161,6 +189,9 @@ loop should call gh, and what a session OS should record when they do.
 - The GitHub CLI teardown is published in `output/report/`, credited and linked to its original post at `a5a356d`.
 - A one-pager points a reader at its key numbers and the sections to read next.
 - Its findings are in the README, each with a section link.
+- The three posts are published as reports, credited to suraj and linked to their originals at `a5a356d`.
+- A one-pager points a reader at the key numbers and at each report.
+- Each README finding from these posts links a section of its report.
 
 ## Requested outputs
 

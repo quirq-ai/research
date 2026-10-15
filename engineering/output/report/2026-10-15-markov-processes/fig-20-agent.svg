@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 400" role="img" aria-label="On the left, a loop in which the agent holds a context window, issues tool calls, and the environment consisting of a working tree and services changes. A heavy label marks the environment as the Markov state and the context as a lossy observation. On the right, the session drawn as an episode: an initial snapshot S0, a sequence of actions each accruing cost, a final snapshot S1, and a verification step producing a score V between zero and one which mints V times the budget B."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="400.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="ag-arr" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="ag-arr-p" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+                <text class="svg-lane" x="0" y="18">THE LOOP</text>
+                <rect fill="#e0ebf2" height="76" rx="10" stroke="#3c6f97" stroke-width="1.8" width="300" x="46" y="40"></rect>
+                <text class="svg-step" x="62" y="66">Context window</text>
+                <text class="svg-note" x="62" y="90">observation only — truncated, summarised,</text>
+                <text class="svg-note" x="62" y="108">assembled by the agent's own past reads</text>
+
+                <rect fill="#dfede5" height="76" rx="10" stroke="#367f59" stroke-width="2.4" width="300" x="46" y="240"></rect>
+                <text class="svg-step" x="62" y="266">Environment — the actual state</text>
+                <text class="svg-note" x="62" y="290">working tree, services, external systems,</text>
+                <text class="svg-note" x="62" y="308">everything a later reader could inspect</text>
+
+                <path d="M346 78 C 400 78 400 262 352 274" fill="none" marker-end="url(#ag-arr)" stroke="#252525" stroke-width="2.2"></path>
+                <text class="svg-sub" x="360" y="176">tool call</text>
+                <path d="M46 274 C 6 268 6 84 40 78" fill="none" marker-end="url(#ag-arr-p)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="2.2"></path>
+                <text class="svg-sub" style="fill:#765b98" x="0" y="200">partial view</text>
+                
+                <rect fill="#f7e3c8" height="56" rx="8" stroke="#d98226" width="330" x="14" y="340"></rect>
+                <text class="svg-note" x="28" y="364">Replaying a session from the transcript replays</text>
+                <text class="svg-note" x="28" y="384">the observations, not the process.</text>
+
+                <line stroke="#deded9" x1="400" x2="400" y1="10" y2="400"></line>
+
+                <text class="svg-lane" x="430" y="18">THE EPISODE</text>
+                <rect fill="#dfede5" height="56" rx="8" stroke="#367f59" stroke-width="2" width="130" x="430" y="44"></rect>
+                <text class="svg-step" text-anchor="middle" x="495" y="70">S₀</text>
+                <text class="svg-note" text-anchor="middle" x="495" y="90">snapshot before</text>
+                <rect fill="#f7f7f5" height="56" rx="8" stroke="#b8b8b1" width="200" x="620" y="44"></rect>
+                <text class="svg-step" text-anchor="middle" x="720" y="70">a₁ a₂ … a_n</text>
+                <text class="svg-note" text-anchor="middle" x="720" y="90">tool calls, each costing</text>
+                <rect fill="#dfede5" height="56" rx="8" stroke="#367f59" stroke-width="2" width="130" x="880" y="44"></rect>
+                <text class="svg-step" text-anchor="middle" x="945" y="70">S₁</text>
+                <text class="svg-note" text-anchor="middle" x="945" y="90">snapshot after</text>
+                <line marker-end="url(#ag-arr)" stroke="#252525" stroke-width="2" x1="560" x2="612" y1="72" y2="72"></line>
+                <line marker-end="url(#ag-arr)" stroke="#252525" stroke-width="2" x1="820" x2="872" y1="72" y2="72"></line>
+
+                <line marker-end="url(#ag-arr)" stroke="#252525" stroke-width="2" x1="945" x2="945" y1="100" y2="140"></line>
+                <rect fill="#f7e3c8" height="60" rx="8" stroke="#d98226" stroke-width="1.8" width="290" x="800" y="144"></rect>
+                <text class="svg-step" x="816" y="170">verify(S₀, S₁) → V ∈ [0,1]</text>
+                <text class="svg-note" x="816" y="192">weighted checks against captured world state</text>
+
+                <rect fill="#ece6f3" height="62" rx="8" stroke="#765b98" width="660" x="430" y="232"></rect>
+                <text class="svg-sub" x="446" y="258">terminal reward   Q = V · B            accrued cost   C_total (all-in, including human rescue)</text>
+                <text class="svg-note" x="446" y="282">The objective is a ratio, ΣQ / ΣC — return per unit cost — not a discounted sum.</text>
+
+                <text class="svg-lane" x="430" y="326">WHAT THE FRAMING DOES NOT GIVE YOU</text>
+                <text class="svg-sub" x="430" y="352">· the transition kernel — unknown, and changed by your own edits</text>
+                <text class="svg-sub" x="430" y="374">· dense reward — V exists only at the end of the episode</text>
+                <text class="svg-sub" x="430" y="396">· stationarity — the model, the tools and the repository all move between episodes</text>
+              </svg>

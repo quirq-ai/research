@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 440" role="img" aria-label="A three-state continuous-time chain with states Up, Degraded and Down, drawn with rate-labelled arrows. The generator matrix Q is shown, then split into two parts: mean holding times of 1000 minutes, 27.3 minutes and 60 minutes, and an embedded jump chain of pure destination probabilities. A comparison panel shows the time-stationary distribution 0.9641, 0.0219, 0.0140 against the jump-chain stationary distribution 0.4818, 0.4015, 0.1168, with the relation pi is proportional to nu over q."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="440.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="ctmc-arr" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#367f59"></path></marker>
+                </defs>
+                <text class="svg-lane" x="0" y="18">THE CHAIN · RATES PER HOUR</text>
+                <circle cx="120" cy="86" fill="#dfede5" r="38" stroke="#367f59" stroke-width="1.6"></circle><text class="svg-step" text-anchor="middle" x="120" y="92">Up</text>
+                <circle cx="300" cy="86" fill="#f7e3c8" r="38" stroke="#d98226" stroke-width="1.6"></circle><text class="svg-step" text-anchor="middle" x="300" y="92">Degr.</text>
+                <circle cx="210" cy="222" fill="#f3dfdc" r="38" stroke="#ad4b43" stroke-width="1.6"></circle><text class="svg-step" text-anchor="middle" x="210" y="228">Down</text>
+                <path d="M158 74 L 258 74" fill="none" marker-end="url(#ctmc-arr)" stroke="#367f59" stroke-width="1.6"></path><text class="svg-sub" x="192" y="62">0.05</text>
+                <path d="M258 100 L 160 100" fill="none" marker-end="url(#ctmc-arr)" stroke="#367f59" stroke-width="1.6"></path><text class="svg-sub" x="192" y="120">2.00</text>
+                <path d="M132 122 L 186 188" fill="none" marker-end="url(#ctmc-arr)" stroke="#367f59" stroke-width="1.6"></path><text class="svg-sub" x="112" y="172">0.01</text>
+                <path d="M288 120 L 240 190" fill="none" marker-end="url(#ctmc-arr)" stroke="#367f59" stroke-width="1.6"></path><text class="svg-sub" x="288" y="172">0.20</text>
+                <path d="M180 196 C 140 160 128 150 116 126" fill="none" marker-end="url(#ctmc-arr)" stroke="#367f59" stroke-width="1.6"></path><text class="svg-sub" x="98" y="140">1.00</text>
+
+                <text class="svg-lane" x="0" y="300">GENERATOR Q · ROWS SUM TO ZERO</text>
+                <text class="svg-sub" x="0" y="326">        Up      Degr.   Down</text>
+                <text class="svg-sub" x="0" y="348">Up    −0.06    0.05    0.01</text>
+                <text class="svg-sub" x="0" y="370">Degr.  2.00   −2.20    0.20</text>
+                <text class="svg-sub" x="0" y="392">Down   1.00    0.00   −1.00</text>
+                <text class="svg-note" x="0" y="424">Off-diagonals are rates, not probabilities: they may exceed 1.</text>
+
+                <line stroke="#deded9" x1="380" x2="380" y1="10" y2="430"></line>
+
+                <text class="svg-lane" x="410" y="18">SPLIT 1 · HOW LONG YOU STAY</text>
+                <rect fill="#f7f7f5" height="118" rx="8" stroke="#deded9" width="300" x="410" y="34"></rect>
+                <text class="svg-sub" x="426" y="60">Up      Exp(0.06)   mean 1000 min</text>
+                <text class="svg-sub" x="426" y="86">Degr.   Exp(2.20)   mean  27.3 min</text>
+                <text class="svg-sub" x="426" y="112">Down    Exp(1.00)   mean  60.0 min</text>
+                <text class="svg-note" x="426" y="140">Holding time depends on the state, not on history.</text>
+
+                <text class="svg-lane" x="410" y="188">SPLIT 2 · WHERE YOU GO NEXT</text>
+                <rect fill="#ece6f3" height="118" rx="8" stroke="#765b98" width="300" x="410" y="204"></rect>
+                <text class="svg-sub" x="426" y="230">          Up      Degr.   Down</text>
+                <text class="svg-sub" x="426" y="254">Up      0.0000  0.8333  0.1667</text>
+                <text class="svg-sub" x="426" y="278">Degr.   0.9091  0.0000  0.0909</text>
+                <text class="svg-sub" x="426" y="302">Down    1.0000  0.0000  0.0000</text>
+                <text class="svg-note" x="426" y="344">An ordinary discrete chain: row i of Q divided</text>
+                <text class="svg-note" x="426" y="364">by the exit rate q(i). This is what an event log</text>
+                <text class="svg-note" x="426" y="384">samples.</text>
+
+                <line stroke="#deded9" x1="740" x2="740" y1="10" y2="430"></line>
+                <text class="svg-lane" x="770" y="18">THE TWO ANSWERS DISAGREE</text>
+                <rect fill="#dfede5" height="96" rx="8" stroke="#367f59" width="330" x="770" y="34"></rect>
+                <text class="svg-sub" x="786" y="58">π — fraction of TIME in each state</text>
+                <text class="svg-sub" x="786" y="86">Up 0.9641   Degr. 0.0219   Down 0.0140</text>
+                <text class="svg-note" x="786" y="114">= 11,524 min/yr degraded, 7,375 min/yr down</text>
+
+                <rect fill="#ece6f3" height="96" rx="8" stroke="#765b98" width="330" x="770" y="150"></rect>
+                <text class="svg-sub" x="786" y="174">ν — fraction of TRANSITIONS into each</text>
+                <text class="svg-sub" x="786" y="202">Up 0.4818   Degr. 0.4015   Down 0.1168</text>
+                <text class="svg-note" x="786" y="230">40% of all state changes enter Degraded</text>
+
+                <rect fill="#f7e3c8" height="86" rx="8" stroke="#d98226" width="330" x="770" y="266"></rect>
+                <text class="svg-sub" x="786" y="292">π(i)  ∝  ν(i) / q(i)</text>
+                <text class="svg-note" x="786" y="318">Time-weighted, not event-weighted. A dashboard</text>
+                <text class="svg-note" x="786" y="338">that counts transitions reports the purple box</text>
+                <text class="svg-note" x="770" y="372">and calls it availability — a 18× overstatement of</text>
+                <text class="svg-note" x="770" y="392">time spent degraded for this generator.</text>
+              </svg>

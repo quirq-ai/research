@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 350" role="img" aria-label="A line chart of total variation distance against step number for three two-state chains. The chain with second eigenvalue zero reaches its stationary distribution in one step. The chain with second eigenvalue 0.8 crosses one quarter at step 4. The chain with second eigenvalue 0.96 crosses one quarter only at step 17 and is still visibly above zero at step 40."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="350.0" fill="#ffffff"/>
+                <line stroke="#b8b8b1" x1="90" x2="90" y1="40" y2="250"></line>
+                <line stroke="#b8b8b1" x1="90" x2="1010" y1="250" y2="250"></line>
+                <text class="svg-sub" x="16" y="44">0.50</text>
+                <text class="svg-sub" x="16" y="149">0.25</text>
+                <text class="svg-sub" x="16" y="254">0.00</text>
+                <text class="svg-lane" x="16" y="24">TV DISTANCE</text>
+                <line stroke="#d98226" stroke-dasharray="5 4" x1="90" x2="1010" y1="145" y2="145"></line>
+                <text class="svg-sub" style="fill:#d98226" x="1014" y="149">ε = ¼</text>
+
+                <polyline fill="none" points="90.0,40.0 113.0,48.4 136.0,56.5 159.0,64.2 182.0,71.6 205.0,78.8 228.0,85.6 251.0,92.2 274.0,98.5 297.0,104.6 320.0,110.4 343.0,116.0 366.0,121.3 389.0,126.5 412.0,131.4 435.0,136.2 458.0,140.7 481.0,145.1 504.0,149.3 527.0,153.3 550.0,157.2 573.0,160.9 596.0,164.5 619.0,167.9 642.0,171.2 665.0,174.3 688.0,177.3 711.0,180.3 734.0,183.0 757.0,185.7 780.0,188.3 803.0,190.8 826.0,193.1 849.0,195.4 872.0,197.6 895.0,199.7 918.0,201.7 941.0,203.6 964.0,205.5 987.0,207.3 1010.0,209.0" stroke="#ad4b43" stroke-width="2.2"></polyline>
+                <polyline fill="none" points="90.0,40.0 113.0,82.0 136.0,115.6 159.0,142.5 182.0,164.0 205.0,181.2 228.0,195.0 251.0,206.0 274.0,214.8 297.0,221.8 320.0,227.5 343.0,232.0 366.0,235.6 389.0,238.5 412.0,240.8 435.0,242.6 458.0,244.1 481.0,245.3 504.0,246.2 527.0,247.0 550.0,247.6 573.0,248.1 596.0,248.5 619.0,248.8 642.0,249.0 665.0,249.2 688.0,249.4 711.0,249.5 734.0,249.6 757.0,249.7 780.0,249.7 803.0,249.8 826.0,249.8 849.0,249.9 872.0,249.9 895.0,249.9 918.0,249.9 941.0,249.9 964.0,250.0 987.0,250.0 1010.0,250.0" stroke="#3c6f97" stroke-width="2.2"></polyline>
+                <polyline fill="none" points="90.0,40.0 113.0,250.0 136.0,250.0 1010.0,250.0" stroke="#367f59" stroke-width="2.2"></polyline>
+
+                <circle cx="113" cy="250" fill="#367f59" r="4"></circle>
+                <circle cx="182" cy="164" fill="#3c6f97" r="4"></circle>
+                <circle cx="481" cy="145.1" fill="#ad4b43" r="4"></circle>
+
+                <text class="svg-sub" x="90" y="276">0</text>
+                <text class="svg-sub" x="316" y="276">10</text>
+                <text class="svg-sub" x="546" y="276">20</text>
+                <text class="svg-sub" x="776" y="276">30</text>
+                <text class="svg-sub" x="1000" y="276">40</text>
+                <text class="svg-lane" x="480" y="300">STEPS</text>
+
+                <text class="svg-sub" x="90" y="324"><tspan style="fill:#367f59">■</tspan> p = q = 0.50 · λ₂ = 0.00 · t_mix(¼) = 1</text>
+                <text class="svg-sub" x="430" y="324"><tspan style="fill:#3c6f97">■</tspan> p = q = 0.10 · λ₂ = 0.80 · t_mix(¼) = 4</text>
+                <text class="svg-sub" x="770" y="324"><tspan style="fill:#ad4b43">■</tspan> p = q = 0.02 · λ₂ = 0.96 · t_mix(¼) = 17</text>
+                <text class="svg-note" x="90" y="344">All three chains have the same stationary distribution, (0.5, 0.5). For a two-state chain λ₂ = 1 − p − q exactly, and TV distance from a corner is exactly 0.5·|λ₂|ⁿ.</text>
+              </svg>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" role="img" aria-label="A single database row containing a building id, a level and a finish-at timestamp, with an arrow to the left reading it as a server-side saving — no queue, no worker, state computed on read — and an arrow to the right reading it as a player-facing appointment: a countdown, a notification, and a session."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="300.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="th-arr" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                </defs>
+                <rect fill="#f7e3c8" height="72" rx="8" stroke="#d98226" stroke-width="2.2" width="360" x="320" y="110"></rect>
+                <text class="svg-sub" x="340" y="140">building 41 · level 7 →</text>
+                <text class="svg-sub" x="340" y="166">finish_at = 1790104320</text>
+                <text class="svg-lane" style="fill:#d98226" text-anchor="middle" x="500" y="98">ONE FIELD</text>
+
+                <line marker-end="url(#th-arr)" stroke="#252525" stroke-width="2" x1="312" x2="244" y1="146" y2="146"></line>
+                <line marker-end="url(#th-arr)" stroke="#252525" stroke-width="2" x1="688" x2="756" y1="146" y2="146"></line>
+
+                <text class="svg-lane" x="0" y="46">READ BY THE SERVER</text>
+                <rect fill="#e0ebf2" height="172" rx="8" stroke="#3c6f97" width="236" x="0" y="60"></rect>
+                <text class="svg-sub" x="16" y="88">no queue entry</text>
+                <text class="svg-sub" x="16" y="112">no scheduled job</text>
+                <text class="svg-sub" x="16" y="136">no worker process</text>
+                <text class="svg-sub" x="16" y="160">no wake-up at all</text>
+                <text class="svg-note" x="16" y="196">State is computed when</text>
+                <text class="svg-note" x="16" y="216">somebody asks for it.</text>
+
+                <text class="svg-lane" x="764" y="46">READ BY THE PLAYER</text>
+                <rect fill="#dfede5" height="172" rx="8" stroke="#367f59" width="236" x="764" y="60"></rect>
+                <text class="svg-sub" x="780" y="88">a countdown on screen</text>
+                <text class="svg-sub" x="780" y="112">a push notification</text>
+                <text class="svg-sub" x="780" y="136">a reason to return</text>
+                <text class="svg-sub" x="780" y="160">a price, in gems</text>
+                <text class="svg-note" x="780" y="196">An appointment the</text>
+                <text class="svg-note" x="780" y="216">designer chose.</text>
+
+                <text class="svg-note" x="0" y="276">The engineering decision and the retention decision are edits to the same column.</text>
+              </svg>

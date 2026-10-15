@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" role="img" aria-label="On the left, a process over symbols a and b whose next symbol depends on the previous two. On the right, the same process as a first-order chain over the four pairs aa, ab, ba, bb, with each pair having exactly two outgoing edges. A note records that the state count grows as the alphabet size raised to the order."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="300.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="ord-arr" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+                <text class="svg-lane" x="0" y="16">ORDER 2 ON {a, b} — NOT MARKOV</text>
+                <rect fill="#f7f7f5" height="96" rx="8" stroke="#deded9" width="400" x="0" y="34"></rect>
+                <text class="svg-sub" x="20" y="64">Pr[ X₍ₜ₊₁₎ | Xₜ , X₍ₜ₋₁₎ ]  ≠  Pr[ X₍ₜ₊₁₎ | Xₜ ]</text>
+                <text class="svg-sub" x="20" y="92">…a b | a → b with p = 0.8</text>
+                <text class="svg-sub" x="20" y="116">…b b | a → b with p = 0.2</text>
+                <text class="svg-note" x="0" y="168">Same current symbol, different next-step law: the</text>
+                <text class="svg-note" x="0" y="190">alphabet is too small to be a state.</text>
+
+                <text class="svg-lane" x="470" y="16">ORDER 1 ON {aa, ab, ba, bb} — MARKOV</text>
+                <g>
+                  <rect fill="#ece6f3" height="44" rx="6" stroke="#765b98" width="96" x="470" y="40"></rect><text class="svg-step" text-anchor="middle" x="518" y="68">aa</text>
+                  <rect fill="#ece6f3" height="44" rx="6" stroke="#765b98" width="96" x="640" y="40"></rect><text class="svg-step" text-anchor="middle" x="688" y="68">ab</text>
+                  <rect fill="#ece6f3" height="44" rx="6" stroke="#765b98" width="96" x="470" y="150"></rect><text class="svg-step" text-anchor="middle" x="518" y="178">ba</text>
+                  <rect fill="#ece6f3" height="44" rx="6" stroke="#765b98" width="96" x="640" y="150"></rect><text class="svg-step" text-anchor="middle" x="688" y="178">bb</text>
+                </g>
+                <line marker-end="url(#ord-arr)" stroke="#765b98" stroke-width="1.6" x1="566" x2="634" y1="56" y2="56"></line>
+                <text class="svg-sub" style="fill:#765b98" text-anchor="middle" x="600" y="48">b</text>
+                <line marker-end="url(#ord-arr)" stroke="#765b98" stroke-width="1.6" x1="688" x2="566" y1="86" y2="150"></line>
+                <text class="svg-sub" style="fill:#765b98" text-anchor="middle" x="640" y="128">a → ba</text>
+                <line marker-end="url(#ord-arr)" stroke="#765b98" stroke-width="1.6" x1="688" x2="688" y1="86" y2="146"></line>
+                <text class="svg-sub" style="fill:#765b98" x="702" y="120">b</text>
+                <line marker-end="url(#ord-arr)" stroke="#765b98" stroke-width="1.6" x1="518" x2="518" y1="146" y2="90"></line>
+                <text class="svg-sub" style="fill:#765b98" x="488" y="120">a</text>
+                <line marker-end="url(#ord-arr)" stroke="#765b98" stroke-width="1.6" x1="566" x2="634" y1="166" y2="166"></line>
+                <text class="svg-sub" style="fill:#765b98" text-anchor="middle" x="600" y="158">b</text>
+                <path d="M470 62 C 430 62 430 20 470 20 C 500 20 500 40 484 44" fill="none" marker-end="url(#ord-arr)" stroke="#765b98" stroke-width="1.6"></path>
+                <text class="svg-sub" style="fill:#765b98" x="424" y="16">a</text>
+
+                <line stroke="#deded9" x1="470" x2="1000" y1="222" y2="222"></line>
+                <text class="svg-lane" x="470" y="248">THE BILL</text>
+                <text class="svg-sub" x="470" y="272">|S| = 2 → 4 states.  Order k over an alphabet of size m costs mᵏ.</text>
+                <text class="svg-sub" x="470" y="292">A 5-gram over a 50,000-token vocabulary: 3.1 × 10²² states.</text>
+              </svg>

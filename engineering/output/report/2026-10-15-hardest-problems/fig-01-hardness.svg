@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" role="img" aria-label="Three columns: open problems, statements independent of the axioms, and computationally intractable or undecidable problems"><style>.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }
+.svg-hd { font: 700 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.09em; }</style><rect x="0.0" y="0.0" width="1000.0" height="400.0" fill="#ffffff"/>
+                <rect fill="#ffffff" height="292" rx="10" stroke="#3c6f97" stroke-width="1.4" width="304" x="16" y="20"></rect>
+                <rect fill="#e0ebf2" height="34" rx="10" stroke="none" width="304" x="16" y="20"></rect>
+                <rect fill="#e0ebf2" height="10" stroke="none" width="304" x="16" y="44"></rect>
+                <text class="svg-hd" x="34" y="42">OPEN</text>
+                <text class="svg-sub" x="220" y="42">no proof yet</text>
+                <text class="svg-step" x="34" y="80">Truth value is fixed.</text>
+                <text class="svg-step" x="34" y="100">Nobody has found the argument.</text>
+                <line stroke="#deded9" x1="34" x2="302" y1="118" y2="118"></line>
+                <text class="svg-sub" x="34" y="140">EXAMPLES</text>
+                <text class="svg-step" x="34" y="164">Riemann hypothesis</text>
+                <text class="svg-step" x="34" y="186">P vs NP</text>
+                <text class="svg-step" x="34" y="208">Navier–Stokes regularity</text>
+                <text class="svg-step" x="34" y="230">Hodge conjecture</text>
+                <text class="svg-step" x="34" y="252">Twin primes</text>
+                <text class="svg-note" x="34" y="288">All ten problems below.</text>
+
+                <rect fill="#ffffff" height="292" rx="10" stroke="#765b98" stroke-width="1.4" width="304" x="348" y="20"></rect>
+                <rect fill="#ece6f3" height="34" rx="10" stroke="none" width="304" x="348" y="20"></rect>
+                <rect fill="#ece6f3" height="10" stroke="none" width="304" x="348" y="44"></rect>
+                <text class="svg-hd" x="366" y="42">INDEPENDENT</text>
+                <text class="svg-sub" x="516" y="42">no proof is possible</text>
+                <text class="svg-step" x="366" y="80">The axioms do not decide it.</text>
+                <text class="svg-step" x="366" y="100">Both answers are consistent.</text>
+                <line stroke="#deded9" x1="366" x2="634" y1="118" y2="118"></line>
+                <text class="svg-sub" x="366" y="140">EXAMPLES</text>
+                <text class="svg-step" x="366" y="164">Continuum hypothesis (ZFC)</text>
+                <text class="svg-step" x="366" y="186">Goodstein's theorem (PA)</text>
+                <text class="svg-step" x="366" y="208">Paris–Harrington (PA)</text>
+                <text class="svg-step" x="366" y="230">The value of BB(7910) (ZFC)</text>
+                <text class="svg-note" x="366" y="288">Settled by proving nothing can settle it.</text>
+
+                <rect fill="#ffffff" height="292" rx="10" stroke="#ad4b43" stroke-width="1.4" width="304" x="680" y="20"></rect>
+                <rect fill="#f3dfdc" height="34" rx="10" stroke="none" width="304" x="680" y="20"></rect>
+                <rect fill="#f3dfdc" height="10" stroke="none" width="304" x="680" y="44"></rect>
+                <text class="svg-hd" x="698" y="42">INTRACTABLE</text>
+                <text class="svg-sub" x="838" y="42">costs too much</text>
+                <text class="svg-step" x="698" y="80">An algorithm exists but is slow,</text>
+                <text class="svg-step" x="698" y="100">or no algorithm exists at all.</text>
+                <line stroke="#deded9" x1="698" x2="966" y1="118" y2="118"></line>
+                <text class="svg-sub" x="698" y="140">EXAMPLES</text>
+                <text class="svg-step" x="698" y="164">SAT, 3-colouring (NP-complete)</text>
+                <text class="svg-step" x="698" y="186">Knot genus (NP-complete)</text>
+                <text class="svg-step" x="698" y="208">Hilbert's 10th (undecidable)</text>
+                <text class="svg-step" x="698" y="230">Word problem for groups</text>
+                <text class="svg-note" x="698" y="288">The only column where “NP-hard” means anything.</text>
+
+                <line stroke="#deded9" x1="16" x2="984" y1="336" y2="336"></line>
+                <text class="svg-note" x="16" y="358">A conjecture lives in column one. A problem family lives in column three. The columns do touch: bounded-length proof</text>
+                <text class="svg-note" x="16" y="378">search — “is there a proof of this, of length at most n?” — is NP-complete. That is Gödel's 1956 question, and the reason column one has a computational shadow.</text>
+              </svg>

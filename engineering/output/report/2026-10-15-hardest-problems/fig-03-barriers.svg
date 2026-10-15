@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 412" role="img" aria-label="Three rows, each showing a proof technique blocked by a barrier theorem: relativization, natural proofs, and algebrization"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }
+.svg-big { font: 600 15px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }</style><rect x="0.0" y="0.0" width="1000.0" height="412.0" fill="#ffffff"/>
+                <rect fill="#f7f7f5" height="72" rx="8" stroke="#252525" stroke-width="1.4" width="216" x="16" y="26"></rect>
+                <text class="svg-lane" x="32" y="50">TECHNIQUE</text>
+                <text class="svg-step" x="32" y="72">Diagonalization and</text>
+                <text class="svg-step" x="32" y="90">machine simulation</text>
+                <line stroke="#252525" stroke-width="2.2" x1="232" x2="290" y1="62" y2="62"></line>
+                <rect fill="#f3dfdc" height="84" rx="3" stroke="#ad4b43" stroke-width="1.6" width="14" x="292" y="20"></rect>
+                <text class="svg-big" x="330" y="48">Relativization</text>
+                <text class="svg-sub" dx="130" x="330" y="48">BAKER, GILL &amp; SOLOVAY · 1975</text>
+                <text class="svg-step" x="330" y="72">Relative to one oracle A the two classes are equal; relative to another oracle B they differ. Any argument</text>
+                <text class="svg-step" x="330" y="90">that still works when both machines are handed the same free subroutine cannot decide the question.</text>
+
+                <rect fill="#f7f7f5" height="72" rx="8" stroke="#252525" stroke-width="1.4" width="216" x="16" y="146"></rect>
+                <text class="svg-lane" x="32" y="170">TECHNIQUE</text>
+                <text class="svg-step" x="32" y="192">Combinatorial circuit</text>
+                <text class="svg-step" x="32" y="210">lower bounds</text>
+                <line stroke="#252525" stroke-width="2.2" x1="232" x2="290" y1="182" y2="182"></line>
+                <rect fill="#f3dfdc" height="84" rx="3" stroke="#ad4b43" stroke-width="1.6" width="14" x="292" y="140"></rect>
+                <text class="svg-big" x="330" y="168">Natural proofs</text>
+                <text class="svg-sub" dx="135" x="330" y="168">RAZBOROV &amp; RUDICH · 1994</text>
+                <text class="svg-step" x="330" y="192">A lower-bound argument that is “large and constructive” — true of most random functions and</text>
+                <text class="svg-step" x="330" y="210">checkable in the truth table — would break every pseudorandom generator, hence all of crypto.</text>
+
+                <rect fill="#f7f7f5" height="72" rx="8" stroke="#252525" stroke-width="1.4" width="216" x="16" y="266"></rect>
+                <text class="svg-lane" x="32" y="290">TECHNIQUE</text>
+                <text class="svg-step" x="32" y="312">Arithmetization</text>
+                <text class="svg-step" x="32" y="330">(the IP = PSPACE trick)</text>
+                <line stroke="#252525" stroke-width="2.2" x1="232" x2="290" y1="302" y2="302"></line>
+                <rect fill="#f3dfdc" height="84" rx="3" stroke="#ad4b43" stroke-width="1.6" width="14" x="292" y="260"></rect>
+                <text class="svg-big" x="330" y="288">Algebrization</text>
+                <text class="svg-sub" dx="122" x="330" y="288">AARONSON &amp; WIGDERSON · 2008</text>
+                <text class="svg-step" x="330" y="312">The one technique that beat relativization gets its own barrier: extend the oracle to a low-degree</text>
+                <text class="svg-step" x="330" y="330">polynomial and the same non-decidability returns. Every known non-relativizing proof algebrizes.</text>
+
+                <line stroke="#deded9" x1="16" x2="984" y1="366" y2="366"></line>
+                <text class="svg-lane" x="16" y="388">THROUGH THE GATES SO FAR</text>
+                <text class="svg-note" x="210" y="388">NEXP ⊄ ACC⁰  · R. Williams, 2011 — non-relativizing, non-natural, and about a circuit class far weaker than the one that matters.</text>
+              </svg>
