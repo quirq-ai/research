@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 240" role="img" aria-labelledby="fig-turns"><rect x="0.0" y="0.0" width="960.0" height="240.0" fill="#ffffff"/>
+              <line stroke="#deded9" stroke-width="2" x1="40" x2="920" y1="120" y2="120"></line>
+              
+              <g>
+                <path d="M120 92 l14 28 l-14 28" fill="none" stroke="#ad4b43" stroke-width="2.5"></path>
+                <path d="M470 92 l14 28 l-14 28" fill="none" stroke="#ad4b43" stroke-width="2.5"></path>
+                <path d="M760 92 l14 28 l-14 28" fill="none" stroke="#ad4b43" stroke-width="2.5"></path>
+              </g>
+              <g fill="#ad4b43" font-family="SFMono-Regular, Consolas, monospace" font-size="10">
+                <text text-anchor="middle" x="127" y="80">human input</text>
+                <text text-anchor="middle" x="477" y="80">human input</text>
+                <text text-anchor="middle" x="767" y="80">human input</text>
+              </g>
+              
+              <g fill="#777772" font-family="SFMono-Regular, Consolas, monospace" font-size="10.5">
+                <text text-anchor="middle" x="295" y="52">turn 41 · 9 ticks</text>
+                <text text-anchor="middle" x="617" y="52">turn 42 · 5 ticks</text>
+                <text text-anchor="middle" x="855" y="52">turn 43 …</text>
+                <line stroke="#b8b8b1" x1="140" x2="450" y1="60" y2="60"></line>
+                <line stroke="#b8b8b1" x1="490" x2="744" y1="60" y2="60"></line>
+                <line stroke="#b8b8b1" x1="780" x2="920" y1="60" y2="60"></line>
+              </g>
+              
+              <g stroke="#3c6f97" stroke-width="2.5">
+                <line x1="150" x2="150" y1="108" y2="132"></line>
+                <line x1="168" x2="168" y1="108" y2="132"></line>
+                <line x1="184" x2="184" y1="108" y2="132"></line>
+                <line x1="240" x2="240" y1="108" y2="132"></line>
+                <line x1="258" x2="258" y1="108" y2="132"></line>
+                <line x1="352" x2="352" y1="108" y2="132"></line>
+                <line x1="368" x2="368" y1="108" y2="132"></line>
+                <line x1="384" x2="384" y1="108" y2="132"></line>
+                <line x1="400" x2="400" y1="108" y2="132"></line>
+                <line x1="500" x2="500" y1="108" y2="132"></line>
+                <line x1="518" x2="518" y1="108" y2="132"></line>
+                <line x1="592" x2="592" y1="108" y2="132"></line>
+                <line x1="610" x2="610" y1="108" y2="132"></line>
+                <line x1="628" x2="628" y1="108" y2="132"></line>
+                <line x1="790" x2="790" y1="108" y2="132"></line>
+                <line x1="808" x2="808" y1="108" y2="132"></line>
+              </g>
+              <text fill="#3c6f97" font-family="SFMono-Regular, Consolas, monospace" font-size="9.5" text-anchor="middle" x="184" y="156">ticks = observed work</text>
+              <text fill="#777772" font-family="SFMono-Regular, Consolas, monospace" font-size="9.5" text-anchor="middle" x="680" y="156">idle gaps cost no ticks</text>
+              
+              <rect fill="#f7f7f5" height="34" rx="8" stroke="#b8b8b1" width="300" x="330" y="176"></rect>
+              <text fill="#252525" font-family="SFMono-Regular, Consolas, monospace" font-size="10.5" text-anchor="middle" x="480" y="198">journal line id: writings:41:3187:0</text>
+            </svg>

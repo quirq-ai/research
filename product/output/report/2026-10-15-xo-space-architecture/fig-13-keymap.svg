@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 560" role="img" aria-labelledby="fig-keymap"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }</style><rect x="0.0" y="0.0" width="1160.0" height="560.0" fill="#ffffff"/>
+              
+              <line stroke="#3c6f97" stroke-width="3" x1="120" x2="1060" y1="300" y2="300"></line>
+              <text class="svg-lane" fill="#3c6f97" text-anchor="middle" x="590" y="288">NATIVE SESSION UUID — THE SHARED KEY</text>
+
+              
+              <rect fill="#f7f7f5" height="76" rx="9" stroke="#b8b8b1" width="200" x="120" y="150"></rect>
+              <text class="svg-step" text-anchor="middle" x="220" y="176">native jsonl</text>
+              <text class="svg-sub" text-anchor="middle" x="220" y="196">&lt;uuid&gt;.jsonl</text>
+              <text class="svg-sub" text-anchor="middle" x="220" y="212">95 MB · 421 files</text>
+              <line stroke="#3c6f97" stroke-width="1.6" x1="220" x2="220" y1="226" y2="298"></line>
+
+              <rect fill="#e0ebf2" height="76" rx="9" stroke="#3c6f97" width="210" x="380" y="150"></rect>
+              <text class="svg-step" text-anchor="middle" x="485" y="176">argus.db</text>
+              <text class="svg-sub" text-anchor="middle" x="485" y="196">claude_code:&lt;uuid&gt;</text>
+              <text class="svg-sub" text-anchor="middle" x="485" y="212">+ /agent-&lt;hex&gt; · 5.6 MB</text>
+              <line stroke="#3c6f97" stroke-width="1.6" x1="485" x2="485" y1="226" y2="298"></line>
+
+              <rect fill="#ece6f3" height="76" rx="9" stroke="#765b98" width="200" x="650" y="150"></rect>
+              <text class="svg-step" text-anchor="middle" x="750" y="176">Space Walk trace</text>
+              <text class="svg-sub" text-anchor="middle" x="750" y="196">key derived from</text>
+              <text class="svg-sub" text-anchor="middle" x="750" y="212">the log path</text>
+              <line stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.6" x1="750" x2="750" y1="226" y2="298"></line>
+
+              <rect fill="#fff8ea" height="76" rx="9" stroke="#d98226" width="160" x="900" y="150"></rect>
+              <text class="svg-step" text-anchor="middle" x="980" y="176">presence</text>
+              <text class="svg-sub" text-anchor="middle" x="980" y="196">.quirq/watcher/</text>
+              <text class="svg-sub" text-anchor="middle" x="980" y="212">activity</text>
+              <line stroke="#3c6f97" stroke-width="1.6" x1="980" x2="980" y1="226" y2="298"></line>
+
+              
+              <rect fill="#e0ebf2" height="76" rx="9" stroke="#3c6f97" width="220" x="150" y="374"></rect>
+              <text class="svg-step" text-anchor="middle" x="260" y="400">sessionslist.json</text>
+              <text class="svg-sub" text-anchor="middle" x="260" y="420">backend:agent:surface:8hex</text>
+              <text class="svg-sub" text-anchor="middle" x="260" y="436">carries nativeSessionId</text>
+              <line stroke="#3c6f97" stroke-width="1.6" x1="260" x2="260" y1="302" y2="372"></line>
+
+              <rect fill="#e0ebf2" height="76" rx="9" stroke="#3c6f97" width="220" x="430" y="374"></rect>
+              <text class="svg-step" text-anchor="middle" x="540" y="400">sessions-augment.json</text>
+              <text class="svg-sub" text-anchor="middle" x="540" y="420">composite key if a row</text>
+              <text class="svg-sub" text-anchor="middle" x="540" y="436">exists, else bare uuid</text>
+              <line stroke="#3c6f97" stroke-width="1.6" x1="540" x2="540" y1="302" y2="372"></line>
+
+              <rect fill="#e0ebf2" height="76" rx="9" stroke="#3c6f97" width="180" x="710" y="374"></rect>
+              <text class="svg-step" text-anchor="middle" x="800" y="400">todos.json</text>
+              <text class="svg-sub" text-anchor="middle" x="800" y="420">bare uuid</text>
+              <text class="svg-sub" text-anchor="middle" x="800" y="436">task id "7" inside</text>
+              <line stroke="#3c6f97" stroke-width="1.6" x1="800" x2="800" y1="302" y2="372"></line>
+
+              <rect fill="#e0ebf2" height="76" rx="9" stroke="#3c6f97" width="180" x="930" y="374"></rect>
+              <text class="svg-step" text-anchor="middle" x="1020" y="400">timeline.jsonl</text>
+              <text class="svg-sub" text-anchor="middle" x="1020" y="420">bare uuid per line</text>
+              <text class="svg-sub" text-anchor="middle" x="1020" y="436">no event id</text>
+              <line stroke="#3c6f97" stroke-width="1.6" x1="1020" x2="1020" y1="302" y2="372"></line>
+
+              
+              <text class="svg-lane" x="24" y="60">PROJECT IDENTITY</text>
+              <rect fill="#dfede5" height="46" rx="9" stroke="#367f59" width="200" x="20" y="72"></rect>
+              <text class="svg-step" text-anchor="middle" x="120" y="94">the directory name</text>
+              <text class="svg-sub" text-anchor="middle" x="120" y="110">every path, every route</text>
+
+              <rect fill="#f3dfdc" height="46" rx="9" stroke="#ad4b43" stroke-dasharray="6 4" width="200" x="250" y="72"></rect>
+              <text class="svg-step" text-anchor="middle" x="350" y="94">project.json · pid uuid</text>
+              <text class="svg-sub" text-anchor="middle" x="350" y="110">written once, read by nothing</text>
+              <line stroke="#ad4b43" stroke-dasharray="5 4" stroke-width="1.4" x1="450" x2="500" y1="95" y2="95"></line>
+              <text class="svg-sub" fill="#ad4b43" x="508" y="99">dead end</text>
+
+              
+              <text class="svg-lane" x="24" y="500">NO IDENTITY AT ALL — COUNTED, NEVER JOINED</text>
+              <rect fill="#f7f7f5" height="34" rx="8" stroke="#b8b8b1" width="1120" x="20" y="512"></rect>
+              <text class="svg-sub" x="36" y="534">message · tool call · timeline event · file leaf   —   no stable id, so no de-duplication, no correction, and no cross-store reconciliation</text>
+            </svg>

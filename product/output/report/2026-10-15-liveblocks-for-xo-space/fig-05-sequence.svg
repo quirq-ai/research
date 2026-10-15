@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 420" role="img" aria-label="Sequence diagram across five lanes: agent runtime, watcher, Liveblocks room, browser, and broker. The agent writes its session log; the watcher derives todos and publishes presence, a storage patch, and a feed message to the room; the room pushes to the browser; a human comment in the browser goes to the room, a commentCreated webhook reaches the broker, and the broker submits a prompt back to the agent runtime."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="980.0" height="420.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="s-blue" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                  <marker id="s-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="s-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+                <g class="svg-lane">
+                  <text text-anchor="middle" x="60" y="26">AGENT RUNTIME</text>
+                  <text text-anchor="middle" x="270" y="26">WATCHER</text>
+                  <text text-anchor="middle" x="490" y="26">ROOM xo:&lt;id&gt;</text>
+                  <text text-anchor="middle" x="710" y="26">BROWSER(S)</text>
+                  <text text-anchor="middle" x="910" y="26">BROKER</text>
+                </g>
+                <rect fill="#f7f7f5" height="360" rx="6" stroke="none" width="70" x="455" y="40"></rect>
+                <g stroke="#deded9" stroke-width="1.5">
+                  <line x1="60" x2="60" y1="40" y2="400"></line>
+                  <line x1="270" x2="270" y1="40" y2="400"></line>
+                  <line x1="490" x2="490" y1="40" y2="400"></line>
+                  <line x1="710" x2="710" y1="40" y2="400"></line>
+                  <line x1="910" x2="910" y1="40" y2="400"></line>
+                </g>
+
+                <text class="svg-num" text-anchor="middle" x="60" y="72">1</text>
+                <text class="svg-sub" x="75" y="60">writes session log · todos in flight</text>
+                <line marker-end="url(#s-ink)" stroke="#252525" stroke-width="2.5" x1="60" x2="270" y1="80" y2="80"></line>
+                <text class="svg-note" text-anchor="middle" x="165" y="96">tailed (existing)</text>
+
+                <text class="svg-num" text-anchor="middle" x="270" y="122">2</text>
+                <text class="svg-sub" x="285" y="112">derives .xo/todos.json (existing)</text>
+                <line marker-end="url(#s-blue)" stroke="#3c6f97" stroke-width="1.5" x1="270" x2="490" y1="140" y2="140"></line>
+                <text class="svg-note" text-anchor="middle" x="380" y="134">POST presence (ttl 30)</text>
+                <line marker-end="url(#s-blue)" stroke="#3c6f97" stroke-width="1.5" x1="270" x2="490" y1="166" y2="166"></line>
+                <text class="svg-note" text-anchor="middle" x="380" y="160">PATCH storage/json-patch</text>
+                <line marker-end="url(#s-blue)" stroke="#3c6f97" stroke-width="1.5" x1="270" x2="490" y1="192" y2="192"></line>
+                <text class="svg-note" text-anchor="middle" x="380" y="186">feed message: turn status</text>
+
+                <text class="svg-num" text-anchor="middle" x="490" y="222">3</text>
+                <line marker-end="url(#s-blue)" stroke="#3c6f97" stroke-width="1.5" x1="490" x2="710" y1="232" y2="232"></line>
+                <text class="svg-note" text-anchor="middle" x="600" y="226">WebSocket push to every viewer</text>
+
+                <text class="svg-num" text-anchor="middle" x="710" y="268">4</text>
+                <text class="svg-sub" text-anchor="end" x="600" y="262">human: "@claude skip the migration"</text>
+                <line marker-end="url(#s-blue)" stroke="#3c6f97" stroke-width="1.5" x1="710" x2="490" y1="280" y2="280"></line>
+                <text class="svg-note" text-anchor="middle" x="600" y="296">createThread on todo t-14</text>
+
+                <text class="svg-num" text-anchor="middle" x="490" y="322">5</text>
+                <line marker-end="url(#s-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="490" x2="910" y1="332" y2="332"></line>
+                <text class="svg-note" text-anchor="middle" x="700" y="326">webhook commentCreated (signed)</text>
+
+                <text class="svg-num" text-anchor="middle" x="910" y="362">6</text>
+                <path d="M910 372 L910 388 L60 388" fill="none" marker-end="url(#s-ink)" stroke="#252525" stroke-width="2.5"></path>
+                <text class="svg-note" text-anchor="middle" x="485" y="404">/api/chat/prompt — the same route the chat view uses today; the reply becomes step 1 again</text>
+              </svg>

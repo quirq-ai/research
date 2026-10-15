@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="fig-survival"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="960.0" height="420.0" fill="#ffffff"/>
+              <text class="svg-lane" x="24" y="34">ONE WORKSPACE, ELEVEN DAYS · BYTES RETAINED (LOG SCALE)</text>
+
+              <rect fill="#f7f7f5" height="34" rx="6" stroke="#b8b8b1" width="900" x="24" y="56"></rect>
+              <text class="svg-step" x="38" y="78">native session logs</text>
+              <text class="svg-sub" text-anchor="end" x="910" y="78">95 MB · 421 files</text>
+
+              <rect fill="#e0ebf2" height="34" rx="6" stroke="#3c6f97" width="716" x="24" y="102"></rect>
+              <text class="svg-step" x="38" y="124">argus.db — turns, tool calls, cost</text>
+              <text class="svg-sub" fill="#3c6f97" x="750" y="124">5.6 MB · 5.9% of raw</text>
+
+              <rect fill="#dfede5" height="34" rx="6" stroke="#367f59" width="271" x="24" y="148"></rect>
+              <text class="svg-step" x="38" y="170">every project .xo/ combined</text>
+              <text class="svg-sub" fill="#367f59" x="305" y="170">6.4 KB · 25 files</text>
+
+              <rect fill="#dfede5" height="34" rx="6" stroke="#367f59" width="241" x="24" y="194"></rect>
+              <text class="svg-step" x="38" y="216">workspace .xo/</text>
+              <text class="svg-sub" fill="#367f59" x="275" y="216">4.1 KB · 7 files</text>
+
+              <rect fill="#fff8ea" height="34" rx="6" stroke="#d98226" width="126" x="24" y="240"></rect>
+              <text class="svg-step" x="38" y="262">.quirq/</text>
+              <text class="svg-sub" fill="#d98226" x="160" y="262">688 B · 8 files</text>
+
+              <text class="svg-note" x="24" y="304">The portable data plane is 0.0064% of the log it derives from. The PII filter is why — and the reason a folder is safe to share.</text>
+
+              
+              <line stroke="#deded9" stroke-width="1" x1="24" x2="924" y1="330" y2="330"></line>
+              <text class="svg-lane" x="24" y="356">THE JOURNAL FROM HERE</text>
+              <text class="svg-sub" x="24" y="378">182 B / line · +26 B for the workspace copy · 87 lines a day measured · 33.6 KB/day written for 15.5 KB of history</text>
+              <text class="svg-sub" x="24" y="398">project journals: 8 MB rotate × 5 kept → 40 MB ceiling</text>
+              <text class="svg-sub" fill="#ad4b43" x="470" y="398">workspace journal: 18.1 KB/day, 8 MB in ≈460 days, no rotation, no ceiling</text>
+            </svg>

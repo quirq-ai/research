@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 340" role="img" aria-label="Backup pipeline from project folder to GitHub"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="340.0" fill="#ffffff"/>
+              <text class="svg-lane" x="18" y="26">PIPELINE</text>
+              <line stroke="#deded9" x1="0" x2="1120" y1="38" y2="38"></line>
+
+              <rect fill="#f7f7f5" height="92" rx="7" stroke="#deded9" width="196" x="30" y="56"></rect>
+              <text class="svg-num" x="44" y="76">1</text>
+              <text class="svg-step" x="62" y="76">Select files</text>
+              <text class="svg-sub" x="44" y="96">git repo ⇒ git ls-files --cached</text>
+              <text class="svg-sub" x="44" y="111">--others --exclude-standard, for</text>
+              <text class="svg-sub" x="44" y="126">exact gitignore semantics with</text>
+              <text class="svg-sub" x="44" y="141">no new dependency</text>
+
+              <rect fill="#f3dfdc" height="92" rx="7" stroke="#ad4b43" width="196" x="246" y="56"></rect>
+              <text class="svg-num" x="260" y="76">2</text>
+              <text class="svg-step" x="278" y="76">Mandatory excludes</text>
+              <text class="svg-sub" x="260" y="96">.env · .git · node_modules ·</text>
+              <text class="svg-sub" x="260" y="111">.venv · __pycache__ · .env.* ·</text>
+              <text class="svg-sub" x="260" y="126">*.sock — matched on every path</text>
+              <text class="svg-sub" x="260" y="141">component, at any depth</text>
+
+              <rect fill="#ece6f3" height="92" rx="7" stroke="#765b98" width="196" x="462" y="56"></rect>
+              <text class="svg-num" x="476" y="76">3</text>
+              <text class="svg-step" x="494" y="76">gpg --symmetric</text>
+              <text class="svg-sub" x="476" y="96">passphrase via --passphrase-fd 0,</text>
+              <text class="svg-sub" x="476" y="111">so it never appears in argv or a</text>
+              <text class="svg-sub" x="476" y="126">process listing; --no-symkey-cache</text>
+              <text class="svg-sub" x="476" y="141">so the agent can't decrypt later</text>
+
+              <rect fill="#e0ebf2" height="92" rx="7" stroke="#3c6f97" width="196" x="678" y="56"></rect>
+              <text class="svg-num" x="692" y="76">4</text>
+              <text class="svg-step" x="710" y="76">Chunk</text>
+              <text class="svg-sub" x="692" y="96">part-000.gpg … part-999.gpg,</text>
+              <text class="svg-sub" x="692" y="111">95 MiB each — the only reason</text>
+              <text class="svg-sub" x="692" y="126">splitting exists is GitHub's</text>
+              <text class="svg-sub" x="692" y="141">100 MB file limit</text>
+
+              <rect fill="#dfede5" height="92" rx="7" stroke="#367f59" width="196" x="894" y="56"></rect>
+              <text class="svg-num" x="908" y="76">5</text>
+              <text class="svg-step" x="926" y="76">Push</text>
+              <text class="svg-sub" x="908" y="96">ephemeral --depth=1 clone in a</text>
+              <text class="svg-sub" x="908" y="111">tempdir; the token is injected</text>
+              <text class="svg-sub" x="908" y="126">per-command as an extraheader,</text>
+              <text class="svg-sub" x="908" y="141">never into .git/config</text>
+
+              <line stroke="#deded9" x1="0" x2="1120" y1="176" y2="176"></line>
+              <text class="svg-lane" x="18" y="204">PROPERTIES</text>
+
+              <text class="svg-step" x="30" y="234">Restore verifies first</text>
+              <text class="svg-sub" x="30" y="252">parts are reassembled in numeric order and</text>
+              <text class="svg-sub" x="30" y="267">the manifest sha256 is checked before gpg</text>
+              <text class="svg-sub" x="30" y="282">runs — corruption can't reach the decryptor</text>
+
+              <text class="svg-step" x="400" y="234">Zero idle disk</text>
+              <text class="svg-sub" x="400" y="252">every call opens its own TemporaryDirectory</text>
+              <text class="svg-sub" x="400" y="267">and deletes it on completion; there is no</text>
+              <text class="svg-sub" x="400" y="282">persistent staging area between calls</text>
+
+              <text class="svg-step" x="770" y="234">Per-project locking</text>
+              <text class="svg-sub" x="770" y="252">an asyncio.Lock per project serializes</text>
+              <text class="svg-sub" x="770" y="267">concurrent backups of the same project;</text>
+              <text class="svg-sub" x="770" y="282">different projects still run in parallel</text>
+
+              <line stroke="#deded9" x1="0" x2="1120" y1="302" y2="302"></line>
+              <text class="svg-note" x="30" y="326">Retention is 10 versions per project. Token resolution tries the UI's GitHub connector first, then GITHUB_PAT, then fails with setup instructions — never silently.</text>
+            </svg>
