@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" role="img" aria-labelledby="fig9-desc"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }</style><rect x="0.0" y="0.0" width="1000.0" height="470.0" fill="#ffffff"/>
+              <desc id="fig9-desc">Two parallel hook paths on prompt submit, capture on the left and recall injection on the right, then the Stop hook rotating the buffer.</desc>
+              <defs>
+                <marker id="arrowC" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#777772"></path>
+                </marker>
+              </defs>
+              <rect fill="#ffffff" height="470" width="1000"></rect>
+
+              <rect fill="#f7f7f5" height="40" rx="7" stroke="#b8b8b1" width="340" x="330" y="16"></rect>
+              <text class="svg-step" x="422" y="41">user presses enter → UserPromptSubmit</text>
+
+              <line marker-end="url(#arrowC)" stroke="#777772" x1="450" x2="230" y1="56" y2="86"></line>
+              <line marker-end="url(#arrowC)" stroke="#777772" x1="550" x2="770" y1="56" y2="86"></line>
+
+              <text class="svg-lane" x="30" y="80">WRITE HALF · turn-capture.sh · 5 s</text>
+              <text class="svg-lane" x="560" y="80">READ HALF · per-turn-recall.sh · 5 s</text>
+
+              <rect fill="#f7e3c8" height="46" rx="7" stroke="#d98226" width="400" x="30" y="92"></rect>
+              <text class="svg-num" x="42" y="110">01</text>
+              <text class="svg-step" x="62" y="110">resolve transcript</text>
+              <text class="svg-sub" x="42" y="128">~/.claude/projects/*/&lt;sid&gt;.jsonl first, stdin path as fallback</text>
+
+              <rect fill="#f7e3c8" height="46" rx="7" stroke="#d98226" width="400" x="30" y="148"></rect>
+              <text class="svg-num" x="42" y="166">02</text>
+              <text class="svg-step" x="62" y="166">read byte offset, append new turns</text>
+              <text class="svg-sub" x="42" y="184">drops command tags, skill banners, interrupt markers</text>
+
+              <rect fill="#f7e3c8" height="46" rx="7" stroke="#d98226" width="400" x="30" y="204"></rect>
+              <text class="svg-num" x="42" y="222">03</text>
+              <text class="svg-step" x="62" y="222">persist offset atomically</text>
+              <text class="svg-sub" x="42" y="240">tmp → fsync → replace; rotation detected, never re-reads</text>
+
+              <rect fill="#e0ebf2" height="60" rx="7" stroke="#3c6f97" width="400" x="30" y="260"></rect>
+              <text class="svg-num" x="42" y="278">04</text>
+              <text class="svg-step" x="62" y="278">freshness gate</text>
+              <text class="svg-sub" x="42" y="296">another session advanced the store? → 3 s socket call</text>
+              <text class="svg-sub" x="42" y="312">session_refresh_if_stale · 10 min cooldown on timeout</text>
+
+              <rect fill="#dfede5" height="46" rx="7" stroke="#367f59" width="410" x="560" y="92"></rect>
+              <text class="svg-num" x="572" y="110">01</text>
+              <text class="svg-step" x="592" y="110">read foresight pack from cache</text>
+              <text class="svg-sub" x="572" y="128">≤ 45 min old · head -c 6144 · session-scoped</text>
+
+              <rect fill="#dfede5" height="46" rx="7" stroke="#367f59" width="410" x="560" y="148"></rect>
+              <text class="svg-num" x="572" y="166">02</text>
+              <text class="svg-step" x="592" y="166">read working-tier cache</text>
+              <text class="svg-sub" x="572" y="184">≤ 2 h old · head -c 4096 · current goal and focus</text>
+
+              <rect fill="#dfede5" height="46" rx="7" stroke="#367f59" width="410" x="560" y="204"></rect>
+              <text class="svg-num" x="572" y="222">03</text>
+              <text class="svg-step" x="592" y="222">append to serve ledger</text>
+              <text class="svg-sub" x="572" y="240">foresight-served.jsonl — the token-economy counter</text>
+
+              <rect fill="#dfede5" height="60" rx="7" stroke="#367f59" width="410" x="560" y="260"></rect>
+              <text class="svg-num" x="572" y="278">04</text>
+              <text class="svg-step" x="592" y="278">emit tagged blocks</text>
+              <text class="svg-sub" x="572" y="296">&lt;iai-mcp-foresight&gt; … &lt;iai-mcp-working-tier&gt;</text>
+              <text class="svg-sub" x="572" y="312">header marks it DATA, not instructions</text>
+
+              <line marker-end="url(#arrowC)" stroke="#777772" x1="230" x2="450" y1="320" y2="352"></line>
+              <line marker-end="url(#arrowC)" stroke="#777772" x1="770" x2="550" y1="320" y2="352"></line>
+
+              <rect fill="#f7f7f5" height="44" rx="7" stroke="#b8b8b1" width="340" x="330" y="358"></rect>
+              <text class="svg-step" x="360" y="380">model answers with memory in context</text>
+              <text class="svg-sub" x="360" y="396">no engine call was made on this path</text>
+
+              <line marker-end="url(#arrowC)" stroke="#777772" x1="500" x2="500" y1="402" y2="418"></line>
+
+              <rect fill="#ece6f3" height="42" rx="7" stroke="#765b98" width="540" x="230" y="422"></rect>
+              <text class="svg-num" x="242" y="440">Stop</text>
+              <text class="svg-step" x="286" y="440">drain ≤ 1000 turns, then rotate live buffer → .live-&lt;epoch&gt;.jsonl</text>
+              <text class="svg-sub" x="242" y="456">35 s budget · the rotated file is what the engine claims later</text>
+            </svg>

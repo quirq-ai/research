@@ -658,7 +658,7 @@ The folder is the unit of everything: you create it through the API, work in it 
 
 Space Walk replays a session as light over a 3D map of the repository — in OS terms, a profiler that replays one process's history. It reads the same native logs the watcher tails — today with zero coupling. This section is the trace format in brief, and the three levels at which the two systems converge.
 
-**What it is.** A separate Go binary (`bin/spacewalk`, module `github.com/xo-labs/spacewalk`): three adapters parse Claude Code, Codex, and pi session logs into one normalized *trace*, a citymap builder turns the session's `cwd` into 2D geometry, and an embedded React/Three.js UI plays the trace back — single sessions, or every session on one clock. Recognition is content-based (a file can never be claimed by the wrong parser) and the three log roots are CLI flags. Full anatomy in the companion report, [The anatomy of Space Walk](https://github.com/sharmasuraj0123/writings/tree/a5a356d418d45b63d34624b12ec3d7809167b309/research/spacewalk-architecture).
+**What it is.** A separate Go binary (`bin/spacewalk`, module `github.com/xo-labs/spacewalk`): three adapters parse Claude Code, Codex, and pi session logs into one normalized *trace*, a citymap builder turns the session's `cwd` into 2D geometry, and an embedded React/Three.js UI plays the trace back — single sessions, or every session on one clock. Recognition is content-based (a file can never be claimed by the wrong parser) and the three log roots are CLI flags. Full anatomy in the companion report, [The anatomy of Space Walk](2026-10-15-space-walk-architecture.md).
 
 **The trace, in brief.** One JSON document per session, pinned at `version: 1` and mirrored by `schema/trace.schema.json`:
 

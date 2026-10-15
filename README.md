@@ -158,7 +158,7 @@ A new topic appears on the hub after its next push, with no Vercel changes.
 | [engineering](engineering/) | Published | How quirq engineers build software: how the repos fit together, how changes are tested and reviewed, how AI agents take part, and suraj's teardowns of the systems it builds with. | onepager, report |
 | [infra](infra/) | Published | How quirq infra (qq), the build, test and land system behind the quirq repos, fits together across its 13 public repos. | onepager, slide, report, app |
 | [marketing](marketing/) | Proposed | One sentence: what this topic is about. | None yet |
-| [product](product/) | Published | suraj's research on quirq and the workspace it runs in: what a unit of work is, how a quirq is minted from verified work, how XO Space hosts the work, and what is still to prove. | onepager, report |
+| [product](product/) | Published | suraj's research on quirq and the tools around it: what a unit of work is, how a quirq is minted from verified work, how XO Space hosts the work, where its evidence and memory come from, and what is still to prove. | onepager, report |
 <!-- topics:end -->
 
 This table is generated from each topic's README (status, first

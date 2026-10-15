@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" role="img" aria-labelledby="fig7-desc"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="430.0" fill="#ffffff"/>
+              <desc id="fig7-desc">Left panel shows three processes and their IPC surfaces; right panel lists the files created under the store root with permissions.</desc>
+              <defs>
+                <marker id="arrowA" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#777772"></path>
+                </marker>
+              </defs>
+              <rect fill="#ffffff" height="430" width="1000"></rect>
+
+              <text class="svg-lane" x="26" y="30">PROCESSES &amp; IPC</text>
+              <line stroke="#deded9" x1="26" x2="470" y1="40" y2="40"></line>
+
+              <rect fill="#f7f7f5" height="54" rx="7" stroke="#b8b8b1" width="200" x="26" y="60"></rect>
+              <text class="svg-step" x="40" y="82">Claude Code / Codex</text>
+              <text class="svg-sub" x="40" y="99">the MCP host</text>
+
+              <rect fill="#e0ebf2" height="62" rx="7" stroke="#3c6f97" width="200" x="26" y="150"></rect>
+              <text class="svg-step" x="40" y="172">node · MCP wrapper</text>
+              <text class="svg-sub" x="40" y="189">stdio ↔ socket bridge</text>
+              <text class="svg-sub" x="40" y="203">heartbeat every 30 s</text>
+
+              <rect fill="#ece6f3" height="62" rx="7" stroke="#765b98" width="200" x="270" y="150"></rect>
+              <text class="svg-step" x="284" y="172">python · daemon</text>
+              <text class="svg-sub" x="284" y="189">"iai lilli" · RSS 445 MB</text>
+              <text class="svg-sub" x="284" y="203">the only writer</text>
+
+              <rect fill="#dfede5" height="54" rx="7" stroke="#367f59" width="200" x="270" y="60"></rect>
+              <text class="svg-step" x="284" y="82">python · iai brain</text>
+              <text class="svg-sub" x="284" y="99">127.0.0.1:4477 loopback</text>
+
+              <rect fill="#f7f7f5" height="52" rx="7" stroke="#b8b8b1" width="230" x="130" y="262"></rect>
+              <text class="svg-step" x="146" y="284">.daemon.sock</text>
+              <text class="svg-sub" x="146" y="301">AF_UNIX · srw------- · 0600</text>
+
+              <line marker-end="url(#arrowA)" stroke="#777772" x1="126" x2="126" y1="114" y2="150"></line>
+              <text class="svg-sub" x="134" y="136">stdio</text>
+              <line marker-end="url(#arrowA)" stroke="#777772" x1="150" x2="190" y1="212" y2="262"></line>
+              <line marker-end="url(#arrowA)" stroke="#777772" x1="350" x2="300" y1="212" y2="262"></line>
+              <line marker-end="url(#arrowA)" stroke="#777772" x1="370" x2="370" y1="150" y2="114"></line>
+
+              <text class="svg-note" x="26" y="350">Access control is filesystem permissions — no token, no port,</text>
+              <text class="svg-note" x="26" y="366">no network listener. (Windows falls back to loopback TCP</text>
+              <text class="svg-note" x="26" y="382">with a 256-bit token as the first line of every connection.)</text>
+              <text class="svg-note" x="26" y="406">Measured: control round-trip 0.7 ms.</text>
+
+              <line stroke="#deded9" stroke-dasharray="4 4" x1="495" x2="495" y1="20" y2="410"></line>
+
+              <text class="svg-lane" x="524" y="30">STORE ROOT · ~/.iai-mcp</text>
+              <line stroke="#deded9" x1="524" x2="974" y1="40" y2="40"></line>
+
+              <g>
+                <text class="svg-step" x="524" y="64">hippo/brain.sqlite3</text>
+                <text class="svg-sub" x="800" y="64">records · edges · events</text>
+                <text class="svg-step" x="524" y="86">hippo/records.hnsw</text>
+                <text class="svg-sub" x="800" y="86">exact index · LVECIDX1</text>
+                <text class="svg-step" x="524" y="108">hippo/.lock</text>
+                <text class="svg-sub" x="800" y="108">0600 · flock EX/SH</text>
+                <text class="svg-step" x="524" y="130">.crypto.key</text>
+                <text class="svg-sub" x="800" y="130">0600 · exactly 32 bytes</text>
+                <text class="svg-step" x="524" y="152">lifecycle_state.json</text>
+                <text class="svg-sub" x="800" y="152">FSM + quarantine</text>
+                <text class="svg-step" x="524" y="174">.daemon-state.json</text>
+                <text class="svg-sub" x="800" y="174">legacy FSM + budgets</text>
+                <text class="svg-step" x="524" y="196">.session-start-payload.cached.md</text>
+                <text class="svg-sub" x="800" y="196">precomputed pack</text>
+                <text class="svg-step" x="524" y="218">.next-turn-pack.cached.md</text>
+                <text class="svg-sub" x="800" y="218">foresight pack</text>
+                <text class="svg-step" x="524" y="240">.deferred-captures/</text>
+                <text class="svg-sub" x="800" y="240">live + rotated spools</text>
+                <text class="svg-step" x="524" y="262">pending/</text>
+                <text class="svg-sub" x="800" y="262">ULID capture queue</text>
+                <text class="svg-step" x="524" y="284">.memory-bank/</text>
+                <text class="svg-sub" x="800" y="284">daemon-down mirror</text>
+                <text class="svg-step" x="524" y="306">wrappers/heartbeat-*.json</text>
+                <text class="svg-sub" x="800" y="306">liveness, 90 s stale</text>
+                <text class="svg-step" x="524" y="328">runtime_graph_cache.json</text>
+                <text class="svg-sub" x="800" y="328">warm graph snapshot</text>
+                <text class="svg-step" x="524" y="350">logs/</text>
+                <text class="svg-sub" x="800" y="350">capture · recall · lifecycle</text>
+              </g>
+              <line stroke="#deded9" x1="524" x2="974" y1="368" y2="368"></line>
+              <text class="svg-note" x="524" y="392">Every state file is written temp → fsync → chmod 0600 →</text>
+              <text class="svg-note" x="524" y="408">rename. Nothing here leaves the machine.</text>
+            </svg>

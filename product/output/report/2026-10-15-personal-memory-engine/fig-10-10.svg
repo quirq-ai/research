@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" role="img" aria-labelledby="fig8-desc"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="500.0" fill="#ffffff"/>
+              <desc id="fig8-desc">Swimlane sequence across host, hook, daemon and store showing the session start payload being read from cache and injected.</desc>
+              <defs>
+                <marker id="arrowB" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#777772"></path>
+                </marker>
+              </defs>
+              <rect fill="#ffffff" height="500" width="1000"></rect>
+
+              <text class="svg-lane" x="30" y="26">HOST</text>
+              <text class="svg-lane" x="280" y="26">HOOK · sh</text>
+              <text class="svg-lane" x="530" y="26">DAEMON · py</text>
+              <text class="svg-lane" x="780" y="26">STORE</text>
+              <line stroke="#deded9" x1="20" x2="980" y1="36" y2="36"></line>
+              <line stroke="#f0f0ec" x1="260" x2="260" y1="36" y2="480"></line>
+              <line stroke="#f0f0ec" x1="510" x2="510" y1="36" y2="480"></line>
+              <line stroke="#f0f0ec" x1="760" x2="760" y1="36" y2="480"></line>
+
+              <rect fill="#f7f7f5" height="44" rx="7" stroke="#b8b8b1" width="225" x="20" y="52"></rect>
+              <text class="svg-num" x="32" y="70">01</text>
+              <text class="svg-step" x="52" y="70">SessionStart fires</text>
+              <text class="svg-sub" x="32" y="88">matcher: startup|resume|clear|compact</text>
+
+              <rect fill="#f7e3c8" height="44" rx="7" stroke="#d98226" width="225" x="270" y="112"></rect>
+              <text class="svg-num" x="282" y="130">02</text>
+              <text class="svg-step" x="302" y="130">session-recall.sh</text>
+              <text class="svg-sub" x="282" y="148">30 s budget · always exit 0</text>
+
+              <rect fill="#dfede5" height="44" rx="7" stroke="#367f59" width="210" x="770" y="172"></rect>
+              <text class="svg-num" x="782" y="190">03</text>
+              <text class="svg-step" x="802" y="190">read cached .md</text>
+              <text class="svg-sub" x="782" y="208">no age cap · head -c 10000</text>
+
+              <rect fill="#ece6f3" height="58" rx="7" stroke="#765b98" stroke-dasharray="4 3" width="225" x="520" y="232"></rect>
+              <text class="svg-num" x="532" y="250">04</text>
+              <text class="svg-step" x="552" y="250">cache miss only:</text>
+              <text class="svg-sub" x="532" y="268">iai-mcp session-start</text>
+              <text class="svg-sub" x="532" y="283">10 s watchdog · TERM then KILL</text>
+
+              <rect fill="#ece6f3" height="72" rx="7" stroke="#765b98" width="225" x="520" y="306"></rect>
+              <text class="svg-num" x="532" y="324">05</text>
+              <text class="svg-step" x="552" y="324">compose payload</text>
+              <text class="svg-sub" x="532" y="342">precache forces standard depth:</text>
+              <text class="svg-sub" x="532" y="357">L0 80 + L1 200 + L2 50×7 + 1500</text>
+              <text class="svg-sub" x="532" y="372">live path uses profile default</text>
+
+              <rect fill="#f7e3c8" height="44" rx="7" stroke="#d98226" width="225" x="270" y="394"></rect>
+              <text class="svg-num" x="282" y="412">06</text>
+              <text class="svg-step" x="302" y="412">print to stdout</text>
+              <text class="svg-sub" x="282" y="430">hookSpecificOutput.additionalContext</text>
+
+              <rect fill="#f7f7f5" height="44" rx="7" stroke="#b8b8b1" width="225" x="20" y="440"></rect>
+              <text class="svg-num" x="32" y="458">07</text>
+              <text class="svg-step" x="52" y="458">injected before turn 1</text>
+              <text class="svg-sub" x="32" y="476">model sees it as context</text>
+
+              <line marker-end="url(#arrowB)" stroke="#777772" x1="132" x2="300" y1="96" y2="112"></line>
+              <line marker-end="url(#arrowB)" stroke="#777772" x1="440" x2="820" y1="156" y2="172"></line>
+              <line marker-end="url(#arrowB)" stroke="#367f59" x1="820" x2="700" y1="216" y2="394"></line>
+              <text class="svg-sub" x="742" y="300">hit</text>
+              <line marker-end="url(#arrowB)" stroke="#777772" stroke-dasharray="3 3" x1="800" x2="660" y1="216" y2="232"></line>
+              <line marker-end="url(#arrowB)" stroke="#777772" stroke-dasharray="3 3" x1="632" x2="500" y1="378" y2="394"></line>
+              <line marker-end="url(#arrowB)" stroke="#777772" x1="330" x2="180" y1="438" y2="440"></line>
+
+              <text class="svg-note" x="20" y="500">Fail-safe: empty store, missing cache, or unreachable engine all yield empty stdout — the session starts normally.</text>
+            </svg>

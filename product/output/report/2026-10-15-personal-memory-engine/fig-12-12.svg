@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-labelledby="fig10-desc"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }</style><rect x="0.0" y="0.0" width="1000.0" height="560.0" fill="#ffffff"/>
+              <desc id="fig10-desc">Swimlane across model, wrapper, daemon, and native store showing the full recall path with a latency budget bar.</desc>
+              <defs>
+                <marker id="arrowD" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#777772"></path>
+                </marker>
+              </defs>
+              <rect fill="#ffffff" height="560" width="1000"></rect>
+
+              <text class="svg-lane" x="30" y="26">MODEL</text>
+              <text class="svg-lane" x="230" y="26">WRAPPER · TS</text>
+              <text class="svg-lane" x="470" y="26">DAEMON · PY</text>
+              <text class="svg-lane" x="790" y="26">NATIVE · RUST</text>
+              <line stroke="#deded9" x1="20" x2="980" y1="36" y2="36"></line>
+              <line stroke="#f0f0ec" x1="215" x2="215" y1="36" y2="470"></line>
+              <line stroke="#f0f0ec" x1="455" x2="455" y1="36" y2="470"></line>
+              <line stroke="#f0f0ec" x1="775" x2="775" y1="36" y2="470"></line>
+
+              <rect fill="#f7f7f5" height="40" rx="6" stroke="#b8b8b1" width="185" x="20" y="48"></rect>
+              <text class="svg-num" x="30" y="65">01</text>
+              <text class="svg-step" x="50" y="65">tool call</text>
+              <text class="svg-sub" x="30" y="82">cue + budget_tokens</text>
+
+              <rect fill="#e0ebf2" height="40" rx="6" stroke="#3c6f97" width="220" x="225" y="96"></rect>
+              <text class="svg-num" x="235" y="113">02</text>
+              <text class="svg-step" x="255" y="113">zod validate · ensure alive</text>
+              <text class="svg-sub" x="235" y="130">socket probe, else wake signal</text>
+
+              <rect fill="#e0ebf2" height="40" rx="6" stroke="#3c6f97" width="220" x="225" y="144"></rect>
+              <text class="svg-num" x="235" y="161">03</text>
+              <text class="svg-step" x="255" y="161">JSON-RPC + newline</text>
+              <text class="svg-sub" x="235" y="178">AF_UNIX · 0.7 ms floor</text>
+
+              <rect fill="#ece6f3" height="40" rx="6" stroke="#765b98" width="300" x="465" y="192"></rect>
+              <text class="svg-num" x="475" y="209">04</text>
+              <text class="svg-step" x="495" y="209">validate envelope → core.dispatch</text>
+              <text class="svg-sub" x="475" y="226">crisis mode or FSM=SLEEP → degraded path</text>
+
+              <rect fill="#ece6f3" height="40" rx="6" stroke="#765b98" width="300" x="465" y="240"></rect>
+              <text class="svg-num" x="475" y="257">05</text>
+              <text class="svg-step" x="495" y="257">classify cue · skip gate · arousal</text>
+              <text class="svg-sub" x="475" y="274">verbatim vs concept · budget 800–3000 tok</text>
+
+              <rect fill="#dfede5" height="40" rx="6" stroke="#367f59" width="195" x="785" y="288"></rect>
+              <text class="svg-num" x="795" y="305">06</text>
+              <text class="svg-step" x="815" y="305">embed cue</text>
+              <text class="svg-sub" x="795" y="322">BERT 384-d · 38 ms</text>
+
+              <rect fill="#dfede5" height="40" rx="6" stroke="#367f59" width="195" x="785" y="336"></rect>
+              <text class="svg-num" x="795" y="353">07</text>
+              <text class="svg-step" x="815" y="353">exact cosine sweep</text>
+              <text class="svg-sub" x="795" y="370">authority top-k + ANN</text>
+
+              <rect fill="#ece6f3" height="40" rx="6" stroke="#765b98" width="300" x="465" y="384"></rect>
+              <text class="svg-num" x="475" y="401">08</text>
+              <text class="svg-step" x="495" y="401">two-hop spread · score · modifiers</text>
+              <text class="svg-sub" x="475" y="418">see Figure 13 — this stage dominates</text>
+
+              <rect fill="#ece6f3" height="40" rx="6" stroke="#765b98" width="300" x="465" y="432"></rect>
+              <text class="svg-num" x="475" y="449">09</text>
+              <text class="svg-step" x="495" y="449">anti-hits · supersede cap · pack</text>
+              <text class="svg-sub" x="475" y="466">fill to budget, deterministic tie-break</text>
+
+              <line marker-end="url(#arrowD)" stroke="#777772" x1="112" x2="300" y1="88" y2="96"></line>
+              <line marker-end="url(#arrowD)" stroke="#777772" x1="335" x2="335" y1="136" y2="144"></line>
+              <line marker-end="url(#arrowD)" stroke="#777772" x1="400" x2="560" y1="184" y2="192"></line>
+              <line marker-end="url(#arrowD)" stroke="#777772" x1="615" x2="615" y1="232" y2="240"></line>
+              <line marker-end="url(#arrowD)" stroke="#777772" x1="700" x2="860" y1="280" y2="288"></line>
+              <line marker-end="url(#arrowD)" stroke="#777772" x1="882" x2="882" y1="328" y2="336"></line>
+              <line marker-end="url(#arrowD)" stroke="#777772" x1="860" x2="700" y1="376" y2="384"></line>
+              <line marker-end="url(#arrowD)" stroke="#777772" x1="615" x2="615" y1="424" y2="432"></line>
+              <path d="M 465 452 L 120 452 L 120 92" fill="none" marker-end="url(#arrowD)" stroke="#d98226" stroke-width="1.5"></path>
+              <text class="svg-sub" x="140" y="446">result: hits · anti_hits · activation_trace · budget_used</text>
+
+              <line stroke="#deded9" x1="20" x2="980" y1="492" y2="492"></line>
+              <text class="svg-lane" x="20" y="512">MEASURED LATENCY BUDGET · 61-record store</text>
+              <rect fill="#367f59" height="20" rx="3" width="35" x="330" y="524"></rect>
+              <rect fill="#765b98" height="20" rx="3" width="588" x="365" y="524"></rect>
+              <rect fill="#3c6f97" height="20" rx="3" width="27" x="953" y="524"></rect>
+              <text class="svg-sub" x="330" y="558">38 ms embed (22%)</text>
+              <text class="svg-sub" x="560" y="558">130 ms retrieve · rank · pack (78%)</text>
+              <text class="svg-sub" x="893" y="558">7 ms wire</text>
+            </svg>

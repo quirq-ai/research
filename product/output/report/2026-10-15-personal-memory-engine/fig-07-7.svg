@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 380" role="img" aria-labelledby="fige-desc"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="380.0" fill="#ffffff"/>
+              <desc id="fige-desc">Left: the render loop and its throttles. Middle: the polling cadence per endpoint. Right: the server's three-way backend fallback ladder.</desc>
+              <defs>
+                <marker id="arrowG" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#777772"></path>
+                </marker>
+              </defs>
+              <rect fill="#ffffff" height="380" width="1000"></rect>
+
+              <text class="svg-lane" x="24" y="28">RENDER CLOCK</text>
+              <line stroke="#deded9" x1="24" x2="300" y1="38" y2="38"></line>
+              <rect fill="#dfede5" height="42" rx="6" stroke="#367f59" width="276" x="24" y="52"></rect>
+              <text class="svg-step" x="38" y="70">visible + active</text>
+              <text class="svg-sub" x="38" y="87">requestAnimationFrame — 60 fps</text>
+              <rect fill="#f7e3c8" height="42" rx="6" stroke="#d98226" width="276" x="24" y="104"></rect>
+              <text class="svg-step" x="38" y="122">idle</text>
+              <text class="svg-sub" x="38" y="139">33 ms delay before the next frame</text>
+              <rect fill="#f7f7f5" height="42" rx="6" stroke="#b8b8b1" width="276" x="24" y="156"></rect>
+              <text class="svg-step" x="38" y="174">tab hidden</text>
+              <text class="svg-sub" x="38" y="191">900 ms delay — nearly stopped</text>
+              <text class="svg-note" x="24" y="224">The canvas throttles itself three ways so a</text>
+              <text class="svg-note" x="24" y="242">background tab cannot burn a laptop battery.</text>
+
+              <line stroke="#deded9" stroke-dasharray="4 4" x1="330" x2="330" y1="20" y2="360"></line>
+
+              <text class="svg-lane" x="356" y="28">POLL CLOCK</text>
+              <line stroke="#deded9" x1="356" x2="640" y1="38" y2="38"></line>
+              <rect fill="#e0ebf2" height="26" rx="5" stroke="#3c6f97" width="284" x="356" y="52"></rect>
+              <text class="svg-sub" x="368" y="70">/api/overview — every 5 s</text>
+              <rect fill="#e0ebf2" height="26" rx="5" stroke="#3c6f97" width="284" x="356" y="84"></rect>
+              <text class="svg-sub" x="368" y="102">/api/events — every 5 s</text>
+              <rect fill="#e0ebf2" height="26" rx="5" stroke="#3c6f97" width="284" x="356" y="116"></rect>
+              <text class="svg-sub" x="368" y="134">/api/economy — every 15 s</text>
+              <rect fill="#e0ebf2" height="26" rx="5" stroke="#3c6f97" width="284" x="356" y="148"></rect>
+              <text class="svg-sub" x="368" y="166">/api/graph — every 20 s</text>
+              <rect fill="#e0ebf2" height="26" rx="5" stroke="#3c6f97" width="284" x="356" y="180"></rect>
+              <text class="svg-sub" x="368" y="198">/api/browse folders — every 90 s</text>
+              <text class="svg-note" x="356" y="230">Staggered on purpose: the graph is the</text>
+              <text class="svg-note" x="356" y="248">expensive read, so it runs least often.</text>
+
+              <line stroke="#deded9" stroke-dasharray="4 4" x1="670" x2="670" y1="20" y2="360"></line>
+
+              <text class="svg-lane" x="696" y="28">BACKEND LADDER</text>
+              <line stroke="#deded9" x1="696" x2="976" y1="38" y2="38"></line>
+              <rect fill="#ece6f3" height="46" rx="6" stroke="#765b98" width="280" x="696" y="52"></rect>
+              <text class="svg-step" x="710" y="70">1 · relay through the daemon</text>
+              <text class="svg-sub" x="710" y="88">while it answers — it is the writer</text>
+              <rect fill="#e0ebf2" height="46" rx="6" stroke="#3c6f97" width="280" x="696" y="108"></rect>
+              <text class="svg-step" x="710" y="126">2 · shared direct open</text>
+              <text class="svg-sub" x="710" y="144">released by an idle janitor after 30 s</text>
+              <rect fill="#dfede5" height="46" rx="6" stroke="#367f59" width="280" x="696" y="164"></rect>
+              <text class="svg-step" x="710" y="182">3 · lock-free read-only snapshot</text>
+              <text class="svg-sub" x="710" y="200">fenced; reopens if a checkpoint moves</text>
+              <line marker-end="url(#arrowG)" stroke="#777772" x1="836" x2="836" y1="98" y2="108"></line>
+              <line marker-end="url(#arrowG)" stroke="#777772" x1="836" x2="836" y1="154" y2="164"></line>
+              <text class="svg-note" x="696" y="236">Observed: with the engine dead the page still</text>
+              <text class="svg-note" x="696" y="254">served every panel, reporting daemon_up false.</text>
+
+              <line stroke="#deded9" x1="24" x2="976" y1="286" y2="286"></line>
+              <text class="svg-lane" x="24" y="308">SECURITY POSTURE</text>
+              <text class="svg-sub" x="24" y="332">binds 127.0.0.1 only · rejects cross-site fetches · GET and POST only · no-store · nosniff</text>
+              <text class="svg-sub" x="24" y="352">CSP forbids every external origin, which is why the whole interface is one file</text>
+              <text class="svg-sub" x="24" y="372">reads classed as observation never reset the engine's activity clock — watching is not working</text>
+            </svg>

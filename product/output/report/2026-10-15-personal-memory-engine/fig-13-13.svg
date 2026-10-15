@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 520" role="img" aria-labelledby="fig11-desc"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="700.0" height="520.0" fill="#ffffff"/>
+              <desc id="fig11-desc">Waterfall showing the base ranking formula and each multiplicative modifier applied in code order.</desc>
+              <rect fill="#ffffff" height="520" width="700"></rect>
+
+              <text class="svg-lane" x="30" y="30">BASE — three signals, weighted</text>
+              <rect fill="#f7f7f5" height="88" rx="7" stroke="#b8b8b1" width="640" x="30" y="42"></rect>
+              <text class="svg-step" x="46" y="66">1.00 × cosine similarity</text>
+              <text class="svg-sub" x="420" y="66">exact, not approximate</text>
+              <text class="svg-step" x="46" y="86">0.30 × keyword overlap</text>
+              <text class="svg-sub" x="420" y="86">Jaccard on the symbolic index</text>
+              <text class="svg-step" x="46" y="106">0.10 × graph degree</text>
+              <text class="svg-sub" x="420" y="106">log-normalized; inferred edges excluded</text>
+              <text class="svg-step" x="46" y="126">− 0.05 × age</text>
+              <text class="svg-sub" x="420" y="126">saturates at 30 days</text>
+
+              <text class="svg-lane" x="30" y="164">MODIFIERS — applied in code order</text>
+
+              <rect fill="#ece6f3" height="26" rx="5" stroke="#765b98" width="640" x="30" y="176"></rect>
+              <text class="svg-step" x="46" y="194">+ community bias</text>
+              <text class="svg-sub" x="300" y="194">0.10, concept mode only — graded, never a filter</text>
+
+              <rect fill="#ece6f3" height="26" rx="5" stroke="#765b98" width="640" x="30" y="208"></rect>
+              <text class="svg-step" x="46" y="226">blend structural hypervector</text>
+              <text class="svg-sub" x="300" y="226">shape match, cleaned within 15% Hamming</text>
+
+              <rect fill="#dfede5" height="26" rx="5" stroke="#367f59" width="640" x="30" y="240"></rect>
+              <text class="svg-step" x="46" y="258">× profile gains</text>
+              <text class="svg-sub" x="300" y="258">monotropism, interest, sensory quadrant</text>
+
+              <rect fill="#f7f7f5" height="26" rx="5" stroke="#b8b8b1" width="640" x="30" y="272"></rect>
+              <text class="svg-step" x="46" y="290">+ stability lift</text>
+              <text class="svg-sub" x="300" y="290">favors what it knows least well</text>
+
+              <rect fill="#f7e3c8" height="26" rx="5" stroke="#d98226" width="640" x="30" y="304"></rect>
+              <text class="svg-step" x="46" y="322">× 2.0 trigram literal overlap</text>
+              <text class="svg-sub" x="300" y="322">the cue quotes the memory</text>
+
+              <rect fill="#f7e3c8" height="26" rx="5" stroke="#d98226" width="640" x="30" y="336"></rect>
+              <text class="svg-step" x="46" y="354">× 3.0 full-text exact hit</text>
+              <text class="svg-sub" x="300" y="354">strongest single signal in the system</text>
+
+              <rect fill="#e0ebf2" height="26" rx="5" stroke="#3c6f97" width="640" x="30" y="368"></rect>
+              <text class="svg-step" x="46" y="386">+ BM25 fusion</text>
+              <text class="svg-sub" x="300" y="386">identifier-shaped cues only — hurts prose</text>
+
+              <rect fill="#e0ebf2" height="26" rx="5" stroke="#3c6f97" width="640" x="30" y="400"></rect>
+              <text class="svg-step" x="46" y="418">× 1.15 temporal match</text>
+              <text class="svg-sub" x="300" y="418">cue names an explicit date</text>
+
+              <rect fill="#f3dfdc" height="26" rx="5" stroke="#ad4b43" width="640" x="30" y="432"></rect>
+              <text class="svg-step" x="46" y="450">× 0.50 stale, then supersede cap</text>
+              <text class="svg-sub" x="300" y="450">a corrected belief cannot outrank its corrector</text>
+
+              <line stroke="#deded9" x1="30" x2="670" y1="472" y2="472"></line>
+              <text class="svg-note" x="30" y="494">Ties break on UUID string — identical scores always order identically.</text>
+              <text class="svg-note" x="30" y="512">Spreading activation sits at weight 0.0: shipped, benchmarked, and switched off.</text>
+            </svg>

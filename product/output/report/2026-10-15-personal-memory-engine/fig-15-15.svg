@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" role="img" aria-labelledby="fig13-desc"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="430.0" fill="#ffffff"/>
+              <desc id="fig13-desc">State machine from wake to hibernation, the fourteen ordered sleep steps, and measured store deltas.</desc>
+              <defs>
+                <marker id="arrowF" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#777772"></path>
+                </marker>
+              </defs>
+              <rect fill="#ffffff" height="430" width="1000"></rect>
+
+              <text class="svg-lane" x="24" y="26">LIFECYCLE</text>
+              <rect fill="#dfede5" height="38" rx="19" stroke="#367f59" width="150" x="24" y="38"></rect>
+              <text class="svg-step" x="74" y="62">WAKE</text>
+              <rect fill="#f7e3c8" height="38" rx="19" stroke="#d98226" width="150" x="212" y="38"></rect>
+              <text class="svg-step" x="256" y="62">DROWSY</text>
+              <rect fill="#e0ebf2" height="38" rx="19" stroke="#3c6f97" width="150" x="400" y="38"></rect>
+              <text class="svg-step" x="452" y="62">SLEEP</text>
+              <rect fill="#ece6f3" height="38" rx="19" stroke="#765b98" width="176" x="588" y="38"></rect>
+              <text class="svg-step" x="616" y="62">HIBERNATION</text>
+              <rect fill="#f7f7f5" height="38" rx="19" stroke="#b8b8b1" width="174" x="802" y="38"></rect>
+              <text class="svg-step" x="836" y="62">process exits</text>
+
+              <line marker-end="url(#arrowF)" stroke="#777772" x1="174" x2="212" y1="57" y2="57"></line>
+              <text class="svg-sub" x="176" y="34">5 min</text>
+              <line marker-end="url(#arrowF)" stroke="#777772" x1="362" x2="400" y1="57" y2="57"></line>
+              <text class="svg-sub" x="360" y="34">30 min</text>
+              <line marker-end="url(#arrowF)" stroke="#777772" x1="550" x2="588" y1="57" y2="57"></line>
+              <text class="svg-sub" x="546" y="34">clean cycle</text>
+              <line marker-end="url(#arrowF)" stroke="#777772" x1="764" x2="802" y1="57" y2="57"></line>
+              <path d="M 676 76 L 676 96 L 100 96 L 100 76" fill="none" marker-end="url(#arrowF)" stroke="#367f59"></path>
+              <text class="svg-sub" x="330" y="110">any request or wake signal returns to WAKE from anywhere</text>
+
+              <text class="svg-lane" x="24" y="146">THE GATE — quiet window AND idle AND not cooling down</text>
+              <rect fill="#f7f7f5" height="26" rx="5" stroke="#b8b8b1" width="300" x="24" y="158"></rect>
+              <text class="svg-sub" x="36" y="176">learned quiet window (48 half-hour buckets, 7 days)</text>
+              <rect fill="#f7f7f5" height="26" rx="5" stroke="#b8b8b1" width="300" x="340" y="158"></rect>
+              <text class="svg-sub" x="352" y="176">no fresh wrapper heartbeat → idle, OS check skipped</text>
+              <rect fill="#f7f7f5" height="26" rx="5" stroke="#b8b8b1" width="320" x="656" y="158"></rect>
+              <text class="svg-sub" x="668" y="176">4 h cooldown after a clean cycle · 10 min on failure</text>
+
+              <text class="svg-lane" x="24" y="216">FOURTEEN STEPS · observed execution order</text>
+              <g>
+                <rect fill="#e0ebf2" height="24" rx="4" stroke="#3c6f97" width="148" x="24" y="228"></rect>
+                <text class="svg-sub" x="32" y="245">1 schema_mine</text>
+                <rect fill="#e0ebf2" height="24" rx="4" stroke="#3c6f97" width="148" x="180" y="228"></rect>
+                <text class="svg-sub" x="188" y="245">2 knob_tune</text>
+                <rect fill="#e0ebf2" height="24" rx="4" stroke="#3c6f97" width="148" x="336" y="228"></rect>
+                <text class="svg-sub" x="344" y="245">3 optimize_hippo</text>
+                <rect fill="#e0ebf2" height="24" rx="4" stroke="#3c6f97" width="148" x="492" y="228"></rect>
+                <text class="svg-sub" x="500" y="245">4 hippo_cleanup</text>
+                <rect fill="#ece6f3" height="24" rx="4" stroke="#765b98" width="148" x="648" y="228"></rect>
+                <text class="svg-sub" x="656" y="245">5 dream_decay</text>
+                <rect fill="#ece6f3" height="24" rx="4" stroke="#765b98" width="172" x="804" y="228"></rect>
+                <text class="svg-sub" x="812" y="245">6 erasure_agent</text>
+
+                <rect fill="#ece6f3" height="24" rx="4" stroke="#765b98" width="148" x="24" y="258"></rect>
+                <text class="svg-sub" x="32" y="275">7 cluster_replay</text>
+                <rect fill="#ece6f3" height="24" rx="4" stroke="#765b98" width="148" x="180" y="258"></rect>
+                <text class="svg-sub" x="188" y="275">8 reconsolidation</text>
+                <rect fill="#ece6f3" height="24" rx="4" stroke="#765b98" width="148" x="336" y="258"></rect>
+                <text class="svg-sub" x="344" y="275">9 user_model</text>
+                <rect fill="#ece6f3" height="24" rx="4" stroke="#765b98" width="148" x="492" y="258"></rect>
+                <text class="svg-sub" x="500" y="275">10 dmn_reflection</text>
+                <rect fill="#ece6f3" height="24" rx="4" stroke="#765b98" width="148" x="648" y="258"></rect>
+                <text class="svg-sub" x="656" y="275">11 crisis_recluster</text>
+                <rect fill="#ece6f3" height="24" rx="4" stroke="#765b98" width="172" x="804" y="258"></rect>
+                <text class="svg-sub" x="812" y="275">12 cluster_summary</text>
+
+                <rect fill="#ece6f3" height="24" rx="4" stroke="#765b98" width="148" x="24" y="288"></rect>
+                <text class="svg-sub" x="32" y="305">13 index_rebuild</text>
+                <rect fill="#ece6f3" height="24" rx="4" stroke="#765b98" width="148" x="180" y="288"></rect>
+                <text class="svg-sub" x="188" y="305">14 entity_link</text>
+              </g>
+              <text class="svg-sub" x="344" y="305">steps 1–4 NREM · 5–14 REM · every step interruptible between chunks</text>
+
+              <line stroke="#deded9" x1="24" x2="976" y1="330" y2="330"></line>
+              <text class="svg-lane" x="24" y="352">MEASURED — one cycle on a 56-episode store, 3.3 s total</text>
+              <text class="svg-step" x="24" y="378">5 semantic summaries created</text>
+              <text class="svg-step" x="300" y="378">+363 edges</text>
+              <text class="svg-step" x="560" y="378">56 / 56 episodes covered</text>
+              <text class="svg-step" x="820" y="378">index → 61 rows</text>
+              <text class="svg-sub" x="24" y="398">templated, not LLM-written</text>
+              <text class="svg-sub" x="300" y="398">323 of them entity_shared</text>
+              <text class="svg-sub" x="560" y="398">the dashboard coverage gauge</text>
+              <text class="svg-sub" x="820" y="398">94,273 bytes on disk</text>
+              <text class="svg-note" x="24" y="422">Three consecutive failures of any step quarantine the pipeline for 24 hours — observed live, and recovered by clearing it.</text>
+            </svg>
