@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 314" role="img" aria-label="A central registry entry card lists tag, schema, component, defaults and editor metadata. An arrow left goes to the editor, which reads schema to generate a form, defaults to seed a new block, and editor metadata for the palette. An arrow right goes to the renderer, which reads schema to parse, component to mount, and ignores the editor metadata entirely."><style>.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="314.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="tc-arr" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                </defs>
+                <rect fill="#f7e3c8" height="196" rx="10" stroke="#d98226" stroke-width="2.4" width="248" x="376" y="54"></rect>
+                <text class="svg-step" x="396" y="84">entry "hero.v2"</text>
+                <text class="svg-sub" x="396" y="118">tag</text>
+                <text class="svg-sub" x="396" y="144">schema</text>
+                <text class="svg-sub" x="396" y="170">component</text>
+                <text class="svg-sub" x="396" y="196">defaults</text>
+                <text class="svg-sub" x="396" y="222">editor { label, icon }</text>
+
+                <line marker-end="url(#tc-arr)" stroke="#252525" stroke-width="2.2" x1="370" x2="288" y1="152" y2="152"></line>
+                <rect fill="#e0ebf2" height="132" rx="10" stroke="#3c6f97" stroke-width="2" width="252" x="30" y="86"></rect>
+                <text class="svg-step" x="50" y="116">Editor</text>
+                <text class="svg-sub" x="50" y="146">schema → form fields</text>
+                <text class="svg-sub" x="50" y="172">defaults → new block</text>
+                <text class="svg-sub" x="50" y="198">editor → palette entry</text>
+
+                <line marker-end="url(#tc-arr)" stroke="#252525" stroke-width="2.2" x1="630" x2="712" y1="152" y2="152"></line>
+                <rect fill="#dfede5" height="132" rx="10" stroke="#367f59" stroke-width="2" width="252" x="718" y="86"></rect>
+                <text class="svg-step" x="738" y="116">Renderer</text>
+                <text class="svg-sub" x="738" y="146">schema → safeParse</text>
+                <text class="svg-sub" x="738" y="172">component → mount</text>
+                <text class="svg-sub" x="738" y="198">editor → ignored</text>
+
+                <text class="svg-note" x="30" y="272">If the form is generated from the same schema the renderer parses with, an editor cannot</text>
+                <text class="svg-note" x="30" y="296">construct a block the page cannot draw. That property is the entire argument for schema-first.</text>
+              </svg>

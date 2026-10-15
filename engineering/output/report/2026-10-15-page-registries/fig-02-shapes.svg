@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 360" role="img" aria-label="Three panels. Panel A: a single page node labelled type product pointing to one registry entry. Panel B: a page node containing an ordered list of four tagged blocks, each pointing to its own registry entry. Panel C: a page node containing a grid block whose two slots contain further blocks, drawn as a tree three levels deep, with slot edges dashed."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="360.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="sh-arr" markerHeight="5.5" markerWidth="5.5" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                  <marker id="sh-arr-p" markerHeight="5.5" markerWidth="5.5" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+
+                <line stroke="#deded9" stroke-width="1.2" x1="373" x2="373" y1="24" y2="336"></line>
+                <line stroke="#deded9" stroke-width="1.2" x1="747" x2="747" y1="24" y2="336"></line>
+
+                <text class="svg-lane" x="26" y="40">A · PAGE TYPE</text>
+                <rect fill="#f7e3c8" height="54" rx="8" stroke="#d98226" stroke-width="2" width="200" x="20" y="60"></rect>
+                <text class="svg-step" x="36" y="84">page</text>
+                <text class="svg-sub" x="36" y="104">type: "product"</text>
+                <line marker-end="url(#sh-arr)" stroke="#3c6f97" stroke-width="1.5" x1="120" x2="120" y1="118" y2="150"></line>
+                <rect fill="#e0ebf2" height="50" rx="8" stroke="#3c6f97" stroke-width="1.8" width="200" x="20" y="154"></rect>
+                <text class="svg-sub" x="36" y="184">ProductPage</text>
+                <text class="svg-note" x="26" y="242">One lookup per request.</text>
+                <text class="svg-note" x="26" y="264">Registry ≈ 10 entries.</text>
+                <text class="svg-note" x="26" y="286">New layout = code change.</text>
+                <text class="svg-sub" x="26" y="320">use when layouts are few and stable</text>
+
+                <text class="svg-lane" x="400" y="40">B · BLOCK LIST</text>
+                <rect fill="#f7e3c8" height="34" rx="8" stroke="#d98226" stroke-width="2" width="316" x="394" y="60"></rect>
+                <text class="svg-sub" x="410" y="83">page.blocks = [ … ]</text>
+                <rect fill="#e0ebf2" height="38" rx="7" stroke="#3c6f97" stroke-width="1.6" width="150" x="394" y="106"></rect>
+                <text class="svg-sub" x="408" y="130">hero.v2</text>
+                <rect fill="#e0ebf2" height="38" rx="7" stroke="#3c6f97" stroke-width="1.6" width="150" x="394" y="152"></rect>
+                <text class="svg-sub" x="408" y="176">stat-row.v1</text>
+                <rect fill="#e0ebf2" height="38" rx="7" stroke="#3c6f97" stroke-width="1.6" width="150" x="394" y="198"></rect>
+                <text class="svg-sub" x="408" y="222">prose.v1</text>
+                <rect fill="#e0ebf2" height="38" rx="7" stroke="#3c6f97" stroke-width="1.6" width="150" x="394" y="244"></rect>
+                <text class="svg-sub" x="408" y="268">cta.v3</text>
+                <line marker-end="url(#sh-arr)" stroke="#3c6f97" stroke-width="1.4" x1="548" x2="586" y1="125" y2="125"></line>
+                <line marker-end="url(#sh-arr)" stroke="#3c6f97" stroke-width="1.4" x1="548" x2="586" y1="171" y2="171"></line>
+                <line marker-end="url(#sh-arr)" stroke="#3c6f97" stroke-width="1.4" x1="548" x2="586" y1="217" y2="217"></line>
+                <line marker-end="url(#sh-arr)" stroke="#3c6f97" stroke-width="1.4" x1="548" x2="586" y1="263" y2="263"></line>
+                <rect fill="#f7f7f5" height="176" rx="8" stroke="#b8b8b1" stroke-width="1.5" width="120" x="590" y="106"></rect>
+                <text class="svg-sub" x="604" y="132">registry</text>
+                <text class="svg-sub" x="604" y="158">Hero</text>
+                <text class="svg-sub" x="604" y="182">StatRow</text>
+                <text class="svg-sub" x="604" y="206">Prose</text>
+                <text class="svg-sub" x="604" y="230">Cta</text>
+                <text class="svg-sub" x="400" y="320">independent: validate, cache, lazy-load, fail alone</text>
+
+                <text class="svg-lane" x="774" y="40">C · TREE WITH SLOTS</text>
+                <rect fill="#f7e3c8" height="34" rx="8" stroke="#d98226" stroke-width="2" width="316" x="768" y="60"></rect>
+                <text class="svg-sub" x="784" y="83">page.root</text>
+                <path d="M800 98 L800 118" marker-end="url(#sh-arr-p)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.6"></path>
+                <rect fill="#ece6f3" height="38" rx="7" stroke="#765b98" stroke-width="1.8" width="200" x="768" y="122"></rect>
+                <text class="svg-sub" x="782" y="146">grid.v1 — slots: l, r</text>
+                <path d="M800 164 L800 190" marker-end="url(#sh-arr-p)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.6"></path>
+                <path d="M916 164 L916 190" marker-end="url(#sh-arr-p)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.6"></path>
+                <rect fill="#e0ebf2" height="38" rx="7" stroke="#3c6f97" stroke-width="1.6" width="130" x="768" y="194"></rect>
+                <text class="svg-sub" x="782" y="218">card.v1</text>
+                <rect fill="#ece6f3" height="38" rx="7" stroke="#765b98" stroke-width="1.6" width="130" x="912" y="194"></rect>
+                <text class="svg-sub" x="926" y="218">tabs.v1</text>
+                <path d="M944 236 L944 260" marker-end="url(#sh-arr-p)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.6"></path>
+                <rect fill="#e0ebf2" height="38" rx="7" stroke="#3c6f97" stroke-width="1.6" width="130" x="912" y="264"></rect>
+                <text class="svg-sub" x="926" y="288">prose.v1</text>
+                <text class="svg-sub" x="774" y="320">dashed purple = slot containment — bound the depth</text>
+              </svg>

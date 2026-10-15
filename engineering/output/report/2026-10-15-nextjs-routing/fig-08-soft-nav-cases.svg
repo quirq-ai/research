@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 494" role="img" aria-label="Three panels side by side. Panel a, a prefetched static target, /sec0/a/1 to /sec0/a/2: the click makes zero requests, the server is not contacted, the root, sec0 and a CacheNodes are reused and the [id] and page nodes are new from the client cache; html and section DOM nodes are kept; 0 bytes, 50 ms wall. Panel b, an unprefetched prerendered target, the same pair with prefetch aborted: one GET with rsc, state tree and next-url headers; the handler strips the Flight headers and serves the cached 2.rsc whole; every node is sent in full, yet the client reuses the root, sec0 and a nodes and keeps the html and section nodes; 5,866 bytes decoded, 1,619 on the wire, the same with or without a state tree. Panel c, a dynamic target, /sec0/a/2 to /dyn: walkTreeWithFlightRouterState finds the root unchanged and sends it as a skipped node with r null, then renders dyn and its page; the client reuses the root, adds dyn and the page, and removes the sec0 subtree and its section DOM node; 2,602 bytes against 4,433 without a state tree, a 41 percent saving."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="494.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-soft-nav-cases-arr-ink" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="fig-soft-nav-cases-arr-blue" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                </defs>
+
+                
+                <rect fill="#ffffff" height="440" rx="8" stroke="#deded9" width="360" x="10" y="8"></rect>
+                <rect fill="#ffffff" height="440" rx="8" stroke="#deded9" width="360" x="380" y="8"></rect>
+                <rect fill="#ffffff" height="440" rx="8" stroke="#deded9" width="360" x="750" y="8"></rect>
+
+                
+                <text class="svg-lane" x="22" y="28">(A) PREFETCHED STATIC TARGET</text>
+                <text class="svg-sub" x="22" y="46">/sec0/a/1 → /sec0/a/2 · prefetched</text>
+                <rect fill="#ffffff" height="44" rx="6" stroke="#b8b8b1" stroke-dasharray="5 4" width="336" x="22" y="58"></rect>
+                <text class="svg-step" text-anchor="middle" x="190" y="77">click: 0 requests</text>
+                <text class="svg-sub" text-anchor="middle" x="190" y="94">every segment already in the client cache</text>
+                <rect fill="#ffffff" height="62" rx="6" stroke="#deded9" width="336" x="22" y="120"></rect>
+                <text class="svg-sub" text-anchor="middle" x="190" y="146">server not contacted</text>
+                <text class="svg-sub" text-anchor="middle" x="190" y="162">(page segment fetched earlier by prefetch)</text>
+
+                <text class="svg-lane" x="22" y="214">SEGMENT</text>
+                <text class="svg-lane" x="130" y="214">RESPONSE</text>
+                <text class="svg-lane" x="258" y="214">CLIENT</text>
+
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="100" x="22" y="222"></rect>
+                <text class="svg-sub" style="fill:#252525" x="30" y="237">"" (root)</text>
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="120" x="130" y="222"></rect>
+                <text class="svg-sub" text-anchor="middle" x="190" y="237">not sent</text>
+                <rect fill="#f7f7f5" height="22" rx="4" stroke="#b8b8b1" width="100" x="258" y="222"></rect>
+                <text class="svg-sub" text-anchor="middle" x="308" y="237">reused</text>
+
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="100" x="22" y="250"></rect>
+                <text class="svg-sub" style="fill:#252525" x="30" y="265">sec0</text>
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="120" x="130" y="250"></rect>
+                <text class="svg-sub" text-anchor="middle" x="190" y="265">not sent</text>
+                <rect fill="#f7f7f5" height="22" rx="4" stroke="#b8b8b1" width="100" x="258" y="250"></rect>
+                <text class="svg-sub" text-anchor="middle" x="308" y="265">reused</text>
+
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="100" x="22" y="278"></rect>
+                <text class="svg-sub" style="fill:#252525" x="30" y="293">a</text>
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="120" x="130" y="278"></rect>
+                <text class="svg-sub" text-anchor="middle" x="190" y="293">not sent</text>
+                <rect fill="#f7f7f5" height="22" rx="4" stroke="#b8b8b1" width="100" x="258" y="278"></rect>
+                <text class="svg-sub" text-anchor="middle" x="308" y="293">reused</text>
+
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="100" x="22" y="306"></rect>
+                <text class="svg-sub" style="fill:#252525" x="30" y="321">[id] = 2</text>
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="120" x="130" y="306"></rect>
+                <text class="svg-sub" text-anchor="middle" x="190" y="321">not sent</text>
+                <rect fill="#dfede5" height="22" rx="4" stroke="#367f59" width="100" x="258" y="306"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="308" y="321">new · cache</text>
+
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="100" x="22" y="334"></rect>
+                <text class="svg-sub" style="fill:#252525" x="30" y="349">__PAGE__</text>
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="120" x="130" y="334"></rect>
+                <text class="svg-sub" text-anchor="middle" x="190" y="349">not sent</text>
+                <rect fill="#dfede5" height="22" rx="4" stroke="#367f59" width="100" x="258" y="334"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="308" y="349">new · cache</text>
+
+                <text class="svg-sub" x="22" y="378">DOM: &lt;html&gt; kept · &lt;section&gt; kept</text>
+                <rect fill="#f7e3c8" height="46" rx="6" stroke="#d98226" width="336" x="22" y="390"></rect>
+                <text class="svg-step" text-anchor="middle" x="190" y="409">0 requests · 0 B · 50 ms wall</text>
+                <text class="svg-sub" text-anchor="middle" x="190" y="426">n = 1, Playwright polling included</text>
+
+                
+                <text class="svg-lane" x="392" y="28">(B) UNPREFETCHED PRERENDERED TARGET</text>
+                <text class="svg-sub" x="392" y="46">/sec0/a/1 → /sec0/a/2 · prefetch aborted</text>
+                <rect fill="#f7f7f5" height="44" rx="6" stroke="#252525" width="336" x="392" y="58"></rect>
+                <text class="svg-step" text-anchor="middle" x="560" y="77">GET /sec0/a/2?_rsc=…</text>
+                <text class="svg-sub" text-anchor="middle" x="560" y="94">rsc: 1 · state tree · next-url: /sec0/a/1</text>
+                <line marker-end="url(#fig-soft-nav-cases-arr-ink)" stroke="#252525" stroke-width="2.5" x1="560" x2="560" y1="102" y2="118"></line>
+                <rect fill="#e0ebf2" height="62" rx="6" stroke="#3c6f97" width="336" x="392" y="120"></rect>
+                <text class="svg-sub" style="fill:#252525" x="404" y="138">isSSG &amp;&amp; isRSCRequest &amp;&amp; !isDynamicRSCRequest</text>
+                <text class="svg-sub" style="fill:#252525" x="404" y="155">→ stripFlightHeaders: state tree gone</text>
+                <text class="svg-sub" style="fill:#252525" x="404" y="172">→ cached 2.rsc, whole · x-nextjs-cache HIT</text>
+                <line marker-end="url(#fig-soft-nav-cases-arr-blue)" stroke="#3c6f97" stroke-width="1.2" x1="560" x2="560" y1="182" y2="198"></line>
+
+                <text class="svg-lane" x="392" y="214">SEGMENT</text>
+                <text class="svg-lane" x="500" y="214">RESPONSE</text>
+                <text class="svg-lane" x="628" y="214">CLIENT</text>
+
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="100" x="392" y="222"></rect>
+                <text class="svg-sub" style="fill:#252525" x="400" y="237">"" (root)</text>
+                <rect fill="#e0ebf2" height="22" rx="4" stroke="#3c6f97" width="120" x="500" y="222"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="560" y="237">sent in full</text>
+                <rect fill="#f7f7f5" height="22" rx="4" stroke="#b8b8b1" width="100" x="628" y="222"></rect>
+                <text class="svg-sub" text-anchor="middle" x="678" y="237">reused</text>
+
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="100" x="392" y="250"></rect>
+                <text class="svg-sub" style="fill:#252525" x="400" y="265">sec0</text>
+                <rect fill="#e0ebf2" height="22" rx="4" stroke="#3c6f97" width="120" x="500" y="250"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="560" y="265">sent in full</text>
+                <rect fill="#f7f7f5" height="22" rx="4" stroke="#b8b8b1" width="100" x="628" y="250"></rect>
+                <text class="svg-sub" text-anchor="middle" x="678" y="265">reused</text>
+
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="100" x="392" y="278"></rect>
+                <text class="svg-sub" style="fill:#252525" x="400" y="293">a</text>
+                <rect fill="#e0ebf2" height="22" rx="4" stroke="#3c6f97" width="120" x="500" y="278"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="560" y="293">sent in full</text>
+                <rect fill="#f7f7f5" height="22" rx="4" stroke="#b8b8b1" width="100" x="628" y="278"></rect>
+                <text class="svg-sub" text-anchor="middle" x="678" y="293">reused</text>
+
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="100" x="392" y="306"></rect>
+                <text class="svg-sub" style="fill:#252525" x="400" y="321">[id] = 2</text>
+                <rect fill="#e0ebf2" height="22" rx="4" stroke="#3c6f97" width="120" x="500" y="306"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="560" y="321">sent in full</text>
+                <rect fill="#dfede5" height="22" rx="4" stroke="#367f59" width="100" x="628" y="306"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="678" y="321">new</text>
+
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="100" x="392" y="334"></rect>
+                <text class="svg-sub" style="fill:#252525" x="400" y="349">__PAGE__</text>
+                <rect fill="#e0ebf2" height="22" rx="4" stroke="#3c6f97" width="120" x="500" y="334"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="560" y="349">sent in full</text>
+                <rect fill="#dfede5" height="22" rx="4" stroke="#367f59" width="100" x="628" y="334"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="678" y="349">new</text>
+
+                <text class="svg-sub" x="392" y="378">DOM: &lt;html&gt; kept · &lt;section&gt; kept</text>
+                <rect fill="#f7e3c8" height="46" rx="6" stroke="#d98226" width="336" x="392" y="390"></rect>
+                <text class="svg-step" text-anchor="middle" x="560" y="409">5,866 B decoded · 1,619 B wire</text>
+                <text class="svg-sub" text-anchor="middle" x="560" y="426">same bytes with or without state tree</text>
+
+                
+                <text class="svg-lane" x="762" y="28">(C) DYNAMIC TARGET</text>
+                <text class="svg-sub" x="762" y="46">/sec0/a/2 → /dyn · reads cookies()</text>
+                <rect fill="#f7f7f5" height="44" rx="6" stroke="#252525" width="336" x="762" y="58"></rect>
+                <text class="svg-step" text-anchor="middle" x="930" y="77">GET /dyn?_rsc=…</text>
+                <text class="svg-sub" text-anchor="middle" x="930" y="94">rsc: 1 · state tree · next-url: /sec0/a/2</text>
+                <line marker-end="url(#fig-soft-nav-cases-arr-ink)" stroke="#252525" stroke-width="2.5" x1="930" x2="930" y1="102" y2="118"></line>
+                <rect fill="#e0ebf2" height="62" rx="6" stroke="#3c6f97" width="336" x="762" y="120"></rect>
+                <text class="svg-sub" style="fill:#252525" x="774" y="138">walkTreeWithFlightRouterState</text>
+                <text class="svg-sub" style="fill:#252525" x="774" y="155">"" matches the state tree → skipped</text>
+                <text class="svg-sub" style="fill:#252525" x="774" y="172">dyn ≠ sec0 → rendering starts here</text>
+                <line marker-end="url(#fig-soft-nav-cases-arr-blue)" stroke="#3c6f97" stroke-width="1.2" x1="930" x2="930" y1="182" y2="198"></line>
+
+                <text class="svg-lane" x="762" y="214">SEGMENT</text>
+                <text class="svg-lane" x="870" y="214">RESPONSE</text>
+                <text class="svg-lane" x="998" y="214">CLIENT</text>
+
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="100" x="762" y="222"></rect>
+                <text class="svg-sub" style="fill:#252525" x="770" y="237">"" (root)</text>
+                <rect fill="#ffffff" height="22" rx="4" stroke="#3c6f97" stroke-dasharray="4 3" width="120" x="870" y="222"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="930" y="237">skipped, r: null</text>
+                <rect fill="#f7f7f5" height="22" rx="4" stroke="#b8b8b1" width="100" x="998" y="222"></rect>
+                <text class="svg-sub" text-anchor="middle" x="1048" y="237">reused</text>
+
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="100" x="762" y="250"></rect>
+                <text class="svg-sub" style="fill:#252525" x="770" y="265">dyn</text>
+                <rect fill="#e0ebf2" height="22" rx="4" stroke="#3c6f97" width="120" x="870" y="250"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="930" y="265">rendered</text>
+                <rect fill="#dfede5" height="22" rx="4" stroke="#367f59" width="100" x="998" y="250"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="1048" y="265">new</text>
+
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="100" x="762" y="278"></rect>
+                <text class="svg-sub" style="fill:#252525" x="770" y="293">__PAGE__</text>
+                <rect fill="#e0ebf2" height="22" rx="4" stroke="#3c6f97" width="120" x="870" y="278"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="930" y="293">rendered</text>
+                <rect fill="#dfede5" height="22" rx="4" stroke="#367f59" width="100" x="998" y="278"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="1048" y="293">new</text>
+
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="100" x="762" y="306"></rect>
+                <text class="svg-sub" x="770" y="321">old sec0 tree</text>
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="120" x="870" y="306"></rect>
+                <text class="svg-sub" text-anchor="middle" x="930" y="321">not sent</text>
+                <rect fill="#f3dfdc" height="22" rx="4" stroke="#ad4b43" width="100" x="998" y="306"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="1048" y="321">removed</text>
+
+                <text class="svg-sub" x="762" y="378">DOM: &lt;html&gt; kept · &lt;section&gt; removed</text>
+                <rect fill="#f7e3c8" height="46" rx="6" stroke="#d98226" width="336" x="762" y="390"></rect>
+                <text class="svg-step" text-anchor="middle" x="930" y="409">2,602 B (978 B wire) vs 4,433 B</text>
+                <text class="svg-sub" text-anchor="middle" x="930" y="426">without a state tree: the skip saves 41%</text>
+
+                <text class="svg-note" x="10" y="470">Green: new CacheNode · grey: CacheNode reused on the client · blue: rendered output in the response · dashed blue: skipped node {r: null, p: true, v: null} · red: unmounted.</text>
+                <text class="svg-note" x="10" y="488">Thick black: the navigation request · thin blue: response data. One build, Cache Components off; bytes are decoded unless marked wire.</text>
+              </svg>

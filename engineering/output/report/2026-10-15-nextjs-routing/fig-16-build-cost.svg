@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 556" role="img" aria-label="Horizontal stacked bars for seven builds of a 401-route app, 756 prerendered pages, on a scale of 0 to 140 seconds. Each bar lays compile, TypeScript and static generation end to end, with a thick tick at wall time. Turbopack cold with defaults: 25.2, 13.8 and 21.7 seconds, wall 70.4, with an 8.4-second cache write overlapping TypeScript. Warm with the cache restored: 1.86, 4.9 and 22.2, wall 38.4. One-file edit: 2.0, 5.7 and 23.5, wall 41.5. Cold with experimental.cpus 2: 23.8, 13.3 and 14.3, wall 55.9. Cold with the build cache off: 20.6, 9.4 and 21.8, wall 60.3. Webpack cold: 54, 13.65 and 25.65, wall 134.3, with a concurrent 51.5-second NFT pass. Webpack warm: 28.3, 4.8 and 25.2, wall 99.3, NFT 52.7. An inset shows the default worker formula, max of 1 and 8 minus 1, giving 7 workers inside a 2-CPU cgroup."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="556.0" fill="#ffffff"/>
+                <text class="svg-lane" x="4" y="18">401 ROUTES · 756 PRERENDERED PAGES · MEDIAN BUILD PER ROW</text>
+
+                <rect fill="#e0ebf2" height="12" rx="2" stroke="#3c6f97" width="14" x="250" y="34"></rect>
+                <text class="svg-sub" x="270" y="44">compile</text>
+                <rect fill="#ece6f3" height="12" rx="2" stroke="#765b98" width="14" x="340" y="34"></rect>
+                <text class="svg-sub" x="360" y="44">TypeScript</text>
+                <rect fill="#f7e3c8" height="12" rx="2" stroke="#d98226" width="14" x="450" y="34"></rect>
+                <text class="svg-sub" x="470" y="44">static generation</text>
+                <line stroke="#252525" stroke-width="3" x1="604" x2="604" y1="31" y2="49"></line>
+                <text class="svg-sub" x="614" y="44">wall time</text>
+                <rect fill="none" height="14" stroke="#765b98" stroke-dasharray="4 3" stroke-width="1.5" width="26" x="700" y="33"></rect>
+                <text class="svg-sub" x="732" y="44">cache write, overlaps TypeScript</text>
+                <line stroke="#b8b8b1" stroke-width="6" x1="964" x2="990" y1="40" y2="40"></line>
+                <text class="svg-sub" x="996" y="44">NFT pass</text>
+
+                <line stroke="#deded9" x1="250" x2="250" y1="60" y2="424"></line>
+                <line stroke="#deded9" x1="370" x2="370" y1="60" y2="424"></line>
+                <line stroke="#deded9" x1="490" x2="490" y1="60" y2="424"></line>
+                <line stroke="#deded9" x1="610" x2="610" y1="60" y2="424"></line>
+                <line stroke="#deded9" x1="730" x2="730" y1="60" y2="424"></line>
+                <line stroke="#deded9" x1="850" x2="850" y1="60" y2="424"></line>
+                <line stroke="#deded9" x1="970" x2="970" y1="60" y2="424"></line>
+                <line stroke="#deded9" x1="1090" x2="1090" y1="60" y2="424"></line>
+
+                <text class="svg-lane" x="4" y="72">TURBOPACK (DEFAULT)</text>
+
+                
+                <text class="svg-step" x="4" y="97">cold, defaults</text>
+                <text class="svg-sub" x="4" y="113">117.8 CPU-s · QUIET</text>
+                <rect fill="#e0ebf2" height="20" stroke="#3c6f97" width="151.2" x="250" y="84"></rect>
+                <rect fill="#ece6f3" height="20" stroke="#765b98" width="82.8" x="401.2" y="84"></rect>
+                <rect fill="#f7e3c8" height="20" stroke="#d98226" width="130.2" x="484" y="84"></rect>
+                <rect fill="none" height="28" stroke="#765b98" stroke-dasharray="4 3" stroke-width="1.5" width="50.6" x="401.2" y="80"></rect>
+                <text class="svg-sub" text-anchor="middle" x="325.6" y="98">25.2</text>
+                <text class="svg-sub" text-anchor="middle" x="467.9" y="98">13.8</text>
+                <text class="svg-sub" text-anchor="middle" x="549.1" y="98">21.7</text>
+                <line stroke="#252525" stroke-width="3" x1="672.4" x2="672.4" y1="79" y2="109"></line>
+                <text class="svg-sub" x="680" y="98">70.4 s</text>
+                <text class="svg-note" x="730" y="98">7 workers; cache written, 8.4 s span</text>
+
+                
+                <text class="svg-step" x="4" y="141">warm, cache restored</text>
+                <text class="svg-sub" x="4" y="157">64.5 CPU-s · QUIET</text>
+                <rect fill="#e0ebf2" height="20" stroke="#3c6f97" width="11.2" x="250" y="128"></rect>
+                <rect fill="#ece6f3" height="20" stroke="#765b98" width="29.4" x="261.2" y="128"></rect>
+                <rect fill="#f7e3c8" height="20" stroke="#d98226" width="133.2" x="290.6" y="128"></rect>
+                <text class="svg-sub" text-anchor="middle" x="357.2" y="142">22.2</text>
+                <line stroke="#252525" stroke-width="3" x1="480.4" x2="480.4" y1="123" y2="153"></line>
+                <text class="svg-sub" x="488" y="142">38.4 s</text>
+                <text class="svg-note" x="538" y="142">compile 25.2 → 1.86 s (13.5×); static generation 21.7 → 22.2 s</text>
+
+                
+                <text class="svg-step" x="4" y="185">one-file edit, cache restored</text>
+                <text class="svg-sub" x="4" y="201">63.4 CPU-s · E1 sweep</text>
+                <rect fill="#e0ebf2" height="20" stroke="#3c6f97" width="12" x="250" y="172"></rect>
+                <rect fill="#ece6f3" height="20" stroke="#765b98" width="34.2" x="262" y="172"></rect>
+                <rect fill="#f7e3c8" height="20" stroke="#d98226" width="141" x="296.2" y="172"></rect>
+                <text class="svg-sub" text-anchor="middle" x="366.7" y="186">23.5</text>
+                <line stroke="#252525" stroke-width="3" x1="499" x2="499" y1="167" y2="197"></line>
+                <text class="svg-sub" x="507" y="186">41.5 s</text>
+                <text class="svg-note" x="557" y="186">compile 2.0 s, TypeScript 5.7 s: an edit rebuilds like no change</text>
+
+                
+                <text class="svg-step" x="4" y="229">cold, experimental.cpus: 2</text>
+                <text class="svg-sub" x="4" y="245">90.6 CPU-s · QUIET</text>
+                <rect fill="#e0ebf2" height="20" stroke="#3c6f97" width="142.8" x="250" y="216"></rect>
+                <rect fill="#ece6f3" height="20" stroke="#765b98" width="79.8" x="392.8" y="216"></rect>
+                <rect fill="#f7e3c8" height="20" stroke="#d98226" width="85.8" x="472.6" y="216"></rect>
+                <rect fill="none" height="28" stroke="#765b98" stroke-dasharray="4 3" stroke-width="1.5" width="48.8" x="392.8" y="212"></rect>
+                <text class="svg-sub" text-anchor="middle" x="321.4" y="230">23.8</text>
+                <text class="svg-sub" text-anchor="middle" x="457.1" y="230">13.3</text>
+                <text class="svg-sub" text-anchor="middle" x="515.5" y="230">14.3</text>
+                <line stroke="#252525" stroke-width="3" x1="585.4" x2="585.4" y1="211" y2="241"></line>
+                <text class="svg-sub" x="593" y="230">55.9 s</text>
+                <text class="svg-note" x="643" y="230">2 workers: static generation 21.7 → 14.3 s; wall −21%, CPU −23%</text>
+
+                
+                <text class="svg-step" x="4" y="273">cold, build cache off</text>
+                <text class="svg-sub" x="4" y="289">99.3 CPU-s · QUIET</text>
+                <rect fill="#e0ebf2" height="20" stroke="#3c6f97" width="123.6" x="250" y="260"></rect>
+                <rect fill="#ece6f3" height="20" stroke="#765b98" width="56.4" x="373.6" y="260"></rect>
+                <rect fill="#f7e3c8" height="20" stroke="#d98226" width="130.8" x="430" y="260"></rect>
+                <text class="svg-sub" text-anchor="middle" x="311.8" y="274">20.6</text>
+                <text class="svg-sub" text-anchor="middle" x="401.8" y="274">9.4</text>
+                <text class="svg-sub" text-anchor="middle" x="495.4" y="274">21.8</text>
+                <line stroke="#252525" stroke-width="3" x1="611.8" x2="611.8" y1="255" y2="285"></line>
+                <text class="svg-sub" x="620" y="274">60.3 s</text>
+                <text class="svg-note" x="670" y="274">nothing written: 10.1 s and 18.5 CPU-s less than the first row</text>
+
+                <text class="svg-lane" x="4" y="316">WEBPACK (--webpack)</text>
+
+                
+                <text class="svg-step" x="4" y="341">cold, defaults</text>
+                <text class="svg-sub" x="4" y="357">194.9 CPU-s · QUIET, n=2</text>
+                <rect fill="#e0ebf2" height="20" stroke="#3c6f97" width="324" x="250" y="328"></rect>
+                <rect fill="#ece6f3" height="20" stroke="#765b98" width="81.9" x="574" y="328"></rect>
+                <rect fill="#f7e3c8" height="20" stroke="#d98226" width="153.9" x="655.9" y="328"></rect>
+                <text class="svg-sub" text-anchor="middle" x="412" y="342">54</text>
+                <text class="svg-sub" text-anchor="middle" x="615" y="342">13.65</text>
+                <text class="svg-sub" text-anchor="middle" x="732.9" y="342">25.65</text>
+                <rect fill="#b8b8b1" height="6" width="309.1" x="250" y="353"></rect>
+                <text class="svg-note" x="566" y="360">NFT pass 51.5 s, concurrent</text>
+                <line stroke="#252525" stroke-width="3" x1="1055.5" x2="1055.5" y1="323" y2="353"></line>
+                <text class="svg-sub" x="1062" y="342">134.3 s</text>
+
+                
+                <text class="svg-step" x="4" y="389">warm, cache restored</text>
+                <text class="svg-sub" x="4" y="405">145.6 CPU-s · E1 sweep</text>
+                <rect fill="#e0ebf2" height="20" stroke="#3c6f97" width="169.8" x="250" y="376"></rect>
+                <rect fill="#ece6f3" height="20" stroke="#765b98" width="28.8" x="419.8" y="376"></rect>
+                <rect fill="#f7e3c8" height="20" stroke="#d98226" width="151.2" x="448.6" y="376"></rect>
+                <text class="svg-sub" text-anchor="middle" x="334.9" y="390">28.3</text>
+                <text class="svg-sub" text-anchor="middle" x="524.2" y="390">25.2</text>
+                <rect fill="#b8b8b1" height="6" width="316.1" x="250" y="401"></rect>
+                <text class="svg-note" x="573" y="408">NFT pass 52.7 s</text>
+                <line stroke="#252525" stroke-width="3" x1="845.8" x2="845.8" y1="371" y2="401"></line>
+                <text class="svg-sub" x="854" y="390">99.3 s</text>
+                <text class="svg-note" x="904" y="390">warm compile 28.3 s, not 1.86</text>
+
+                <line stroke="#b8b8b1" x1="250" x2="1090" y1="424" y2="424"></line>
+                <text class="svg-sub" text-anchor="middle" x="250" y="440">0</text>
+                <text class="svg-sub" text-anchor="middle" x="370" y="440">20</text>
+                <text class="svg-sub" text-anchor="middle" x="490" y="440">40</text>
+                <text class="svg-sub" text-anchor="middle" x="610" y="440">60</text>
+                <text class="svg-sub" text-anchor="middle" x="730" y="440">80</text>
+                <text class="svg-sub" text-anchor="middle" x="850" y="440">100</text>
+                <text class="svg-sub" text-anchor="middle" x="970" y="440">120</text>
+                <text class="svg-sub" text-anchor="middle" x="1090" y="440">140 s</text>
+
+                <rect fill="#f7f7f5" height="64" rx="6" stroke="#b8b8b1" width="540" x="250" y="456"></rect>
+                <text class="svg-lane" x="264" y="474">INSET · WHY THE DEFAULT IS 7 WORKERS</text>
+                <text class="svg-sub" x="264" y="492">max(1, os.cpus().length − 1) = max(1, 8 − 1) = 7</text>
+                <text class="svg-sub" x="264" y="510">inside a 2-CPU cgroup: cpu.max 200000 100000, nproc 2</text>
+
+                <text class="svg-note" x="4" y="546">Segments are phase lengths laid end to end in build order, not a timeline. The gap to the wall tick is page-data collection, manifests and start-up; webpack also waits for its NFT pass.</text>
+              </svg>

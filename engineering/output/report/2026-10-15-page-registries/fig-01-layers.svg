@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 356" role="img" aria-label="A left-to-right pipeline. A source document enters a schema layer which validates it, then a resolver layer which selects variants, then a registry layer which looks up each shape name, then a renderer which mounts components and emits HTML. Below, three annotations mark what crosses each seam: parsed data, a concrete document, and a component reference. A dashed line marks the registry as the trust boundary."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="356.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="lay-arr" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="lay-arr-b" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="40" y="40">SOURCE</text>
+                <rect fill="#f7f7f5" height="104" rx="8" stroke="#b8b8b1" stroke-width="1.6" width="134" x="34" y="56"></rect>
+                <text class="svg-step" x="50" y="84">Document</text>
+                <text class="svg-sub" x="50" y="108">CMS · API · agent</text>
+                <text class="svg-sub" x="50" y="128">untrusted JSON</text>
+
+                <line marker-end="url(#lay-arr-b)" stroke="#3c6f97" stroke-width="1.6" x1="172" x2="214" y1="108" y2="108"></line>
+
+                <text class="svg-lane" x="222" y="40">01 · SCHEMA</text>
+                <rect fill="#e0ebf2" height="104" rx="8" stroke="#3c6f97" stroke-width="2" width="180" x="216" y="56"></rect>
+                <text class="svg-step" x="234" y="84">Parse, don't trust</text>
+                <text class="svg-sub" x="234" y="108">discriminated union</text>
+                <text class="svg-sub" x="234" y="128">one file, versioned</text>
+
+                <line marker-end="url(#lay-arr-b)" stroke="#3c6f97" stroke-width="1.6" x1="400" x2="442" y1="108" y2="108"></line>
+
+                <text class="svg-lane" x="450" y="40">02 · RESOLVER</text>
+                <rect fill="#ece6f3" height="104" rx="8" stroke="#765b98" stroke-width="2" width="180" x="444" y="56"></rect>
+                <text class="svg-step" x="462" y="84">Choose</text>
+                <text class="svg-sub" x="462" y="108">locale · flags · role</text>
+                <text class="svg-sub" x="462" y="128">abstract → concrete</text>
+
+                <line marker-end="url(#lay-arr-b)" stroke="#3c6f97" stroke-width="1.6" x1="628" x2="670" y1="108" y2="108"></line>
+
+                <text class="svg-lane" x="678" y="40">03 · REGISTRY</text>
+                <rect fill="#f7e3c8" height="104" rx="8" stroke="#d98226" stroke-width="2.4" width="180" x="672" y="56"></rect>
+                <text class="svg-step" x="690" y="84">Look up</text>
+                <text class="svg-sub" x="690" y="108">"hero.v2" → Hero</text>
+                <text class="svg-sub" x="690" y="128">allow-list, not map</text>
+
+                <line marker-end="url(#lay-arr)" stroke="#252525" stroke-width="2.6" x1="856" x2="898" y1="108" y2="108"></line>
+
+                <text class="svg-lane" x="906" y="40">04 · RENDERER</text>
+                <rect fill="#dfede5" height="104" rx="8" stroke="#367f59" stroke-width="2" width="186" x="900" y="56"></rect>
+                <text class="svg-step" x="918" y="84">Walk and mount</text>
+                <text class="svg-sub" x="918" y="108">keys · slots · errors</text>
+                <text class="svg-sub" x="918" y="128">HTML</text>
+
+                <path d="M662 30 L662 186" stroke="#d98226" stroke-dasharray="6 5" stroke-width="1.6"></path>
+                <text class="svg-note" x="672" y="204">trust boundary</text>
+
+                <line stroke="#b8b8b1" stroke-width="1.2" x1="124" x2="124" y1="176" y2="232"></line>
+                <text class="svg-sub" x="34" y="252">bytes</text>
+                <line stroke="#b8b8b1" stroke-width="1.2" x1="306" x2="306" y1="176" y2="232"></line>
+                <text class="svg-sub" x="216" y="252">typed nodes</text>
+                <line stroke="#b8b8b1" stroke-width="1.2" x1="534" x2="534" y1="176" y2="232"></line>
+                <text class="svg-sub" x="444" y="252">one concrete page</text>
+                <line stroke="#b8b8b1" stroke-width="1.2" x1="762" x2="762" y1="176" y2="232"></line>
+                <text class="svg-sub" x="672" y="252">component reference</text>
+                <line stroke="#b8b8b1" stroke-width="1.2" x1="993" x2="993" y1="176" y2="232"></line>
+                <text class="svg-sub" x="900" y="252">mounted tree</text>
+
+                <text class="svg-note" x="34" y="290">The dashed line is the trust boundary: everything left of it is data; everything right of it is code you chose to run.</text>
+                <text class="svg-note" x="34" y="312">Skipping the resolver pushes locale, flags and permissions into components, where they become untestable.</text>
+                <text class="svg-note" x="34" y="334">Under-building the registry turns a string from your database into a function call with no allow-list in between.</text>
+              </svg>

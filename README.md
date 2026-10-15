@@ -155,7 +155,7 @@ A new topic appears on the hub after its next push, with no Vercel changes.
 |---|---|---|---|
 | [claude](claude/) | Published | suraj's research on Claude Code: what a session is made of, where its state lives, how a host drives it, and what an agent OS should own around it. | onepager, report, app |
 | [design](design/) | Published | Which design system, principles and tokens quirq should use across its product UI, docs and research hub. | onepager, report, app |
-| [engineering](engineering/) | Researching | How quirq engineers build software: how the repos fit together, how changes are tested and reviewed, and how AI agents take part. | None yet |
+| [engineering](engineering/) | Published | How quirq engineers build software: how the repos fit together, how changes are tested and reviewed, how AI agents take part, and suraj's teardowns of the systems it builds with. | onepager, report |
 | [infra](infra/) | Published | How quirq infra (qq), the build, test and land system behind the quirq repos, fits together across its 13 public repos. | onepager, slide, report, app |
 | [marketing](marketing/) | Proposed | One sentence: what this topic is about. | None yet |
 | [product](product/) | Proposed | One sentence: what this topic is about. | None yet |

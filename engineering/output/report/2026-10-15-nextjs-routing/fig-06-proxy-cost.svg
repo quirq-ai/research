@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 548" role="img" aria-label="Left: a nine-step sequence across three columns, router layer, BaseServer and next-server, and the Proxy bundle. 1, the router tests the user matcher on the raw path, then the decoded path. 2, it re-enters BaseServer handleRequest with request meta middlewareInvoke. 3, handleNextDataRequest calls getMiddleware. 4, handleCatchallMiddlewareRequest re-checks a dot-star matcher. 5, the Proxy bundle's adapter builds NextRequest, runs proxy and NextResponse. 6, next-server throws new BubbledError carrying the result, 69 microseconds. 7, the router catches it and decodes the x-middleware headers. 8, normal resolution: beforeFiles, check_fs, check true, match. 9, invokeRender runs the normal pass to a cache hit. Steps are coloured by the CPU bucket they charge. Right: horizontal bars of median extra CPU per matched request in microseconds: Proxy bundle 437, Next plumbing 242 containing BubbledError 69 and require, path and fs 69, unattributed about 102, router layer 85, BaseServer re-entry 72, GC 25. Notes say the bucket medians sum to about 963, not the 888 total. Inset: the compiled matcher for '/about' and a truth table: /about, /about.rsc and /_next/data/BUILD/about.json match; /about/team does not, though the docs say it does."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="548.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-proxy-cost-arr-ink" markerHeight="8" markerUnits="userSpaceOnUse" markerWidth="8" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                </defs>
+
+                <text class="svg-lane" text-anchor="middle" x="110" y="22">ROUTER LAYER</text>
+                <text class="svg-sub" text-anchor="middle" x="110" y="38">resolve-routes.ts</text>
+                <text class="svg-lane" text-anchor="middle" x="310" y="22">BASESERVER</text>
+                <text class="svg-sub" text-anchor="middle" x="310" y="38">base-server.ts, next-server.ts</text>
+                <text class="svg-lane" text-anchor="middle" x="510" y="22">PROXY BUNDLE</text>
+                <text class="svg-sub" text-anchor="middle" x="510" y="38">adapter() + proxy.ts</text>
+
+                <line stroke="#deded9" stroke-dasharray="3 4" x1="110" x2="110" y1="46" y2="496"></line>
+                <line stroke="#deded9" stroke-dasharray="3 4" x1="310" x2="310" y1="46" y2="496"></line>
+                <line stroke="#deded9" stroke-dasharray="3 4" x1="510" x2="510" y1="46" y2="496"></line>
+
+                <rect fill="#e0ebf2" height="34" rx="5" stroke="#3c6f97" width="170" x="25" y="56"></rect>
+                <text class="svg-num" x="31" y="70">1</text>
+                <text class="svg-sub" style="fill:#252525" x="43" y="70">match(raw path)</text>
+                <text class="svg-sub" x="43" y="84">else match(decoded)</text>
+
+                <rect fill="#dfede5" height="34" rx="5" stroke="#367f59" width="180" x="220" y="106"></rect>
+                <text class="svg-num" x="226" y="120">2</text>
+                <text class="svg-sub" style="fill:#252525" x="238" y="120">handleRequest again</text>
+                <text class="svg-sub" x="238" y="134">meta middlewareInvoke</text>
+
+                <rect fill="#ece6f3" height="34" rx="5" stroke="#765b98" width="180" x="220" y="156"></rect>
+                <text class="svg-num" x="226" y="170">3</text>
+                <text class="svg-sub" style="fill:#252525" x="238" y="170">handleNextDataRequest</text>
+                <text class="svg-sub" x="238" y="184">→ getMiddleware()</text>
+
+                <rect fill="#ece6f3" height="34" rx="5" stroke="#765b98" width="180" x="220" y="206"></rect>
+                <text class="svg-num" x="226" y="220">4</text>
+                <text class="svg-sub" style="fill:#252525" x="238" y="220">handleCatchallMiddleware</text>
+                <text class="svg-sub" x="238" y="234">Request: '.*' re-check</text>
+
+                <rect fill="#f7e3c8" height="34" rx="5" stroke="#d98226" width="172" x="425" y="256"></rect>
+                <text class="svg-num" x="431" y="270">5</text>
+                <text class="svg-sub" style="fill:#252525" x="443" y="270">adapter(): NextRequest,</text>
+                <text class="svg-sub" x="443" y="284">proxy(), NextResponse</text>
+
+                <rect fill="#f3dfdc" height="34" rx="5" stroke="#ad4b43" stroke-width="1.5" width="180" x="220" y="306"></rect>
+                <text class="svg-num" x="226" y="320">6</text>
+                <text class="svg-sub" style="fill:#252525" x="238" y="320">throw new BubbledError</text>
+                <text class="svg-sub" x="238" y="334">(true, result) · 69 µs</text>
+
+                <rect fill="#e0ebf2" height="34" rx="5" stroke="#3c6f97" width="170" x="25" y="356"></rect>
+                <text class="svg-num" x="31" y="370">7</text>
+                <text class="svg-sub" style="fill:#252525" x="43" y="370">catch err.result</text>
+                <text class="svg-sub" x="43" y="384">decode x-middleware-*</text>
+
+                <rect fill="#f7f7f5" height="34" rx="5" stroke="#b8b8b1" width="170" x="25" y="406"></rect>
+                <text class="svg-num" x="31" y="420">8</text>
+                <text class="svg-sub" style="fill:#252525" x="43" y="420">beforeFiles, check_fs,</text>
+                <text class="svg-sub" x="43" y="434">check: true → match</text>
+
+                <rect fill="#f7f7f5" height="34" rx="5" stroke="#b8b8b1" width="180" x="220" y="456"></rect>
+                <text class="svg-num" x="226" y="470">9</text>
+                <text class="svg-sub" style="fill:#252525" x="238" y="470">invokeRender: normal</text>
+                <text class="svg-sub" x="238" y="484">pass, cache HIT</text>
+
+                <path d="M110 90 V98 H310 V105" fill="none" marker-end="url(#fig-proxy-cost-arr-ink)" stroke="#252525" stroke-width="2.5"></path>
+                <path d="M310 140 V155" fill="none" marker-end="url(#fig-proxy-cost-arr-ink)" stroke="#252525" stroke-width="2.5"></path>
+                <path d="M310 190 V205" fill="none" marker-end="url(#fig-proxy-cost-arr-ink)" stroke="#252525" stroke-width="2.5"></path>
+                <path d="M310 240 V248 H510 V255" fill="none" marker-end="url(#fig-proxy-cost-arr-ink)" stroke="#252525" stroke-width="2.5"></path>
+                <path d="M510 290 V298 H310 V305" fill="none" marker-end="url(#fig-proxy-cost-arr-ink)" stroke="#252525" stroke-width="2.5"></path>
+                <path d="M310 340 V348 H110 V355" fill="none" marker-end="url(#fig-proxy-cost-arr-ink)" stroke="#252525" stroke-width="2.5"></path>
+                <text class="svg-sub" style="fill:#ad4b43" text-anchor="middle" x="180" y="344">throw</text>
+                <path d="M110 390 V405" fill="none" marker-end="url(#fig-proxy-cost-arr-ink)" stroke="#252525" stroke-width="2.5"></path>
+                <path d="M110 440 V448 H310 V455" fill="none" marker-end="url(#fig-proxy-cost-arr-ink)" stroke="#252525" stroke-width="2.5"></path>
+
+                <text class="svg-lane" x="650" y="22">EXTRA CPU PER MATCHED REQUEST (MICROSECONDS)</text>
+                <text class="svg-sub" x="650" y="38">bucket medians of 3 rounds · e8-proxy-attrib.mjs</text>
+
+                <text class="svg-sub" style="fill:#252525" x="650" y="69">Proxy bundle</text>
+                <rect fill="#f7e3c8" height="18" stroke="#d98226" width="250" x="800" y="56"></rect>
+                <text class="svg-sub" style="fill:#252525" x="1056" y="69">437</text>
+
+                <text class="svg-sub" style="fill:#252525" x="650" y="97">Next plumbing</text>
+                <rect fill="#ece6f3" height="18" stroke="#765b98" width="138.4" x="800" y="84"></rect>
+                <rect fill="#f3dfdc" height="18" stroke="#ad4b43" width="39.5" x="800" y="84"></rect>
+                <rect fill="#ffffff" height="18" stroke="#765b98" width="39.5" x="839.5" y="84"></rect>
+                <text class="svg-sub" style="fill:#252525" x="944" y="97">242</text>
+                <text class="svg-sub" x="650" y="118">↳ inside it: BubbledError 69 (red), require()/path/fs 69 (white)</text>
+
+                <text class="svg-sub" style="fill:#252525" x="650" y="141">unattributed</text>
+                <rect fill="#f7f7f5" height="18" stroke="#b8b8b1" width="58.4" x="800" y="128"></rect>
+                <text class="svg-sub" style="fill:#252525" x="864" y="141">~102</text>
+
+                <text class="svg-sub" style="fill:#252525" x="650" y="169">router layer</text>
+                <rect fill="#e0ebf2" height="18" stroke="#3c6f97" width="48.6" x="800" y="156"></rect>
+                <text class="svg-sub" style="fill:#252525" x="855" y="169">85</text>
+
+                <text class="svg-sub" style="fill:#252525" x="650" y="197">BaseServer re-entry</text>
+                <rect fill="#dfede5" height="18" stroke="#367f59" width="41.2" x="800" y="184"></rect>
+                <text class="svg-sub" style="fill:#252525" x="848" y="197">72</text>
+
+                <text class="svg-sub" style="fill:#252525" x="650" y="225">GC</text>
+                <rect fill="#f7f7f5" height="18" stroke="#b8b8b1" width="14.3" x="800" y="212"></rect>
+                <text class="svg-sub" style="fill:#252525" x="820" y="225">25</text>
+
+                <line stroke="#b8b8b1" x1="800" x2="1050" y1="242" y2="242"></line>
+                <line stroke="#b8b8b1" x1="800" x2="800" y1="242" y2="247"></line>
+                <line stroke="#b8b8b1" x1="857.2" x2="857.2" y1="242" y2="247"></line>
+                <line stroke="#b8b8b1" x1="914.4" x2="914.4" y1="242" y2="247"></line>
+                <line stroke="#b8b8b1" x1="971.6" x2="971.6" y1="242" y2="247"></line>
+                <line stroke="#b8b8b1" x1="1028.8" x2="1028.8" y1="242" y2="247"></line>
+                <text class="svg-sub" text-anchor="middle" x="800" y="259">0</text>
+                <text class="svg-sub" text-anchor="middle" x="857.2" y="259">100</text>
+                <text class="svg-sub" text-anchor="middle" x="914.4" y="259">200</text>
+                <text class="svg-sub" text-anchor="middle" x="971.6" y="259">300</text>
+                <text class="svg-sub" text-anchor="middle" x="1028.8" y="259">400 µs</text>
+
+                <text class="svg-note" x="650" y="282">Each bucket's median is taken on its own: they sum to about 963 µs,</text>
+                <text class="svg-note" x="650" y="297">not the 888 µs median total. TTFB: +0.909 ms at p50, 3 paired rounds × 2,000.</text>
+
+                <line stroke="#deded9" x1="650" x2="1100" y1="314" y2="314"></line>
+                <text class="svg-lane" x="650" y="334">INSET · MATCHER '/ABOUT' AFTER WIDENING</text>
+                <text class="svg-sub" style="fill:#252525" x="650" y="352">^(?:\/(_next\/data\/[^/]{1,}))?\/about</text>
+                <text class="svg-sub" style="fill:#252525" x="650" y="367">(\.json|\.rsc|\.segments\/.+\.segment\.rsc)?[\/#\?]?$</text>
+
+                <rect fill="#dfede5" height="20" rx="3" stroke="#367f59" width="450" x="650" y="378"></rect>
+                <text class="svg-sub" style="fill:#252525" x="660" y="392">/about</text>
+                <text class="svg-sub" style="fill:#252525" text-anchor="end" x="1090" y="392">matches</text>
+                <rect fill="#dfede5" height="20" rx="3" stroke="#367f59" width="450" x="650" y="402"></rect>
+                <text class="svg-sub" style="fill:#252525" x="660" y="416">/about.rsc</text>
+                <text class="svg-sub" style="fill:#252525" text-anchor="end" x="1090" y="416">matches</text>
+                <rect fill="#dfede5" height="20" rx="3" stroke="#367f59" width="450" x="650" y="426"></rect>
+                <text class="svg-sub" style="fill:#252525" x="660" y="440">/_next/data/BUILD/about.json</text>
+                <text class="svg-sub" style="fill:#252525" text-anchor="end" x="1090" y="440">matches</text>
+                <rect fill="#f3dfdc" height="20" rx="3" stroke="#ad4b43" width="450" x="650" y="450"></rect>
+                <text class="svg-sub" style="fill:#252525" x="660" y="464">/about/team</text>
+                <text class="svg-sub" style="fill:#ad4b43" text-anchor="end" x="1090" y="464">no match (docs: matches)</text>
+
+                <text class="svg-note" x="20" y="522">Fill = the bucket a step charges: orange Proxy bundle, purple Next plumbing, blue router layer, green BaseServer re-entry, red BubbledError,</text>
+                <text class="svg-note" x="20" y="538">grey work a request without Proxy also does. Thick black = order of execution. Inset rows: green matches, red does not.</text>
+              </svg>

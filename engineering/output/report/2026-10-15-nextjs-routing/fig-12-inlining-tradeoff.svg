@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 648" role="img" aria-label="Left, the build-time hint chain for /sec0/guide/g1 in two builds. Defaults: root 64, sec0 96, guide 96, g1 96, page 160, every ancestor inlined into the page response. With sec0 padded to 4,366 bytes gzip: root 64, sec0 32, guide 64, g1 96, page 160, with a red cut between sec0 and guide because sec0 is not below 2,048 bytes gzip, so sec0 becomes its own response carrying the root. Right, prefetch traffic for the 12-link page: defaults 24 requests, 59,998 bytes decoded, 20,071 on the wire; inlining off 53 requests, 41,754 decoded, 20,860 wire; layout outlined 25 requests, 43,964 decoded, 17,235 wire, the lowest; maxSize 8,192 forcing the layout inline 24 requests, 102,179 decoded, 53,941 wire. Bottom, a grid of 12 links by three layouts per build: defaults carry the root layout in all 12 responses, sec0 in 10 and guide in 3; inlining off carries each layout in one response; the outlined build carries root in 3, sec0 in 1 and guide in 3."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="648.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-inlining-tradeoff-arr-blue" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                </defs>
+
+                
+                <text class="svg-lane" x="10" y="18">BUILD-TIME HINTS · /sec0/guide/g1</text>
+                <text class="svg-sub" text-anchor="middle" x="110" y="42">v0 · defaults</text>
+                <text class="svg-sub" text-anchor="middle" x="320" y="42">v2 · sec0 4,366 B gzip</text>
+
+                <rect fill="#e0ebf2" height="30" rx="5" stroke="#3c6f97" width="180" x="20" y="52"></rect>
+                <text class="svg-step" x="32" y="72">(root)</text>
+                <text class="svg-num" text-anchor="end" x="188" y="72">64</text>
+                <line marker-end="url(#fig-inlining-tradeoff-arr-blue)" stroke="#3c6f97" stroke-width="1.2" x1="110" x2="110" y1="82" y2="102"></line>
+                <rect fill="#e0ebf2" height="30" rx="5" stroke="#3c6f97" width="180" x="20" y="104"></rect>
+                <text class="svg-step" x="32" y="124">sec0</text>
+                <text class="svg-num" text-anchor="end" x="188" y="124">96</text>
+                <line marker-end="url(#fig-inlining-tradeoff-arr-blue)" stroke="#3c6f97" stroke-width="1.2" x1="110" x2="110" y1="134" y2="172"></line>
+                <rect fill="#e0ebf2" height="30" rx="5" stroke="#3c6f97" width="180" x="20" y="174"></rect>
+                <text class="svg-step" x="32" y="194">guide</text>
+                <text class="svg-num" text-anchor="end" x="188" y="194">96</text>
+                <line marker-end="url(#fig-inlining-tradeoff-arr-blue)" stroke="#3c6f97" stroke-width="1.2" x1="110" x2="110" y1="204" y2="224"></line>
+                <rect fill="#e0ebf2" height="30" rx="5" stroke="#3c6f97" width="180" x="20" y="226"></rect>
+                <text class="svg-step" x="32" y="246">g1</text>
+                <text class="svg-num" text-anchor="end" x="188" y="246">96</text>
+                <line marker-end="url(#fig-inlining-tradeoff-arr-blue)" stroke="#3c6f97" stroke-width="1.2" x1="110" x2="110" y1="256" y2="276"></line>
+                <rect fill="#dfede5" height="30" rx="5" stroke="#367f59" stroke-width="1.5" width="180" x="20" y="278"></rect>
+                <text class="svg-step" x="32" y="298">__PAGE__ + head</text>
+                <text class="svg-num" text-anchor="end" x="188" y="298">160</text>
+
+                <rect fill="#e0ebf2" height="30" rx="5" stroke="#3c6f97" width="180" x="230" y="52"></rect>
+                <text class="svg-step" x="242" y="72">(root)</text>
+                <text class="svg-num" text-anchor="end" x="398" y="72">64</text>
+                <line marker-end="url(#fig-inlining-tradeoff-arr-blue)" stroke="#3c6f97" stroke-width="1.2" x1="320" x2="320" y1="82" y2="102"></line>
+                <rect fill="#dfede5" height="30" rx="5" stroke="#367f59" stroke-width="1.5" width="180" x="230" y="104"></rect>
+                <text class="svg-step" x="242" y="124">sec0, fetched once</text>
+                <text class="svg-num" text-anchor="end" x="398" y="124">32</text>
+                <line stroke="#ad4b43" stroke-dasharray="6 4" stroke-width="1.5" x1="230" x2="410" y1="148" y2="148"></line>
+                <text class="svg-sub" style="fill:#ad4b43" text-anchor="middle" x="320" y="165">not &lt; 2,048: not offered</text>
+                <rect fill="#e0ebf2" height="30" rx="5" stroke="#3c6f97" width="180" x="230" y="174"></rect>
+                <text class="svg-step" x="242" y="194">guide</text>
+                <text class="svg-num" text-anchor="end" x="398" y="194">64</text>
+                <line marker-end="url(#fig-inlining-tradeoff-arr-blue)" stroke="#3c6f97" stroke-width="1.2" x1="320" x2="320" y1="204" y2="224"></line>
+                <rect fill="#e0ebf2" height="30" rx="5" stroke="#3c6f97" width="180" x="230" y="226"></rect>
+                <text class="svg-step" x="242" y="246">g1</text>
+                <text class="svg-num" text-anchor="end" x="398" y="246">96</text>
+                <line marker-end="url(#fig-inlining-tradeoff-arr-blue)" stroke="#3c6f97" stroke-width="1.2" x1="320" x2="320" y1="256" y2="276"></line>
+                <rect fill="#dfede5" height="30" rx="5" stroke="#367f59" stroke-width="1.5" width="180" x="230" y="278"></rect>
+                <text class="svg-step" x="242" y="298">__PAGE__ + head</text>
+                <text class="svg-num" text-anchor="end" x="398" y="298">160</text>
+
+                <text class="svg-note" x="20" y="328">Blue: inlined into its child, never fetched alone.</text>
+                <text class="svg-note" x="20" y="344">Green: a response the client fetches. Red: test failed.</text>
+                <text class="svg-note" x="20" y="360">64 into child · 32 takes parent · 128 takes head.</text>
+
+                
+                <text class="svg-lane" x="450" y="18">12-LINK PAGE · ALL PREFETCH TRAFFIC</text>
+
+                <text class="svg-step" x="450" y="60">v0 · defaults</text>
+                <text class="svg-sub" x="450" y="76">24 requests</text>
+                <rect fill="#e0ebf2" height="12" stroke="#3c6f97" width="196.4" x="640" y="48"></rect>
+                <text class="svg-sub" x="842" y="58">59,998</text>
+                <rect fill="#3c6f97" height="12" width="65.7" x="640" y="64"></rect>
+                <text class="svg-sub" style="fill:#252525" x="712" y="74">20,071</text>
+
+                <text class="svg-step" x="450" y="120">v1 · inlining off</text>
+                <text class="svg-sub" x="450" y="136">53 requests</text>
+                <rect fill="#e0ebf2" height="12" stroke="#3c6f97" width="136.6" x="640" y="108"></rect>
+                <text class="svg-sub" x="782" y="118">41,754 (−30%)</text>
+                <rect fill="#3c6f97" height="12" width="68.3" x="640" y="124"></rect>
+                <text class="svg-sub" style="fill:#252525" x="714" y="134">20,860 (+3.9%)</text>
+
+                <text class="svg-step" x="450" y="180">v2 · layout outlined</text>
+                <text class="svg-sub" x="450" y="196">25 requests</text>
+                <rect fill="#e0ebf2" height="12" stroke="#3c6f97" width="143.9" x="640" y="168"></rect>
+                <text class="svg-sub" x="790" y="178">43,964</text>
+                <rect fill="#3c6f97" height="12" width="56.4" x="640" y="184"></rect>
+                <text class="svg-sub" style="fill:#252525" x="703" y="194">17,235 (lowest)</text>
+
+                <text class="svg-step" x="450" y="240">v5 · maxSize 8,192</text>
+                <text class="svg-sub" x="450" y="256">24 requests</text>
+                <rect fill="#e0ebf2" height="12" stroke="#3c6f97" width="334.4" x="640" y="228"></rect>
+                <text class="svg-sub" x="980" y="238">102,179</text>
+                <rect fill="#3c6f97" height="12" width="176.5" x="640" y="244"></rect>
+                <text class="svg-sub" style="fill:#252525" x="823" y="254">53,941</text>
+
+                <line stroke="#b8b8b1" x1="640" x2="1000" y1="276" y2="276"></line>
+                <line stroke="#b8b8b1" x1="640" x2="640" y1="40" y2="276"></line>
+                <line stroke="#b8b8b1" x1="640" x2="640" y1="276" y2="281"></line>
+                <line stroke="#b8b8b1" x1="705.5" x2="705.5" y1="276" y2="281"></line>
+                <line stroke="#b8b8b1" x1="770.9" x2="770.9" y1="276" y2="281"></line>
+                <line stroke="#b8b8b1" x1="836.4" x2="836.4" y1="276" y2="281"></line>
+                <line stroke="#b8b8b1" x1="901.8" x2="901.8" y1="276" y2="281"></line>
+                <line stroke="#b8b8b1" x1="967.3" x2="967.3" y1="276" y2="281"></line>
+                <text class="svg-sub" text-anchor="middle" x="640" y="294">0</text>
+                <text class="svg-sub" text-anchor="middle" x="705.5" y="294">20k</text>
+                <text class="svg-sub" text-anchor="middle" x="770.9" y="294">40k</text>
+                <text class="svg-sub" text-anchor="middle" x="836.4" y="294">60k</text>
+                <text class="svg-sub" text-anchor="middle" x="901.8" y="294">80k</text>
+                <text class="svg-sub" text-anchor="middle" x="967.3" y="294">100k</text>
+                <text class="svg-sub" x="640" y="312">bytes · light: decoded · dark: on the wire (gzip)</text>
+                <text class="svg-note" x="450" y="338">v2 pads the sec0 layout to 6,725 B raw, 4,385 B on the wire; v5 is v2 with maxSize 8,192.</text>
+                <text class="svg-note" x="450" y="354">v1 also sent /_head once per link: 12 responses of 430 B on the wire.</text>
+
+                <line stroke="#deded9" x1="10" x2="1110" y1="378" y2="378"></line>
+
+                
+                <text class="svg-lane" x="10" y="400">WHICH PREFETCH RESPONSES CARRIED EACH LAYOUT · 12 LINKS ON /sec0/guide/g0</text>
+                <text class="svg-sub" text-anchor="middle" x="234" y="420">/</text>
+                <text class="svg-sub" text-anchor="middle" x="302" y="420">/about</text>
+                <text class="svg-sub" text-anchor="middle" x="370" y="420">p0</text>
+                <text class="svg-sub" text-anchor="middle" x="438" y="420">p1</text>
+                <text class="svg-sub" text-anchor="middle" x="506" y="420">p2</text>
+                <text class="svg-sub" text-anchor="middle" x="574" y="420">p3</text>
+                <text class="svg-sub" text-anchor="middle" x="642" y="420">g0</text>
+                <text class="svg-sub" text-anchor="middle" x="710" y="420">g1</text>
+                <text class="svg-sub" text-anchor="middle" x="778" y="420">g2</text>
+                <text class="svg-sub" text-anchor="middle" x="846" y="420">a/1</text>
+                <text class="svg-sub" text-anchor="middle" x="914" y="420">b/1</text>
+                <text class="svg-sub" text-anchor="middle" x="982" y="420">docs</text>
+
+                <text class="svg-step" x="10" y="441">v0 defaults</text>
+                <text class="svg-step" x="10" y="501">v1 inlining off</text>
+                <text class="svg-step" x="10" y="561">v2 outlined</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="441">root</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="459">sec0</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="477">guide</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="501">root</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="519">sec0</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="537">guide</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="561">root</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="579">sec0</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="597">guide</text>
+
+                <rect fill="#3c6f97" height="14" rx="2" width="60" x="204" y="430"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="272" y="430"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="340" y="430"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="408" y="430"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="476" y="430"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="544" y="430"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="612" y="430"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="680" y="430"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="748" y="430"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="816" y="430"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="884" y="430"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="952" y="430"></rect>
+                <rect fill="#f7f7f5" height="14" rx="2" width="60" x="204" y="448"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="272" y="448"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="340" y="448"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="408" y="448"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="476" y="448"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="544" y="448"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="612" y="448"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="680" y="448"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="748" y="448"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="816" y="448"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="884" y="448"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="952" y="448"></rect>
+                <rect fill="#f7f7f5" height="14" rx="2" width="60" x="204" y="466"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="272" y="466"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="340" y="466"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="408" y="466"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="476" y="466"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="544" y="466"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="612" y="466"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="680" y="466"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="748" y="466"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="816" y="466"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="884" y="466"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="952" y="466"></rect>
+                <rect fill="#3c6f97" height="14" rx="2" width="60" x="204" y="490"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="272" y="490"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="340" y="490"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="408" y="490"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="476" y="490"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="544" y="490"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="612" y="490"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="680" y="490"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="748" y="490"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="816" y="490"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="884" y="490"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="952" y="490"></rect>
+                <rect fill="#f7f7f5" height="14" rx="2" width="60" x="204" y="508"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="272" y="508"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="340" y="508"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="408" y="508"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="476" y="508"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="544" y="508"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="612" y="508"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="680" y="508"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="748" y="508"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="816" y="508"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="884" y="508"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="952" y="508"></rect>
+                <rect fill="#f7f7f5" height="14" rx="2" width="60" x="204" y="526"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="272" y="526"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="340" y="526"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="408" y="526"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="476" y="526"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="544" y="526"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="612" y="526"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="680" y="526"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="748" y="526"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="816" y="526"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="884" y="526"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="952" y="526"></rect>
+                <rect fill="#3c6f97" height="14" rx="2" width="60" x="204" y="550"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="272" y="550"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="340" y="550"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="408" y="550"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="476" y="550"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="544" y="550"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="612" y="550"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="680" y="550"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="748" y="550"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="816" y="550"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="884" y="550"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="952" y="550"></rect>
+                <rect fill="#f7f7f5" height="14" rx="2" width="60" x="204" y="568"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="272" y="568"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="340" y="568"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="408" y="568"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="476" y="568"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="544" y="568"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="612" y="568"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="680" y="568"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="748" y="568"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="816" y="568"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="884" y="568"></rect><rect fill="#ffffff" height="14" rx="2" stroke="#b8b8b1" stroke-dasharray="3 3" width="60" x="952" y="568"></rect>
+                <rect fill="#f7f7f5" height="14" rx="2" width="60" x="204" y="586"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="272" y="586"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="340" y="586"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="408" y="586"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="476" y="586"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="544" y="586"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="612" y="586"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="680" y="586"></rect><rect fill="#3c6f97" height="14" rx="2" width="60" x="748" y="586"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="816" y="586"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="884" y="586"></rect><rect fill="#f7f7f5" height="14" rx="2" width="60" x="952" y="586"></rect>
+                <text class="svg-sub" x="1030" y="459">25 carried</text>
+                <text class="svg-sub" x="1030" y="519">3 carried</text>
+                <text class="svg-sub" x="1030" y="579">7 carried</text>
+
+                <text class="svg-note" x="10" y="618">Blue cell: that link's response carried the layout · dashed: the route has the layout, another response brought it · blank: not on the route.</text>
+                <text class="svg-note" x="10" y="634">v5 matches v0 cell for cell, with the 4.4 KB layout inside 10 of the 12 responses.</text>
+              </svg>

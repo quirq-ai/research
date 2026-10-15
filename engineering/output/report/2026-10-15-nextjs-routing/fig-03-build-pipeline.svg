@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 662" role="img" aria-label="A swimlane of next build at v16.4.0. Top lane, the JS orchestrator in build/index.ts, shows nine boxes in source order with the line where each opens: clean at 1381, which wipes .next but keeps cache, dev, diagnostics, lock and trace; discover-routes at 1555, which reads app/ in JS; a red marker for validateAppPaths at 1635, which has no span; generate-route-types at 1650, writing .next/types; generate-routes-manifest at 1786, computed before compile and written at 3076; compile at 1889, the branch; TypeScript, serial after compile; static-check at 2349; static-generation at 3214, writing HTML, RSC and segment files and then the prerender manifest; and write-route-bundle-stats at 4839, Turbopack only. Orange measured labels give compile 25.2 s, TypeScript 13.8 s, static generation 21.7 s with 7 workers, and a whole-build wall of 70.4 s, for the 401-route app. Below, app/ on disk feeds both discover-routes and Turbopack's get_directory_tree, so the tree is read twice. A purple note says cache/ survives clean so the next build starts warm. A red note says validateAppPaths erases parameter names, rejecting /blog/[id] with /blog/[slug] but passing /[a]/x with /[b]/y. Inside compile, exactly one lane runs. Turbopack: get_directory_tree as one memoised task per directory, walk_tree emitting each LoaderTree as JS text, one server file per page such as server/app/sec0/a/[id]/page.js, and per-page app-paths manifests merged into 405 keys. Webpack: createEntrypoints with server entry app/sec0/a/[id]/page and no client entry for App pages, then server, edge-server and client compiles, with a dashed purple arc showing the server compile's injectedClientEntries feeding the client compile. Bottom lane, next start at boot: setupFsCheck sorts dynamic routes with the deprecated getSortedRoutes, and for /[a]/x plus /[b]/y the server prints Ready and exits with code 1 after 509 to 843 ms."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="662.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-build-pipeline-arr-ink" markerHeight="9" markerUnits="userSpaceOnUse" markerWidth="9" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="fig-build-pipeline-arr-blue" markerHeight="8" markerUnits="userSpaceOnUse" markerWidth="8" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                  <marker id="fig-build-pipeline-arr-purple" markerHeight="8" markerUnits="userSpaceOnUse" markerWidth="8" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="8" y="14">JS ORCHESTRATOR · build() IN build/index.ts · SPANS IN SOURCE ORDER</text>
+
+                <rect fill="#ece6f3" height="122" rx="6" stroke="#765b98" stroke-width="1.5" width="114" x="8" y="24"></rect>
+                <text class="svg-sub" text-anchor="middle" x="65" y="40">:1381</text>
+                <text class="svg-step" text-anchor="middle" x="65" y="58">clean</text>
+                <text class="svg-sub" text-anchor="middle" x="65" y="76">wipes .next/</text>
+                <text class="svg-sub" text-anchor="middle" x="65" y="90">keeps cache/</text>
+                <text class="svg-sub" text-anchor="middle" x="65" y="104">dev/ lock trace</text>
+                <text class="svg-sub" text-anchor="middle" x="65" y="118">diagnostics/</text>
+
+                <rect fill="#e0ebf2" height="122" rx="6" stroke="#3c6f97" stroke-width="1.5" width="114" x="134" y="24"></rect>
+                <text class="svg-sub" text-anchor="middle" x="191" y="40">:1555</text>
+                <text class="svg-step" text-anchor="middle" x="191" y="58">discover-routes</text>
+                <text class="svg-sub" text-anchor="middle" x="191" y="76">JS reads app/</text>
+                <text class="svg-sub" text-anchor="middle" x="191" y="90">collectAppFiles</text>
+                <text class="svg-sub" text-anchor="middle" x="191" y="104">→ page keys</text>
+                <text class="svg-sub" text-anchor="middle" x="191" y="118">(in memory)</text>
+
+                <rect fill="#f3dfdc" height="102" rx="2" stroke="#ad4b43" stroke-width="1.5" width="8" x="250" y="34"></rect>
+
+                <rect fill="#dfede5" height="122" rx="6" stroke="#367f59" stroke-width="1.5" width="114" x="260" y="24"></rect>
+                <text class="svg-sub" text-anchor="middle" x="317" y="40">:1650</text>
+                <text class="svg-step" text-anchor="middle" x="317" y="58">generate-</text>
+                <text class="svg-step" text-anchor="middle" x="317" y="73">route-types</text>
+                <text class="svg-sub" text-anchor="middle" x="317" y="91">.next/types/</text>
+                <text class="svg-sub" text-anchor="middle" x="317" y="105">routes.d.ts,</text>
+                <text class="svg-sub" text-anchor="middle" x="317" y="119">validator.ts …</text>
+
+                <rect fill="#f7f7f5" height="122" rx="6" stroke="#b8b8b1" stroke-width="1.5" width="114" x="386" y="24"></rect>
+                <text class="svg-sub" text-anchor="middle" x="443" y="40">:1786</text>
+                <text class="svg-step" text-anchor="middle" x="443" y="58">generate-routes-</text>
+                <text class="svg-step" text-anchor="middle" x="443" y="73">manifest</text>
+                <text class="svg-sub" text-anchor="middle" x="443" y="91">from page keys,</text>
+                <text class="svg-sub" text-anchor="middle" x="443" y="105">before compile;</text>
+                <text class="svg-sub" text-anchor="middle" x="443" y="119">written at :3076</text>
+
+                <rect fill="#ffffff" height="122" rx="6" stroke="#252525" stroke-width="1.5" width="114" x="512" y="24"></rect>
+                <text class="svg-sub" text-anchor="middle" x="569" y="40">:1889</text>
+                <text class="svg-step" text-anchor="middle" x="569" y="58">compile</text>
+                <text class="svg-sub" text-anchor="middle" x="569" y="76">one branch:</text>
+                <text class="svg-sub" text-anchor="middle" x="569" y="90">Turbopack, or</text>
+                <text class="svg-sub" text-anchor="middle" x="569" y="104">--webpack</text>
+                <text class="svg-sub" text-anchor="middle" x="569" y="118">(lanes below)</text>
+                <rect fill="#f7e3c8" height="15" rx="4" stroke="#d98226" width="60" x="539" y="127"></rect>
+                <text class="svg-num" text-anchor="middle" x="569" y="138">25.2 s</text>
+
+                <rect fill="#f7f7f5" height="122" rx="6" stroke="#b8b8b1" stroke-width="1.5" width="96" x="638" y="24"></rect>
+                <text class="svg-sub" text-anchor="middle" x="686" y="40">:2049</text>
+                <text class="svg-step" text-anchor="middle" x="686" y="58">TypeScript</text>
+                <text class="svg-sub" text-anchor="middle" x="686" y="76">span run-</text>
+                <text class="svg-sub" text-anchor="middle" x="686" y="90">typescript,</text>
+                <text class="svg-sub" text-anchor="middle" x="686" y="104">serial, after</text>
+                <text class="svg-sub" text-anchor="middle" x="686" y="118">compile</text>
+                <rect fill="#f7e3c8" height="15" rx="4" stroke="#d98226" width="60" x="656" y="127"></rect>
+                <text class="svg-num" text-anchor="middle" x="686" y="138">13.8 s</text>
+
+                <rect fill="#f7f7f5" height="122" rx="6" stroke="#b8b8b1" stroke-width="1.5" width="114" x="746" y="24"></rect>
+                <text class="svg-sub" text-anchor="middle" x="803" y="40">:2349</text>
+                <text class="svg-step" text-anchor="middle" x="803" y="58">static-check</text>
+                <text class="svg-sub" text-anchor="middle" x="803" y="76">isPageStatic</text>
+                <text class="svg-sub" text-anchor="middle" x="803" y="90">for each page,</text>
+                <text class="svg-sub" text-anchor="middle" x="803" y="104">in the worker</text>
+                <text class="svg-sub" text-anchor="middle" x="803" y="118">pool</text>
+
+                <rect fill="#dfede5" height="122" rx="6" stroke="#367f59" stroke-width="1.5" width="114" x="872" y="24"></rect>
+                <text class="svg-sub" text-anchor="middle" x="929" y="40">:3214</text>
+                <text class="svg-step" text-anchor="middle" x="929" y="58">static-</text>
+                <text class="svg-step" text-anchor="middle" x="929" y="73">generation</text>
+                <text class="svg-sub" text-anchor="middle" x="929" y="91">.html, .rsc and</text>
+                <text class="svg-sub" text-anchor="middle" x="929" y="105">segment files,</text>
+                <text class="svg-sub" text-anchor="middle" x="929" y="119">then manifests</text>
+                <rect fill="#f7e3c8" height="15" rx="4" stroke="#d98226" width="108" x="875" y="127"></rect>
+                <text class="svg-num" text-anchor="middle" x="929" y="138">21.7 s, 7 workers</text>
+
+                <rect fill="#dfede5" height="122" rx="6" stroke="#367f59" stroke-width="1.5" width="114" x="998" y="24"></rect>
+                <text class="svg-sub" text-anchor="middle" x="1055" y="40">:4839</text>
+                <text class="svg-step" text-anchor="middle" x="1055" y="58">write-route-</text>
+                <text class="svg-step" text-anchor="middle" x="1055" y="73">bundle-stats</text>
+                <text class="svg-sub" text-anchor="middle" x="1055" y="91">route-bundle-</text>
+                <text class="svg-sub" text-anchor="middle" x="1055" y="105">stats.json;</text>
+                <text class="svg-sub" text-anchor="middle" x="1055" y="119">Turbopack only</text>
+
+                <line marker-end="url(#fig-build-pipeline-arr-ink)" stroke="#252525" stroke-width="2.5" x1="8" x2="1106" y1="158" y2="158"></line>
+                <text class="svg-note" x="600" y="178">left to right is source order; widths are not durations</text>
+                <rect fill="#f7e3c8" height="16" rx="4" stroke="#d98226" width="164" x="944" y="166"></rect>
+                <text class="svg-num" text-anchor="middle" x="1026" y="178">whole build: 70.4 s wall</text>
+
+                <path d="M65 146 L65 186" fill="none" marker-end="url(#fig-build-pipeline-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+                <rect fill="#ece6f3" height="70" rx="6" stroke="#765b98" width="114" x="8" y="188"></rect>
+                <text class="svg-sub" text-anchor="middle" x="65" y="205">cache/ survives,</text>
+                <text class="svg-sub" text-anchor="middle" x="65" y="219">so the next</text>
+                <text class="svg-sub" text-anchor="middle" x="65" y="233">build starts</text>
+                <text class="svg-sub" text-anchor="middle" x="65" y="247">warm (§12)</text>
+
+                <path d="M191 188 L191 148" fill="none" marker-end="url(#fig-build-pipeline-arr-blue)" stroke="#3c6f97" stroke-width="1.25"></path>
+                <path d="M191 258 L191 298" fill="none" marker-end="url(#fig-build-pipeline-arr-blue)" stroke="#3c6f97" stroke-width="1.25"></path>
+                <rect fill="#e0ebf2" height="70" rx="6" stroke="#3c6f97" width="114" x="134" y="188"></rect>
+                <text class="svg-step" text-anchor="middle" x="191" y="206">app/ on disk</text>
+                <text class="svg-sub" text-anchor="middle" x="191" y="223">read twice:</text>
+                <text class="svg-sub" text-anchor="middle" x="191" y="237">JS ↑, then</text>
+                <text class="svg-sub" text-anchor="middle" x="191" y="251">Rust ↓</text>
+
+                <path d="M254 136 L254 212 L262 212" fill="none" stroke="#b8b8b1"></path>
+                <rect fill="#f3dfdc" height="70" rx="6" stroke="#ad4b43" width="258" x="262" y="188"></rect>
+                <text class="svg-sub" x="272" y="205">validateAppPaths(appPaths) :1635</text>
+                <text class="svg-sub" x="272" y="219">no span; erases names: [id] → [*]</text>
+                <text class="svg-sub" x="272" y="233">/blog/[id] + /blog/[slug] → error</text>
+                <text class="svg-sub" x="272" y="247">/[a]/x + /[b]/y → passes: the gap</text>
+
+                <line marker-end="url(#fig-build-pipeline-arr-ink)" stroke="#252525" stroke-width="2.5" x1="569" x2="569" y1="146" y2="268"></line>
+
+                <rect fill="none" height="262" rx="10" stroke="#b8b8b1" width="1112" x="4" y="270"></rect>
+                <text class="svg-lane" x="580" y="290">INSIDE compile (:1889-2022) · EXACTLY ONE LANE RUNS</text>
+
+                <text class="svg-lane" x="8" y="334">TURBOPACK</text>
+                <text class="svg-lane" x="8" y="349">(DEFAULT)</text>
+
+                <rect fill="#e0ebf2" height="80" rx="6" stroke="#3c6f97" stroke-width="1.5" width="231" x="134" y="300"></rect>
+                <text class="svg-sub" text-anchor="middle" x="249.5" y="316">app_structure.rs:331-343</text>
+                <text class="svg-step" text-anchor="middle" x="249.5" y="334">get_directory_tree</text>
+                <text class="svg-sub" text-anchor="middle" x="249.5" y="352">#[turbo_tasks::function], one</text>
+                <text class="svg-sub" text-anchor="middle" x="249.5" y="366">memoised task per directory</text>
+
+                <line marker-end="url(#fig-build-pipeline-arr-ink)" stroke="#252525" stroke-width="2.5" x1="365" x2="380" y1="340" y2="340"></line>
+
+                <rect fill="#f7f7f5" height="80" rx="6" stroke="#b8b8b1" stroke-width="1.5" width="231" x="381" y="300"></rect>
+                <text class="svg-sub" text-anchor="middle" x="496.5" y="316">app_page_loader_tree.rs:328-442</text>
+                <text class="svg-step" text-anchor="middle" x="496.5" y="334">walk_tree</text>
+                <text class="svg-sub" text-anchor="middle" x="496.5" y="352">writes each page's LoaderTree</text>
+                <text class="svg-sub" text-anchor="middle" x="496.5" y="366">as JS source text (§04)</text>
+
+                <line marker-end="url(#fig-build-pipeline-arr-ink)" stroke="#252525" stroke-width="2.5" x1="612" x2="627" y1="340" y2="340"></line>
+
+                <rect fill="#dfede5" height="80" rx="6" stroke="#367f59" stroke-width="1.5" width="231" x="628" y="300"></rect>
+                <text class="svg-sub" text-anchor="middle" x="743.5" y="316">next-api/src/app.rs:2066-2083</text>
+                <text class="svg-step" text-anchor="middle" x="743.5" y="334">one server file per page</text>
+                <text class="svg-sub" text-anchor="middle" x="743.5" y="352">server/app/sec0/a/[id]/page.js</text>
+                <text class="svg-sub" text-anchor="middle" x="743.5" y="366">plus page.js.nft.json</text>
+
+                <line marker-end="url(#fig-build-pipeline-arr-ink)" stroke="#252525" stroke-width="2.5" x1="859" x2="874" y1="340" y2="340"></line>
+
+                <rect fill="#dfede5" height="80" rx="6" stroke="#367f59" stroke-width="1.5" width="231" x="875" y="300"></rect>
+                <text class="svg-sub" text-anchor="middle" x="990.5" y="316">manifest-loader.ts:330-347</text>
+                <text class="svg-step" text-anchor="middle" x="990.5" y="334">per-page manifests merged</text>
+                <text class="svg-sub" text-anchor="middle" x="990.5" y="352">a 1-entry app-paths-manifest</text>
+                <text class="svg-sub" text-anchor="middle" x="990.5" y="366">per page → 405 keys at N=400</text>
+
+                <line stroke="#deded9" x1="8" x2="1110" y1="392" y2="392"></line>
+
+                <text class="svg-lane" x="8" y="438">WEBPACK</text>
+                <text class="svg-lane" x="8" y="453">(--webpack)</text>
+
+                <rect fill="#f7f7f5" height="80" rx="6" stroke="#b8b8b1" stroke-width="1.5" width="231" x="134" y="404"></rect>
+                <text class="svg-sub" text-anchor="middle" x="249.5" y="420">build/entries.ts:561-568, 629-639</text>
+                <text class="svg-step" text-anchor="middle" x="249.5" y="438">createEntrypoints</text>
+                <text class="svg-sub" text-anchor="middle" x="249.5" y="456">server entry app/sec0/a/[id]/page</text>
+                <text class="svg-sub" text-anchor="middle" x="249.5" y="470">no initial client entry (App)</text>
+
+                <line marker-end="url(#fig-build-pipeline-arr-ink)" stroke="#252525" stroke-width="2.5" x1="365" x2="380" y1="444" y2="444"></line>
+
+                <rect fill="#dfede5" height="80" rx="6" stroke="#367f59" stroke-width="1.5" width="231" x="381" y="404"></rect>
+                <text class="svg-sub" text-anchor="middle" x="496.5" y="420">webpack-build/index.ts:14-18</text>
+                <text class="svg-step" text-anchor="middle" x="496.5" y="438">1 · server compile</text>
+                <text class="svg-sub" text-anchor="middle" x="496.5" y="456">finds client components and</text>
+                <text class="svg-sub" text-anchor="middle" x="496.5" y="470">records injectedClientEntries</text>
+
+                <line marker-end="url(#fig-build-pipeline-arr-ink)" stroke="#252525" stroke-width="2.5" x1="612" x2="627" y1="444" y2="444"></line>
+
+                <rect fill="#dfede5" height="80" rx="6" stroke="#367f59" stroke-width="1.5" width="231" x="628" y="404"></rect>
+                <text class="svg-sub" text-anchor="middle" x="743.5" y="420">ORDERED_COMPILER_NAMES</text>
+                <text class="svg-step" text-anchor="middle" x="743.5" y="438">2 · edge-server compile</text>
+                <text class="svg-sub" text-anchor="middle" x="743.5" y="456">entries for edge-runtime pages</text>
+
+                <line marker-end="url(#fig-build-pipeline-arr-ink)" stroke="#252525" stroke-width="2.5" x1="859" x2="874" y1="444" y2="444"></line>
+
+                <rect fill="#dfede5" height="80" rx="6" stroke="#367f59" stroke-width="1.5" width="231" x="875" y="404"></rect>
+                <text class="svg-sub" text-anchor="middle" x="990.5" y="420">webpack-build/impl.ts:267-285</text>
+                <text class="svg-step" text-anchor="middle" x="990.5" y="438">3 · client compile</text>
+                <text class="svg-sub" text-anchor="middle" x="990.5" y="456">builds the injected entries,</text>
+                <text class="svg-sub" text-anchor="middle" x="990.5" y="470">page entries dependOn main-app</text>
+
+                <path d="M496.5 484 C496.5 512 990.5 512 990.5 488" fill="none" marker-end="url(#fig-build-pipeline-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+                <text class="svg-note" text-anchor="middle" x="743.5" y="524">injectedClientEntries: the server compile decides which client entries exist</text>
+
+                <text class="svg-lane" x="8" y="576">NEXT START</text>
+                <text class="svg-lane" x="8" y="591">(AT BOOT)</text>
+
+                <rect fill="#f7f7f5" height="64" rx="6" stroke="#b8b8b1" stroke-width="1.5" width="306" x="134" y="548"></rect>
+                <text class="svg-sub" text-anchor="middle" x="287" y="564">server/lib/router-utils/filesystem.ts:134</text>
+                <text class="svg-step" text-anchor="middle" x="287" y="582">setupFsCheck → getSortedRoutes</text>
+                <text class="svg-sub" text-anchor="middle" x="287" y="600">@deprecated trie orders dynamic routes</text>
+
+                <line marker-end="url(#fig-build-pipeline-arr-ink)" stroke="#252525" stroke-width="2.5" x1="440" x2="469" y1="580" y2="580"></line>
+
+                <rect fill="#f3dfdc" height="64" rx="6" stroke="#ad4b43" stroke-width="1.5" width="636" x="470" y="548"></rect>
+                <text class="svg-sub" text-anchor="middle" x="788" y="564">measured here: e8-sortconflict.mjs</text>
+                <text class="svg-step" text-anchor="middle" x="788" y="582">app/[a]/x + app/[b]/y: next build exits 0; next start throws in handleSlug</text>
+                <text class="svg-sub" text-anchor="middle" x="788" y="600">"✓ Ready", then 'a' !== 'b' and exit code 1 after 509–843 ms, before any request</text>
+
+                <text class="svg-note" x="8" y="636">Fill: blue reads app/ · green writes into .next/ · grey stays in memory or checks · white is the compiler branch · purple survives clean · red marks the slug-conflict gap.</text>
+                <text class="svg-note" x="8" y="652">Edges: thin blue = data · thick black = sequence · dashed purple = state carried forward. Orange = measured, 401-route Turbopack cold build, QUIET medians (n=3).</text>
+              </svg>

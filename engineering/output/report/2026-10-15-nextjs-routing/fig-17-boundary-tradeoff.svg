@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 516" role="img" aria-label="Grouped horizontal bars on one byte axis from 0 to 500,000, for route / of the E2 boundary app built with Turbopack, three variants per group. First-load JS from route-bundle-stats: leaf 464,114, layout-top 502,603 (plus 38,489), page-top 505,869 (plus 41,755); the framework floor on /bare is 463,816. HTML document: leaf 200,807 (gzip 23,707), layout-top 87,754 (gzip 11,299, minus 56 percent), page-top 180,671 (gzip 22,169). Inline self.__next_f flight data in that HTML, in characters: 136,601, 23,892 and 116,521. RSC payload: leaf 119,482 (gzip 14,831), layout-top 21,174 (gzip 2,742, minus 82 percent), page-top 101,548 (gzip 13,430)."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="516.0" fill="#ffffff"/>
+                <text class="svg-lane" x="4" y="18">E2 BOUNDARY APP · TURBOPACK · ROUTE / · ONE BUILD PER VARIANT</text>
+
+                <rect fill="#e0ebf2" height="12" rx="2" stroke="#3c6f97" width="14" x="4" y="30"></rect>
+                <text class="svg-sub" x="24" y="40">leaf · only two buttons are client</text>
+                <rect fill="#ece6f3" height="12" rx="2" stroke="#765b98" width="14" x="330" y="30"></rect>
+                <text class="svg-sub" x="350" y="40">layout-top · a client wrapper owns the chrome</text>
+                <rect fill="#f7e3c8" height="12" rx="2" stroke="#d98226" width="14" x="666" y="30"></rect>
+                <text class="svg-sub" x="686" y="40">page-top · leaf, plus each Article</text>
+
+                <line stroke="#deded9" x1="330" x2="330" y1="94" y2="162"></line>
+                <line stroke="#deded9" x1="460" x2="460" y1="94" y2="162"></line>
+                <line stroke="#deded9" x1="590" x2="590" y1="94" y2="162"></line>
+                <line stroke="#deded9" x1="720" x2="720" y1="94" y2="162"></line>
+                <line stroke="#deded9" x1="850" x2="850" y1="94" y2="162"></line>
+                <line stroke="#b8b8b1" x1="200" x2="200" y1="94" y2="162"></line>
+                <line stroke="#deded9" x1="330" x2="330" y1="208" y2="276"></line>
+                <line stroke="#deded9" x1="460" x2="460" y1="208" y2="276"></line>
+                <line stroke="#deded9" x1="590" x2="590" y1="208" y2="276"></line>
+                <line stroke="#deded9" x1="720" x2="720" y1="208" y2="276"></line>
+                <line stroke="#deded9" x1="850" x2="850" y1="208" y2="276"></line>
+                <line stroke="#b8b8b1" x1="200" x2="200" y1="208" y2="276"></line>
+                <line stroke="#deded9" x1="330" x2="330" y1="302" y2="370"></line>
+                <line stroke="#deded9" x1="460" x2="460" y1="302" y2="370"></line>
+                <line stroke="#deded9" x1="590" x2="590" y1="302" y2="370"></line>
+                <line stroke="#deded9" x1="720" x2="720" y1="302" y2="370"></line>
+                <line stroke="#deded9" x1="850" x2="850" y1="302" y2="370"></line>
+                <line stroke="#b8b8b1" x1="200" x2="200" y1="302" y2="370"></line>
+                <line stroke="#deded9" x1="330" x2="330" y1="396" y2="464"></line>
+                <line stroke="#deded9" x1="460" x2="460" y1="396" y2="464"></line>
+                <line stroke="#deded9" x1="590" x2="590" y1="396" y2="464"></line>
+                <line stroke="#deded9" x1="720" x2="720" y1="396" y2="464"></line>
+                <line stroke="#deded9" x1="850" x2="850" y1="396" y2="464"></line>
+                <line stroke="#b8b8b1" x1="200" x2="200" y1="396" y2="464"></line>
+                <text class="svg-sub" text-anchor="middle" x="200" y="64">0</text>
+                <text class="svg-sub" text-anchor="middle" x="330" y="64">100,000</text>
+                <text class="svg-sub" text-anchor="middle" x="460" y="64">200,000</text>
+                <text class="svg-sub" text-anchor="middle" x="590" y="64">300,000</text>
+                <text class="svg-sub" text-anchor="middle" x="720" y="64">400,000</text>
+                <text class="svg-sub" text-anchor="middle" x="850" y="64">500,000 B</text>
+
+                
+                <text class="svg-lane" x="4" y="90">FIRST-LOAD JS · ROUTE-BUNDLE-STATS · RAW B</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="110">leaf</text>
+                <rect fill="#e0ebf2" height="16" stroke="#3c6f97" width="603.4" x="200" y="98"></rect>
+                <text class="svg-sub" style="fill:#252525" x="811" y="110">464,114</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="132">layout-top</text>
+                <rect fill="#ece6f3" height="16" stroke="#765b98" width="653.4" x="200" y="120"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="end" x="795" y="132">+38,489 B · +6,303 gzip</text>
+                <text class="svg-sub" style="fill:#252525" x="861" y="132">502,603</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="154">page-top</text>
+                <rect fill="#f7e3c8" height="16" stroke="#d98226" width="657.6" x="200" y="142"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="end" x="795" y="154">+41,755 B · +1,705 gzip</text>
+                <text class="svg-sub" style="fill:#252525" x="865" y="154">505,869</text>
+                <line stroke="#252525" stroke-dasharray="3 3" stroke-width="1.2" x1="803" x2="803" y1="94" y2="164"></line>
+                <text class="svg-note" text-anchor="end" x="797" y="178">dashed: framework floor, 463,816 B on /bare (the layout alone, leaf)</text>
+
+                
+                <text class="svg-lane" x="4" y="204">HTML DOCUMENT · RAW B</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="224">leaf</text>
+                <rect fill="#e0ebf2" height="16" stroke="#3c6f97" width="261.1" x="200" y="212"></rect>
+                <text class="svg-sub" style="fill:#252525" x="469" y="224">200,807 · gzip 23,707</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="246">layout-top</text>
+                <rect fill="#ece6f3" height="16" stroke="#765b98" width="114.1" x="200" y="234"></rect>
+                <text class="svg-sub" style="fill:#252525" x="322" y="246">87,754 · gzip 11,299 · −56%</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="268">page-top</text>
+                <rect fill="#f7e3c8" height="16" stroke="#d98226" width="234.9" x="200" y="256"></rect>
+                <text class="svg-sub" style="fill:#252525" x="443" y="268">180,671 · gzip 22,169</text>
+                <rect fill="#ffffff" height="36" width="232" x="632" y="218"></rect>
+                <text class="svg-note" x="640" y="232">Leaf: 400 nav rows rendered on the server,</text>
+                <text class="svg-note" x="640" y="248">sent as markup and again as Flight data.</text>
+
+                
+                <text class="svg-lane" x="4" y="298">INLINE FLIGHT IN THAT HTML · CHARACTERS</text>
+                <text class="svg-sub" x="306" y="298">self.__next_f.push(…)</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="318">leaf</text>
+                <rect fill="#e0ebf2" height="16" stroke="#3c6f97" width="177.6" x="200" y="306"></rect>
+                <text class="svg-sub" style="fill:#252525" x="385" y="318">136,601</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="340">layout-top</text>
+                <rect fill="#ece6f3" height="16" stroke="#765b98" width="31.1" x="200" y="328"></rect>
+                <text class="svg-sub" style="fill:#252525" x="239" y="340">23,892</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="362">page-top</text>
+                <rect fill="#f7e3c8" height="16" stroke="#d98226" width="151.5" x="200" y="350"></rect>
+                <text class="svg-sub" style="fill:#252525" x="359" y="362">116,521</text>
+
+                
+                <text class="svg-lane" x="4" y="392">RSC PAYLOAD FOR / · RAW B</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="412">leaf</text>
+                <rect fill="#e0ebf2" height="16" stroke="#3c6f97" width="155.3" x="200" y="400"></rect>
+                <text class="svg-sub" style="fill:#252525" x="363" y="412">119,482 · gzip 14,831</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="434">layout-top</text>
+                <rect fill="#ece6f3" height="16" stroke="#765b98" width="27.5" x="200" y="422"></rect>
+                <text class="svg-sub" style="fill:#252525" x="235" y="434">21,174 · gzip 2,742 · −82%</text>
+                <text class="svg-sub" text-anchor="end" x="190" y="456">page-top</text>
+                <rect fill="#f7e3c8" height="16" stroke="#d98226" width="132.0" x="200" y="444"></rect>
+                <text class="svg-sub" style="fill:#252525" x="340" y="456">101,548 · gzip 13,430</text>
+                <rect fill="#ffffff" height="36" width="232" x="632" y="406"></rect>
+                <text class="svg-note" x="640" y="420">Layout-top: the rows leave the payload;</text>
+                <text class="svg-note" x="640" y="436">their data ships in the +38,489-B chunk.</text>
+
+                <line stroke="#deded9" x1="4" x2="996" y1="474" y2="474"></line>
+                <text class="svg-note" x="4" y="490">One byte axis for all four groups; inline Flight is counted in characters. Sizes are deterministic.</text>
+                <text class="svg-note" x="4" y="506">Summing &lt;script src&gt; on leaf / gives 576,708 B, of which 112,594 B is a noModule polyfill modern browsers skip.</text>
+              </svg>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" role="img" aria-label="Two tables side by side. The route table is keyed by path and its rows map slash pricing and slash blog slash x to document ids, owned by editors and invalidated on publish. The block registry is keyed by tag and its rows map hero dot v two and cta dot v three to components, owned by engineers and invalidated on deploy. An arrow runs from the route table's document to the block registry's lookup."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="300.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="tt-arr" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                </defs>
+                <text class="svg-lane" x="24" y="34">ROUTE TABLE · KEY = PATH</text>
+                <rect fill="#e0ebf2" height="160" rx="10" stroke="#3c6f97" stroke-width="2" width="400" x="20" y="50"></rect>
+                <text class="svg-sub" x="40" y="82">"/pricing"        → doc_8fa1</text>
+                <text class="svg-sub" x="40" y="112">"/blog/registries" → doc_21c9</text>
+                <text class="svg-sub" x="40" y="142">"/old-pricing"     → 301 "/pricing"</text>
+                <text class="svg-sub" x="40" y="180">owner: editors · invalidated on publish</text>
+
+                <text class="svg-lane" x="580" y="34">BLOCK REGISTRY · KEY = TAG</text>
+                <rect fill="#f7e3c8" height="160" rx="10" stroke="#d98226" stroke-width="2.2" width="400" x="576" y="50"></rect>
+                <text class="svg-sub" x="596" y="82">"hero.v2"     → Hero</text>
+                <text class="svg-sub" x="596" y="112">"cta.v3"      → Cta</text>
+                <text class="svg-sub" x="596" y="142">"chart.v1"    → () =&gt; import(…)</text>
+                <text class="svg-sub" x="596" y="180">owner: engineers · invalidated on deploy</text>
+
+                <line marker-end="url(#tt-arr)" stroke="#252525" stroke-width="2.4" x1="424" x2="570" y1="112" y2="112"></line>
+                <text class="svg-sub" x="436" y="102">document.blocks[]</text>
+
+                <text class="svg-note" x="20" y="252">Merging them produces the registry that everyone edits and nobody owns: a table where adding a marketing page and adding a</text>
+                <text class="svg-note" x="20" y="274">component are the same operation, which means publishing a page requires a deploy and deploying requires a content review.</text>
+              </svg>
