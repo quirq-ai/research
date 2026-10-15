@@ -5,8 +5,8 @@ how those videos are built, what the best-received prompts have in common, and w
 method to turn one piece of research into a video.
 
 Requested by **suraj** on 14 October 2026; researched and built with Claude Opus 5.5 the same day. Counts marked
-*[measured]* come from the gallery's public pages, fetched on 14 October 2026 with the two scripts in
-[`2026-10-15-prompt-motion/`](2026-10-15-prompt-motion/) (`scrape.py` fetches, `stats.py` counts). Figures marked
+*[measured]* come from the gallery's public pages, fetched on 14 October 2026 with two scripts:
+[`scrape.py`](2026-10-15-prompt-motion/scrape.py) fetches and [`stats.py`](2026-10-15-prompt-motion/stats.py) counts. Figures marked
 *[from the blog]* are the gallery's own analyses, dated 10 October 2026. The gallery keeps growing, so a later run
 returns more entries.
 
