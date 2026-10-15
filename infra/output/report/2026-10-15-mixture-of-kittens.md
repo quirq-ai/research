@@ -2,7 +2,7 @@
 
 An XO Research illustrated explainer on Mixture-of-Kittens, Cursor's open-source MoE training megakernel for NVIDIA NVL72 racks.
 
-By **Suraj Sharma**, XO Labs · Systems Research Notes. First published 5 August 2026 as *Mixture of Kittens* in [sharmasuraj0123/writings](2026-10-15-mixture-of-kittens.md).
+By **Suraj Sharma**, XO Labs · Systems Research Notes. First published 5 August 2026 as *Mixture of Kittens* in [sharmasuraj0123/writings](https://github.com/sharmasuraj0123/writings/tree/a5a356d418d45b63d34624b12ec3d7809167b309/research/mixture-of-kittens).
 
 Source: [`research/mixture-of-kittens/index.html`](https://github.com/sharmasuraj0123/writings/blob/a5a356d418d45b63d34624b12ec3d7809167b309/research/mixture-of-kittens/index.html) in [sharmasuraj0123/writings](https://github.com/sharmasuraj0123/writings) at `a5a356d`. Brought into this repo on 2026-10-15 with its text, tables and figures unchanged; only the format moved from HTML to Markdown.
 
