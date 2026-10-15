@@ -4,7 +4,7 @@ How quirq gets in front of the people who build and run AI agents, starting with
 
 | | |
 |---|---|
-| Status | Published |
+| Status | Researching |
 | Owner | yash |
 | Started | 2026-10-06 |
 | Last updated | 2026-10-15 |
@@ -48,6 +48,11 @@ and the [threads report](output/report/2026-10-15-reddit-agent-builder-threads.m
   report, §3.2. Verified: 2026-10-13.
 - **Cost questions came mostly from subscription users hitting their limits,
   not from API bills.** Source: threads report, §3.4. Verified: 2026-10-13.
+- **Across 14 agent-operations threads from 12 to 15 October, the questions
+  with little data in the replies were bring-your-own-key pricing, how often
+  tool calls fail, and how to stop a multi-agent task as a whole.** Source:
+  [agent operations report](output/report/2026-10-15-reddit-agent-ops-threads.md).
+  Verified: 2026-10-15.
 
 ### Open questions
 
@@ -69,3 +74,4 @@ and the [threads report](output/report/2026-10-15-reddit-agent-builder-threads.m
 |---|---|---|---|
 | report | [2026-10-14-reddit-presence.md](output/report/2026-10-14-reddit-presence.md) | 2026-10-14 | Starting quirq on Reddit |
 | report | [2026-10-15-reddit-agent-builder-threads.md](output/report/2026-10-15-reddit-agent-builder-threads.md) | 2026-10-15 | Reddit threads on agent cost, model choice, handoffs and evals, 10 to 13 Oct 2026 |
+| report | [2026-10-15-reddit-agent-ops-threads.md](output/report/2026-10-15-reddit-agent-ops-threads.md) | 2026-10-15 | 14 agent-operations threads across 8 subreddits, 12 to 15 Oct 2026 |
