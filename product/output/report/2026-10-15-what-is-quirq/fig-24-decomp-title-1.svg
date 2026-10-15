@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 250" role="img" aria-label="Waterfall decomposition of the QER change into within-class, mix and interaction components"><style>.tc-svg-label { fill: #777772; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 9px; letter-spacing: 0.05em; }
+.tc-svg-value { fill: #252525; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 11px; font-weight: 700; }
+.tc-svg-axis { stroke: #deded9; stroke-width: 1; }
+.tc-svg-grid { stroke: #deded9; stroke-dasharray: 2 4; stroke-width: 1; }
+line { opacity: 0.3; }</style><rect x="0.0" y="0.0" width="640.0" height="250.0" fill="#ffffff"/>
+                    <line class="tc-svg-axis" x1="40" x2="620" y1="210" y2="210"></line>
+                    <line class="tc-svg-grid" x1="40" x2="620" y1="40" y2="40"></line>
+                    <rect fill="#b8b8b1" height="91" width="86" x="52" y="119"></rect>
+                    <text class="tc-svg-value" x="66" y="112">3.14×</text>
+                    <text class="tc-svg-label" x="70" y="228">April QER</text>
+
+                    <rect fill="#3c6f97" height="52" opacity="0.85" width="86" x="176" y="67"></rect>
+                    <line class="tc-svg-grid" x1="138" x2="176" y1="119" y2="119"></line>
+                    <text class="tc-svg-value" fill="#3c6f97" x="188" y="60">+1.78</text>
+                    <text class="tc-svg-label" x="182" y="228">within-class</text>
+                    <text class="tc-svg-label" x="196" y="240">73.5%</text>
+
+                    <rect fill="#765b98" height="17" opacity="0.85" width="86" x="300" y="50"></rect>
+                    <line class="tc-svg-grid" x1="262" x2="300" y1="67" y2="67"></line>
+                    <text class="tc-svg-value" fill="#765b98" x="312" y="43">+0.60</text>
+                    <text class="tc-svg-label" x="322" y="228">mix shift</text>
+                    <text class="tc-svg-label" x="320" y="240">24.6%</text>
+
+                    <rect fill="#d98226" height="2" width="86" x="424" y="48"></rect>
+                    <line class="tc-svg-grid" x1="386" x2="424" y1="50" y2="50"></line>
+                    <text class="tc-svg-value" fill="#d98226" x="436" y="40">+0.05</text>
+                    <text class="tc-svg-label" x="432" y="228">interaction</text>
+                    <text class="tc-svg-label" x="448" y="240">1.9%</text>
+
+                    <rect fill="#252525" height="162" opacity="0.82" width="60" x="548" y="48"></rect>
+                    <line class="tc-svg-grid" x1="510" x2="548" y1="48" y2="48"></line>
+                    <text class="tc-svg-value" x="554" y="40">5.56×</text>
+                    <text class="tc-svg-label" x="550" y="228">June QER</text>
+                  </svg>

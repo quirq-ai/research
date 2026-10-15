@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 215" role="img" aria-label="Settlement shape phi of V for divisible, atomic and deadband rules"><style>.tc-svg-label { fill: #777772; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 9px; letter-spacing: 0.05em; }
+.tc-svg-value { fill: #252525; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 11px; font-weight: 700; }
+.tc-svg-axis { stroke: #deded9; stroke-width: 1; }
+.tc-svg-grid { stroke: #deded9; stroke-dasharray: 2 4; stroke-width: 1; }
+line { opacity: 0.3; }</style><rect x="0.0" y="0.0" width="330.0" height="215.0" fill="#ffffff"/>
+                        <line class="tc-svg-axis" x1="44" x2="316" y1="180" y2="180"></line>
+                        <line class="tc-svg-axis" x1="44" x2="44" y1="180" y2="26"></line>
+                        <line class="tc-svg-grid" x1="44" x2="316" y1="26" y2="26"></line>
+                        <line class="tc-svg-grid" x1="261.6" x2="261.6" y1="26" y2="180"></line>
+                        <path d="M44 180 L316 26" fill="none" stroke="#3c6f97" stroke-width="2"></path>
+                        <path d="M44 180 L261.6 180 L261.6 26 L316 26" fill="none" stroke="#d98226" stroke-width="2"></path>
+                        <path d="M44 180 L152 180 L288 26 L316 26" fill="none" stroke="#765b98" stroke-dasharray="5 4" stroke-width="2"></path>
+                        <text class="tc-svg-label" x="44" y="199">V = 0</text>
+                        <text class="tc-svg-label" x="243" y="199">τ</text>
+                        <text class="tc-svg-label" x="294" y="199">1.0</text>
+                        <text class="tc-svg-label" x="10" y="30">φ=1</text>
+                        <text class="tc-svg-label" x="10" y="184">φ=0</text>
+                        <text class="tc-svg-value" fill="#3c6f97" x="128" y="86">divisible</text>
+                        <text class="tc-svg-value" fill="#d98226" x="200" y="152">atomic</text>
+                        <text class="tc-svg-value" fill="#765b98" x="176" y="46">deadband</text>
+                      </svg>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-label="Five external measurements of agentic AI arranged from controlled benchmark to production attribution, showing success percentages falling from roughly three quarters to five percent"><style>.tc-svg-label { fill: #777772; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 9px; letter-spacing: 0.05em; }
+.tc-svg-value { fill: #252525; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 11px; font-weight: 700; }
+.tc-svg-axis { stroke: #deded9; stroke-width: 1; }
+line { opacity: 0.3; }</style><rect x="0.0" y="0.0" width="640.0" height="320.0" fill="#ffffff"/>
+                    <line class="tc-svg-axis" x1="230" x2="230" y1="20" y2="290"></line>
+
+                    <text class="tc-svg-label" x="0" y="46">static benchmark</text>
+                    <text class="tc-svg-label" x="0" y="60">SWE-bench Verified</text>
+                    <rect fill="#3c6f97" height="16" opacity="0.85" rx="2" width="293" x="230" y="34"></rect>
+                    <text class="tc-svg-value" fill="#3c6f97" x="530" y="47">≈¾ resolved</text>
+
+                    <text class="tc-svg-label" x="0" y="104">blind expert grading</text>
+                    <text class="tc-svg-label" x="0" y="118">GDPval deliverables</text>
+                    <rect fill="#3c6f97" height="16" opacity="0.7" rx="2" width="187" x="230" y="92"></rect>
+                    <text class="tc-svg-value" fill="#3c6f97" x="424" y="105">≈48% wins or ties</text>
+
+                    <text class="tc-svg-label" x="0" y="162">simulated workplace</text>
+                    <text class="tc-svg-label" x="0" y="176">TheAgentCompany</text>
+                    <rect fill="#d98226" height="16" opacity="0.85" rx="2" width="117" x="230" y="150"></rect>
+                    <text class="tc-svg-value" fill="#d98226" x="354" y="163">≈30% completed</text>
+
+                    <text class="tc-svg-label" x="0" y="220">real freelance projects</text>
+                    <text class="tc-svg-label" x="0" y="234">Remote Labor Index</text>
+                    <rect fill="#ad4b43" height="16" rx="2" width="10" x="230" y="208"></rect>
+                    <text class="tc-svg-value" fill="#ad4b43" x="248" y="221">&lt;3% automated</text>
+
+                    <text class="tc-svg-label" x="0" y="278">P&amp;L attribution</text>
+                    <text class="tc-svg-label" x="0" y="292">enterprise pilots</text>
+                    <rect fill="#ad4b43" height="16" rx="2" width="20" x="230" y="266"></rect>
+                    <text class="tc-svg-value" fill="#ad4b43" x="258" y="279">≈5% measurable impact</text>
+                  </svg>

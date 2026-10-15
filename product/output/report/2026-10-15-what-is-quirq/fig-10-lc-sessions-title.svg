@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img" aria-label="One work item spans four separate sessions across several days and two different runtimes. Each session ends and loses its context, but the work item's record persists across all of them and is what gets counted."><style>.wf-state { fill: #252525; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; font-size: 15px; font-weight: 650; }
+.wf-state.out { fill: #367f59; }
+.wf-state.warn { fill: #94500d; }
+.wf-state.bad { fill: #ad4b43; }
+.wf-state-sub { fill: #777772; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 10px; }
+.wf-state-sub.out { fill: #367f59; }
+.wf-state-sub.warn { fill: #94500d; }
+.wf-state-sub.bad { fill: #ad4b43; }
+.wf-edge { fill: #777772; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 10px; }
+.wf-edge.green { fill: #367f59; }
+.wf-edge.warn { fill: #94500d; }
+.wf-edge.bad { fill: #ad4b43; }
+.wf-note { fill: #777772; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 9.5px; font-weight: 700; letter-spacing: 0.09em; }
+.wf-note.green { fill: #367f59; }</style><rect x="0.0" y="0.0" width="900.0" height="300.0" fill="#ffffff"/>
+                  <text class="wf-note" x="16" y="20">ONE WORK ITEM · OPENED MON 09:04 · COUNTED THU 14:20</text>
+                  <rect fill="#f7f7f5" height="46" rx="5" stroke="#b8b8b1" width="868" x="16" y="30"></rect>
+                  <text class="wf-state" text-anchor="middle" x="450" y="52">Handle ticket #4821</text>
+                  <text class="wf-state-sub" text-anchor="middle" x="450" y="68">one owner · one finish line · one value · all three set once, at the start</text>
+
+                  <text class="wf-note" x="16" y="104">SESSIONS THAT TOUCHED IT</text>
+
+                  <rect fill="#ffffff" height="64" rx="5" stroke="#b8b8b1" width="186" x="16" y="114"></rect>
+                  <text class="wf-note" text-anchor="middle" x="109" y="134">SESSION 1</text>
+                  <text class="wf-state" text-anchor="middle" x="109" y="153">Handed back</text>
+                  <text class="wf-state-sub" text-anchor="middle" x="109" y="169">Mon · Claude Code</text>
+
+                  <rect fill="#ffffff" height="64" rx="5" stroke="#b8b8b1" width="186" x="234" y="114"></rect>
+                  <text class="wf-note" text-anchor="middle" x="327" y="134">SESSION 2</text>
+                  <text class="wf-state warn" text-anchor="middle" x="327" y="153">Re-worked</text>
+                  <text class="wf-state-sub warn" text-anchor="middle" x="327" y="169">Mon · a fresh window</text>
+
+                  <rect fill="#ffffff" height="64" rx="5" stroke="#b8b8b1" width="186" x="452" y="114"></rect>
+                  <text class="wf-note" text-anchor="middle" x="545" y="134">SESSION 3</text>
+                  <text class="wf-state" text-anchor="middle" x="545" y="153">Finished</text>
+                  <text class="wf-state-sub" text-anchor="middle" x="545" y="169">Wed · Codex</text>
+
+                  <rect fill="#dfede5" height="64" rx="5" stroke="#367f59" stroke-width="1.4" width="214" x="670" y="114"></rect>
+                  <text class="wf-note green" text-anchor="middle" x="777" y="134">SESSION 4</text>
+                  <text class="wf-state out" text-anchor="middle" x="777" y="153">Checked, counted</text>
+                  <text class="wf-state-sub out" text-anchor="middle" x="777" y="169">Thu · a person inspects</text>
+
+                  <g fill="none" stroke="#ad4b43" stroke-dasharray="3 3" stroke-width="1.2">
+                    <path d="M218 108 L218 184"></path>
+                    <path d="M436 108 L436 184"></path>
+                    <path d="M654 108 L654 184"></path>
+                  </g>
+                  <text class="wf-edge bad" text-anchor="middle" x="218" y="198">session ends</text>
+                  <text class="wf-edge bad" text-anchor="middle" x="436" y="198">session ends</text>
+                  <text class="wf-edge bad" text-anchor="middle" x="654" y="198">session ends</text>
+                  <text class="wf-note" x="16" y="220">EACH GAP THROWS AWAY EVERYTHING THE SESSION KNEW</text>
+
+                  <text class="wf-note green" x="16" y="238">WHAT CROSSES THE GAPS — AND IS WHAT GETS COUNTED</text>
+                  <rect fill="#dfede5" height="46" rx="5" stroke="#367f59" stroke-width="1.4" width="868" x="16" y="248"></rect>
+                  <text class="wf-state out" text-anchor="middle" x="450" y="270">The record of the item</text>
+                  <text class="wf-state-sub out" text-anchor="middle" x="450" y="286">owner · definition of done · value · before-state · every attempt and what each one cost</text>
+                </svg>

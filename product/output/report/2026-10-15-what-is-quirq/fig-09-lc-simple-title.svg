@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" role="img" aria-label="A ticket moves from opened, to being worked, to handed back, to checked, to counted. If checks fail it is sent back and worked again. If nobody finishes it, it is dropped."><style>.wf-state { fill: #252525; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; font-size: 15px; font-weight: 650; }
+.wf-state.out { fill: #367f59; }
+.wf-state.warn { fill: #94500d; }
+.wf-state.bad { fill: #ad4b43; }
+.wf-state-sub { fill: #777772; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 10px; }
+.wf-state-sub.out { fill: #367f59; }
+.wf-state-sub.warn { fill: #94500d; }
+.wf-state-sub.bad { fill: #ad4b43; }
+.wf-edge { fill: #777772; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 10px; }
+.wf-edge.green { fill: #367f59; }
+.wf-edge.warn { fill: #94500d; }
+.wf-edge.bad { fill: #ad4b43; }
+.wf-note { fill: #777772; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 9.5px; font-weight: 700; letter-spacing: 0.09em; }
+.wf-note.green { fill: #367f59; }</style><rect x="0.0" y="0.0" width="900.0" height="340.0" fill="#ffffff"/>
+                            <defs>
+                              <marker id="lc2Arrow" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#b8b8b1"></path>
+                              </marker>
+                            </defs>
+
+                            <text class="wf-note" text-anchor="middle" x="426" y="60">MONEY GOES IN ACROSS ALL OF THESE</text>
+                            <path d="M186 72 L186 80 L666 80 L666 72" fill="none" stroke="#b8b8b1" stroke-dasharray="4 3"></path>
+                            <text class="wf-note green" text-anchor="middle" x="776" y="60">ONLY HERE DOES IT COUNT</text>
+                            <path d="M706 72 L706 80 L846 80 L846 72" fill="none" stroke="#367f59" stroke-dasharray="4 3"></path>
+
+                            <g fill="none" marker-end="url(#lc2Arrow)" stroke="#b8b8b1" stroke-width="1.4">
+                              <path d="M156 119 L182 119"></path>
+                              <path d="M326 119 L352 119"></path>
+                              <path d="M496 119 L522 119"></path>
+                              <path d="M666 119 L702 119"></path>
+                              <path d="M596 148 L596 212 L426 212 L426 226"></path>
+                              <path d="M356 255 L286 255 L286 152"></path>
+                              <path d="M206 148 L206 212 L86 212 L86 226"></path>
+                            </g>
+
+                            <rect fill="#f7f7f5" height="58" rx="5" stroke="#b8b8b1" width="140" x="16" y="90"></rect>
+                            <text class="wf-state" text-anchor="middle" x="86" y="114">Opened</text>
+                            <text class="wf-state-sub" text-anchor="middle" x="86" y="133">owner, finish, value</text>
+
+                            <rect fill="#f7f7f5" height="58" rx="5" stroke="#b8b8b1" width="140" x="186" y="90"></rect>
+                            <text class="wf-state" text-anchor="middle" x="256" y="114">Being worked</text>
+                            <text class="wf-state-sub" text-anchor="middle" x="256" y="133">spending starts</text>
+
+                            <rect fill="#f7f7f5" height="58" rx="5" stroke="#b8b8b1" width="140" x="356" y="90"></rect>
+                            <text class="wf-state" text-anchor="middle" x="426" y="114">Handed back</text>
+                            <text class="wf-state-sub" text-anchor="middle" x="426" y="133">a claim, not a fact</text>
+
+                            <rect fill="#f7f7f5" height="58" rx="5" stroke="#b8b8b1" width="140" x="526" y="90"></rect>
+                            <text class="wf-state" text-anchor="middle" x="596" y="114">Checked</text>
+                            <text class="wf-state-sub" text-anchor="middle" x="596" y="133">the ticket is inspected</text>
+
+                            <rect fill="#dfede5" height="58" rx="5" stroke="#367f59" stroke-width="1.4" width="140" x="706" y="90"></rect>
+                            <text class="wf-state out" text-anchor="middle" x="776" y="114">Counted</text>
+                            <text class="wf-state-sub out" text-anchor="middle" x="776" y="133">the work is credited</text>
+
+                            <rect fill="#f7e3c8" height="58" rx="5" stroke="#d98226" stroke-width="1.4" width="140" x="356" y="226"></rect>
+                            <text class="wf-state warn" text-anchor="middle" x="426" y="250">Sent back</text>
+                            <text class="wf-state-sub warn" text-anchor="middle" x="426" y="269">round again</text>
+
+                            <rect fill="#f3dfdc" height="58" rx="5" stroke="#ad4b43" stroke-width="1.4" width="140" x="16" y="226"></rect>
+                            <text class="wf-state bad" text-anchor="middle" x="86" y="250">Dropped</text>
+                            <text class="wf-state-sub bad" text-anchor="middle" x="86" y="269">nothing to credit</text>
+
+                            <text class="wf-edge" text-anchor="middle" x="169" y="172">start</text>
+                            <text class="wf-edge" text-anchor="middle" x="339" y="172">says it is finished</text>
+                            <text class="wf-edge" text-anchor="middle" x="509" y="172">inspect the ticket</text>
+                            <text class="wf-edge green" text-anchor="middle" x="686" y="172">passes</text>
+                            <text class="wf-edge bad" x="214" y="198">nobody finishes it</text>
+                            <text class="wf-edge warn" x="604" y="198">fails</text>
+                            <text class="wf-edge warn" text-anchor="middle" x="300" y="306">pay again — the credit does not grow</text>
+
+                            <text class="wf-note" x="16" y="336">BEFORE OPENED IT IS A REQUEST, NOT A WORK ITEM · NO OWNER, NO FINISH LINE, NO VALUE, NOTHING TO COUNT</text>
+                          </svg>
