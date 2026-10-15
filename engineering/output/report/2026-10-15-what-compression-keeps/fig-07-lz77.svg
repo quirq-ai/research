@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 391" role="img" aria-label="Two strings parsed by a greedy LZ77 coder with DEFLATE's limits (32 KiB window, matches of 3 to 258 bytes), drawn as literal runs and matches, with an arc from each match back to the earlier copy it points at. A: 92 bytes from the introduction of Shannon's 1948 paper, 'reproducing at one point either exactly or approximately a message selected at another point'. Literal run 'reproducing at one point either exactly or ap'; match 'pro', 43 back, 3 bytes; literals 'ximate'; match 'ly ', 17 back, 3 bytes; literals 'a message selected'; match ' at ', 64 back, 4 bytes; literals 'ano'; match 'ther ', 55 back, 5 bytes; match 'point', 68 back, 5 bytes. Totals: 72 literal bytes and 5 matches covering 20 bytes; zlib -9 writes it as 70 bytes of raw DEFLATE and zstd -19 as 77. B: 89 bytes, one attachment record of this site's posts.json, minified, {&quot;label&quot;:&quot;Measured results (_numbers.json)&quot;,&quot;href&quot;:&quot;what-the-parser-hears/_numbers.json&quot;}. Matches: '&quot;:&quot;', 42 back, 3 bytes; 'ars', 8 back, 3 bytes; '_numbers.json', 46 back, 13 bytes. Totals: 70 literal bytes and 3 matches covering 19 bytes; raw DEFLATE 77 bytes, zstd -19 82 bytes."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="391.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-lz77-blu" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                </defs>
+                <text class="svg-lane" x="0" y="16">A · SHANNON 1948 · 92 BYTES</text>
+                <rect fill="#f7f7f5" height="21" rx="3" stroke="#b8b8b1" width="520" x="17" y="116"></rect>
+                <rect fill="#e0ebf2" height="21" rx="3" stroke="#3c6f97" width="32.8" x="539" y="116"></rect>
+                <rect fill="#f7f7f5" height="21" rx="3" stroke="#b8b8b1" width="67.6" x="573.8" y="116"></rect>
+                <rect fill="#e0ebf2" height="21" rx="3" stroke="#3c6f97" width="32.8" x="643.4" y="116"></rect>
+                <rect fill="#f7f7f5" height="21" rx="3" stroke="#b8b8b1" width="206.8" x="678.2" y="116"></rect>
+                <rect fill="#e0ebf2" height="21" rx="3" stroke="#3c6f97" width="44.4" x="887" y="116"></rect>
+                <rect fill="#f7f7f5" height="21" rx="3" stroke="#b8b8b1" width="32.8" x="933.4" y="116"></rect>
+                <rect fill="#e0ebf2" height="21" rx="3" stroke="#3c6f97" width="56" x="968.2" y="116"></rect>
+                <rect fill="#e0ebf2" height="21" rx="3" stroke="#3c6f97" width="56" x="1026.2" y="116"></rect>
+                <line stroke="#3c6f97" stroke-width="2.4" x1="41.2" x2="72" y1="112" y2="112"></line>
+                <path d="M555.4 115 C555.4 49.6 56.6 44.6 56.6 110" fill="none" marker-end="url(#fig-lz77-blu)" stroke="#3c6f97" stroke-width="1.3"></path>
+                <text class="svg-sub" text-anchor="middle" x="555.4" y="153">(43,3)</text>
+                <line stroke="#3c6f97" stroke-width="2.4" x1="447.2" x2="478" y1="112" y2="112"></line>
+                <path d="M659.8 115 C659.8 79.5 462.6 74.5 462.6 110" fill="none" marker-end="url(#fig-lz77-blu)" stroke="#3c6f97" stroke-width="1.3"></path>
+                <text class="svg-sub" text-anchor="middle" x="659.8" y="153">(17,3)</text>
+                <line stroke="#3c6f97" stroke-width="2.4" x1="145.6" x2="188" y1="112" y2="112"></line>
+                <path d="M909.2 115 C909.2 25.4 166.8 20.4 166.8 110" fill="none" marker-end="url(#fig-lz77-blu)" stroke="#3c6f97" stroke-width="1.3"></path>
+                <text class="svg-sub" text-anchor="middle" x="909.2" y="153">(64,4)</text>
+                <line stroke="#3c6f97" stroke-width="2.4" x1="331.2" x2="385.2" y1="112" y2="112"></line>
+                <path d="M996.2 115 C996.2 35.8 358.2 30.8 358.2 110" fill="none" marker-end="url(#fig-lz77-blu)" stroke="#3c6f97" stroke-width="1.3"></path>
+                <text class="svg-sub" text-anchor="middle" x="996.2" y="153">(55,5)</text>
+                <line stroke="#3c6f97" stroke-width="2.4" x1="238.4" x2="292.4" y1="112" y2="112"></line>
+                <path d="M1054.2 115 C1054.2 20.8 265.4 15.8 265.4 110" fill="none" marker-end="url(#fig-lz77-blu)" stroke="#3c6f97" stroke-width="1.3"></path>
+                <text class="svg-sub" text-anchor="middle" x="1054.2" y="153">(68,5)</text>
+                <text class="svg-sub" style="font-size: 14px; fill: #252525" text-anchor="middle" x="21.8 33.4 45 56.6 68.2 79.8 91.4 103 114.6 126.2 137.8 149.4 161 172.6 184.2 195.8 207.4 219 230.6 242.2 253.8 265.4 277 288.6 300.2 311.8 323.4 335 346.6 358.2 369.8 381.4 393 404.6 416.2 427.8 439.4 451 462.6 474.2 485.8 497.4 509 520.6 532.2 543.8 555.4 567 578.6 590.2 601.8 613.4 625 636.6 648.2 659.8 671.4 683 694.6 706.2 717.8 729.4 741 752.6 764.2 775.8 787.4 799 810.6 822.2 833.8 845.4 857 868.6 880.2 891.8 903.4 915 926.6 938.2 949.8 961.4 973 984.6 996.2 1007.8 1019.4 1031 1042.6 1054.2 1065.8 1077.4" y="131">reproducing·at·one·point·either·exactly·or·approximately·a·message·selected·at·another·point</text>
+                <text class="svg-note" x="16" y="175">72 literal bytes, 5 matches (20 bytes) · raw DEFLATE (zlib -9) 70 B · zstd -19 77 B</text>
+                <text class="svg-lane" x="0" y="209">B · A POSTS.JSON ATTACHMENT, MINIFIED · 89 BYTES</text>
+                <rect fill="#f7f7f5" height="21" rx="3" stroke="#b8b8b1" width="566.4" x="17" y="290"></rect>
+                <rect fill="#e0ebf2" height="21" rx="3" stroke="#3c6f97" width="32.8" x="585.4" y="290"></rect>
+                <rect fill="#f7f7f5" height="21" rx="3" stroke="#b8b8b1" width="206.8" x="620.2" y="290"></rect>
+                <rect fill="#e0ebf2" height="21" rx="3" stroke="#3c6f97" width="32.8" x="829" y="290"></rect>
+                <rect fill="#f7f7f5" height="21" rx="3" stroke="#b8b8b1" width="9.6" x="863.8" y="290"></rect>
+                <rect fill="#e0ebf2" height="21" rx="3" stroke="#3c6f97" width="148.8" x="875.4" y="290"></rect>
+                <rect fill="#f7f7f5" height="21" rx="3" stroke="#b8b8b1" width="21.2" x="1026.2" y="290"></rect>
+                <line stroke="#3c6f97" stroke-width="2.4" x1="99.2" x2="130" y1="286" y2="286"></line>
+                <path d="M601.8 289 C601.8 224.7 114.6 219.7 114.6 284" fill="none" marker-end="url(#fig-lz77-blu)" stroke="#3c6f97" stroke-width="1.3"></path>
+                <text class="svg-sub" text-anchor="middle" x="601.8" y="327">(42,3)</text>
+                <line stroke="#3c6f97" stroke-width="2.4" x1="737.2" x2="768" y1="286" y2="286"></line>
+                <path d="M845.4 289 C845.4 263.8 752.6 258.8 752.6 284" fill="none" marker-end="url(#fig-lz77-blu)" stroke="#3c6f97" stroke-width="1.3"></path>
+                <text class="svg-sub" text-anchor="middle" x="845.4" y="327">(8,3)</text>
+                <line stroke="#3c6f97" stroke-width="2.4" x1="342.8" x2="489.6" y1="286" y2="286"></line>
+                <path d="M949.8 289 C949.8 220.1 416.2 215.1 416.2 284" fill="none" marker-end="url(#fig-lz77-blu)" stroke="#3c6f97" stroke-width="1.3"></path>
+                <text class="svg-sub" text-anchor="middle" x="949.8" y="327">(46,13)</text>
+                <text class="svg-sub" style="font-size: 14px; fill: #252525" text-anchor="middle" x="21.8 33.4 45 56.6 68.2 79.8 91.4 103 114.6 126.2 137.8 149.4 161 172.6 184.2 195.8 207.4 219 230.6 242.2 253.8 265.4 277 288.6 300.2 311.8 323.4 335 346.6 358.2 369.8 381.4 393 404.6 416.2 427.8 439.4 451 462.6 474.2 485.8 497.4 509 520.6 532.2 543.8 555.4 567 578.6 590.2 601.8 613.4 625 636.6 648.2 659.8 671.4 683 694.6 706.2 717.8 729.4 741 752.6 764.2 775.8 787.4 799 810.6 822.2 833.8 845.4 857 868.6 880.2 891.8 903.4 915 926.6 938.2 949.8 961.4 973 984.6 996.2 1007.8 1019.4 1031 1042.6" y="305">{"label":"Measured·results·(_numbers.json)","href":"what-the-parser-hears/_numbers.json"}</text>
+                <text class="svg-note" x="16" y="349">70 literal bytes, 3 matches (19 bytes) · raw DEFLATE (zlib -9) 77 B · zstd -19 82 B</text>
+                <line stroke="#deded9" x1="0" x2="1120" y1="363" y2="363"></line>
+                <rect fill="#f7f7f5" height="14" rx="3" stroke="#b8b8b1" width="22" x="0" y="369"></rect>
+                <text class="svg-sub" x="30" y="380">literal</text>
+                <rect fill="#e0ebf2" height="14" rx="3" stroke="#3c6f97" width="22" x="110" y="369"></rect>
+                <text class="svg-sub" x="140" y="380">match, labelled (distance, length)</text>
+                <path d="M418 380 C418 367 458 367 458 376" fill="none" marker-end="url(#fig-lz77-blu)" stroke="#3c6f97" stroke-width="1.3"></path>
+                <line stroke="#3c6f97" stroke-width="2.4" x1="450" x2="466" y1="378" y2="378"></line>
+                <text class="svg-sub" x="476" y="380">points back to the earlier copy</text>
+                <text class="svg-sub" text-anchor="end" x="1104" y="380">· = space</text>
+              </svg>

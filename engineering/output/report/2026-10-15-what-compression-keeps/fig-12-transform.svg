@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 560" role="img" aria-label="A transform coder in four steps on one synthetic 8 by 8 block, then decoded. Step 1, the block: pixel values 100 + 6x + 4y, from 100 at top left to 170 at bottom right, level-shifted by −128. Step 2, the forward DCT of ITU-T T.81: 64 coefficients, 9 of them nonzero to one decimal, all in row 0 or column 0: 56.0, −109.3, −11.4, −3.4 and −0.9 along the first row, −72.9, −7.6, −2.3 and −0.6 down the first column. Step 3, quantisation: each coefficient is divided by its entry in T.81 Table K.1 and rounded; 5 survive (4, −10 and −1 in the first row, −6 and −1 in the first column) and the four high-frequency ones, −3.4, −0.9, −2.3 and −0.6, become 0, so 59 of 64 values are zero. Worked examples: 56.0 ÷ 16 = 3.5 rounds to 4, a tie rounded away from zero; −109.3 ÷ 11 ≈ −9.94 rounds to −10, decoded as −110; −3.4 ÷ 40 ≈ −0.085 rounds to 0 and is gone. Step 4, entropy coding: in zig-zag order the values are 4, −10, −6, 0, 0, 0, −1, 0, 0, −1, then 54 zeros at indices 10 to 63, passed to a Huffman or arithmetic coder. Step 5, decoding: multiply by the table, inverse DCT, add 128; the reconstructed block differs from the original by at most 3 levels, a PSNR of 44.26 dB. Green cells are nonzero after quantisation, red cells are nonzero coefficients rounded to zero, white cells are zero; thin blue arrows carry the data from step to step."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="560.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-transform-blu" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                </defs>
+
+                <text class="svg-num" x="0" y="16">1</text>
+                <text class="svg-step" x="14" y="16">Block</text>
+                <text class="svg-sub" x="0" y="34">pixel values, 100 + 6x + 4y</text>
+                <text class="svg-num" x="330" y="16">2</text>
+                <text class="svg-step" x="344" y="16">Transform</text>
+                <text class="svg-sub" x="330" y="34">64 DCT coefficients (T.81 A.3.3)</text>
+                <text class="svg-num" x="788" y="16">3</text>
+                <text class="svg-step" x="802" y="16">Quantise</text>
+                <text class="svg-sub" x="788" y="34">÷ Table K.1, rounded</text>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="0" y="48"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="34" y="48"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="68" y="48"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="102" y="48"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="136" y="48"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="170" y="48"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="204" y="48"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="238" y="48"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="0" y="70"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="34" y="70"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="68" y="70"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="102" y="70"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="136" y="70"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="170" y="70"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="204" y="70"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="238" y="70"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="0" y="92"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="34" y="92"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="68" y="92"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="102" y="92"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="136" y="92"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="170" y="92"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="204" y="92"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="238" y="92"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="0" y="114"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="34" y="114"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="68" y="114"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="102" y="114"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="136" y="114"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="170" y="114"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="204" y="114"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="238" y="114"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="0" y="136"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="34" y="136"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="68" y="136"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="102" y="136"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="136" y="136"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="170" y="136"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="204" y="136"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="238" y="136"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="0" y="158"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="34" y="158"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="68" y="158"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="102" y="158"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="136" y="158"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="170" y="158"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="204" y="158"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="238" y="158"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="0" y="180"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="34" y="180"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="68" y="180"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="102" y="180"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="136" y="180"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="170" y="180"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="204" y="180"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="238" y="180"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="0" y="202"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="34" y="202"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="68" y="202"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="102" y="202"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="136" y="202"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="170" y="202"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="204" y="202"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="238" y="202"></rect>
+                <text class="svg-sub" text-anchor="middle" x="17" y="63">100</text>
+                <text class="svg-sub" text-anchor="middle" x="51" y="63">106</text>
+                <text class="svg-sub" text-anchor="middle" x="85" y="63">112</text>
+                <text class="svg-sub" text-anchor="middle" x="119" y="63">118</text>
+                <text class="svg-sub" text-anchor="middle" x="153" y="63">124</text>
+                <text class="svg-sub" text-anchor="middle" x="187" y="63">130</text>
+                <text class="svg-sub" text-anchor="middle" x="221" y="63">136</text>
+                <text class="svg-sub" text-anchor="middle" x="255" y="63">142</text>
+                <text class="svg-sub" text-anchor="middle" x="17" y="85">104</text>
+                <text class="svg-sub" text-anchor="middle" x="51" y="85">110</text>
+                <text class="svg-sub" text-anchor="middle" x="85" y="85">116</text>
+                <text class="svg-sub" text-anchor="middle" x="119" y="85">122</text>
+                <text class="svg-sub" text-anchor="middle" x="153" y="85">128</text>
+                <text class="svg-sub" text-anchor="middle" x="187" y="85">134</text>
+                <text class="svg-sub" text-anchor="middle" x="221" y="85">140</text>
+                <text class="svg-sub" text-anchor="middle" x="255" y="85">146</text>
+                <text class="svg-sub" text-anchor="middle" x="17" y="107">108</text>
+                <text class="svg-sub" text-anchor="middle" x="51" y="107">114</text>
+                <text class="svg-sub" text-anchor="middle" x="85" y="107">120</text>
+                <text class="svg-sub" text-anchor="middle" x="119" y="107">126</text>
+                <text class="svg-sub" text-anchor="middle" x="153" y="107">132</text>
+                <text class="svg-sub" text-anchor="middle" x="187" y="107">138</text>
+                <text class="svg-sub" text-anchor="middle" x="221" y="107">144</text>
+                <text class="svg-sub" text-anchor="middle" x="255" y="107">150</text>
+                <text class="svg-sub" text-anchor="middle" x="17" y="129">112</text>
+                <text class="svg-sub" text-anchor="middle" x="51" y="129">118</text>
+                <text class="svg-sub" text-anchor="middle" x="85" y="129">124</text>
+                <text class="svg-sub" text-anchor="middle" x="119" y="129">130</text>
+                <text class="svg-sub" text-anchor="middle" x="153" y="129">136</text>
+                <text class="svg-sub" text-anchor="middle" x="187" y="129">142</text>
+                <text class="svg-sub" text-anchor="middle" x="221" y="129">148</text>
+                <text class="svg-sub" text-anchor="middle" x="255" y="129">154</text>
+                <text class="svg-sub" text-anchor="middle" x="17" y="151">116</text>
+                <text class="svg-sub" text-anchor="middle" x="51" y="151">122</text>
+                <text class="svg-sub" text-anchor="middle" x="85" y="151">128</text>
+                <text class="svg-sub" text-anchor="middle" x="119" y="151">134</text>
+                <text class="svg-sub" text-anchor="middle" x="153" y="151">140</text>
+                <text class="svg-sub" text-anchor="middle" x="187" y="151">146</text>
+                <text class="svg-sub" text-anchor="middle" x="221" y="151">152</text>
+                <text class="svg-sub" text-anchor="middle" x="255" y="151">158</text>
+                <text class="svg-sub" text-anchor="middle" x="17" y="173">120</text>
+                <text class="svg-sub" text-anchor="middle" x="51" y="173">126</text>
+                <text class="svg-sub" text-anchor="middle" x="85" y="173">132</text>
+                <text class="svg-sub" text-anchor="middle" x="119" y="173">138</text>
+                <text class="svg-sub" text-anchor="middle" x="153" y="173">144</text>
+                <text class="svg-sub" text-anchor="middle" x="187" y="173">150</text>
+                <text class="svg-sub" text-anchor="middle" x="221" y="173">156</text>
+                <text class="svg-sub" text-anchor="middle" x="255" y="173">162</text>
+                <text class="svg-sub" text-anchor="middle" x="17" y="195">124</text>
+                <text class="svg-sub" text-anchor="middle" x="51" y="195">130</text>
+                <text class="svg-sub" text-anchor="middle" x="85" y="195">136</text>
+                <text class="svg-sub" text-anchor="middle" x="119" y="195">142</text>
+                <text class="svg-sub" text-anchor="middle" x="153" y="195">148</text>
+                <text class="svg-sub" text-anchor="middle" x="187" y="195">154</text>
+                <text class="svg-sub" text-anchor="middle" x="221" y="195">160</text>
+                <text class="svg-sub" text-anchor="middle" x="255" y="195">166</text>
+                <text class="svg-sub" text-anchor="middle" x="17" y="217">128</text>
+                <text class="svg-sub" text-anchor="middle" x="51" y="217">134</text>
+                <text class="svg-sub" text-anchor="middle" x="85" y="217">140</text>
+                <text class="svg-sub" text-anchor="middle" x="119" y="217">146</text>
+                <text class="svg-sub" text-anchor="middle" x="153" y="217">152</text>
+                <text class="svg-sub" text-anchor="middle" x="187" y="217">158</text>
+                <text class="svg-sub" text-anchor="middle" x="221" y="217">164</text>
+                <text class="svg-sub" text-anchor="middle" x="255" y="217">170</text>
+                <rect fill="#dfede5" height="22" stroke="#deded9" width="50" x="330" y="48"></rect>
+                <rect fill="#dfede5" height="22" stroke="#deded9" width="50" x="380" y="48"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="430" y="48"></rect>
+                <rect fill="#dfede5" height="22" stroke="#deded9" width="50" x="480" y="48"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="530" y="48"></rect>
+                <rect fill="#f3dfdc" height="22" stroke="#deded9" width="50" x="580" y="48"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="630" y="48"></rect>
+                <rect fill="#f3dfdc" height="22" stroke="#deded9" width="50" x="680" y="48"></rect>
+                <rect fill="#dfede5" height="22" stroke="#deded9" width="50" x="330" y="70"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="380" y="70"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="430" y="70"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="480" y="70"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="530" y="70"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="580" y="70"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="630" y="70"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="680" y="70"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="330" y="92"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="380" y="92"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="430" y="92"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="480" y="92"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="530" y="92"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="580" y="92"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="630" y="92"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="680" y="92"></rect>
+                <rect fill="#dfede5" height="22" stroke="#deded9" width="50" x="330" y="114"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="380" y="114"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="430" y="114"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="480" y="114"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="530" y="114"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="580" y="114"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="630" y="114"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="680" y="114"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="330" y="136"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="380" y="136"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="430" y="136"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="480" y="136"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="530" y="136"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="580" y="136"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="630" y="136"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="680" y="136"></rect>
+                <rect fill="#f3dfdc" height="22" stroke="#deded9" width="50" x="330" y="158"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="380" y="158"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="430" y="158"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="480" y="158"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="530" y="158"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="580" y="158"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="630" y="158"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="680" y="158"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="330" y="180"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="380" y="180"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="430" y="180"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="480" y="180"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="530" y="180"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="580" y="180"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="630" y="180"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="680" y="180"></rect>
+                <rect fill="#f3dfdc" height="22" stroke="#deded9" width="50" x="330" y="202"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="380" y="202"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="430" y="202"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="480" y="202"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="530" y="202"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="580" y="202"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="630" y="202"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="50" x="680" y="202"></rect>
+                <text class="svg-sub" text-anchor="middle" x="355" y="63">56.0</text>
+                <text class="svg-sub" text-anchor="middle" x="405" y="63">−109.3</text>
+                <text class="svg-sub" text-anchor="middle" x="455" y="63">0</text>
+                <text class="svg-sub" text-anchor="middle" x="505" y="63">−11.4</text>
+                <text class="svg-sub" text-anchor="middle" x="555" y="63">0</text>
+                <text class="svg-sub" text-anchor="middle" x="605" y="63">−3.4</text>
+                <text class="svg-sub" text-anchor="middle" x="655" y="63">0</text>
+                <text class="svg-sub" text-anchor="middle" x="705" y="63">−0.9</text>
+                <text class="svg-sub" text-anchor="middle" x="355" y="85">−72.9</text>
+                <text class="svg-sub" text-anchor="middle" x="405" y="85">0</text>
+                <text class="svg-sub" text-anchor="middle" x="455" y="85">0</text>
+                <text class="svg-sub" text-anchor="middle" x="505" y="85">0</text>
+                <text class="svg-sub" text-anchor="middle" x="555" y="85">0</text>
+                <text class="svg-sub" text-anchor="middle" x="605" y="85">0</text>
+                <text class="svg-sub" text-anchor="middle" x="655" y="85">0</text>
+                <text class="svg-sub" text-anchor="middle" x="705" y="85">0</text>
+                <text class="svg-sub" text-anchor="middle" x="355" y="107">0</text>
+                <text class="svg-sub" text-anchor="middle" x="405" y="107">0</text>
+                <text class="svg-sub" text-anchor="middle" x="455" y="107">0</text>
+                <text class="svg-sub" text-anchor="middle" x="505" y="107">0</text>
+                <text class="svg-sub" text-anchor="middle" x="555" y="107">0</text>
+                <text class="svg-sub" text-anchor="middle" x="605" y="107">0</text>
+                <text class="svg-sub" text-anchor="middle" x="655" y="107">0</text>
+                <text class="svg-sub" text-anchor="middle" x="705" y="107">0</text>
+                <text class="svg-sub" text-anchor="middle" x="355" y="129">−7.6</text>
+                <text class="svg-sub" text-anchor="middle" x="405" y="129">0</text>
+                <text class="svg-sub" text-anchor="middle" x="455" y="129">0</text>
+                <text class="svg-sub" text-anchor="middle" x="505" y="129">0</text>
+                <text class="svg-sub" text-anchor="middle" x="555" y="129">0</text>
+                <text class="svg-sub" text-anchor="middle" x="605" y="129">0</text>
+                <text class="svg-sub" text-anchor="middle" x="655" y="129">0</text>
+                <text class="svg-sub" text-anchor="middle" x="705" y="129">0</text>
+                <text class="svg-sub" text-anchor="middle" x="355" y="151">0</text>
+                <text class="svg-sub" text-anchor="middle" x="405" y="151">0</text>
+                <text class="svg-sub" text-anchor="middle" x="455" y="151">0</text>
+                <text class="svg-sub" text-anchor="middle" x="505" y="151">0</text>
+                <text class="svg-sub" text-anchor="middle" x="555" y="151">0</text>
+                <text class="svg-sub" text-anchor="middle" x="605" y="151">0</text>
+                <text class="svg-sub" text-anchor="middle" x="655" y="151">0</text>
+                <text class="svg-sub" text-anchor="middle" x="705" y="151">0</text>
+                <text class="svg-sub" text-anchor="middle" x="355" y="173">−2.3</text>
+                <text class="svg-sub" text-anchor="middle" x="405" y="173">0</text>
+                <text class="svg-sub" text-anchor="middle" x="455" y="173">0</text>
+                <text class="svg-sub" text-anchor="middle" x="505" y="173">0</text>
+                <text class="svg-sub" text-anchor="middle" x="555" y="173">0</text>
+                <text class="svg-sub" text-anchor="middle" x="605" y="173">0</text>
+                <text class="svg-sub" text-anchor="middle" x="655" y="173">0</text>
+                <text class="svg-sub" text-anchor="middle" x="705" y="173">0</text>
+                <text class="svg-sub" text-anchor="middle" x="355" y="195">0</text>
+                <text class="svg-sub" text-anchor="middle" x="405" y="195">0</text>
+                <text class="svg-sub" text-anchor="middle" x="455" y="195">0</text>
+                <text class="svg-sub" text-anchor="middle" x="505" y="195">0</text>
+                <text class="svg-sub" text-anchor="middle" x="555" y="195">0</text>
+                <text class="svg-sub" text-anchor="middle" x="605" y="195">0</text>
+                <text class="svg-sub" text-anchor="middle" x="655" y="195">0</text>
+                <text class="svg-sub" text-anchor="middle" x="705" y="195">0</text>
+                <text class="svg-sub" text-anchor="middle" x="355" y="217">−0.6</text>
+                <text class="svg-sub" text-anchor="middle" x="405" y="217">0</text>
+                <text class="svg-sub" text-anchor="middle" x="455" y="217">0</text>
+                <text class="svg-sub" text-anchor="middle" x="505" y="217">0</text>
+                <text class="svg-sub" text-anchor="middle" x="555" y="217">0</text>
+                <text class="svg-sub" text-anchor="middle" x="605" y="217">0</text>
+                <text class="svg-sub" text-anchor="middle" x="655" y="217">0</text>
+                <text class="svg-sub" text-anchor="middle" x="705" y="217">0</text>
+                <rect fill="#dfede5" height="22" stroke="#deded9" width="34" x="788" y="48"></rect>
+                <rect fill="#dfede5" height="22" stroke="#deded9" width="34" x="822" y="48"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="856" y="48"></rect>
+                <rect fill="#dfede5" height="22" stroke="#deded9" width="34" x="890" y="48"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="924" y="48"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="958" y="48"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="992" y="48"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="1026" y="48"></rect>
+                <rect fill="#dfede5" height="22" stroke="#deded9" width="34" x="788" y="70"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="822" y="70"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="856" y="70"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="890" y="70"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="924" y="70"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="958" y="70"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="992" y="70"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="1026" y="70"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="788" y="92"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="822" y="92"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="856" y="92"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="890" y="92"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="924" y="92"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="958" y="92"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="992" y="92"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="1026" y="92"></rect>
+                <rect fill="#dfede5" height="22" stroke="#deded9" width="34" x="788" y="114"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="822" y="114"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="856" y="114"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="890" y="114"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="924" y="114"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="958" y="114"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="992" y="114"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="1026" y="114"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="788" y="136"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="822" y="136"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="856" y="136"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="890" y="136"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="924" y="136"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="958" y="136"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="992" y="136"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="1026" y="136"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="788" y="158"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="822" y="158"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="856" y="158"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="890" y="158"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="924" y="158"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="958" y="158"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="992" y="158"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="1026" y="158"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="788" y="180"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="822" y="180"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="856" y="180"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="890" y="180"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="924" y="180"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="958" y="180"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="992" y="180"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="1026" y="180"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="788" y="202"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="822" y="202"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="856" y="202"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="890" y="202"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="924" y="202"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="958" y="202"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="992" y="202"></rect>
+                <rect fill="#ffffff" height="22" stroke="#deded9" width="34" x="1026" y="202"></rect>
+                <text class="svg-sub" text-anchor="middle" x="805" y="63">4</text>
+                <text class="svg-sub" text-anchor="middle" x="839" y="63">−10</text>
+                <text class="svg-sub" text-anchor="middle" x="873" y="63">0</text>
+                <text class="svg-sub" text-anchor="middle" x="907" y="63">−1</text>
+                <text class="svg-sub" text-anchor="middle" x="941" y="63">0</text>
+                <text class="svg-sub" text-anchor="middle" x="975" y="63">0</text>
+                <text class="svg-sub" text-anchor="middle" x="1009" y="63">0</text>
+                <text class="svg-sub" text-anchor="middle" x="1043" y="63">0</text>
+                <text class="svg-sub" text-anchor="middle" x="805" y="85">−6</text>
+                <text class="svg-sub" text-anchor="middle" x="839" y="85">0</text>
+                <text class="svg-sub" text-anchor="middle" x="873" y="85">0</text>
+                <text class="svg-sub" text-anchor="middle" x="907" y="85">0</text>
+                <text class="svg-sub" text-anchor="middle" x="941" y="85">0</text>
+                <text class="svg-sub" text-anchor="middle" x="975" y="85">0</text>
+                <text class="svg-sub" text-anchor="middle" x="1009" y="85">0</text>
+                <text class="svg-sub" text-anchor="middle" x="1043" y="85">0</text>
+                <text class="svg-sub" text-anchor="middle" x="805" y="107">0</text>
+                <text class="svg-sub" text-anchor="middle" x="839" y="107">0</text>
+                <text class="svg-sub" text-anchor="middle" x="873" y="107">0</text>
+                <text class="svg-sub" text-anchor="middle" x="907" y="107">0</text>
+                <text class="svg-sub" text-anchor="middle" x="941" y="107">0</text>
+                <text class="svg-sub" text-anchor="middle" x="975" y="107">0</text>
+                <text class="svg-sub" text-anchor="middle" x="1009" y="107">0</text>
+                <text class="svg-sub" text-anchor="middle" x="1043" y="107">0</text>
+                <text class="svg-sub" text-anchor="middle" x="805" y="129">−1</text>
+                <text class="svg-sub" text-anchor="middle" x="839" y="129">0</text>
+                <text class="svg-sub" text-anchor="middle" x="873" y="129">0</text>
+                <text class="svg-sub" text-anchor="middle" x="907" y="129">0</text>
+                <text class="svg-sub" text-anchor="middle" x="941" y="129">0</text>
+                <text class="svg-sub" text-anchor="middle" x="975" y="129">0</text>
+                <text class="svg-sub" text-anchor="middle" x="1009" y="129">0</text>
+                <text class="svg-sub" text-anchor="middle" x="1043" y="129">0</text>
+                <text class="svg-sub" text-anchor="middle" x="805" y="151">0</text>
+                <text class="svg-sub" text-anchor="middle" x="839" y="151">0</text>
+                <text class="svg-sub" text-anchor="middle" x="873" y="151">0</text>
+                <text class="svg-sub" text-anchor="middle" x="907" y="151">0</text>
+                <text class="svg-sub" text-anchor="middle" x="941" y="151">0</text>
+                <text class="svg-sub" text-anchor="middle" x="975" y="151">0</text>
+                <text class="svg-sub" text-anchor="middle" x="1009" y="151">0</text>
+                <text class="svg-sub" text-anchor="middle" x="1043" y="151">0</text>
+                <text class="svg-sub" text-anchor="middle" x="805" y="173">0</text>
+                <text class="svg-sub" text-anchor="middle" x="839" y="173">0</text>
+                <text class="svg-sub" text-anchor="middle" x="873" y="173">0</text>
+                <text class="svg-sub" text-anchor="middle" x="907" y="173">0</text>
+                <text class="svg-sub" text-anchor="middle" x="941" y="173">0</text>
+                <text class="svg-sub" text-anchor="middle" x="975" y="173">0</text>
+                <text class="svg-sub" text-anchor="middle" x="1009" y="173">0</text>
+                <text class="svg-sub" text-anchor="middle" x="1043" y="173">0</text>
+                <text class="svg-sub" text-anchor="middle" x="805" y="195">0</text>
+                <text class="svg-sub" text-anchor="middle" x="839" y="195">0</text>
+                <text class="svg-sub" text-anchor="middle" x="873" y="195">0</text>
+                <text class="svg-sub" text-anchor="middle" x="907" y="195">0</text>
+                <text class="svg-sub" text-anchor="middle" x="941" y="195">0</text>
+                <text class="svg-sub" text-anchor="middle" x="975" y="195">0</text>
+                <text class="svg-sub" text-anchor="middle" x="1009" y="195">0</text>
+                <text class="svg-sub" text-anchor="middle" x="1043" y="195">0</text>
+                <text class="svg-sub" text-anchor="middle" x="805" y="217">0</text>
+                <text class="svg-sub" text-anchor="middle" x="839" y="217">0</text>
+                <text class="svg-sub" text-anchor="middle" x="873" y="217">0</text>
+                <text class="svg-sub" text-anchor="middle" x="907" y="217">0</text>
+                <text class="svg-sub" text-anchor="middle" x="941" y="217">0</text>
+                <text class="svg-sub" text-anchor="middle" x="975" y="217">0</text>
+                <text class="svg-sub" text-anchor="middle" x="1009" y="217">0</text>
+                <text class="svg-sub" text-anchor="middle" x="1043" y="217">0</text>
+                <text class="svg-note" x="0" y="242">level-shifted by −128 before the DCT</text>
+                <text class="svg-note" x="330" y="242">9 nonzero, all in row 0 or column 0</text>
+                <text class="svg-note" x="788" y="242">59 of 64 zero; 5 kept</text>
+                <line marker-end="url(#fig-transform-blu)" stroke="#3c6f97" stroke-width="1.4" x1="278" x2="324" y1="136" y2="136"></line>
+                <text class="svg-sub" text-anchor="middle" x="300" y="126">FDCT</text>
+                <line marker-end="url(#fig-transform-blu)" stroke="#3c6f97" stroke-width="1.4" x1="736" x2="782" y1="136" y2="136"></line>
+                <text class="svg-sub" text-anchor="middle" x="758" y="126">÷ Q</text>
+                <text class="svg-sub" text-anchor="middle" x="758" y="154">round</text>
+                <path d="M1000 224 V268 H8 V332 H18" fill="none" marker-end="url(#fig-transform-blu)" stroke="#3c6f97" stroke-width="1.4"></path>
+                <text class="svg-num" x="24" y="292">4</text>
+                <text class="svg-step" x="38" y="292">Entropy code</text>
+                <text class="svg-sub" x="24" y="310">zig-zag order (T.81 Figure A.6)</text>
+                <rect fill="#dfede5" height="24" stroke="#deded9" width="32" x="24" y="320"></rect>
+                <text class="svg-sub" text-anchor="middle" x="40" y="336">4</text>
+                <rect fill="#dfede5" height="24" stroke="#deded9" width="32" x="56" y="320"></rect>
+                <text class="svg-sub" text-anchor="middle" x="72" y="336">−10</text>
+                <rect fill="#dfede5" height="24" stroke="#deded9" width="32" x="88" y="320"></rect>
+                <text class="svg-sub" text-anchor="middle" x="104" y="336">−6</text>
+                <rect fill="#ffffff" height="24" stroke="#deded9" width="32" x="120" y="320"></rect>
+                <text class="svg-sub" text-anchor="middle" x="136" y="336">0</text>
+                <rect fill="#ffffff" height="24" stroke="#deded9" width="32" x="152" y="320"></rect>
+                <text class="svg-sub" text-anchor="middle" x="168" y="336">0</text>
+                <rect fill="#ffffff" height="24" stroke="#deded9" width="32" x="184" y="320"></rect>
+                <text class="svg-sub" text-anchor="middle" x="200" y="336">0</text>
+                <rect fill="#dfede5" height="24" stroke="#deded9" width="32" x="216" y="320"></rect>
+                <text class="svg-sub" text-anchor="middle" x="232" y="336">−1</text>
+                <rect fill="#ffffff" height="24" stroke="#deded9" width="32" x="248" y="320"></rect>
+                <text class="svg-sub" text-anchor="middle" x="264" y="336">0</text>
+                <rect fill="#ffffff" height="24" stroke="#deded9" width="32" x="280" y="320"></rect>
+                <text class="svg-sub" text-anchor="middle" x="296" y="336">0</text>
+                <rect fill="#dfede5" height="24" stroke="#deded9" width="32" x="312" y="320"></rect>
+                <text class="svg-sub" text-anchor="middle" x="328" y="336">−1</text>
+                <rect fill="#ffffff" height="24" stroke="#deded9" width="216" x="344" y="320"></rect>
+                <text class="svg-sub" text-anchor="middle" x="452" y="336">54 more zeros</text>
+                <text class="svg-sub" x="24" y="360">index 0</text>
+                <text class="svg-sub" text-anchor="middle" x="328" y="360">9</text>
+                <text class="svg-sub" text-anchor="middle" x="452" y="360">10–63</text>
+                <line marker-end="url(#fig-transform-blu)" stroke="#3c6f97" stroke-width="1.4" x1="566" x2="604" y1="332" y2="332"></line>
+                <rect fill="#f7f7f5" height="38" rx="6" stroke="#b8b8b1" width="160" x="612" y="314"></rect>
+                <text class="svg-sub" x="624" y="329">Huffman or</text>
+                <text class="svg-sub" x="624" y="344">arithmetic coder</text>
+                <line marker-end="url(#fig-transform-blu)" stroke="#3c6f97" stroke-width="1.4" x1="776" x2="832" y1="332" y2="332"></line>
+                <text class="svg-sub" text-anchor="middle" x="804" y="322">decode</text>
+                <text class="svg-num" x="840" y="292">5</text>
+                <text class="svg-step" x="854" y="292">Decoded</text>
+                <text class="svg-sub" x="840" y="310">× Q, inverse DCT, +128</text>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="840" y="320"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="874" y="320"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="908" y="320"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="942" y="320"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="976" y="320"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1010" y="320"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1044" y="320"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1078" y="320"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="840" y="342"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="874" y="342"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="908" y="342"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="942" y="342"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="976" y="342"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1010" y="342"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1044" y="342"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1078" y="342"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="840" y="364"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="874" y="364"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="908" y="364"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="942" y="364"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="976" y="364"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1010" y="364"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1044" y="364"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1078" y="364"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="840" y="386"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="874" y="386"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="908" y="386"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="942" y="386"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="976" y="386"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1010" y="386"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1044" y="386"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1078" y="386"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="840" y="408"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="874" y="408"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="908" y="408"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="942" y="408"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="976" y="408"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1010" y="408"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1044" y="408"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1078" y="408"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="840" y="430"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="874" y="430"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="908" y="430"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="942" y="430"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="976" y="430"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1010" y="430"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1044" y="430"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1078" y="430"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="840" y="452"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="874" y="452"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="908" y="452"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="942" y="452"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="976" y="452"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1010" y="452"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1044" y="452"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1078" y="452"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="840" y="474"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="874" y="474"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="908" y="474"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="942" y="474"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="976" y="474"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1010" y="474"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1044" y="474"></rect>
+                <rect fill="#f7f7f5" height="22" stroke="#deded9" width="34" x="1078" y="474"></rect>
+                <text class="svg-sub" text-anchor="middle" x="857" y="335">100</text>
+                <text class="svg-sub" text-anchor="middle" x="891" y="335">106</text>
+                <text class="svg-sub" text-anchor="middle" x="925" y="335">113</text>
+                <text class="svg-sub" text-anchor="middle" x="959" y="335">119</text>
+                <text class="svg-sub" text-anchor="middle" x="993" y="335">124</text>
+                <text class="svg-sub" text-anchor="middle" x="1027" y="335">129</text>
+                <text class="svg-sub" text-anchor="middle" x="1061" y="335">137</text>
+                <text class="svg-sub" text-anchor="middle" x="1095" y="335">143</text>
+                <text class="svg-sub" text-anchor="middle" x="857" y="357">104</text>
+                <text class="svg-sub" text-anchor="middle" x="891" y="357">110</text>
+                <text class="svg-sub" text-anchor="middle" x="925" y="357">118</text>
+                <text class="svg-sub" text-anchor="middle" x="959" y="357">124</text>
+                <text class="svg-sub" text-anchor="middle" x="993" y="357">128</text>
+                <text class="svg-sub" text-anchor="middle" x="1027" y="357">134</text>
+                <text class="svg-sub" text-anchor="middle" x="1061" y="357">142</text>
+                <text class="svg-sub" text-anchor="middle" x="1095" y="357">147</text>
+                <text class="svg-sub" text-anchor="middle" x="857" y="379">110</text>
+                <text class="svg-sub" text-anchor="middle" x="891" y="379">116</text>
+                <text class="svg-sub" text-anchor="middle" x="925" y="379">123</text>
+                <text class="svg-sub" text-anchor="middle" x="959" y="379">129</text>
+                <text class="svg-sub" text-anchor="middle" x="993" y="379">134</text>
+                <text class="svg-sub" text-anchor="middle" x="1027" y="379">139</text>
+                <text class="svg-sub" text-anchor="middle" x="1061" y="379">147</text>
+                <text class="svg-sub" text-anchor="middle" x="1095" y="379">153</text>
+                <text class="svg-sub" text-anchor="middle" x="857" y="401">113</text>
+                <text class="svg-sub" text-anchor="middle" x="891" y="401">119</text>
+                <text class="svg-sub" text-anchor="middle" x="925" y="401">127</text>
+                <text class="svg-sub" text-anchor="middle" x="959" y="401">133</text>
+                <text class="svg-sub" text-anchor="middle" x="993" y="401">137</text>
+                <text class="svg-sub" text-anchor="middle" x="1027" y="401">143</text>
+                <text class="svg-sub" text-anchor="middle" x="1061" y="401">151</text>
+                <text class="svg-sub" text-anchor="middle" x="1095" y="401">156</text>
+                <text class="svg-sub" text-anchor="middle" x="857" y="423">116</text>
+                <text class="svg-sub" text-anchor="middle" x="891" y="423">121</text>
+                <text class="svg-sub" text-anchor="middle" x="925" y="423">129</text>
+                <text class="svg-sub" text-anchor="middle" x="959" y="423">135</text>
+                <text class="svg-sub" text-anchor="middle" x="993" y="423">139</text>
+                <text class="svg-sub" text-anchor="middle" x="1027" y="423">145</text>
+                <text class="svg-sub" text-anchor="middle" x="1061" y="423">153</text>
+                <text class="svg-sub" text-anchor="middle" x="1095" y="423">159</text>
+                <text class="svg-sub" text-anchor="middle" x="857" y="445">119</text>
+                <text class="svg-sub" text-anchor="middle" x="891" y="445">125</text>
+                <text class="svg-sub" text-anchor="middle" x="925" y="445">133</text>
+                <text class="svg-sub" text-anchor="middle" x="959" y="445">138</text>
+                <text class="svg-sub" text-anchor="middle" x="993" y="445">143</text>
+                <text class="svg-sub" text-anchor="middle" x="1027" y="445">149</text>
+                <text class="svg-sub" text-anchor="middle" x="1061" y="445">156</text>
+                <text class="svg-sub" text-anchor="middle" x="1095" y="445">162</text>
+                <text class="svg-sub" text-anchor="middle" x="857" y="467">125</text>
+                <text class="svg-sub" text-anchor="middle" x="891" y="467">130</text>
+                <text class="svg-sub" text-anchor="middle" x="925" y="467">138</text>
+                <text class="svg-sub" text-anchor="middle" x="959" y="467">144</text>
+                <text class="svg-sub" text-anchor="middle" x="993" y="467">148</text>
+                <text class="svg-sub" text-anchor="middle" x="1027" y="467">154</text>
+                <text class="svg-sub" text-anchor="middle" x="1061" y="467">162</text>
+                <text class="svg-sub" text-anchor="middle" x="1095" y="467">168</text>
+                <text class="svg-sub" text-anchor="middle" x="857" y="489">129</text>
+                <text class="svg-sub" text-anchor="middle" x="891" y="489">135</text>
+                <text class="svg-sub" text-anchor="middle" x="925" y="489">143</text>
+                <text class="svg-sub" text-anchor="middle" x="959" y="489">148</text>
+                <text class="svg-sub" text-anchor="middle" x="993" y="489">153</text>
+                <text class="svg-sub" text-anchor="middle" x="1027" y="489">159</text>
+                <text class="svg-sub" text-anchor="middle" x="1061" y="489">166</text>
+                <text class="svg-sub" text-anchor="middle" x="1095" y="489">172</text>
+                <text class="svg-sub" x="840" y="514">max error 3 · PSNR 44.26 dB</text>
+                <text class="svg-lane" x="24" y="392">THREE ROUNDINGS FROM STEP 3</text>
+                <rect fill="#dfede5" height="14" rx="3" stroke="#367f59" width="14" x="24" y="401"></rect>
+                <text class="svg-sub" x="46" y="412">56.0 ÷ 16 = 3.5 → 4</text>
+                <text class="svg-note" x="262" y="412">a tie, rounded away from zero</text>
+                <rect fill="#dfede5" height="14" rx="3" stroke="#367f59" width="14" x="24" y="421"></rect>
+                <text class="svg-sub" x="46" y="432">−109.3 ÷ 11 ≈ −9.94 → −10</text>
+                <text class="svg-note" x="262" y="432">kept, as −110 after × Q</text>
+                <rect fill="#f3dfdc" height="14" rx="3" stroke="#ad4b43" width="14" x="24" y="441"></rect>
+                <text class="svg-sub" x="46" y="452">−3.4 ÷ 40 ≈ −0.085 → 0</text>
+                <text class="svg-note" x="262" y="452">gone: no decoder can restore it</text>
+                <line stroke="#deded9" x1="0" x2="1120" y1="528" y2="528"></line>
+                <rect fill="#dfede5" height="14" rx="3" stroke="#367f59" width="14" x="0" y="538"></rect>
+                <text class="svg-sub" x="22" y="549">nonzero after quantisation: kept</text>
+                <rect fill="#f3dfdc" height="14" rx="3" stroke="#ad4b43" width="14" x="290" y="538"></rect>
+                <text class="svg-sub" x="312" y="549">nonzero, rounded to 0: discarded</text>
+                <rect fill="#ffffff" height="14" rx="3" stroke="#b8b8b1" width="14" x="586" y="538"></rect>
+                <text class="svg-sub" x="608" y="549">zero (0.0 to one decimal)</text>
+                <line marker-end="url(#fig-transform-blu)" stroke="#3c6f97" stroke-width="1.4" x1="820" x2="850" y1="545" y2="545"></line>
+                <text class="svg-sub" x="860" y="549">data, step to step</text>
+              </svg>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 704 396" role="img" aria-label="Line chart: zstd level 3 compression ratio against window size from 1 KiB (2^10) to 128 MiB (2^27) on a log scale, for two corpora, each with long-distance matching (LDM) off and on. JSON catalogue, 12 versions, 45,649,082 bytes: about 2.19 at 1 KiB, 4.57 at 2 MiB, then a jump at 4 MiB, the first window spanning one version, to 11.37 (LDM off) and 14.92 (LDM on), rising to 39.63 and 46.14 at 64 MiB and above. CPython standard library, three versions, 33,705,841 bytes: 2.37 at 1 KiB, 4.43 at 8 MiB; at 16 MiB, the first window spanning one version, 5.03 with LDM off but 8.88 with LDM on, and 5.03 and 9.68 at 32 MiB and above. Windows in use are marked: DEFLATE 32 KiB, zstd level 3's default here 2 MiB, the HTTP zstd cap 8 MB, zstd --long 128 MiB."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="704.0" height="396.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="16">RATIO · LOG SCALE · ZSTD LEVEL 3</text>
+                <line stroke="#3c6f97" stroke-width="2" x1="0" x2="24" y1="36" y2="36"></line>
+                <text class="svg-sub" x="30" y="40">JSON catalogue, 12 versions</text>
+                <line stroke="#367f59" stroke-width="2" x1="248" x2="272" y1="36" y2="36"></line>
+                <text class="svg-sub" x="278" y="40">CPython stdlib, 3 versions</text>
+                <line stroke="#252525" stroke-width="2" x1="490" x2="514" y1="36" y2="36"></line>
+                <text class="svg-sub" x="520" y="40">LDM off</text>
+                <line stroke="#252525" stroke-dasharray="5 3" stroke-width="2" x1="590" x2="614" y1="36" y2="36"></line>
+                <text class="svg-sub" x="620" y="40">LDM on</text>
+                <line stroke="#deded9" x1="64" x2="591" y1="322" y2="322"></line>
+                <text class="svg-sub" text-anchor="end" x="56" y="326">2×</text>
+                <line stroke="#deded9" x1="64" x2="591" y1="272" y2="272"></line>
+                <text class="svg-sub" text-anchor="end" x="56" y="276">4×</text>
+                <line stroke="#deded9" x1="64" x2="591" y1="222" y2="222"></line>
+                <text class="svg-sub" text-anchor="end" x="56" y="226">8×</text>
+                <line stroke="#deded9" x1="64" x2="591" y1="172" y2="172"></line>
+                <text class="svg-sub" text-anchor="end" x="56" y="176">16×</text>
+                <line stroke="#deded9" x1="64" x2="591" y1="122" y2="122"></line>
+                <text class="svg-sub" text-anchor="end" x="56" y="126">32×</text>
+                <line stroke="#deded9" x1="64" x2="591" y1="72" y2="72"></line>
+                <text class="svg-sub" text-anchor="end" x="56" y="76">64×</text>
+                <line stroke="#b8b8b1" stroke-dasharray="3 3" x1="436" x2="436" y1="64" y2="322"></line>
+                <text class="svg-note" text-anchor="end" x="431" y="60">spans one catalogue</text>
+                <line stroke="#b8b8b1" stroke-dasharray="3 3" x1="498" x2="498" y1="64" y2="322"></line>
+                <text class="svg-note" text-anchor="start" x="503" y="60">spans one stdlib</text>
+                <line stroke="#b8b8b1" x1="64" x2="591" y1="322" y2="322"></line>
+                <line stroke="#b8b8b1" x1="64" x2="64" y1="322" y2="326"></line>
+                <line stroke="#b8b8b1" x1="95" x2="95" y1="322" y2="326"></line>
+                <line stroke="#b8b8b1" x1="126" x2="126" y1="322" y2="326"></line>
+                <line stroke="#b8b8b1" x1="157" x2="157" y1="322" y2="326"></line>
+                <line stroke="#b8b8b1" x1="188" x2="188" y1="322" y2="326"></line>
+                <line stroke="#b8b8b1" x1="219" x2="219" y1="322" y2="326"></line>
+                <line stroke="#b8b8b1" x1="250" x2="250" y1="322" y2="326"></line>
+                <line stroke="#b8b8b1" x1="281" x2="281" y1="322" y2="326"></line>
+                <line stroke="#b8b8b1" x1="312" x2="312" y1="322" y2="326"></line>
+                <line stroke="#b8b8b1" x1="343" x2="343" y1="322" y2="326"></line>
+                <line stroke="#b8b8b1" x1="374" x2="374" y1="322" y2="326"></line>
+                <line stroke="#b8b8b1" x1="405" x2="405" y1="322" y2="326"></line>
+                <line stroke="#b8b8b1" x1="436" x2="436" y1="322" y2="326"></line>
+                <line stroke="#b8b8b1" x1="467" x2="467" y1="322" y2="326"></line>
+                <line stroke="#b8b8b1" x1="498" x2="498" y1="322" y2="326"></line>
+                <line stroke="#b8b8b1" x1="529" x2="529" y1="322" y2="326"></line>
+                <line stroke="#b8b8b1" x1="560" x2="560" y1="322" y2="326"></line>
+                <line stroke="#b8b8b1" x1="591" x2="591" y1="322" y2="326"></line>
+                <text class="svg-sub" text-anchor="middle" x="64" y="339">1 KiB</text>
+                <text class="svg-sub" text-anchor="middle" x="157" y="339">8 KiB</text>
+                <text class="svg-sub" text-anchor="middle" x="250" y="339">64 KiB</text>
+                <text class="svg-sub" text-anchor="middle" x="343" y="339">512 KiB</text>
+                <text class="svg-sub" text-anchor="middle" x="436" y="339">4 MiB</text>
+                <text class="svg-sub" text-anchor="middle" x="529" y="339">32 MiB</text>
+                <text class="svg-sub" text-anchor="middle" x="591" y="339">128 MiB</text>
+                <line stroke="#252525" x1="219" x2="219" y1="346" y2="352"></line>
+                <text class="svg-sub" style="fill: #252525" text-anchor="middle" x="219" y="364">DEFLATE</text>
+                <line stroke="#252525" x1="405" x2="405" y1="346" y2="352"></line>
+                <text class="svg-sub" style="fill: #252525" text-anchor="middle" x="405" y="364">zstd -3</text>
+                <line stroke="#252525" x1="467" x2="467" y1="346" y2="352"></line>
+                <text class="svg-sub" style="fill: #252525" text-anchor="middle" x="467" y="364">HTTP cap</text>
+                <line stroke="#252525" x1="591" x2="591" y1="346" y2="352"></line>
+                <text class="svg-sub" style="fill: #252525" text-anchor="middle" x="591" y="364">--long</text>
+                <text class="svg-note" text-anchor="end" x="56" y="364">in use:</text>
+                <text class="svg-sub" text-anchor="middle" x="327.5" y="386">window size (window_log 10–27)</text>
+                <path d="M64 315.4 L95 303.2 L126 291 L157 284 L188 278.4 L219 274.3 L250 271.3 L281 268.8 L312 264.5 L343 263.1 L374 262.6 L405 262.4 L436 196.6 L467 169 L498 140.2 L529 118.8 L560 106.6 L591 106.6" fill="none" stroke="#3c6f97" stroke-width="1.8"></path>
+                <circle cx="64" cy="315.4" fill="#3c6f97" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="95" cy="303.2" fill="#3c6f97" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="126" cy="291" fill="#3c6f97" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="157" cy="284" fill="#3c6f97" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="188" cy="278.4" fill="#3c6f97" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="219" cy="274.3" fill="#3c6f97" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="250" cy="271.3" fill="#3c6f97" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="281" cy="268.8" fill="#3c6f97" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="312" cy="264.5" fill="#3c6f97" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="343" cy="263.1" fill="#3c6f97" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="374" cy="262.6" fill="#3c6f97" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="405" cy="262.4" fill="#3c6f97" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="436" cy="196.6" fill="#3c6f97" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="467" cy="169" fill="#3c6f97" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="498" cy="140.2" fill="#3c6f97" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="529" cy="118.8" fill="#3c6f97" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="560" cy="106.6" fill="#3c6f97" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="591" cy="106.6" fill="#3c6f97" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <path d="M64 315.4 L95 303.1 L126 291 L157 283.9 L188 278.3 L219 274 L250 270.5 L281 267 L312 264.1 L343 262.8 L374 262.3 L405 262.1 L436 177.1 L467 142.6 L498 113.3 L529 97.9 L560 95.6 L591 95.6" fill="none" stroke="#3c6f97" stroke-dasharray="5 3" stroke-width="1.8"></path>
+                <circle cx="64" cy="315.4" fill="#ffffff" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="95" cy="303.1" fill="#ffffff" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="126" cy="291" fill="#ffffff" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="157" cy="283.9" fill="#ffffff" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="188" cy="278.3" fill="#ffffff" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="219" cy="274" fill="#ffffff" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="250" cy="270.5" fill="#ffffff" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="281" cy="267" fill="#ffffff" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="312" cy="264.1" fill="#ffffff" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="343" cy="262.8" fill="#ffffff" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="374" cy="262.3" fill="#ffffff" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="405" cy="262.1" fill="#ffffff" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="436" cy="177.1" fill="#ffffff" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="467" cy="142.6" fill="#ffffff" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="498" cy="113.3" fill="#ffffff" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="529" cy="97.9" fill="#ffffff" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="560" cy="95.6" fill="#ffffff" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <circle cx="591" cy="95.6" fill="#ffffff" r="2.4" stroke="#3c6f97" stroke-width="1.2"></circle>
+                <path d="M64 309.9 L95 300.8 L126 293.2 L157 287.5 L188 282.7 L219 278.3 L250 274.4 L281 271.1 L312 266.9 L343 265.6 L374 264.9 L405 264.7 L436 264.7 L467 264.7 L498 255.5 L529 255.5 L560 255.5 L591 255.5" fill="none" stroke="#367f59" stroke-width="1.8"></path>
+                <circle cx="64" cy="309.9" fill="#367f59" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="95" cy="300.8" fill="#367f59" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="126" cy="293.2" fill="#367f59" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="157" cy="287.5" fill="#367f59" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="188" cy="282.7" fill="#367f59" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="219" cy="278.3" fill="#367f59" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="250" cy="274.4" fill="#367f59" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="281" cy="271.1" fill="#367f59" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="312" cy="266.9" fill="#367f59" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="343" cy="265.6" fill="#367f59" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="374" cy="264.9" fill="#367f59" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="405" cy="264.7" fill="#367f59" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="436" cy="264.7" fill="#367f59" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="467" cy="264.7" fill="#367f59" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="498" cy="255.5" fill="#367f59" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="529" cy="255.5" fill="#367f59" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="560" cy="255.5" fill="#367f59" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="591" cy="255.5" fill="#367f59" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <path d="M64 309.6 L95 300.1 L126 291.9 L157 285.6 L188 279.7 L219 274.3 L250 269.9 L281 267.4 L312 265.8 L343 264.9 L374 264.3 L405 264.2 L436 264.1 L467 263.9 L498 214.5 L529 208.2 L560 208.2 L591 208.2" fill="none" stroke="#367f59" stroke-dasharray="5 3" stroke-width="1.8"></path>
+                <circle cx="64" cy="309.6" fill="#ffffff" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="95" cy="300.1" fill="#ffffff" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="126" cy="291.9" fill="#ffffff" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="157" cy="285.6" fill="#ffffff" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="188" cy="279.7" fill="#ffffff" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="219" cy="274.3" fill="#ffffff" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="250" cy="269.9" fill="#ffffff" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="281" cy="267.4" fill="#ffffff" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="312" cy="265.8" fill="#ffffff" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="343" cy="264.9" fill="#ffffff" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="374" cy="264.3" fill="#ffffff" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="405" cy="264.2" fill="#ffffff" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="436" cy="264.1" fill="#ffffff" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="467" cy="263.9" fill="#ffffff" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="498" cy="214.5" fill="#ffffff" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="529" cy="208.2" fill="#ffffff" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="560" cy="208.2" fill="#ffffff" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <circle cx="591" cy="208.2" fill="#ffffff" r="2.4" stroke="#367f59" stroke-width="1.2"></circle>
+                <text class="svg-sub" style="fill: #3c6f97" x="600" y="99.6">46.14× on</text>
+                <text class="svg-sub" style="fill: #3c6f97" x="600" y="112.6">39.63× off</text>
+                <text class="svg-sub" style="fill: #367f59" x="600" y="212.2">9.68× on</text>
+                <text class="svg-sub" style="fill: #367f59" x="600" y="259.5">5.03× off</text>
+              </svg>

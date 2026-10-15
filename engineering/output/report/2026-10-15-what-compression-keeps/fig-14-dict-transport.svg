@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 790" role="img" aria-label="Sequence diagram between a browser and a server or CDN. 1: the browser requests /where-the-json-lives/ with Accept-Encoding listing br and zstd but not dcb or dcz, since it holds no dictionary. 2: the server answers 200 with Content-Encoding br and Use-As-Dictionary match=/*; the body is 48,049 bytes, the 227,281-byte page at brotli 11. The browser stores the 227,281 decoded bytes under their SHA-256, 8bf4d36b and so on; the server has the same file. 3: the browser requests /what-the-parser-hears/ with Accept-Encoding now including dcb and dcz and Available-Dictionary carrying the hash. 4: the server answers 200 with Content-Encoding dcb and Vary accept-encoding, available-dictionary; the body is 61,970 bytes against 68,906 as br without the dictionary. Below a divider, a later visit after a deploy, with the previous version of the same page as the dictionary. 5: the browser requests /what-is-quirq/ with Available-Dictionary set to the hash of the 821,592-byte copy from its last visit, version a76229b. 6: the server answers with dcb for version 107e64f, 822,400 bytes: 198 bytes as dcb and 272 as dcz, against 125,854 as br. For xo-space-architecture, grown from 232,168 to 242,121 bytes, dcb sends 2,901 bytes against 49,160 as br. Thick black arrows are requests and responses, blue bars body bytes, dashed grey outlines the same page without a dictionary, dashed purple boxes stored state."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="790.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-dict-transport-ink" markerHeight="4" markerWidth="4" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                </defs>
+
+                <rect fill="#f7f7f5" height="48" rx="6" stroke="#b8b8b1" width="200" x="20" y="24"></rect>
+                <text class="svg-lane" text-anchor="middle" x="120" y="44">BROWSER</text>
+                <text class="svg-sub" text-anchor="middle" x="120" y="62">keeps dictionaries</text>
+                <rect fill="#f7f7f5" height="48" rx="6" stroke="#b8b8b1" width="200" x="900" y="24"></rect>
+                <text class="svg-lane" text-anchor="middle" x="1000" y="44">SERVER OR CDN</text>
+                <text class="svg-sub" text-anchor="middle" x="1000" y="62">has the same files</text>
+                <line stroke="#b8b8b1" x1="120" x2="120" y1="72" y2="740"></line>
+                <line stroke="#b8b8b1" x1="1000" x2="1000" y1="72" y2="740"></line>
+
+                <text class="svg-num" x="244" y="106">1</text>
+                <text class="svg-step" x="262" y="106">GET /where-the-json-lives/</text>
+                <line marker-end="url(#fig-dict-transport-ink)" stroke="#252525" stroke-width="2.4" x1="120" x2="994" y1="116" y2="116"></line>
+                <text class="svg-sub" x="262" y="136">Accept-Encoding: …, br, zstd · no dcb, dcz: no dictionary stored yet</text>
+
+                <text class="svg-num" x="244" y="176">2</text>
+                <text class="svg-step" x="262" y="176">200 · Content-Encoding: br</text>
+                <line marker-end="url(#fig-dict-transport-ink)" stroke="#252525" stroke-width="2.4" x1="1000" x2="126" y1="186" y2="186"></line>
+                <text class="svg-sub" x="262" y="206">Use-As-Dictionary: match="/*"</text>
+                <rect fill="#e0ebf2" height="10" rx="2" stroke="#3c6f97" width="229.1" x="262" y="216"></rect>
+                <text class="svg-sub" x="499.1" y="225">48,049 B: 227,281 B of HTML at brotli 11</text>
+
+                <rect fill="#ece6f3" height="50" rx="6" stroke="#765b98" stroke-dasharray="5 4" width="200" x="20" y="250"></rect>
+                <text class="svg-step" x="32" y="270">stores 227,281 B</text>
+                <text class="svg-sub" x="32" y="289">SHA-256 8bf4d36b…</text>
+                <rect fill="#ece6f3" height="50" rx="6" stroke="#765b98" stroke-dasharray="5 4" width="200" x="900" y="250"></rect>
+                <text class="svg-step" x="912" y="270">same file on hand</text>
+                <text class="svg-sub" x="912" y="289">found by its hash</text>
+
+                <text class="svg-num" x="244" y="336">3</text>
+                <text class="svg-step" x="262" y="336">GET /what-the-parser-hears/</text>
+                <line marker-end="url(#fig-dict-transport-ink)" stroke="#252525" stroke-width="2.4" x1="120" x2="994" y1="346" y2="346"></line>
+                <text class="svg-sub" x="262" y="366">Accept-Encoding: …, br, zstd, dcb, dcz</text>
+                <text class="svg-sub" x="262" y="384">Available-Dictionary: :i/TTa/Zx5GYOoKVWAD9jz3VaUuGIJ9jdVQtB9zCSAzE=:</text>
+
+                <text class="svg-num" x="244" y="422">4</text>
+                <text class="svg-step" x="262" y="422">200 · Content-Encoding: dcb</text>
+                <line marker-end="url(#fig-dict-transport-ink)" stroke="#252525" stroke-width="2.4" x1="1000" x2="126" y1="432" y2="432"></line>
+                <text class="svg-sub" x="262" y="452">Vary: accept-encoding, available-dictionary</text>
+                <rect fill="#e0ebf2" height="10" rx="2" stroke="#3c6f97" width="295.4" x="262" y="462"></rect>
+                <text class="svg-sub" x="565.4" y="471">61,970 B as dcb</text>
+                <rect fill="none" height="10" rx="2" stroke="#b8b8b1" stroke-dasharray="4 3" width="328.5" x="262" y="478"></rect>
+                <text class="svg-sub" x="598.5" y="487">68,906 B as br alone</text>
+                <text class="svg-note" x="262" y="510">a 36-byte header, ff 44 43 42 and the hash, then the page at brotli 11</text>
+
+                <line stroke="#deded9" x1="0" x2="1120" y1="532" y2="532"></line>
+                <text class="svg-lane" x="262" y="556">LATER, AFTER A DEPLOY: THE PREVIOUS VERSION IS THE DICTIONARY</text>
+
+                <text class="svg-num" x="244" y="588">5</text>
+                <text class="svg-step" x="262" y="588">GET /what-is-quirq/</text>
+                <line marker-end="url(#fig-dict-transport-ink)" stroke="#252525" stroke-width="2.4" x1="120" x2="994" y1="598" y2="598"></line>
+                <text class="svg-sub" x="262" y="618">Available-Dictionary: hash of the copy from the last visit (a76229b, 821,592 B)</text>
+
+                <text class="svg-num" x="244" y="654">6</text>
+                <text class="svg-step" x="262" y="654">200 · Content-Encoding: dcb · version 107e64f, 822,400 B</text>
+                <line marker-end="url(#fig-dict-transport-ink)" stroke="#252525" stroke-width="2.4" x1="1000" x2="126" y1="664" y2="664"></line>
+                <rect fill="#3c6f97" height="10" width="2" x="262" y="676"></rect>
+                <text class="svg-sub" x="272" y="685">198 B as dcb; 272 B as dcz</text>
+                <rect fill="none" height="10" rx="2" stroke="#b8b8b1" stroke-dasharray="4 3" width="600" x="262" y="692"></rect>
+                <text class="svg-sub" x="870" y="701">125,854 B as br</text>
+                <text class="svg-note" x="262" y="728">xo-space-architecture, 232,168 → 242,121 B: 2,901 B as dcb against 49,160 B as br</text>
+
+                <line marker-end="url(#fig-dict-transport-ink)" stroke="#252525" stroke-width="2.4" x1="0" x2="34" y1="766" y2="766"></line>
+                <text class="svg-sub" x="44" y="770">request or response</text>
+                <rect fill="#e0ebf2" height="10" rx="2" stroke="#3c6f97" width="30" x="220" y="761"></rect>
+                <text class="svg-sub" x="258" y="770">body bytes on the wire</text>
+                <rect fill="none" height="10" rx="2" stroke="#b8b8b1" stroke-dasharray="4 3" width="30" x="452" y="761"></rect>
+                <text class="svg-sub" x="490" y="770">same page, no dictionary</text>
+                <rect fill="#ece6f3" height="14" rx="3" stroke="#765b98" stroke-dasharray="5 4" width="30" x="700" y="759"></rect>
+                <text class="svg-sub" x="738" y="770">state kept for later</text>
+              </svg>

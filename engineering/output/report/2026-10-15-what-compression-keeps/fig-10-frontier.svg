@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 616" role="img" aria-label="Scatter chart of compression ratio (original ÷ compressed) on the full 211,938,580-byte Silesia corpus, from 2.0× to 4.5×, against speed in MB/s on a log axis from 0.1 to 2,000, for 20 settings of seven codecs. Each setting has a filled marker at its compression speed and a hollow marker at its decompression speed, joined by a line at its ratio; speeds are medians on a 12 MiB sample, read in tiers: below 1, 1 to 10, 10 to 100, 100 to 500, and 500 MB/s or more. Ratio, then compression and decompression MB/s: zlib -1 2.7432×, 50.3 and 185; zlib -6 3.1063×, 17.3 and 186; zlib -9 3.1332×, 8.53 and 197; zstd -5 2.0571×, 320 and 746; zstd 1 2.8948×, 229 and 596; zstd 3 3.2053×, 98.4 and 446; zstd 9 3.5877×, 26 and 481; zstd 19 4.0104×, 1.71 and 438; zstd 22 4.0535×, 1.41 and 404; brotli 1 2.8835×, 133 and 197; brotli 5 3.5582×, 22.4 and 214; brotli 9 3.7375×, 2.47 and 213; brotli 11 4.2031×, 0.309 and 183; xz -0 3.3863×, 8.52 and 50.3; xz -6 4.3067×, 1.69 and 55.2; xz -9 4.347×, 1.61 and 54.3; bzip2 -9 3.8822×, 7.95 and 14.2; lz4 2.1003×, 339 and 1,310; lz4 -9 HC 2.7201×, 17 and 1,310; snappy 2.075×, 357 and 893. A dashed staircase marks the best ratio at each compression tier or faster: 2.8948× (zstd 1) at 100 MB/s and above, 3.5877× (zstd 9) from 10 MB/s, 4.347× (xz -9) from 1 MB/s, and nothing better below 1 MB/s. zstd 3 compresses at about 100 MB/s, on the top tier's edge."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="616.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="16">RATIO: FULL SILESIA CORPUS · SPEED: 12 MIB SAMPLE</text>
+                <circle cx="6" cy="36" fill="#d98226" r="4.5"></circle>
+                <text class="svg-sub" x="16" y="40">DEFLATE (zlib)</text>
+                <circle cx="146" cy="36" fill="#3c6f97" r="4.5"></circle>
+                <text class="svg-sub" x="156" y="40">zstd</text>
+                <circle cx="211" cy="36" fill="#367f59" r="4.5"></circle>
+                <text class="svg-sub" x="221" y="40">Brotli</text>
+                <circle cx="286" cy="36" fill="#765b98" r="4.5"></circle>
+                <text class="svg-sub" x="296" y="40">xz (LZMA2)</text>
+                <circle cx="391" cy="36" fill="#ad4b43" r="4.5"></circle>
+                <text class="svg-sub" x="401" y="40">bzip2</text>
+                <circle cx="456" cy="36" fill="#252525" r="4.5"></circle>
+                <text class="svg-sub" x="466" y="40">LZ4, Snappy</text>
+                <circle cx="606" cy="36" fill="#252525" r="4.5"></circle>
+                <text class="svg-sub" x="616" y="40">compression speed</text>
+                <circle cx="776" cy="36" fill="#ffffff" r="4.5" stroke="#252525" stroke-width="1.6"></circle>
+                <text class="svg-sub" x="786" y="40">decompression speed</text>
+                <line stroke="#252525" stroke-dasharray="7 4" stroke-width="2" x1="0" x2="28" y1="58" y2="58"></line>
+                <text class="svg-sub" x="36" y="62">frontier: best ratio at this compression tier or faster</text>
+                <line stroke="#252525" stroke-opacity="0.45" stroke-width="1" x1="680" x2="708" y1="58" y2="58"></line>
+                <text class="svg-sub" x="716" y="62">one setting, compression to decompression</text>
+                <rect fill="#f7f7f5" height="460" width="232.5" x="312.5" y="80"></rect>
+                <rect fill="#f7f7f5" height="460" width="162.5" x="777.5" y="80"></rect>
+                <text class="svg-sub" text-anchor="middle" x="196.3" y="97">&lt; 1 MB/s</text>
+                <text class="svg-sub" text-anchor="middle" x="428.8" y="97">1–10 MB/s</text>
+                <text class="svg-sub" text-anchor="middle" x="661.3" y="97">10–100 MB/s</text>
+                <text class="svg-sub" text-anchor="middle" x="858.8" y="97">100–500 MB/s</text>
+                <text class="svg-sub" text-anchor="middle" x="1010.0" y="97">≥ 500 MB/s</text>
+                <line stroke="#deded9" x1="80" x2="1080" y1="540.0" y2="540.0"></line>
+                <text class="svg-sub" text-anchor="end" x="72" y="544.0">2.0×</text>
+                <line stroke="#deded9" x1="80" x2="1080" y1="454.0" y2="454.0"></line>
+                <text class="svg-sub" text-anchor="end" x="72" y="458.0">2.5×</text>
+                <line stroke="#deded9" x1="80" x2="1080" y1="368.0" y2="368.0"></line>
+                <text class="svg-sub" text-anchor="end" x="72" y="372.0">3.0×</text>
+                <line stroke="#deded9" x1="80" x2="1080" y1="282.0" y2="282.0"></line>
+                <text class="svg-sub" text-anchor="end" x="72" y="286.0">3.5×</text>
+                <line stroke="#deded9" x1="80" x2="1080" y1="196.0" y2="196.0"></line>
+                <text class="svg-sub" text-anchor="end" x="72" y="200.0">4.0×</text>
+                <line stroke="#deded9" x1="80" x2="1080" y1="110.0" y2="110.0"></line>
+                <text class="svg-sub" text-anchor="end" x="72" y="114.0">4.5×</text>
+                <line stroke="#b8b8b1" x1="80" x2="1080" y1="540" y2="540"></line>
+                <line stroke="#b8b8b1" x1="80.0" x2="80.0" y1="540" y2="545"></line>
+                <text class="svg-sub" text-anchor="middle" x="80.0" y="559">0.1</text>
+                <line stroke="#b8b8b1" x1="312.5" x2="312.5" y1="540" y2="545"></line>
+                <text class="svg-sub" text-anchor="middle" x="312.5" y="559">1</text>
+                <line stroke="#b8b8b1" x1="545.0" x2="545.0" y1="540" y2="545"></line>
+                <text class="svg-sub" text-anchor="middle" x="545.0" y="559">10</text>
+                <line stroke="#b8b8b1" x1="777.5" x2="777.5" y1="540" y2="545"></line>
+                <text class="svg-sub" text-anchor="middle" x="777.5" y="559">100</text>
+                <line stroke="#b8b8b1" x1="940.0" x2="940.0" y1="540" y2="545"></line>
+                <text class="svg-sub" text-anchor="middle" x="940.0" y="559">500</text>
+                <line stroke="#b8b8b1" x1="1010.0" x2="1010.0" y1="540" y2="545"></line>
+                <text class="svg-sub" text-anchor="middle" x="1010.0" y="559">1,000</text>
+                <path d="M940.0 386.1 H777.5 V266.9 H545.0 V136.3 H80.0" fill="none" stroke="#252525" stroke-dasharray="7 4" stroke-width="2"></path>
+                <line stroke="#d98226" stroke-opacity="0.45" stroke-width="1" x1="708.1" x2="839.6" y1="412.2" y2="412.2"></line>
+                <line stroke="#d98226" stroke-opacity="0.45" stroke-width="1" x1="600.4" x2="840.2" y1="349.7" y2="349.7"></line>
+                <line stroke="#d98226" stroke-opacity="0.45" stroke-width="1" x1="529.0" x2="846.0" y1="345.1" y2="345.1"></line>
+                <line stroke="#3c6f97" stroke-opacity="0.45" stroke-width="1" x1="895.0" x2="980.4" y1="530.2" y2="530.2"></line>
+                <line stroke="#3c6f97" stroke-opacity="0.45" stroke-width="1" x1="861.2" x2="957.8" y1="386.1" y2="386.1"></line>
+                <line stroke="#3c6f97" stroke-opacity="0.45" stroke-width="1" x1="775.9" x2="928.5" y1="332.7" y2="332.7"></line>
+                <line stroke="#3c6f97" stroke-opacity="0.45" stroke-width="1" x1="641.5" x2="936.1" y1="266.9" y2="266.9"></line>
+                <line stroke="#3c6f97" stroke-opacity="0.45" stroke-width="1" x1="366.7" x2="926.7" y1="194.2" y2="194.2"></line>
+                <line stroke="#3c6f97" stroke-opacity="0.45" stroke-width="1" x1="347.2" x2="918.5" y1="186.8" y2="186.8"></line>
+                <line stroke="#367f59" stroke-opacity="0.45" stroke-width="1" x1="806.3" x2="846.0" y1="388.0" y2="388.0"></line>
+                <line stroke="#367f59" stroke-opacity="0.45" stroke-width="1" x1="626.4" x2="854.3" y1="272.0" y2="272.0"></line>
+                <line stroke="#367f59" stroke-opacity="0.45" stroke-width="1" x1="403.8" x2="853.9" y1="241.2" y2="241.2"></line>
+                <line stroke="#367f59" stroke-opacity="0.45" stroke-width="1" x1="193.9" x2="838.5" y1="161.1" y2="161.1"></line>
+                <line stroke="#765b98" stroke-opacity="0.45" stroke-width="1" x1="528.8" x2="708.1" y1="301.6" y2="301.6"></line>
+                <line stroke="#765b98" stroke-opacity="0.45" stroke-width="1" x1="365.5" x2="717.5" y1="143.2" y2="143.2"></line>
+                <line stroke="#765b98" stroke-opacity="0.45" stroke-width="1" x1="360.6" x2="715.8" y1="136.3" y2="136.3"></line>
+                <line stroke="#ad4b43" stroke-opacity="0.45" stroke-width="1" x1="521.8" x2="580.4" y1="216.3" y2="216.3"></line>
+                <line stroke="#252525" stroke-opacity="0.45" stroke-width="1" x1="900.8" x2="1037.3" y1="522.7" y2="522.7"></line>
+                <line stroke="#252525" stroke-opacity="0.45" stroke-width="1" x1="598.6" x2="1037.3" y1="416.1" y2="416.1"></line>
+                <line stroke="#252525" stroke-opacity="0.45" stroke-width="1" x1="906.0" x2="998.6" y1="527.1" y2="527.1"></line>
+                <circle cx="839.6" cy="412.2" fill="#ffffff" r="4.5" stroke="#d98226" stroke-width="1.6"></circle>
+                <circle cx="708.1" cy="412.2" fill="#d98226" r="4.5"></circle>
+                <circle cx="840.2" cy="349.7" fill="#ffffff" r="4.5" stroke="#d98226" stroke-width="1.6"></circle>
+                <circle cx="600.4" cy="349.7" fill="#d98226" r="4.5"></circle>
+                <circle cx="846.0" cy="345.1" fill="#ffffff" r="4.5" stroke="#d98226" stroke-width="1.6"></circle>
+                <circle cx="529.0" cy="345.1" fill="#d98226" r="4.5"></circle>
+                <circle cx="980.4" cy="530.2" fill="#ffffff" r="4.5" stroke="#3c6f97" stroke-width="1.6"></circle>
+                <circle cx="895.0" cy="530.2" fill="#3c6f97" r="4.5"></circle>
+                <circle cx="957.8" cy="386.1" fill="#ffffff" r="4.5" stroke="#3c6f97" stroke-width="1.6"></circle>
+                <circle cx="861.2" cy="386.1" fill="#3c6f97" r="4.5"></circle>
+                <circle cx="928.5" cy="332.7" fill="#ffffff" r="4.5" stroke="#3c6f97" stroke-width="1.6"></circle>
+                <circle cx="775.9" cy="332.7" fill="#3c6f97" r="4.5"></circle>
+                <circle cx="936.1" cy="266.9" fill="#ffffff" r="4.5" stroke="#3c6f97" stroke-width="1.6"></circle>
+                <circle cx="641.5" cy="266.9" fill="#3c6f97" r="4.5"></circle>
+                <circle cx="926.7" cy="194.2" fill="#ffffff" r="4.5" stroke="#3c6f97" stroke-width="1.6"></circle>
+                <circle cx="366.7" cy="194.2" fill="#3c6f97" r="4.5"></circle>
+                <circle cx="918.5" cy="186.8" fill="#ffffff" r="4.5" stroke="#3c6f97" stroke-width="1.6"></circle>
+                <circle cx="347.2" cy="186.8" fill="#3c6f97" r="4.5"></circle>
+                <circle cx="846.0" cy="388.0" fill="#ffffff" r="4.5" stroke="#367f59" stroke-width="1.6"></circle>
+                <circle cx="806.3" cy="388.0" fill="#367f59" r="4.5"></circle>
+                <circle cx="854.3" cy="272.0" fill="#ffffff" r="4.5" stroke="#367f59" stroke-width="1.6"></circle>
+                <circle cx="626.4" cy="272.0" fill="#367f59" r="4.5"></circle>
+                <circle cx="853.9" cy="241.2" fill="#ffffff" r="4.5" stroke="#367f59" stroke-width="1.6"></circle>
+                <circle cx="403.8" cy="241.2" fill="#367f59" r="4.5"></circle>
+                <circle cx="838.5" cy="161.1" fill="#ffffff" r="4.5" stroke="#367f59" stroke-width="1.6"></circle>
+                <circle cx="193.9" cy="161.1" fill="#367f59" r="4.5"></circle>
+                <circle cx="708.1" cy="301.6" fill="#ffffff" r="4.5" stroke="#765b98" stroke-width="1.6"></circle>
+                <circle cx="528.8" cy="301.6" fill="#765b98" r="4.5"></circle>
+                <circle cx="717.5" cy="143.2" fill="#ffffff" r="4.5" stroke="#765b98" stroke-width="1.6"></circle>
+                <circle cx="365.5" cy="143.2" fill="#765b98" r="4.5"></circle>
+                <circle cx="715.8" cy="136.3" fill="#ffffff" r="4.5" stroke="#765b98" stroke-width="1.6"></circle>
+                <circle cx="360.6" cy="136.3" fill="#765b98" r="4.5"></circle>
+                <circle cx="580.4" cy="216.3" fill="#ffffff" r="4.5" stroke="#ad4b43" stroke-width="1.6"></circle>
+                <circle cx="521.8" cy="216.3" fill="#ad4b43" r="4.5"></circle>
+                <circle cx="1037.3" cy="522.7" fill="#ffffff" r="4.5" stroke="#252525" stroke-width="1.6"></circle>
+                <circle cx="900.8" cy="522.7" fill="#252525" r="4.5"></circle>
+                <circle cx="1037.3" cy="416.1" fill="#ffffff" r="4.5" stroke="#252525" stroke-width="1.6"></circle>
+                <circle cx="598.6" cy="416.1" fill="#252525" r="4.5"></circle>
+                <circle cx="998.6" cy="527.1" fill="#ffffff" r="4.5" stroke="#252525" stroke-width="1.6"></circle>
+                <circle cx="906.0" cy="527.1" fill="#252525" r="4.5"></circle>
+                <text class="svg-sub" style="fill: #d98226" text-anchor="middle" x="708" y="431">zlib -1</text>
+                <text class="svg-sub" style="fill: #d98226" text-anchor="middle" x="600" y="368">zlib -6</text>
+                <text class="svg-sub" style="fill: #d98226" text-anchor="end" x="519" y="349">zlib -9</text>
+                <text class="svg-sub" style="fill: #3c6f97" text-anchor="middle" x="861" y="375">zstd 1</text>
+                <text class="svg-sub" style="fill: #367f59" text-anchor="middle" x="806" y="406">brotli 1</text>
+                <text class="svg-sub" style="fill: #3c6f97" text-anchor="end" x="765" y="329">zstd 3</text>
+                <text class="svg-sub" style="fill: #3c6f97" text-anchor="start" x="648" y="257">zstd 9</text>
+                <text class="svg-sub" style="fill: #367f59" text-anchor="middle" x="626" y="291">brotli 5</text>
+                <text class="svg-sub" style="fill: #367f59" text-anchor="end" x="394" y="245">brotli 9</text>
+                <text class="svg-sub" style="fill: #ad4b43" text-anchor="end" x="512" y="220">bzip2 -9</text>
+                <text class="svg-sub" style="fill: #765b98" text-anchor="end" x="519" y="306">xz -0</text>
+                <text class="svg-sub" style="fill: #252525" text-anchor="end" x="588" y="420">lz4 -9 HC</text>
+                <text class="svg-sub" style="fill: #3c6f97" text-anchor="start" x="373" y="211">zstd 19</text>
+                <text class="svg-sub" style="fill: #3c6f97" text-anchor="end" x="337" y="186">zstd 22</text>
+                <text class="svg-sub" style="fill: #367f59" text-anchor="middle" x="194" y="150">brotli 11</text>
+                <text class="svg-sub" style="fill: #765b98" text-anchor="end" x="352" y="127">xz -9, -6</text>
+                <text class="svg-sub" style="fill: #252525" text-anchor="end" x="884" y="531">lz4 · snappy · zstd -5</text>
+                <text class="svg-sub" text-anchor="middle" x="580" y="581">speed, MB/s (10^6 bytes/s), log scale</text>
+                <text class="svg-note" x="0" y="606">One shared 2-CPU machine: compare tiers, not positions within a tier.</text>
+              </svg>

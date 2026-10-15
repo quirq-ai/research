@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 704 396" role="img" aria-label="Horizontal bar chart on a logarithmic axis from 100 kB to 100 MB, bytes on disk in three measured cases. SQLite 3.46.1 with 100,000 generated JSON documents: 47,034,368 bytes after insert; 47,034,368 bytes after deleting 90 percent, unchanged; 4,714,496 bytes after VACUUM, which wrote 14,154,268 bytes. Key-value update log of 200,000 updates over 5,000 keys: raw log 39,366,976 bytes, 42.19 times the live state; Kafka-style online cleaner peak 2,024,373 bytes, 2.17 times live; cleaner end 1,501,846 bytes, 1.61 times live; one-shot compaction 933,174 bytes, the live state. Git 2.55.0, a synthetic repository of 300 commits plus a deleted five-commit branch: loose objects 7,561,216 bytes on disk and 1,931,211 bytes apparent; after git gc --prune=now 253,952 bytes on disk and 241,355 bytes apparent."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }</style><rect x="0.0" y="0.0" width="704.0" height="396.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="16">BYTES ON DISK · LOG SCALE</text>
+                <rect fill="#f7f7f5" height="14" rx="3" stroke="#b8b8b1" width="14" x="0" y="28"></rect>
+                <text class="svg-sub" x="22" y="39">before compaction</text>
+                <rect fill="#f3dfdc" height="14" rx="3" stroke="#ad4b43" width="14" x="150" y="28"></rect>
+                <text class="svg-sub" x="172" y="39">deleted, still on disk</text>
+                <rect fill="#f7e3c8" height="14" rx="3" stroke="#d98226" width="14" x="350" y="28"></rect>
+                <text class="svg-sub" x="372" y="39">online cleaner</text>
+                <rect fill="#dfede5" height="14" rx="3" stroke="#367f59" width="14" x="490" y="28"></rect>
+                <text class="svg-sub" x="512" y="39">after compaction</text>
+
+                <line stroke="#deded9" x1="210" x2="210" y1="58" y2="370"></line>
+                <line stroke="#deded9" x1="315" x2="315" y1="58" y2="370"></line>
+                <line stroke="#deded9" x1="420" x2="420" y1="58" y2="370"></line>
+                <line stroke="#deded9" x1="525" x2="525" y1="58" y2="370"></line>
+                <line stroke="#b8b8b1" x1="210" x2="525" y1="370" y2="370"></line>
+                <text class="svg-sub" text-anchor="middle" x="210" y="386">100 kB</text>
+                <text class="svg-sub" text-anchor="middle" x="315" y="386">1 MB</text>
+                <text class="svg-sub" text-anchor="middle" x="420" y="386">10 MB</text>
+                <text class="svg-sub" text-anchor="middle" x="525" y="386">100 MB</text>
+
+                <text class="svg-lane" x="0" y="70">SQLITE · 100,000 JSON DOCUMENTS</text>
+                <text class="svg-sub" text-anchor="end" x="200" y="91">after insert</text>
+                <rect fill="#f7f7f5" height="18" rx="2" stroke="#b8b8b1" width="280.6" x="210" y="78"></rect>
+                <text class="svg-sub" x="498.6" y="91">47,034,368 B</text>
+                <text class="svg-sub" text-anchor="end" x="200" y="117">after deleting 90%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" width="280.6" x="210" y="104"></rect>
+                <text class="svg-sub" x="498.6" y="117">47,034,368 B · unchanged</text>
+                <text class="svg-sub" text-anchor="end" x="200" y="143">after VACUUM</text>
+                <rect fill="#dfede5" height="18" rx="2" stroke="#367f59" width="175.7" x="210" y="130"></rect>
+                <text class="svg-sub" x="393.7" y="143">4,714,496 B · wrote 14,154,268 B</text>
+
+                <text class="svg-lane" x="0" y="176">KEY-VALUE LOG · 200,000 UPDATES</text>
+                <text class="svg-sub" text-anchor="end" x="200" y="197">raw update log</text>
+                <rect fill="#f7f7f5" height="18" rx="2" stroke="#b8b8b1" width="272.5" x="210" y="184"></rect>
+                <text class="svg-sub" x="490.5" y="197">39,366,976 B · 42.19× live</text>
+                <text class="svg-sub" text-anchor="end" x="200" y="223">online cleaner, peak</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" width="137.2" x="210" y="210"></rect>
+                <text class="svg-sub" x="355.2" y="223">2,024,373 B · 2.17× live</text>
+                <text class="svg-sub" text-anchor="end" x="200" y="249">online cleaner, end</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" width="123.5" x="210" y="236"></rect>
+                <text class="svg-sub" x="341.5" y="249">1,501,846 B · 1.61× live</text>
+                <text class="svg-sub" text-anchor="end" x="200" y="275">one-shot compaction</text>
+                <rect fill="#dfede5" height="18" rx="2" stroke="#367f59" width="101.8" x="210" y="262"></rect>
+                <text class="svg-sub" x="319.8" y="275">933,174 B · the live state</text>
+
+                <text class="svg-lane" x="0" y="308">GIT 2.55.0 · .GIT/OBJECTS ON DISK</text>
+                <text class="svg-sub" text-anchor="end" x="200" y="329">loose objects</text>
+                <rect fill="#f7f7f5" height="18" rx="2" stroke="#b8b8b1" width="197.3" x="210" y="316"></rect>
+                <text class="svg-sub" x="415.3" y="329">7,561,216 B · 1,931,211 apparent</text>
+                <text class="svg-sub" text-anchor="end" x="200" y="355">after git gc</text>
+                <rect fill="#dfede5" height="18" rx="2" stroke="#367f59" width="42.5" x="210" y="342"></rect>
+                <text class="svg-sub" x="260.5" y="355">253,952 B · 241,355 apparent</text>
+              </svg>

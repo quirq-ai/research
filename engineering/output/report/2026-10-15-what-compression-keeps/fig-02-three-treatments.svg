@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 704 366" role="img" aria-label="Horizontal bar chart on a logarithmic axis from 10 kB to 100 MB: one 200,000-record key-value update log, raw, compressed with zstd at levels 3 and 19, compacted, and compacted then compressed, with bytes, ratio to raw and whether the history can be replayed. Raw log: 39,366,976 bytes, 1 times, replay yes, 200,000 records. zstd level 3: 4,422,358 bytes, 8.90 times, yes. zstd level 19: 2,780,146 bytes, 14.16 times, yes. Compacted to the last value per key: 933,174 bytes, 42.19 times, no, 4,750 records. Compacted then zstd level 3: 130,143 bytes, 302.5 times, no. Compacted then zstd level 19: 86,914 bytes, 452.9 times, no. Compacting then compressing is 31.99 times smaller than zstd level 19 alone; compressing then compacting needs a full decode first."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="704.0" height="366.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="16">BYTES ON DISK · LOG SCALE · ONE 200,000-RECORD LOG</text>
+                <rect fill="#f7f7f5" height="14" rx="3" stroke="#b8b8b1" width="14" x="0" y="30"></rect>
+                <text class="svg-sub" x="22" y="41">raw</text>
+                <rect fill="#e0ebf2" height="14" rx="3" stroke="#3c6f97" width="14" x="64" y="30"></rect>
+                <text class="svg-sub" x="86" y="41">compressed: all 200,000 records</text>
+                <rect fill="#ece6f3" height="14" rx="3" stroke="#765b98" width="14" x="340" y="30"></rect>
+                <text class="svg-sub" x="362" y="41">compacted: 4,750 live records</text>
+                <text class="svg-lane" text-anchor="end" x="704" y="72">REPLAY HISTORY? · RECORDS</text>
+
+                <line stroke="#deded9" x1="200" x2="200" y1="80" y2="290"></line>
+                <line stroke="#deded9" x1="266" x2="266" y1="80" y2="290"></line>
+                <line stroke="#deded9" x1="332" x2="332" y1="80" y2="290"></line>
+                <line stroke="#deded9" x1="398" x2="398" y1="80" y2="290"></line>
+                <line stroke="#deded9" x1="464" x2="464" y1="80" y2="290"></line>
+                <line stroke="#b8b8b1" x1="200" x2="464" y1="290" y2="290"></line>
+                <text class="svg-sub" text-anchor="middle" x="200" y="306">10 kB</text>
+                <text class="svg-sub" text-anchor="middle" x="266" y="306">100 kB</text>
+                <text class="svg-sub" text-anchor="middle" x="332" y="306">1 MB</text>
+                <text class="svg-sub" text-anchor="middle" x="398" y="306">10 MB</text>
+                <text class="svg-sub" text-anchor="middle" x="464" y="306">100 MB</text>
+
+                <text class="svg-sub" text-anchor="end" x="190" y="99">raw log</text>
+                <rect fill="#f7f7f5" height="18" rx="2" stroke="#b8b8b1" width="237.3" x="200" y="86"></rect>
+                <text class="svg-sub" x="445.3" y="99">39,366,976 B · 1×</text>
+                <text class="svg-sub" text-anchor="end" x="704" y="99">yes · 200,000</text>
+
+                <text class="svg-sub" text-anchor="end" x="190" y="133">zstd -3</text>
+                <rect fill="#e0ebf2" height="18" rx="2" stroke="#3c6f97" width="174.6" x="200" y="120"></rect>
+                <text class="svg-sub" x="382.6" y="133">4,422,358 B · 8.90×</text>
+                <text class="svg-sub" text-anchor="end" x="704" y="133">yes · 200,000</text>
+
+                <text class="svg-sub" text-anchor="end" x="190" y="167">zstd -19</text>
+                <rect fill="#e0ebf2" height="18" rx="2" stroke="#3c6f97" width="161.3" x="200" y="154"></rect>
+                <text class="svg-sub" x="369.3" y="167">2,780,146 B · 14.16×</text>
+                <text class="svg-sub" text-anchor="end" x="704" y="167">yes · 200,000</text>
+
+                <text class="svg-sub" text-anchor="end" x="190" y="201">compacted</text>
+                <rect fill="#ece6f3" height="18" rx="2" stroke="#765b98" width="130.0" x="200" y="188"></rect>
+                <text class="svg-sub" x="338.0" y="201">933,174 B · 42.19×</text>
+                <text class="svg-sub" text-anchor="end" x="704" y="201">no · 4,750</text>
+
+                <text class="svg-sub" text-anchor="end" x="190" y="235">compacted + zstd -3</text>
+                <rect fill="#ece6f3" height="18" rx="2" stroke="#765b98" width="73.6" x="200" y="222"></rect>
+                <text class="svg-sub" x="281.6" y="235">130,143 B · 302.5×</text>
+                <text class="svg-sub" text-anchor="end" x="704" y="235">no · 4,750</text>
+
+                <text class="svg-sub" text-anchor="end" x="190" y="269">compacted + zstd -19</text>
+                <rect fill="#ece6f3" height="18" rx="2" stroke="#765b98" width="62.0" x="200" y="256"></rect>
+                <text class="svg-sub" x="270.0" y="269">86,914 B · 452.9×</text>
+                <text class="svg-sub" text-anchor="end" x="704" y="269">no · 4,750</text>
+
+                <text class="svg-note" x="0" y="334">Compact, then compress: 31.99× smaller than zstd -19 alone.</text>
+                <text class="svg-note" x="0" y="354">Compress, then compact: needs a full decode of all 39,366,976 B first.</text>
+              </svg>

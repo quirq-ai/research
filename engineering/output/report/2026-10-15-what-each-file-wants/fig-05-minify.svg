@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 704 446" role="img" aria-label="Horizontal bars: bytes saved by minifying indented JSON, before and after compression, for three corpora. API records: raw 34.99% (7,578,250 to 4,926,885 bytes), gzip -6 11.60% (918,302 to 811,796 bytes), zstd 3 10.65% (686,355 to 613,261 bytes), brotli 11 4.79% (436,892 to 415,965 bytes); What the Parser Hears _numbers.json: raw 35.21% (611,835 to 396,391 bytes), gzip -6 14.88% (49,649 to 42,259 bytes), zstd 3 11.98% (51,686 to 45,493 bytes), brotli 11 5.34% (33,762 to 31,960 bytes); posts.json: raw 22.75% (27,666 to 21,371 bytes), gzip -6 3.28% (7,386 to 7,144 bytes), zstd 3 5.45% (7,806 to 7,381 bytes), brotli 11 2.88% (6,049 to 5,875 bytes)."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="704.0" height="446.0" fill="#ffffff"/>
+                <text class="svg-lane" x="16" y="22">BYTES SAVED BY MINIFYING INDENTED JSON</text>
+                <text class="svg-lane" x="16" y="56">API RECORDS · SYNTHETIC</text>
+                <line stroke="#b8b8b1" x1="120" x2="120" y1="64" y2="150"></line>
+                <text class="svg-sub" text-anchor="end" x="110" y="78">raw</text>
+                <rect fill="#b8b8b1" height="12" rx="2" width="293.9" x="120" y="68"></rect>
+                <text class="svg-sub" x="422" y="78">34.99% · 7,578,250 → 4,926,885 B</text>
+                <text class="svg-sub" text-anchor="end" x="110" y="100">gzip -6</text>
+                <rect fill="#3c6f97" height="12" rx="2" width="97.4" x="120" y="90"></rect>
+                <text class="svg-sub" x="225" y="100">11.60%</text>
+                <text class="svg-sub" text-anchor="end" x="110" y="122">zstd 3</text>
+                <rect fill="#367f59" height="12" rx="2" width="89.5" x="120" y="112"></rect>
+                <text class="svg-sub" x="217" y="122">10.65%</text>
+                <text class="svg-sub" text-anchor="end" x="110" y="144">brotli 11</text>
+                <rect fill="#d98226" height="12" rx="2" width="40.2" x="120" y="134"></rect>
+                <text class="svg-sub" x="168" y="144">4.79%</text>
+                <text class="svg-lane" x="16" y="184">WHAT THE PARSER HEARS · _NUMBERS.JSON</text>
+                <line stroke="#b8b8b1" x1="120" x2="120" y1="192" y2="278"></line>
+                <text class="svg-sub" text-anchor="end" x="110" y="206">raw</text>
+                <rect fill="#b8b8b1" height="12" rx="2" width="295.8" x="120" y="196"></rect>
+                <text class="svg-sub" x="424" y="206">35.21% · 611,835 → 396,391 B</text>
+                <text class="svg-sub" text-anchor="end" x="110" y="228">gzip -6</text>
+                <rect fill="#3c6f97" height="12" rx="2" width="125.0" x="120" y="218"></rect>
+                <text class="svg-sub" x="253" y="228">14.88%</text>
+                <text class="svg-sub" text-anchor="end" x="110" y="250">zstd 3</text>
+                <rect fill="#367f59" height="12" rx="2" width="100.6" x="120" y="240"></rect>
+                <text class="svg-sub" x="229" y="250">11.98%</text>
+                <text class="svg-sub" text-anchor="end" x="110" y="272">brotli 11</text>
+                <rect fill="#d98226" height="12" rx="2" width="44.8" x="120" y="262"></rect>
+                <text class="svg-sub" x="173" y="272">5.34%</text>
+                <text class="svg-lane" x="16" y="312">POSTS.JSON · THIS SITE</text>
+                <line stroke="#b8b8b1" x1="120" x2="120" y1="320" y2="406"></line>
+                <text class="svg-sub" text-anchor="end" x="110" y="334">raw</text>
+                <rect fill="#b8b8b1" height="12" rx="2" width="191.1" x="120" y="324"></rect>
+                <text class="svg-sub" x="319" y="334">22.75% · 27,666 → 21,371 B</text>
+                <text class="svg-sub" text-anchor="end" x="110" y="356">gzip -6</text>
+                <rect fill="#3c6f97" height="12" rx="2" width="27.5" x="120" y="346"></rect>
+                <text class="svg-sub" x="156" y="356">3.28%</text>
+                <text class="svg-sub" text-anchor="end" x="110" y="378">zstd 3</text>
+                <rect fill="#367f59" height="12" rx="2" width="45.7" x="120" y="368"></rect>
+                <text class="svg-sub" x="174" y="378">5.45%</text>
+                <text class="svg-sub" text-anchor="end" x="110" y="400">brotli 11</text>
+                <rect fill="#d98226" height="12" rx="2" width="24.2" x="120" y="390"></rect>
+                <text class="svg-sub" x="152" y="400">2.88%</text>
+                <text class="svg-note" x="16" y="432">indented = indent=2; minified = separators=(',', ':'); both UTF-8.</text>
+              </svg>

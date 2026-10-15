@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 704 426" role="img" aria-label="Line chart of zstd level 3 compression ratio per message against trained dictionary size: none, 4, 16, 64 and 110 KiB, sizes on a log scale with none set apart; vertical axis from 1.0, no saving, to 3.5. All 10,000 messages: 1.98, 2.97, 3.04, 3.14, 3.21. 100 to 199 bytes: 1.05, 2.38, 2.41, 2.55, 2.71. 2,000 to 4,096 bytes: 2.35, 3.07, 3.09, 3.19, 3.25. A dashed reference line marks zstd 3 on all messages in frames of 100 with no dictionary, 3.27. The first 4 KiB gives 81 percent of the gain that 110 KiB gives across all messages."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }</style><rect x="0.0" y="0.0" width="704.0" height="426.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="16">ZSTD 3 RATIO PER MESSAGE · HELD-OUT HALF</text>
+                <line stroke="#252525" stroke-width="2.4" x1="0" x2="20" y1="40" y2="40"></line>
+                <text class="svg-sub" x="26" y="44">all 10,000 messages</text>
+                <line stroke="#d98226" stroke-width="2" x1="190" x2="210" y1="40" y2="40"></line>
+                <text class="svg-sub" x="216" y="44">100–199 B</text>
+                <line stroke="#3c6f97" stroke-width="2" x1="306" x2="326" y1="40" y2="40"></line>
+                <text class="svg-sub" x="332" y="44">2,000–4,096 B</text>
+                <line stroke="#b8b8b1" x1="60" x2="600" y1="380" y2="380"></line>
+                <text class="svg-sub" text-anchor="end" x="48" y="384">1.0×</text>
+                <line stroke="#deded9" x1="60" x2="600" y1="325" y2="325"></line>
+                <text class="svg-sub" text-anchor="end" x="48" y="329">1.5×</text>
+                <line stroke="#deded9" x1="60" x2="600" y1="270" y2="270"></line>
+                <text class="svg-sub" text-anchor="end" x="48" y="274">2.0×</text>
+                <line stroke="#deded9" x1="60" x2="600" y1="215" y2="215"></line>
+                <text class="svg-sub" text-anchor="end" x="48" y="219">2.5×</text>
+                <line stroke="#deded9" x1="60" x2="600" y1="160" y2="160"></line>
+                <text class="svg-sub" text-anchor="end" x="48" y="164">3.0×</text>
+                <line stroke="#deded9" x1="60" x2="600" y1="105" y2="105"></line>
+                <text class="svg-sub" text-anchor="end" x="48" y="109">3.5×</text>
+                <line stroke="#765b98" stroke-dasharray="6 4" stroke-width="1.5" x1="130" x2="552.7" y1="130.2" y2="130.2"></line>
+                <text class="svg-sub" x="136" y="123.2">all messages, 100 per frame, no dictionary: 3.27×</text>
+                <polyline fill="none" points="130,231.9 230,152 365,149.6 500,138.6 552.7,132.6" stroke="#3c6f97" stroke-width="2"></polyline>
+                <polyline fill="none" points="130,374 230,228.4 365,225.4 500,209.6 552.7,191.6" stroke="#d98226" stroke-width="2"></polyline>
+                <polyline fill="none" points="130,271.8 230,162.9 365,156.1 500,144.3 552.7,137.1" stroke="#252525" stroke-width="2.4"></polyline>
+                <circle cx="130" cy="231.9" fill="#3c6f97" r="3.5"></circle>
+                <circle cx="230" cy="152" fill="#3c6f97" r="3.5"></circle>
+                <circle cx="365" cy="149.6" fill="#3c6f97" r="3.5"></circle>
+                <circle cx="500" cy="138.6" fill="#3c6f97" r="3.5"></circle>
+                <circle cx="552.7" cy="132.6" fill="#3c6f97" r="3.5"></circle>
+                <circle cx="130" cy="374" fill="#d98226" r="3.5"></circle>
+                <circle cx="230" cy="228.4" fill="#d98226" r="3.5"></circle>
+                <circle cx="365" cy="225.4" fill="#d98226" r="3.5"></circle>
+                <circle cx="500" cy="209.6" fill="#d98226" r="3.5"></circle>
+                <circle cx="552.7" cy="191.6" fill="#d98226" r="3.5"></circle>
+                <circle cx="130" cy="271.8" fill="#252525" r="3.5"></circle>
+                <circle cx="230" cy="162.9" fill="#252525" r="3.5"></circle>
+                <circle cx="365" cy="156.1" fill="#252525" r="3.5"></circle>
+                <circle cx="500" cy="144.3" fill="#252525" r="3.5"></circle>
+                <circle cx="552.7" cy="137.1" fill="#252525" r="3.5"></circle>
+                <text class="svg-sub" text-anchor="end" x="120" y="377">1.05×</text>
+                <text class="svg-sub" text-anchor="end" x="120" y="274.8">1.98×</text>
+                <text class="svg-sub" text-anchor="end" x="120" y="234.9">2.35×</text>
+                <text class="svg-sub" x="564" y="128">3.25×</text>
+                <text class="svg-sub" x="564" y="146.1">3.21×</text>
+                <text class="svg-sub" x="564" y="194.6">2.71×</text>
+                <text class="svg-sub" text-anchor="middle" x="130" y="400">none</text>
+                <text class="svg-sub" text-anchor="middle" x="230" y="400">4 KiB</text>
+                <text class="svg-sub" text-anchor="middle" x="365" y="400">16 KiB</text>
+                <text class="svg-sub" text-anchor="middle" x="500" y="400">64 KiB</text>
+                <text class="svg-sub" text-anchor="middle" x="552.7" y="400">110 KiB</text>
+                <text class="svg-sub" text-anchor="middle" x="340" y="418">trained dictionary size, log scale</text>
+              </svg>

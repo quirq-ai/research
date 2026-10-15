@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 524" role="img" aria-label="Left: arithmetic coding of the message A A B A with P(A) = 0.8, P(B) = 0.15, P(C) = 0.05. Row 1 splits [0, 1) at 0.8 and 0.95 and keeps A. Row 2 splits [0, 0.8) at 0.64 and 0.76 and keeps A. Row 3 splits [0, 0.64) at 0.512 and 0.608 and keeps B. Row 4 splits [0.512, 0.608) at 0.5888 and 0.6032 and keeps A. The final interval is [0.512, 0.5888), width 0.0768 = 0.8 × 0.8 × 0.15 × 0.8, which is 3.70 bits; the binary fraction 0.1001 = 0.5625 lies inside, a 4-bit code. Right: Huffman codes A as 0, B as 10, C as 11, so A A B A is 0 0 10 0, 5 bits. Bars compare the limit 3.70 bits, arithmetic 4 bits and Huffman 5 bits; over a long run the entropy is 0.884 bits a symbol against Huffman's 1.2, 36% more."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="524.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="16">ARITHMETIC CODING · P(A) = 0.8 · P(B) = 0.15 · P(C) = 0.05</text>
+                <text class="svg-num" x="0" y="61">1</text>
+                <text class="svg-step" x="18" y="61">read A</text>
+                <text class="svg-sub" x="18" y="80">width 1</text>
+                <text class="svg-sub" text-anchor="end" x="144" y="61">0</text>
+                <rect fill="#e0ebf2" height="26" stroke="#3c6f97" width="480" x="150" y="44"></rect>
+                <text class="svg-step" text-anchor="middle" x="390" y="61">A</text>
+                <rect fill="#f7f7f5" height="26" stroke="#b8b8b1" width="90" x="630" y="44"></rect>
+                <text class="svg-step" text-anchor="middle" x="675" y="61">B</text>
+                <rect fill="#f7f7f5" height="26" stroke="#b8b8b1" width="30" x="720" y="44"></rect>
+                <text class="svg-step" text-anchor="middle" x="735" y="61">C</text>
+                <text class="svg-sub" text-anchor="middle" x="630" y="86">0.8</text>
+                <text class="svg-sub" text-anchor="middle" x="720" y="86">0.95</text>
+                <text class="svg-sub" x="756" y="61">1</text>
+                <line stroke="#b8b8b1" x1="150" x2="150" y1="94" y2="122"></line>
+                <line stroke="#b8b8b1" x1="630" x2="750" y1="94" y2="122"></line>
+                <text class="svg-num" x="0" y="143">2</text>
+                <text class="svg-step" x="18" y="143">read A</text>
+                <text class="svg-sub" x="18" y="162">width 0.8</text>
+                <text class="svg-sub" text-anchor="end" x="144" y="143">0</text>
+                <rect fill="#e0ebf2" height="26" stroke="#3c6f97" width="480" x="150" y="126"></rect>
+                <text class="svg-step" text-anchor="middle" x="390" y="143">A</text>
+                <rect fill="#f7f7f5" height="26" stroke="#b8b8b1" width="90" x="630" y="126"></rect>
+                <text class="svg-step" text-anchor="middle" x="675" y="143">B</text>
+                <rect fill="#f7f7f5" height="26" stroke="#b8b8b1" width="30" x="720" y="126"></rect>
+                <text class="svg-step" text-anchor="middle" x="735" y="143">C</text>
+                <text class="svg-sub" text-anchor="middle" x="630" y="168">0.64</text>
+                <text class="svg-sub" text-anchor="middle" x="720" y="168">0.76</text>
+                <text class="svg-sub" x="756" y="143">0.8</text>
+                <line stroke="#b8b8b1" x1="150" x2="150" y1="176" y2="204"></line>
+                <line stroke="#b8b8b1" x1="630" x2="750" y1="176" y2="204"></line>
+                <text class="svg-num" x="0" y="225">3</text>
+                <text class="svg-step" x="18" y="225">read B</text>
+                <text class="svg-sub" x="18" y="244">width 0.64</text>
+                <text class="svg-sub" text-anchor="end" x="144" y="225">0</text>
+                <rect fill="#f7f7f5" height="26" stroke="#b8b8b1" width="480" x="150" y="208"></rect>
+                <text class="svg-step" text-anchor="middle" x="390" y="225">A</text>
+                <rect fill="#e0ebf2" height="26" stroke="#3c6f97" width="90" x="630" y="208"></rect>
+                <text class="svg-step" text-anchor="middle" x="675" y="225">B</text>
+                <rect fill="#f7f7f5" height="26" stroke="#b8b8b1" width="30" x="720" y="208"></rect>
+                <text class="svg-step" text-anchor="middle" x="735" y="225">C</text>
+                <text class="svg-sub" text-anchor="middle" x="630" y="250">0.512</text>
+                <text class="svg-sub" text-anchor="middle" x="720" y="250">0.608</text>
+                <text class="svg-sub" x="756" y="225">0.64</text>
+                <line stroke="#b8b8b1" x1="630" x2="150" y1="258" y2="286"></line>
+                <line stroke="#b8b8b1" x1="720" x2="750" y1="258" y2="286"></line>
+                <text class="svg-num" x="0" y="307">4</text>
+                <text class="svg-step" x="18" y="307">read A</text>
+                <text class="svg-sub" x="18" y="326">width 0.096</text>
+                <text class="svg-sub" text-anchor="end" x="144" y="307">0.512</text>
+                <rect fill="#e0ebf2" height="26" stroke="#3c6f97" width="480" x="150" y="290"></rect>
+                <text class="svg-step" text-anchor="middle" x="390" y="307">A</text>
+                <rect fill="#f7f7f5" height="26" stroke="#b8b8b1" width="90" x="630" y="290"></rect>
+                <text class="svg-step" text-anchor="middle" x="675" y="307">B</text>
+                <rect fill="#f7f7f5" height="26" stroke="#b8b8b1" width="30" x="720" y="290"></rect>
+                <text class="svg-step" text-anchor="middle" x="735" y="307">C</text>
+                <text class="svg-sub" text-anchor="middle" x="630" y="332">0.5888</text>
+                <text class="svg-sub" text-anchor="middle" x="720" y="332">0.6032</text>
+                <text class="svg-sub" x="756" y="307">0.608</text>
+                <line stroke="#b8b8b1" x1="150" x2="150" y1="340" y2="368"></line>
+                <line stroke="#b8b8b1" x1="630" x2="750" y1="340" y2="368"></line>
+                <text class="svg-step" x="18" y="389">final</text>
+                <text class="svg-sub" x="18" y="408">width 0.0768</text>
+                <text class="svg-sub" text-anchor="end" x="144" y="389">0.512</text>
+                <rect fill="#e0ebf2" height="26" stroke="#3c6f97" width="600" x="150" y="372"></rect>
+                <text class="svg-sub" x="756" y="389">0.5888</text>
+                <line stroke="#367f59" stroke-width="2.4" x1="544.5" x2="544.5" y1="366" y2="404"></line>
+                <text class="svg-sub" text-anchor="middle" x="544.5" y="420">0.1001 in binary = 0.5625 · code 1001</text>
+                <text class="svg-sub" x="0" y="452">width = 0.8 × 0.8 × 0.15 × 0.8 = 0.0768 · −log₂ 0.0768 = 3.70 bits</text>
+                <text class="svg-sub" x="0" y="472">shortest binary fraction inside: 4 bits, if the decoder knows there are 4 symbols</text>
+                <line stroke="#deded9" x1="815" x2="815" y1="0" y2="480"></line>
+                <text class="svg-lane" x="840" y="16">HUFFMAN, SAME SOURCE</text>
+                <text class="svg-sub" x="840" y="48">A → 0 · B → 10 · C → 11</text>
+                <text class="svg-sub" x="840" y="70">A A B A → 0 0 10 0</text>
+                <text class="svg-lane" x="840" y="104">BITS FOR A A B A</text>
+                <text class="svg-sub" x="840" y="129">limit</text>
+                <rect fill="#ffffff" height="18" rx="2" stroke="#252525" width="125.9" x="920" y="116"></rect>
+                <text class="svg-sub" x="1051.9" y="129">3.70</text>
+                <text class="svg-sub" x="840" y="157">arithmetic</text>
+                <rect fill="#dfede5" height="18" rx="2" stroke="#367f59" width="136.0" x="920" y="144"></rect>
+                <text class="svg-sub" x="1062.0" y="157">4</text>
+                <text class="svg-sub" x="840" y="185">Huffman</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" width="170.0" x="920" y="172"></rect>
+                <text class="svg-sub" x="1096.0" y="185">5</text>
+                <text class="svg-lane" x="840" y="232">LONG RUN, BITS A SYMBOL</text>
+                <text class="svg-sub" x="840" y="257">entropy</text>
+                <rect fill="#ffffff" height="18" rx="2" stroke="#252525" width="125.3" x="920" y="244"></rect>
+                <text class="svg-sub" x="1051.3" y="257">0.884</text>
+                <text class="svg-sub" x="840" y="285">Huffman</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" width="170.0" x="920" y="272"></rect>
+                <text class="svg-sub" x="1096.0" y="285">1.2</text>
+                <text class="svg-note" x="840" y="318">Huffman: 36% above the entropy</text>
+                <line stroke="#deded9" x1="0" x2="1120" y1="490" y2="490"></line>
+                <rect fill="#e0ebf2" height="14" rx="3" stroke="#3c6f97" width="14" x="0" y="502"></rect>
+                <text class="svg-sub" x="22" y="513">slice kept</text>
+                <rect fill="#f7f7f5" height="14" rx="3" stroke="#b8b8b1" width="14" x="150" y="502"></rect>
+                <text class="svg-sub" x="172" y="513">slice not taken</text>
+                <rect fill="#dfede5" height="14" rx="3" stroke="#367f59" width="14" x="330" y="502"></rect>
+                <text class="svg-sub" x="352" y="513">arithmetic code</text>
+                <rect fill="#f7e3c8" height="14" rx="3" stroke="#d98226" width="14" x="510" y="502"></rect>
+                <text class="svg-sub" x="532" y="513">Huffman, whole bits</text>
+                <rect fill="#ffffff" height="14" rx="3" stroke="#252525" width="14" x="720" y="502"></rect>
+                <text class="svg-sub" x="742" y="513">information: −log₂ P, the limit</text>
+              </svg>

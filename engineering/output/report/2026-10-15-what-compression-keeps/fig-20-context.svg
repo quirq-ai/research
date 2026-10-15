@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 526" role="img" aria-label="Three columns. Left, the context window before compaction, oldest content at the top, filled to the trigger line. Its ten blocks are tinted by their fate. System prompt and tools sit outside the history, unchanged. Kept exactly: project CLAUDE.md and auto memory, re-injected from disk; files read or edited, up to five re-read; path-scoped rules and nested CLAUDE.md, summarised but reloaded on demand; the most recent records, kept verbatim by some tools. Kept approximately, in the summary: early instructions, whose detail may be lost; requests and key code snippets; context added by hooks. Dropped for good: older tool outputs, cleared first by Claude Code; images, documents and fetched URLs in the summarised range, per the Claude API docs. Middle, top to bottom: dashed purple edges send the dropped blocks to a box noting that the host's transcript may still hold them; a box for files on disk feeds the re-injected blocks with a thin blue edge; the summariser, a separate model request over the same system prompt, tools and history, receives the whole history on a thin blue edge and writes the summary; and a trigger box, about 967K of 1M tokens in Claude Code or 150K input tokens by default in the Claude API, reached by a thick black edge from the fill line and sending one on to the summariser. Right, the next request: system prompt and tools; project CLAUDE.md and auto memory; a fresh git status; up to five recent files, over 5,000 tokens as a path only; invoked skill bodies capped at 5,000 tokens each and 25,000 in all; the summary, readable text in the Claude API and an opaque item at OpenAI; the most recent records; path rules reloaded on demand; and free room for new turns."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="526.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-context-ink" markerHeight="4" markerWidth="4" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="fig-context-blu" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                  <marker id="fig-context-pur" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="0" y="16">BEFORE · AT THE TRIGGER</text>
+                <text class="svg-lane" x="400" y="16">COMPACTION</text>
+                <text class="svg-lane" x="790" y="16">AFTER · THE NEXT REQUEST</text>
+
+                <rect fill="none" height="448" rx="6" stroke="#b8b8b1" width="330" x="0" y="28"></rect>
+                <rect fill="#f7f7f5" height="38" rx="4" stroke="#deded9" width="314" x="8" y="36"></rect>
+                <text class="svg-step" x="18" y="52">System prompt, tools</text>
+                <text class="svg-sub" x="18" y="67">unchanged</text>
+                <rect fill="#dfede5" height="38" rx="4" stroke="#367f59" width="314" x="8" y="78"></rect>
+                <text class="svg-step" x="18" y="94">Project CLAUDE.md, auto memory</text>
+                <text class="svg-sub" x="18" y="109">re-injected from disk</text>
+                <rect fill="#f7e3c8" height="38" rx="4" stroke="#d98226" width="314" x="8" y="120"></rect>
+                <text class="svg-step" x="18" y="136">Early instructions</text>
+                <text class="svg-sub" x="18" y="151">detail may be lost</text>
+                <rect fill="#ece6f3" height="38" rx="4" stroke="#765b98" stroke-dasharray="5 4" width="314" x="8" y="162"></rect>
+                <text class="svg-step" x="18" y="178">Older tool outputs</text>
+                <text class="svg-sub" x="18" y="193">cleared first (Claude Code)</text>
+                <rect fill="#ece6f3" height="38" rx="4" stroke="#765b98" stroke-dasharray="5 4" width="314" x="8" y="204"></rect>
+                <text class="svg-step" x="18" y="220">Images, documents, fetched URLs</text>
+                <text class="svg-sub" x="18" y="235">gone once summarised (API)</text>
+                <rect fill="#f7e3c8" height="38" rx="4" stroke="#d98226" width="314" x="8" y="246"></rect>
+                <text class="svg-step" x="18" y="262">Requests, key code snippets</text>
+                <text class="svg-sub" x="18" y="277">kept in the summary</text>
+                <rect fill="#dfede5" height="38" rx="4" stroke="#367f59" width="314" x="8" y="288"></rect>
+                <text class="svg-step" x="18" y="304">Files read or edited</text>
+                <text class="svg-sub" x="18" y="319">up to five re-read</text>
+                <rect fill="#dfede5" height="38" rx="4" stroke="#367f59" width="314" x="8" y="330"></rect>
+                <text class="svg-step" x="18" y="346">Path rules, nested CLAUDE.md</text>
+                <text class="svg-sub" x="18" y="361">summarised, reloaded on demand</text>
+                <rect fill="#f7e3c8" height="38" rx="4" stroke="#d98226" width="314" x="8" y="372"></rect>
+                <text class="svg-step" x="18" y="388">Context added by hooks</text>
+                <text class="svg-sub" x="18" y="403">summarised with the rest</text>
+                <rect fill="#dfede5" height="38" rx="4" stroke="#367f59" width="314" x="8" y="414"></rect>
+                <text class="svg-step" x="18" y="430">Most recent records</text>
+                <text class="svg-sub" x="18" y="445">kept verbatim by some tools</text>
+                <line stroke="#252525" stroke-width="2.4" x1="0" x2="330" y1="460" y2="460"></line>
+                <text class="svg-sub" x="18" y="471">trigger line: the window is full</text>
+
+                <rect fill="#ece6f3" height="120" rx="6" stroke="#765b98" stroke-dasharray="5 4" width="320" x="400" y="36"></rect>
+                <text class="svg-step" x="412" y="58">Dropped for good</text>
+                <text class="svg-sub" x="412" y="80">older tool outputs</text>
+                <text class="svg-sub" x="412" y="100">images, documents, fetched URLs</text>
+                <text class="svg-sub" x="412" y="118">detail the summary left out</text>
+                <text class="svg-note" x="412" y="144">the host's transcript may still hold them</text>
+                <path d="M322 181 H356 V120 H396" fill="none" marker-end="url(#fig-context-pur)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.6"></path>
+                <path d="M322 223 H370 V140 H396" fill="none" marker-end="url(#fig-context-pur)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.6"></path>
+
+                <rect fill="#f7f7f5" height="56" rx="6" stroke="#b8b8b1" width="320" x="400" y="176"></rect>
+                <text class="svg-step" x="412" y="198">Files on disk</text>
+                <text class="svg-sub" x="412" y="225">CLAUDE.md, memory, the repository</text>
+
+                <rect fill="#f7f7f5" height="104" rx="6" stroke="#b8b8b1" width="320" x="400" y="252"></rect>
+                <text class="svg-step" x="412" y="270">Summariser</text>
+                <text class="svg-sub" x="412" y="292">a separate model request over</text>
+                <text class="svg-sub" x="412" y="312">the same prompt, tools and history</text>
+                <text class="svg-note" x="412" y="338">billed; invalidates the cached history</text>
+                <line marker-end="url(#fig-context-blu)" stroke="#3c6f97" stroke-width="1.4" x1="330" x2="396" y1="304" y2="304"></line>
+
+                <rect fill="#f7f7f5" height="76" rx="6" stroke="#252525" width="320" x="400" y="384"></rect>
+                <text class="svg-step" x="412" y="414">Trigger</text>
+                <text class="svg-sub" x="412" y="434">about 967K of 1M (Claude Code)</text>
+                <text class="svg-sub" x="412" y="452">150K input tokens (Claude API)</text>
+                <path d="M330 460 H366 V440 H396" fill="none" marker-end="url(#fig-context-ink)" stroke="#252525" stroke-width="2.4"></path>
+                <line marker-end="url(#fig-context-ink)" stroke="#252525" stroke-width="2.4" x1="560" x2="560" y1="384" y2="361"></line>
+
+                <path d="M720 204 H748 V160 H778" fill="none" marker-end="url(#fig-context-blu)" stroke="#3c6f97" stroke-width="1.4"></path>
+                <path d="M786 80 H782 V240 H786" fill="none" stroke="#3c6f97" stroke-width="1.4"></path>
+                <line marker-end="url(#fig-context-blu)" stroke="#3c6f97" stroke-width="1.4" x1="720" x2="794" y1="300" y2="300"></line>
+
+                <rect fill="none" height="448" rx="6" stroke="#b8b8b1" width="330" x="790" y="28"></rect>
+                <rect fill="#f7f7f5" height="38" rx="4" stroke="#deded9" width="314" x="798" y="36"></rect>
+                <text class="svg-step" x="808" y="52">System prompt, tools</text>
+                <text class="svg-sub" x="808" y="67">unchanged</text>
+                <rect fill="#dfede5" height="38" rx="4" stroke="#367f59" width="314" x="798" y="78"></rect>
+                <text class="svg-step" x="808" y="94">Project CLAUDE.md, auto memory</text>
+                <text class="svg-sub" x="808" y="109">re-injected from disk</text>
+                <rect fill="#dfede5" height="38" rx="4" stroke="#367f59" width="314" x="798" y="120"></rect>
+                <text class="svg-step" x="808" y="136">Fresh git status</text>
+                <text class="svg-sub" x="808" y="151">read afresh</text>
+                <rect fill="#dfede5" height="38" rx="4" stroke="#367f59" width="314" x="798" y="162"></rect>
+                <text class="svg-step" x="808" y="178">Up to five recent files</text>
+                <text class="svg-sub" x="808" y="193">over 5,000 tokens: a path only</text>
+                <rect fill="#dfede5" height="38" rx="4" stroke="#367f59" width="314" x="798" y="204"></rect>
+                <text class="svg-step" x="808" y="220">Invoked skill bodies</text>
+                <text class="svg-sub" x="808" y="235">capped at 5,000 each, 25,000 in all</text>
+                <rect fill="#f7e3c8" height="84" rx="4" stroke="#d98226" width="314" x="798" y="246"></rect>
+                <text class="svg-step" x="808" y="266">Summary</text>
+                <text class="svg-sub" x="808" y="292">readable text (Claude API)</text>
+                <text class="svg-sub" x="808" y="314">opaque item (OpenAI)</text>
+                <rect fill="#dfede5" height="38" rx="4" stroke="#367f59" width="314" x="798" y="334"></rect>
+                <text class="svg-step" x="808" y="350">Most recent records</text>
+                <text class="svg-sub" x="808" y="365">where the tool keeps them</text>
+                <rect fill="#dfede5" height="38" rx="4" stroke="#367f59" width="314" x="798" y="376"></rect>
+                <text class="svg-step" x="808" y="392">Path rules, nested CLAUDE.md</text>
+                <text class="svg-sub" x="808" y="407">reloaded on demand, from disk</text>
+                <rect fill="none" height="50" rx="4" stroke="#b8b8b1" stroke-dasharray="3 3" width="314" x="798" y="418"></rect>
+                <text class="svg-note" x="808" y="448">room for new turns</text>
+
+                <line stroke="#deded9" x1="0" x2="1120" y1="492" y2="492"></line>
+                <rect fill="#dfede5" height="14" rx="3" stroke="#367f59" width="14" x="0" y="503"></rect>
+                <text class="svg-sub" x="22" y="514">kept exactly</text>
+                <rect fill="#f7e3c8" height="14" rx="3" stroke="#d98226" width="14" x="132" y="503"></rect>
+                <text class="svg-sub" x="154" y="514">kept approximately</text>
+                <rect fill="#ece6f3" height="14" rx="3" stroke="#765b98" stroke-dasharray="3 2" width="14" x="310" y="503"></rect>
+                <text class="svg-sub" x="332" y="514">dropped for good</text>
+                <rect fill="#f7f7f5" height="14" rx="3" stroke="#b8b8b1" width="14" x="474" y="503"></rect>
+                <text class="svg-sub" x="496" y="514">outside the history</text>
+                <line marker-end="url(#fig-context-ink)" stroke="#252525" stroke-width="2.4" x1="670" x2="700" y1="510" y2="510"></line>
+                <text class="svg-sub" x="710" y="514">trigger</text>
+                <line marker-end="url(#fig-context-blu)" stroke="#3c6f97" stroke-width="1.4" x1="790" x2="820" y1="510" y2="510"></line>
+                <text class="svg-sub" x="830" y="514">data</text>
+                <path d="M890 510 H920" fill="none" marker-end="url(#fig-context-pur)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.6"></path>
+                <text class="svg-sub" x="930" y="514">state discarded</text>
+              </svg>

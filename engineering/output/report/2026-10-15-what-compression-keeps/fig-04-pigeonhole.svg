@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 704 526" role="img" aria-label="Two panels. A: the counting argument for 3 bits. Eight 3-bit inputs, 000 to 111, map to the seven strings shorter than 3 bits: four of length 2, two of length 1 and the empty string. Seven inputs each take a distinct output; the eighth, 111, must share the empty string with 110, so the decoder cannot tell them apart. B: bytes added when 1,048,576 pseudo-random bytes are compressed, on a log scale, every round trip exact: brotli -q 5 and -q 11 +5 (0.0005%); zstd -3 and -19 +33 (0.0031%); snappy raw +51 (0.0049%); lz4 frame, default and HC -9 +83 (0.0079%); xz -6 and -9 +112 (0.0107%); snappy framed +138 (0.0132%); raw DEFLATE -9 +320 (0.0305%); zlib -9 +326 (0.0311%); gzip -6 and -9 +338 (0.0322%); lz4 block +4,118 (0.3927%); bzip2 -9 +5,181 (0.4941%). Every codec grows the input; nine stay under 0.04 percent and two, lz4 block and bzip2, grow it by 0.39 and 0.49 percent."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="704.0" height="526.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-pigeonhole-blu" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                  <marker id="fig-pigeonhole-red" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#ad4b43"></path></marker>
+                </defs>
+                <text class="svg-lane" x="0" y="16">A · EIGHT 3-BIT INPUTS, SEVEN SHORTER OUTPUTS</text>
+                <rect fill="#f7f7f5" height="28" rx="5" stroke="#b8b8b1" width="64" x="24" y="34"></rect>
+                <text class="svg-sub" text-anchor="middle" x="56" y="52">000</text>
+                <rect fill="#f7f7f5" height="28" rx="5" stroke="#b8b8b1" width="64" x="108" y="34"></rect>
+                <text class="svg-sub" text-anchor="middle" x="140" y="52">001</text>
+                <rect fill="#f7f7f5" height="28" rx="5" stroke="#b8b8b1" width="64" x="192" y="34"></rect>
+                <text class="svg-sub" text-anchor="middle" x="224" y="52">010</text>
+                <rect fill="#f7f7f5" height="28" rx="5" stroke="#b8b8b1" width="64" x="276" y="34"></rect>
+                <text class="svg-sub" text-anchor="middle" x="308" y="52">011</text>
+                <rect fill="#f7f7f5" height="28" rx="5" stroke="#b8b8b1" width="64" x="360" y="34"></rect>
+                <text class="svg-sub" text-anchor="middle" x="392" y="52">100</text>
+                <rect fill="#f7f7f5" height="28" rx="5" stroke="#b8b8b1" width="64" x="444" y="34"></rect>
+                <text class="svg-sub" text-anchor="middle" x="476" y="52">101</text>
+                <rect fill="#f7f7f5" height="28" rx="5" stroke="#b8b8b1" width="64" x="528" y="34"></rect>
+                <text class="svg-sub" text-anchor="middle" x="560" y="52">110</text>
+                <rect fill="#f7f7f5" height="28" rx="5" stroke="#b8b8b1" width="64" x="612" y="34"></rect>
+                <text class="svg-sub" text-anchor="middle" x="644" y="52">111</text>
+                <rect fill="#e0ebf2" height="28" rx="5" stroke="#3c6f97" width="64" x="24" y="118"></rect>
+                <text class="svg-sub" text-anchor="middle" x="56" y="136">00</text>
+                <rect fill="#e0ebf2" height="28" rx="5" stroke="#3c6f97" width="64" x="108" y="118"></rect>
+                <text class="svg-sub" text-anchor="middle" x="140" y="136">01</text>
+                <rect fill="#e0ebf2" height="28" rx="5" stroke="#3c6f97" width="64" x="192" y="118"></rect>
+                <text class="svg-sub" text-anchor="middle" x="224" y="136">10</text>
+                <rect fill="#e0ebf2" height="28" rx="5" stroke="#3c6f97" width="64" x="276" y="118"></rect>
+                <text class="svg-sub" text-anchor="middle" x="308" y="136">11</text>
+                <rect fill="#e0ebf2" height="28" rx="5" stroke="#3c6f97" width="64" x="360" y="118"></rect>
+                <text class="svg-sub" text-anchor="middle" x="392" y="136">0</text>
+                <rect fill="#e0ebf2" height="28" rx="5" stroke="#3c6f97" width="64" x="444" y="118"></rect>
+                <text class="svg-sub" text-anchor="middle" x="476" y="136">1</text>
+                <rect fill="#f3dfdc" height="28" rx="5" stroke="#ad4b43" width="64" x="528" y="118"></rect>
+                <text class="svg-sub" text-anchor="middle" x="560" y="136">empty</text>
+                <line marker-end="url(#fig-pigeonhole-blu)" stroke="#3c6f97" stroke-width="1.4" x1="56" x2="56" y1="62" y2="114"></line>
+                <line marker-end="url(#fig-pigeonhole-blu)" stroke="#3c6f97" stroke-width="1.4" x1="140" x2="140" y1="62" y2="114"></line>
+                <line marker-end="url(#fig-pigeonhole-blu)" stroke="#3c6f97" stroke-width="1.4" x1="224" x2="224" y1="62" y2="114"></line>
+                <line marker-end="url(#fig-pigeonhole-blu)" stroke="#3c6f97" stroke-width="1.4" x1="308" x2="308" y1="62" y2="114"></line>
+                <line marker-end="url(#fig-pigeonhole-blu)" stroke="#3c6f97" stroke-width="1.4" x1="392" x2="392" y1="62" y2="114"></line>
+                <line marker-end="url(#fig-pigeonhole-blu)" stroke="#3c6f97" stroke-width="1.4" x1="476" x2="476" y1="62" y2="114"></line>
+                <line marker-end="url(#fig-pigeonhole-blu)" stroke="#3c6f97" stroke-width="1.4" x1="560" x2="560" y1="62" y2="114"></line>
+                <line marker-end="url(#fig-pigeonhole-red)" stroke="#ad4b43" stroke-width="1.4" x1="644" x2="574" y1="62" y2="114"></line>
+                <text class="svg-sub" text-anchor="middle" x="182" y="164">2 bits · 4 strings</text>
+                <text class="svg-sub" text-anchor="middle" x="434" y="164">1 bit · 2</text>
+                <text class="svg-sub" text-anchor="middle" x="560" y="164">0 bits · 1</text>
+                <text class="svg-note" x="0" y="188">2³ = 8 inputs, 2³ − 1 = 7 shorter strings: 110 and 111 must share one, and the decoder cannot tell them apart.</text>
+
+                <line stroke="#deded9" x1="0" x2="704" y1="206" y2="206"></line>
+                <text class="svg-lane" x="0" y="230">B · BYTES ADDED TO 1,048,576 RANDOM BYTES · LOG SCALE</text>
+                <line stroke="#deded9" x1="180" x2="180" y1="244" y2="470"></line>
+                <text class="svg-sub" text-anchor="middle" x="180" y="486">1 B</text>
+                <line stroke="#deded9" x1="280" x2="280" y1="244" y2="470"></line>
+                <text class="svg-sub" text-anchor="middle" x="280" y="486">10 B</text>
+                <line stroke="#deded9" x1="380" x2="380" y1="244" y2="470"></line>
+                <text class="svg-sub" text-anchor="middle" x="380" y="486">100 B</text>
+                <line stroke="#deded9" x1="480" x2="480" y1="244" y2="470"></line>
+                <text class="svg-sub" text-anchor="middle" x="480" y="486">1,000 B</text>
+                <line stroke="#deded9" x1="580" x2="580" y1="244" y2="470"></line>
+                <text class="svg-sub" text-anchor="middle" x="580" y="486">10,000 B</text>
+                <text class="svg-sub" text-anchor="end" x="170" y="261">brotli -q 5, -q 11</text>
+                <rect fill="#e0ebf2" height="12" rx="2" stroke="#3c6f97" width="69.9" x="180" y="251"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-linejoin="round" stroke-width="7" x="255.9" y="261">+5 B</text>
+                <text class="svg-sub" text-anchor="end" x="170" y="281">zstd -3, -19</text>
+                <rect fill="#e0ebf2" height="12" rx="2" stroke="#3c6f97" width="151.9" x="180" y="271"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-linejoin="round" stroke-width="7" x="337.9" y="281">+33 B</text>
+                <text class="svg-sub" text-anchor="end" x="170" y="301">snappy raw</text>
+                <rect fill="#e0ebf2" height="12" rx="2" stroke="#3c6f97" width="170.8" x="180" y="291"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-linejoin="round" stroke-width="7" x="356.8" y="301">+51 B</text>
+                <text class="svg-sub" text-anchor="end" x="170" y="321">lz4 frame, HC -9</text>
+                <rect fill="#e0ebf2" height="12" rx="2" stroke="#3c6f97" width="191.9" x="180" y="311"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-linejoin="round" stroke-width="7" x="377.9" y="321">+83 B</text>
+                <text class="svg-sub" text-anchor="end" x="170" y="341">xz -6, -9</text>
+                <rect fill="#e0ebf2" height="12" rx="2" stroke="#3c6f97" width="204.9" x="180" y="331"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-linejoin="round" stroke-width="7" x="390.9" y="341">+112 B</text>
+                <text class="svg-sub" text-anchor="end" x="170" y="361">snappy framed</text>
+                <rect fill="#e0ebf2" height="12" rx="2" stroke="#3c6f97" width="214" x="180" y="351"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-linejoin="round" stroke-width="7" x="400" y="361">+138 B</text>
+                <text class="svg-sub" text-anchor="end" x="170" y="381">raw DEFLATE -9</text>
+                <rect fill="#e0ebf2" height="12" rx="2" stroke="#3c6f97" width="250.5" x="180" y="371"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-linejoin="round" stroke-width="7" x="436.5" y="381">+320 B</text>
+                <text class="svg-sub" text-anchor="end" x="170" y="401">zlib -9</text>
+                <rect fill="#e0ebf2" height="12" rx="2" stroke="#3c6f97" width="251.3" x="180" y="391"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-linejoin="round" stroke-width="7" x="437.3" y="401">+326 B</text>
+                <text class="svg-sub" text-anchor="end" x="170" y="421">gzip -6, -9</text>
+                <rect fill="#e0ebf2" height="12" rx="2" stroke="#3c6f97" width="252.9" x="180" y="411"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-linejoin="round" stroke-width="7" x="438.9" y="421">+338 B</text>
+                <text class="svg-sub" text-anchor="end" x="170" y="441">lz4 block</text>
+                <rect fill="#f3dfdc" height="12" rx="2" stroke="#ad4b43" width="361.5" x="180" y="431"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-linejoin="round" stroke-width="7" x="547.5" y="441">+4,118 B · 0.39%</text>
+                <text class="svg-sub" text-anchor="end" x="170" y="461">bzip2 -9</text>
+                <rect fill="#f3dfdc" height="12" rx="2" stroke="#ad4b43" width="371.4" x="180" y="451"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-linejoin="round" stroke-width="7" x="557.4" y="461">+5,181 B · 0.49%</text>
+                <rect fill="#e0ebf2" height="14" rx="3" stroke="#3c6f97" width="14" x="0" y="502"></rect>
+                <text class="svg-sub" x="22" y="513">grew by under 0.04%</text>
+                <rect fill="#f3dfdc" height="14" rx="3" stroke="#ad4b43" width="14" x="200" y="502"></rect>
+                <text class="svg-sub" x="222" y="513">grew by 0.39% or more</text>
+                <line marker-end="url(#fig-pigeonhole-blu)" stroke="#3c6f97" stroke-width="1.4" x1="420" x2="450" y1="509" y2="509"></line>
+                <text class="svg-sub" x="458" y="513">maps to</text>
+                <line marker-end="url(#fig-pigeonhole-red)" stroke="#ad4b43" stroke-width="1.4" x1="540" x2="570" y1="509" y2="509"></line>
+                <text class="svg-sub" x="578" y="513">collision</text>
+              </svg>

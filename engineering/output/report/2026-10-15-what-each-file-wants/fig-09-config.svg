@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 704 412" role="img" aria-label="Scatter plot of 83 files, each compressed alone with gzip -9: original size on a log axis from 40 to 200,000 bytes against output size divided by input size, with a dashed line at 1.00 above which the file grew. The 80 XO config files are 58 JSON config files, 11 YAML or TOML files and 11 of this site's post plans; the 3 Cargo.lock files come from upstream clones. Five files of 109 bytes or less lie above the line: vercel.json, 49 to 61 bytes (1.24), and four agent settings.json files of 92 to 109 bytes (1.04 to 1.11). All 75 config files of 206 bytes or more lie below it, from 0.22 to 0.87, 69 of them between 0.25 and 0.70. YAML and TOML lie at 0.44 to 0.68; the post plans, 3,899 to 70,129 bytes, at 0.34 to 0.42. Cargo.lock: fly-chess, 153 bytes, one package, 0.93; makepad, 57,438 bytes, 0.16; sentrux, 134,543 bytes, 0.24."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="704.0" height="412.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="16">EACH FILE ALONE · GZIP -9 · OUTPUT ÷ INPUT</text>
+                <circle cx="6" cy="37" fill="#3c6f97" r="4"></circle>
+                <text class="svg-sub" x="16" y="41">JSON config (58)</text>
+                <circle cx="160" cy="37" fill="#367f59" r="4"></circle>
+                <text class="svg-sub" x="170" y="41">YAML or TOML (11)</text>
+                <circle cx="321" cy="37" fill="#765b98" r="4"></circle>
+                <text class="svg-sub" x="331" y="41">post plans (11)</text>
+                <circle cx="467" cy="37" fill="#d98226" r="5"></circle>
+                <text class="svg-sub" x="477" y="41">Cargo.lock (3)</text>
+                <line stroke="#b8b8b1" x1="70" x2="690" y1="360" y2="360"></line>
+                <text class="svg-sub" text-anchor="end" x="62" y="364">0</text>
+                <line stroke="#deded9" x1="70" x2="690" y1="307.5" y2="307.5"></line>
+                <text class="svg-sub" text-anchor="end" x="62" y="311.5">0.25</text>
+                <line stroke="#deded9" x1="70" x2="690" y1="255.0" y2="255.0"></line>
+                <text class="svg-sub" text-anchor="end" x="62" y="259.0">0.50</text>
+                <line stroke="#deded9" x1="70" x2="690" y1="202.5" y2="202.5"></line>
+                <text class="svg-sub" text-anchor="end" x="62" y="206.5">0.75</text>
+                <text class="svg-sub" text-anchor="end" x="62" y="154.0">1.00</text>
+                <line stroke="#deded9" x1="136.7" x2="136.7" y1="80" y2="360"></line>
+                <text class="svg-sub" text-anchor="middle" x="136.7" y="378">100 B</text>
+                <line stroke="#deded9" x1="304.3" x2="304.3" y1="80" y2="360"></line>
+                <text class="svg-sub" text-anchor="middle" x="304.3" y="378">1,000 B</text>
+                <line stroke="#deded9" x1="471.9" x2="471.9" y1="80" y2="360"></line>
+                <text class="svg-sub" text-anchor="middle" x="471.9" y="378">10,000 B</text>
+                <line stroke="#deded9" x1="639.5" x2="639.5" y1="80" y2="360"></line>
+                <text class="svg-sub" text-anchor="middle" x="639.5" y="378">100,000 B</text>
+                <text class="svg-sub" text-anchor="middle" x="380.0" y="400">original size, bytes, log scale</text>
+                <circle cx="84.8" cy="98.6" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="130.6" cy="140.9" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="132.2" cy="141.1" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="136.7" cy="126.9" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="143.0" cy="130.7" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="189.3" cy="177.5" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="196.1" cy="207.6" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="221.6" cy="233.1" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="226.6" cy="220.2" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="226.6" cy="221.4" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="235.6" cy="223.4" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="238.2" cy="234.4" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="247.3" cy="277.3" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="256.4" cy="232.7" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="257.7" cy="240.8" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="271.7" cy="260.4" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="272.3" cy="290.9" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="275.2" cy="256.9" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="276.3" cy="293.4" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="276.3" cy="293.4" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="276.7" cy="292.1" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="283.5" cy="258.5" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="284.2" cy="257.4" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="285.3" cy="259.1" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="285.9" cy="257.3" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="286.2" cy="259.9" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="286.8" cy="261.2" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="292.7" cy="264.7" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="314.7" cy="271.7" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="322.3" cy="261.7" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="327.8" cy="259.6" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="332.3" cy="276.0" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="339.9" cy="280.1" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="344.7" cy="273.2" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="348.5" cy="265.0" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="351.4" cy="279.8" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="353.1" cy="273.5" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="353.2" cy="292.3" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="366.7" cy="310.5" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="376.5" cy="276.4" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="387.9" cy="277.1" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="390.1" cy="286.0" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="390.7" cy="282.7" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="392.5" cy="307.6" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="392.8" cy="283.3" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="394.6" cy="283.4" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="396.5" cy="285.1" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="398.5" cy="284.1" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="401.2" cy="285.6" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="401.3" cy="285.8" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="402.8" cy="289.5" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="405.6" cy="286.9" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="413.9" cy="306.3" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="414.3" cy="301.9" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="434.8" cy="311.8" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="436.0" cy="314.6" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="455.0" cy="302.8" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="546.0" cy="304.1" fill="#3c6f97" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="246.8" cy="222.2" fill="#367f59" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="258.8" cy="217.5" fill="#367f59" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="270.6" cy="218.1" fill="#367f59" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="273.3" cy="252.3" fill="#367f59" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="275.3" cy="252.3" fill="#367f59" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="276.7" cy="225.2" fill="#367f59" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="280.5" cy="226.6" fill="#367f59" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="287.2" cy="227.5" fill="#367f59" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="315.6" cy="263.5" fill="#367f59" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="333.3" cy="260.9" fill="#367f59" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="342.6" cy="267.0" fill="#367f59" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="403.4" cy="276.3" fill="#765b98" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="420.7" cy="288.6" fill="#765b98" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="469.8" cy="274.2" fill="#765b98" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="494.5" cy="275.4" fill="#765b98" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="535.6" cy="272.8" fill="#765b98" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="537.0" cy="274.9" fill="#765b98" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="552.3" cy="273.6" fill="#765b98" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="575.3" cy="274.9" fill="#765b98" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="599.5" cy="273.9" fill="#765b98" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="603.9" cy="276.0" fill="#765b98" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="613.7" cy="277.5" fill="#765b98" r="3.5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="167.7" cy="165.1" fill="#d98226" r="5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="599.2" cy="326.7" fill="#d98226" r="5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <circle cx="661.1" cy="308.7" fill="#d98226" r="5" stroke="#ffffff" stroke-width="0.8"></circle>
+                <line stroke="#ad4b43" stroke-dasharray="6 4" stroke-width="1.5" x1="70" x2="690" y1="150.0" y2="150.0"></line>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" text-anchor="end" x="690" y="144.0">1.00: above it, the file grew</text>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="94" y="103">vercel.json, 49 → 61 B</text>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="153" y="125">4 agent settings.json, 92–109 B</text>
+                <line stroke="#d98226" x1="165.7" x2="140" y1="170.1" y2="266"></line>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="76" y="280">fly-chess, 153 B,</text>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="76" y="294">one package</text>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" text-anchor="end" x="589" y="331">makepad, 57,438 B</text>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" text-anchor="end" x="690" y="283">sentrux,</text>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" text-anchor="end" x="690" y="297">134,543 B</text>
+                <text class="svg-note" text-anchor="end" x="690" y="66">Every config file of 109 B or less grew; of 206 B or more, shrank.</text>
+              </svg>

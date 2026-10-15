@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 600" role="img" aria-label="Two panels of horizontal bars; each bar is bytes as a share of the first bar in its group. Left, lossy: bytes at an SSIMULACRA 2 score of 80, interpolated, for three Kodak photographs. kodim05, motorcycles, dense detail: JPEG 4:2:0 123,592 bytes, WebP 103,261 bytes (minus 16.5%), AVIF 85,280 bytes (minus 31.0%), JPEG XL 96,871 bytes (minus 21.6%); kodim15, portrait, smooth skin: JPEG 4:2:0 88,132 bytes, WebP 71,556 bytes (minus 18.8%), AVIF 53,943 bytes (minus 38.8%), JPEG XL 51,564 bytes (minus 41.5%); kodim23, parrots, saturated colour: JPEG 4:2:0 49,675 bytes, WebP 46,928 bytes (minus 5.5%), AVIF 31,950 bytes (minus 35.7%), JPEG XL 30,329 bytes (minus 38.9%); All three, summed: JPEG 4:2:0 261,399 bytes, WebP 221,745 bytes (minus 15.2%), AVIF 171,173 bytes (minus 34.5%), JPEG XL 178,764 bytes (minus 31.6%). Right, lossless, every output decoded pixel-identical to the source, WebP at method 6 quality 100 and JPEG XL at effort 9: kodim05, photograph: PNG as found 785,610 bytes, oxipng -o 4 754,856 bytes (minus 3.9%), WebP lossless 556,352 bytes (minus 29.2%), JPEG XL -d 0 485,061 bytes (minus 38.3%); kodim15, photograph: PNG as found 612,582 bytes, oxipng -o 4 575,752 bytes (minus 6.0%), WebP lossless 427,336 bytes (minus 30.2%), JPEG XL -d 0 382,926 bytes (minus 37.5%); kodim23, photograph: PNG as found 557,596 bytes, oxipng -o 4 537,426 bytes (minus 3.6%), WebP lossless 422,106 bytes (minus 24.3%), JPEG XL -d 0 372,255 bytes (minus 33.2%); xo-space dashboard, screenshot: PNG as found 390,623 bytes, oxipng -o 4 233,940 bytes (minus 40.1%), WebP lossless 155,468 bytes (minus 60.2%), JPEG XL -d 0 243,126 bytes (minus 37.8%); doomfly pixel-art fly, graphic: PNG as found 756,305 bytes, oxipng -o 4 546,880 bytes (minus 27.7%), WebP lossless 425,432 bytes (minus 43.8%), JPEG XL -d 0 323,213 bytes (minus 57.3%). AVIF is smallest on the dense photograph, JPEG XL on the other two; losslessly JPEG XL is smallest except on the screenshot, where lossless WebP is."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="600.0" fill="#ffffff"/>
+                <rect fill="#f7f7f5" height="14" rx="3" stroke="#b8b8b1" width="14" x="0" y="10"></rect>
+                <text class="svg-sub" x="22" y="22">baseline: JPEG 4:2:0 or the PNG as found</text>
+                <rect fill="#e0ebf2" height="14" rx="3" stroke="#3c6f97" width="14" x="350" y="10"></rect>
+                <text class="svg-sub" x="372" y="22">WebP</text>
+                <rect fill="#ece6f3" height="14" rx="3" stroke="#765b98" width="14" x="430" y="10"></rect>
+                <text class="svg-sub" x="452" y="22">AVIF</text>
+                <rect fill="#dfede5" height="14" rx="3" stroke="#367f59" width="14" x="510" y="10"></rect>
+                <text class="svg-sub" x="532" y="22">JPEG XL</text>
+                <rect fill="#f7e3c8" height="14" rx="3" stroke="#d98226" width="14" x="612" y="10"></rect>
+                <text class="svg-sub" x="634" y="22">oxipng</text>
+                <text class="svg-lane" x="0" y="58">LOSSY · SSIMULACRA 2 = 80 · SHARE OF JPEG 4:2:0</text>
+                <line stroke="#deded9" x1="400" x2="400" y1="82" y2="480"></line>
+                <text class="svg-sub" text-anchor="middle" x="400" y="78">100%</text>
+                <text class="svg-step" x="0" y="104">kodim05 · motorcycles, dense detail</text>
+                <text class="svg-sub" text-anchor="end" x="92" y="126">JPEG 4:2:0</text>
+                <rect fill="#f7f7f5" height="12" rx="2" stroke="#b8b8b1" width="300.0" x="100" y="116"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="408.0" y="126">123,592 B</text>
+                <text class="svg-sub" text-anchor="end" x="92" y="143">WebP</text>
+                <rect fill="#e0ebf2" height="12" rx="2" stroke="#3c6f97" width="250.6" x="100" y="133"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="358.6" y="143">103,261 B · −16.5%</text>
+                <text class="svg-sub" text-anchor="end" x="92" y="160">AVIF</text>
+                <rect fill="#ece6f3" height="12" rx="2" stroke="#765b98" width="207.0" x="100" y="150"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="315.0" y="160">85,280 B · −31.0%</text>
+                <text class="svg-sub" text-anchor="end" x="92" y="177">JPEG XL</text>
+                <rect fill="#dfede5" height="12" rx="2" stroke="#367f59" width="235.1" x="100" y="167"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="343.1" y="177">96,871 B · −21.6%</text>
+                <text class="svg-step" x="0" y="204">kodim15 · portrait, smooth skin</text>
+                <text class="svg-sub" text-anchor="end" x="92" y="226">JPEG 4:2:0</text>
+                <rect fill="#f7f7f5" height="12" rx="2" stroke="#b8b8b1" width="300.0" x="100" y="216"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="408.0" y="226">88,132 B</text>
+                <text class="svg-sub" text-anchor="end" x="92" y="243">WebP</text>
+                <rect fill="#e0ebf2" height="12" rx="2" stroke="#3c6f97" width="243.6" x="100" y="233"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="351.6" y="243">71,556 B · −18.8%</text>
+                <text class="svg-sub" text-anchor="end" x="92" y="260">AVIF</text>
+                <rect fill="#ece6f3" height="12" rx="2" stroke="#765b98" width="183.6" x="100" y="250"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="291.6" y="260">53,943 B · −38.8%</text>
+                <text class="svg-sub" text-anchor="end" x="92" y="277">JPEG XL</text>
+                <rect fill="#dfede5" height="12" rx="2" stroke="#367f59" width="175.5" x="100" y="267"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="283.5" y="277">51,564 B · −41.5%</text>
+                <text class="svg-step" x="0" y="304">kodim23 · parrots, saturated colour</text>
+                <text class="svg-sub" text-anchor="end" x="92" y="326">JPEG 4:2:0</text>
+                <rect fill="#f7f7f5" height="12" rx="2" stroke="#b8b8b1" width="300.0" x="100" y="316"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="408.0" y="326">49,675 B</text>
+                <text class="svg-sub" text-anchor="end" x="92" y="343">WebP</text>
+                <rect fill="#e0ebf2" height="12" rx="2" stroke="#3c6f97" width="283.4" x="100" y="333"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="391.4" y="343">46,928 B · −5.5%</text>
+                <text class="svg-sub" text-anchor="end" x="92" y="360">AVIF</text>
+                <rect fill="#ece6f3" height="12" rx="2" stroke="#765b98" width="193.0" x="100" y="350"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="301.0" y="360">31,950 B · −35.7%</text>
+                <text class="svg-sub" text-anchor="end" x="92" y="377">JPEG XL</text>
+                <rect fill="#dfede5" height="12" rx="2" stroke="#367f59" width="183.2" x="100" y="367"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="291.2" y="377">30,329 B · −38.9%</text>
+                <text class="svg-step" x="0" y="404">All three, summed</text>
+                <text class="svg-sub" text-anchor="end" x="92" y="426">JPEG 4:2:0</text>
+                <rect fill="#f7f7f5" height="12" rx="2" stroke="#b8b8b1" width="300.0" x="100" y="416"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="408.0" y="426">261,399 B</text>
+                <text class="svg-sub" text-anchor="end" x="92" y="443">WebP</text>
+                <rect fill="#e0ebf2" height="12" rx="2" stroke="#3c6f97" width="254.5" x="100" y="433"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="362.5" y="443">221,745 B · −15.2%</text>
+                <text class="svg-sub" text-anchor="end" x="92" y="460">AVIF</text>
+                <rect fill="#ece6f3" height="12" rx="2" stroke="#765b98" width="196.5" x="100" y="450"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="304.5" y="460">171,173 B · −34.5%</text>
+                <text class="svg-sub" text-anchor="end" x="92" y="477">JPEG XL</text>
+                <rect fill="#dfede5" height="12" rx="2" stroke="#367f59" width="205.2" x="100" y="467"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="313.2" y="477">178,764 B · −31.6%</text>
+                <text class="svg-lane" x="580" y="58">LOSSLESS · PIXEL-IDENTICAL · SHARE OF THE PNG</text>
+                <line stroke="#deded9" x1="968" x2="968" y1="82" y2="580"></line>
+                <text class="svg-sub" text-anchor="middle" x="968" y="78">100%</text>
+                <text class="svg-step" x="580" y="104">kodim05 · photograph</text>
+                <text class="svg-sub" text-anchor="end" x="700" y="126">PNG as found</text>
+                <rect fill="#f7f7f5" height="12" rx="2" stroke="#b8b8b1" width="260.0" x="708" y="116"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="976.0" y="126">785,610 B</text>
+                <text class="svg-sub" text-anchor="end" x="700" y="143">oxipng -o 4</text>
+                <rect fill="#f7e3c8" height="12" rx="2" stroke="#d98226" width="249.8" x="708" y="133"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="965.8" y="143">754,856 B · −3.9%</text>
+                <text class="svg-sub" text-anchor="end" x="700" y="160">WebP lossless</text>
+                <rect fill="#e0ebf2" height="12" rx="2" stroke="#3c6f97" width="184.1" x="708" y="150"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="900.1" y="160">556,352 B · −29.2%</text>
+                <text class="svg-sub" text-anchor="end" x="700" y="177">JPEG XL -d 0</text>
+                <rect fill="#dfede5" height="12" rx="2" stroke="#367f59" width="160.5" x="708" y="167"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="876.5" y="177">485,061 B · −38.3%</text>
+                <text class="svg-step" x="580" y="204">kodim15 · photograph</text>
+                <text class="svg-sub" text-anchor="end" x="700" y="226">PNG as found</text>
+                <rect fill="#f7f7f5" height="12" rx="2" stroke="#b8b8b1" width="260.0" x="708" y="216"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="976.0" y="226">612,582 B</text>
+                <text class="svg-sub" text-anchor="end" x="700" y="243">oxipng -o 4</text>
+                <rect fill="#f7e3c8" height="12" rx="2" stroke="#d98226" width="244.4" x="708" y="233"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="960.4" y="243">575,752 B · −6.0%</text>
+                <text class="svg-sub" text-anchor="end" x="700" y="260">WebP lossless</text>
+                <rect fill="#e0ebf2" height="12" rx="2" stroke="#3c6f97" width="181.4" x="708" y="250"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="897.4" y="260">427,336 B · −30.2%</text>
+                <text class="svg-sub" text-anchor="end" x="700" y="277">JPEG XL -d 0</text>
+                <rect fill="#dfede5" height="12" rx="2" stroke="#367f59" width="162.5" x="708" y="267"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="878.5" y="277">382,926 B · −37.5%</text>
+                <text class="svg-step" x="580" y="304">kodim23 · photograph</text>
+                <text class="svg-sub" text-anchor="end" x="700" y="326">PNG as found</text>
+                <rect fill="#f7f7f5" height="12" rx="2" stroke="#b8b8b1" width="260.0" x="708" y="316"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="976.0" y="326">557,596 B</text>
+                <text class="svg-sub" text-anchor="end" x="700" y="343">oxipng -o 4</text>
+                <rect fill="#f7e3c8" height="12" rx="2" stroke="#d98226" width="250.6" x="708" y="333"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="966.6" y="343">537,426 B · −3.6%</text>
+                <text class="svg-sub" text-anchor="end" x="700" y="360">WebP lossless</text>
+                <rect fill="#e0ebf2" height="12" rx="2" stroke="#3c6f97" width="196.8" x="708" y="350"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="912.8" y="360">422,106 B · −24.3%</text>
+                <text class="svg-sub" text-anchor="end" x="700" y="377">JPEG XL -d 0</text>
+                <rect fill="#dfede5" height="12" rx="2" stroke="#367f59" width="173.6" x="708" y="367"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="889.6" y="377">372,255 B · −33.2%</text>
+                <text class="svg-step" x="580" y="404">xo-space dashboard · screenshot</text>
+                <text class="svg-sub" text-anchor="end" x="700" y="426">PNG as found</text>
+                <rect fill="#f7f7f5" height="12" rx="2" stroke="#b8b8b1" width="260.0" x="708" y="416"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="976.0" y="426">390,623 B</text>
+                <text class="svg-sub" text-anchor="end" x="700" y="443">oxipng -o 4</text>
+                <rect fill="#f7e3c8" height="12" rx="2" stroke="#d98226" width="155.7" x="708" y="433"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="871.7" y="443">233,940 B · −40.1%</text>
+                <text class="svg-sub" text-anchor="end" x="700" y="460">WebP lossless</text>
+                <rect fill="#e0ebf2" height="12" rx="2" stroke="#3c6f97" width="103.5" x="708" y="450"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="819.5" y="460">155,468 B · −60.2%</text>
+                <text class="svg-sub" text-anchor="end" x="700" y="477">JPEG XL -d 0</text>
+                <rect fill="#dfede5" height="12" rx="2" stroke="#367f59" width="161.8" x="708" y="467"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="877.8" y="477">243,126 B · −37.8%</text>
+                <text class="svg-step" x="580" y="504">doomfly pixel-art fly · graphic</text>
+                <text class="svg-sub" text-anchor="end" x="700" y="526">PNG as found</text>
+                <rect fill="#f7f7f5" height="12" rx="2" stroke="#b8b8b1" width="260.0" x="708" y="516"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="976.0" y="526">756,305 B</text>
+                <text class="svg-sub" text-anchor="end" x="700" y="543">oxipng -o 4</text>
+                <rect fill="#f7e3c8" height="12" rx="2" stroke="#d98226" width="188.0" x="708" y="533"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="904.0" y="543">546,880 B · −27.7%</text>
+                <text class="svg-sub" text-anchor="end" x="700" y="560">WebP lossless</text>
+                <rect fill="#e0ebf2" height="12" rx="2" stroke="#3c6f97" width="146.3" x="708" y="550"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="862.3" y="560">425,432 B · −43.8%</text>
+                <text class="svg-sub" text-anchor="end" x="700" y="577">JPEG XL -d 0</text>
+                <rect fill="#dfede5" height="12" rx="2" stroke="#367f59" width="111.1" x="708" y="567"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="827.1" y="577">323,213 B · −57.3%</text>
+                <text class="svg-note" x="0" y="554">Lossless bars are each tool at its maximum effort tried here:</text>
+                <text class="svg-note" x="0" y="574">oxipng -o 4, WebP method 6 at quality 100, JPEG XL effort 9.</text>
+              </svg>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 704 432" role="img" aria-label="A grid of two rows and three columns. Columns ask what is kept: every bit; what readers can observe, exactly; or an approximation a model chose. Rows ask what is rewritten: the encoding or the content. Encoding row: lossless compression keeps every bit; JSON minification keeps the JSON value but not its formatting; lossy compression keeps an approximation. Content row: memory compaction, defragmentation and Delta OPTIMIZE keep every bit and change only the layout; LSM compaction, Kafka compaction, VACUUM and REPACK, GC compaction, git gc and Raft snapshots keep the observable present exactly and drop the past; LLM context compaction alone keeps an approximation of the content. Colour answers whether what was dropped can come back: green yes or nothing dropped (lossless compression, memory compaction, defragmentation), orange for a while or in part (JSON minification, Delta OPTIMIZE), red no (all the others)."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="704.0" height="432.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="16">REWRITES</text>
+                <text class="svg-lane" x="118" y="16">KEEPS EVERY BIT</text>
+                <text class="svg-lane" x="314" y="16">KEEPS WHAT READERS SEE</text>
+                <text class="svg-lane" x="510" y="16">KEEPS AN APPROXIMATION</text>
+                <text class="svg-note" x="118" y="34">nothing is lost</text>
+                <text class="svg-note" x="314" y="34">the present, exactly</text>
+                <text class="svg-note" x="510" y="34">what a model chose</text>
+
+                <text class="svg-step" x="0" y="96">Encoding</text>
+                <text class="svg-note" x="0" y="114">how bits stand</text>
+                <text class="svg-note" x="0" y="128">for the data</text>
+                <rect fill="#f7f7f5" height="118" rx="6" stroke="#deded9" width="188" x="112" y="48"></rect>
+                <rect fill="#f7f7f5" height="118" rx="6" stroke="#deded9" width="188" x="308" y="48"></rect>
+                <rect fill="#f7f7f5" height="118" rx="6" stroke="#deded9" width="188" x="504" y="48"></rect>
+
+                <rect fill="#dfede5" height="24" rx="12" stroke="#367f59" width="164" x="124" y="62"></rect>
+                <text class="svg-sub" x="134" y="78">lossless compression</text>
+                <text class="svg-note" x="124" y="110">gzip, zstd, brotli, xz, FLAC</text>
+
+                <rect fill="#f7e3c8" height="24" rx="12" stroke="#d98226" width="150" x="320" y="62"></rect>
+                <text class="svg-sub" x="330" y="78">JSON minification</text>
+                <text class="svg-note" x="320" y="110">the value stays;</text>
+                <text class="svg-note" x="320" y="126">the formatting goes</text>
+
+                <rect fill="#f3dfdc" height="24" rx="12" stroke="#ad4b43" width="150" x="516" y="62"></rect>
+                <text class="svg-sub" x="526" y="78">lossy compression</text>
+                <text class="svg-note" x="516" y="110">JPEG, Opus, AV1</text>
+
+                <text class="svg-step" x="0" y="262">Content</text>
+                <text class="svg-note" x="0" y="280">which records</text>
+                <text class="svg-note" x="0" y="294">exist, and where</text>
+                <rect fill="#f7f7f5" height="214" rx="6" stroke="#deded9" width="188" x="112" y="176"></rect>
+                <rect fill="#f7f7f5" height="214" rx="6" stroke="#deded9" width="188" x="308" y="176"></rect>
+                <rect fill="#f7f7f5" height="214" rx="6" stroke="#deded9" width="188" x="504" y="176"></rect>
+
+                <rect fill="#dfede5" height="24" rx="12" stroke="#367f59" width="150" x="124" y="190"></rect>
+                <text class="svg-sub" x="134" y="206">memory compaction</text>
+                <rect fill="#dfede5" height="24" rx="12" stroke="#367f59" width="136" x="124" y="220"></rect>
+                <text class="svg-sub" x="134" y="236">defragmentation</text>
+                <rect fill="#f7e3c8" height="24" rx="12" stroke="#d98226" width="128" x="124" y="250"></rect>
+                <text class="svg-sub" x="134" y="266">Delta OPTIMIZE</text>
+                <text class="svg-note" x="124" y="300">move live data, lose nothing</text>
+
+                <rect fill="#f3dfdc" height="24" rx="12" stroke="#ad4b43" width="128" x="320" y="190"></rect>
+                <text class="svg-sub" x="330" y="206">LSM compaction</text>
+                <rect fill="#f3dfdc" height="24" rx="12" stroke="#ad4b43" width="142" x="320" y="220"></rect>
+                <text class="svg-sub" x="330" y="236">Kafka compaction</text>
+                <rect fill="#f3dfdc" height="24" rx="12" stroke="#ad4b43" width="134" x="320" y="250"></rect>
+                <text class="svg-sub" x="330" y="266">VACUUM / REPACK</text>
+                <rect fill="#f3dfdc" height="24" rx="12" stroke="#ad4b43" width="120" x="320" y="280"></rect>
+                <text class="svg-sub" x="330" y="296">GC compaction</text>
+                <rect fill="#f3dfdc" height="24" rx="12" stroke="#ad4b43" width="66" x="320" y="310"></rect>
+                <text class="svg-sub" x="330" y="326">git gc</text>
+                <rect fill="#f3dfdc" height="24" rx="12" stroke="#ad4b43" width="120" x="320" y="340"></rect>
+                <text class="svg-sub" x="330" y="356">Raft snapshot</text>
+
+                <rect fill="#f3dfdc" height="24" rx="12" stroke="#ad4b43" width="158" x="516" y="190"></rect>
+                <text class="svg-sub" x="526" y="206">context compaction</text>
+                <text class="svg-note" x="516" y="240">alone in this corner: lossy,</text>
+                <text class="svg-note" x="516" y="256">semantic, no exact invariant</text>
+
+                <text class="svg-lane" x="0" y="420">CAN IT COME BACK?</text>
+                <rect fill="#dfede5" height="14" rx="3" stroke="#367f59" width="14" x="150" y="408"></rect>
+                <text class="svg-sub" x="172" y="420">yes, or nothing dropped</text>
+                <rect fill="#f7e3c8" height="14" rx="3" stroke="#d98226" width="14" x="360" y="408"></rect>
+                <text class="svg-sub" x="382" y="420">for a while, or in part</text>
+                <rect fill="#f3dfdc" height="14" rx="3" stroke="#ad4b43" width="14" x="570" y="408"></rect>
+                <text class="svg-sub" x="592" y="420">no</text>
+              </svg>

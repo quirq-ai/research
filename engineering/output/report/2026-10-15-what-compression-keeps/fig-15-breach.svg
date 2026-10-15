@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 400" role="img" aria-label="A synthetic 2,008-byte HTML inbox page holds a secret CSRF token, 32 hex characters, in its sign-out link after csrf_token=, and its search results line reflects the attacker's input, csrf_token= followed by a 32-character guess. When the leading characters of the guess are right, one LZ77 back-reference from the reflected text to the link covers csrf_token= plus those characters. Three guesses with their compressed sizes (raw DEFLATE level 6, brotli quality 5, zstd level 3): 0 right characters, 737, 629 and 780 bytes; 16 right, 725, 618 and 771; all 32 right, 711, 603 and 757. A line chart plots bytes saved against the guess with no right characters, for 0, 1, 2, 4, 8, 12, 16, 20, 24, 28 and 32 right characters: DEFLATE 0, 1, 2, 3, 6, 9, 12, 16, 20, 23, 26; brotli 0, 0, 1, 2, 6, 9, 11, 16, 21, 22, 26; zstd 0, 0, 1, 2, 4, 7, 9, 13, 18, 21, 23. With the token masked afresh in every response, DEFLATE sizes are 762, 760, 761, 759, 761 bytes for 0, 8, 16, 24 and 32 right characters, with no trend. Guessing one character at a time with 16 candidates per position, the right character was uniquely shortest, tied for shortest or beaten at 13, 19, 0 of 32 positions under DEFLATE, 10, 18, 4 under brotli and 10, 17, 5 under zstd."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="400.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-breach-blu" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                </defs>
+                <text class="svg-lane" x="0" y="16">ONE RESPONSE · 2,008 BYTES · SYNTHETIC</text>
+                <rect fill="#f7f7f5" height="104" rx="6" stroke="#deded9" width="1120" x="0" y="28"></rect>
+                <text class="svg-sub" x="16" y="58">&lt;a class="signout" href="/logout?csrf_token=<tspan style="fill: #ad4b43; font-weight: 700">d1caced813ca27e49ef98529634aceab</tspan>"&gt;Sign out&lt;/a&gt;</text>
+                <text class="svg-sub" x="16" y="116">&lt;p class="empty"&gt;No messages match &lt;b&gt;csrf_token=<tspan style="fill: #367f59; font-weight: 700">d1caced813ca27e4</tspan><tspan style="fill: #252525">wwpkhhyzslsjospo</tspan>&lt;/b&gt;. Try a different search.&lt;/p&gt;</text>
+                <text class="svg-note" x="760" y="58">the secret: a CSRF token, 32 hex characters</text>
+                <text class="svg-note" x="900" y="116">the attacker’s guess, reflected</text>
+                <path d="M286.9 103 C286.9 82 255.4 84 255.4 64" fill="none" marker-end="url(#fig-breach-blu)" stroke="#3c6f97" stroke-width="1.4"></path>
+                <text class="svg-sub" style="fill: #3c6f97" x="300.9" y="90">one back-reference: csrf_token= plus the right characters</text>
+                <text class="svg-lane" x="0" y="166">THREE GUESSES</text>
+                <text class="svg-lane" text-anchor="end" x="476" y="166">DEFLATE-6</text>
+                <text class="svg-lane" text-anchor="end" x="552" y="166">BROTLI-5</text>
+                <text class="svg-lane" text-anchor="end" x="620" y="166">ZSTD-3</text>
+                <line stroke="#deded9" x1="0" x2="620" y1="174" y2="174"></line>
+                <text class="svg-step" x="0" y="198">0 right</text>
+                <text class="svg-sub" x="72" y="198">csrf_token=<tspan style="fill: #252525">sngynwwllikmmihtwwpkhhyzslsjospo</tspan></text>
+                <text class="svg-sub" style="fill: #252525" text-anchor="end" x="476" y="198">737 B</text>
+                <text class="svg-sub" style="fill: #252525" text-anchor="end" x="552" y="198">629 B</text>
+                <text class="svg-sub" style="fill: #252525" text-anchor="end" x="620" y="198">780 B</text>
+                <text class="svg-step" x="0" y="238">16 right</text>
+                <text class="svg-sub" x="72" y="238">csrf_token=<tspan style="fill: #367f59; font-weight: 700">d1caced813ca27e4</tspan><tspan style="fill: #252525">wwpkhhyzslsjospo</tspan></text>
+                <text class="svg-sub" style="fill: #252525" text-anchor="end" x="476" y="238">725 B</text>
+                <text class="svg-sub" style="fill: #252525" text-anchor="end" x="552" y="238">618 B</text>
+                <text class="svg-sub" style="fill: #252525" text-anchor="end" x="620" y="238">771 B</text>
+                <text class="svg-step" x="0" y="278">32 right</text>
+                <text class="svg-sub" x="72" y="278">csrf_token=<tspan style="fill: #367f59; font-weight: 700">d1caced813ca27e49ef98529634aceab</tspan></text>
+                <text class="svg-sub" style="fill: #252525" text-anchor="end" x="476" y="278">711 B</text>
+                <text class="svg-sub" style="fill: #252525" text-anchor="end" x="552" y="278">603 B</text>
+                <text class="svg-sub" style="fill: #252525" text-anchor="end" x="620" y="278">757 B</text>
+                <text class="svg-note" x="0" y="314">green: characters that match the secret · black: filler that is never hex, so every reflected input is 43 bytes</text>
+                <text class="svg-note" x="0" y="334">DEFLATE is raw, level 6; a gzip body adds a constant 18 bytes</text>
+                <text class="svg-step" x="0" y="358">One character at a time, 16 candidates per position</text>
+                <text class="svg-sub" x="0" y="376">right one uniquely shortest / tied / beaten, of 32:</text>
+                <text class="svg-sub" style="fill: #252525" x="0" y="394">DEFLATE 13 / 19 / 0 · brotli 10 / 18 / 4 · zstd 10 / 17 / 5</text>
+                <text class="svg-lane" x="690" y="166">BYTES SAVED VS THE 0-RIGHT GUESS</text>
+                <line stroke="#deded9" x1="724" x2="1100" y1="352.0" y2="352.0"></line>
+                <text class="svg-sub" text-anchor="end" x="712" y="356.0">0</text>
+                <line stroke="#deded9" x1="724" x2="1100" y1="310.0" y2="310.0"></line>
+                <text class="svg-sub" text-anchor="end" x="712" y="314.0">10</text>
+                <line stroke="#deded9" x1="724" x2="1100" y1="268.0" y2="268.0"></line>
+                <text class="svg-sub" text-anchor="end" x="712" y="272.0">20</text>
+                <line stroke="#deded9" x1="724" x2="1100" y1="226.0" y2="226.0"></line>
+                <text class="svg-sub" text-anchor="end" x="712" y="230.0">30</text>
+                <text class="svg-sub" text-anchor="middle" x="724.0" y="370">0</text>
+                <text class="svg-sub" text-anchor="middle" x="818.0" y="370">8</text>
+                <text class="svg-sub" text-anchor="middle" x="912.0" y="370">16</text>
+                <text class="svg-sub" text-anchor="middle" x="1006.0" y="370">24</text>
+                <text class="svg-sub" text-anchor="middle" x="1100.0" y="370">32</text>
+                <text class="svg-sub" text-anchor="middle" x="912" y="390">right leading characters in the guess</text>
+                <polyline fill="none" points="724.0,352.0 735.8,347.8 747.5,343.6 771.0,339.4 818.0,326.8 865.0,314.2 912.0,301.6 959.0,284.8 1006.0,268.0 1053.0,255.4 1100.0,242.8" stroke="#252525" stroke-width="1.6"></polyline>
+                <circle cx="724.0" cy="352.0" fill="#252525" r="2.4"></circle>
+                <circle cx="735.8" cy="347.8" fill="#252525" r="2.4"></circle>
+                <circle cx="747.5" cy="343.6" fill="#252525" r="2.4"></circle>
+                <circle cx="771.0" cy="339.4" fill="#252525" r="2.4"></circle>
+                <circle cx="818.0" cy="326.8" fill="#252525" r="2.4"></circle>
+                <circle cx="865.0" cy="314.2" fill="#252525" r="2.4"></circle>
+                <circle cx="912.0" cy="301.6" fill="#252525" r="2.4"></circle>
+                <circle cx="959.0" cy="284.8" fill="#252525" r="2.4"></circle>
+                <circle cx="1006.0" cy="268.0" fill="#252525" r="2.4"></circle>
+                <circle cx="1053.0" cy="255.4" fill="#252525" r="2.4"></circle>
+                <circle cx="1100.0" cy="242.8" fill="#252525" r="2.4"></circle>
+                <polyline fill="none" points="724.0,352.0 735.8,352.0 747.5,347.8 771.0,343.6 818.0,326.8 865.0,314.2 912.0,305.8 959.0,284.8 1006.0,263.8 1053.0,259.6 1100.0,242.8" stroke="#3c6f97" stroke-width="1.6"></polyline>
+                <circle cx="724.0" cy="352.0" fill="#3c6f97" r="2.4"></circle>
+                <circle cx="735.8" cy="352.0" fill="#3c6f97" r="2.4"></circle>
+                <circle cx="747.5" cy="347.8" fill="#3c6f97" r="2.4"></circle>
+                <circle cx="771.0" cy="343.6" fill="#3c6f97" r="2.4"></circle>
+                <circle cx="818.0" cy="326.8" fill="#3c6f97" r="2.4"></circle>
+                <circle cx="865.0" cy="314.2" fill="#3c6f97" r="2.4"></circle>
+                <circle cx="912.0" cy="305.8" fill="#3c6f97" r="2.4"></circle>
+                <circle cx="959.0" cy="284.8" fill="#3c6f97" r="2.4"></circle>
+                <circle cx="1006.0" cy="263.8" fill="#3c6f97" r="2.4"></circle>
+                <circle cx="1053.0" cy="259.6" fill="#3c6f97" r="2.4"></circle>
+                <circle cx="1100.0" cy="242.8" fill="#3c6f97" r="2.4"></circle>
+                <polyline fill="none" points="724.0,352.0 735.8,352.0 747.5,347.8 771.0,343.6 818.0,335.2 865.0,322.6 912.0,314.2 959.0,297.4 1006.0,276.4 1053.0,263.8 1100.0,255.4" stroke="#765b98" stroke-width="1.6"></polyline>
+                <circle cx="724.0" cy="352.0" fill="#765b98" r="2.4"></circle>
+                <circle cx="735.8" cy="352.0" fill="#765b98" r="2.4"></circle>
+                <circle cx="747.5" cy="347.8" fill="#765b98" r="2.4"></circle>
+                <circle cx="771.0" cy="343.6" fill="#765b98" r="2.4"></circle>
+                <circle cx="818.0" cy="335.2" fill="#765b98" r="2.4"></circle>
+                <circle cx="865.0" cy="322.6" fill="#765b98" r="2.4"></circle>
+                <circle cx="912.0" cy="314.2" fill="#765b98" r="2.4"></circle>
+                <circle cx="959.0" cy="297.4" fill="#765b98" r="2.4"></circle>
+                <circle cx="1006.0" cy="276.4" fill="#765b98" r="2.4"></circle>
+                <circle cx="1053.0" cy="263.8" fill="#765b98" r="2.4"></circle>
+                <circle cx="1100.0" cy="255.4" fill="#765b98" r="2.4"></circle>
+                <polyline fill="none" points="724.0,352.0 818.0,343.6 912.0,347.8 1006.0,339.4 1100.0,347.8" stroke="#b8b8b1" stroke-dasharray="5 4" stroke-width="1.6"></polyline>
+                <circle cx="724.0" cy="352.0" fill="#ffffff" r="2.4" stroke="#b8b8b1" stroke-width="1.4"></circle>
+                <circle cx="818.0" cy="343.6" fill="#ffffff" r="2.4" stroke="#b8b8b1" stroke-width="1.4"></circle>
+                <circle cx="912.0" cy="347.8" fill="#ffffff" r="2.4" stroke="#b8b8b1" stroke-width="1.4"></circle>
+                <circle cx="1006.0" cy="339.4" fill="#ffffff" r="2.4" stroke="#b8b8b1" stroke-width="1.4"></circle>
+                <circle cx="1100.0" cy="347.8" fill="#ffffff" r="2.4" stroke="#b8b8b1" stroke-width="1.4"></circle>
+                <line stroke="#252525" stroke-width="1.6" x1="690" x2="712" y1="184" y2="184"></line>
+                <text class="svg-sub" x="720" y="188">DEFLATE-6</text>
+                <line stroke="#3c6f97" stroke-width="1.6" x1="820" x2="842" y1="184" y2="184"></line>
+                <text class="svg-sub" x="850" y="188">brotli 5</text>
+                <line stroke="#765b98" stroke-width="1.6" x1="940" x2="962" y1="184" y2="184"></line>
+                <text class="svg-sub" x="970" y="188">zstd 3</text>
+                <line stroke="#b8b8b1" stroke-dasharray="5 4" stroke-width="1.6" x1="690" x2="712" y1="202" y2="202"></line>
+                <text class="svg-sub" x="720" y="206">DEFLATE-6, token masked per response</text>
+              </svg>

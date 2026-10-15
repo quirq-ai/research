@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 480" role="img" aria-label="Step chart of compressed enwik9 size in bytes, 90 to 118 million, against submission date from 2019 to 2026. Hutter Prize score (compressor plus self-extracting archive): phda9v1.8, 4 July 2019, 116,673,681 (pre-prize baseline); starlit, 31 May 2021, 115,352,938; fast cmix, 16 July 2023, 114,156,155; fx-cmix, 2 February 2024, 112,578,322; fx2-cmix, 3 September 2024, 110,793,128; then three records in 2026: cmix-lex, 26 June, 109,671,639; cmix-obias, 19 July, 108,521,870; fx2-cmix-T, 24 July, 100,424,672, a 6M-parameter transformer, 7.46% below cmix-obias, awarded 30 September 2026. Large Text Compression Benchmark counts, which omit the compressor of a self-extracting archive: fx2-cmix-T 96,996,198; cmix-neif 1.0, 5 October 2026, 91,913,343, which is 95,914,051 by the Hutter formula and pending; nncp v3.2, October 2023, 107,261,318. Left axis labels give each size in bytes, as the Hutter factor original divided by compressed, and as the LTCB fraction compressed divided by original."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="480.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="16">ENWIK9 COMPRESSED, BYTES · LOWER IS BETTER · BY SUBMISSION DATE</text>
+                <line stroke="#3c6f97" stroke-width="1.8" x1="0" x2="22" y1="36" y2="36"></line>
+                <circle cx="11" cy="36" fill="#3c6f97" r="3.5"></circle>
+                <text class="svg-sub" x="30" y="40">Hutter record, awarded</text>
+                <circle cx="214" cy="36" fill="#ffffff" r="3.5" stroke="#3c6f97" stroke-width="1.6"></circle>
+                <text class="svg-sub" x="224" y="40">Hutter count, not awarded</text>
+                <rect fill="#ffffff" height="9" stroke="#765b98" stroke-width="1.6" width="9" x="435.5" y="31.5"></rect>
+                <text class="svg-sub" x="452" y="40">LTCB count</text>
+                <line stroke="#b8b8b1" stroke-dasharray="2 3" stroke-width="1.4" x1="548" x2="570" y1="36" y2="36"></line>
+                <text class="svg-sub" x="578" y="40">one entry, two counts</text>
+                <text class="svg-note" text-anchor="end" x="1114" y="40">MB = 10⁶ bytes</text>
+                <text class="svg-note" x="0" y="62">Axis: bytes; × is original ÷ compressed (Hutter's Compr.Factor); .nnn is compressed ÷ original (LTCB's headings)</text>
+
+                <line stroke="#deded9" x1="130" x2="790" y1="118.6" y2="118.6"></line>
+                <line stroke="#deded9" x1="130" x2="790" y1="182.9" y2="182.9"></line>
+                <line stroke="#deded9" x1="130" x2="790" y1="247.1" y2="247.1"></line>
+                <line stroke="#deded9" x1="130" x2="790" y1="311.4" y2="311.4"></line>
+                <line stroke="#deded9" x1="130" x2="790" y1="375.7" y2="375.7"></line>
+                <text class="svg-sub" text-anchor="end" x="120" y="122.6">115 MB</text>
+                <text class="svg-note" text-anchor="end" x="120" y="136.6">8.70× · .115</text>
+                <text class="svg-sub" text-anchor="end" x="120" y="186.9">110 MB</text>
+                <text class="svg-note" text-anchor="end" x="120" y="200.9">9.09× · .110</text>
+                <text class="svg-sub" text-anchor="end" x="120" y="251.1">105 MB</text>
+                <text class="svg-note" text-anchor="end" x="120" y="265.1">9.52× · .105</text>
+                <text class="svg-sub" text-anchor="end" x="120" y="315.4">100 MB</text>
+                <text class="svg-note" text-anchor="end" x="120" y="329.4">10.00× · .100</text>
+                <text class="svg-sub" text-anchor="end" x="120" y="379.7">95 MB</text>
+                <text class="svg-note" text-anchor="end" x="120" y="393.7">10.53× · .095</text>
+                <text class="svg-sub" text-anchor="end" x="120" y="436">90 MB</text>
+                <text class="svg-note" text-anchor="end" x="120" y="450">11.11× · .090</text>
+
+                <line stroke="#b8b8b1" x1="130" x2="790" y1="440" y2="440"></line>
+                <line stroke="#b8b8b1" x1="130" x2="130" y1="440" y2="445"></line>
+                <line stroke="#b8b8b1" x1="212.5" x2="212.5" y1="440" y2="445"></line>
+                <line stroke="#b8b8b1" x1="295" x2="295" y1="440" y2="445"></line>
+                <line stroke="#b8b8b1" x1="377.5" x2="377.5" y1="440" y2="445"></line>
+                <line stroke="#b8b8b1" x1="460" x2="460" y1="440" y2="445"></line>
+                <line stroke="#b8b8b1" x1="542.5" x2="542.5" y1="440" y2="445"></line>
+                <line stroke="#b8b8b1" x1="625" x2="625" y1="440" y2="445"></line>
+                <line stroke="#b8b8b1" x1="707.5" x2="707.5" y1="440" y2="445"></line>
+                <line stroke="#b8b8b1" x1="790" x2="790" y1="440" y2="445"></line>
+                <text class="svg-sub" text-anchor="middle" x="171.3" y="460">2019</text>
+                <text class="svg-sub" text-anchor="middle" x="253.8" y="460">2020</text>
+                <text class="svg-sub" text-anchor="middle" x="336.3" y="460">2021</text>
+                <text class="svg-sub" text-anchor="middle" x="418.8" y="460">2022</text>
+                <text class="svg-sub" text-anchor="middle" x="501.3" y="460">2023</text>
+                <text class="svg-sub" text-anchor="middle" x="583.8" y="460">2024</text>
+                <text class="svg-sub" text-anchor="middle" x="666.3" y="460">2025</text>
+                <text class="svg-sub" text-anchor="middle" x="748.8" y="460">2026</text>
+
+                <path d="M171.6 97.1 H328.9 V114 H504.3 V129.4 H549.7 V149.7 H598 V172.7 H747.3 V187.1 H752.5 V201.9 H753.6 V306 H769" fill="none" stroke="#3c6f97" stroke-width="1.8"></path>
+                <circle cx="171.6" cy="97.1" fill="#ffffff" r="3.5" stroke="#3c6f97" stroke-width="1.6"></circle>
+                <circle cx="328.9" cy="114" fill="#3c6f97" r="3.5"></circle>
+                <circle cx="504.3" cy="129.4" fill="#3c6f97" r="3.5"></circle>
+                <circle cx="549.7" cy="149.7" fill="#3c6f97" r="3.5"></circle>
+                <circle cx="598" cy="172.7" fill="#3c6f97" r="3.5"></circle>
+                <circle cx="747.3" cy="187.1" fill="#3c6f97" r="3.5"></circle>
+                <circle cx="752.5" cy="201.9" fill="#3c6f97" r="3.5"></circle>
+                <circle cx="753.6" cy="306" fill="#3c6f97" r="3.5"></circle>
+
+                <line stroke="#b8b8b1" stroke-dasharray="2 3" stroke-width="1.4" x1="753.6" x2="753.6" y1="310" y2="345"></line>
+                <rect fill="#ffffff" height="9" stroke="#765b98" stroke-width="1.6" width="9" x="749.1" y="345.5"></rect>
+                <circle cx="770.1" cy="364" fill="#ffffff" r="3.5" stroke="#3c6f97" stroke-width="1.6"></circle>
+                <line stroke="#b8b8b1" stroke-dasharray="2 3" stroke-width="1.4" x1="770.1" x2="770.1" y1="368" y2="410.5"></line>
+                <rect fill="#ffffff" height="9" stroke="#765b98" stroke-width="1.6" width="9" x="765.6" y="410.9"></rect>
+                <rect fill="#ffffff" height="9" stroke="#765b98" stroke-width="1.6" width="9" x="522.2" y="213.6"></rect>
+
+                <text class="svg-sub" x="180" y="89">phda9v1.8 · 4 Jul 2019 · 116,673,681 · pre-prize</text>
+                <text class="svg-sub" x="336" y="107">starlit · 31 May 2021 · 115,352,938</text>
+                <text class="svg-sub" x="511" y="123">fast cmix · 16 Jul 2023 · 114,156,155</text>
+                <text class="svg-sub" x="557" y="143">fx-cmix · 2 Feb 2024 · 112,578,322</text>
+                <text class="svg-sub" x="605" y="166">fx2-cmix · 3 Sep 2024 · 110,793,128</text>
+                <text class="svg-sub" text-anchor="end" x="516" y="226">nncp v3.2 · Oct 2023 · 107,261,318</text>
+
+                <line stroke="#b8b8b1" x1="751.5" x2="796" y1="186" y2="181"></line>
+                <text class="svg-sub" x="800" y="185">cmix-lex · 26 Jun 2026 · 109,671,639</text>
+                <line stroke="#b8b8b1" x1="756.7" x2="796" y1="202.5" y2="204"></line>
+                <text class="svg-sub" x="800" y="208">cmix-obias · 19 Jul 2026 · 108,521,870</text>
+                <line stroke="#b8b8b1" x1="757.8" x2="796" y1="304" y2="298"></line>
+                <text class="svg-sub" x="800" y="302">fx2-cmix-T · 24 Jul 2026 · 100,424,672</text>
+                <text class="svg-note" x="800" y="319">6M-parameter transformer; 7.46% below cmix-obias</text>
+                <line stroke="#b8b8b1" x1="759.4" x2="796" y1="350" y2="348"></line>
+                <text class="svg-sub" x="800" y="352">same entry, LTCB count: 96,996,198</text>
+                <line stroke="#b8b8b1" x1="774.3" x2="796" y1="365" y2="371"></line>
+                <text class="svg-sub" x="800" y="375">cmix-neif, Hutter count: 95,914,051</text>
+                <text class="svg-note" x="800" y="392">a pending Hutter entry, not verified by LTCB</text>
+                <line stroke="#b8b8b1" x1="775.9" x2="796" y1="415.4" y2="415.4"></line>
+                <text class="svg-sub" x="800" y="419">cmix-neif 1.0 · 5 Oct 2026 · 91,913,343</text>
+              </svg>
