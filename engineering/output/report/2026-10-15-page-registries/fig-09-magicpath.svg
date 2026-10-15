@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 360" role="img" aria-label="A left-to-right pipeline in three zones. Zone one, MagicPath: a canvas project holding components with generated names, plus a theme of CSS variables. Zone two, the CLI: search, inspect and add write source files into src slash components slash magicpath. Zone three, your repository: a hand-owned adapter per block carries tag, schema, defaults and editor metadata into the registry, which the renderer and the editor both read. A dashed return arrow from the repository back to the canvas is labelled code start and code submit."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="360.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="mp-arr" markerHeight="5.5" markerWidth="5.5" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="mp-arr-p" markerHeight="5.5" markerWidth="5.5" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="24" y="38">MAGICPATH</text>
+                <rect fill="#ece6f3" height="150" rx="10" stroke="#765b98" stroke-width="2" width="250" x="20" y="54"></rect>
+                <text class="svg-step" x="38" y="82">canvas project</text>
+                <text class="svg-sub" x="38" y="108">wispy-river-5234</text>
+                <text class="svg-sub" x="38" y="130">bold-moon-2031</text>
+                <text class="svg-sub" x="38" y="152">— opaque names</text>
+                <text class="svg-sub" x="38" y="182">theme → CSS variables</text>
+
+                <line marker-end="url(#mp-arr)" stroke="#252525" stroke-width="2.2" x1="274" x2="322" y1="128" y2="128"></line>
+
+                <text class="svg-lane" x="332" y="38">CLI</text>
+                <rect fill="#f7f7f5" height="150" rx="10" stroke="#b8b8b1" stroke-width="1.8" width="220" x="326" y="54"></rect>
+                <text class="svg-sub" x="344" y="84">search</text>
+                <text class="svg-sub" x="344" y="110">inspect — read, no write</text>
+                <text class="svg-sub" x="344" y="136">add — writes files</text>
+                <text class="svg-sub" x="344" y="162">get-theme — tokens</text>
+                <text class="svg-sub" x="344" y="188">list-installed — audit</text>
+
+                <line marker-end="url(#mp-arr)" stroke="#252525" stroke-width="2.2" x1="550" x2="598" y1="128" y2="128"></line>
+
+                <text class="svg-lane" x="608" y="38">YOUR REPOSITORY</text>
+                <rect fill="#f7f7f5" height="60" rx="8" stroke="#b8b8b1" stroke-width="1.6" width="230" x="602" y="54"></rect>
+                <text class="svg-sub" x="620" y="80">src/components/magicpath/</text>
+                <text class="svg-sub" x="620" y="100">generated · regenerable</text>
+
+                <line marker-end="url(#mp-arr)" stroke="#252525" stroke-width="2.2" x1="717" x2="717" y1="118" y2="140"></line>
+
+                <rect fill="#f7e3c8" height="86" rx="8" stroke="#d98226" stroke-width="2.4" width="230" x="602" y="144"></rect>
+                <text class="svg-step" x="620" y="170">adapter / entry</text>
+                <text class="svg-sub" x="620" y="192">tag · schema · defaults</text>
+                <text class="svg-sub" x="620" y="214">hand-owned, never regenerated</text>
+
+                <line marker-end="url(#mp-arr)" stroke="#252525" stroke-width="2.2" x1="836" x2="884" y1="187" y2="187"></line>
+
+                <rect fill="#dfede5" height="86" rx="8" stroke="#367f59" stroke-width="2" width="200" x="888" y="144"></rect>
+                <text class="svg-step" x="906" y="176">registry</text>
+                <text class="svg-sub" x="906" y="200">renderer + editor</text>
+
+                <path d="M886 96 C 840 96, 830 16, 620 16 C 420 16, 250 16, 162 42" fill="none" marker-end="url(#mp-arr-p)" stroke="#765b98" stroke-dasharray="6 5" stroke-width="1.8"></path>
+                <rect fill="#ece6f3" height="48" rx="8" stroke="#765b98" stroke-width="1.6" width="200" x="888" y="72"></rect>
+                <text class="svg-sub" x="906" y="102">code start / code submit</text>
+
+                <text class="svg-note" x="20" y="266">The adapter is the whole trick. It converts an opaque generated name into a semantic, versioned tag, strips canvas-shaped sizing, and gives the</text>
+                <text class="svg-note" x="20" y="288">regenerated file somewhere safe to change underneath. Point the registry at the generated file directly and every re-run of `add --overwrite`</text>
+                <text class="svg-note" x="20" y="310">is a potential production break, because the props interface was written by a model and nothing promised it would be stable.</text>
+                <text class="svg-note" x="20" y="344">Dashed purple: the return path — local code becomes a canvas revision, so designers see what shipped rather than what was designed.</text>
+              </svg>

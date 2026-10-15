@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 350" role="img" aria-label="Top row, left to right: one IntersectionObserver with rootMargin 200px for every Link; a prefetch task scheduled at Default priority, topmost link last; a microtask batch, one queue pass per JS task; a min-heap ordered by priority, then phase, then newest; a bandwidth gate allowing fewer than 4 requests in flight, or fewer than 12 for the hovered link; and a fetch of the page URL with no abort signal. Middle row: three events that re-sift the heap, drawn as dashed purple arrows into it: hover or touchstart raises a task to Intent, one at a time; leaving the viewport or unmounting removes the task but does not abort a sent fetch; follow-up revalidation work is re-queued at Background. Bottom row: the three phases of a popped task: RouteTree fetches the tree and decides between per-segment PPR and LoadingBoundary from the x-nextjs-postponed header; Shell fetches one App Shell per route, only with partialPrefetching; Speculative fetches the per-link bundle, and under partialPrefetching only a Full task reaches it."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="350.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-prefetch-scheduler-arr-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="fig-prefetch-scheduler-arr-purple" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="10" y="18">FROM A VISIBLE LINK TO A REQUEST · ONE GLOBAL QUEUE</text>
+
+                <rect fill="#f7f7f5" height="72" rx="6" stroke="#b8b8b1" width="176" x="10" y="30"></rect>
+                <text class="svg-step" text-anchor="middle" x="98" y="52">IntersectionObserver</text>
+                <text class="svg-sub" text-anchor="middle" x="98" y="70">one for every Link</text>
+                <text class="svg-sub" text-anchor="middle" x="98" y="86">rootMargin: '200px'</text>
+                <line marker-end="url(#fig-prefetch-scheduler-arr-ink)" stroke="#252525" stroke-width="2.5" x1="186" x2="208" y1="66" y2="66"></line>
+
+                <rect fill="#f7f7f5" height="72" rx="6" stroke="#b8b8b1" width="160" x="210" y="30"></rect>
+                <text class="svg-step" text-anchor="middle" x="290" y="52">Schedule a task</text>
+                <text class="svg-sub" text-anchor="middle" x="290" y="70">Default = 1</text>
+                <text class="svg-sub" text-anchor="middle" x="290" y="86">topmost link last</text>
+                <line marker-end="url(#fig-prefetch-scheduler-arr-ink)" stroke="#252525" stroke-width="2.5" x1="370" x2="392" y1="66" y2="66"></line>
+
+                <rect fill="#f7f7f5" height="72" rx="6" stroke="#b8b8b1" width="150" x="394" y="30"></rect>
+                <text class="svg-step" text-anchor="middle" x="469" y="52">Microtask batch</text>
+                <text class="svg-sub" text-anchor="middle" x="469" y="70">one queue pass</text>
+                <text class="svg-sub" text-anchor="middle" x="469" y="86">per JS task</text>
+                <line marker-end="url(#fig-prefetch-scheduler-arr-ink)" stroke="#252525" stroke-width="2.5" x1="544" x2="566" y1="66" y2="66"></line>
+
+                <rect fill="#e0ebf2" height="72" rx="6" stroke="#3c6f97" stroke-width="1.5" width="196" x="568" y="30"></rect>
+                <text class="svg-step" text-anchor="middle" x="666" y="52">Min-heap of tasks</text>
+                <text class="svg-sub" text-anchor="middle" x="666" y="70">priority 2 &gt; 1 &gt; 0</text>
+                <text class="svg-sub" text-anchor="middle" x="666" y="86">then phase, then newest</text>
+                <line marker-end="url(#fig-prefetch-scheduler-arr-ink)" stroke="#252525" stroke-width="2.5" x1="764" x2="786" y1="66" y2="66"></line>
+
+                <rect fill="#f7e3c8" height="72" rx="6" stroke="#d98226" stroke-width="1.5" width="150" x="788" y="30"></rect>
+                <text class="svg-step" text-anchor="middle" x="863" y="52">Bandwidth gate</text>
+                <text class="svg-sub" text-anchor="middle" x="863" y="70">in flight &lt; 4</text>
+                <text class="svg-sub" text-anchor="middle" x="863" y="86">Intent: &lt; 12</text>
+                <line marker-end="url(#fig-prefetch-scheduler-arr-ink)" stroke="#252525" stroke-width="2.5" x1="938" x2="960" y1="66" y2="66"></line>
+
+                <rect fill="#dfede5" height="72" rx="6" stroke="#367f59" stroke-width="1.5" width="148" x="962" y="30"></rect>
+                <text class="svg-step" text-anchor="middle" x="1036" y="52">fetch(page URL)</text>
+                <text class="svg-sub" text-anchor="middle" x="1036" y="70">GET ?_rsc=…</text>
+                <text class="svg-sub" text-anchor="middle" x="1036" y="86">no abort signal</text>
+
+                <text class="svg-lane" x="10" y="128">EVENTS THAT RE-SIFT THE HEAP</text>
+
+                <rect fill="#ece6f3" height="62" rx="6" stroke="#765b98" width="200" x="300" y="138"></rect>
+                <text class="svg-step" text-anchor="middle" x="400" y="157">hover / touchstart</text>
+                <text class="svg-sub" text-anchor="middle" x="400" y="174">Intent = 2, one at a time</text>
+                <text class="svg-sub" text-anchor="middle" x="400" y="189">previous drops to Default</text>
+
+                <rect fill="#ece6f3" height="62" rx="6" stroke="#765b98" width="200" x="520" y="138"></rect>
+                <text class="svg-step" text-anchor="middle" x="620" y="157">leaves view / unmounts</text>
+                <text class="svg-sub" text-anchor="middle" x="620" y="174">task taken off the heap</text>
+                <text class="svg-sub" text-anchor="middle" x="620" y="189">a sent fetch is not aborted</text>
+
+                <rect fill="#ece6f3" height="62" rx="6" stroke="#765b98" width="200" x="740" y="138"></rect>
+                <text class="svg-step" text-anchor="middle" x="840" y="157">follow-up work</text>
+                <text class="svg-sub" text-anchor="middle" x="840" y="174">revalidate a partial entry</text>
+                <text class="svg-sub" text-anchor="middle" x="840" y="189">re-queued at Background 0</text>
+
+                <path d="M400 138 C400 120 590 124 606 106" fill="none" marker-end="url(#fig-prefetch-scheduler-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+                <path d="M620 138 C620 124 660 120 664 106" fill="none" marker-end="url(#fig-prefetch-scheduler-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+                <path d="M840 138 C840 120 740 124 726 106" fill="none" marker-end="url(#fig-prefetch-scheduler-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+
+                <text class="svg-lane" x="10" y="228">PHASES OF A POPPED TASK · HIGHER RUNS FIRST</text>
+
+                <rect fill="#dfede5" height="62" rx="6" stroke="#367f59" width="250" x="10" y="238"></rect>
+                <text class="svg-step" text-anchor="middle" x="135" y="257">RouteTree · 2</text>
+                <text class="svg-sub" text-anchor="middle" x="135" y="274">GET /_tree: shape and hints</text>
+                <text class="svg-sub" text-anchor="middle" x="135" y="289">postponed: 2 ? PPR : LoadingBoundary</text>
+                <line marker-end="url(#fig-prefetch-scheduler-arr-ink)" stroke="#252525" stroke-width="2.5" x1="260" x2="288" y1="269" y2="269"></line>
+
+                <rect fill="#dfede5" height="62" rx="6" stroke="#367f59" width="250" x="290" y="238"></rect>
+                <text class="svg-step" text-anchor="middle" x="415" y="257">Shell · 1</text>
+                <text class="svg-sub" text-anchor="middle" x="415" y="274">one App Shell per route</text>
+                <text class="svg-sub" text-anchor="middle" x="415" y="289">only with partialPrefetching</text>
+                <line marker-end="url(#fig-prefetch-scheduler-arr-ink)" stroke="#252525" stroke-width="2.5" x1="540" x2="568" y1="269" y2="269"></line>
+
+                <rect fill="#dfede5" height="62" rx="6" stroke="#367f59" width="270" x="570" y="238"></rect>
+                <text class="svg-step" text-anchor="middle" x="705" y="257">Speculative · 0</text>
+                <text class="svg-sub" text-anchor="middle" x="705" y="274">per-link bundle: the page plus</text>
+                <text class="svg-sub" text-anchor="middle" x="705" y="289">inlined ancestors and head</text>
+
+                <text class="svg-note" x="860" y="258">Under partialPrefetching a default</text>
+                <text class="svg-note" x="860" y="274">link stops after Shell; only a Full</text>
+                <text class="svg-note" x="860" y="290">task (e.g. prefetch={true}) goes on.</text>
+
+                <text class="svg-note" x="10" y="322">Blue: the queue · orange: a fixed limit · green: a request that leaves the browser · dashed purple: an event that changes a task · thick black: sequence.</text>
+                <text class="svg-note" x="10" y="338">A popped task works on its phase; waiting on a response, it leaves the heap until re-pinged. Every request passes the gate first.</text>
+              </svg>

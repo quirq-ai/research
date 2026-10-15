@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 792" role="img" aria-label="A wide diagram in three lanes that follows the lab route app/sec0/a/[id]/page.tsx from file to click in fifteen numbered boxes. Build lane: 01 the source files; 02 the discovery key /sec0/a/[id]/page; 03 the routes-manifest row whose named regex is ^/sec0/a/(?&lt;nxtPid>[^/]+?)(?:/)?$, third of 119 dynamic routes; 04 the LoaderTree literal, a nest of 4-tuples each ending in an empty array; 05 the prefetch hints 64, 96, 96, 96, 160; 06 the six files written per URL, 1.html 9,954 bytes, 1.rsc 5,866, 1.meta 1,036, _tree 275, _full 5,866 and the page segment 4,942; 07 the prerender-manifest rows, five complete static rows and a pattern row with fallback null that computes blocking. Server lane: 08 the boot tables built once by setupFsCheck; 09 the hard GET that misses check_fs, matches third, is served from the route-cache copy that the first hit promoted from the build seed, and returns x-nextjs-cache HIT with x-nextjs-prerender twice; 10 the document with two self.__next_f pushes carrying the 5,866-byte payload again. Browser lane: 11 the viewport prefetch, a _tree request with _rsc nVRY9RLVAUtqyrUj then the page segment, 24 requests for 12 links; 12 a predicted router.prefetch that sends only the 4,942-byte page segment; 13 a warm soft navigation with 0 requests in 50 ms; 14 an unprefetched navigation that receives the whole 5,866-byte payload, 1,619 bytes on the wire; 15 a navigation to /dyn whose root comes back as a skipped node, 2,602 bytes against 4,433 without the state tree. Arrows are labelled with the functions that produce each next box or read a build file at runtime."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="792.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-golden-trace-arr-ink" markerHeight="8" markerUnits="userSpaceOnUse" markerWidth="8" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="fig-golden-trace-arr-blue" markerHeight="7" markerUnits="userSpaceOnUse" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                </defs>
+                <text class="svg-lane" x="6" y="12">BUILD · NEXT BUILD (TURBOPACK) · APPS/SCALE-N400</text>
+                <text class="svg-sub" text-anchor="middle" x="154.0" y="27">collectAppFiles</text>
+                <text class="svg-sub" text-anchor="middle" x="154.0" y="40">→ createPagesMapping</text>
+                <line marker-end="url(#fig-golden-trace-arr-ink)" stroke="#252525" stroke-width="2.5" x1="147" x2="161" y1="60" y2="60"></line>
+                <text class="svg-sub" text-anchor="middle" x="310.0" y="40">pageToRoute</text>
+                <line marker-end="url(#fig-golden-trace-arr-ink)" stroke="#252525" stroke-width="2.5" x1="303" x2="317" y1="60" y2="60"></line>
+                <text class="svg-sub" text-anchor="middle" x="476.0" y="27">get_directory_tree</text>
+                <text class="svg-sub" text-anchor="middle" x="476.0" y="40">→ walk_tree</text>
+                <line marker-end="url(#fig-golden-trace-arr-ink)" stroke="#252525" stroke-width="2.5" x1="469" x2="483" y1="60" y2="60"></line>
+                <text class="svg-sub" text-anchor="middle" x="650.0" y="40">collectPrefetchHints</text>
+                <line marker-end="url(#fig-golden-trace-arr-ink)" stroke="#252525" stroke-width="2.5" x1="643" x2="657" y1="60" y2="60"></line>
+                <text class="svg-sub" text-anchor="middle" x="802.0" y="27">collectSegmentData</text>
+                <text class="svg-sub" text-anchor="middle" x="802.0" y="40">→ exportAppPage</text>
+                <line marker-end="url(#fig-golden-trace-arr-ink)" stroke="#252525" stroke-width="2.5" x1="795" x2="809" y1="60" y2="60"></line>
+                <text class="svg-sub" text-anchor="middle" x="970.0" y="40">writePrerenderManifest</text>
+                <line marker-end="url(#fig-golden-trace-arr-ink)" stroke="#252525" stroke-width="2.5" x1="963" x2="977" y1="60" y2="60"></line>
+                <rect fill="#f7f7f5" height="186" rx="6" stroke="#b8b8b1" stroke-width="1.5" width="140" x="6" y="48"></rect>
+                <text class="svg-num" x="14" y="64">01</text>
+                <text class="svg-num" text-anchor="end" x="138" y="64">§02</text>
+                <text class="svg-step" x="14" y="82">Source files</text>
+                <text class="svg-sub" x="14.0" y="100">app/layout.tsx</text>
+                <text class="svg-sub" x="14.0" y="113">app/sec0/layout.tsx</text>
+                <text class="svg-sub" x="20.3" y="126">client SectionNav</text>
+                <text class="svg-sub" x="20.3" y="139">with 10 &lt;Link&gt;s</text>
+                <text class="svg-sub" x="14.0" y="152">app/sec0/a/[id]/</text>
+                <text class="svg-sub" x="20.3" y="165">page.tsx</text>
+                <text class="svg-sub" x="14.0" y="178">generateStaticParams</text>
+                <text class="svg-sub" x="20.3" y="191">→ ids 1–5</text>
+                <text class="svg-sub" x="14.0" y="204">app/dyn/page.tsx</text>
+                <text class="svg-sub" x="20.3" y="217">awaits cookies()</text>
+                <rect fill="#ece6f3" height="186" rx="6" stroke="#765b98" stroke-width="1.5" width="140" x="162" y="48"></rect>
+                <text class="svg-num" x="170" y="64">02</text>
+                <text class="svg-num" text-anchor="end" x="294" y="64">§03</text>
+                <text class="svg-step" x="170" y="82">Discovery key</text>
+                <text class="svg-sub" x="170.0" y="100">/sec0/a/[id]/page</text>
+                <text class="svg-sub" x="170.0" y="113">→ private-next-</text>
+                <text class="svg-sub" x="176.3" y="126">app-dir/sec0/a/</text>
+                <text class="svg-sub" x="176.3" y="139">[id]/page.tsx</text>
+                <text class="svg-sub" x="170.0" y="152">normalizeAppPath</text>
+                <text class="svg-sub" x="170.0" y="165">→ /sec0/a/[id]</text>
+                <text class="svg-sub" x="170.0" y="178">validateAppPaths:</text>
+                <text class="svg-sub" x="176.3" y="191">no ambiguity</text>
+                <rect fill="#dfede5" height="186" rx="6" stroke="#367f59" stroke-width="1.5" width="150" x="318" y="48"></rect>
+                <text class="svg-num" x="326" y="64">03</text>
+                <text class="svg-num" text-anchor="end" x="460" y="64">§04</text>
+                <text class="svg-step" x="326" y="82">routes-manifest.json</text>
+                <text class="svg-sub" x="326.0" y="100">dynamicRoutes[2]:</text>
+                <text class="svg-sub" x="326.0" y="113">"namedRegex":</text>
+                <text class="svg-sub" x="332.3" y="126">"^/sec0/a/(?&lt;nxtPid&gt;</text>
+                <text class="svg-sub" x="338.6" y="139">[^/]+?)(?:/)?$"</text>
+                <text class="svg-sub" x="326.0" y="152">"routeKeys":</text>
+                <text class="svg-sub" x="332.3" y="165">{"nxtPid":"nxtPid"}</text>
+                <text class="svg-sub" x="326.0" y="178">3rd of 119 dynamic;</text>
+                <text class="svg-sub" x="326.0" y="191">285 static rows,</text>
+                <text class="svg-sub" x="332.3" y="204">/dyn among them</text>
+                <rect fill="#dfede5" height="186" rx="6" stroke="#367f59" stroke-width="1.5" width="158" x="484" y="48"></rect>
+                <text class="svg-num" x="492" y="64">04</text>
+                <text class="svg-num" text-anchor="end" x="634" y="64">§04</text>
+                <text class="svg-step" x="492" y="82">LoaderTree literal</text>
+                <text class="svg-sub" x="492.0" y="100">["",{children:</text>
+                <text class="svg-sub" x="498.3" y="113">["sec0",{children:</text>
+                <text class="svg-sub" x="504.6" y="126">["a",{children:</text>
+                <text class="svg-sub" x="510.9" y="139">["[id]",{children:</text>
+                <text class="svg-sub" x="517.2" y="152">["__PAGE__",{},</text>
+                <text class="svg-sub" x="523.5" y="165">{page:…},[]]</text>
+                <text class="svg-sub" x="510.9" y="178">},{…},[]]},{…},[]]</text>
+                <text class="svg-sub" x="498.3" y="191">},{layout:…},[]]</text>
+                <text class="svg-sub" x="492.0" y="204">},{layout:…},[]]</text>
+                <text class="svg-sub" x="492.0" y="217">4th = []: no siblings</text>
+                <rect fill="#dfede5" height="186" rx="6" stroke="#367f59" stroke-width="1.5" width="136" x="658" y="48"></rect>
+                <text class="svg-num" x="666" y="64">05</text>
+                <text class="svg-num" text-anchor="end" x="786" y="64">§04 §09</text>
+                <text class="svg-step" x="666" y="82">Prefetch hints</text>
+                <text class="svg-sub" x="666.0" y="100">prefetch-hints.json</text>
+                <text class="svg-sub" x="666.0" y="113">"/sec0/a/[id]":</text>
+                <text class="svg-sub" x="666.0" y="126">(root)</text>
+                <text class="svg-sub" text-anchor="end" x="786" y="126">64</text>
+                <text class="svg-sub" x="666.0" y="139">sec0</text>
+                <text class="svg-sub" text-anchor="end" x="786" y="139">96</text>
+                <text class="svg-sub" x="666.0" y="152">a</text>
+                <text class="svg-sub" text-anchor="end" x="786" y="152">96</text>
+                <text class="svg-sub" x="666.0" y="165">[id]</text>
+                <text class="svg-sub" text-anchor="end" x="786" y="165">96</text>
+                <text class="svg-sub" x="666.0" y="178">__PAGE__</text>
+                <text class="svg-sub" text-anchor="end" x="786" y="178">160</text>
+                <text class="svg-sub" x="666.0" y="191">64 inlined→child</text>
+                <text class="svg-sub" x="666.0" y="204">32 parent→self</text>
+                <text class="svg-sub" x="666.0" y="217">128 head→self</text>
+                <rect fill="#dfede5" height="186" rx="6" stroke="#367f59" stroke-width="1.5" width="152" x="810" y="48"></rect>
+                <text class="svg-num" x="818" y="64">06</text>
+                <text class="svg-num" text-anchor="end" x="954" y="64">§04</text>
+                <text class="svg-step" x="818" y="82">Six files per URL</text>
+                <text class="svg-sub" x="818.0" y="100">server/app/sec0/a/</text>
+                <text class="svg-sub" x="818.0" y="113">1.html</text>
+                <text class="svg-sub" text-anchor="end" x="954" y="113">9,954</text>
+                <text class="svg-sub" x="818.0" y="126">1.rsc</text>
+                <text class="svg-sub" text-anchor="end" x="954" y="126">5,866</text>
+                <text class="svg-sub" x="818.0" y="139">1.meta</text>
+                <text class="svg-sub" text-anchor="end" x="954" y="139">1,036</text>
+                <text class="svg-sub" x="818.0" y="152">1.segments/</text>
+                <text class="svg-sub" x="824.3" y="165">_tree</text>
+                <text class="svg-sub" text-anchor="end" x="954" y="165">275</text>
+                <text class="svg-sub" x="824.3" y="178">_full</text>
+                <text class="svg-sub" text-anchor="end" x="954" y="178">5,866</text>
+                <text class="svg-sub" x="824.3" y="191">sec0/a/$d$id/</text>
+                <text class="svg-sub" x="830.6" y="204">__PAGE__</text>
+                <text class="svg-sub" text-anchor="end" x="954" y="204">4,942</text>
+                <text class="svg-sub" x="818.0" y="217">bytes; _full = 1.rsc</text>
+                <rect fill="#dfede5" height="186" rx="6" stroke="#367f59" stroke-width="1.5" width="136" x="978" y="48"></rect>
+                <text class="svg-num" x="986" y="64">07</text>
+                <text class="svg-num" text-anchor="end" x="1106" y="64">§04</text>
+                <text class="svg-step" x="986" y="82">prerender-manifest</text>
+                <text class="svg-sub" x="986.0" y="100">"/sec0/a/1"…"/5":</text>
+                <text class="svg-sub" x="992.3" y="113">response: complete</text>
+                <text class="svg-sub" x="992.3" y="126">compute: static</text>
+                <text class="svg-sub" x="986.0" y="139">"/sec0/a/[id]":</text>
+                <text class="svg-sub" x="992.3" y="152">fallback: null</text>
+                <text class="svg-sub" x="992.3" y="165">response: empty</text>
+                <text class="svg-sub" x="992.3" y="178">compute: blocking</text>
+                <text class="svg-sub" x="986.0" y="191">754 routes, v4</text>
+                <text class="svg-sub" x="986.0" y="204">/dyn: in neither</text>
+                <text class="svg-sub" x="992.3" y="217">map</text>
+                <line marker-end="url(#fig-golden-trace-arr-blue)" stroke="#3c6f97" stroke-width="1.5" x1="393" x2="393" y1="234" y2="297"></line>
+                <text class="svg-sub" text-anchor="start" x="400" y="256">setupFsCheck</text>
+                <text class="svg-sub" text-anchor="start" x="400" y="268">(boot, once)</text>
+                <line marker-end="url(#fig-golden-trace-arr-blue)" stroke="#3c6f97" stroke-width="1.5" x1="822" x2="822" y1="234" y2="297"></line>
+                <text class="svg-sub" text-anchor="end" x="815" y="256">FileSystemCache.get</text>
+                <text class="svg-sub" text-anchor="end" x="815" y="268">→ promoteSeed</text>
+                <text class="svg-lane" x="6" y="280">SERVER · NEXT START, ONE NODE PROCESS</text>
+                <text class="svg-sub" text-anchor="middle" x="530.0" y="290">resolveRoutes</text>
+                <line marker-end="url(#fig-golden-trace-arr-ink)" stroke="#252525" stroke-width="2.5" x1="471" x2="589" y1="310" y2="310"></line>
+                <text class="svg-sub" text-anchor="middle" x="884.0" y="290">sendRenderResult</text>
+                <line marker-end="url(#fig-golden-trace-arr-ink)" stroke="#252525" stroke-width="2.5" x1="851" x2="909" y1="310" y2="310"></line>
+                <rect fill="#ece6f3" height="196" rx="6" stroke="#765b98" stroke-width="1.5" width="200" x="270" y="298"></rect>
+                <text class="svg-num" x="278" y="314">08</text>
+                <text class="svg-num" text-anchor="end" x="462" y="314">§05</text>
+                <text class="svg-step" x="278" y="332">Boot tables</text>
+                <text class="svg-sub" x="278.0" y="350">setupFsCheck, once at boot:</text>
+                <text class="svg-sub" x="278.0" y="363">appFiles = Set {</text>
+                <text class="svg-sub" x="284.3" y="376">"/sec0/a/[id]", …}</text>
+                <text class="svg-sub" x="284.3" y="389">patterns, not /sec0/a/1</text>
+                <text class="svg-sub" x="278.0" y="402">dynamicRoutes: 119 regexes</text>
+                <text class="svg-sub" x="284.3" y="415">sorted by getSortedRoutes</text>
+                <text class="svg-sub" x="278.0" y="428">public/, .next/static/ →</text>
+                <text class="svg-sub" x="284.3" y="441">in-memory Sets</text>
+                <text class="svg-sub" x="278.0" y="454">app/ is not read at runtime</text>
+                <rect fill="#e0ebf2" height="196" rx="6" stroke="#3c6f97" stroke-width="1.5" width="260" x="590" y="298"></rect>
+                <text class="svg-num" x="598" y="314">09</text>
+                <text class="svg-num" text-anchor="end" x="842" y="314">§05</text>
+                <text class="svg-step" x="598" y="332">Hard GET /sec0/a/1</text>
+                <text class="svg-sub" x="598.0" y="350">check_fs: miss (Set lookups)</text>
+                <text class="svg-sub" x="598.0" y="363">checkTrue: /sec0/a/[id], 3rd of 119</text>
+                <text class="svg-sub" x="604.3" y="376">params {id: "1"}</text>
+                <text class="svg-sub" x="598.0" y="389">1st hit promotes seed to .next/server/</text>
+                <text class="svg-sub" x="604.3" y="402">route-cache/APP_PAGE/22872ffb…/</text>
+                <text class="svg-sub" x="604.3" y="415">$/sec0/a/1.*  (.html written last)</text>
+                <text class="svg-sub" x="598.0" y="428">200, 9,954 B, same bytes as 1.html</text>
+                <text class="svg-sub" x="598.0" y="441">x-nextjs-cache: HIT</text>
+                <text class="svg-sub" x="598.0" y="454">x-nextjs-prerender: 1</text>
+                <text class="svg-sub" x="598.0" y="467">x-nextjs-prerender: 1</text>
+                <text class="svg-sub" x="598.0" y="480">Cache-Control: s-maxage=31536000</text>
+                <rect fill="#e0ebf2" height="196" rx="6" stroke="#3c6f97" stroke-width="1.5" width="204" x="910" y="298"></rect>
+                <text class="svg-num" x="918" y="314">10</text>
+                <text class="svg-num" text-anchor="end" x="1106" y="314">§06</text>
+                <text class="svg-step" x="918" y="332">Document: two pushes</text>
+                <text class="svg-sub" x="918.0" y="350">(self.__next_f=</text>
+                <text class="svg-sub" x="924.3" y="363">self.__next_f||[])</text>
+                <text class="svg-sub" x="924.3" y="376">.push([0])</text>
+                <text class="svg-sub" x="918.0" y="389">self.__next_f.push([1,</text>
+                <text class="svg-sub" x="924.3" y="402">"1:\"$Sreact.fragment\"</text>
+                <text class="svg-sub" x="924.3" y="415">\n2:…"])</text>
+                <text class="svg-sub" x="918.0" y="428">push 2 = all 5,866 B of</text>
+                <text class="svg-sub" x="924.3" y="441">1.rsc: the payload, again</text>
+                <rect fill="#f7f7f5" height="11" rx="2" stroke="#b8b8b1" width="22" x="6" y="309"></rect>
+                <text class="svg-note" x="36" y="318">source the author wrote</text>
+                <rect fill="#dfede5" height="11" rx="2" stroke="#367f59" width="22" x="6" y="335"></rect>
+                <text class="svg-note" x="36" y="344">file next build wrote under .next/</text>
+                <rect fill="#ece6f3" height="11" rx="2" stroke="#765b98" width="22" x="6" y="361"></rect>
+                <text class="svg-note" x="36" y="370">in-memory state</text>
+                <rect fill="#e0ebf2" height="11" rx="2" stroke="#3c6f97" width="22" x="6" y="387"></rect>
+                <text class="svg-note" x="36" y="396">bytes on the wire</text>
+                <line stroke="#252525" stroke-width="2.5" x1="6" x2="28" y1="418" y2="418"></line>
+                <text class="svg-note" x="36" y="422">next step; label: what produces it</text>
+                <line stroke="#3c6f97" stroke-width="1.5" x1="6" x2="28" y1="444" y2="444"></line>
+                <text class="svg-note" x="36" y="448">runtime read of a build file</text>
+                <text class="svg-num" x="6" y="474">§04</text>
+                <text class="svg-note" x="36" y="474">box number · section that explains it</text>
+                <path d="M1012 494 L1012 510 L104 510 L104 575" fill="none" marker-end="url(#fig-golden-trace-arr-ink)" stroke="#252525" stroke-width="2.5"></path>
+                <text class="svg-note" text-anchor="middle" x="558.0" y="527">hydration drains self.__next_f (app-index.tsx); then every visible &lt;Link&gt; is prefetched</text>
+                <text class="svg-lane" x="6" y="550">BROWSER</text>
+                <text class="svg-lane" x="118" y="550">SESSION A · PREFETCH ON</text>
+                <text class="svg-lane" x="684" y="550">SESSION B · EVERY PREFETCH BLOCKED</text>
+                <line stroke="#deded9" stroke-width="1.5" x1="673.0" x2="673.0" y1="540" y2="762"></line>
+                <text class="svg-sub" text-anchor="middle" x="221.0" y="568">router.prefetch</text>
+                <line marker-end="url(#fig-golden-trace-arr-ink)" stroke="#252525" stroke-width="2.5" x1="211" x2="231" y1="588" y2="588"></line>
+                <text class="svg-sub" text-anchor="middle" x="447.0" y="568">router.push</text>
+                <line marker-end="url(#fig-golden-trace-arr-ink)" stroke="#252525" stroke-width="2.5" x1="437" x2="457" y1="588" y2="588"></line>
+                <text class="svg-sub" text-anchor="middle" x="899.0" y="568">router.push('/dyn')</text>
+                <line marker-end="url(#fig-golden-trace-arr-ink)" stroke="#252525" stroke-width="2.5" x1="889" x2="909" y1="588" y2="588"></line>
+                <rect fill="#e0ebf2" height="186" rx="6" stroke="#3c6f97" stroke-width="1.5" width="204" x="6" y="576"></rect>
+                <text class="svg-num" x="14" y="592">11</text>
+                <text class="svg-num" text-anchor="end" x="202" y="592">§09</text>
+                <text class="svg-step" x="14" y="610">Viewport prefetch</text>
+                <text class="svg-sub" x="14.0" y="628">GET /sec0/a/1?_rsc=</text>
+                <text class="svg-sub" x="32.9" y="641">nVRY9RLVAUtqyrUj</text>
+                <text class="svg-sub" x="14.0" y="654">rsc: 1</text>
+                <text class="svg-sub" x="14.0" y="667">next-router-prefetch: 1</text>
+                <text class="svg-sub" x="14.0" y="680">next-router-segment-prefetch:</text>
+                <text class="svg-sub" x="20.3" y="693">/_tree  → 275 B</text>
+                <text class="svg-sub" x="14.0" y="706">then …/$d$id/__PAGE__ alone:</text>
+                <text class="svg-sub" x="20.3" y="719">the layouts ride inside it</text>
+                <text class="svg-sub" x="14.0" y="732">12 links → 24 requests,</text>
+                <text class="svg-sub" x="20.3" y="745">all x-nextjs-postponed: 2</text>
+                <rect fill="#e0ebf2" height="186" rx="6" stroke="#3c6f97" stroke-width="1.5" width="204" x="232" y="576"></rect>
+                <text class="svg-num" x="240" y="592">12</text>
+                <text class="svg-num" text-anchor="end" x="428" y="592">§08</text>
+                <text class="svg-step" x="240" y="610">Predicted prefetch</text>
+                <text class="svg-sub" x="240.0" y="628">router.prefetch('/sec0/a/2')</text>
+                <text class="svg-sub" x="240.0" y="641">pattern /sec0/a/[id] learned</text>
+                <text class="svg-sub" x="246.3" y="654">from one _tree; siblings []</text>
+                <text class="svg-sub" x="240.0" y="667">→ no /_tree request</text>
+                <text class="svg-sub" x="240.0" y="680">GET /sec0/a/2?_rsc=</text>
+                <text class="svg-sub" x="258.9" y="693">kOGHNaC9L4yO-hEQ</text>
+                <text class="svg-sub" x="240.0" y="706">segment-prefetch:</text>
+                <text class="svg-sub" x="246.3" y="719">/sec0/a/$d$id/__PAGE__</text>
+                <text class="svg-sub" x="240.0" y="732">1 request · 4,942 B</text>
+                <rect fill="#ece6f3" height="186" rx="6" stroke="#765b98" stroke-width="1.5" width="204" x="458" y="576"></rect>
+                <text class="svg-num" x="466" y="592">13</text>
+                <text class="svg-num" text-anchor="end" x="654" y="592">§08</text>
+                <text class="svg-step" x="466" y="610">Warm soft navigation</text>
+                <text class="svg-sub" x="466.0" y="628">router.push('/sec0/a/2')</text>
+                <text class="svg-sub" x="466.0" y="641">0 requests · 50 ms</text>
+                <text class="svg-sub" x="466.0" y="654">every segment already cached</text>
+                <text class="svg-sub" x="466.0" y="667">&lt;html&gt;: same DOM node</text>
+                <text class="svg-sub" x="466.0" y="680">&lt;section data-layout="sec0"&gt;:</text>
+                <text class="svg-sub" x="472.3" y="693">same DOM node</text>
+                <text class="svg-sub" x="466.0" y="706">only the page subtree changes</text>
+                <rect fill="#e0ebf2" height="186" rx="6" stroke="#3c6f97" stroke-width="1.5" width="204" x="684" y="576"></rect>
+                <text class="svg-num" x="692" y="592">14</text>
+                <text class="svg-num" text-anchor="end" x="880" y="592">§06</text>
+                <text class="svg-step" x="692" y="610">Unprefetched SSG navigation</text>
+                <text class="svg-sub" x="692.0" y="628">router.push('/sec0/a/2')</text>
+                <text class="svg-sub" x="692.0" y="641">GET /sec0/a/2?_rsc=…</text>
+                <text class="svg-sub" x="698.3" y="654">+ next-router-state-tree</text>
+                <text class="svg-sub" x="692.0" y="667">SSG: Flight headers stripped,</text>
+                <text class="svg-sub" x="698.3" y="680">state tree ignored</text>
+                <text class="svg-sub" x="692.0" y="693">→ the stored 2.rsc, whole</text>
+                <text class="svg-sub" x="692.0" y="706">5,866 B · 1,619 B on the wire</text>
+                <text class="svg-sub" x="692.0" y="719">layouts re-sent; DOM kept</text>
+                <rect fill="#e0ebf2" height="186" rx="6" stroke="#3c6f97" stroke-width="1.5" width="204" x="910" y="576"></rect>
+                <text class="svg-num" x="918" y="592">15</text>
+                <text class="svg-num" text-anchor="end" x="1106" y="592">§06</text>
+                <text class="svg-step" x="918" y="610">Dynamic navigation to /dyn</text>
+                <text class="svg-sub" x="918.0" y="628">walkTreeWithFlightRouterState</text>
+                <text class="svg-sub" x="918.0" y="641">root "" unchanged → skipped:</text>
+                <text class="svg-sub" x="918.0" y="654">{"s":"","h":16,"d":</text>
+                <text class="svg-sub" x="924.3" y="667">{"r":null,"p":true,</text>
+                <text class="svg-sub" x="930.6" y="680">"v":null}}</text>
+                <text class="svg-sub" x="918.0" y="693">dyn ≠ sec0 → render from dyn</text>
+                <text class="svg-sub" x="918.0" y="706">2,602 B; 4,433 B without the</text>
+                <text class="svg-sub" x="924.3" y="719">state tree (−41%)</text>
+                <text class="svg-sub" x="918.0" y="732">Cache-Control: private,</text>
+                <text class="svg-sub" x="924.3" y="745">no-cache, no-store, …</text>
+                <text class="svg-note" x="6" y="782">Within a lane, boxes run in the order the code runs them. Sizes are bytes, decoded unless marked wire. Only box 13 is timed.</text>
+                </svg>

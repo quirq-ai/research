@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 692" role="img" aria-label="Three panels. Top left, a line chart of the Pages Router _buildManifest.js against routes in the app: raw 18,590, 73,527 and 183,519 bytes at 101, 401 and 1,001 routes; gzip 3,988, 14,424 and 34,623 bytes; the App Router app's file is a flat 488 bytes that no page loads. Top right, first-load JS of /sec0/a/1: Pages rises from 389,116 to 447,069 to 563,131 bytes, the route map being 5.1, 17.4 and 34.4 percent of it, while App stays at 464,039 to 464,709 bytes; a shaded band between about 490 and 600 routes marks the interpolated raw and gzip crossovers. Middle, a stacked bar of the 183,519-byte manifest at 1,001 routes: bootstrap params 99,833 bytes, 54.4 percent; page to chunk lists 50,699, 27.6 percent; sortedPages 15,684, 8.5 percent; the rest 17,303, 9.4 percent, nearly all indentation. Bottom, horizontal bars of microseconds per route lookup: the server scan costs 5.8 at 100 dynamic routes and 85 at 1,000; the Pages client costs 128 at 28 dynamic pages, 616 at 118, 1,781 at 298 and 5,148 at 1,198."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="692.0" fill="#ffffff"/>
+                <defs>
+                </defs>
+                <text class="svg-lane" x="20" y="18">ROUTE MAP: _BUILDMANIFEST.JS PER PAGE LOAD</text>
+                <line stroke="#ad4b43" stroke-width="2.5" x1="20" x2="38" y1="37" y2="37"></line>
+                <text class="svg-sub" style="fill:#252525" x="43" y="41">Pages raw</text>
+                <line stroke="#ad4b43" stroke-dasharray="4 3" stroke-width="1.5" x1="118" x2="136" y1="37" y2="37"></line>
+                <text class="svg-sub" style="fill:#252525" x="141" y="41">Pages gzip</text>
+                <line stroke="#3c6f97" stroke-width="2.5" x1="222" x2="240" y1="37" y2="37"></line>
+                <text class="svg-sub" style="fill:#252525" x="245" y="41">App: 488 B, 0 pages load it</text>
+                <line stroke="#deded9" x1="80" x2="440" y1="280.0" y2="280.0"></line>
+                <text class="svg-sub" text-anchor="end" x="74" y="284.0">0</text>
+                <line stroke="#deded9" x1="80" x2="440" y1="225.0" y2="225.0"></line>
+                <text class="svg-sub" text-anchor="end" x="74" y="229.0">50 KB</text>
+                <line stroke="#deded9" x1="80" x2="440" y1="170.0" y2="170.0"></line>
+                <text class="svg-sub" text-anchor="end" x="74" y="174.0">100 KB</text>
+                <line stroke="#deded9" x1="80" x2="440" y1="115.0" y2="115.0"></line>
+                <text class="svg-sub" text-anchor="end" x="74" y="119.0">150 KB</text>
+                <line stroke="#deded9" x1="80" x2="440" y1="60.0" y2="60.0"></line>
+                <text class="svg-sub" text-anchor="end" x="74" y="64.0">200 KB</text>
+                <line stroke="#b8b8b1" x1="80" x2="80" y1="60" y2="280"></line>
+                <line stroke="#b8b8b1" x1="80" x2="440" y1="280" y2="280"></line>
+                <line stroke="#b8b8b1" x1="114.6" x2="114.6" y1="280" y2="285"></line>
+                <text class="svg-sub" text-anchor="middle" x="114.6" y="297">101</text>
+                <line stroke="#b8b8b1" x1="217.5" x2="217.5" y1="280" y2="285"></line>
+                <text class="svg-sub" text-anchor="middle" x="217.5" y="297">401</text>
+                <line stroke="#b8b8b1" x1="423.2" x2="423.2" y1="280" y2="285"></line>
+                <text class="svg-sub" text-anchor="middle" x="423.2" y="297">1,001</text>
+                <text class="svg-sub" text-anchor="middle" x="260" y="314">routes in the app</text>
+                <polyline fill="none" points="114.6,259.6 217.5,199.1 423.2,78.1" stroke="#ad4b43" stroke-width="2.5"></polyline>
+                <polyline fill="none" points="114.6,275.6 217.5,264.1 423.2,241.9" stroke="#ad4b43" stroke-dasharray="4 3" stroke-width="1.5"></polyline>
+                <line stroke="#3c6f97" stroke-width="2.5" x1="90.6" x2="423.2" y1="279.5" y2="279.5"></line>
+                <circle cx="114.6" cy="259.6" fill="#ad4b43" r="3.5"></circle>
+                <circle cx="217.5" cy="199.1" fill="#ad4b43" r="3.5"></circle>
+                <circle cx="423.2" cy="78.1" fill="#ad4b43" r="3.5"></circle>
+                <circle cx="114.6" cy="275.6" fill="#ffffff" r="3" stroke="#ad4b43" stroke-width="1.5"></circle>
+                <circle cx="217.5" cy="264.1" fill="#ffffff" r="3" stroke="#ad4b43" stroke-width="1.5"></circle>
+                <circle cx="423.2" cy="241.9" fill="#ffffff" r="3" stroke="#ad4b43" stroke-width="1.5"></circle>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="114.6" y="250.6">18,590</text>
+                <text class="svg-sub" style="fill:#252525" text-anchor="end" x="211.5" y="190.1">73,527</text>
+                <text class="svg-sub" style="fill:#252525" text-anchor="end" x="415.2" y="82.1">183,519 B</text>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="217.5" y="256.1">14,424</text>
+                <text class="svg-sub" style="fill:#252525" text-anchor="end" x="415.2" y="233.9">34,623 B</text>
+                <text class="svg-note" text-anchor="middle" x="190" y="100">≈183 B raw, 34 B gzip</text>
+                <text class="svg-note" text-anchor="middle" x="190" y="114">per added route</text>
+                <text class="svg-lane" x="520" y="18">FIRST-LOAD JS OF /SEC0/A/1, RAW BYTES</text>
+                <line stroke="#ad4b43" stroke-width="2.5" x1="520" x2="538" y1="37" y2="37"></line>
+                <text class="svg-sub" style="fill:#252525" x="543" y="41">Pages</text>
+                <line stroke="#3c6f97" stroke-width="2.5" x1="590" x2="608" y1="37" y2="37"></line>
+                <text class="svg-sub" style="fill:#252525" x="613" y="41">App</text>
+                <rect fill="#f7e3c8" height="12" stroke="#d98226" width="18" x="650" y="30"></rect>
+                <text class="svg-sub" style="fill:#252525" x="673" y="41">crossover, interpolated</text>
+                <rect fill="#f7e3c8" height="220" stroke="none" width="40.5" x="752.3" y="60"></rect>
+                <line stroke="#deded9" x1="580" x2="950" y1="280.0" y2="280.0"></line>
+                <text class="svg-sub" text-anchor="end" x="574" y="284.0">350 KB</text>
+                <line stroke="#deded9" x1="580" x2="950" y1="236.0" y2="236.0"></line>
+                <text class="svg-sub" text-anchor="end" x="574" y="240.0">400 KB</text>
+                <line stroke="#deded9" x1="580" x2="950" y1="192.0" y2="192.0"></line>
+                <text class="svg-sub" text-anchor="end" x="574" y="196.0">450 KB</text>
+                <line stroke="#deded9" x1="580" x2="950" y1="148.0" y2="148.0"></line>
+                <text class="svg-sub" text-anchor="end" x="574" y="152.0">500 KB</text>
+                <line stroke="#deded9" x1="580" x2="950" y1="104.0" y2="104.0"></line>
+                <text class="svg-sub" text-anchor="end" x="574" y="108.0">550 KB</text>
+                <line stroke="#deded9" x1="580" x2="950" y1="60.0" y2="60.0"></line>
+                <text class="svg-sub" text-anchor="end" x="574" y="64.0">600 KB</text>
+                <line stroke="#b8b8b1" x1="580" x2="580" y1="60" y2="280"></line>
+                <line stroke="#b8b8b1" x1="580" x2="950" y1="280" y2="280"></line>
+                <text class="svg-note" text-anchor="end" x="944" y="266">axis starts at 350 KB</text>
+                <line stroke="#b8b8b1" x1="615.6" x2="615.6" y1="280" y2="285"></line>
+                <text class="svg-sub" text-anchor="middle" x="615.6" y="297">101</text>
+                <line stroke="#b8b8b1" x1="721.3" x2="721.3" y1="280" y2="285"></line>
+                <text class="svg-sub" text-anchor="middle" x="721.3" y="297">401</text>
+                <line stroke="#b8b8b1" x1="932.7" x2="932.7" y1="280" y2="285"></line>
+                <text class="svg-sub" text-anchor="middle" x="932.7" y="297">1,001</text>
+                <text class="svg-sub" text-anchor="middle" x="765" y="314">routes in the app</text>
+                <text class="svg-sub" style="fill:#252525" text-anchor="end" x="748.3" y="74">raw ≈490</text>
+                <text class="svg-sub" style="fill:#252525" x="796.8" y="74">gzip ≈600</text>
+                <polyline fill="none" points="615.6,245.6 721.3,194.6 932.7,92.4" stroke="#ad4b43" stroke-width="2.5"></polyline>
+                <polyline fill="none" points="615.6,179.6 721.3,179.6 932.7,179.1" stroke="#3c6f97" stroke-width="2.5"></polyline>
+                <circle cx="615.6" cy="245.6" fill="#ad4b43" r="3.5"></circle>
+                <circle cx="721.3" cy="194.6" fill="#ad4b43" r="3.5"></circle>
+                <circle cx="932.7" cy="92.4" fill="#ad4b43" r="3.5"></circle>
+                <circle cx="615.6" cy="179.6" fill="#3c6f97" r="3.5"></circle>
+                <circle cx="721.3" cy="179.6" fill="#3c6f97" r="3.5"></circle>
+                <circle cx="932.7" cy="179.1" fill="#3c6f97" r="3.5"></circle>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="615.6" y="261.6">389,116</text>
+                <text class="svg-sub" text-anchor="middle" x="615.6" y="273.6">map 5.1%</text>
+                <text class="svg-sub" style="fill:#252525" x="729.3" y="210.6">447,069</text>
+                <text class="svg-sub" x="729.3" y="222.6">map 17.4%</text>
+                <text class="svg-sub" style="fill:#252525" x="937.7" y="108.4">563,131</text>
+                <text class="svg-sub" x="937.7" y="120.4">map 34.4%</text>
+                <text class="svg-sub" style="fill:#3c6f97" text-anchor="end" x="932.7" y="196.1">App 464,039 → 464,709</text>
+                <line stroke="#deded9" x1="20" x2="980" y1="330" y2="330"></line>
+                <text class="svg-lane" x="20" y="352">WHAT THE 183,519-B _BUILDMANIFEST.JS HOLDS AT 1,001 ROUTES</text>
+                <rect fill="#f3dfdc" height="30" stroke="#ad4b43" width="478.7" x="60.0" y="364"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="299.4" y="383">bootstrap params · 99,833 B · 54.4%</text>
+                <rect fill="#ffffff" height="30" stroke="#ad4b43" width="243.1" x="538.7" y="364"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="660.3" y="383">page → chunks · 50,699 B · 27.6%</text>
+                <rect fill="#f3dfdc" height="30" stroke="#ad4b43" width="75.2" x="781.8" y="364"></rect>
+                <rect fill="#f7f7f5" height="30" stroke="#ad4b43" width="83.0" x="857.0" y="364"></rect>
+                <path d="M819.4 394 V404" fill="none" stroke="#b8b8b1"></path>
+                <text class="svg-sub" style="fill:#252525" text-anchor="end" x="823.4" y="414">sortedPages · 15,684 B · 8.5%</text>
+                <path d="M898.5 394 V420" fill="none" stroke="#b8b8b1"></path>
+                <text class="svg-sub" style="fill:#252525" text-anchor="end" x="940.0" y="432">rest · 17,303 B · 9.4%, nearly all indentation</text>
+                <text class="svg-note" x="60" y="414">JSON.stringify(…, null, 2): the indentation is 17,060 B raw, 740 B after gzip.</text>
+                <line stroke="#deded9" x1="20" x2="980" y1="450" y2="450"></line>
+                <text class="svg-lane" x="20" y="472">RESOLVING ONE DYNAMIC URL: MICROSECONDS PER LOOKUP</text>
+                <text class="svg-sub" x="20" y="488">client: Pages resolveDynamicRoute, URL in the last section · server: precompiled scan (§05)</text>
+                <text class="svg-sub" style="fill:#252525" x="20" y="512">server hit · 100 dynamic routes</text>
+                <rect fill="#dfede5" height="16" stroke="#367f59" width="1.5" x="340" y="500"></rect>
+                <text class="svg-sub" style="fill:#252525" x="347.5" y="512">5.8</text>
+                <text class="svg-sub" style="fill:#252525" x="20" y="536">server hit · 1,000 dynamic routes</text>
+                <rect fill="#dfede5" height="16" stroke="#367f59" width="9.3" x="340" y="524"></rect>
+                <text class="svg-sub" style="fill:#252525" x="355.3" y="536">85</text>
+                <text class="svg-sub" style="fill:#252525" x="20" y="560">client · 28 dynamic pages (101 routes)</text>
+                <rect fill="#f3dfdc" height="16" stroke="#ad4b43" width="14.0" x="340" y="548"></rect>
+                <text class="svg-sub" style="fill:#252525" x="360.0" y="560">128</text>
+                <text class="svg-sub" style="fill:#252525" x="20" y="584">client · 118 dynamic pages (401 routes)</text>
+                <rect fill="#f3dfdc" height="16" stroke="#ad4b43" width="67.1" x="340" y="572"></rect>
+                <text class="svg-sub" style="fill:#252525" x="413.1" y="584">616</text>
+                <text class="svg-sub" style="fill:#252525" x="20" y="608">client · 298 dynamic pages (1,001 routes)</text>
+                <rect fill="#f3dfdc" height="16" stroke="#ad4b43" width="194.3" x="340" y="596"></rect>
+                <text class="svg-sub" style="fill:#252525" x="540.3" y="608">1,781</text>
+                <text class="svg-sub" style="fill:#252525" x="20" y="632">client · 1,198 dynamic pages (synthetic)</text>
+                <rect fill="#f3dfdc" height="16" stroke="#ad4b43" width="561.6" x="340" y="620"></rect>
+                <text class="svg-sub" style="fill:#252525" x="907.6" y="632">5,148</text>
+                <line stroke="#b8b8b1" x1="340" x2="940" y1="648" y2="648"></line>
+                <line stroke="#b8b8b1" x1="340.0" x2="340.0" y1="648" y2="653"></line>
+                <text class="svg-sub" text-anchor="middle" x="340.0" y="665">0</text>
+                <line stroke="#b8b8b1" x1="449.1" x2="449.1" y1="648" y2="653"></line>
+                <text class="svg-sub" text-anchor="middle" x="449.1" y="665">1,000</text>
+                <line stroke="#b8b8b1" x1="558.2" x2="558.2" y1="648" y2="653"></line>
+                <text class="svg-sub" text-anchor="middle" x="558.2" y="665">2,000</text>
+                <line stroke="#b8b8b1" x1="667.3" x2="667.3" y1="648" y2="653"></line>
+                <text class="svg-sub" text-anchor="middle" x="667.3" y="665">3,000</text>
+                <line stroke="#b8b8b1" x1="776.4" x2="776.4" y1="648" y2="653"></line>
+                <text class="svg-sub" text-anchor="middle" x="776.4" y="665">4,000</text>
+                <line stroke="#b8b8b1" x1="885.5" x2="885.5" y1="648" y2="653"></line>
+                <text class="svg-sub" text-anchor="middle" x="885.5" y="665">5,000</text>
+                <text class="svg-sub" text-anchor="end" x="940.0" y="665">µs</text>
+                <text class="svg-note" x="20" y="688">The client compiles a new RegExp for each dynamic page it tries: 4.3–6.0 µs per page scanned, linear in the table it downloaded.</text>
+              </svg>

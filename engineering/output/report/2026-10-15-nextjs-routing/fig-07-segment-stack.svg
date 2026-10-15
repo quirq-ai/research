@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 652" role="img" aria-label="Nested boxes for one segment X. Outermost is a dashed LoadingBoundaryProvider, which the server emits when X/loading.js exists and which only sets context. Inside it: Layout X, a server component; a LayoutRouter client element for the children slot; TemplateContext.Provider keyed by the state key, wrapping the template or a Fragment; ScrollHandler; ErrorBoundary fed by X/error.js; LoadingBoundary, a Suspense whose fallback is X/loading.js read from context; HTTPAccessFallbackBoundary fed by X/not-found.js, children slot only; RedirectBoundary; and InnerLayoutRouter, which holds an abbreviated copy of the same stack for child segment Y ending at Y/page.js. On the right, convention files feed their boundaries, and three notes say what X's boundaries cover: Layout Y, the page and everything below; not Layout X or X/template.js, which render above them; and that the Provider key for a dynamic child is name|value|type, so a new param value remounts while search params do not."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="652.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-segment-stack-arr-blue" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                  <marker id="fig-segment-stack-arr-purple" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="20" y="20">ONE SEGMENT X, ITS children SLOT, CHILD Y INSIDE</text>
+                <text class="svg-lane" x="660" y="20">WHAT FEEDS EACH BOUNDARY</text>
+
+                <rect fill="#ffffff" height="568" rx="8" stroke="#765b98" stroke-dasharray="6 4" stroke-width="1.5" width="620" x="20" y="34"></rect>
+                <text class="svg-step" x="34" y="52">LoadingBoundaryProvider</text>
+                <text class="svg-sub" x="202" y="52">server emits it if X/loading.js exists · context only</text>
+
+                <rect fill="#e0ebf2" height="532" rx="7" stroke="#3c6f97" stroke-width="1.5" width="588" x="36" y="62"></rect>
+                <text class="svg-step" x="50" y="80">Layout X</text>
+                <text class="svg-sub" x="120" y="80">X/layout.js · Server Component · renders {children}</text>
+
+                <rect fill="#ffffff" height="496" rx="7" stroke="#3c6f97" width="556" x="52" y="90"></rect>
+                <text class="svg-step" x="66" y="108">LayoutRouter</text>
+                <text class="svg-sub" x="160" y="108">client · one per slot · props set by the server</text>
+
+                <rect fill="#f7f7f5" height="460" rx="6" stroke="#b8b8b1" width="524" x="68" y="118"></rect>
+                <text class="svg-step" x="82" y="136">TemplateContext.Provider key={stateKey}</text>
+                <text class="svg-sub" x="364" y="136">› template or Fragment</text>
+
+                <rect fill="#ffffff" height="424" rx="6" stroke="#b8b8b1" width="492" x="84" y="146"></rect>
+                <text class="svg-step" x="98" y="164">ScrollHandler</text>
+
+                <rect fill="#f7f7f5" height="388" rx="6" stroke="#b8b8b1" width="460" x="100" y="174"></rect>
+                <text class="svg-step" x="114" y="192">ErrorBoundary</text>
+                <text class="svg-sub" x="216" y="192">errorComponent = X/error.js</text>
+
+                <rect fill="#ffffff" height="352" rx="6" stroke="#b8b8b1" width="428" x="116" y="202"></rect>
+                <text class="svg-step" x="130" y="220">LoadingBoundary</text>
+                <text class="svg-sub" x="246" y="220">&lt;Suspense fallback={X/loading}&gt;</text>
+
+                <rect fill="#f7f7f5" height="316" rx="6" stroke="#b8b8b1" width="396" x="132" y="230"></rect>
+                <text class="svg-step" x="146" y="248">HTTPAccessFallbackBoundary</text>
+                <text class="svg-sub" x="334" y="248">children slot only</text>
+
+                <rect fill="#ffffff" height="280" rx="6" stroke="#b8b8b1" width="364" x="148" y="258"></rect>
+                <text class="svg-step" x="162" y="276">RedirectBoundary</text>
+
+                <rect fill="#f7f7f5" height="244" rx="6" stroke="#b8b8b1" width="332" x="164" y="286"></rect>
+                <text class="svg-step" x="178" y="304">InnerLayoutRouter</text>
+                <text class="svg-sub" x="306" y="304">→ child segment Y</text>
+
+                <rect fill="#ffffff" height="206" rx="5" stroke="#765b98" stroke-dasharray="5 3" width="300" x="180" y="314"></rect>
+                <text class="svg-sub" x="190" y="329">LoadingBoundaryProvider (Y/loading.js)</text>
+                <rect fill="#e0ebf2" height="176" rx="5" stroke="#3c6f97" width="280" x="190" y="336"></rect>
+                <text class="svg-sub" style="fill:#252525" x="200" y="351">Layout Y (Y/layout.js)</text>
+                <rect fill="#ffffff" height="146" rx="5" stroke="#3c6f97" width="260" x="200" y="358"></rect>
+                <text class="svg-sub" x="210" y="373">LayoutRouter › Provider › Scroll</text>
+                <rect fill="#f7f7f5" height="116" rx="5" stroke="#b8b8b1" width="240" x="210" y="380"></rect>
+                <text class="svg-sub" x="220" y="395">ErrorBoundary ← Y/error.js</text>
+                <rect fill="#ffffff" height="86" rx="5" stroke="#b8b8b1" width="220" x="220" y="402"></rect>
+                <text class="svg-sub" x="230" y="417">Suspense ← Y/loading.js</text>
+                <rect fill="#f7f7f5" height="56" rx="5" stroke="#b8b8b1" width="200" x="230" y="424"></rect>
+                <text class="svg-sub" x="240" y="439">fallbacks › Redirect › Inner</text>
+                <rect fill="#dfede5" height="24" rx="4" stroke="#367f59" width="180" x="240" y="448"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="330" y="464">Y/page.js</text>
+
+                <rect fill="#f7e3c8" height="24" rx="4" stroke="#d98226" width="124" x="676" y="36"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="738" y="52">X/loading.js</text>
+                <text class="svg-sub" x="810" y="52">server → context</text>
+                <line marker-end="url(#fig-segment-stack-arr-blue)" stroke="#3c6f97" stroke-width="1.2" x1="676" x2="644" y1="48" y2="48"></line>
+                <path d="M632 60 L632 212 L548 212" fill="none" marker-end="url(#fig-segment-stack-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+
+                <rect fill="#f7f7f5" height="24" rx="4" stroke="#b8b8b1" width="124" x="676" y="116"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="738" y="132">X/template.js</text>
+                <text class="svg-sub" x="810" y="132">or a Fragment</text>
+                <line marker-end="url(#fig-segment-stack-arr-blue)" stroke="#3c6f97" stroke-width="1.2" x1="676" x2="596" y1="128" y2="128"></line>
+
+                <rect fill="#f3dfdc" height="24" rx="4" stroke="#ad4b43" width="124" x="676" y="172"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="738" y="188">X/error.js</text>
+                <line marker-end="url(#fig-segment-stack-arr-blue)" stroke="#3c6f97" stroke-width="1.2" x1="676" x2="564" y1="184" y2="184"></line>
+
+                <rect fill="#f7f7f5" height="24" rx="4" stroke="#b8b8b1" width="124" x="676" y="228"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="738" y="244">X/not-found.js</text>
+                <text class="svg-sub" x="810" y="244">+ forbidden, unauthorized</text>
+                <line marker-end="url(#fig-segment-stack-arr-blue)" stroke="#3c6f97" stroke-width="1.2" x1="676" x2="532" y1="240" y2="240"></line>
+
+                <rect fill="#dfede5" height="80" rx="6" stroke="#367f59" width="330" x="660" y="290"></rect>
+                <text class="svg-step" x="674" y="310">Covered by X's boundaries</text>
+                <text class="svg-sub" x="674" y="328">Layout Y, Y/page.js and all below;</text>
+                <text class="svg-sub" x="674" y="344">error.js also wraps the loading and</text>
+                <text class="svg-sub" x="674" y="360">not-found UI (docs, error.mdx)</text>
+
+                <rect fill="#f3dfdc" height="96" rx="6" stroke="#ad4b43" width="330" x="660" y="382"></rect>
+                <text class="svg-step" x="674" y="402">Not covered: Layout X, X/template.js</text>
+                <text class="svg-sub" x="674" y="420">Both render above X's ErrorBoundary</text>
+                <text class="svg-sub" x="674" y="436">and Suspense. A throw in Layout X goes</text>
+                <text class="svg-sub" x="674" y="452">to a boundary above X; so does an</text>
+                <text class="svg-sub" x="674" y="468">await that suspends in Layout X.</text>
+
+                <rect fill="#ece6f3" height="80" rx="6" stroke="#765b98" width="330" x="660" y="490"></rect>
+                <text class="svg-step" x="674" y="510">Provider key = Y's segment key</text>
+                <text class="svg-sub" x="674" y="528">browser: name|value|type, e.g. id|1|d,</text>
+                <text class="svg-sub" x="674" y="544">so /a/1 → /a/2 remounts all below it;</text>
+                <text class="svg-sub" x="674" y="560">search params are never in the key</text>
+
+                <text class="svg-note" x="20" y="626">Blue fill: emitted by the server (create-component-tree.tsx). Grey and white: built by the client LayoutRouter (layout-router.tsx:666-729).</text>
+                <text class="svg-note" x="20" y="644">Dashed purple: context, not a boundary. Thin blue: a convention file's module, passed as data. Y repeats X's stack, abbreviated.</text>
+              </svg>

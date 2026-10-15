@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 854" role="img" aria-label="An annotated project tree. Each row is a file, with a coloured pill naming the routing rule that applies and, to its right, the URL the file serves or the reason it serves none. Root files proxy.ts and instrumentation.ts sit beside app/. Under app/: the root layout, page and not-found; root-only metadata favicon.ico and robots.ts; a (marketing) group whose about page serves /about and whose opengraph-image.png gets a hash suffix; blog with an ignored card.tsx, a private _lib folder never read by next build, and a [slug] dynamic segment with a page, a loading file that creates no route, and an icon prerendered once at /blog/-/icon.png; a catch-all, an optional catch-all, a %5Fdebug folder serving /_debug, an API route handler; a dashboard with @team and @analytics slots in which @team/settings/page.tsx serves /dashboard/settings; a feed with an @modal slot holding a (..)photo/[id] interception page that serves /photo/:id only when the next-url header is /feed or below; the canonical photo/[id] page; and this post's sec0/a/[id] route serving /sec0/a/1 to /sec0/a/5. An inset shows a pages/ tree in which card.tsx and _lib/data.ts are routes. A legend gives the colour families, and a box states that deleting dashboard/default.tsx or photo/[id]/page.tsx would fail strict route matching, naming the errors each deletion raises."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="854.0" fill="#ffffff"/>
+                <text class="svg-lane" x="16" y="20">FILE UNDER THE PROJECT ROOT</text>
+                <text class="svg-lane" x="252" y="20">RULE</text>
+                <text class="svg-lane" x="362" y="20">SERVED URL, OR WHY NOT</text>
+                <line stroke="#deded9" x1="16" x2="790" y1="30" y2="30"></line>
+                <path d="M21 96 L21 810" fill="none" stroke="#b8b8b1"></path>
+                <path d="M21 110 L30 110" fill="none" stroke="#b8b8b1"></path>
+                <path d="M21 130 L30 130" fill="none" stroke="#b8b8b1"></path>
+                <path d="M21 150 L30 150" fill="none" stroke="#b8b8b1"></path>
+                <path d="M21 170 L30 170" fill="none" stroke="#b8b8b1"></path>
+                <path d="M21 190 L30 190" fill="none" stroke="#b8b8b1"></path>
+                <path d="M21 210 L30 210" fill="none" stroke="#b8b8b1"></path>
+                <path d="M21 290 L30 290" fill="none" stroke="#b8b8b1"></path>
+                <path d="M21 450 L30 450" fill="none" stroke="#b8b8b1"></path>
+                <path d="M21 470 L30 470" fill="none" stroke="#b8b8b1"></path>
+                <path d="M21 490 L30 490" fill="none" stroke="#b8b8b1"></path>
+                <path d="M21 510 L30 510" fill="none" stroke="#b8b8b1"></path>
+                <path d="M21 530 L30 530" fill="none" stroke="#b8b8b1"></path>
+                <path d="M21 670 L30 670" fill="none" stroke="#b8b8b1"></path>
+                <path d="M21 790 L30 790" fill="none" stroke="#b8b8b1"></path>
+                <path d="M21 810 L30 810" fill="none" stroke="#b8b8b1"></path>
+                <path d="M39 216 L39 270" fill="none" stroke="#b8b8b1"></path>
+                <path d="M39 230 L48 230" fill="none" stroke="#b8b8b1"></path>
+                <path d="M39 250 L48 250" fill="none" stroke="#b8b8b1"></path>
+                <path d="M39 270 L48 270" fill="none" stroke="#b8b8b1"></path>
+                <path d="M39 296 L39 370" fill="none" stroke="#b8b8b1"></path>
+                <path d="M39 310 L48 310" fill="none" stroke="#b8b8b1"></path>
+                <path d="M39 330 L48 330" fill="none" stroke="#b8b8b1"></path>
+                <path d="M39 350 L48 350" fill="none" stroke="#b8b8b1"></path>
+                <path d="M39 370 L48 370" fill="none" stroke="#b8b8b1"></path>
+                <path d="M57 376 L57 430" fill="none" stroke="#b8b8b1"></path>
+                <path d="M57 390 L66 390" fill="none" stroke="#b8b8b1"></path>
+                <path d="M57 410 L66 410" fill="none" stroke="#b8b8b1"></path>
+                <path d="M57 430 L66 430" fill="none" stroke="#b8b8b1"></path>
+                <path d="M39 536 L39 650" fill="none" stroke="#b8b8b1"></path>
+                <path d="M39 550 L48 550" fill="none" stroke="#b8b8b1"></path>
+                <path d="M39 570 L48 570" fill="none" stroke="#b8b8b1"></path>
+                <path d="M39 590 L48 590" fill="none" stroke="#b8b8b1"></path>
+                <path d="M39 610 L48 610" fill="none" stroke="#b8b8b1"></path>
+                <path d="M39 630 L48 630" fill="none" stroke="#b8b8b1"></path>
+                <path d="M39 650 L48 650" fill="none" stroke="#b8b8b1"></path>
+                <path d="M39 676 L39 730" fill="none" stroke="#b8b8b1"></path>
+                <path d="M39 690 L48 690" fill="none" stroke="#b8b8b1"></path>
+                <path d="M39 710 L48 710" fill="none" stroke="#b8b8b1"></path>
+                <path d="M39 730 L48 730" fill="none" stroke="#b8b8b1"></path>
+                <path d="M57 736 L57 770" fill="none" stroke="#b8b8b1"></path>
+                <path d="M57 750 L66 750" fill="none" stroke="#b8b8b1"></path>
+                <path d="M57 770 L66 770" fill="none" stroke="#b8b8b1"></path>
+                <text class="svg-sub" style="fill:#252525" x="16" y="54">proxy.ts</text>
+                <rect fill="#f7f7f5" height="16" rx="8" stroke="#b8b8b1" width="98" x="252" y="42"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="54">root file</text>
+                <text class="svg-sub" x="362" y="54">Node.js only; default matcher /:path* runs it on every request</text>
+                <text class="svg-sub" style="fill:#252525" x="16" y="74">instrumentation.ts</text>
+                <rect fill="#f7f7f5" height="16" rx="8" stroke="#b8b8b1" width="98" x="252" y="62"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="74">root file</text>
+                <text class="svg-sub" x="362" y="74">register() runs once per server instance</text>
+                <text class="svg-sub" style="fill:#252525" x="16" y="94">app/</text>
+                <text class="svg-note" x="362" y="94">walked by collectAppFiles, which keeps four kinds of file</text>
+                <text class="svg-sub" style="fill:#252525" x="46" y="114">layout.tsx</text>
+                <rect fill="#f7f7f5" height="16" rx="8" stroke="#b8b8b1" width="98" x="252" y="102"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="114">layout</text>
+                <text class="svg-sub" x="362" y="114">root layout: discovered, but no URL of its own</text>
+                <text class="svg-sub" style="fill:#252525" x="46" y="134">page.tsx</text>
+                <rect fill="#ffffff" height="16" rx="8" stroke="#b8b8b1" width="98" x="252" y="122"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="134">page</text>
+                <text class="svg-sub" style="fill:#252525" x="362" y="134">→ /</text>
+                <text class="svg-sub" style="fill:#252525" x="46" y="154">not-found.tsx</text>
+                <rect fill="#f7f7f5" height="16" rx="8" stroke="#b8b8b1" width="98" x="252" y="142"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="154">root only</text>
+                <text class="svg-sub" x="362" y="154">the build synthesizes a /_not-found entry</text>
+                <text class="svg-sub" style="fill:#252525" x="46" y="174">favicon.ico</text>
+                <rect fill="#dfede5" height="16" rx="8" stroke="#367f59" width="98" x="252" y="162"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="174">metadata</text>
+                <text class="svg-sub" style="fill:#252525" x="362" y="174">→ /favicon.ico (root-only)</text>
+                <text class="svg-sub" style="fill:#252525" x="46" y="194">robots.ts</text>
+                <rect fill="#dfede5" height="16" rx="8" stroke="#367f59" width="98" x="252" y="182"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="194">metadata</text>
+                <text class="svg-sub" style="fill:#252525" x="362" y="194">→ /robots.txt (code becomes a route handler)</text>
+                <text class="svg-sub" style="fill:#252525" x="46" y="214">(marketing)/</text>
+                <rect fill="#ece6f3" height="16" rx="8" stroke="#765b98" width="98" x="252" y="202"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="214">group</text>
+                <text class="svg-sub" x="362" y="214">deleted by normalizeAppPath</text>
+                <text class="svg-sub" style="fill:#252525" x="64" y="234">layout.tsx</text>
+                <rect fill="#f7f7f5" height="16" rx="8" stroke="#b8b8b1" width="98" x="252" y="222"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="234">layout</text>
+                <text class="svg-sub" x="362" y="234">wraps /about only</text>
+                <text class="svg-sub" style="fill:#252525" x="64" y="254">about/page.tsx</text>
+                <rect fill="#ece6f3" height="16" rx="8" stroke="#765b98" width="98" x="252" y="242"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="254">group</text>
+                <text class="svg-sub" style="fill:#252525" x="362" y="254">→ /about</text>
+                <text class="svg-sub" style="fill:#252525" x="64" y="274">opengraph-image.png</text>
+                <rect fill="#dfede5" height="16" rx="8" stroke="#367f59" width="98" x="252" y="262"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="274">meta + hash</text>
+                <text class="svg-sub" style="fill:#252525" x="362" y="274">→ /opengraph-image-&lt;hash&gt;.png (hash ≤ 6 chars)</text>
+                <text class="svg-sub" style="fill:#252525" x="46" y="294">blog/</text>
+                <text class="svg-sub" style="fill:#252525" x="64" y="314">page.tsx</text>
+                <rect fill="#ffffff" height="16" rx="8" stroke="#b8b8b1" width="98" x="252" y="302"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="314">page</text>
+                <text class="svg-sub" style="fill:#252525" x="362" y="314">→ /blog</text>
+                <text class="svg-sub" style="fill:#252525" x="64" y="334">card.tsx</text>
+                <rect fill="#f3dfdc" height="16" rx="8" stroke="#ad4b43" width="98" x="252" y="322"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="334">ignored</text>
+                <text class="svg-sub" style="fill:#ad4b43" x="362" y="334">✗ not a convention stem: never an entry</text>
+                <text class="svg-sub" style="fill:#252525" x="64" y="354">_lib/data.ts</text>
+                <rect fill="#f3dfdc" height="16" rx="8" stroke="#ad4b43" width="98" x="252" y="342"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="354">private</text>
+                <text class="svg-sub" style="fill:#ad4b43" x="362" y="354">✗ folder skipped before readdir in next build</text>
+                <text class="svg-sub" style="fill:#252525" x="64" y="374">[slug]/</text>
+                <rect fill="#e0ebf2" height="16" rx="8" stroke="#3c6f97" width="98" x="252" y="362"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="374">dynamic</text>
+                <text class="svg-sub" x="362" y="374">param slug: string, short code d</text>
+                <text class="svg-sub" style="fill:#252525" x="82" y="394">page.tsx</text>
+                <rect fill="#ffffff" height="16" rx="8" stroke="#b8b8b1" width="98" x="252" y="382"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="394">page</text>
+                <text class="svg-sub" style="fill:#252525" x="362" y="394">→ /blog/:slug</text>
+                <text class="svg-sub" style="fill:#252525" x="82" y="414">loading.tsx</text>
+                <rect fill="#f7f7f5" height="16" rx="8" stroke="#b8b8b1" width="98" x="252" y="402"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="414">per segment</text>
+                <text class="svg-sub" x="362" y="414">no route: looked up when a page's tree is built</text>
+                <text class="svg-sub" style="fill:#252525" x="82" y="434">icon.png</text>
+                <rect fill="#dfede5" height="16" rx="8" stroke="#367f59" width="98" x="252" y="422"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="434">metadata</text>
+                <text class="svg-sub" style="fill:#252525" x="362" y="434">→ prerendered once, as /blog/-/icon.png</text>
+                <text class="svg-sub" style="fill:#252525" x="46" y="454">shop/[...path]/page.tsx</text>
+                <rect fill="#e0ebf2" height="16" rx="8" stroke="#3c6f97" width="98" x="252" y="442"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="454">catch-all</text>
+                <text class="svg-sub" style="fill:#252525" x="362" y="454">→ /shop/a, /shop/a/b, not /shop (code c)</text>
+                <text class="svg-sub" style="fill:#252525" x="46" y="474">docs/[[...path]]/page.tsx</text>
+                <rect fill="#e0ebf2" height="16" rx="8" stroke="#3c6f97" width="98" x="252" y="462"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="474">opt. catch-all</text>
+                <text class="svg-sub" style="fill:#252525" x="362" y="474">→ /docs, /docs/a/b (code oc)</text>
+                <text class="svg-sub" style="fill:#252525" x="46" y="494">%5Fdebug/page.tsx</text>
+                <rect fill="#f7e3c8" height="16" rx="8" stroke="#d98226" width="98" x="252" y="482"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="494">%5F</text>
+                <text class="svg-sub" style="fill:#252525" x="362" y="494">→ /_debug</text>
+                <text class="svg-sub" style="fill:#252525" x="46" y="514">api/health/route.ts</text>
+                <rect fill="#dfede5" height="16" rx="8" stroke="#367f59" width="98" x="252" y="502"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="514">handler</text>
+                <text class="svg-sub" style="fill:#252525" x="362" y="514">→ /api/health (Route Handler: no layouts)</text>
+                <text class="svg-sub" style="fill:#252525" x="46" y="534">dashboard/</text>
+                <text class="svg-sub" style="fill:#252525" x="64" y="554">layout.tsx</text>
+                <rect fill="#f7f7f5" height="16" rx="8" stroke="#b8b8b1" width="98" x="252" y="542"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="554">layout</text>
+                <text class="svg-sub" x="362" y="554">props: children, team, analytics</text>
+                <text class="svg-sub" style="fill:#252525" x="64" y="574">page.tsx</text>
+                <rect fill="#ffffff" height="16" rx="8" stroke="#b8b8b1" width="98" x="252" y="562"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="574">page</text>
+                <text class="svg-sub" style="fill:#252525" x="362" y="574">→ /dashboard</text>
+                <text class="svg-sub" style="fill:#252525" x="64" y="594">default.tsx</text>
+                <rect fill="#f7f7f5" height="16" rx="8" stroke="#b8b8b1" width="98" x="252" y="582"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="594">default</text>
+                <text class="svg-sub" x="362" y="594">children on a hard load of /dashboard/settings; strict needs it</text>
+                <text class="svg-sub" style="fill:#252525" x="64" y="614">@team/page.tsx</text>
+                <rect fill="#ece6f3" height="16" rx="8" stroke="#765b98" width="98" x="252" y="602"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="614">slot</text>
+                <text class="svg-sub" x="362" y="614">team slot at /dashboard</text>
+                <text class="svg-sub" style="fill:#252525" x="64" y="634">@team/settings/page.tsx</text>
+                <rect fill="#ece6f3" height="16" rx="8" stroke="#765b98" width="98" x="252" y="622"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="634">slot</text>
+                <text class="svg-sub" style="fill:#252525" x="362" y="634">→ /dashboard/settings (@team deleted)</text>
+                <text class="svg-sub" style="fill:#252525" x="64" y="654">@analytics/default.tsx</text>
+                <rect fill="#ece6f3" height="16" rx="8" stroke="#765b98" width="98" x="252" y="642"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="654">slot</text>
+                <text class="svg-sub" x="362" y="654">analytics at both URLs; the slot's only file</text>
+                <text class="svg-sub" style="fill:#252525" x="46" y="674">feed/</text>
+                <text class="svg-sub" style="fill:#252525" x="64" y="694">layout.tsx</text>
+                <rect fill="#f7f7f5" height="16" rx="8" stroke="#b8b8b1" width="98" x="252" y="682"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="694">layout</text>
+                <text class="svg-sub" x="362" y="694">renders {children} and {modal}</text>
+                <text class="svg-sub" style="fill:#252525" x="64" y="714">page.tsx</text>
+                <rect fill="#ffffff" height="16" rx="8" stroke="#b8b8b1" width="98" x="252" y="702"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="714">page</text>
+                <text class="svg-sub" style="fill:#252525" x="362" y="714">→ /feed</text>
+                <text class="svg-sub" style="fill:#252525" x="64" y="734">@modal/</text>
+                <rect fill="#ece6f3" height="16" rx="8" stroke="#765b98" width="98" x="252" y="722"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="734">slot</text>
+                <text class="svg-sub" x="362" y="734">prop modal on feed/layout; not in the URL</text>
+                <text class="svg-sub" style="fill:#252525" x="82" y="754">default.tsx</text>
+                <rect fill="#f7f7f5" height="16" rx="8" stroke="#b8b8b1" width="98" x="252" y="742"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="754">default</text>
+                <text class="svg-sub" x="362" y="754">returns null when no modal matches</text>
+                <text class="svg-sub" style="fill:#252525" x="82" y="774">(..)photo/[id]/page.tsx</text>
+                <rect fill="#f7e3c8" height="16" rx="8" stroke="#d98226" width="98" x="252" y="762"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="774">intercept</text>
+                <text class="svg-sub" x="362" y="774">serves /photo/:id when next-url is /feed or below</text>
+                <text class="svg-sub" style="fill:#252525" x="46" y="794">photo/[id]/page.tsx</text>
+                <rect fill="#e0ebf2" height="16" rx="8" stroke="#3c6f97" width="98" x="252" y="782"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="794">dynamic</text>
+                <text class="svg-sub" style="fill:#252525" x="362" y="794">→ /photo/:id, the canonical page</text>
+                <text class="svg-sub" style="fill:#252525" x="46" y="814">sec0/a/[id]/page.tsx</text>
+                <rect fill="#e0ebf2" height="16" rx="8" stroke="#3c6f97" width="98" x="252" y="802"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="301" y="814">dynamic</text>
+                <text class="svg-sub" style="fill:#252525" x="362" y="814">→ /sec0/a/1 … /sec0/a/5 (this post's route)</text>
+                <rect fill="#f7f7f5" height="226" rx="8" stroke="#b8b8b1" width="296" x="812" y="40"></rect>
+                <text class="svg-lane" x="826" y="62">INSET · THE SAME IDEA IN PAGES/</text>
+                <text class="svg-sub" style="fill:#252525" x="826" y="90">pages/</text>
+                <text class="svg-sub" style="fill:#252525" x="846" y="110">index.tsx</text>
+                <path d="M831 106 L840 106" fill="none" stroke="#b8b8b1"></path>
+                <text class="svg-sub" x="962" y="110">→ /</text>
+                <text class="svg-sub" style="fill:#252525" x="846" y="130">blog/[slug].tsx</text>
+                <path d="M831 126 L840 126" fill="none" stroke="#b8b8b1"></path>
+                <text class="svg-sub" x="962" y="130">→ /blog/:slug</text>
+                <text class="svg-sub" style="fill:#252525" x="846" y="150">blog/card.tsx</text>
+                <path d="M831 146 L840 146" fill="none" stroke="#b8b8b1"></path>
+                <text class="svg-sub" style="fill:#252525;font-weight:700" x="962" y="150">→ /blog/card</text>
+                <text class="svg-sub" style="fill:#252525" x="846" y="170">_lib/data.ts</text>
+                <path d="M831 166 L840 166" fill="none" stroke="#b8b8b1"></path>
+                <text class="svg-sub" style="fill:#252525;font-weight:700" x="962" y="170">→ /_lib/data</text>
+                <text class="svg-sub" style="fill:#252525" x="846" y="190">api/health.ts</text>
+                <path d="M831 186 L840 186" fill="none" stroke="#b8b8b1"></path>
+                <text class="svg-sub" x="962" y="190">→ /api/health</text>
+                <text class="svg-sub" style="fill:#252525" x="846" y="210">_app.tsx</text>
+                <path d="M831 206 L840 206" fill="none" stroke="#b8b8b1"></path>
+                <text class="svg-sub" x="962" y="210">reserved name</text>
+                <path d="M831 92 L831 206" fill="none" stroke="#b8b8b1"></path>
+                <text class="svg-note" x="826" y="226">collectPagesFiles has no ignorePartFilter:</text>
+                <text class="svg-note" x="826" y="241">every page-extension file is a route candidate.</text>
+                <text class="svg-note" x="826" y="256">Docs' fix: pageExtensions ['page.tsx', …]</text>
+                <text class="svg-lane" x="812" y="290">COLOUR = WHAT THE RULE DOES</text>
+                <rect fill="#ece6f3" height="14" rx="7" stroke="#765b98" width="26" x="812" y="304"></rect>
+                <text class="svg-sub" x="848" y="315">group, slot: deleted from the URL</text>
+                <rect fill="#e0ebf2" height="14" rx="7" stroke="#3c6f97" width="26" x="812" y="324"></rect>
+                <text class="svg-sub" x="848" y="335">dynamic, catch-all, optional: a param</text>
+                <rect fill="#f7e3c8" height="14" rx="7" stroke="#d98226" width="26" x="812" y="344"></rect>
+                <text class="svg-sub" x="848" y="355">interception, %5F: rewritten or decoded</text>
+                <rect fill="#dfede5" height="14" rx="7" stroke="#367f59" width="26" x="812" y="364"></rect>
+                <text class="svg-sub" x="848" y="375">metadata, route handler: non-page route</text>
+                <rect fill="#f3dfdc" height="14" rx="7" stroke="#ad4b43" width="26" x="812" y="384"></rect>
+                <text class="svg-sub" x="848" y="395">private, non-convention: never an entry</text>
+                <rect fill="#f7f7f5" height="14" rx="7" stroke="#b8b8b1" width="26" x="812" y="404"></rect>
+                <text class="svg-sub" x="848" y="415">convention file with no URL of its own</text>
+                <rect fill="#ffffff" height="14" rx="7" stroke="#b8b8b1" width="26" x="812" y="424"></rect>
+                <text class="svg-sub" x="848" y="435">page: the leaf that makes a URL</text>
+                <rect fill="#ffffff" height="180" rx="8" stroke="#ad4b43" width="296" x="812" y="596"></rect>
+                <text class="svg-lane" x="826" y="618">STRICT MATCHING (16.4) ON THIS TREE</text>
+                <text class="svg-sub" x="826" y="640">As drawn, every URL has a complete tree.</text>
+                <text class="svg-sub" x="826" y="660">Delete dashboard/default.tsx:</text>
+                <text class="svg-sub" style="fill:#ad4b43;font-weight:600" x="838" y="678">IncompatibleParallelRouteSlotsError</text>
+                <text class="svg-sub" style="fill:#ad4b43;font-weight:600" x="838" y="696">+ UnmatchedAppPagesError</text>
+                <text class="svg-sub" x="826" y="718">Delete photo/[id]/page.tsx:</text>
+                <text class="svg-sub" style="fill:#ad4b43;font-weight:600" x="838" y="736">MissingCanonicalInterceptionRoutesError</text>
+                <text class="svg-sub" x="826" y="758">Opt-out: deprecated.looseRouteMatching</text>
+                <text class="svg-note" x="16" y="842">Rows ending in / are folders; guide lines show nesting. A folder name is a URL segment unless its pill says otherwise.</text>
+              </svg>

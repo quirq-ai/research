@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 350" role="img" aria-label="Four stacked lanes. Lane one, author time: the editor refuses to save, showing a field error. Lane two, build or publish time: CI fails the publish and names the block. Lane three, request time: the server drops the bad block and logs it, rendering the rest of the page. Lane four, render time: an error boundary around the single block shows a placeholder while siblings render normally. An arrow on the right shows blast radius growing from one field to one block to one page."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }</style><rect x="0.0" y="0.0" width="1120.0" height="350.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="val-arr" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#ad4b43"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="24" y="34">WHEN</text>
+                <text class="svg-lane" x="250" y="34">WHAT IT CATCHES</text>
+                <text class="svg-lane" x="640" y="34">WHAT IT IS ALLOWED TO DO</text>
+                <text class="svg-lane" x="960" y="34">BLAST RADIUS</text>
+
+                <rect fill="#dfede5" height="62" rx="8" stroke="#367f59" stroke-width="1.8" width="220" x="20" y="50"></rect>
+                <text class="svg-step" x="36" y="76">01 · Author time</text>
+                <text class="svg-sub" x="36" y="98">in the editor, on keystroke</text>
+                <text class="svg-sub" x="250" y="78">Missing headline, bad URL,</text>
+                <text class="svg-sub" x="250" y="98">block in a slot that forbids it</text>
+                <text class="svg-sub" x="640" y="78">Refuse to save. Point at the field.</text>
+                <text class="svg-sub" x="640" y="98">Nothing reaches the store.</text>
+                <rect fill="#dfede5" height="38" rx="6" stroke="#367f59" stroke-width="1.6" width="60" x="952" y="62"></rect>
+                <text class="svg-sub" x="964" y="86">field</text>
+
+                <rect fill="#e0ebf2" height="62" rx="8" stroke="#3c6f97" stroke-width="1.8" width="220" x="20" y="126"></rect>
+                <text class="svg-step" x="36" y="152">02 · Publish time</text>
+                <text class="svg-sub" x="36" y="174">CI, or the publish webhook</text>
+                <text class="svg-sub" x="250" y="154">Unknown tag, removed block,</text>
+                <text class="svg-sub" x="250" y="174">un-migrated v1 props</text>
+                <text class="svg-sub" x="640" y="154">Fail the publish, name the block id.</text>
+                <text class="svg-sub" x="640" y="174">Run migrations and re-check.</text>
+                <rect fill="#e0ebf2" height="38" rx="6" stroke="#3c6f97" stroke-width="1.6" width="60" x="952" y="138"></rect>
+                <text class="svg-sub" x="964" y="162">doc</text>
+
+                <rect fill="#ece6f3" height="62" rx="8" stroke="#765b98" stroke-width="1.8" width="220" x="20" y="202"></rect>
+                <text class="svg-step" x="36" y="228">03 · Request time</text>
+                <text class="svg-sub" x="36" y="250">server, before the walk</text>
+                <text class="svg-sub" x="250" y="230">Anything the store contains</text>
+                <text class="svg-sub" x="250" y="250">that the code no longer knows</text>
+                <text class="svg-sub" x="640" y="230">Drop the block, log with tag + id,</text>
+                <text class="svg-sub" x="640" y="250">render the rest. Never 500.</text>
+                <rect fill="#ece6f3" height="38" rx="6" stroke="#765b98" stroke-width="1.6" width="60" x="952" y="214"></rect>
+                <text class="svg-sub" x="964" y="238">block</text>
+
+                <rect fill="#f3dfdc" height="62" rx="8" stroke="#ad4b43" stroke-width="1.8" width="220" x="20" y="278"></rect>
+                <text class="svg-step" x="36" y="304">04 · Render time</text>
+                <text class="svg-sub" x="36" y="326">error boundary per block</text>
+                <text class="svg-sub" x="250" y="306">Throws inside a component</text>
+                <text class="svg-sub" x="250" y="326">that validation cannot predict</text>
+                <text class="svg-sub" x="640" y="306">Swap one block for a placeholder.</text>
+                <text class="svg-sub" x="640" y="326">Siblings keep rendering.</text>
+                <rect fill="#f3dfdc" height="38" rx="6" stroke="#ad4b43" stroke-width="1.6" width="60" x="952" y="290"></rect>
+                <text class="svg-sub" x="964" y="314">block</text>
+
+                <line marker-end="url(#val-arr)" stroke="#ad4b43" stroke-width="1.6" x1="1060" x2="1060" y1="60" y2="330"></line>
+                <text class="svg-sub" x="1074" y="200">cost</text>
+              </svg>

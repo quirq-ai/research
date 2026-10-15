@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 670" role="img" aria-label="Three bands. Top, the route cache key: pathname /sec0/a/2, search, and nextUrl /sec0/a/1; when the response lands, nextUrl is re-keyed to Fallback unless the response varied on Next-Url, in which case the referrer stays in the key. Middle, four segment-cache vary paths, each a request key, then a search slot for pages only, then path params nearest first: row 1, /sec0/a/$d$id/__PAGE__ with search Fallback and id 2, a concrete page entry; row 2, /sec0/a/$d$id with no search slot and id re-keyed from 2 to Fallback because the segment reported reading no params; row 3, the route-group key /!KG1hcmtldGluZyk/about/__PAGE__ with no params; row 4, the App Shell path with search and id both Fallback. Bottom, the render tree before and after the soft navigation /sec0/a/1 to /sec0/a/2: the root layout, sec0 and a CacheNodes are reused and greyed, while [id] and __PAGE__ are new nodes; with every segment cached, no request is sent."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="670.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-segment-cache-keys-arr-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="fig-segment-cache-keys-arr-purple" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                  <marker id="fig-segment-cache-keys-arr-line" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#b8b8b1"></path></marker>
+                </defs>
+
+                
+                <text class="svg-lane" x="10" y="20">ROUTE CACHE · WHICH SEGMENTS EXIST AT A URL</text>
+
+                <rect fill="#e0ebf2" height="48" rx="6" stroke="#3c6f97" stroke-width="1.5" width="200" x="10" y="38"></rect>
+                <text class="svg-step" text-anchor="middle" x="110" y="58">pathname</text>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="110" y="75">/sec0/a/2</text>
+                <line marker-end="url(#fig-segment-cache-keys-arr-line)" stroke="#b8b8b1" stroke-width="1.2" x1="210" x2="236" y1="62" y2="62"></line>
+
+                <rect fill="#f7f7f5" height="48" rx="6" stroke="#b8b8b1" width="160" x="240" y="38"></rect>
+                <text class="svg-step" text-anchor="middle" x="320" y="58">search</text>
+                <text class="svg-sub" text-anchor="middle" x="320" y="75">"" (none)</text>
+                <line marker-end="url(#fig-segment-cache-keys-arr-line)" stroke="#b8b8b1" stroke-width="1.2" x1="400" x2="426" y1="62" y2="62"></line>
+
+                <rect fill="#f7f7f5" height="48" rx="6" stroke="#b8b8b1" width="200" x="430" y="38"></rect>
+                <text class="svg-step" text-anchor="middle" x="530" y="58">nextUrl, as requested</text>
+                <text class="svg-sub" text-anchor="middle" x="530" y="75">/sec0/a/1 (referrer)</text>
+
+                <path d="M630 62 C660 62 668 50 696 50" fill="none" marker-end="url(#fig-segment-cache-keys-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+                <path d="M630 62 C660 62 668 104 696 104" fill="none" marker-end="url(#fig-segment-cache-keys-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+
+                <rect fill="#f7e3c8" height="40" rx="6" stroke="#d98226" stroke-width="1.5" width="240" x="700" y="30"></rect>
+                <text class="svg-step" text-anchor="middle" x="820" y="47">nextUrl = Fallback</text>
+                <text class="svg-sub" text-anchor="middle" x="820" y="62">Vary lacks Next-Url: one entry</text>
+
+                <rect fill="#ffffff" height="40" rx="6" stroke="#b8b8b1" width="240" x="700" y="84"></rect>
+                <text class="svg-step" text-anchor="middle" x="820" y="101">nextUrl kept</text>
+                <text class="svg-sub" text-anchor="middle" x="820" y="116">Vary includes next-url</text>
+
+                <text class="svg-note" x="958" y="48">Re-keyed when the</text>
+                <text class="svg-note" x="958" y="62">response lands.</text>
+                <text class="svg-note" x="958" y="86">The hash is never</text>
+                <text class="svg-note" x="958" y="101">part of the key.</text>
+
+                <line stroke="#deded9" x1="10" x2="1110" y1="140" y2="140"></line>
+
+                
+                <text class="svg-lane" x="10" y="162">SEGMENT CACHE · ONE VARY PATH PER ENTRY, IN ONE TRIE</text>
+                <text class="svg-sub" x="30" y="184">request key: position, names, types</text>
+                <text class="svg-sub" x="430" y="184">search: pages only</text>
+                <text class="svg-sub" x="600" y="184">path params, nearest first</text>
+                <text class="svg-sub" x="820" y="184">what the entry serves</text>
+
+                
+                <text class="svg-num" x="12" y="214">1</text>
+                <rect fill="#e0ebf2" height="32" rx="5" stroke="#3c6f97" stroke-width="1.5" width="370" x="30" y="194"></rect>
+                <text class="svg-sub" style="fill:#252525" x="42" y="214">/sec0/a/$d$id/__PAGE__</text>
+                <line marker-end="url(#fig-segment-cache-keys-arr-line)" stroke="#b8b8b1" stroke-width="1.2" x1="400" x2="426" y1="210" y2="210"></line>
+                <rect fill="#f7e3c8" height="32" rx="5" stroke="#d98226" width="140" x="430" y="194"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="500" y="214">Fallback</text>
+                <line marker-end="url(#fig-segment-cache-keys-arr-line)" stroke="#b8b8b1" stroke-width="1.2" x1="570" x2="596" y1="210" y2="210"></line>
+                <rect fill="#ffffff" height="32" rx="5" stroke="#b8b8b1" width="200" x="600" y="194"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="700" y="214">id = 2</text>
+                <text class="svg-sub" x="820" y="207">page of /sec0/a/2, any query;</text>
+                <text class="svg-sub" x="820" y="221">no params report: id stays concrete</text>
+
+                
+                <text class="svg-num" x="12" y="262">2</text>
+                <rect fill="#e0ebf2" height="32" rx="5" stroke="#3c6f97" stroke-width="1.5" width="370" x="30" y="242"></rect>
+                <text class="svg-sub" style="fill:#252525" x="42" y="262">/sec0/a/$d$id</text>
+                <rect fill="#ffffff" height="32" rx="5" stroke="#b8b8b1" stroke-dasharray="3 3" width="140" x="430" y="242"></rect>
+                <text class="svg-sub" text-anchor="middle" x="500" y="262">no slot</text>
+                <line marker-end="url(#fig-segment-cache-keys-arr-line)" stroke="#b8b8b1" stroke-width="1.2" x1="400" x2="426" y1="258" y2="258"></line>
+                <line marker-end="url(#fig-segment-cache-keys-arr-line)" stroke="#b8b8b1" stroke-width="1.2" x1="570" x2="596" y1="258" y2="258"></line>
+                <rect fill="#ffffff" height="32" rx="5" stroke="#b8b8b1" width="72" x="600" y="242"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="636" y="262">id = 2</text>
+                <path d="M672 258 L702 258" fill="none" marker-end="url(#fig-segment-cache-keys-arr-purple)" stroke="#765b98" stroke-dasharray="4 3" stroke-width="1.5"></path>
+                <rect fill="#f7e3c8" height="32" rx="5" stroke="#d98226" width="94" x="706" y="242"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="753" y="262">Fallback</text>
+                <text class="svg-sub" x="820" y="255">[id] reported reading no params:</text>
+                <text class="svg-sub" x="820" y="269">one entry for every id</text>
+
+                
+                <text class="svg-num" x="12" y="310">3</text>
+                <rect fill="#e0ebf2" height="32" rx="5" stroke="#3c6f97" stroke-width="1.5" width="370" x="30" y="290"></rect>
+                <text class="svg-sub" style="fill:#252525" x="42" y="310">/!KG1hcmtldGluZyk/about/__PAGE__</text>
+                <line marker-end="url(#fig-segment-cache-keys-arr-line)" stroke="#b8b8b1" stroke-width="1.2" x1="400" x2="426" y1="306" y2="306"></line>
+                <rect fill="#f7e3c8" height="32" rx="5" stroke="#d98226" width="140" x="430" y="290"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="500" y="310">Fallback</text>
+                <line marker-end="url(#fig-segment-cache-keys-arr-line)" stroke="#b8b8b1" stroke-width="1.2" x1="570" x2="596" y1="306" y2="306"></line>
+                <rect fill="#ffffff" height="32" rx="5" stroke="#deded9" stroke-dasharray="3 3" width="200" x="600" y="290"></rect>
+                <text class="svg-sub" text-anchor="middle" x="700" y="310">no params</text>
+                <text class="svg-sub" x="820" y="303">(marketing) as ! + base64url;</text>
+                <text class="svg-sub" x="820" y="317">a group name is structure</text>
+
+                
+                <text class="svg-num" x="12" y="358">4</text>
+                <rect fill="#e0ebf2" height="32" rx="5" stroke="#3c6f97" stroke-width="1.5" width="370" x="30" y="338"></rect>
+                <text class="svg-sub" style="fill:#252525" x="42" y="358">/sec0/a/$d$id/__PAGE__</text>
+                <line marker-end="url(#fig-segment-cache-keys-arr-line)" stroke="#b8b8b1" stroke-width="1.2" x1="400" x2="426" y1="354" y2="354"></line>
+                <rect fill="#f7e3c8" height="32" rx="5" stroke="#d98226" width="140" x="430" y="338"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="500" y="358">Fallback</text>
+                <line marker-end="url(#fig-segment-cache-keys-arr-line)" stroke="#b8b8b1" stroke-width="1.2" x1="570" x2="596" y1="354" y2="354"></line>
+                <rect fill="#f7e3c8" height="32" rx="5" stroke="#d98226" width="200" x="600" y="338"></rect>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="700" y="358">id = Fallback</text>
+                <text class="svg-sub" x="820" y="351">App Shell: every non-root param</text>
+                <text class="svg-sub" x="820" y="365">and search set to Fallback (§09)</text>
+
+                <text class="svg-note" x="10" y="396">A lookup tries the exact key at each element, then Fallback (cache-map.ts:4-66). Unread params become Fallback only with experimental.varyParams on,</text>
+                <text class="svg-note" x="10" y="412">a params report present, and a payload that is not a Full prefetch (cache.ts:3476-3573). A layout's vary path has no search slot, so ?q= never splits it.</text>
+
+                <line stroke="#deded9" x1="10" x2="1110" y1="428" y2="428"></line>
+
+                
+                <text class="svg-lane" x="10" y="450">RENDER TREE · /sec0/a/1 → /sec0/a/2 AFTER A PREFETCH</text>
+
+                <text class="svg-sub" x="14" y="489">before</text>
+                <rect fill="#ffffff" height="44" rx="6" stroke="#b8b8b1" width="170" x="120" y="464"></rect>
+                <text class="svg-step" text-anchor="middle" x="205" y="482">root layout</text>
+                <text class="svg-sub" text-anchor="middle" x="205" y="498">segment ""</text>
+                <rect fill="#ffffff" height="44" rx="6" stroke="#b8b8b1" width="170" x="312" y="464"></rect>
+                <text class="svg-step" text-anchor="middle" x="397" y="482">sec0</text>
+                <text class="svg-sub" text-anchor="middle" x="397" y="498">section layout</text>
+                <rect fill="#ffffff" height="44" rx="6" stroke="#b8b8b1" width="170" x="504" y="464"></rect>
+                <text class="svg-step" text-anchor="middle" x="589" y="482">a</text>
+                <text class="svg-sub" text-anchor="middle" x="589" y="498">no param</text>
+                <rect fill="#ffffff" height="44" rx="6" stroke="#b8b8b1" width="170" x="696" y="464"></rect>
+                <text class="svg-step" text-anchor="middle" x="781" y="482">[id]</text>
+                <text class="svg-sub" text-anchor="middle" x="781" y="498">$d$id · id = 1</text>
+                <rect fill="#ffffff" height="44" rx="6" stroke="#b8b8b1" width="170" x="888" y="464"></rect>
+                <text class="svg-step" text-anchor="middle" x="973" y="482">__PAGE__</text>
+                <text class="svg-sub" text-anchor="middle" x="973" y="498">id = 1</text>
+
+                <line stroke="#b8b8b1" x1="290" x2="312" y1="486" y2="486"></line>
+                <line stroke="#b8b8b1" x1="482" x2="504" y1="486" y2="486"></line>
+                <line stroke="#b8b8b1" x1="674" x2="696" y1="486" y2="486"></line>
+                <line stroke="#b8b8b1" x1="866" x2="888" y1="486" y2="486"></line>
+
+                <line marker-end="url(#fig-segment-cache-keys-arr-ink)" stroke="#252525" stroke-width="2.5" x1="70" x2="70" y1="512" y2="550"></line>
+                <text class="svg-sub" x="14" y="534">push</text>
+
+                <line marker-end="url(#fig-segment-cache-keys-arr-line)" stroke="#b8b8b1" stroke-width="1.2" x1="205" x2="205" y1="508" y2="550"></line>
+                <line marker-end="url(#fig-segment-cache-keys-arr-line)" stroke="#b8b8b1" stroke-width="1.2" x1="397" x2="397" y1="508" y2="550"></line>
+                <line marker-end="url(#fig-segment-cache-keys-arr-line)" stroke="#b8b8b1" stroke-width="1.2" x1="589" x2="589" y1="508" y2="550"></line>
+                <text class="svg-sub" x="211" y="534">data kept</text>
+                <text class="svg-sub" x="403" y="534">data kept</text>
+                <text class="svg-sub" x="595" y="534">data kept</text>
+                <text class="svg-sub" text-anchor="middle" x="781" y="534">param changed</text>
+                <text class="svg-sub" text-anchor="middle" x="973" y="534">param changed</text>
+
+                <text class="svg-sub" x="14" y="579">after</text>
+                <rect fill="#f7f7f5" height="44" rx="6" stroke="#b8b8b1" width="170" x="120" y="554"></rect>
+                <text class="svg-step" text-anchor="middle" x="205" y="572">root layout</text>
+                <text class="svg-sub" text-anchor="middle" x="205" y="588">reused CacheNode</text>
+                <rect fill="#f7f7f5" height="44" rx="6" stroke="#b8b8b1" width="170" x="312" y="554"></rect>
+                <text class="svg-step" text-anchor="middle" x="397" y="572">sec0</text>
+                <text class="svg-sub" text-anchor="middle" x="397" y="588">reused CacheNode</text>
+                <rect fill="#f7f7f5" height="44" rx="6" stroke="#b8b8b1" width="170" x="504" y="554"></rect>
+                <text class="svg-step" text-anchor="middle" x="589" y="572">a</text>
+                <text class="svg-sub" text-anchor="middle" x="589" y="588">reused CacheNode</text>
+                <rect fill="#dfede5" height="44" rx="6" stroke="#367f59" stroke-width="1.5" width="170" x="696" y="554"></rect>
+                <text class="svg-step" text-anchor="middle" x="781" y="572">[id]</text>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="781" y="588">new · id = 2</text>
+                <rect fill="#dfede5" height="44" rx="6" stroke="#367f59" stroke-width="1.5" width="170" x="888" y="554"></rect>
+                <text class="svg-step" text-anchor="middle" x="973" y="572">__PAGE__</text>
+                <text class="svg-sub" style="fill:#252525" text-anchor="middle" x="973" y="588">new · from row 1</text>
+
+                <line stroke="#b8b8b1" x1="290" x2="312" y1="576" y2="576"></line>
+                <line stroke="#b8b8b1" x1="482" x2="504" y1="576" y2="576"></line>
+                <line stroke="#b8b8b1" x1="674" x2="696" y1="576" y2="576"></line>
+                <line stroke="#b8b8b1" x1="866" x2="888" y1="576" y2="576"></line>
+
+                <text class="svg-note" x="10" y="624">Grey: CacheNode data reused, RenderTree wrapper rebuilt (render-tree.ts:513-522). Green: new CacheNode; a changed path param remounts its subtree (§06).</text>
+                <text class="svg-note" x="10" y="640">Every segment cached, so the dynamic request tree is null and nothing is sent (render-tree.ts:1349-1360). Measured: 0 requests, 50 ms wall.</text>
+                <text class="svg-note" x="10" y="660">Blue box: structural key · orange: Fallback wildcard · dashed purple: re-keyed on arrival · thick black: the navigation.</text>
+              </svg>
