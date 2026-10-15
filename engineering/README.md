@@ -51,6 +51,19 @@ Each finding is suraj's, from his writings at `a5a356d`.
 - **For a system that loads and stores JSON all day, suraj's default, which he marks as his judgement, is PostgreSQL 18 with `jsonb` when there is a server or SQLite in WAL mode when there is one node and one process tree, with real columns for anything filtered, joined or constrained and `jsonb` for the long tail.** Source: [Where the JSON Lives](output/report/2026-10-15-where-the-json-lives.md#the-answer-up-front), §01. Verified: 2026-10-15.
 - **Measured on one machine, the fsync sets the cost of a durable JSON write: rewriting a 2,879-byte document as a whole file cost 1,464.5 µs, 84% of it the fsync, and 100 SQLite inserts sharing one commit cost 8.4 µs each, 49 times cheaper per row than committing each one.** Source: [Where the JSON Lives](output/report/2026-10-15-where-the-json-lives.md#08-five-ways-to-keep-a-document-current-measured), §08. Verified: 2026-10-15.
 
+### Compression
+
+Each finding is suraj's, from his writings at `a5a356d`.
+
+- **Compression keeps all the information and spends fewer bits on it, while compaction keeps only the present state a reader can still observe and, as a rule, cannot be undone \[reconstruction\].** Source: [What Compression Keeps](output/report/2026-10-15-what-compression-keeps.md#01-fewer-bits-or-fewer-things), §01. Verified: 2026-10-15.
+- **On one generated 200,000-record update log, compacting before zstd 19 left 86,914 bytes, 31.99 times smaller than zstd 19 alone, but only compression kept the history \[measured here\].** Source: [What Compression Keeps](output/report/2026-10-15-what-compression-keeps.md#one-log-three-treatments), §01. Verified: 2026-10-15.
+- **An agent's context compaction is the one compaction without an invariant or a distortion metric, so keep the transcript beside the summary, record each boundary with its token counts and log each summary \[reconstruction\].** Source: [What Compression Keeps](output/report/2026-10-15-what-compression-keeps.md#the-one-compaction-without-an-invariant), §11. Verified: 2026-10-15.
+- **On held-out synthetic agent messages, gzip -6 made 1,216 of the 1,409 under 200 bytes bigger, and a 110 KiB trained dictionary took zstd 3's per-message ratio from 1.98× to 3.21× \[measured here\].** Source: [What Each File Wants](output/report/2026-10-15-what-each-file-wants.md#04-small-messages-and-dictionaries), §04. Verified: 2026-10-15.
+- **Block size sets a log's ratio more than the codec does: zstd 3 gives 2.08× in 1 KiB blocks of a real 6 MB JSONL audit log and 8.68× in 1 MiB blocks \[measured here\].** Source: [What Each File Wants](output/report/2026-10-15-what-each-file-wants.md#block-size-before-codec), §07. Verified: 2026-10-15.
+- **For tabular data, encoding beats compression: Parquet with dictionary encoding and zstd 3 came out 35.2% smaller than gzipped CSV on one million synthetic rows \[measured here\].** Source: [What Each File Wants](output/report/2026-10-15-what-each-file-wants.md#08-tables-let-the-format-do-the-work), §08. Verified: 2026-10-15.
+- **Wrapping already-compressed files in four general-purpose codecs saved at most 4.66% on any media file, while re-doing the inner coding saved up to 41% \[measured here\].** Source: [What Each File Wants](output/report/2026-10-15-what-each-file-wants.md#12-already-compressed-leave-it), §12. Verified: 2026-10-15.
+- **xo-space's project backup sorts its paths "for reproducible-ish tars", but its gzip header carries the time of each run, so the bytes change with it; the post gives a fix that sets `mtime=0` \[from the tree\] \[reconstruction\].** Source: [What Each File Wants](output/report/2026-10-15-what-each-file-wants.md#one-fix-in-the-xo-tree), §06. Verified: 2026-10-15.
+
 <!--
 Add one bullet per verified finding:
 - **Finding in one sentence.** Source: [title](link). Verified: YYYY-MM-DD.
@@ -80,3 +93,6 @@ _None recorded yet._
 | report | [What the Parser Hears](output/report/2026-10-15-what-the-parser-hears.md) | 2026-10-15 | suraj's field guide to JSON, YAML and TOML as configuration, as of October 2026: 71 cases through 34 parser configurations, with its 21 figures |
 | report | [What is a TOML file?](output/report/2026-10-15-toml-files.md) | 2026-10-15 | suraj's guide from a `.toml` file to program behaviour, TOML 1.0 and 1.1; examples checked with CPython 3.13.0, with its 14 figures |
 | report | [Where the JSON Lives](output/report/2026-10-15-where-the-json-lives.md) | 2026-10-15 | suraj's guide to storing JSON written all day, as of 1 October 2026: writes measured on SQLite 3.46.1, PostgreSQL 18 cited from its docs, with its 17 figures |
+| onepager | [Compression at a glance](output/onepager/2026-10-15-compression-at-a-glance.md) | 2026-10-15 | Key numbers from both compression posts, how they connect to the XO trees, and where to read each part |
+| report | [What Compression Keeps](output/report/2026-10-15-what-compression-keeps.md) | 2026-10-15 | suraj's explainer of compression and compaction, sources as of 9 October 2026, with its 22 figures |
+| report | [What Each File Wants](output/report/2026-10-15-what-each-file-wants.md) | 2026-10-15 | suraj's measured guide to the codec, level or format each kind of file wants, October 2026, with its 21 figures |

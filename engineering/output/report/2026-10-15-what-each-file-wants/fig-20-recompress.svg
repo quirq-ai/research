@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 704 626" role="img" aria-label="Two panels. Panel A, eleven files and a tar of five media files compressed whole with gzip -9, zstd 19, xz -9 and brotli 11, saving as a percentage of the file, negative when it grew: JPEG, Pillow q90, 159,419 bytes: gzip -9 minus 0.017%, zstd 19 minus 0.009%, xz -9 minus 0.043%, brotli 11 minus 0.003%; PNG, Kodak kodim05, 785,610 bytes: gzip -9 minus 0.033%, zstd 19 minus 0.003%, xz -9 minus 0.012%, brotli 11 grew by 5 bytes; Opus, 96 kb/s, 636,816 bytes: gzip -9 minus 0.023%, zstd 19 minus 0.004%, xz -9 minus 0.014%, brotli 11 grew by 5 bytes; .zip, DEFLATE 6, 1,127,914 bytes: gzip -9 minus 0.021%, zstd 19 minus 0.003%, xz -9 minus 0.010%, brotli 11 grew by 5 bytes; .tar.gz, gzip -6, 1,127,742 bytes: gzip -9 minus 0.019%, zstd 19 minus 0.003%, xz -9 minus 0.010%, brotli 11 grew by 5 bytes; MP4, SVT-AV1 CRF 35, 2,106,647 bytes: gzip -9 0.026%, zstd 19 0.057%, xz -9 0.029%, brotli 11 grew by 8 bytes; MP4, x264 CRF 23, 3,761,614 bytes: gzip -9 0.048%, zstd 19 0.069%, xz -9 0.036%, brotli 11 grew by 13 bytes; tar of five media files, 10,014,720 bytes: zstd 19 0.441%, xz -9 0.407%; FLAC, level 8, 4,663,924 bytes: gzip -9 0.750%, zstd 19 0.761%, xz -9 0.728%, brotli 11 0.391%; PNG, xo-space screenshot, 390,623 bytes: gzip -9 0.837%, zstd 19 1.168%, xz -9 0.901%, brotli 11 1.117%; AAC 128 kb/s, .m4a, 849,338 bytes: gzip -9 1.467%, zstd 19 1.779%, xz -9 1.183%, brotli 11 1.988%; JPEG, og.jpg, 66,400 bytes: gzip -9 3.399%, zstd 19 4.182%, xz -9 3.904%, brotli 11 4.658%. Panel B, the inner coding re-done losslessly, saving on a scale from 0 to 45 percent: .zip to tar, xz -9 41.144% (best wrapped grew by 5 bytes); .tar.gz to tar, xz -9 41.135% (best wrapped grew by 5 bytes); screenshot, oxipng -o 4 40.111% (best wrapped 1.168%); Kodak PNG to JPEG XL 38.257% (best wrapped grew by 5 bytes); screenshot to JPEG XL 37.759% (best wrapped 1.168%); og.jpg to JPEG XL 32.756% (best wrapped 4.658%); Pillow JPEG to JPEG XL 13.209% (best wrapped minus 0.003%); Kodak PNG, oxipng -o 4 3.915% (best wrapped grew by 5 bytes). Wrapping never saved more than 4.658 percent; re-coding saved up to 41.144 percent."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="704.0" height="626.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="16">A · WRAPPED WHOLE · SAVING, %</text>
+                <rect fill="#f3dfdc" height="12" rx="3" stroke="#ad4b43" width="12" x="0" y="30"></rect>
+                <text class="svg-sub" x="18" y="40">grew</text>
+                <rect fill="#e0ebf2" height="12" rx="3" stroke="#3c6f97" width="12" x="64" y="30"></rect>
+                <text class="svg-sub" x="82" y="40">saved under 0.1%</text>
+                <rect fill="#f7e3c8" height="12" rx="3" stroke="#d98226" width="12" x="218" y="30"></rect>
+                <text class="svg-sub" x="236" y="40">saved 0.1% or more</text>
+                <rect fill="#dfede5" height="12" rx="3" stroke="#367f59" width="12" x="387" y="30"></rect>
+                <text class="svg-sub" x="405" y="40">re-coded, lossless</text>
+                <rect fill="#f7f7f5" height="12" rx="3" stroke="#b8b8b1" width="12" x="556" y="30"></rect>
+                <text class="svg-sub" x="574" y="40">not run</text>
+                <text class="svg-lane" text-anchor="end" x="184" y="68">FILE</text>
+                <text class="svg-lane" text-anchor="end" x="270" y="68">BYTES</text>
+                <text class="svg-lane" text-anchor="middle" x="334" y="68">GZIP -9</text>
+                <text class="svg-lane" text-anchor="middle" x="432" y="68">ZSTD 19</text>
+                <text class="svg-lane" text-anchor="middle" x="530" y="68">XZ -9</text>
+                <text class="svg-lane" text-anchor="middle" x="628" y="68">BROTLI 11</text>
+                <text class="svg-sub" text-anchor="end" x="184" y="91">JPEG, Pillow q90</text>
+                <text class="svg-sub" text-anchor="end" x="270" y="91">159,419</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="288" y="78"></rect>
+                <text class="svg-sub" text-anchor="middle" x="334" y="91">−0.017%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="386" y="78"></rect>
+                <text class="svg-sub" text-anchor="middle" x="432" y="91">−0.009%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="484" y="78"></rect>
+                <text class="svg-sub" text-anchor="middle" x="530" y="91">−0.043%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="582" y="78"></rect>
+                <text class="svg-sub" text-anchor="middle" x="628" y="91">−0.003%</text>
+                <text class="svg-sub" text-anchor="end" x="184" y="113">PNG, Kodak kodim05</text>
+                <text class="svg-sub" text-anchor="end" x="270" y="113">785,610</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="288" y="100"></rect>
+                <text class="svg-sub" text-anchor="middle" x="334" y="113">−0.033%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="386" y="100"></rect>
+                <text class="svg-sub" text-anchor="middle" x="432" y="113">−0.003%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="484" y="100"></rect>
+                <text class="svg-sub" text-anchor="middle" x="530" y="113">−0.012%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="582" y="100"></rect>
+                <text class="svg-sub" text-anchor="middle" x="628" y="113">−5 B</text>
+                <text class="svg-sub" text-anchor="end" x="184" y="135">Opus, 96 kb/s</text>
+                <text class="svg-sub" text-anchor="end" x="270" y="135">636,816</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="288" y="122"></rect>
+                <text class="svg-sub" text-anchor="middle" x="334" y="135">−0.023%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="386" y="122"></rect>
+                <text class="svg-sub" text-anchor="middle" x="432" y="135">−0.004%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="484" y="122"></rect>
+                <text class="svg-sub" text-anchor="middle" x="530" y="135">−0.014%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="582" y="122"></rect>
+                <text class="svg-sub" text-anchor="middle" x="628" y="135">−5 B</text>
+                <text class="svg-sub" text-anchor="end" x="184" y="157">.zip, DEFLATE 6</text>
+                <text class="svg-sub" text-anchor="end" x="270" y="157">1,127,914</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="288" y="144"></rect>
+                <text class="svg-sub" text-anchor="middle" x="334" y="157">−0.021%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="386" y="144"></rect>
+                <text class="svg-sub" text-anchor="middle" x="432" y="157">−0.003%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="484" y="144"></rect>
+                <text class="svg-sub" text-anchor="middle" x="530" y="157">−0.010%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="582" y="144"></rect>
+                <text class="svg-sub" text-anchor="middle" x="628" y="157">−5 B</text>
+                <text class="svg-sub" text-anchor="end" x="184" y="179">.tar.gz, gzip -6</text>
+                <text class="svg-sub" text-anchor="end" x="270" y="179">1,127,742</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="288" y="166"></rect>
+                <text class="svg-sub" text-anchor="middle" x="334" y="179">−0.019%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="386" y="166"></rect>
+                <text class="svg-sub" text-anchor="middle" x="432" y="179">−0.003%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="484" y="166"></rect>
+                <text class="svg-sub" text-anchor="middle" x="530" y="179">−0.010%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="582" y="166"></rect>
+                <text class="svg-sub" text-anchor="middle" x="628" y="179">−5 B</text>
+                <text class="svg-sub" text-anchor="end" x="184" y="201">MP4, SVT-AV1 CRF 35</text>
+                <text class="svg-sub" text-anchor="end" x="270" y="201">2,106,647</text>
+                <rect fill="#e0ebf2" height="18" rx="2" stroke="#3c6f97" stroke-width="0.6" width="92" x="288" y="188"></rect>
+                <text class="svg-sub" text-anchor="middle" x="334" y="201">0.026%</text>
+                <rect fill="#e0ebf2" height="18" rx="2" stroke="#3c6f97" stroke-width="0.6" width="92" x="386" y="188"></rect>
+                <text class="svg-sub" text-anchor="middle" x="432" y="201">0.057%</text>
+                <rect fill="#e0ebf2" height="18" rx="2" stroke="#3c6f97" stroke-width="0.6" width="92" x="484" y="188"></rect>
+                <text class="svg-sub" text-anchor="middle" x="530" y="201">0.029%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="582" y="188"></rect>
+                <text class="svg-sub" text-anchor="middle" x="628" y="201">−8 B</text>
+                <text class="svg-sub" text-anchor="end" x="184" y="223">MP4, x264 CRF 23</text>
+                <text class="svg-sub" text-anchor="end" x="270" y="223">3,761,614</text>
+                <rect fill="#e0ebf2" height="18" rx="2" stroke="#3c6f97" stroke-width="0.6" width="92" x="288" y="210"></rect>
+                <text class="svg-sub" text-anchor="middle" x="334" y="223">0.048%</text>
+                <rect fill="#e0ebf2" height="18" rx="2" stroke="#3c6f97" stroke-width="0.6" width="92" x="386" y="210"></rect>
+                <text class="svg-sub" text-anchor="middle" x="432" y="223">0.069%</text>
+                <rect fill="#e0ebf2" height="18" rx="2" stroke="#3c6f97" stroke-width="0.6" width="92" x="484" y="210"></rect>
+                <text class="svg-sub" text-anchor="middle" x="530" y="223">0.036%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="92" x="582" y="210"></rect>
+                <text class="svg-sub" text-anchor="middle" x="628" y="223">−13 B</text>
+                <text class="svg-sub" text-anchor="end" x="184" y="245">tar of five media files</text>
+                <text class="svg-sub" text-anchor="end" x="270" y="245">10,014,720</text>
+                <rect fill="#f7f7f5" height="18" rx="2" stroke="#b8b8b1" stroke-width="0.6" width="92" x="288" y="232"></rect>
+                <text class="svg-sub" text-anchor="middle" x="334" y="245">—</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="92" x="386" y="232"></rect>
+                <text class="svg-sub" text-anchor="middle" x="432" y="245">0.441%</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="92" x="484" y="232"></rect>
+                <text class="svg-sub" text-anchor="middle" x="530" y="245">0.407%</text>
+                <rect fill="#f7f7f5" height="18" rx="2" stroke="#b8b8b1" stroke-width="0.6" width="92" x="582" y="232"></rect>
+                <text class="svg-sub" text-anchor="middle" x="628" y="245">—</text>
+                <text class="svg-sub" text-anchor="end" x="184" y="267">FLAC, level 8</text>
+                <text class="svg-sub" text-anchor="end" x="270" y="267">4,663,924</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="92" x="288" y="254"></rect>
+                <text class="svg-sub" text-anchor="middle" x="334" y="267">0.750%</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="92" x="386" y="254"></rect>
+                <text class="svg-sub" text-anchor="middle" x="432" y="267">0.761%</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="92" x="484" y="254"></rect>
+                <text class="svg-sub" text-anchor="middle" x="530" y="267">0.728%</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="92" x="582" y="254"></rect>
+                <text class="svg-sub" text-anchor="middle" x="628" y="267">0.391%</text>
+                <text class="svg-sub" text-anchor="end" x="184" y="289">PNG, xo-space screenshot</text>
+                <text class="svg-sub" text-anchor="end" x="270" y="289">390,623</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="92" x="288" y="276"></rect>
+                <text class="svg-sub" text-anchor="middle" x="334" y="289">0.837%</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="92" x="386" y="276"></rect>
+                <text class="svg-sub" text-anchor="middle" x="432" y="289">1.168%</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="92" x="484" y="276"></rect>
+                <text class="svg-sub" text-anchor="middle" x="530" y="289">0.901%</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="92" x="582" y="276"></rect>
+                <text class="svg-sub" text-anchor="middle" x="628" y="289">1.117%</text>
+                <text class="svg-sub" text-anchor="end" x="184" y="311">AAC 128 kb/s, .m4a</text>
+                <text class="svg-sub" text-anchor="end" x="270" y="311">849,338</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="92" x="288" y="298"></rect>
+                <text class="svg-sub" text-anchor="middle" x="334" y="311">1.467%</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="92" x="386" y="298"></rect>
+                <text class="svg-sub" text-anchor="middle" x="432" y="311">1.779%</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="92" x="484" y="298"></rect>
+                <text class="svg-sub" text-anchor="middle" x="530" y="311">1.183%</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="92" x="582" y="298"></rect>
+                <text class="svg-sub" text-anchor="middle" x="628" y="311">1.988%</text>
+                <text class="svg-sub" text-anchor="end" x="184" y="333">JPEG, og.jpg</text>
+                <text class="svg-sub" text-anchor="end" x="270" y="333">66,400</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="92" x="288" y="320"></rect>
+                <text class="svg-sub" text-anchor="middle" x="334" y="333">3.399%</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="92" x="386" y="320"></rect>
+                <text class="svg-sub" text-anchor="middle" x="432" y="333">4.182%</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="92" x="484" y="320"></rect>
+                <text class="svg-sub" text-anchor="middle" x="530" y="333">3.904%</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="92" x="582" y="320"></rect>
+                <text class="svg-sub" text-anchor="middle" x="628" y="333">4.658%</text>
+                <text class="svg-lane" x="0" y="370">B · RE-CODED LOSSLESSLY · SAVING, % OF THE ORIGINAL</text>
+                <text class="svg-lane" text-anchor="end" x="700" y="392">BEST WRAPPED</text>
+                <line stroke="#deded9" x1="266" x2="266" y1="396" y2="580"></line>
+                <line stroke="#deded9" x1="336" x2="336" y1="396" y2="580"></line>
+                <line stroke="#deded9" x1="406" x2="406" y1="396" y2="580"></line>
+                <line stroke="#deded9" x1="476" x2="476" y1="396" y2="580"></line>
+                <line stroke="#b8b8b1" x1="196" x2="196" y1="396" y2="580"></line>
+                <text class="svg-sub" text-anchor="end" x="186" y="413">.zip → tar, xz -9</text>
+                <rect fill="#dfede5" height="14" rx="2" stroke="#367f59" width="288" x="196" y="402"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="490" y="413">41.144%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="84" x="616" y="400"></rect>
+                <text class="svg-sub" text-anchor="middle" x="658" y="413">−5 B</text>
+                <text class="svg-sub" text-anchor="end" x="186" y="435">.tar.gz → tar, xz -9</text>
+                <rect fill="#dfede5" height="14" rx="2" stroke="#367f59" width="287.9" x="196" y="424"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="489.9" y="435">41.135%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="84" x="616" y="422"></rect>
+                <text class="svg-sub" text-anchor="middle" x="658" y="435">−5 B</text>
+                <text class="svg-sub" text-anchor="end" x="186" y="457">screenshot, oxipng -o 4</text>
+                <rect fill="#dfede5" height="14" rx="2" stroke="#367f59" width="280.8" x="196" y="446"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="482.8" y="457">40.111%</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="84" x="616" y="444"></rect>
+                <text class="svg-sub" text-anchor="middle" x="658" y="457">1.168%</text>
+                <text class="svg-sub" text-anchor="end" x="186" y="479">Kodak PNG → JPEG XL</text>
+                <rect fill="#dfede5" height="14" rx="2" stroke="#367f59" width="267.8" x="196" y="468"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="469.8" y="479">38.257%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="84" x="616" y="466"></rect>
+                <text class="svg-sub" text-anchor="middle" x="658" y="479">−5 B</text>
+                <text class="svg-sub" text-anchor="end" x="186" y="501">screenshot → JPEG XL</text>
+                <rect fill="#dfede5" height="14" rx="2" stroke="#367f59" width="264.3" x="196" y="490"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="466.3" y="501">37.759%</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="84" x="616" y="488"></rect>
+                <text class="svg-sub" text-anchor="middle" x="658" y="501">1.168%</text>
+                <text class="svg-sub" text-anchor="end" x="186" y="523">og.jpg → JPEG XL</text>
+                <rect fill="#dfede5" height="14" rx="2" stroke="#367f59" width="229.3" x="196" y="512"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="431.3" y="523">32.756%</text>
+                <rect fill="#f7e3c8" height="18" rx="2" stroke="#d98226" stroke-width="0.6" width="84" x="616" y="510"></rect>
+                <text class="svg-sub" text-anchor="middle" x="658" y="523">4.658%</text>
+                <text class="svg-sub" text-anchor="end" x="186" y="545">Pillow JPEG → JPEG XL</text>
+                <rect fill="#dfede5" height="14" rx="2" stroke="#367f59" width="92.5" x="196" y="534"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="294.5" y="545">13.209%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="84" x="616" y="532"></rect>
+                <text class="svg-sub" text-anchor="middle" x="658" y="545">−0.003%</text>
+                <text class="svg-sub" text-anchor="end" x="186" y="567">Kodak PNG, oxipng -o 4</text>
+                <rect fill="#dfede5" height="14" rx="2" stroke="#367f59" width="27.4" x="196" y="556"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="229.4" y="567">3.915%</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" stroke-width="0.6" width="84" x="616" y="554"></rect>
+                <text class="svg-sub" text-anchor="middle" x="658" y="567">−5 B</text>
+                <line stroke="#b8b8b1" x1="196" x2="511" y1="580" y2="580"></line>
+                <text class="svg-sub" text-anchor="middle" x="196" y="596">0%</text>
+                <text class="svg-sub" text-anchor="middle" x="266" y="596">10%</text>
+                <text class="svg-sub" text-anchor="middle" x="336" y="596">20%</text>
+                <text class="svg-sub" text-anchor="middle" x="406" y="596">30%</text>
+                <text class="svg-sub" text-anchor="middle" x="476" y="596">40%</text>
+                <text class="svg-note" x="4" y="616">JPEG XL: -d 0 -e 9 from a PNG; --lossless_jpeg=1 from a JPEG, which djxl rebuilt bit for bit.</text>
+              </svg>

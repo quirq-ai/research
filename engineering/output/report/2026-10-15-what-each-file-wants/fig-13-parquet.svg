@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 704 430" role="img" aria-label="Diagram of one Parquet column chunk: the device column, 1,000,000 rows with four distinct values. Step 1: the values as written, PLAIN encoding, 10,462,644 bytes. A thin blue data arrow, dictionary encoding, leads to step 2: a dictionary page listing desktop, mobile, tablet and bot as 0 to 3, and data pages of indices stored with the RLE and bit-packing hybrid at 2 bits each, 254,725 bytes. A thin blue arrow, page codec, leads to step 3: each page compressed alone with zstd 3, the encodings and codec recorded in the chunk metadata, 182,822 bytes. Below, three other encodings and what they did here: DELTA_BINARY_PACKED for integers and timestamps, file 3.1% smaller on ts and user_id; DELTA_BYTE_ARRAY, front coding of strings, session_id chunk 4.6% smaller; BYTE_STREAM_SPLIT for floats ahead of a codec, file 19.7% larger on price and latency_ms. Grey marks values as written, green Parquet's own encodings, blue the general-purpose codec."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }</style><rect x="0.0" y="0.0" width="704.0" height="430.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-parquet-blu" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                </defs>
+                <text class="svg-lane" x="0" y="18">ONE COLUMN CHUNK · device · 1,000,000 ROWS · 4 VALUES</text>
+                <rect fill="#f7f7f5" height="14" rx="3" stroke="#b8b8b1" width="14" x="0" y="32"></rect>
+                <text class="svg-sub" x="22" y="43">as written</text>
+                <rect fill="#dfede5" height="14" rx="3" stroke="#367f59" width="14" x="120" y="32"></rect>
+                <text class="svg-sub" x="142" y="43">Parquet encoding</text>
+                <rect fill="#e0ebf2" height="14" rx="3" stroke="#3c6f97" width="14" x="290" y="32"></rect>
+                <text class="svg-sub" x="312" y="43">page codec</text>
+                <line marker-end="url(#fig-parquet-blu)" stroke="#3c6f97" stroke-width="1.3" x1="410" x2="436" y1="39" y2="39"></line>
+                <text class="svg-sub" x="444" y="43">data</text>
+
+                <text class="svg-num" x="0" y="76">1</text>
+                <text class="svg-step" x="14" y="76">Values</text>
+                <text class="svg-sub" x="14" y="92">PLAIN</text>
+                <rect fill="#f7f7f5" height="24" rx="3" stroke="#b8b8b1" width="58" x="150" y="64"></rect>
+                <text class="svg-sub" text-anchor="middle" x="179" y="80">desktop</text>
+                <rect fill="#f7f7f5" height="24" rx="3" stroke="#b8b8b1" width="58" x="212" y="64"></rect>
+                <text class="svg-sub" text-anchor="middle" x="241" y="80">mobile</text>
+                <rect fill="#f7f7f5" height="24" rx="3" stroke="#b8b8b1" width="58" x="274" y="64"></rect>
+                <text class="svg-sub" text-anchor="middle" x="303" y="80">mobile</text>
+                <rect fill="#f7f7f5" height="24" rx="3" stroke="#b8b8b1" width="58" x="336" y="64"></rect>
+                <text class="svg-sub" text-anchor="middle" x="365" y="80">desktop</text>
+                <rect fill="#f7f7f5" height="24" rx="3" stroke="#b8b8b1" width="58" x="398" y="64"></rect>
+                <text class="svg-sub" text-anchor="middle" x="427" y="80">tablet</text>
+                <rect fill="#f7f7f5" height="24" rx="3" stroke="#b8b8b1" width="58" x="460" y="64"></rect>
+                <text class="svg-sub" text-anchor="middle" x="489" y="80">mobile</text>
+                <text class="svg-sub" x="530" y="80">…</text>
+                <text class="svg-step" text-anchor="end" x="696" y="80">10,462,644 B</text>
+
+                <line marker-end="url(#fig-parquet-blu)" stroke="#3c6f97" stroke-width="1.3" x1="367" x2="367" y1="90" y2="128"></line>
+                <text class="svg-sub" x="377" y="114">dictionary encoding</text>
+
+                <text class="svg-num" x="0" y="150">2</text>
+                <text class="svg-step" x="14" y="150">Encode</text>
+                <text class="svg-sub" x="14" y="166">dictionary page</text>
+                <text class="svg-sub" x="14" y="180">+ indices</text>
+                <rect fill="#dfede5" height="90" rx="4" stroke="#367f59" width="150" x="150" y="132"></rect>
+                <text class="svg-sub" x="160" y="150">dictionary page</text>
+                <text class="svg-sub" x="160" y="170">0  desktop</text>
+                <text class="svg-sub" x="160" y="184">1  mobile</text>
+                <text class="svg-sub" x="160" y="198">2  tablet</text>
+                <text class="svg-sub" x="160" y="212">3  bot</text>
+                <rect fill="#dfede5" height="90" rx="4" stroke="#367f59" width="268" x="316" y="132"></rect>
+                <text class="svg-sub" x="326" y="150">data pages: indices</text>
+                <rect fill="#ffffff" height="18" rx="2" stroke="#367f59" width="18" x="326" y="158"></rect>
+                <text class="svg-sub" text-anchor="middle" x="335" y="171">0</text>
+                <rect fill="#ffffff" height="18" rx="2" stroke="#367f59" width="18" x="348" y="158"></rect>
+                <text class="svg-sub" text-anchor="middle" x="357" y="171">1</text>
+                <rect fill="#ffffff" height="18" rx="2" stroke="#367f59" width="18" x="370" y="158"></rect>
+                <text class="svg-sub" text-anchor="middle" x="379" y="171">1</text>
+                <rect fill="#ffffff" height="18" rx="2" stroke="#367f59" width="18" x="392" y="158"></rect>
+                <text class="svg-sub" text-anchor="middle" x="401" y="171">0</text>
+                <rect fill="#ffffff" height="18" rx="2" stroke="#367f59" width="18" x="414" y="158"></rect>
+                <text class="svg-sub" text-anchor="middle" x="423" y="171">2</text>
+                <rect fill="#ffffff" height="18" rx="2" stroke="#367f59" width="18" x="436" y="158"></rect>
+                <text class="svg-sub" text-anchor="middle" x="445" y="171">1</text>
+                <text class="svg-sub" x="462" y="171">…</text>
+                <text class="svg-sub" x="326" y="198">RLE / bit-packed hybrid</text>
+                <text class="svg-sub" x="326" y="212">2 bits per index</text>
+                <text class="svg-step" text-anchor="end" x="696" y="190">254,725 B</text>
+
+                <line marker-end="url(#fig-parquet-blu)" stroke="#3c6f97" stroke-width="1.3" x1="367" x2="367" y1="222" y2="252"></line>
+                <text class="svg-sub" x="377" y="242">page codec</text>
+
+                <text class="svg-num" x="0" y="272">3</text>
+                <text class="svg-step" x="14" y="272">Compress</text>
+                <text class="svg-sub" x="14" y="288">zstd 3, by page</text>
+                <rect fill="#e0ebf2" height="42" rx="4" stroke="#3c6f97" width="434" x="150" y="256"></rect>
+                <text class="svg-sub" x="160" y="273">compressed pages + chunk metadata:</text>
+                <text class="svg-sub" x="160" y="289">encodings PLAIN, RLE, RLE_DICTIONARY · codec ZSTD</text>
+                <text class="svg-step" text-anchor="end" x="696" y="281">182,822 B</text>
+
+                <line stroke="#deded9" x1="0" x2="704" y1="318" y2="318"></line>
+                <text class="svg-lane" x="0" y="342">OTHER ENCODINGS, AND WHAT THEY DID HERE</text>
+                <text class="svg-step" x="0" y="366">DELTA_BINARY_PACKED</text>
+                <text class="svg-sub" x="196" y="366">integers, timestamps</text>
+                <text class="svg-sub" text-anchor="end" x="696" y="366">ts, user_id: file −3.1%</text>
+                <text class="svg-step" x="0" y="388">DELTA_BYTE_ARRAY</text>
+                <text class="svg-sub" x="196" y="388">front coding of strings</text>
+                <text class="svg-sub" text-anchor="end" x="696" y="388">session_id: chunk −4.6%</text>
+                <text class="svg-step" x="0" y="410">BYTE_STREAM_SPLIT</text>
+                <text class="svg-sub" x="196" y="410">floats, before a codec</text>
+                <text class="svg-sub" text-anchor="end" x="696" y="410">price, latency_ms: file +19.7%</text>
+              </svg>

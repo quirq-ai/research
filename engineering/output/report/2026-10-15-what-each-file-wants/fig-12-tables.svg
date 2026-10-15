@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 731" role="img" aria-label="Horizontal bar chart on one linear axis from 0 to 130 MB, where 1 MB is 10 to the 6 bytes: one synthetic table of 1,000,000 rows and 14 columns stored 26 ways. CSV: no codec 124.5 MB; gzip -6 36.3; zstd 3 37.8; zstd 19 30.5; a full read takes about 1 second. Parquet from pyarrow 26.0.0, with dictionary encoding on and then off: no codec 38.6 and 115.2; snappy, pyarrow's default, 32.6 and 47.0; LZ4_RAW 33.3 and 49.1; gzip 24.7 and 27.5; zstd 1 23.8 and 30.1; zstd 3 23.5 and 29.8; zstd 9 23.1 and 26.4; zstd 3 with DELTA_BINARY_PACKED on ts and user_id 22.8, the smallest file; zstd 3 with BYTE_STREAM_SPLIT on price and latency_ms 28.2; a tuned layout with an encoding per column 26.9 at zstd 3 and 26.7 at zstd 9; full reads take 0.2 to 0.5 seconds. Arrow IPC: uncompressed 127.7 and LZ4, Feather's default, 67.9, both read in under 0.1 seconds; zstd at Arrow's default level 1 44.6 and at level 3 43.7, read in 0.2 to 0.5 seconds. A dashed line marks CSV with gzip -6. Grey is CSV without a codec, blue CSV with a codec, green Parquet with dictionary encoding, a dashed green outline Parquet without it, purple Arrow IPC."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }</style><rect x="0.0" y="0.0" width="1120.0" height="731.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="18">MB ON DISK · 1 MB = 10⁶ BYTES</text>
+                <rect fill="#f7f7f5" height="14" rx="3" stroke="#b8b8b1" width="14" x="0" y="34"></rect>
+                <text class="svg-sub" x="22" y="45">CSV, no codec</text>
+                <rect fill="#e0ebf2" height="14" rx="3" stroke="#3c6f97" width="14" x="140" y="34"></rect>
+                <text class="svg-sub" x="162" y="45">CSV + a codec</text>
+                <rect fill="#dfede5" height="14" rx="3" stroke="#367f59" width="14" x="280" y="34"></rect>
+                <text class="svg-sub" x="302" y="45">Parquet, dictionary on</text>
+                <rect fill="#ffffff" height="14" rx="3" stroke="#367f59" stroke-dasharray="3 2" width="14" x="487" y="34"></rect>
+                <text class="svg-sub" x="509" y="45">dictionary off</text>
+                <rect fill="#ece6f3" height="14" rx="3" stroke="#765b98" width="14" x="634" y="34"></rect>
+                <text class="svg-sub" x="656" y="45">Arrow IPC</text>
+                <line stroke="#252525" stroke-dasharray="4 3" x1="744" x2="766" y1="41" y2="41"></line>
+                <text class="svg-sub" x="774" y="45">CSV + gzip -6</text>
+                <line stroke="#deded9" x1="300.0" x2="300.0" y1="72" y2="701"></line>
+                <text class="svg-sub" text-anchor="middle" x="300" y="717">0 MB</text>
+                <line stroke="#deded9" x1="415.4" x2="415.4" y1="72" y2="701"></line>
+                <text class="svg-sub" text-anchor="middle" x="415.4" y="717">25 MB</text>
+                <line stroke="#deded9" x1="530.8" x2="530.8" y1="72" y2="701"></line>
+                <text class="svg-sub" text-anchor="middle" x="530.8" y="717">50 MB</text>
+                <line stroke="#deded9" x1="646.2" x2="646.2" y1="72" y2="701"></line>
+                <text class="svg-sub" text-anchor="middle" x="646.2" y="717">75 MB</text>
+                <line stroke="#deded9" x1="761.5" x2="761.5" y1="72" y2="701"></line>
+                <text class="svg-sub" text-anchor="middle" x="761.5" y="717">100 MB</text>
+                <line stroke="#deded9" x1="876.9" x2="876.9" y1="72" y2="701"></line>
+                <text class="svg-sub" text-anchor="middle" x="876.9" y="717">125 MB</text>
+                <line stroke="#b8b8b1" x1="300" x2="900" y1="701" y2="701"></line>
+                <line stroke="#252525" stroke-dasharray="4 3" x1="467.8" x2="467.8" y1="72" y2="701"></line>
+                <text class="svg-lane" x="0" y="86">CSV TEXT</text>
+                <text class="svg-sub" text-anchor="end" x="1104" y="86">read: about 1 s</text>
+                <text class="svg-step" text-anchor="end" x="284" y="105">CSV</text>
+                <rect fill="#f7f7f5" height="10" rx="2" stroke="#b8b8b1" width="574.7" x="300" y="96"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="882.7" y="105">124.5</text>
+                <text class="svg-step" text-anchor="end" x="284" y="129">CSV + gzip -6</text>
+                <rect fill="#e0ebf2" height="10" rx="2" stroke="#3c6f97" width="167.8" x="300" y="120"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="475.8" y="129">36.3</text>
+                <text class="svg-step" text-anchor="end" x="284" y="153">CSV + zstd 3</text>
+                <rect fill="#e0ebf2" height="10" rx="2" stroke="#3c6f97" width="174.5" x="300" y="144"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="482.5" y="153">37.8</text>
+                <text class="svg-step" text-anchor="end" x="284" y="177">CSV + zstd 19</text>
+                <rect fill="#e0ebf2" height="10" rx="2" stroke="#3c6f97" width="140.9" x="300" y="168"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="448.9" y="177">30.5</text>
+                <text class="svg-lane" x="0" y="200">PARQUET · PYARROW 26.0.0</text>
+                <text class="svg-sub" text-anchor="end" x="1104" y="200">read: 0.2–0.5 s</text>
+                <text class="svg-step" text-anchor="end" x="284" y="219">no codec</text>
+                <rect fill="#dfede5" height="10" rx="2" stroke="#367f59" width="178.4" x="300" y="210"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="486.4" y="219">38.6</text>
+                <rect fill="#ffffff" height="10" rx="2" stroke="#367f59" stroke-dasharray="3 2" width="531.6" x="300" y="223"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="839.6" y="232">115.2</text>
+                <text class="svg-step" text-anchor="end" x="284" y="254">snappy</text>
+                <text class="svg-sub" text-anchor="end" x="284" y="267">pyarrow default</text>
+                <rect fill="#dfede5" height="10" rx="2" stroke="#367f59" width="150.5" x="300" y="245"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="458.5" y="254">32.6</text>
+                <rect fill="#ffffff" height="10" rx="2" stroke="#367f59" stroke-dasharray="3 2" width="216.9" x="300" y="258"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="524.9" y="267">47.0</text>
+                <text class="svg-step" text-anchor="end" x="284" y="289">LZ4_RAW</text>
+                <rect fill="#dfede5" height="10" rx="2" stroke="#367f59" width="153.6" x="300" y="280"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="461.6" y="289">33.3</text>
+                <rect fill="#ffffff" height="10" rx="2" stroke="#367f59" stroke-dasharray="3 2" width="226.6" x="300" y="293"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="534.6" y="302">49.1</text>
+                <text class="svg-step" text-anchor="end" x="284" y="324">gzip</text>
+                <rect fill="#dfede5" height="10" rx="2" stroke="#367f59" width="114.2" x="300" y="315"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="422.2" y="324">24.7</text>
+                <rect fill="#ffffff" height="10" rx="2" stroke="#367f59" stroke-dasharray="3 2" width="127.0" x="300" y="328"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="435" y="337">27.5</text>
+                <text class="svg-step" text-anchor="end" x="284" y="359">zstd 1</text>
+                <rect fill="#dfede5" height="10" rx="2" stroke="#367f59" width="109.8" x="300" y="350"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="417.8" y="359">23.8</text>
+                <rect fill="#ffffff" height="10" rx="2" stroke="#367f59" stroke-dasharray="3 2" width="138.9" x="300" y="363"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="446.9" y="372">30.1</text>
+                <text class="svg-step" text-anchor="end" x="284" y="394">zstd 3</text>
+                <rect fill="#dfede5" height="10" rx="2" stroke="#367f59" width="108.7" x="300" y="385"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="416.7" y="394">23.5</text>
+                <rect fill="#ffffff" height="10" rx="2" stroke="#367f59" stroke-dasharray="3 2" width="137.4" x="300" y="398"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="445.4" y="407">29.8</text>
+                <text class="svg-step" text-anchor="end" x="284" y="429">zstd 9</text>
+                <rect fill="#dfede5" height="10" rx="2" stroke="#367f59" width="106.6" x="300" y="420"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="414.6" y="429">23.1</text>
+                <rect fill="#ffffff" height="10" rx="2" stroke="#367f59" stroke-dasharray="3 2" width="121.6" x="300" y="433"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="429.6" y="442">26.4</text>
+                <text class="svg-step" text-anchor="end" x="284" y="464">zstd 3 + DELTA</text>
+                <text class="svg-sub" text-anchor="end" x="284" y="477">on ts, user_id</text>
+                <rect fill="#dfede5" height="10" rx="2" stroke="#367f59" width="105.2" x="300" y="455"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="413.2" y="464">22.8</text>
+                <text class="svg-step" text-anchor="end" x="284" y="496">zstd 3 + BYTE_STREAM_SPLIT</text>
+                <text class="svg-sub" text-anchor="end" x="284" y="509">on price, latency_ms</text>
+                <rect fill="#dfede5" height="10" rx="2" stroke="#367f59" width="130.1" x="300" y="487"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="438.1" y="496">28.2</text>
+                <text class="svg-step" text-anchor="end" x="284" y="528">tuned, zstd 3</text>
+                <text class="svg-sub" text-anchor="end" x="284" y="541">an encoding per column</text>
+                <rect fill="#dfede5" height="10" rx="2" stroke="#367f59" width="124.0" x="300" y="519"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="432" y="528">26.9</text>
+                <text class="svg-step" text-anchor="end" x="284" y="560">tuned, zstd 9</text>
+                <rect fill="#dfede5" height="10" rx="2" stroke="#367f59" width="123.4" x="300" y="551"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="431.4" y="560">26.7</text>
+                <text class="svg-lane" x="0" y="583">ARROW IPC · FEATHER V2</text>
+                <text class="svg-sub" text-anchor="end" x="1104" y="583">read: under 0.1 s; with zstd 0.2–0.5 s</text>
+                <text class="svg-step" text-anchor="end" x="284" y="602">uncompressed</text>
+                <rect fill="#ece6f3" height="10" rx="2" stroke="#765b98" width="589.4" x="300" y="593"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="897.4" y="602">127.7</text>
+                <text class="svg-step" text-anchor="end" x="284" y="626">LZ4</text>
+                <text class="svg-sub" text-anchor="end" x="284" y="639">Feather default</text>
+                <rect fill="#ece6f3" height="10" rx="2" stroke="#765b98" width="313.4" x="300" y="617"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="621.4" y="626">67.9</text>
+                <text class="svg-step" text-anchor="end" x="284" y="658">zstd 1</text>
+                <text class="svg-sub" text-anchor="end" x="284" y="671">Arrow default</text>
+                <rect fill="#ece6f3" height="10" rx="2" stroke="#765b98" width="205.6" x="300" y="649"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="513.6" y="658">44.6</text>
+                <text class="svg-step" text-anchor="end" x="284" y="690">zstd 3</text>
+                <rect fill="#ece6f3" height="10" rx="2" stroke="#765b98" width="201.6" x="300" y="681"></rect>
+                <text class="svg-sub" paint-order="stroke" stroke="#ffffff" stroke-width="3" x="509.6" y="690">43.7</text>
+              </svg>

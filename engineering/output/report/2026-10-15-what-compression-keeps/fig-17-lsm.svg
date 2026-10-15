@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 560" role="img" aria-label="Schematic of leveled LSM compaction. Writes (put and delete) go to a sorted in-memory memtable, which is flushed to level 0 as an SSTable; Bigtable calls the flush a minor compaction. Level 0 holds four overlapping SSTables, each covering keys a to z; one holds a tombstone, del K2. Compaction merges each level into the next, ten times larger, dropping overwritten values: level 1 holds four non-overlapping SSTables a–f, g–m, n–s, t–z; level 2 holds more, smaller key ranges; the bottommost level Ln holds most of the data, including an old value K2 = 12. At the bottom, the tombstone and the value it hides are dropped for good, once no deeper level holds K2 (LevelDB) and, in Cassandra, after gc_grace_seconds. RocksDB codec per level: LZ4 by default on every level since 11.5.0; ZSTD recommended for the bottommost level, with a dictionary trained per SST file. Write amplification: a byte is rewritten at each level it passes, up to the fanout per level for leveled compaction. Space amplification: old versions wait in upper levels until merged; universal compaction may need twice the space while it runs."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="560.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-lsm-blu" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                  <marker id="fig-lsm-pur" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="0" y="16">AN LSM TREE · WRITES FLOW DOWN, COMPACTION MERGES THEM</text>
+
+                <text class="svg-step" x="0" y="58">Writes</text>
+                <text class="svg-sub" x="0" y="78">put, delete</text>
+                <line marker-end="url(#fig-lsm-blu)" stroke="#3c6f97" stroke-width="1.4" x1="96" x2="149" y1="64" y2="64"></line>
+                <rect fill="#f7f7f5" height="60" rx="6" stroke="#b8b8b1" width="200" x="155" y="34"></rect>
+                <text class="svg-step" x="167" y="58">Memtable</text>
+                <text class="svg-sub" x="167" y="78">sorted, in memory</text>
+                <text class="svg-note" x="375" y="68">full → frozen → written out as one SSTable</text>
+                <line marker-end="url(#fig-lsm-blu)" stroke="#3c6f97" stroke-width="1.4" x1="255" x2="255" y1="94" y2="129"></line>
+                <text class="svg-sub" x="265" y="116">flush (Bigtable: minor compaction)</text>
+
+                <text class="svg-lane" x="800" y="120">ROCKSDB CODEC</text>
+
+                <text class="svg-lane" x="0" y="150">L0</text>
+                <text class="svg-sub" x="0" y="166">overlapping</text>
+                <rect fill="#e0ebf2" height="38" rx="3" stroke="#3c6f97" width="100" x="155" y="134"></rect>
+                <text class="svg-sub" x="165" y="150">a–z</text>
+                <rect fill="#e0ebf2" height="38" rx="3" stroke="#3c6f97" width="100" x="268" y="134"></rect>
+                <text class="svg-sub" x="278" y="150">a–z</text>
+                <rect fill="#f3dfdc" height="14" rx="3" stroke="#ad4b43" width="60" x="276" y="155"></rect>
+                <text class="svg-sub" x="282" y="166">del K2</text>
+                <rect fill="#e0ebf2" height="38" rx="3" stroke="#3c6f97" width="100" x="381" y="134"></rect>
+                <text class="svg-sub" x="391" y="150">a–z</text>
+                <rect fill="#e0ebf2" height="38" rx="3" stroke="#3c6f97" width="100" x="494" y="134"></rect>
+                <text class="svg-sub" x="504" y="150">a–z</text>
+                <rect fill="#f7e3c8" height="20" rx="10" stroke="#d98226" width="60" x="800" y="141"></rect>
+                <text class="svg-sub" x="815" y="155">LZ4</text>
+                <text class="svg-sub" x="872" y="155">default since 11.5.0</text>
+
+                <path d="M600 153 H615 V223 H602" fill="none" marker-end="url(#fig-lsm-blu)" stroke="#3c6f97" stroke-width="1.4"></path>
+                <text class="svg-sub" x="625" y="184">merge into next level</text>
+                <text class="svg-sub" x="625" y="200">drop overwritten values</text>
+
+                <text class="svg-lane" x="0" y="220">L1</text>
+                <text class="svg-sub" x="0" y="238">no overlap</text>
+                <rect fill="#e0ebf2" height="38" rx="3" stroke="#3c6f97" width="104" x="155" y="204"></rect>
+                <text class="svg-sub" x="165" y="227">a–f</text>
+                <rect fill="#e0ebf2" height="38" rx="3" stroke="#3c6f97" width="104" x="267" y="204"></rect>
+                <text class="svg-sub" x="277" y="227">g–m</text>
+                <rect fill="#e0ebf2" height="38" rx="3" stroke="#3c6f97" width="104" x="379" y="204"></rect>
+                <text class="svg-sub" x="389" y="227">n–s</text>
+                <rect fill="#e0ebf2" height="38" rx="3" stroke="#3c6f97" width="104" x="491" y="204"></rect>
+                <text class="svg-sub" x="501" y="227">t–z</text>
+                <rect fill="#f7e3c8" height="20" rx="10" stroke="#d98226" width="60" x="800" y="213"></rect>
+                <text class="svg-sub" x="815" y="227">LZ4</text>
+                <text class="svg-sub" x="872" y="227">per block, per SST file</text>
+
+                <path d="M600 223 H615 V293 H602" fill="none" marker-end="url(#fig-lsm-blu)" stroke="#3c6f97" stroke-width="1.4"></path>
+                <text class="svg-sub" x="625" y="254">each level ~10× larger</text>
+                <text class="svg-sub" x="625" y="270">drop overwritten values</text>
+
+                <text class="svg-lane" x="0" y="290">L2</text>
+                <text class="svg-sub" x="0" y="308">10× L1</text>
+                <rect fill="#e0ebf2" height="38" rx="3" stroke="#3c6f97" width="440" x="155" y="274"></rect>
+                <line stroke="#3c6f97" stroke-width="0.8" x1="210" x2="210" y1="274" y2="312"></line>
+                <line stroke="#3c6f97" stroke-width="0.8" x1="265" x2="265" y1="274" y2="312"></line>
+                <line stroke="#3c6f97" stroke-width="0.8" x1="320" x2="320" y1="274" y2="312"></line>
+                <line stroke="#3c6f97" stroke-width="0.8" x1="375" x2="375" y1="274" y2="312"></line>
+                <line stroke="#3c6f97" stroke-width="0.8" x1="430" x2="430" y1="274" y2="312"></line>
+                <line stroke="#3c6f97" stroke-width="0.8" x1="485" x2="485" y1="274" y2="312"></line>
+                <line stroke="#3c6f97" stroke-width="0.8" x1="540" x2="540" y1="274" y2="312"></line>
+                <rect fill="#f7e3c8" height="20" rx="10" stroke="#d98226" width="60" x="800" y="283"></rect>
+                <text class="svg-sub" x="815" y="297">LZ4</text>
+                <text class="svg-sub" x="872" y="297">same default</text>
+
+                <path d="M600 293 H615 V363 H602" fill="none" marker-end="url(#fig-lsm-blu)" stroke="#3c6f97" stroke-width="1.4"></path>
+                <text class="svg-sub" x="625" y="324">… down to the last level</text>
+                <text class="svg-sub" x="625" y="340">tombstones can go here</text>
+
+                <text class="svg-lane" x="0" y="360">LN</text>
+                <text class="svg-sub" x="0" y="376">bottommost</text>
+                <rect fill="#e0ebf2" height="38" rx="3" stroke="#3c6f97" width="440" x="155" y="344"></rect>
+                <line stroke="#3c6f97" stroke-width="0.8" x1="192" x2="192" y1="344" y2="382"></line>
+                <line stroke="#3c6f97" stroke-width="0.8" x1="229" x2="229" y1="344" y2="382"></line>
+                <line stroke="#3c6f97" stroke-width="0.8" x1="266" x2="266" y1="344" y2="382"></line>
+                <line stroke="#3c6f97" stroke-width="0.8" x1="303" x2="303" y1="344" y2="382"></line>
+                <line stroke="#3c6f97" stroke-width="0.8" x1="340" x2="340" y1="344" y2="382"></line>
+                <line stroke="#3c6f97" stroke-width="0.8" x1="414" x2="414" y1="344" y2="382"></line>
+                <line stroke="#3c6f97" stroke-width="0.8" x1="451" x2="451" y1="344" y2="382"></line>
+                <line stroke="#3c6f97" stroke-width="0.8" x1="488" x2="488" y1="344" y2="382"></line>
+                <line stroke="#3c6f97" stroke-width="0.8" x1="525" x2="525" y1="344" y2="382"></line>
+                <line stroke="#3c6f97" stroke-width="0.8" x1="562" x2="562" y1="344" y2="382"></line>
+                <rect fill="#ece6f3" height="16" rx="3" stroke="#765b98" width="66" x="344" y="355"></rect>
+                <text class="svg-sub" x="350" y="367">K2 = 12</text>
+                <rect fill="#dfede5" height="20" rx="10" stroke="#367f59" width="60" x="800" y="353"></rect>
+                <text class="svg-sub" x="812" y="367">ZSTD</text>
+                <text class="svg-sub" x="872" y="360">recommended for bottommost</text>
+                <text class="svg-sub" x="872" y="376">dictionary trained per SST file</text>
+
+                <path d="M377 382 V403" fill="none" marker-end="url(#fig-lsm-pur)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.6"></path>
+                <rect fill="#ece6f3" height="88" rx="6" stroke="#765b98" stroke-dasharray="5 4" width="440" x="155" y="408"></rect>
+                <text class="svg-step" x="167" y="430">Dropped for good</text>
+                <text class="svg-sub" x="167" y="450">del K2 and the K2 = 12 it hides,</text>
+                <text class="svg-sub" x="167" y="468">once no deeper level can hold K2 (LevelDB);</text>
+                <text class="svg-sub" x="167" y="486">in Cassandra, also after gc_grace_seconds</text>
+
+                <text class="svg-lane" x="640" y="426">WRITE AMPLIFICATION</text>
+                <text class="svg-note" x="640" y="444">a byte is rewritten at each level it passes;</text>
+                <text class="svg-note" x="640" y="460">leveled: up to the fanout per level (RocksDB wiki)</text>
+                <text class="svg-lane" x="640" y="482">SPACE AMPLIFICATION</text>
+                <text class="svg-note" x="640" y="500">old versions wait in upper levels until merged;</text>
+                <text class="svg-note" x="640" y="516">universal compaction may need 2× while it runs</text>
+
+                <line stroke="#deded9" x1="0" x2="1120" y1="526" y2="526"></line>
+                <rect fill="#e0ebf2" height="14" rx="3" stroke="#3c6f97" width="14" x="0" y="538"></rect>
+                <text class="svg-sub" x="22" y="549">SSTable (sorted, immutable)</text>
+                <rect fill="#f3dfdc" height="14" rx="3" stroke="#ad4b43" width="14" x="235" y="538"></rect>
+                <text class="svg-sub" x="257" y="549">tombstone</text>
+                <rect fill="#ece6f3" height="14" rx="3" stroke="#765b98" width="14" x="335" y="538"></rect>
+                <text class="svg-sub" x="357" y="549">dropped for good</text>
+                <rect fill="#f7e3c8" height="14" rx="3" stroke="#d98226" width="14" x="488" y="538"></rect>
+                <text class="svg-sub" x="510" y="549">fast codec</text>
+                <rect fill="#dfede5" height="14" rx="3" stroke="#367f59" width="14" x="596" y="538"></rect>
+                <text class="svg-sub" x="618" y="549">stronger codec</text>
+                <line marker-end="url(#fig-lsm-blu)" stroke="#3c6f97" stroke-width="1.4" x1="735" x2="765" y1="545" y2="545"></line>
+                <text class="svg-sub" x="775" y="549">data: flush, merge</text>
+                <path d="M920 545 H950" fill="none" marker-end="url(#fig-lsm-pur)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.6"></path>
+                <text class="svg-sub" x="960" y="549">discarded</text>
+              </svg>

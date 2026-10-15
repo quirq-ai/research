@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 704 432" role="img" aria-label="Horizontal bar chart of the bytes needed to send what-the-parser-hears/index.html, 367,737 bytes, on a linear axis from 0 to 100,000 bytes; the uncompressed bar is cut. Bytes and percent of the original: identity 367,737 (100%); gzip -6 87,797 (23.9%); gzip -9 87,185 (23.7%); br at brotli 5 79,485 (21.6%); br at brotli 11 68,906 (18.7%); dcb at brotli 5 with a dictionary 70,079 (19.1%); dcb at brotli 11 with a dictionary 61,970 (16.9%); zstd level 3 88,345 (24.0%); zstd level 19 74,639 (20.3%); dcz at zstd 3 with a dictionary 81,205 (22.1%); dcz at zstd 19 with a dictionary 65,060 (17.7%). The dictionary is another post from the same site, where-the-json-lives/index.html, 227,281 bytes. Grey marks no coding, blue a coding without a dictionary, green the same coding with the dictionary."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="704.0" height="432.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="16">BYTES ON THE WIRE · ONE 367,737-BYTE PAGE · LINEAR AXIS</text>
+                <rect fill="#f7f7f5" height="14" rx="3" stroke="#b8b8b1" width="14" x="0" y="30"></rect>
+                <text class="svg-sub" x="22" y="41">identity, no coding</text>
+                <rect fill="#e0ebf2" height="14" rx="3" stroke="#3c6f97" width="14" x="180" y="30"></rect>
+                <text class="svg-sub" x="202" y="41">one coding, no dictionary</text>
+                <rect fill="#dfede5" height="14" rx="3" stroke="#367f59" width="14" x="408" y="30"></rect>
+                <text class="svg-sub" x="430" y="41">with a sibling post as dictionary</text>
+
+                <line stroke="#b8b8b1" x1="212" x2="212" y1="66" y2="358"></line>
+                <line stroke="#b8b8b1" x1="212" x2="652" y1="358" y2="358"></line>
+                <line stroke="#b8b8b1" x1="307" x2="307" y1="358" y2="364"></line>
+                <line stroke="#b8b8b1" x1="402" x2="402" y1="358" y2="364"></line>
+                <line stroke="#b8b8b1" x1="497" x2="497" y1="358" y2="364"></line>
+                <line stroke="#b8b8b1" x1="592" x2="592" y1="358" y2="364"></line>
+                <text class="svg-sub" text-anchor="middle" x="212" y="376">0</text>
+                <text class="svg-sub" text-anchor="middle" x="307" y="376">25,000</text>
+                <text class="svg-sub" text-anchor="middle" x="402" y="376">50,000</text>
+                <text class="svg-sub" text-anchor="middle" x="497" y="376">75,000</text>
+                <text class="svg-sub" text-anchor="middle" x="592" y="376">100,000 B</text>
+
+                <text class="svg-sub" text-anchor="end" x="200" y="88">identity</text>
+                <rect fill="#f7f7f5" height="14" rx="2" stroke="#b8b8b1" width="440" x="212" y="77"></rect>
+                <path d="M604 75 L612 93 M612 75 L620 93" stroke="#ffffff" stroke-width="3"></path>
+                <text class="svg-sub" x="222" y="88">367,737 B · 100% · bar cut</text>
+                <text class="svg-sub" text-anchor="end" x="200" y="114">gzip -6</text>
+                <rect fill="#e0ebf2" height="14" rx="2" stroke="#3c6f97" width="333.6" x="212" y="103"></rect>
+                <text class="svg-sub" x="553.6" y="114">87,797 B · 23.9%</text>
+                <text class="svg-sub" text-anchor="end" x="200" y="140">gzip -9</text>
+                <rect fill="#e0ebf2" height="14" rx="2" stroke="#3c6f97" width="331.3" x="212" y="129"></rect>
+                <text class="svg-sub" x="551.3" y="140">87,185 B · 23.7%</text>
+                <text class="svg-sub" text-anchor="end" x="200" y="166">br · brotli 5</text>
+                <rect fill="#e0ebf2" height="14" rx="2" stroke="#3c6f97" width="302.0" x="212" y="155"></rect>
+                <text class="svg-sub" x="522.0" y="166">79,485 B · 21.6%</text>
+                <text class="svg-sub" text-anchor="end" x="200" y="192">br · brotli 11</text>
+                <rect fill="#e0ebf2" height="14" rx="2" stroke="#3c6f97" width="261.8" x="212" y="181"></rect>
+                <text class="svg-sub" x="481.8" y="192">68,906 B · 18.7%</text>
+                <text class="svg-sub" text-anchor="end" x="200" y="218">dcb · brotli 5</text>
+                <rect fill="#dfede5" height="14" rx="2" stroke="#367f59" width="266.3" x="212" y="207"></rect>
+                <text class="svg-sub" x="486.3" y="218">70,079 B · 19.1%</text>
+                <text class="svg-sub" text-anchor="end" x="200" y="244">dcb · brotli 11</text>
+                <rect fill="#dfede5" height="14" rx="2" stroke="#367f59" width="235.5" x="212" y="233"></rect>
+                <text class="svg-sub" x="455.5" y="244">61,970 B · 16.9%</text>
+                <text class="svg-sub" text-anchor="end" x="200" y="270">zstd · level 3</text>
+                <rect fill="#e0ebf2" height="14" rx="2" stroke="#3c6f97" width="335.7" x="212" y="259"></rect>
+                <text class="svg-sub" x="555.7" y="270">88,345 B · 24.0%</text>
+                <text class="svg-sub" text-anchor="end" x="200" y="296">zstd · level 19</text>
+                <rect fill="#e0ebf2" height="14" rx="2" stroke="#3c6f97" width="283.6" x="212" y="285"></rect>
+                <text class="svg-sub" x="503.6" y="296">74,639 B · 20.3%</text>
+                <text class="svg-sub" text-anchor="end" x="200" y="322">dcz · zstd 3</text>
+                <rect fill="#dfede5" height="14" rx="2" stroke="#367f59" width="308.6" x="212" y="311"></rect>
+                <text class="svg-sub" x="528.6" y="322">81,205 B · 22.1%</text>
+                <text class="svg-sub" text-anchor="end" x="200" y="348">dcz · zstd 19</text>
+                <rect fill="#dfede5" height="14" rx="2" stroke="#367f59" width="247.2" x="212" y="337"></rect>
+                <text class="svg-sub" x="467.2" y="348">65,060 B · 17.7%</text>
+
+                <text class="svg-note" x="0" y="404">Brotli 11 is the smallest single coding; the dictionary takes another 10.1% off it.</text>
+                <text class="svg-note" x="0" y="422">dcb and dcz counts include their 36- and 40-byte headers.</text>
+              </svg>

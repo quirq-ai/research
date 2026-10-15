@@ -25,6 +25,14 @@ read at commit `a5a356d`. The research informs how xo-space reads, writes
 back and stores its configuration and state, and how quirq could write down
 its outcome spec.
 
+This topic also collects suraj's research on compression from his writings:
+what compression and compaction each keep, and which codec, level or format
+each kind of file wants. The source is two posts in
+[sharmasuraj0123/writings](https://github.com/sharmasuraj0123/writings) at
+`a5a356d`, both first published on 9 October 2026. They inform how the XO
+repos store, send and compact data, from JSON and logs to an agent's context
+window.
+
 ## Research questions
 
 1. **Agent and UI integration patterns.** How do agent frameworks connect an
@@ -50,6 +58,9 @@ its outcome spec.
 10. **TOML files.** How does a `.toml` file become typed data and then program behaviour, and which decisions belong to the application?
 11. **Storing JSON.** Where should JSON that a system loads and stores all day live, and how is that built from free, open-source parts?
 12. **Our own trees.** How do xo-space and the other XO trees read, write and store configuration and JSON state today?
+13. **What do compression and compaction each keep?** What lossless and lossy compression, storage compaction and an agent's context compaction keep, what they drop, and whether it can come back.
+14. **Which codec, level or format does each kind of file want?** JSON, small messages, binary encodings, config files, logs, tables, images, audio, video and already-compressed files, as measured in October 2026.
+15. **Where does compression meet the XO trees and agent sessions?** The xo-space backup tarball and compaction fields, Mindwalk's compaction marks, and what agent CLIs do with their transcripts.
 
 ## Research action
 
@@ -78,6 +89,11 @@ its outcome spec.
   the tree, measured, reconstructed or proposed.
 - Publish a one-pager with the key numbers and a link to each report section
   it draws on.
+- Bring both compression posts into this topic as reports, with their text,
+  tables and figures unchanged. Credit and link each original at `a5a356d`.
+- Keep the posts' own labels: from the paper, from the spec, from the docs,
+  from the tree, measured here and reconstruction.
+- Publish a one-pager with the key numbers and a pointer to each report.
 
 ## Scope
 
@@ -89,6 +105,7 @@ its outcome spec.
   LangGraph's React SDK, the Vercel AI SDK and assistant-ui.
 - suraj's frontend-architecture posts in the writings repo: the Next.js 16.4 routing teardown, and the page-registry essay with its MagicPath section.
 - suraj's posts on configuration formats, TOML files and storing JSON, in the writings repo at commit `a5a356d`.
+- suraj's two compression posts at `a5a356d`, What Compression Keeps and What Each File Wants, with their figures.
 
 **Out of scope:**
 
@@ -100,6 +117,8 @@ its outcome spec.
 - New measurements of the data formats. The posts describe formats, parsers and databases as of October 2026. Re-running their harnesses or checking later releases would be new research.
 - Changing the XO trees the posts read. The posts read them and left them unchanged.
 - Acting on the related issue [#33 Crash consistency of agent runtime stores](https://github.com/quirq-ai/research/issues/33). It follows the repo's issue triage.
+- New compression measurements. The posts were measured on 10 October 2026 on one shared 2-CPU machine. Rerunning their harness or checking later releases would be new research.
+- Acting on the posts' suggestions for the XO trees, such as the xo-space backup tarball fix.
 
 ## Done when
 
@@ -114,6 +133,9 @@ its outcome spec.
 - The three data-format posts are published as reports, credited to suraj and linked to their originals at `a5a356d`.
 - The data-formats one-pager is published and listed in the README.
 - Each data-format finding in the README links the report section it comes from.
+- Both compression posts are published as reports, credited and linked to their originals.
+- A one-pager points a reader at the key numbers and at each report.
+- Each README finding names its report section and was checked against it.
 
 ## Requested outputs
 
