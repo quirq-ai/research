@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -14 1120 420" role="img" aria-label="Three panels. Left: one outer global proxy sits above two inner global objects, one for a detached Document A still held by closures and one for the current Document B. Middle: the seven-object LocalWindowProxy prototype chain beside the three-object RemoteWindowProxy chain. Right: a grid of frames by worlds, with the main-world column eager and isolated-world cells created on demand."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="-14.0" width="1120.0" height="420.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-split-window-arr-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="fig-split-window-arr-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="0" y="2">ONE FRAME, TWO DOCUMENTS</text>
+                <rect fill="#ffffff" height="50" rx="8" stroke="#252525" stroke-width="1.5" width="352" x="0" y="24"></rect>
+                <text class="svg-step" x="14" y="45">outer global proxy</text>
+                <text class="svg-sub" x="14" y="63">survives navigation · the frame's identity</text>
+                <line stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="88" x2="88" y1="76" y2="110"></line>
+                <line marker-end="url(#fig-split-window-arr-purple)" stroke="#765b98" stroke-width="1.5" x1="264" x2="264" y1="76" y2="110"></line>
+                <rect fill="#f7f7f5" height="62" rx="8" stroke="#b8b8b1" stroke-dasharray="5 4" width="166" x="0" y="112"></rect>
+                <text class="svg-step" x="14" y="134">inner global A</text>
+                <text class="svg-sub" x="14" y="151">Document A · detached</text>
+                <text class="svg-sub" x="14" y="167">closures still hold it</text>
+                <rect fill="#ece6f3" height="62" rx="8" stroke="#765b98" width="166" x="186" y="112"></rect>
+                <text class="svg-step" x="200" y="134">inner global B</text>
+                <text class="svg-sub" x="200" y="151">Document B · current</text>
+                <text class="svg-sub" x="200" y="167">globals live here</text>
+                <text class="svg-note" x="0" y="196">Reused only for the initial empty document, same-origin.</text>
+
+                <text class="svg-lane" x="384" y="2">PROTOTYPE CHAINS</text>
+                <rect fill="#ffffff" height="26" rx="5" stroke="#252525" stroke-width="1.5" width="166" x="384" y="24"></rect>
+                <text class="svg-sub" x="396" y="42">outer global proxy</text>
+                <rect fill="#ece6f3" height="26" rx="5" stroke="#765b98" width="166" x="384" y="56"></rect>
+                <text class="svg-sub" x="396" y="74">inner global object</text>
+                <rect fill="#e0ebf2" height="26" rx="5" stroke="#3c6f97" width="166" x="384" y="88"></rect>
+                <text class="svg-sub" x="396" y="106">Window.prototype</text>
+                <rect fill="#e0ebf2" height="26" rx="5" stroke="#3c6f97" width="166" x="384" y="120"></rect>
+                <text class="svg-sub" x="396" y="138">WindowProperties</text>
+                <rect fill="#e0ebf2" height="26" rx="5" stroke="#3c6f97" width="166" x="384" y="152"></rect>
+                <text class="svg-sub" x="396" y="170">EventTarget.prototype</text>
+                <rect fill="#e0ebf2" height="26" rx="5" stroke="#3c6f97" width="166" x="384" y="184"></rect>
+                <text class="svg-sub" x="396" y="202">Object.prototype</text>
+                <rect fill="#f7f7f5" height="26" rx="5" stroke="#b8b8b1" width="166" x="384" y="216"></rect>
+                <text class="svg-sub" x="396" y="234">null</text>
+                <text class="svg-num" x="384" y="258">7</text>
+                <text class="svg-sub" x="404" y="258">LocalWindowProxy</text>
+
+                <rect fill="#ffffff" height="26" rx="5" stroke="#252525" stroke-width="1.5" width="166" x="570" y="24"></rect>
+                <text class="svg-sub" x="582" y="42">outer global proxy</text>
+                <rect fill="#ece6f3" height="26" rx="5" stroke="#765b98" width="166" x="570" y="56"></rect>
+                <text class="svg-sub" x="582" y="74">inner global object</text>
+                <rect fill="#f7f7f5" height="26" rx="5" stroke="#b8b8b1" width="166" x="570" y="88"></rect>
+                <text class="svg-sub" x="582" y="106">null</text>
+                <rect fill="#f3dfdc" height="90" rx="5" stroke="#ad4b43" width="166" x="570" y="120"></rect>
+                <text class="svg-sub" x="582" y="142">every access is</text>
+                <text class="svg-sub" x="582" y="159">redirected through the</text>
+                <text class="svg-sub" x="582" y="176">cross-origin interceptors:</text>
+                <text class="svg-sub" x="582" y="196">it fails by definition</text>
+                <text class="svg-num" x="570" y="258">3</text>
+                <text class="svg-sub" x="590" y="258">RemoteWindowProxy</text>
+
+                <text class="svg-lane" x="768" y="2">N FRAMES × M WORLDS = N×M CONTEXTS</text>
+                <rect fill="#f7f7f5" height="26" rx="5" stroke="#b8b8b1" width="112" x="768" y="24"></rect>
+                <text class="svg-sub" x="780" y="42">main world</text>
+                <rect fill="#f7f7f5" height="26" rx="5" stroke="#b8b8b1" width="112" x="886" y="24"></rect>
+                <text class="svg-sub" x="898" y="42">isolated 1</text>
+                <rect fill="#f7f7f5" height="26" rx="5" stroke="#b8b8b1" width="112" x="1004" y="24"></rect>
+                <text class="svg-sub" x="1016" y="42">isolated 2</text>
+
+                <text class="svg-sub" x="768" y="76">frame A</text>
+                <rect fill="#e0ebf2" height="34" rx="5" stroke="#3c6f97" width="112" x="768" y="84"></rect>
+                <text class="svg-sub" x="780" y="106">eager</text>
+                <rect fill="#ffffff" height="34" rx="5" stroke="#b8b8b1" stroke-dasharray="5 4" width="112" x="886" y="84"></rect>
+                <text class="svg-sub" x="898" y="106">on demand</text>
+                <rect fill="#ffffff" height="34" rx="5" stroke="#b8b8b1" stroke-dasharray="5 4" width="112" x="1004" y="84"></rect>
+                <text class="svg-sub" x="1016" y="106">on demand</text>
+
+                <text class="svg-sub" x="768" y="146">frame B</text>
+                <rect fill="#e0ebf2" height="34" rx="5" stroke="#3c6f97" width="112" x="768" y="154"></rect>
+                <text class="svg-sub" x="780" y="176">eager</text>
+                <rect fill="#ffffff" height="34" rx="5" stroke="#b8b8b1" stroke-dasharray="5 4" width="112" x="886" y="154"></rect>
+                <text class="svg-sub" x="898" y="176">on demand</text>
+                <rect fill="#ffffff" height="34" rx="5" stroke="#b8b8b1" stroke-dasharray="5 4" width="112" x="1004" y="154"></rect>
+                <text class="svg-sub" x="1016" y="176">on demand</text>
+
+                <text class="svg-sub" x="768" y="216">frame C</text>
+                <rect fill="#e0ebf2" height="34" rx="5" stroke="#3c6f97" width="112" x="768" y="224"></rect>
+                <text class="svg-sub" x="780" y="246">eager</text>
+                <rect fill="#ffffff" height="34" rx="5" stroke="#b8b8b1" stroke-dasharray="5 4" width="112" x="886" y="224"></rect>
+                <text class="svg-sub" x="898" y="246">on demand</text>
+                <rect fill="#ffffff" height="34" rx="5" stroke="#b8b8b1" stroke-dasharray="5 4" width="112" x="1004" y="224"></rect>
+                <text class="svg-sub" x="1016" y="246">on demand</text>
+                <text class="svg-note" x="768" y="286">Two of these shapes ship pre-built in v8_context_snapshot.bin.</text>
+
+                <rect fill="#f7f7f5" height="62" rx="8" stroke="#b8b8b1" width="1120" x="0" y="312"></rect>
+                <text class="svg-lane" x="14" y="334">SIX LIFECYCLE STATES</text>
+                <text class="svg-sub" x="14" y="356">kContextIsUninitialized · kContextIsInitialized · kV8MemoryIsForciblyPurged · kGlobalObjectIsDetached · kFrameIsDetached · kFrameIsDetachedAndV8MemoryIsPurged</text>
+              </svg>

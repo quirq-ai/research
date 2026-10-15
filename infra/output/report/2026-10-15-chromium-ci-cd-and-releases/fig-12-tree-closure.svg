@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -6 1080 566" role="img" aria-label="Three panels. Left: the gitiles trigger fans out to 386 CI builders directly and 255 by their parents, of which 133 are tree closers. Middle: a truth table of the seven regexp entries against the step status each can actually reach, with bot_update marked unreachable and gclient runhooks marked as the one that fires, above an OPEN / THROTTLED / CLOSED state machine with an asymmetric reopen arrow. Right: the LUCI Bisection loop from nth-section to a submitted revert, with its five refusal gates and daily limits."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="-6.0" width="1080.0" height="566.0" fill="#ffffff"/>
+      <defs>
+        <marker id="fig-tree-closure-arr-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+        <marker id="fig-tree-closure-arr-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+        <marker id="fig-tree-closure-arr-red" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#ad4b43"></path></marker>
+      </defs>
+
+      <line stroke="#deded9" x1="312" x2="312" y1="8" y2="552"></line>
+      <line stroke="#deded9" x1="756" x2="756" y1="8" y2="552"></line>
+
+      <text class="svg-lane" x="8" y="22">FAN-OUT</text>
+      <rect fill="#f7f7f5" height="56" rx="8" stroke="#252525" width="284" x="10" y="38"></rect>
+      <text class="svg-step" x="24" y="62">chromium-gitiles-trigger</text>
+      <text class="svg-sub" x="24" y="82">polls refs/heads/main</text>
+      <line marker-end="url(#fig-tree-closure-arr-ink)" stroke="#252525" stroke-width="2.5" x1="152" x2="152" y1="94" y2="128"></line>
+
+      <rect fill="#e0ebf2" height="58" rx="8" stroke="#3c6f97" width="284" x="10" y="128"></rect>
+      <text class="svg-step" x="24" y="152">386 builders, triggered directly</text>
+      <text class="svg-sub" x="24" y="172">luci-scheduler.cfg:6647–7040</text>
+      <line marker-end="url(#fig-tree-closure-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="152" x2="152" y1="186" y2="218"></line>
+
+      <rect fill="#ece6f3" height="76" rx="8" stroke="#765b98" width="284" x="10" y="218"></rect>
+      <text class="svg-step" x="24" y="242">255 more, by their parents</text>
+      <text class="svg-sub" x="24" y="262">scheduler.GitilesTrigger, in-recipe</text>
+      <text class="svg-sub" x="24" y="280">parent_got_* · deps_revision_overrides</text>
+
+      <text class="svg-note" x="10" y="316">641 builders in bucket ci · 386 + 255</text>
+      <line marker-end="url(#fig-tree-closure-arr-ink)" stroke="#252525" stroke-width="2.5" x1="152" x2="152" y1="326" y2="356"></line>
+
+      <rect fill="#f3dfdc" height="58" rx="8" stroke="#ad4b43" width="284" x="10" y="356"></rect>
+      <text class="svg-step" x="24" y="380">133 are tree closers</text>
+      <text class="svg-sub" x="24" y="400">of 252 notifiers in luci-notify.cfg</text>
+      <line marker-end="url(#fig-tree-closure-arr-red)" stroke="#ad4b43" stroke-width="2.5" x1="294" x2="336" y1="385" y2="385"></line>
+
+      <text class="svg-lane" x="336" y="22">WHICH FAILING STEP CLOSES IT</text>
+      <rect fill="#f7f7f5" height="28" stroke="#b8b8b1" width="392" x="336" y="34"></rect>
+      <text class="svg-lane" x="346" y="53">STEP IN THE REGEXP</text>
+      <text class="svg-lane" x="556" y="53">STATUS IT REACHES</text>
+      <text class="svg-lane" x="700" y="53">TREE</text>
+
+      <rect fill="#ffffff" height="30" stroke="#deded9" width="392" x="336" y="62"></rect>
+      <rect fill="#f3dfdc" height="30" stroke="#ad4b43" width="60" x="668" y="62"></rect>
+      <text class="svg-sub" x="346" y="82">bot_update</text>
+      <text class="svg-sub" x="556" y="82">INFRA_FAILURE</text>
+      <text class="svg-sub" x="678" y="82">never</text>
+
+      <rect fill="#ffffff" height="30" stroke="#deded9" width="392" x="336" y="92"></rect>
+      <rect fill="#dfede5" height="30" stroke="#367f59" width="60" x="668" y="92"></rect>
+      <text class="svg-sub" x="346" y="112">compile</text>
+      <text class="svg-sub" x="556" y="112">FAILURE</text>
+      <text class="svg-sub" x="678" y="112">closes</text>
+
+      <rect fill="#f7f7f5" height="30" stroke="#deded9" width="392" x="336" y="122"></rect>
+      <rect fill="#dfede5" height="30" stroke="#367f59" width="60" x="668" y="122"></rect>
+      <text class="svg-sub" x="346" y="142">gclient runhooks</text>
+      <text class="svg-sub" x="556" y="142">FAILURE (not infra)</text>
+      <text class="svg-sub" x="678" y="142">closes</text>
+
+      <rect fill="#ffffff" height="30" stroke="#deded9" width="392" x="336" y="152"></rect>
+      <rect fill="#dfede5" height="30" stroke="#367f59" width="60" x="668" y="152"></rect>
+      <text class="svg-sub" x="346" y="172">generate_build_files · *nocompile</text>
+      <text class="svg-sub" x="556" y="172">FAILURE</text>
+      <text class="svg-sub" x="678" y="172">closes</text>
+
+      <rect fill="#ffffff" height="30" stroke="#deded9" width="392" x="336" y="182"></rect>
+      <rect fill="#f3dfdc" height="30" stroke="#ad4b43" width="60" x="668" y="182"></rect>
+      <text class="svg-sub" x="346" y="202">runhooks · update</text>
+      <text class="svg-sub" x="556" y="202">no step emits these</text>
+      <text class="svg-sub" x="678" y="202">never</text>
+
+      <text class="svg-note" x="336" y="230">LUCI Notify ignores any build that is not SUCCESS or FAILURE.</text>
+      <text class="svg-note" x="336" y="248">So the bot_update row is dead config, not a rule.</text>
+
+      <text class="svg-lane" x="336" y="288">AND THE STATE IT WRITES</text>
+      <rect fill="#dfede5" height="50" rx="8" stroke="#367f59" width="150" x="336" y="302"></rect>
+      <text class="svg-step" x="350" y="326">OPEN</text>
+      <text class="svg-sub" x="350" y="344">CQ may submit</text>
+
+      <rect fill="#f7e3c8" height="50" rx="8" stroke="#d98226" width="212" x="516" y="302"></rect>
+      <text class="svg-step" x="530" y="326">THROTTLED · MAINTENANCE</text>
+      <text class="svg-sub" x="530" y="344">read as closed</text>
+
+      <line marker-end="url(#fig-tree-closure-arr-ink)" stroke="#252525" stroke-width="2.5" x1="372" x2="372" y1="352" y2="410"></line>
+      <text class="svg-note" x="380" y="378">a closer fails</text>
+      <path d="M452 410 C470 390 470 372 452 352" fill="none" marker-end="url(#fig-tree-closure-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+
+      <rect fill="#f3dfdc" height="62" rx="8" stroke="#ad4b43" width="172" x="336" y="410"></rect>
+      <text class="svg-step" x="350" y="434">CLOSED (automatic)</text>
+      <text class="svg-sub" x="350" y="452">reopens: all closers pass,</text>
+      <text class="svg-sub" x="350" y="466">or a culprit revert lands</text>
+
+      <rect fill="#ffffff" height="62" rx="8" stroke="#ad4b43" width="188" x="540" y="410"></rect>
+      <text class="svg-step" x="554" y="434">CLOSED (manual)</text>
+      <text class="svg-sub" x="554" y="452">always left unchanged —</text>
+      <text class="svg-sub" x="554" y="466">no bot ever reopens it</text>
+
+      <text class="svg-note" x="336" y="496">Host: chromium-status.appspot.com, an App Engine proxy in front of</text>
+      <text class="svg-note" x="336" y="514">luci.tree_status.v1.TreeStatus. Both returned the same record, 2026-09-22.</text>
+
+      <text class="svg-lane" x="776" y="22">LUCI BISECTION</text>
+      <rect fill="#ece6f3" height="56" rx="8" stroke="#765b98" width="292" x="778" y="34"></rect>
+      <text class="svg-step" x="792" y="58">nth-section over the blamelist</text>
+      <text class="svg-sub" x="792" y="78">findit/gofindit-culprit-verification</text>
+      <line marker-end="url(#fig-tree-closure-arr-ink)" stroke="#252525" stroke-width="2.5" x1="924" x2="924" y1="90" y2="112"></line>
+
+      <rect fill="#ece6f3" height="52" rx="8" stroke="#765b98" width="292" x="778" y="112"></rect>
+      <text class="svg-step" x="792" y="136">culprit verification</text>
+      <text class="svg-sub" x="792" y="154">rerun the suspect and its parent</text>
+      <line marker-end="url(#fig-tree-closure-arr-ink)" stroke="#252525" stroke-width="2.5" x1="924" x2="924" y1="164" y2="186"></line>
+
+      <rect fill="#ffffff" height="126" rx="8" stroke="#b8b8b1" stroke-dasharray="4 4" width="292" x="778" y="186"></rect>
+      <text class="svg-step" x="792" y="208">It refuses to revert when</text>
+      <text class="svg-sub" x="792" y="228">· the author is an autoroller</text>
+      <text class="svg-sub" x="792" y="246">· the description says NOAUTOREVERT=true</text>
+      <text class="svg-sub" x="792" y="264">· merged changes depend on it</text>
+      <text class="svg-sub" x="792" y="282">· no gardener rotation watches the builder</text>
+      <text class="svg-sub" x="792" y="300">· the culprit is a sub-commit of a rolled dep</text>
+      <line marker-end="url(#fig-tree-closure-arr-ink)" stroke="#252525" stroke-width="2.5" x1="924" x2="924" y1="312" y2="334"></line>
+
+      <rect fill="#f7e3c8" height="52" rx="8" stroke="#d98226" width="292" x="778" y="334"></rect>
+      <text class="svg-step" x="792" y="358">create revert — 10 / day</text>
+      <text class="svg-sub" x="792" y="376">test failures stop here, always</text>
+      <line marker-end="url(#fig-tree-closure-arr-ink)" stroke="#252525" stroke-width="2.5" x1="924" x2="924" y1="386" y2="408"></line>
+
+      <rect fill="#dfede5" height="64" rx="8" stroke="#367f59" width="292" x="778" y="408"></rect>
+      <text class="svg-step" x="792" y="432">submit revert — 4 / day</text>
+      <text class="svg-sub" x="792" y="450">Owners-Override+1 · Bot-Commit+1</text>
+      <text class="svg-sub" x="792" y="466">Commit-Queue+2 · compile only · under 6 h</text>
+
+      <path d="M778 440 C740 440 740 500 560 490" fill="none" marker-end="url(#fig-tree-closure-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+      <text class="svg-note" text-anchor="middle" x="600" y="540">a landed culprit revert is one of the two ways an automatically closed tree reopens</text>
+
+      <text class="svg-note" x="776" y="496">thick black = control · red = the tree-closing path</text>
+      <text class="svg-note" x="776" y="514">dashed purple = state written elsewhere</text>
+    </svg>

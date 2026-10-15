@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 972" role="img" aria-label="A vertical sequence. CMDsync, LoadCurrentConfig and SetConfig feed an ExecutionQueue. The queue runs a per-dependency block of four steps — checkout, parse DEPS, pre_deps_hooks, enqueue children — whose children loop back into the queue. Two gates on the right govern what may start: the requirements rule and the one-job-per-URL rule. A timer gutter on the left marks sixty seconds and three hundred seconds. A dashed branch on the right shows GCS objects downloading during the walk. A heavy bar marks the queue draining, below which five steps run in order: gclient_args.gni, removing unversioned directories, one cipd ensure, hooks, and writing the previous sync commits."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1100.0" height="972.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-sync-sequence-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="fig-sync-sequence-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+                <text class="svg-lane" x="12" y="26">TIMERS</text>
+                <text class="svg-lane" x="190" y="26">ONE SYNC, TOP TO BOTTOM</text>
+                <text class="svg-lane" x="640" y="26">GATES, THE CAP, AND THE ONE SIDE BRANCH</text>
+
+                <rect fill="#ffffff" height="54" rx="8" stroke="#252525" width="400" x="190" y="44"></rect>
+                <text class="svg-num" text-anchor="end" x="574" y="66">01</text>
+                <text class="svg-step" x="206" y="68">CMDsync</text>
+                <text class="svg-sub" x="206" y="88">--jobs = max(8, CPUs); 1 on non-Mac ARM</text>
+
+                <rect fill="#ffffff" height="54" rx="8" stroke="#252525" width="400" x="190" y="114"></rect>
+                <text class="svg-num" text-anchor="end" x="574" y="136">02</text>
+                <text class="svg-step" x="206" y="138">LoadCurrentConfig</text>
+                <text class="svg-sub" x="206" y="158">walk up to .gclient; .gclient_entries checks the cwd</text>
+
+                <rect fill="#ffffff" height="54" rx="8" stroke="#252525" width="400" x="190" y="184"></rect>
+                <text class="svg-num" text-anchor="end" x="574" y="206">03</text>
+                <text class="svg-step" x="206" y="208">SetConfig</text>
+                <text class="svg-sub" x="206" y="228">each solution becomes a GitDependency</text>
+
+                <rect fill="#e0ebf2" height="54" rx="8" stroke="#3c6f97" width="400" x="190" y="254"></rect>
+                <text class="svg-num" text-anchor="end" x="574" y="276">04</text>
+                <text class="svg-step" x="206" y="278">ExecutionQueue(jobs) · enqueue · flush</text>
+                <text class="svg-sub" x="206" y="298">one daemon thread per running dependency</text>
+
+                <line marker-end="url(#fig-sync-sequence-ink)" stroke="#252525" stroke-width="2.5" x1="390" x2="390" y1="98" y2="114"></line>
+                <line marker-end="url(#fig-sync-sequence-ink)" stroke="#252525" stroke-width="2.5" x1="390" x2="390" y1="168" y2="184"></line>
+                <line marker-end="url(#fig-sync-sequence-ink)" stroke="#252525" stroke-width="2.5" x1="390" x2="390" y1="238" y2="254"></line>
+                <line marker-end="url(#fig-sync-sequence-ink)" stroke="#252525" stroke-width="2.5" x1="390" x2="390" y1="308" y2="326"></line>
+
+                <rect fill="#f7f7f5" height="204" rx="10" stroke="#b8b8b1" width="400" x="190" y="326"></rect>
+                <text class="svg-lane" x="206" y="350">PER DEPENDENCY — MANY AT ONCE</text>
+                <rect fill="#ffffff" height="36" rx="6" stroke="#deded9" width="368" x="206" y="360"></rect>
+                <text class="svg-sub" x="220" y="383">05 · check out — GitWrapper.update</text>
+                <rect fill="#ffffff" height="36" rx="6" stroke="#deded9" width="368" x="206" y="402"></rect>
+                <text class="svg-sub" x="220" y="425">06 · ParseDepsFile — only if it may recurse</text>
+                <rect fill="#ffffff" height="36" rx="6" stroke="#deded9" width="368" x="206" y="444"></rect>
+                <text class="svg-sub" x="220" y="467">07 · pre_deps_hooks — unless --noprehooks</text>
+                <rect fill="#ffffff" height="36" rx="6" stroke="#deded9" width="368" x="206" y="486"></rect>
+                <text class="svg-sub" x="220" y="509">08 · enqueue children whose condition is true</text>
+
+                <path d="M590 504 L614 504 L614 281 L594 281" fill="none" marker-end="url(#fig-sync-sequence-ink)" stroke="#252525" stroke-width="2.5"></path>
+
+                <line stroke="#b8b8b1" stroke-dasharray="4 4" stroke-width="1.5" x1="158" x2="158" y1="254" y2="556"></line>
+                <line stroke="#d98226" stroke-width="2.5" x1="150" x2="166" y1="360" y2="360"></line>
+                <text class="svg-sub" x="12" y="352">60 s</text>
+                <text class="svg-note" x="12" y="370">"Still working on:"</text>
+                <text class="svg-note" x="12" y="386">added 2014-04-08</text>
+                <line stroke="#ad4b43" stroke-width="2.5" x1="150" x2="166" y1="470" y2="470"></line>
+                <text class="svg-sub" x="12" y="462">300 s</text>
+                <text class="svg-note" x="12" y="480">"STALL DETECTED"</text>
+                <text class="svg-note" x="12" y="496">added 2026-04-16</text>
+
+                <rect fill="#e0ebf2" height="88" rx="8" stroke="#3c6f97" width="448" x="640" y="254"></rect>
+                <text class="svg-lane" x="656" y="278">GATE 1 — EVERY REQUIREMENT HAS RUN</text>
+                <text class="svg-sub" x="656" y="300">the parent · every top-level solution, for a</text>
+                <text class="svg-sub" x="656" y="318">second-level node · any dep whose name is a</text>
+                <text class="svg-sub" x="656" y="336">path prefix of this one</text>
+
+                <rect fill="#e0ebf2" height="70" rx="8" stroke="#3c6f97" width="448" x="640" y="356"></rect>
+                <text class="svg-lane" x="656" y="380">GATE 2 — ONE JOB PER REPOSITORY</text>
+                <text class="svg-sub" x="656" y="402">resource = url.split("@")[0]; two pins on one</text>
+                <text class="svg-sub" x="656" y="420">repo are serialised, never concurrent</text>
+
+                <rect fill="#ece6f3" height="70" rx="8" stroke="#765b98" width="448" x="640" y="440"></rect>
+                <text class="svg-lane" x="656" y="464">CAP — RECURSION LIMIT 2</text>
+                <text class="svg-sub" x="656" y="486">"Only solution level and immediate DEPS are</text>
+                <text class="svg-sub" x="656" y="504">processed"; children inherit the parent condition</text>
+
+                <path d="M574 522 L614 522 L614 560 L640 560" fill="none" marker-end="url(#fig-sync-sequence-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+                <rect fill="#ece6f3" height="88" rx="8" stroke="#765b98" width="448" x="640" y="524"></rect>
+                <text class="svg-lane" x="656" y="548">SIDE BRANCH — GCS, DURING THE WALK</text>
+                <text class="svg-sub" x="656" y="570">gsutil cp · verify sha256sum and size_bytes</text>
+                <text class="svg-sub" x="656" y="588">· auto-extract tar or zip · three marker files</text>
+                <text class="svg-sub" x="656" y="606">· recorded in .gcs_entries — not in the epilogue</text>
+
+                <rect fill="#f3dfdc" height="38" rx="6" stroke="#ad4b43" stroke-width="2" width="400" x="190" y="556"></rect>
+                <text class="svg-step" text-anchor="middle" x="390" y="581">QUEUE DRAINS</text>
+
+                <line marker-end="url(#fig-sync-sequence-ink)" stroke="#252525" stroke-width="2.5" x1="390" x2="390" y1="530" y2="556"></line>
+
+                <rect fill="#dfede5" height="50" rx="8" stroke="#367f59" width="400" x="190" y="622"></rect>
+                <text class="svg-num" text-anchor="end" x="574" y="644">09</text>
+                <text class="svg-step" x="206" y="646">gclient_args.gni</text>
+                <text class="svg-sub" x="206" y="664">rewritten only if the bytes differ</text>
+
+                <rect fill="#dfede5" height="50" rx="8" stroke="#367f59" width="400" x="190" y="690"></rect>
+                <text class="svg-num" text-anchor="end" x="574" y="712">10</text>
+                <text class="svg-step" x="206" y="714">_RemoveUnversionedGitDirs</text>
+                <text class="svg-sub" x="206" y="732">deletes only with -D; git restore for gitlinks</text>
+
+                <rect fill="#dfede5" height="50" rx="8" stroke="#367f59" width="400" x="190" y="758"></rect>
+                <text class="svg-num" text-anchor="end" x="574" y="780">11</text>
+                <text class="svg-step" x="206" y="782">one cipd ensure</text>
+                <text class="svg-sub" x="206" y="800">every package from every DEPS, one file</text>
+
+                <rect fill="#dfede5" height="50" rx="8" stroke="#367f59" width="400" x="190" y="826"></rect>
+                <text class="svg-num" text-anchor="end" x="574" y="848">12</text>
+                <text class="svg-step" x="206" y="850">hooks</text>
+                <text class="svg-sub" x="206" y="868">root first, then depth-first; a failure exits 2</text>
+
+                <rect fill="#dfede5" height="50" rx="8" stroke="#367f59" width="400" x="190" y="894"></rect>
+                <text class="svg-num" text-anchor="end" x="574" y="916">13</text>
+                <text class="svg-step" x="206" y="918">.gclient_previous_sync_commits</text>
+                <text class="svg-sub" x="206" y="936">the commit each dep landed on, for next time</text>
+
+                <line marker-end="url(#fig-sync-sequence-ink)" stroke="#252525" stroke-width="2.5" x1="390" x2="390" y1="594" y2="622"></line>
+                <line marker-end="url(#fig-sync-sequence-ink)" stroke="#252525" stroke-width="2.5" x1="390" x2="390" y1="672" y2="690"></line>
+                <line marker-end="url(#fig-sync-sequence-ink)" stroke="#252525" stroke-width="2.5" x1="390" x2="390" y1="740" y2="758"></line>
+                <line marker-end="url(#fig-sync-sequence-ink)" stroke="#252525" stroke-width="2.5" x1="390" x2="390" y1="808" y2="826"></line>
+                <line marker-end="url(#fig-sync-sequence-ink)" stroke="#252525" stroke-width="2.5" x1="390" x2="390" y1="876" y2="894"></line>
+
+                <text class="svg-note" x="640" y="642">thick black = sequence · blue = the queue and its gates · grey = repeating</text>
+                <text class="svg-note" x="640" y="662">red = the barrier · green = the epilogue · dashed purple = the exception</text>
+              </svg>

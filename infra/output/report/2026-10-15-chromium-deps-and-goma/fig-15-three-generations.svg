@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 686" role="img" aria-label="A table of three columns — Goma, Reclient, Siso — against five rows: wrapper, daemon, input discovery, transport, cache. Goma uses gomacc, compiler_proxy, a full C preprocessor, HTTP/1.1 with protobuf bodies, and its own backend cache. Reclient uses rewrapper, reproxy, the same include scanner under the name scandeps_server, gRPC REAPI, and the RBE action cache. Siso has no wrapper and no daemon, a forged scanner called scandeps, a built-in gRPC REAPI client, and the RBE action cache plus a local digest cache. Underneath, three timeline tracks on one axis from 2012 to 2026 mark goma described 2012-06, open-sourced 2018-01, backend moved to RBE 2020-11, deprecation PSA 2023-09, GN args deleted 2024-05; reclient landing 2020-12 and deprecated in GN 2025-11; Siso dogfood 2023-04, all CQ 2024-03, default on gLinux 2024-11, default for everyone 2025-06, fast-deps deleted 2026-04."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1100.0" height="686.0" fill="#ffffff"/>
+                <text class="svg-lane" x="16" y="20">FIVE LAYERS, THREE IMPLEMENTATIONS</text>
+
+                <rect fill="#f3dfdc" height="28" rx="6" stroke="#ad4b43" width="300" x="156" y="30"></rect>
+                <text class="svg-step" x="170" y="49">GOMA — deleted 2024-05</text>
+                <rect fill="#f7e3c8" height="28" rx="6" stroke="#d98226" width="300" x="470" y="30"></rect>
+                <text class="svg-step" x="484" y="49">RECLIENT — deprecated</text>
+                <rect fill="#dfede5" height="28" rx="6" stroke="#367f59" width="300" x="784" y="30"></rect>
+                <text class="svg-step" x="798" y="49">SISO — the default</text>
+
+                <text class="svg-lane" x="16" y="94">WRAPPER</text>
+                <rect fill="#ffffff" height="60" rx="8" stroke="#ad4b43" width="300" x="156" y="68"></rect>
+                <text class="svg-sub" x="170" y="92">gomacc</text>
+                <text class="svg-note" x="170" y="112">argv → ExecReq · masquerade mode</text>
+                <rect fill="#ffffff" height="60" rx="8" stroke="#d98226" width="300" x="470" y="68"></rect>
+                <text class="svg-sub" x="484" y="92">rewrapper</text>
+                <text class="svg-note" x="484" y="112">-cfg=… -exec_root=… per compile</text>
+                <rect fill="#ffffff" height="60" rx="8" stroke="#367f59" width="300" x="784" y="68"></rect>
+                <text class="svg-sub" x="798" y="92">none</text>
+                <text class="svg-note" x="798" y="112">siso is the build tool itself</text>
+
+                <text class="svg-lane" x="16" y="162">DAEMON</text>
+                <rect fill="#ffffff" height="60" rx="8" stroke="#ad4b43" width="300" x="156" y="136"></rect>
+                <text class="svg-sub" x="170" y="160">compiler_proxy</text>
+                <text class="svg-note" x="170" y="180">CompileTask state machine</text>
+                <rect fill="#ffffff" height="60" rx="8" stroke="#d98226" width="300" x="470" y="136"></rect>
+                <text class="svg-sub" x="484" y="160">reproxy</text>
+                <text class="svg-note" x="484" y="180">bootstrap starts it and shuts it down</text>
+                <rect fill="#ffffff" height="60" rx="8" stroke="#367f59" width="300" x="784" y="136"></rect>
+                <text class="svg-sub" x="798" y="160">none</text>
+                <text class="svg-note" x="798" y="180">REAPI client inside the process</text>
+
+                <text class="svg-lane" x="16" y="224">INPUT</text>
+                <text class="svg-lane" x="16" y="240">DISCOVERY</text>
+                <rect fill="#f3dfdc" height="60" rx="8" stroke="#ad4b43" width="300" x="156" y="204"></rect>
+                <text class="svg-sub" x="170" y="228">full C preprocessor</text>
+                <text class="svg-note" x="170" y="248">#if evaluated · exact input set</text>
+                <rect fill="#f7e3c8" height="60" rx="8" stroke="#d98226" width="300" x="470" y="204"></rect>
+                <text class="svg-sub" x="484" y="228">scandeps_server</text>
+                <text class="svg-note" x="484" y="248">same engine — the -gomaip suffix</text>
+                <rect fill="#dfede5" height="60" rx="8" stroke="#367f59" width="300" x="784" y="204"></rect>
+                <text class="svg-sub" x="798" y="228">scandeps — "forged"</text>
+                <text class="svg-note" x="798" y="248">no #if · superset + precomputed subtrees</text>
+
+                <text class="svg-lane" x="16" y="292">TRANSPORT</text>
+                <rect fill="#ffffff" height="60" rx="8" stroke="#ad4b43" width="300" x="156" y="272"></rect>
+                <text class="svg-sub" x="170" y="296">HTTP/1.1 + protobuf</text>
+                <text class="svg-note" x="170" y="316">goma.chromium.org/cxx-compiler-service</text>
+                <rect fill="#ffffff" height="60" rx="8" stroke="#d98226" width="300" x="470" y="272"></rect>
+                <text class="svg-sub" x="484" y="296">gRPC · REAPI</text>
+                <text class="svg-note" x="484" y="316">remotebuildexecution.googleapis.com:443</text>
+                <rect fill="#ffffff" height="60" rx="8" stroke="#367f59" width="300" x="784" y="272"></rect>
+                <text class="svg-sub" x="798" y="296">gRPC · REAPI, built in</text>
+                <text class="svg-note" x="798" y="316">same backend, no middleman</text>
+
+                <text class="svg-lane" x="16" y="360">CACHE</text>
+                <rect fill="#ffffff" height="60" rx="8" stroke="#ad4b43" width="300" x="156" y="340"></rect>
+                <text class="svg-sub" x="170" y="364">goma backend cache</text>
+                <text class="svg-note" x="170" y="384">keyed by goma's own request</text>
+                <rect fill="#ffffff" height="60" rx="8" stroke="#d98226" width="300" x="470" y="340"></rect>
+                <text class="svg-sub" x="484" y="364">RBE action cache + CAS</text>
+                <text class="svg-note" x="484" y="384">keyed by the action digest</text>
+                <rect fill="#ffffff" height="60" rx="8" stroke="#367f59" width="300" x="784" y="340"></rect>
+                <text class="svg-sub" x="798" y="364">RBE action cache + CAS</text>
+                <text class="svg-note" x="798" y="384">plus hashfs · .siso_fs_state</text>
+
+                <text class="svg-lane" x="16" y="432">TIMELINE — ONE AXIS, THREE TRACKS</text>
+                <line stroke="#deded9" stroke-width="1" x1="90" x2="90" y1="440" y2="644"></line>
+                <line stroke="#deded9" stroke-width="1" x1="223" x2="223" y1="440" y2="644"></line>
+                <line stroke="#deded9" stroke-width="1" x1="356" x2="356" y1="440" y2="644"></line>
+                <line stroke="#deded9" stroke-width="1" x1="489" x2="489" y1="440" y2="644"></line>
+                <line stroke="#deded9" stroke-width="1" x1="622" x2="622" y1="440" y2="644"></line>
+                <line stroke="#deded9" stroke-width="1" x1="755" x2="755" y1="440" y2="644"></line>
+                <line stroke="#deded9" stroke-width="1" x1="888" x2="888" y1="440" y2="644"></line>
+                <line stroke="#deded9" stroke-width="1" x1="1021" x2="1021" y1="440" y2="644"></line>
+                <text class="svg-note" text-anchor="middle" x="90" y="672">2012</text>
+                <text class="svg-note" text-anchor="middle" x="223" y="672">2014</text>
+                <text class="svg-note" text-anchor="middle" x="356" y="672">2016</text>
+                <text class="svg-note" text-anchor="middle" x="489" y="672">2018</text>
+                <text class="svg-note" text-anchor="middle" x="622" y="672">2020</text>
+                <text class="svg-note" text-anchor="middle" x="755" y="672">2022</text>
+                <text class="svg-note" text-anchor="middle" x="888" y="672">2024</text>
+                <text class="svg-note" text-anchor="middle" x="1021" y="672">2026</text>
+
+                <line opacity="0.32" stroke="#ad4b43" stroke-linecap="round" stroke-width="6" x1="118" x2="912" y1="452" y2="452"></line>
+                <circle cx="118" cy="452" fill="#ad4b43" r="4"></circle>
+                <text class="svg-sub" text-anchor="middle" x="118" y="470">2012-06</text>
+                <text class="svg-note" text-anchor="middle" x="118" y="486">described</text>
+                <circle cx="489" cy="452" fill="#ad4b43" r="4"></circle>
+                <text class="svg-sub" text-anchor="middle" x="489" y="470">2018-01</text>
+                <text class="svg-note" text-anchor="middle" x="489" y="486">open-sourced</text>
+                <circle cx="679" cy="452" fill="#ad4b43" r="4"></circle>
+                <text class="svg-sub" text-anchor="middle" x="679" y="470">2020-11</text>
+                <text class="svg-note" text-anchor="middle" x="679" y="486">backend = RBE</text>
+                <circle cx="867" cy="452" fill="#ad4b43" r="4"></circle>
+                <text class="svg-sub" text-anchor="middle" x="867" y="470">2023-09</text>
+                <text class="svg-note" text-anchor="middle" x="867" y="486">deprecation PSA</text>
+                <circle cx="912" cy="452" fill="#ad4b43" r="4"></circle>
+                <line stroke="#ad4b43" stroke-dasharray="3 3" stroke-width="1" x1="912" x2="912" y1="456" y2="488"></line>
+                <text class="svg-sub" text-anchor="middle" x="912" y="500">2024-05</text>
+                <text class="svg-note" text-anchor="middle" x="912" y="516">GN args deleted</text>
+
+                <line opacity="0.32" stroke="#d98226" stroke-linecap="round" stroke-width="6" x1="685" x2="1070" y1="536" y2="536"></line>
+                <circle cx="685" cy="536" fill="#d98226" r="4"></circle>
+                <text class="svg-sub" text-anchor="middle" x="685" y="554">2020-12</text>
+                <text class="svg-note" text-anchor="middle" x="685" y="570">lands in rbe.gni</text>
+                <circle cx="1012" cy="536" fill="#d98226" r="4"></circle>
+                <text class="svg-sub" text-anchor="middle" x="1012" y="554">2025-11</text>
+                <text class="svg-note" text-anchor="middle" x="1012" y="570">deprecated in GN</text>
+
+                <line opacity="0.32" stroke="#367f59" stroke-linecap="round" stroke-width="6" x1="840" x2="1070" y1="590" y2="590"></line>
+                <circle cx="840" cy="590" fill="#367f59" r="4"></circle>
+                <text class="svg-sub" text-anchor="middle" x="840" y="608">2023-04</text>
+                <text class="svg-note" text-anchor="middle" x="840" y="624">dogfood</text>
+                <circle cx="904" cy="590" fill="#367f59" r="4"></circle>
+                <line stroke="#367f59" stroke-dasharray="3 3" stroke-width="1" x1="904" x2="904" y1="594" y2="620"></line>
+                <text class="svg-sub" text-anchor="middle" x="904" y="640">2024-03</text>
+                <text class="svg-note" text-anchor="middle" x="904" y="656">all CQ</text>
+                <circle cx="945" cy="590" fill="#367f59" r="4"></circle>
+                <text class="svg-sub" text-anchor="middle" x="945" y="608">2024-11</text>
+                <text class="svg-note" text-anchor="middle" x="945" y="624">default, gLinux</text>
+                <circle cx="984" cy="590" fill="#367f59" r="4"></circle>
+                <line stroke="#367f59" stroke-dasharray="3 3" stroke-width="1" x1="984" x2="984" y1="594" y2="620"></line>
+                <text class="svg-sub" text-anchor="middle" x="984" y="640">2025-06</text>
+                <text class="svg-note" text-anchor="middle" x="984" y="656">default for all</text>
+                <circle cx="1039" cy="590" fill="#367f59" r="4"></circle>
+                <text class="svg-sub" text-anchor="middle" x="1039" y="608">2026-04</text>
+                <text class="svg-note" text-anchor="middle" x="1039" y="624">fast-deps gone</text>
+              </svg>

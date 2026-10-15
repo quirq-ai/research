@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 586" role="img" aria-label="Left: the CV Run state machine from PENDING to SUCCEEDED, with SUBMITTING shaded as uncancellable. Right: the SubmitQueue entity with Current, Waitlist and History fields, its next-submission arithmetic, and a strip plot of commits showing at most two CV commits per sixty seconds with human submits as outliers. Bottom: the Gerrit submit band, rebase always to change message modifier to git-numberer to validator to ref update."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1080.0" height="586.0" fill="#ffffff"/>
+      <defs>
+        <marker id="fig-submit-machine-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+        <marker id="fig-submit-machine-blue" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+        <marker id="fig-submit-machine-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+      </defs>
+
+      <text class="svg-lane" x="30" y="24">CV RUN · storage.proto:30-73</text>
+      <rect fill="#f7f7f5" height="40" rx="8" stroke="#b8b8b1" width="250" x="30" y="38"></rect>
+      <text class="svg-step" x="46" y="63">PENDING</text>
+      <rect fill="#e0ebf2" height="40" rx="8" stroke="#3c6f97" width="250" x="30" y="112"></rect>
+      <text class="svg-step" x="46" y="137">RUNNING</text>
+      <rect fill="#ece6f3" height="52" rx="8" stroke="#765b98" width="250" x="30" y="186"></rect>
+      <text class="svg-step" x="46" y="209">WAITING_FOR_SUBMISSION</text>
+      <text class="svg-sub" x="46" y="228">cancellable · 3 documented causes</text>
+      <rect fill="#f3dfdc" height="52" rx="8" stroke="#ad4b43" width="250" x="30" y="272"></rect>
+      <text class="svg-step" x="46" y="295">SUBMITTING</text>
+      <text class="svg-sub" x="46" y="314">NOT cancellable · 20 min deadline</text>
+      <rect fill="#dfede5" height="40" rx="8" stroke="#367f59" width="118" x="30" y="358"></rect>
+      <text class="svg-step" x="46" y="383">SUCCEEDED</text>
+      <rect fill="#f7f7f5" height="40" rx="8" stroke="#b8b8b1" width="118" x="162" y="358"></rect>
+      <text class="svg-step" x="176" y="383">FAILED / CANC.</text>
+
+      <line marker-end="url(#fig-submit-machine-ink)" stroke="#252525" stroke-width="2.5" x1="72" x2="72" y1="78" y2="112"></line>
+      <text class="svg-sub" x="86" y="100">run quota available</text>
+      <line marker-end="url(#fig-submit-machine-ink)" stroke="#252525" stroke-width="2.5" x1="72" x2="72" y1="152" y2="186"></line>
+      <text class="svg-sub" x="86" y="174">tryjobs SUCCEEDED (tryjobs.go:101-105)</text>
+      <line marker-end="url(#fig-submit-machine-ink)" stroke="#252525" stroke-width="2.5" x1="72" x2="72" y1="238" y2="272"></line>
+      <text class="svg-sub" x="86" y="260">queue slot + tree open</text>
+      <line marker-end="url(#fig-submit-machine-ink)" stroke="#252525" stroke-width="2.5" x1="72" x2="72" y1="324" y2="358"></line>
+      <text class="svg-sub" x="86" y="346">every CL merged</text>
+      <path d="M280 212 C332 212 332 300 280 300" fill="none" marker-end="url(#fig-submit-machine-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+      <text class="svg-note" x="300" y="256">slot</text>
+
+      <text class="svg-lane" x="392" y="24">SUBMIT QUEUE · one entity per LUCI project</text>
+      <rect fill="#ffffff" height="126" rx="10" stroke="#252525" width="648" x="392" y="38"></rect>
+      <text class="svg-step" x="410" y="64">Current</text>
+      <text class="svg-sub" x="530" y="64">the Run submitting right now — there is only ever one</text>
+      <text class="svg-step" x="410" y="90">Waitlist</text>
+      <text class="svg-sub" x="530" y="90">FIFO; each Run is notified when its turn arrives</text>
+      <text class="svg-step" x="410" y="116">History</text>
+      <text class="svg-sub" x="530" y="116">submit timestamps inside BurstDelay (60 s)</text>
+      <text class="svg-step" x="410" y="146">Opts</text>
+      <text class="svg-sub" x="530" y="146">max_burst 2 · burst_delay 60 s (main.star:144-149)</text>
+
+      <rect fill="#f7f7f5" height="40" rx="8" stroke="#b8b8b1" width="648" x="392" y="180"></rect>
+      <text class="svg-sub" x="410" y="205">nextSubmissionETA(now) = History[len−2] + 60 s  if  History[len−2] &gt; now − 60 s,  else now</text>
+
+      <text class="svg-lane" x="392" y="252">400 CONSECUTIVE COMMITS ON MAIN · 12.6 h · 31.8/h</text>
+      <line stroke="#b8b8b1" stroke-width="1" x1="392" x2="1040" y1="300" y2="300"></line>
+      <rect fill="#f7f7f5" height="44" stroke="#deded9" width="150" x="418" y="278"></rect>
+      <text class="svg-note" text-anchor="middle" x="493" y="340">60 s window · 2 CV commits</text>
+      <circle cx="440" cy="300" fill="#3c6f97" r="5"></circle>
+      <circle cx="530" cy="300" fill="#3c6f97" r="5"></circle>
+      <circle cx="600" cy="300" fill="#3c6f97" r="5"></circle>
+      <circle cx="660" cy="300" fill="#3c6f97" r="5"></circle>
+      <rect fill="#f3dfdc" height="44" stroke="#ad4b43" width="150" x="716" y="278"></rect>
+      <circle cx="736" cy="300" fill="#3c6f97" r="5"></circle>
+      <circle cx="800" cy="300" fill="#ad4b43" r="5"></circle>
+      <circle cx="858" cy="300" fill="#3c6f97" r="5"></circle>
+      <text class="svg-note" text-anchor="middle" x="791" y="340">3 in 57.0 s — one is a human submit</text>
+      <circle cx="930" cy="300" fill="#3c6f97" r="5"></circle>
+      <circle cx="1010" cy="300" fill="#3c6f97" r="5"></circle>
+      <text class="svg-sub" x="392" y="368">blue = committer chromium-scoped (397/400) · red = direct human submit (3/400)</text>
+
+      <text class="svg-lane" x="376" y="424">GERRIT SUBMIT · one commit is written</text>
+      <rect fill="#e0ebf2" height="72" rx="8" stroke="#3c6f97" width="186" x="30" y="438"></rect>
+      <text class="svg-step" x="44" y="462">REBASE_ALWAYS</text>
+      <text class="svg-sub" x="44" y="481">rebase onto the tip even</text>
+      <text class="svg-sub" x="44" y="498">when a fast-forward works</text>
+      <rect fill="#ece6f3" height="72" rx="8" stroke="#765b98" width="186" x="244" y="438"></rect>
+      <text class="svg-step" x="258" y="462">ChangeMessage-</text>
+      <text class="svg-step" x="258" y="479">Modifier hook</text>
+      <text class="svg-sub" x="258" y="498">runs for 2 submit types only</text>
+      <rect fill="#f7e3c8" height="72" rx="8" stroke="#d98226" width="186" x="458" y="438"></rect>
+      <text class="svg-step" x="472" y="462">git-numberer</text>
+      <text class="svg-sub" x="472" y="481">parent @{#X}</text>
+      <text class="svg-sub" x="472" y="498">child  @{#X+1}</text>
+      <rect fill="#f3dfdc" height="72" rx="8" stroke="#ad4b43" width="186" x="672" y="438"></rect>
+      <text class="svg-step" x="686" y="462">validator</text>
+      <text class="svg-sub" x="686" y="481">one parent · X+1 · lineage</text>
+      <text class="svg-sub" x="686" y="498">no merge commits</text>
+      <rect fill="#dfede5" height="72" rx="8" stroke="#367f59" width="154" x="886" y="438"></rect>
+      <text class="svg-step" x="900" y="462">ref update</text>
+      <text class="svg-sub" x="900" y="481">refs/heads/main</text>
+      <text class="svg-sub" x="900" y="498">advances by one</text>
+
+      <line marker-end="url(#fig-submit-machine-ink)" stroke="#252525" stroke-width="2.5" x1="216" x2="244" y1="474" y2="474"></line>
+      <line marker-end="url(#fig-submit-machine-ink)" stroke="#252525" stroke-width="2.5" x1="430" x2="458" y1="474" y2="474"></line>
+      <line marker-end="url(#fig-submit-machine-ink)" stroke="#252525" stroke-width="2.5" x1="644" x2="672" y1="474" y2="474"></line>
+      <line marker-end="url(#fig-submit-machine-ink)" stroke="#252525" stroke-width="2.5" x1="858" x2="886" y1="474" y2="474"></line>
+      <path d="M280 310 L330 310 L330 420 L123 420 L123 438" fill="none" marker-end="url(#fig-submit-machine-blue)" stroke="#3c6f97" stroke-width="1.5"></path>
+      <text class="svg-sub" x="160" y="412">SubmitRevision, one CL at a time</text>
+      <text class="svg-note" x="30" y="546">thick black = control flow · thin blue = the Run that reached SUCCEEDED · dashed purple = the queue slot, taken and released</text>
+      <text class="svg-note" x="30" y="568">The three coloured bands are three separate systems: LUCI CV, Gerrit core, and a Gerrit plugin. None of them counts commits.</text>
+    </svg>

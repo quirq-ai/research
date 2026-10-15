@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 320" role="img" aria-label="Class hierarchy and in-memory node layout"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="320.0" fill="#ffffff"/>
+              <text class="svg-lane" x="30" y="30">INHERITANCE</text>
+              <line stroke="#deded9" x1="30" x2="520" y1="40" y2="40"></line>
+
+              <rect fill="#f7f7f5" height="28" rx="6" stroke="#252525" stroke-width="1.6" width="110" x="200" y="58"></rect>
+              <text class="svg-sub" text-anchor="middle" x="255" y="77">Node</text>
+              <g fill="none" stroke="#b8b8b1" stroke-width="1.2">
+                <line x1="255" x2="105" y1="86" y2="120"></line>
+                <line x1="255" x2="255" y1="86" y2="120"></line>
+                <line x1="255" x2="405" y1="86" y2="120"></line>
+                <line x1="255" x2="105" y1="148" y2="182"></line>
+                <line x1="255" x2="255" y1="148" y2="182"></line>
+                <line x1="255" x2="405" y1="148" y2="182"></line>
+              </g>
+              <rect fill="#f7f7f5" height="28" rx="6" stroke="#deded9" width="110" x="50" y="120"></rect>
+              <text class="svg-sub" text-anchor="middle" x="105" y="139">SubNode</text>
+              <rect fill="#f7e3c8" height="28" rx="6" stroke="#d98226" stroke-width="1.4" width="110" x="200" y="120"></rect>
+              <text class="svg-sub" text-anchor="middle" x="255" y="139">AddNode</text>
+              <rect fill="#f7f7f5" height="28" rx="6" stroke="#deded9" width="110" x="350" y="120"></rect>
+              <text class="svg-sub" text-anchor="middle" x="405" y="139">MulNode</text>
+
+              <rect fill="#f7f7f5" height="28" rx="6" stroke="#deded9" width="110" x="50" y="182"></rect>
+              <text class="svg-sub" text-anchor="middle" x="105" y="201">AndNode</text>
+              <rect fill="#f7f7f5" height="28" rx="6" stroke="#deded9" width="118" x="196" y="182"></rect>
+              <text class="svg-sub" text-anchor="middle" x="255" y="201">FloatAddNode</text>
+              <rect fill="#f7f7f5" height="28" rx="6" stroke="#deded9" width="110" x="350" y="182"></rect>
+              <text class="svg-sub" text-anchor="middle" x="405" y="201">IntAddNode</text>
+
+              <text class="svg-note" x="30" y="240">AddNode carries the algebra of a ring:</text>
+              <text class="svg-note" x="30" y="258">identities, commutativity, associativity.</text>
+              <text class="svg-note" x="30" y="276">IntAddNode adds only the identity elements</text>
+              <text class="svg-note" x="30" y="294">(0 and 1) and the printable name "iADD".</text>
+
+              <line stroke="#deded9" x1="560" x2="560" y1="20" y2="300"></line>
+
+              <text class="svg-lane" x="600" y="30">OBJECT LAYOUT</text>
+              <line stroke="#deded9" x1="600" x2="1080" y1="40" y2="40"></line>
+
+              <rect fill="#f7e3c8" height="30" rx="4" stroke="#d98226" stroke-width="1.6" width="220" x="600" y="58"></rect>
+              <text class="svg-sub" text-anchor="middle" x="710" y="78">virtual function table ptr</text>
+              <rect fill="#f7f7f5" height="26" rx="4" stroke="#deded9" width="220" x="600" y="90"></rect>
+              <text class="svg-sub" text-anchor="middle" x="710" y="108">array of input pointers</text>
+              <rect fill="#f7f7f5" height="26" rx="4" stroke="#deded9" width="220" x="600" y="118"></rect>
+              <text class="svg-sub" text-anchor="middle" x="710" y="136">count and total inputs</text>
+              <rect fill="#f7f7f5" height="26" rx="4" stroke="#deded9" width="220" x="600" y="146"></rect>
+              <text class="svg-sub" text-anchor="middle" x="710" y="164">name</text>
+              <rect fill="#e0ebf2" height="26" rx="4" stroke="#3c6f97" width="220" x="600" y="180"></rect>
+              <text class="svg-sub" text-anchor="middle" x="710" y="198">src[0], src[1] — the operands</text>
+              <rect fill="#ffffff" height="26" rx="4" stroke="#252525" stroke-width="1.4" width="220" x="600" y="208"></rect>
+              <text class="svg-sub" text-anchor="middle" x="710" y="226">src[2] — the controlling node</text>
+
+              <text class="svg-num" x="846" y="78">← the opcode</text>
+              <text class="svg-note" x="846" y="106">There is no opcode field.</text>
+              <text class="svg-note" x="846" y="124">The vtable pointer is unique</text>
+              <text class="svg-note" x="846" y="142">per class, so it identifies</text>
+              <text class="svg-note" x="846" y="160">the operation for free.</text>
+              <text class="svg-note" x="846" y="196">A whole SUB node:</text>
+              <text class="svg-note" x="846" y="214">one vtable pointer plus</text>
+              <text class="svg-note" x="846" y="232">three edge pointers.</text>
+              <text class="svg-note" x="600" y="262">Edges are stored backwards from the abstract design — the pointers run use → def, so a node</text>
+              <text class="svg-note" x="600" y="280">knows its inputs and not its users. Def-use edges are built in a fast batch pass just before a</text>
+              <text class="svg-note" x="600" y="298">forward analysis, then discarded, because maintaining them through transformation is not worth it.</text>
+            </svg>

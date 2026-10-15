@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -24 1020 476" role="img" aria-label="A lane diagram. The upper lane runs left to right: the Starlark targets package, lucicfg, the four generated pyl files, and the per-builder targets JSON. The lower lane runs waterfalls.pyl and test_suite_exceptions.pyl through generate_buildbot_json.py into one JSON per waterfall, reading the generated pyl files from the upper lane. Between the lanes, autoshard_exceptions.json pushes a shard count of seventy upward into the per-builder JSON, fed by the autosharder builder below it. Both lanes end at the recipe on the right edge, with mb reading gn_args_locations.json beneath it."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="-24.0" width="1020.0" height="476.0" fill="#ffffff"/>
+      <defs>
+        <marker id="fig-target-lanes-arr-blue" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+        <marker id="fig-target-lanes-arr-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+        <marker id="fig-target-lanes-arr-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+      </defs>
+
+      <text class="svg-lane" x="20" y="28">CURRENT · STARLARK · SINCE 2023-04-12</text>
+
+      <rect fill="#e0ebf2" height="76" rx="8" stroke="#3c6f97" width="200" x="20" y="40"></rect>
+      <text class="svg-step" x="32" y="64">//infra/config/targets</text>
+      <text class="svg-sub" x="32" y="84">20,113 lines · 485 tests</text>
+      <text class="svg-sub" x="32" y="102">368 bundles · 215 mixins</text>
+
+      <rect fill="#ffffff" height="76" rx="8" stroke="#252525" width="124" x="250" y="40"></rect>
+      <text class="svg-step" x="262" y="64">lucicfg</text>
+      <text class="svg-sub" x="262" y="84">main.star</text>
+      <text class="svg-sub" x="262" y="102">generators</text>
+
+      <rect fill="#e0ebf2" height="86" rx="8" stroke="#3c6f97" width="184" x="404" y="40"></rect>
+      <text class="svg-step" x="416" y="64">generated/testing/</text>
+      <text class="svg-sub" x="416" y="84">gn_isolate_map 408 entries</text>
+      <text class="svg-sub" x="416" y="102">mixins · test_suites</text>
+      <text class="svg-sub" x="416" y="118">variants · 4 files in all</text>
+
+      <rect fill="#e0ebf2" height="76" rx="8" stroke="#3c6f97" width="212" x="618" y="40"></rect>
+      <text class="svg-step" x="630" y="64">generated/builders/…/targets/</text>
+      <text class="svg-sub" x="630" y="84">Linux Tests/chromium.linux.json</text>
+      <text class="svg-sub" x="630" y="102">123 entries → 313 tasks</text>
+
+      <line marker-end="url(#fig-target-lanes-arr-blue)" stroke="#3c6f97" stroke-width="1.5" x1="220" x2="246" y1="78" y2="78"></line>
+      <line marker-end="url(#fig-target-lanes-arr-blue)" stroke="#3c6f97" stroke-width="1.5" x1="374" x2="400" y1="78" y2="78"></line>
+      <line marker-end="url(#fig-target-lanes-arr-blue)" stroke="#3c6f97" stroke-width="1.5" x1="588" x2="614" y1="78" y2="78"></line>
+
+      <rect fill="#f7e3c8" height="56" rx="8" stroke="#d98226" width="212" x="618" y="152"></rect>
+      <text class="svg-step" x="630" y="176">autoshard_exceptions.json</text>
+      <text class="svg-sub" x="630" y="196">applied at generation time</text>
+      <line marker-end="url(#fig-target-lanes-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="724" x2="724" y1="152" y2="130"></line>
+      <text class="svg-num" x="736" y="146">20 → 70</text>
+      <text class="svg-sub" x="800" y="146">browser_tests</text>
+
+      <rect fill="#ece6f3" height="76" rx="8" stroke="#765b98" width="212" x="618" y="232"></rect>
+      <text class="svg-step" x="630" y="256">autosharder · bucket infra</text>
+      <text class="svg-sub" x="630" y="276">"0 9 * * *" · target 15.0 min</text>
+      <text class="svg-sub" x="630" y="294">p80 over 14 d, ≥1,500 samples</text>
+      <line marker-end="url(#fig-target-lanes-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="724" x2="724" y1="232" y2="212"></line>
+
+      <text class="svg-lane" x="20" y="344">LEGACY · //testing/buildbot · 16 GROUPS, 104 MACHINES</text>
+
+      <rect fill="#f7f7f5" height="76" rx="8" stroke="#b8b8b1" width="200" x="20" y="356"></rect>
+      <text class="svg-step" x="32" y="380">waterfalls.pyl</text>
+      <text class="svg-sub" x="32" y="400">test_suite_exceptions.pyl</text>
+      <text class="svg-sub" x="32" y="418">remove or modify, never add</text>
+
+      <rect fill="#ffffff" height="76" rx="8" stroke="#252525" width="124" x="250" y="356"></rect>
+      <text class="svg-step" x="262" y="380">generate_</text>
+      <text class="svg-step" x="262" y="398">buildbot_json.py</text>
+      <text class="svg-sub" x="262" y="418">2,625 lines</text>
+
+      <rect fill="#f7f7f5" height="76" rx="8" stroke="#b8b8b1" width="184" x="404" y="356"></rect>
+      <text class="svg-step" x="416" y="380">testing/buildbot/</text>
+      <text class="svg-step" x="416" y="400">&lt;group&gt;.json</text>
+      <text class="svg-sub" x="416" y="420">one file per waterfall</text>
+
+      <line marker-end="url(#fig-target-lanes-arr-blue)" stroke="#3c6f97" stroke-width="1.5" x1="220" x2="246" y1="394" y2="394"></line>
+      <line marker-end="url(#fig-target-lanes-arr-blue)" stroke="#3c6f97" stroke-width="1.5" x1="374" x2="400" y1="394" y2="394"></line>
+      <path d="M440 126 C440 244 312 248 312 352" fill="none" marker-end="url(#fig-target-lanes-arr-blue)" stroke="#3c6f97" stroke-width="1.5"></path>
+      <text class="svg-note" x="352" y="216">the legacy script reads the generated .pyl</text>
+
+      <rect fill="#ffffff" height="80" rx="8" stroke="#252525" width="140" x="860" y="152"></rect>
+      <text class="svg-step" x="872" y="176">the recipe</text>
+      <text class="svg-sub" x="872" y="196">chromium_tests</text>
+      <text class="svg-sub" x="872" y="214">generators → steps</text>
+      <path d="M830 78 C852 78 856 118 856 148" fill="none" marker-end="url(#fig-target-lanes-arr-ink)" stroke="#252525" stroke-width="2.5"></path>
+      <path d="M588 394 C760 394 840 300 852 236" fill="none" marker-end="url(#fig-target-lanes-arr-ink)" stroke="#252525" stroke-width="2.5"></path>
+
+      <rect fill="#dfede5" height="76" rx="8" stroke="#367f59" width="168" x="844" y="356"></rect>
+      <text class="svg-step" x="856" y="380">mb gen</text>
+      <text class="svg-sub" x="856" y="400">gn_args_locations.json</text>
+      <text class="svg-sub" x="856" y="418">51 groups / 914 builders</text>
+      <line marker-end="url(#fig-target-lanes-arr-ink)" stroke="#252525" stroke-width="2.5" x1="930" x2="930" y1="232" y2="352"></line>
+      <text class="svg-sub" x="830" y="300">→ args.gn · .isolate → CAS</text>
+    </svg>

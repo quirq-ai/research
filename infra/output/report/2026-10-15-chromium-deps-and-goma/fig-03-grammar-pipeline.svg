@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 490" role="img" aria-label="A twelve-step pipeline in three rows of four. Row one: DEPS bytes, ast.parse in exec mode, the statement rule, the node-kind allow-list. Row two: vars evaluated, built-ins layered, custom_vars overrides, _ExpandVars. Row three: schema validation, _StandardizeDeps, deps_os and hooks_os folded into conditions, EvaluateCondition at sync time. Below, two inset boxes explain Var versus Str and why CIPD platform templates are written with doubled braces."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1100.0" height="490.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-grammar-pipeline-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                </defs>
+                <text class="svg-lane" x="12" y="26">GCLIENT_EVAL.EXEC · PARSE · THEN, AT SYNC TIME, EVALUATE</text>
+
+                <rect fill="#f7f7f5" height="58" rx="8" stroke="#b8b8b1" width="252" x="12" y="40"></rect>
+                <text class="svg-num" text-anchor="end" x="250" y="62">01</text>
+                <text class="svg-step" x="26" y="64">DEPS bytes</text>
+                <text class="svg-sub" x="26" y="84">src/DEPS · 5,188 lines</text>
+
+                <rect fill="#ffffff" height="58" rx="8" stroke="#252525" width="252" x="288" y="40"></rect>
+                <text class="svg-num" text-anchor="end" x="526" y="62">02</text>
+                <text class="svg-step" x="302" y="64">ast.parse</text>
+                <text class="svg-sub" x="302" y="84">mode='exec' · nothing runs</text>
+
+                <rect fill="#ffffff" height="58" rx="8" stroke="#252525" width="252" x="564" y="40"></rect>
+                <text class="svg-num" text-anchor="end" x="802" y="62">03</text>
+                <text class="svg-step" x="578" y="64">statement rule</text>
+                <text class="svg-sub" x="578" y="84">one Assign · one Name · once</text>
+
+                <rect fill="#ffffff" height="58" rx="8" stroke="#252525" width="252" x="840" y="40"></rect>
+                <text class="svg-num" text-anchor="end" x="1078" y="62">04</text>
+                <text class="svg-step" x="854" y="64">node-kind allow-list</text>
+                <text class="svg-sub" x="854" y="84">const list dict Str Var + %</text>
+
+                <line marker-end="url(#fig-grammar-pipeline-ink)" stroke="#252525" stroke-width="2.5" x1="264" x2="288" y1="69" y2="69"></line>
+                <line marker-end="url(#fig-grammar-pipeline-ink)" stroke="#252525" stroke-width="2.5" x1="540" x2="564" y1="69" y2="69"></line>
+                <line marker-end="url(#fig-grammar-pipeline-ink)" stroke="#252525" stroke-width="2.5" x1="816" x2="840" y1="69" y2="69"></line>
+                <path d="M966 98 L966 124 L138 124 L138 150" fill="none" marker-end="url(#fig-grammar-pipeline-ink)" stroke="#252525" stroke-width="2.5"></path>
+
+                <rect fill="#dfede5" height="58" rx="8" stroke="#367f59" width="252" x="12" y="150"></rect>
+                <text class="svg-num" text-anchor="end" x="250" y="172">05</text>
+                <text class="svg-step" x="26" y="174">vars evaluated</text>
+                <text class="svg-sub" x="26" y="194">143 names, before the rest</text>
+
+                <rect fill="#dfede5" height="58" rx="8" stroke="#367f59" width="252" x="288" y="150"></rect>
+                <text class="svg-num" text-anchor="end" x="526" y="172">06</text>
+                <text class="svg-step" x="302" y="174">built-ins layered</text>
+                <text class="svg-sub" x="302" y="194">checkout_* · host_os · host_cpu</text>
+
+                <rect fill="#e0ebf2" height="58" rx="8" stroke="#3c6f97" width="252" x="564" y="150"></rect>
+                <text class="svg-num" text-anchor="end" x="802" y="172">07</text>
+                <text class="svg-step" x="578" y="174">custom_vars overrides</text>
+                <text class="svg-sub" x="578" y="194">declared names only</text>
+
+                <rect fill="#e0ebf2" height="58" rx="8" stroke="#3c6f97" width="252" x="840" y="150"></rect>
+                <text class="svg-num" text-anchor="end" x="1078" y="172">08</text>
+                <text class="svg-step" x="854" y="174">_ExpandVars</text>
+                <text class="svg-sub" x="854" y="194">{name} · _SafeFormatter</text>
+
+                <line marker-end="url(#fig-grammar-pipeline-ink)" stroke="#252525" stroke-width="2.5" x1="264" x2="288" y1="179" y2="179"></line>
+                <line marker-end="url(#fig-grammar-pipeline-ink)" stroke="#252525" stroke-width="2.5" x1="540" x2="564" y1="179" y2="179"></line>
+                <line marker-end="url(#fig-grammar-pipeline-ink)" stroke="#252525" stroke-width="2.5" x1="816" x2="840" y1="179" y2="179"></line>
+                <path d="M966 208 L966 234 L138 234 L138 260" fill="none" marker-end="url(#fig-grammar-pipeline-ink)" stroke="#252525" stroke-width="2.5"></path>
+
+                <rect fill="#ffffff" height="58" rx="8" stroke="#252525" width="252" x="12" y="260"></rect>
+                <text class="svg-num" text-anchor="end" x="250" y="282">09</text>
+                <text class="svg-step" x="26" y="284">schema validation</text>
+                <text class="svg-sub" x="26" y="304">21 legal top-level keys</text>
+
+                <rect fill="#f7f7f5" height="58" rx="8" stroke="#b8b8b1" width="252" x="288" y="260"></rect>
+                <text class="svg-num" text-anchor="end" x="526" y="282">10</text>
+                <text class="svg-step" x="302" y="284">_StandardizeDeps</text>
+                <text class="svg-sub" x="302" y="304">451 entries → dicts · 'git'</text>
+
+                <rect fill="#ece6f3" height="58" rx="8" stroke="#765b98" width="252" x="564" y="260"></rect>
+                <text class="svg-num" text-anchor="end" x="802" y="282">11</text>
+                <text class="svg-step" x="578" y="284">deps_os / hooks_os folded</text>
+                <text class="svg-sub" x="578" y="304">→ (a) and (checkout_&lt;os&gt;)</text>
+
+                <rect fill="#ece6f3" height="58" rx="8" stroke="#765b98" width="252" x="840" y="260"></rect>
+                <text class="svg-num" text-anchor="end" x="1078" y="282">12</text>
+                <text class="svg-step" x="854" y="284">EvaluateCondition</text>
+                <text class="svg-sub" x="854" y="304">per dep, at sync · 320 gated</text>
+
+                <line marker-end="url(#fig-grammar-pipeline-ink)" stroke="#252525" stroke-width="2.5" x1="264" x2="288" y1="289" y2="289"></line>
+                <line marker-end="url(#fig-grammar-pipeline-ink)" stroke="#252525" stroke-width="2.5" x1="540" x2="564" y1="289" y2="289"></line>
+                <line marker-end="url(#fig-grammar-pipeline-ink)" stroke="#252525" stroke-width="2.5" x1="816" x2="840" y1="289" y2="289"></line>
+
+                <rect fill="#ffffff" height="104" rx="8" stroke="#deded9" width="528" x="12" y="346"></rect>
+                <text class="svg-lane" x="28" y="372">INSET A — VAR() VS STR()</text>
+                <text class="svg-sub" x="28" y="396">Var('gn_version') → the value; a plain string var is re-read as</text>
+                <text class="svg-sub" x="28" y="416">a condition on its way to the GN args file.</text>
+                <text class="svg-sub" x="28" y="436">Str('2@30.0.16248370') → ConstantString, emitted verbatim. 9 of 143.</text>
+
+                <rect fill="#ffffff" height="104" rx="8" stroke="#deded9" width="528" x="560" y="346"></rect>
+                <text class="svg-lane" x="576" y="372">INSET B — WHY ${{PLATFORM}} IS DOUBLED</text>
+                <text class="svg-sub" x="576" y="396">Step 08 runs str.format over every string constant, and</text>
+                <text class="svg-sub" x="576" y="416">'{{' is format's escape for one literal '{'. So DEPS writes</text>
+                <text class="svg-sub" x="576" y="436">'gn/gn/linux-${{arch}}' and cipd receives 'gn/gn/linux-${arch}'.</text>
+
+                <text class="svg-note" x="12" y="474">thick black = sequence · white = parsing · green = variables · blue = substitution and values from your .gclient · purple = conditions</text>
+              </svg>

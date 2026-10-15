@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 712" role="img" aria-label="A two-column diagram. The left column shows gclient setdep parsing DEPS into an AST and a token stream, both stored in a _NodeDict; a panel of DEPS text shows the v8 dependency line hopping back up to the v8_revision variable; below it, _UpdateAstString rewrites one token and RenderDEPSFile untokenizes the file. The right column shows the second write: git ls-files finds the submodule paths, the path prefix is stripped, a missing .gitmodules entry raises KeyError, and git update-index writes the gitlink, after which DEPS is staged and a message is printed. A bottom band shows the two files a real roll CL touches."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1100.0" height="712.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-setdep-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="fig-setdep-blue" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                  <marker id="fig-setdep-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="16" y="22">ARTEFACT 1 — THE DEPS FILE</text>
+                <text class="svg-lane" x="580" y="22">ARTEFACT 2 — THE GIT INDEX</text>
+
+                <rect fill="#ffffff" height="52" rx="8" stroke="#252525" width="524" x="16" y="36"></rect>
+                <text class="svg-step" x="32" y="60">$ gclient setdep</text>
+                <text class="svg-sub" x="32" y="80">-r src/v8@036aa7eb7170dce9118b6c6cbd9d7c0f98d02577</text>
+
+                <rect fill="#e0ebf2" height="62" rx="8" stroke="#3c6f97" width="248" x="16" y="112"></rect>
+                <text class="svg-step" x="32" y="136">ast.parse</text>
+                <text class="svg-sub" x="32" y="156">assignments only; Str/Var</text>
+                <rect fill="#e0ebf2" height="62" rx="8" stroke="#3c6f97" width="248" x="292" y="112"></rect>
+                <text class="svg-step" x="308" y="136">tokenize</text>
+                <text class="svg-sub" x="308" y="156">(line, col) to [type, text, ...]</text>
+
+                <rect fill="#f7f7f5" height="40" rx="8" stroke="#b8b8b1" width="524" x="16" y="196"></rect>
+                <text class="svg-sub" x="32" y="222">_NodeDict(values, tokens) — both kept, side by side</text>
+
+                <rect fill="#ffffff" height="138" rx="8" stroke="#deded9" width="524" x="16" y="256"></rect>
+                <text class="svg-sub" x="32" y="282">vars = {</text>
+                <text class="svg-sub" x="32" y="304">  'v8_revision': 'b1747cd84090...',</text>
+                <text class="svg-num" text-anchor="end" x="524" y="304">:344</text>
+                <text class="svg-sub" x="32" y="326">}</text>
+                <text class="svg-sub" x="32" y="354">'src/v8':</text>
+                <text class="svg-sub" x="32" y="376">  Var('chromium_git') + '/v8/v8.git' + '@' + Var('v8_revision'),</text>
+                <text class="svg-num" text-anchor="end" x="524" y="354">:3343</text>
+                <path d="M452 370 C 496 370 496 300 300 300" fill="none" marker-end="url(#fig-setdep-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+
+                <text class="svg-note" x="16" y="414">_GetVarName finds v8_revision, so SetVar rewrites the variable — the URL is never touched</text>
+
+                <rect fill="#e0ebf2" height="62" rx="8" stroke="#3c6f97" width="524" x="16" y="428"></rect>
+                <text class="svg-step" x="32" y="452">_UpdateAstString</text>
+                <text class="svg-sub" x="32" y="472">tokens[(344, 17)][1] = "'036aa7eb7170...'" — quote char reused</text>
+
+                <rect fill="#ffffff" height="62" rx="8" stroke="#252525" width="524" x="16" y="512"></rect>
+                <text class="svg-step" x="32" y="536">RenderDEPSFile</text>
+                <text class="svg-sub" x="32" y="556">untokenize(sorted tokens) — whole file rewritten, byte-identical elsewhere</text>
+
+                <rect fill="#ece6f3" height="62" rx="8" stroke="#765b98" width="504" x="580" y="112"></rect>
+                <text class="svg-step" x="596" y="136">git ls-files --format=%(objectmode) %(path)</text>
+                <text class="svg-sub" x="596" y="156">keep the 160000 lines — 273 submodule paths at f288fed6</text>
+
+                <rect fill="#f7f7f5" height="40" rx="8" stroke="#b8b8b1" width="504" x="580" y="196"></rect>
+                <text class="svg-sub" x="596" y="222">'src/v8' minus the gclient-root prefix = 'v8'</text>
+
+                <rect fill="#f3dfdc" height="52" rx="8" stroke="#ad4b43" width="504" x="580" y="256"></rect>
+                <text class="svg-step" x="596" y="280">KeyError</text>
+                <text class="svg-sub" x="596" y="300">if 'v8' is not already a section in .gitmodules</text>
+
+                <rect fill="#ece6f3" height="66" rx="8" stroke="#765b98" width="504" x="580" y="328"></rect>
+                <text class="svg-step" x="596" y="352">git update-index --add --cacheinfo</text>
+                <text class="svg-sub" x="596" y="376">160000,036aa7eb7170dce9118b6c6cbd9d7c0f98d02577,v8</text>
+
+                <rect fill="#ffffff" height="62" rx="8" stroke="#252525" width="504" x="580" y="428"></rect>
+                <text class="svg-step" x="596" y="452">git add DEPS</text>
+                <text class="svg-sub" x="596" y="472">only when git_modules is non-empty</text>
+
+                <rect fill="#f7f7f5" height="62" rx="8" stroke="#b8b8b1" width="504" x="580" y="512"></rect>
+                <text class="svg-note" x="596" y="543">"Changes have been staged. See changes with `git status`."</text>
+
+                <line marker-end="url(#fig-setdep-blue)" stroke="#3c6f97" stroke-width="1.5" x1="140" x2="140" y1="88" y2="112"></line>
+                <line marker-end="url(#fig-setdep-blue)" stroke="#3c6f97" stroke-width="1.5" x1="416" x2="416" y1="88" y2="112"></line>
+                <line marker-end="url(#fig-setdep-blue)" stroke="#3c6f97" stroke-width="1.5" x1="140" x2="140" y1="174" y2="196"></line>
+                <line marker-end="url(#fig-setdep-blue)" stroke="#3c6f97" stroke-width="1.5" x1="416" x2="416" y1="174" y2="196"></line>
+                <line marker-end="url(#fig-setdep-blue)" stroke="#3c6f97" stroke-width="1.5" x1="278" x2="278" y1="236" y2="256"></line>
+                <line marker-end="url(#fig-setdep-ink)" stroke="#252525" stroke-width="2.5" x1="278" x2="278" y1="394" y2="428"></line>
+                <line marker-end="url(#fig-setdep-ink)" stroke="#252525" stroke-width="2.5" x1="278" x2="278" y1="490" y2="512"></line>
+
+                <path d="M542 62 C 566 62 566 143 574 143" fill="none" marker-end="url(#fig-setdep-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+                <line marker-end="url(#fig-setdep-ink)" stroke="#252525" stroke-width="2.5" x1="832" x2="832" y1="174" y2="196"></line>
+                <line marker-end="url(#fig-setdep-ink)" stroke="#252525" stroke-width="2.5" x1="832" x2="832" y1="236" y2="256"></line>
+                <line marker-end="url(#fig-setdep-ink)" stroke="#252525" stroke-width="2.5" x1="832" x2="832" y1="308" y2="328"></line>
+                <line marker-end="url(#fig-setdep-ink)" stroke="#252525" stroke-width="2.5" x1="832" x2="832" y1="394" y2="428"></line>
+                <line marker-end="url(#fig-setdep-ink)" stroke="#252525" stroke-width="2.5" x1="832" x2="832" y1="490" y2="512"></line>
+
+                <text class="svg-lane" x="16" y="604">WHAT THE ROLL CL CONTAINS — CL 8433063, "ROLL V8 FROM 37FB84941C9B TO 036AA7EB7170 (3 REVISIONS)"</text>
+                <rect fill="#dfede5" height="74" rx="8" stroke="#367f59" width="524" x="16" y="616"></rect>
+                <text class="svg-lane" x="32" y="640">DEPS — ONE LINE</text>
+                <text class="svg-sub" x="32" y="662">-  'v8_revision': '37fb84941c9be9f9914ee50b1ad366f06a1bd764',</text>
+                <text class="svg-sub" x="32" y="682">+  'v8_revision': '036aa7eb7170dce9118b6c6cbd9d7c0f98d02577',</text>
+                <rect fill="#dfede5" height="74" rx="8" stroke="#367f59" width="504" x="580" y="616"></rect>
+                <text class="svg-lane" x="596" y="640">v8 — THE GITLINK</text>
+                <text class="svg-sub" x="596" y="662">- Subproject commit 37fb84941c9be9f9914ee50b1ad366f06a1bd764</text>
+                <text class="svg-sub" x="596" y="682">+ Subproject commit 036aa7eb7170dce9118b6c6cbd9d7c0f98d02577</text>
+
+                <text class="svg-note" text-anchor="middle" x="550" y="708">thin blue = data · thick black = control · dashed purple = state written outside DEPS</text>
+              </svg>

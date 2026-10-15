@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -6 1080 476" role="img" aria-label="Five horizontal lanes. Workstation: git cl upload and git cl try. Gerrit: the magic ref push and the review gates. LUCI CV: a run, then a gate narrowing 604 builder entries to 32 required. Buildbucket and Swarming: a previous run's reusable builds feeding back into the gate, and 32 fresh tryjobs. ResultDB and Gerrit checks: a stub pointing at later sections."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="-6.0" width="1080.0" height="476.0" fill="#ffffff"/>
+      <defs>
+        <marker id="fig-commit-path-arr-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+        <marker id="fig-commit-path-arr-blue" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+        <marker id="fig-commit-path-arr-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+      </defs>
+
+      <line stroke="#deded9" x1="0" x2="1080" y1="104" y2="104"></line>
+      <line stroke="#deded9" x1="0" x2="1080" y1="196" y2="196"></line>
+      <line stroke="#deded9" x1="0" x2="1080" y1="304" y2="304"></line>
+      <line stroke="#deded9" x1="0" x2="1080" y1="394" y2="394"></line>
+      <line stroke="#deded9" x1="160" x2="160" y1="8" y2="466"></line>
+
+      <text class="svg-lane" x="8" y="34">WORKSTATION</text>
+      <text class="svg-lane" x="8" y="128">GERRIT</text>
+      <text class="svg-lane" x="8" y="220">LUCI CV</text>
+      <text class="svg-lane" x="8" y="328">BUILDBUCKET</text>
+      <text class="svg-lane" x="8" y="344">+ SWARMING</text>
+      <text class="svg-lane" x="8" y="418">RESULTDB</text>
+
+      <rect fill="#f7f7f5" height="58" rx="8" stroke="#252525" width="212" x="175" y="26"></rect>
+      <text class="svg-step" x="189" y="50">git cl upload</text>
+      <text class="svg-sub" x="189" y="70">presubmit_support --upload</text>
+
+      <rect fill="#f7f7f5" height="58" rx="8" stroke="#252525" width="212" x="412" y="26"></rect>
+      <text class="svg-step" x="426" y="50">git cl try -B … -b …</text>
+      <text class="svg-sub" x="426" y="70">user_agent: git_cl_try</text>
+
+      <rect fill="#e0ebf2" height="62" rx="8" stroke="#3c6f97" width="212" x="175" y="118"></rect>
+      <text class="svg-step" x="189" y="142">New change, WIP</text>
+      <text class="svg-sub" x="189" y="162">refs/for/&lt;branch&gt;%l=CQ+2</text>
+
+      <rect fill="#e0ebf2" height="62" rx="8" stroke="#3c6f97" width="212" x="412" y="118"></rect>
+      <text class="svg-step" x="426" y="142">Review gates</text>
+      <text class="svg-sub" x="426" y="162">CR+1 · OWNERS · Bot-Commit</text>
+
+      <rect fill="#ece6f3" height="62" rx="8" stroke="#765b98" width="212" x="412" y="212"></rect>
+      <text class="svg-step" x="426" y="236">Run: PENDING → RUNNING</text>
+      <text class="svg-sub" x="426" y="256">largest CQ vote, clamped 2</text>
+
+      <polygon fill="#f7f7f5" points="660,208 872,238 872,266 660,296" stroke="#765b98"></polygon>
+      <text class="svg-sub" x="672" y="236">604 builders {}</text>
+      <text class="svg-sub" x="672" y="278">467 includable_only</text>
+      <text class="svg-step" text-anchor="end" x="862" y="258">32</text>
+
+      <rect fill="#ffffff" height="62" rx="8" stroke="#765b98" stroke-dasharray="5 4" width="196" x="628" y="316"></rect>
+      <text class="svg-step" x="642" y="340">Earlier run's builds</text>
+      <text class="svg-sub" x="642" y="360">same ReuseKey, &lt; 24 h</text>
+
+      <rect fill="#dfede5" height="62" rx="8" stroke="#367f59" width="205" x="860" y="316"></rect>
+      <text class="svg-step" x="874" y="340">32 tryjobs scheduled</text>
+      <text class="svg-sub" x="874" y="360">+ Cq-Include-Trybots</text>
+
+      <rect fill="#f7f7f5" height="52" rx="8" stroke="#b8b8b1" stroke-dasharray="4 4" width="205" x="860" y="406"></rect>
+      <text class="svg-step" x="874" y="428">§07 inside the build</text>
+      <text class="svg-sub" x="874" y="448">§08 submit and number</text>
+
+      <line marker-end="url(#fig-commit-path-arr-ink)" stroke="#252525" stroke-width="2.5" x1="281" x2="281" y1="84" y2="118"></line>
+      <text class="svg-note" x="291" y="106">git_cl.py:7205–7218</text>
+      <line marker-end="url(#fig-commit-path-arr-blue)" stroke="#3c6f97" stroke-width="1.5" x1="387" x2="412" y1="149" y2="149"></line>
+      <line marker-end="url(#fig-commit-path-arr-ink)" stroke="#252525" stroke-width="2.5" x1="518" x2="518" y1="180" y2="212"></line>
+      <text class="svg-note" x="528" y="202">commit-queue.cfg:15–31</text>
+      <line marker-end="url(#fig-commit-path-arr-ink)" stroke="#252525" stroke-width="2.5" x1="624" x2="656" y1="243" y2="243"></line>
+      <text class="svg-note" x="684" y="196">gate = cq-usage/default.cfg</text>
+      <path d="M872 252 L920 252 L920 316" fill="none" marker-end="url(#fig-commit-path-arr-ink)" stroke="#252525" stroke-width="2.5"></path>
+      <path d="M726 316 L726 300 L766 300" fill="none" marker-end="url(#fig-commit-path-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+      <text class="svg-note" x="628" y="392">reuse_common.go:192–220 · equi.go:24–76</text>
+      <path d="M624 55 L1042 55 L1042 340 L1065 340" fill="none" marker-end="url(#fig-commit-path-arr-ink)" stroke="#252525" stroke-width="2.5"></path>
+      <text class="svg-note" text-anchor="end" x="1032" y="40">git cl try -b bypasses CV — git_cl.py:437–490</text>
+      <line marker-end="url(#fig-commit-path-arr-ink)" stroke="#252525" stroke-width="2.5" x1="962" x2="962" y1="378" y2="406"></line>
+
+      <text class="svg-note" x="175" y="466">thick black = control · thin blue = data · dashed purple = reuse, an effect on a previous run's builds</text>
+    </svg>

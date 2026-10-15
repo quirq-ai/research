@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 476" role="img" aria-label="Four stacked lanes. Lane one, author: upload_revision.py resolves the newest LLVM commit with git describe, patches update.py and update_rust.py by regex, and uploads a roll CL on a branch. Lane two, upload bots: eight bots run package.py, which compresses with xz preset 9 EXTREME and writes to the staging bucket with x-goog-if-generation-match zero; a reused hash plus sub-revision is skipped silently while the bot still reports success. Lane three, promotion: a Googler with promote rights copies staging to the production bucket, then sync_deps.py stats and hashes each object and calls gclient setdep. Lane four, tree: the DEPS CL lands, GN asserts the stamp matches update.py, and the CR_CLANG_REVISION define forces every object file to rebuild. One lap takes two to four weeks."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="476.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-clang-roll-arr-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="fig-clang-roll-arr-blue" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                  <marker id="fig-clang-roll-arr-red" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#ad4b43"></path></marker>
+                  <marker id="fig-clang-roll-arr-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="16" y="34">AUTHOR · SCRIPTED</text>
+                <rect fill="#e0ebf2" height="70" rx="8" stroke="#3c6f97" width="290" x="16" y="46"></rect>
+                <text class="svg-step" x="30" y="72">upload_revision.py</text>
+                <text class="svg-sub" x="30" y="92">git describe --long --abbrev=8</text>
+                <text class="svg-sub" x="30" y="108">--match=*llvmorg-*-init</text>
+                <rect fill="#e0ebf2" height="70" rx="8" stroke="#3c6f97" width="290" x="336" y="46"></rect>
+                <text class="svg-step" x="350" y="72">patch two files by regex</text>
+                <text class="svg-sub" x="350" y="92">update.py · update_rust.py</text>
+                <text class="svg-sub" x="350" y="108">CLANG_SUB_REVISION bumped</text>
+                <rect fill="#e0ebf2" height="70" rx="8" stroke="#3c6f97" width="290" x="656" y="46"></rect>
+                <text class="svg-step" x="670" y="72">branch + git cl upload</text>
+                <text class="svg-sub" x="670" y="92">clang-&lt;v&gt;_rust-&lt;v&gt;</text>
+                <text class="svg-sub" x="670" y="108">fires *_upload_clang / _rust</text>
+                <line marker-end="url(#fig-clang-roll-arr-ink)" stroke="#252525" stroke-width="2.5" x1="306" x2="336" y1="81" y2="81"></line>
+                <line marker-end="url(#fig-clang-roll-arr-ink)" stroke="#252525" stroke-width="2.5" x1="626" x2="656" y1="81" y2="81"></line>
+
+                <text class="svg-lane" x="16" y="154">UPLOAD BOTS · UNTRUSTED</text>
+                <rect fill="#f7e3c8" height="70" rx="8" stroke="#d98226" width="290" x="16" y="166"></rect>
+                <text class="svg-step" x="30" y="192">eight bots build LLVM</text>
+                <text class="svg-sub" x="30" y="212">linux · mac · mac_arm · win</text>
+                <text class="svg-sub" x="30" y="228">clang and rust each</text>
+                <rect fill="#f7e3c8" height="70" rx="8" stroke="#d98226" width="290" x="336" y="166"></rect>
+                <text class="svg-step" x="350" y="192">package.py</text>
+                <text class="svg-sub" x="350" y="212">tar.xz, preset=9 | PRESET_EXTREME</text>
+                <text class="svg-sub" x="350" y="228">stamp must equal PACKAGE_VERSION</text>
+                <rect fill="#f7e3c8" height="70" rx="8" stroke="#d98226" width="290" x="656" y="166"></rect>
+                <text class="svg-step" x="670" y="192">staging bucket</text>
+                <text class="svg-sub" x="670" y="212">chromium-browser-clang-staging</text>
+                <text class="svg-sub" x="670" y="228">-h x-goog-if-generation-match:0</text>
+                <line marker-end="url(#fig-clang-roll-arr-ink)" stroke="#252525" stroke-width="2.5" x1="306" x2="336" y1="201" y2="201"></line>
+                <line marker-end="url(#fig-clang-roll-arr-ink)" stroke="#252525" stroke-width="2.5" x1="626" x2="656" y1="201" y2="201"></line>
+                <line marker-end="url(#fig-clang-roll-arr-ink)" stroke="#252525" stroke-width="2.5" x1="161" x2="161" y1="116" y2="166"></line>
+                <rect fill="#f3dfdc" height="82" rx="8" stroke="#ad4b43" stroke-dasharray="5 4" width="140" x="966" y="166"></rect>
+                <text class="svg-sub" x="978" y="190">failure mode</text>
+                <text class="svg-sub" x="978" y="208">reused hash +</text>
+                <text class="svg-sub" x="978" y="224">sub-rev: upload</text>
+                <text class="svg-sub" x="978" y="240">skipped, bot green</text>
+                <line marker-end="url(#fig-clang-roll-arr-red)" stroke="#ad4b43" stroke-dasharray="5 4" stroke-width="1.5" x1="946" x2="966" y1="201" y2="201"></line>
+
+                <text class="svg-lane" x="16" y="274">PROMOTION · ONE HUMAN</text>
+                <rect fill="#ece6f3" height="70" rx="8" stroke="#765b98" width="290" x="16" y="286"></rect>
+                <text class="svg-step" x="30" y="312">Googler with promote rights</text>
+                <text class="svg-sub" x="30" y="332">staging → chromium-browser-clang</text>
+                <text class="svg-sub" x="30" y="348">then pushed to RBE</text>
+                <rect fill="#ece6f3" height="70" rx="8" stroke="#765b98" width="290" x="336" y="286"></rect>
+                <text class="svg-step" x="350" y="312">sync_deps.py</text>
+                <text class="svg-sub" x="350" y="332">gsutil.py stat → generation, size</text>
+                <text class="svg-sub" x="350" y="348">download → sha256</text>
+                <rect fill="#ece6f3" height="70" rx="8" stroke="#765b98" width="290" x="656" y="286"></rect>
+                <text class="svg-step" x="670" y="312">gclient setdep</text>
+                <text class="svg-sub" x="670" y="332">--revision=path@object,</text>
+                <text class="svg-sub" x="670" y="348">sha256,size,generation</text>
+                <line marker-end="url(#fig-clang-roll-arr-ink)" stroke="#252525" stroke-width="2.5" x1="306" x2="336" y1="321" y2="321"></line>
+                <line marker-end="url(#fig-clang-roll-arr-blue)" stroke="#3c6f97" stroke-width="1.5" x1="626" x2="656" y1="321" y2="321"></line>
+                <line marker-end="url(#fig-clang-roll-arr-ink)" stroke="#252525" stroke-width="2.5" x1="161" x2="161" y1="236" y2="286"></line>
+
+                <text class="svg-lane" x="16" y="394">TREE · EVERY BUILDER</text>
+                <rect fill="#dfede5" height="60" rx="8" stroke="#367f59" width="290" x="16" y="406"></rect>
+                <text class="svg-step" x="30" y="432">DEPS CL lands</text>
+                <text class="svg-sub" x="30" y="452">23 objects rewritten in one entry</text>
+                <rect fill="#dfede5" height="60" rx="8" stroke="#367f59" width="290" x="336" y="406"></rect>
+                <text class="svg-step" x="350" y="432">GN consistency check</text>
+                <text class="svg-sub" x="350" y="452">stamp == update.py, or assert</text>
+                <rect fill="#dfede5" height="60" rx="8" stroke="#367f59" width="290" x="656" y="406"></rect>
+                <text class="svg-step" x="670" y="432">CR_CLANG_REVISION define</text>
+                <text class="svg-sub" x="670" y="452">every object file rebuilds</text>
+                <line marker-end="url(#fig-clang-roll-arr-ink)" stroke="#252525" stroke-width="2.5" x1="306" x2="336" y1="436" y2="436"></line>
+                <line marker-end="url(#fig-clang-roll-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="626" x2="656" y1="436" y2="436"></line>
+                <line marker-end="url(#fig-clang-roll-arr-ink)" stroke="#252525" stroke-width="2.5" x1="161" x2="161" y1="356" y2="406"></line>
+
+                <rect fill="#f7f7f5" height="110" rx="6" stroke="#b8b8b1" width="26" x="1078" y="46"></rect>
+                <text class="svg-lane" text-anchor="middle" transform="rotate(-90 1091 101)" x="1091" y="101">2–4 WEEKS</text>
+                <text class="svg-note" x="896" y="404">thick black = sequence</text>
+                <text class="svg-note" x="966" y="424">thin blue = object data</text>
+                <text class="svg-note" x="966" y="444">dashed purple = effect</text>
+              </svg>

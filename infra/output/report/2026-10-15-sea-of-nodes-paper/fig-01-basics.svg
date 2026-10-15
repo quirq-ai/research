@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" role="img" aria-label="An ADD node, and a basic block replaced by a REGION node"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="300.0" fill="#ffffff"/>
+              
+              <text class="svg-lane" x="30" y="34">AN EXPRESSION</text>
+              <line stroke="#deded9" x1="30" x2="300" y1="44" y2="44"></line>
+              <text class="svg-sub" x="30" y="70">a := b + c</text>
+
+              <rect fill="#e0ebf2" height="30" rx="6" stroke="#3c6f97" width="86" x="46" y="98"></rect>
+              <text class="svg-step" text-anchor="middle" x="89" y="118">b</text>
+              <rect fill="#e0ebf2" height="30" rx="6" stroke="#3c6f97" width="86" x="168" y="98"></rect>
+              <text class="svg-step" text-anchor="middle" x="211" y="118">c</text>
+
+              <g fill="none" stroke="#3c6f97" stroke-width="1.3">
+                <line x1="89" x2="130" y1="128" y2="176"></line>
+                <line x1="211" x2="170" y1="128" y2="176"></line>
+              </g>
+
+              <rect fill="#f7e3c8" height="30" rx="6" stroke="#d98226" stroke-width="1.6" width="88" x="106" y="176"></rect>
+              <text class="svg-step" text-anchor="middle" x="150" y="196">ADD  a</text>
+
+              <text class="svg-sub" x="30" y="240">a[0] ≡ b   ·   a[1] ≡ c</text>
+              <text class="svg-sub" x="30" y="258">a.opcode ≡ ADD</text>
+              <text class="svg-note" x="30" y="284">Inputs ordered. Outputs unordered.</text>
+
+              <line stroke="#deded9" x1="340" x2="340" y1="24" y2="290"></line>
+
+              
+              <text class="svg-lane" x="380" y="34">A BASIC BLOCK</text>
+              <line stroke="#deded9" x1="380" x2="960" y1="44" y2="44"></line>
+
+              <text class="svg-sub" x="410" y="70">CFG in-edges</text>
+              <g fill="none" stroke="#252525" stroke-width="2.2">
+                <line x1="440" x2="470" y1="78" y2="104"></line>
+                <line x1="540" x2="510" y1="78" y2="104"></line>
+              </g>
+              <rect fill="#f7f7f5" height="70" rx="7" stroke="#deded9" width="180" x="404" y="104"></rect>
+              <text class="svg-step" x="420" y="128">a := b + c</text>
+              <text class="svg-sub" x="420" y="148">…</text>
+              <text class="svg-sub" x="420" y="164">…</text>
+              <g fill="none" stroke="#252525" stroke-width="2.2">
+                <line x1="470" x2="440" y1="174" y2="200"></line>
+                <line x1="510" x2="540" y1="174" y2="200"></line>
+              </g>
+              <text class="svg-sub" x="410" y="216">CFG out-edges</text>
+
+              <text class="svg-num" x="612" y="144">becomes</text>
+              <g fill="none" stroke="#d98226" stroke-width="1.6">
+                <line x1="604" x2="688" y1="158" y2="158"></line>
+                <path d="M688 158 l-8 -4 M688 158 l-8 4"></path>
+              </g>
+
+              <g fill="none" stroke="#252525" stroke-width="2.2">
+                <line x1="740" x2="770" y1="78" y2="104"></line>
+                <line x1="840" x2="810" y1="78" y2="104"></line>
+              </g>
+              <rect fill="#ffffff" height="30" rx="6" stroke="#252525" stroke-width="1.6" width="176" x="722" y="104"></rect>
+              <text class="svg-step" text-anchor="middle" x="810" y="124">REGION</text>
+              <g fill="none" stroke="#252525" stroke-width="2.2">
+                <line x1="770" x2="740" y1="134" y2="200"></line>
+                <line x1="850" x2="880" y1="134" y2="200"></line>
+              </g>
+              <g fill="none" stroke="#252525" stroke-dasharray="5 4" stroke-width="1.6">
+                <line x1="810" x2="810" y1="134" y2="152"></line>
+              </g>
+              <rect fill="#f7e3c8" height="30" rx="6" stroke="#d98226" stroke-width="1.6" width="88" x="766" y="152"></rect>
+              <text class="svg-step" text-anchor="middle" x="810" y="172">ADD  a</text>
+              <text class="svg-note" x="700" y="240">The dashed edge is the optional control input.</text>
+              <text class="svg-note" x="700" y="258">Drop it and the ADD floats free; keeping it</text>
+              <text class="svg-note" x="700" y="276">pins the ADD to this block.</text>
+            </svg>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 392" role="img" aria-label="Three columns. Left: the .gclient file you own, with solutions, custom_vars, custom_deps and custom_hooks. Middle: the project's src/DEPS, with deps, vars, a single entry URL and hooks. Right: gclient's own .gclient_entries cache, written at the end of a sync and diffed against the tree on the next one. A strip along the bottom shows the variable precedence ladder: DEPS vars, then parent vars, then built-ins, then custom_vars."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="392.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-three-files-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="fig-three-files-blue" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                  <marker id="fig-three-files-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="8" y="20">.GCLIENT — YOURS</text>
+                <text class="svg-lane" x="382" y="20">src/DEPS — THE PROJECT'S</text>
+                <text class="svg-lane" x="756" y="20">.GCLIENT_ENTRIES — GCLIENT'S</text>
+
+                <rect fill="#e0ebf2" height="54" rx="8" stroke="#3c6f97" width="236" x="8" y="36"></rect>
+                <text class="svg-step" x="22" y="58">solutions = [ { … } ]</text>
+                <text class="svg-sub" x="22" y="76">name · url · deps_file · managed</text>
+                <rect fill="#e0ebf2" height="54" rx="8" stroke="#3c6f97" width="236" x="8" y="100"></rect>
+                <text class="svg-step" x="22" y="122">custom_vars</text>
+                <text class="svg-sub" x="22" y="140">existing names only</text>
+                <rect fill="#e0ebf2" height="54" rx="8" stroke="#3c6f97" width="236" x="8" y="164"></rect>
+                <text class="svg-step" x="22" y="186">custom_deps</text>
+                <text class="svg-sub" x="22" y="204">url · new entry · None</text>
+                <rect fill="#e0ebf2" height="54" rx="8" stroke="#3c6f97" width="236" x="8" y="228"></rect>
+                <text class="svg-step" x="22" y="250">custom_hooks</text>
+                <text class="svg-sub" x="22" y="268">matched by hook name</text>
+
+                <rect fill="#dfede5" height="54" rx="8" stroke="#367f59" width="236" x="382" y="36"></rect>
+                <text class="svg-step" x="396" y="58">deps = { … }</text>
+                <text class="svg-sub" x="396" y="76">451 entries · git cipd gcs</text>
+                <rect fill="#dfede5" height="54" rx="8" stroke="#367f59" width="236" x="382" y="100"></rect>
+                <text class="svg-step" x="396" y="122">vars = { … }</text>
+                <text class="svg-sub" x="396" y="140">143 names, then built-ins</text>
+                <rect fill="#dfede5" height="54" rx="8" stroke="#367f59" width="236" x="382" y="164"></rect>
+                <text class="svg-step" x="396" y="186">one entry's URL</text>
+                <text class="svg-sub" x="396" y="204">or no entry at all</text>
+                <rect fill="#dfede5" height="54" rx="8" stroke="#367f59" width="236" x="382" y="228"></rect>
+                <text class="svg-step" x="396" y="250">hooks = [ … ]</text>
+                <text class="svg-sub" x="396" y="268">61 at f288fed6</text>
+
+                <rect fill="#ece6f3" height="72" rx="8" stroke="#765b98" width="236" x="756" y="44"></rect>
+                <text class="svg-step" x="770" y="68">entries = { name: url }</text>
+                <text class="svg-sub" x="770" y="88">one line per module,</text>
+                <text class="svg-sub" x="770" y="104">written when sync ends</text>
+                <rect fill="#ece6f3" height="72" rx="8" stroke="#765b98" width="236" x="756" y="164"></rect>
+                <text class="svg-step" x="770" y="188">the next sync diffs it</text>
+                <text class="svg-sub" x="770" y="208">listed here, gone from</text>
+                <text class="svg-sub" x="770" y="224">the tree → orphan</text>
+
+                <line marker-end="url(#fig-three-files-ink)" stroke="#252525" stroke-width="2.5" x1="244" x2="382" y1="63" y2="63"></line>
+                <text class="svg-note" text-anchor="middle" x="313" y="49">a Dependency per solution</text>
+                <text class="svg-note" text-anchor="middle" x="313" y="81">that parses its deps_file</text>
+
+                <line marker-end="url(#fig-three-files-blue)" stroke="#3c6f97" stroke-width="1.5" x1="244" x2="382" y1="127" y2="127"></line>
+                <text class="svg-note" text-anchor="middle" x="313" y="113">overrides a var, never</text>
+                <text class="svg-note" text-anchor="middle" x="313" y="145">introduces one</text>
+
+                <line marker-end="url(#fig-three-files-blue)" stroke="#3c6f97" stroke-width="1.5" x1="244" x2="382" y1="191" y2="191"></line>
+                <text class="svg-note" text-anchor="middle" x="313" y="177">new URL, or None to</text>
+                <text class="svg-note" text-anchor="middle" x="313" y="209">drop the entry</text>
+
+                <line marker-end="url(#fig-three-files-blue)" stroke="#3c6f97" stroke-width="1.5" x1="244" x2="382" y1="255" y2="255"></line>
+                <text class="svg-note" text-anchor="middle" x="313" y="241">suppresses a DEPS hook</text>
+                <text class="svg-note" text-anchor="middle" x="313" y="273">of the same name</text>
+
+                <line marker-end="url(#fig-three-files-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="618" x2="756" y1="80" y2="80"></line>
+                <text class="svg-note" text-anchor="middle" x="687" y="66">sync records what</text>
+                <text class="svg-note" text-anchor="middle" x="687" y="98">it checked out</text>
+
+                <line marker-end="url(#fig-three-files-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="756" x2="618" y1="200" y2="200"></line>
+                <text class="svg-note" text-anchor="middle" x="687" y="186">-D deletes it, else a</text>
+                <text class="svg-note" text-anchor="middle" x="687" y="218">WARNING every sync</text>
+
+                <text class="svg-note" x="8" y="304">Also top level in .gclient and not drawn: target_os · target_cpu (unioned with the host) · cache_dir · cache_mode · root hooks.</text>
+
+                <rect fill="#f7f7f5" height="52" rx="8" stroke="#deded9" width="984" x="8" y="322"></rect>
+                <text class="svg-lane" x="24" y="352">VARIABLE PRECEDENCE — LAST WINS</text>
+                <rect fill="#dfede5" height="26" rx="6" stroke="#367f59" width="104" x="286" y="332"></rect>
+                <text class="svg-sub" x="298" y="349">DEPS vars</text>
+                <text class="svg-step" x="398" y="350">&lt;</text>
+                <rect fill="#dfede5" height="26" rx="6" stroke="#367f59" width="112" x="414" y="332"></rect>
+                <text class="svg-sub" x="426" y="349">parent vars</text>
+                <text class="svg-step" x="534" y="350">&lt;</text>
+                <rect fill="#ffffff" height="26" rx="6" stroke="#b8b8b1" width="104" x="550" y="332"></rect>
+                <text class="svg-sub" x="562" y="349">built-ins</text>
+                <text class="svg-step" x="662" y="350">&lt;</text>
+                <rect fill="#e0ebf2" height="26" rx="6" stroke="#3c6f97" width="120" x="678" y="332"></rect>
+                <text class="svg-sub" x="690" y="349">custom_vars</text>
+                <text class="svg-note" x="812" y="350">gclient.py:1924–1940</text>
+              </svg>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 462" role="img" aria-label="Left lane: a Buildbucket job runs the chromium bootstrapper, which loads the tools/build recipe bundle and the builder's properties.json, and the recipe's prepare_checkout runs bot_update.py in the builder cache. Right lane: the ten fixed steps inside bot_update.py, with horizontal bars for the four that the CI build timed — git cache populate 1.7 minutes, git checkout --force 3.4 minutes, gclient sync 6.6 minutes, gclient revinfo 0.1 minutes — and a compressed ghost bar for the 80-second warm try run below."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="462.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-bot-lanes-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="8" y="20">LAUNCH PATH — EVERY chromium/src BUILDER</text>
+
+                <rect fill="#e0ebf2" height="54" rx="8" stroke="#3c6f97" width="236" x="8" y="34"></rect>
+                <text class="svg-step" x="22" y="58">Buildbucket job</text>
+                <text class="svg-sub" x="22" y="76">exe: infra/chromium/bootstrapper</text>
+                <rect fill="#e0ebf2" height="54" rx="8" stroke="#3c6f97" width="236" x="8" y="102"></rect>
+                <text class="svg-step" x="22" y="126">bootstrapper</text>
+                <text class="svg-sub" x="22" y="144">recipe bundle @ refs/heads/main</text>
+                <rect fill="#e0ebf2" height="54" rx="8" stroke="#3c6f97" width="236" x="8" y="170"></rect>
+                <text class="svg-step" x="22" y="194">recipe: chromium</text>
+                <text class="svg-sub" x="22" y="212">properties.json — 1 of 1,066</text>
+                <rect fill="#e0ebf2" height="54" rx="8" stroke="#3c6f97" width="236" x="8" y="238"></rect>
+                <text class="svg-step" x="22" y="262">prepare_checkout</text>
+                <text class="svg-sub" x="22" y="280">→ bot_update.ensure_checkout</text>
+                <rect fill="#dfede5" height="54" rx="8" stroke="#367f59" width="236" x="8" y="306"></rect>
+                <text class="svg-step" x="22" y="330">bot_update.py</text>
+                <text class="svg-sub" x="22" y="348">cwd [CACHE]/builder</text>
+
+                <line marker-end="url(#fig-bot-lanes-ink)" stroke="#252525" stroke-width="2.5" x1="126" x2="126" y1="88" y2="100"></line>
+                <line marker-end="url(#fig-bot-lanes-ink)" stroke="#252525" stroke-width="2.5" x1="126" x2="126" y1="156" y2="168"></line>
+                <line marker-end="url(#fig-bot-lanes-ink)" stroke="#252525" stroke-width="2.5" x1="126" x2="126" y1="224" y2="236"></line>
+                <line marker-end="url(#fig-bot-lanes-ink)" stroke="#252525" stroke-width="2.5" x1="126" x2="126" y1="292" y2="304"></line>
+                <path d="M244 333 H266 V44 H282" fill="none" marker-end="url(#fig-bot-lanes-ink)" stroke="#252525" stroke-width="2.5"></path>
+
+                <text class="svg-note" x="8" y="386">env: CHROME_HEADLESS=1</text>
+                <text class="svg-note" x="8" y="402">DEPOT_TOOLS_UPDATE=0</text>
+                <text class="svg-note" x="8" y="418">git aborts below 100 KiB/s for 1800 s</text>
+                <text class="svg-note" x="8" y="434">every subprocess: ps auxwwf at 300 s,</text>
+                <text class="svg-note" x="8" y="450">killed at 1200 s</text>
+
+                <text class="svg-lane" x="300" y="20">INSIDE bot_update.py — ci/Linux Builder #228484</text>
+
+                <rect fill="#b8b8b1" height="14" width="3" x="604" y="37"></rect>
+                <text class="svg-step" x="288" y="48">git config core.trustctime false</text>
+                <text class="svg-note" x="616" y="48">not timed separately</text>
+
+                <rect fill="#b8b8b1" height="14" width="3" x="604" y="67"></rect>
+                <text class="svg-step" x="288" y="78">read or create .cache_epoch</text>
+                <text class="svg-note" x="616" y="78">6 days old on this run</text>
+
+                <rect fill="#dfede5" height="14" stroke="#367f59" width="62" x="604" y="97"></rect>
+                <text class="svg-step" x="288" y="108">git cache populate --commit &lt;pin&gt;</text>
+                <text class="svg-sub" x="674" y="108">1.7 min</text>
+
+                <rect fill="#b8b8b1" height="14" width="3" x="604" y="127"></rect>
+                <text class="svg-step" x="288" y="138">git clone --no-checkout --local --shared</text>
+                <text class="svg-note" x="616" y="138">not timed separately</text>
+
+                <rect fill="#b8b8b1" height="14" width="3" x="604" y="157"></rect>
+                <text class="svg-step" x="288" y="168">git fetch origin &lt;pin&gt;</text>
+                <text class="svg-note" x="616" y="168">not timed separately</text>
+
+                <rect fill="#dfede5" height="14" stroke="#367f59" width="124" x="604" y="187"></rect>
+                <text class="svg-step" x="288" y="198">git checkout --force</text>
+                <text class="svg-sub" x="736" y="198">3.4 min</text>
+
+                <rect fill="#b8b8b1" height="14" width="3" x="604" y="217"></rect>
+                <text class="svg-step" x="288" y="228">git clean -dff</text>
+                <text class="svg-note" x="616" y="228">not timed separately</text>
+
+                <rect fill="#b8b8b1" height="14" width="3" x="604" y="247"></rect>
+                <text class="svg-step" x="288" y="258">write .gclient</text>
+                <text class="svg-note" x="616" y="258">not timed separately</text>
+
+                <rect fill="#ece6f3" height="14" stroke="#765b98" width="240" x="604" y="277"></rect>
+                <text class="svg-step" x="288" y="288">gclient sync … --revision src@unmanaged</text>
+                <text class="svg-sub" x="852" y="288">6.6 min</text>
+
+                <rect fill="#ece6f3" height="14" stroke="#765b98" width="4" x="604" y="307"></rect>
+                <text class="svg-step" x="288" y="318">gclient revinfo -a … --output-json</text>
+                <text class="svg-sub" x="616" y="318">0.1 min</text>
+
+                <line stroke="#b8b8b1" stroke-width="1" x1="604" x2="844" y1="332" y2="332"></line>
+                <line stroke="#b8b8b1" stroke-width="1" x1="604" x2="604" y1="332" y2="337"></line>
+                <line stroke="#b8b8b1" stroke-width="1" x1="677" x2="677" y1="332" y2="337"></line>
+                <line stroke="#b8b8b1" stroke-width="1" x1="749" x2="749" y1="332" y2="337"></line>
+                <line stroke="#b8b8b1" stroke-width="1" x1="822" x2="822" y1="332" y2="337"></line>
+                <text class="svg-sub" x="604" y="350">0</text>
+                <text class="svg-sub" x="673" y="350">2</text>
+                <text class="svg-sub" x="745" y="350">4</text>
+                <text class="svg-sub" x="818" y="350">6 min</text>
+
+                <text class="svg-note" x="288" y="374">populate: 188,439 objects, 17 pack files · sync: 167 deps cloned --shared from the local mirror, one cipd ensure</text>
+                <text class="svg-note" x="288" y="392">disk 167 GB → 192 GB of 290 GB · timed steps 11.8 min vs a step total of 11 m 55 s: ≈ 7 s left for everything grey</text>
+
+                <text class="svg-lane" x="288" y="420">SAME SCRIPT, WARM CACHE — try/linux-rel-compilator, same day</text>
+                <rect fill="#dfede5" height="12" stroke="#367f59" width="4" x="604" y="426"></rect>
+                <rect fill="#ece6f3" height="12" stroke="#765b98" width="44" x="608" y="426"></rect>
+                <text class="svg-note" x="288" y="436">blue = recipe layer · green = git · purple = gclient</text>
+                <text class="svg-sub" x="660" y="436">80 s total</text>
+                <text class="svg-note" x="288" y="454">populate 0.1 min · sync 1.2 min, of which 50 s was the Gerrit ref fetch · 167 shared clones already up to date</text>
+              </svg>

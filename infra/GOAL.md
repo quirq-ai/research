@@ -16,6 +16,15 @@ GB300 NVL72 racks. The source is suraj's writing at
 read at commit `a5a356d`. The measurements in the note are Cursor's. The
 explanation and the analysis are suraj's.
 
+qq is modelled on Chromium's infrastructure. suraj's writings take that
+infrastructure apart at one commit, `chromium/src@f288fed6` (Chrome
+156.0.8067.0): how Chromium syncs its dependencies, how its CI and commit queue
+land a change, and how a milestone becomes a release. This material brings five
+of those posts into the topic, credited and linked to the originals, so that
+qq's design can be read against the system it is modelled on. Three posts are
+teardowns: CI and releases, DEPS and goma, and Blink. Two explain the Sea of
+Nodes, the graph representation behind V8's TurboFan compiler.
+
 ## Research questions
 
 1. What does each of the 13 infra repos do, and which Chromium piece is it
@@ -31,6 +40,10 @@ explanation and the analysis are suraj's.
 8. Which design choices make the fusion work on an NVL72 rack: transfer direction, minibatch size, the split of SMs and the ring buffer?
 9. What did Cursor measure for MoK, at the layer and end to end, and how does suraj read the results?
 10. What does MoK require to run?
+11. How does Chromium declare, sync and roll its dependencies, and how does it pin its toolchain?
+12. How does a change travel from in-tree config to a numbered commit on `main`, and what keeps the tree green after it lands?
+13. How does a Chromium milestone become a branch, a version and a release?
+14. What does each of these designs cost, by the teardowns' own accounting?
 
 ## Research action
 
@@ -48,6 +61,13 @@ v0 status and the two guides as reports, a one-pager and a slide deck.
   analysis stays marked as his reading.
 - Publish a one-pager with the note's claim, its key numbers and links into
   the report.
+- Bring each post into `output/report/` with its text, tables and figures
+  unchanged. Credit suraj and link the original at writings commit `a5a356d`.
+- Keep each post's badges and dates: *[from the tree]*, *[from the docs]*,
+  *[reconstruction]*, and the dated live readings.
+- Link report sections only by the hub anchors recorded for each report.
+- Publish a one-pager on what the teardowns say about build sync, CI and
+  release, with a link into each report.
 
 ## Scope
 
@@ -68,6 +88,7 @@ v0 status and the two guides as reports, a one-pager and a slide deck.
   sync only" and "Build and run any repo locally", kept with their commands
   (suraj, 2026-10-05).
 - suraj's research note on Mixture-of-Kittens, published 5 August 2026, as read at writings commit `a5a356d`.
+- suraj's five Chromium posts at writings commit `a5a356d`: chromium/ci-cd-and-releases, chromium/deps-and-goma, chromium/blink, chromium/sea-of-nodes and chromium/sea-of-nodes-paper.
 
 **Out of scope:**
 
@@ -76,6 +97,9 @@ v0 status and the two guides as reports, a one-pager and a slide deck.
   the alpha tabs above and the phase plan above.
 - New benchmarks or runs of MoK. The note describes MoK as Cursor open-sourced it on 4 August 2026. Checking later releases would be new research.
 - Links between MoK and qq. The note does not mention qq.
+- New measurements of Chromium. The posts read `chromium/src@f288fed6`; reading a later tree would be new research.
+- What the posts mark as closed or not verified, such as the internal `chrome` project, GardenerAI and TurboCI.
+- Acting on the related issues #25, #41, #42 and #43. They follow the repo's issue triage.
 
 ## Done when
 
@@ -85,6 +109,9 @@ v0 status and the two guides as reports, a one-pager and a slide deck.
 - The note is published as a report in `output/report/`, credited to suraj and linked to its original post at `a5a356d`.
 - A one-pager gives the note's claim and key numbers, each traceable to the report.
 - The README lists the note's findings and both outputs.
+- All five posts are published as reports, credited and linked to their originals at `a5a356d`.
+- A one-pager gives the key numbers, what the teardowns say about build sync, CI and release, and a route into each report.
+- Each new finding in README.md cites a report section and was checked against it.
 
 ## Requested outputs
 

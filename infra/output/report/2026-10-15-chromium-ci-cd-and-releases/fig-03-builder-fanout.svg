@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -24 1020 572" role="img" aria-label="Left: the fifty-one line ci.builder call for Linux Builder, with two boxes below it holding the values inherited from the file's ci.defaults and from ci.star's bucket-wide defaults. Middle: lucicfg. Right: the ten artefacts lucicfg emits, with their paths and line counts. A bottom band shows the run-time resolution chain from bbagent through the bootstrapper at cipd latest, to the recipe bundle at refs slash heads slash main, to the properties file read at the input commit."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="-24.0" width="1020.0" height="572.0" fill="#ffffff"/>
+      <defs>
+        <marker id="fig-builder-fanout-arr-blue" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+        <marker id="fig-builder-fanout-arr-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+        <marker id="fig-builder-fanout-arr-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+      </defs>
+
+      <text class="svg-lane" x="20" y="28">AUTHORED · 51 LINES</text>
+      <text class="svg-lane" x="350" y="28">LUCICFG</text>
+      <text class="svg-lane" x="600" y="28">EMITTED · 3,112 LINES</text>
+
+      <rect fill="#e0ebf2" height="112" rx="8" stroke="#3c6f97" width="280" x="20" y="48"></rect>
+      <text class="svg-step" x="36" y="72">ci.builder(name = "Linux Builder")</text>
+      <text class="svg-sub" x="36" y="92">chromium.linux.star:328-378</text>
+      <text class="svg-sub" x="36" y="110">builder_spec · gclient chromium</text>
+      <text class="svg-sub" x="36" y="128">gn_args: 6 configs · targets.bundle</text>
+      <text class="svg-sub" x="36" y="146">console release/bld · contact e-mail</text>
+
+      <rect fill="#ece6f3" height="148" rx="8" stroke="#765b98" width="280" x="20" y="176"></rect>
+      <text class="svg-step" x="36" y="200">inherited · ci.defaults, :20-44</text>
+      <text class="svg-sub" x="36" y="220">builder_group chromium.linux</text>
+      <text class="svg-sub" x="36" y="238">pool luci.chromium.ci</text>
+      <text class="svg-sub" x="36" y="256">cores 8 · os LINUX_DEFAULT</text>
+      <text class="svg-sub" x="36" y="274">gardener_rotations CHROMIUM</text>
+      <text class="svg-sub" x="36" y="292">tree_closing True · timeout 3 h</text>
+      <text class="svg-sub" x="36" y="310">health_spec.default()</text>
+
+      <rect fill="#ece6f3" height="96" rx="8" stroke="#765b98" width="280" x="20" y="340"></rect>
+      <text class="svg-step" x="36" y="364">inherited · ci.star:16-26</text>
+      <text class="svg-sub" x="36" y="384">bucket ci</text>
+      <text class="svg-sub" x="36" y="402">triggered_by chromium-gitiles-trigger</text>
+      <text class="svg-sub" x="36" y="420">cpu X86_64 · free_space standard</text>
+
+      <rect fill="#f7f7f5" height="96" rx="10" stroke="#b8b8b1" width="180" x="350" y="176"></rect>
+      <text class="svg-step" x="366" y="206">lucicfg 1.46.7</text>
+      <text class="svg-sub" x="366" y="228">graph → generated/</text>
+      <text class="svg-sub" x="366" y="250">tracked_files decides</text>
+
+      <rect fill="#dfede5" height="152" rx="8" stroke="#367f59" width="400" x="600" y="48"></rect>
+      <text class="svg-step" x="616" y="72">service configs — 6</text>
+      <text class="svg-sub" x="616" y="94">cr-buildbucket.cfg:17817-17935 · 119 lines</text>
+      <text class="svg-sub" x="616" y="112">luci-scheduler.cfg:1369-1377 · 1 job</text>
+      <text class="svg-sub" x="616" y="130">luci-milo.cfg · 5 console entries</text>
+      <text class="svg-sub" x="616" y="148">luci-notify.cfg:780-805 · tree_closer</text>
+      <text class="svg-sub" x="616" y="166">health-specs.json · specs.ci[…]</text>
+      <text class="svg-sub" x="616" y="184">builder-owners/chrome-linux-engprod…txt:1</text>
+
+      <rect fill="#dfede5" height="116" rx="8" stroke="#367f59" width="400" x="600" y="212"></rect>
+      <text class="svg-step" x="616" y="236">builders/ci/Linux Builder/ — 4 files</text>
+      <text class="svg-sub" x="616" y="258">properties.json · 209 lines</text>
+      <text class="svg-sub" x="616" y="276">shadow-properties.json · 14</text>
+      <text class="svg-sub" x="616" y="294">gn-args.json · 14</text>
+      <text class="svg-sub" x="616" y="312">targets/chromium.linux.json · 2,756</text>
+
+      <line marker-end="url(#fig-builder-fanout-arr-blue)" stroke="#3c6f97" stroke-width="1.5" x1="300" x2="350" y1="104" y2="200"></line>
+      <line marker-end="url(#fig-builder-fanout-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="300" x2="350" y1="250" y2="224"></line>
+      <line marker-end="url(#fig-builder-fanout-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="300" x2="350" y1="388" y2="260"></line>
+      <line marker-end="url(#fig-builder-fanout-arr-ink)" stroke="#252525" stroke-width="2.5" x1="530" x2="600" y1="200" y2="140"></line>
+      <line marker-end="url(#fig-builder-fanout-arr-ink)" stroke="#252525" stroke-width="2.5" x1="530" x2="600" y1="248" y2="270"></line>
+
+      <text class="svg-lane" x="600" y="376">AT RUN TIME · ON ONE SWARMING BOT</text>
+      <rect fill="#ffffff" height="44" rx="8" stroke="#252525" width="400" x="600" y="392"></rect>
+      <text class="svg-step" x="616" y="410">bbagent</text>
+      <text class="svg-sub" x="616" y="428">LogDog butler · merges build.proto</text>
+      <rect fill="#ffffff" height="44" rx="8" stroke="#252525" width="400" x="600" y="446"></rect>
+      <text class="svg-step" x="616" y="464">bootstrapper · cipd_version "latest"</text>
+      <text class="svg-sub" x="616" y="482">not pinned — resolved at task start</text>
+      <rect fill="#f7e3c8" height="44" rx="8" stroke="#d98226" width="400" x="600" y="500"></rect>
+      <text class="svg-step" x="616" y="518">recipe bundle @ refs/heads/main</text>
+      <text class="svg-sub" x="616" y="536">+ properties.json read at the input commit</text>
+
+      <text class="svg-note" text-anchor="middle" x="310" y="470">thin blue = the authored call · dashed purple = inherited defaults</text>
+      <text class="svg-note" text-anchor="middle" x="310" y="494">thick black = generation · the run-time chain resolves top to bottom</text>
+    </svg>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -14 1120 528" role="img" aria-label="Left: a five-step hierarchy from MainThreadSchedulerImpl through AgentGroupScheduler, PageScheduler and FrameScheduler down to MainThreadTaskQueue with its QueueTraits bits. Right: the eleven-rung TaskPriority ladder from kControlPriority at zero to kBestEffortPriority at ten, with four annotations showing which queues land on which rung. Bottom: a piecewise timeline of a backgrounded page marking full throttling at ten seconds, freezing at one minute on Android only, and one wake-up per minute after the intensive-throttling grace period."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="-14.0" width="1120.0" height="528.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-scheduler-arr-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="4" y="2">THE HIERARCHY</text>
+                <rect fill="#ffffff" height="44" rx="8" stroke="#252525" stroke-width="1.5" width="340" x="4" y="18"></rect>
+                <text class="svg-step" x="18" y="40">MainThreadSchedulerImpl</text>
+                <text class="svg-sub" x="18" y="55">one per CrRendererMain · owns the UseCase</text>
+                <line marker-end="url(#fig-scheduler-arr-ink)" stroke="#252525" stroke-width="2.5" x1="34" x2="34" y1="62" y2="74"></line>
+                <rect fill="#f7f7f5" height="44" rx="8" stroke="#b8b8b1" width="324" x="20" y="74"></rect>
+                <text class="svg-step" x="34" y="96">AgentGroupScheduler</text>
+                <text class="svg-sub" x="34" y="111">default + compositor runners · Isolate()</text>
+                <line marker-end="url(#fig-scheduler-arr-ink)" stroke="#252525" stroke-width="2.5" x1="50" x2="50" y1="118" y2="130"></line>
+                <rect fill="#f7f7f5" height="44" rx="8" stroke="#b8b8b1" width="308" x="36" y="130"></rect>
+                <text class="svg-step" x="50" y="152">PageScheduler</text>
+                <text class="svg-sub" x="50" y="167">visible · frozen · bfcached · audible</text>
+                <line marker-end="url(#fig-scheduler-arr-ink)" stroke="#252525" stroke-width="2.5" x1="66" x2="66" y1="174" y2="186"></line>
+                <rect fill="#e0ebf2" height="44" rx="8" stroke="#3c6f97" stroke-width="2" width="292" x="52" y="186"></rect>
+                <text class="svg-step" x="66" y="208">FrameScheduler</text>
+                <text class="svg-sub" x="66" y="223">GetTaskRunner(TaskType) — the only door</text>
+                <line marker-end="url(#fig-scheduler-arr-ink)" stroke="#252525" stroke-width="2.5" x1="82" x2="82" y1="230" y2="242"></line>
+                <rect fill="#f7f7f5" height="66" rx="8" stroke="#b8b8b1" width="276" x="68" y="242"></rect>
+                <text class="svg-step" x="82" y="264">MainThreadTaskQueue</text>
+                <text class="svg-sub" x="82" y="281">QueueTraits: deferrable · throttleable ·</text>
+                <text class="svg-sub" x="82" y="297">intensively throttleable · pausable · freezable</text>
+                <text class="svg-note" x="4" y="330">79 TaskTypes collapse into one queue per distinct trait set</text>
+                <text class="svg-note" x="4" y="348">idle periods: &lt; 10 ms short, ≤ 50 ms long, 1 ms minimum</text>
+
+                <text class="svg-lane" x="400" y="2">TASKPRIORITY · 11 RUNGS</text>
+                <text class="svg-sub" text-anchor="end" x="424" y="34">0</text>
+                <rect fill="#f3dfdc" height="22" rx="4" stroke="#ad4b43" width="300" x="432" y="18"></rect>
+                <text class="svg-step" x="444" y="34">kControlPriority</text>
+                <text class="svg-sub" text-anchor="end" x="424" y="60">1</text>
+                <rect fill="#f7e3c8" height="22" rx="4" stroke="#d98226" width="300" x="432" y="44"></rect>
+                <text class="svg-step" x="444" y="60">kHighestPriority</text>
+                <text class="svg-sub" text-anchor="end" x="424" y="86">2</text>
+                <rect fill="#f7f7f5" height="22" rx="4" stroke="#deded9" width="300" x="432" y="70"></rect>
+                <text class="svg-step" x="444" y="86">kExtremelyHighPriority</text>
+                <text class="svg-sub" text-anchor="end" x="424" y="112">3</text>
+                <rect fill="#e0ebf2" height="22" rx="4" stroke="#3c6f97" width="300" x="432" y="96"></rect>
+                <text class="svg-step" x="444" y="112">kVeryHighPriority</text>
+                <text class="svg-sub" text-anchor="end" x="424" y="138">4</text>
+                <rect fill="#f7f7f5" height="22" rx="4" stroke="#deded9" width="300" x="432" y="122"></rect>
+                <text class="svg-step" x="444" y="138">kHighPriorityContinuation</text>
+                <text class="svg-sub" text-anchor="end" x="424" y="164">5</text>
+                <rect fill="#f7f7f5" height="22" rx="4" stroke="#deded9" width="300" x="432" y="148"></rect>
+                <text class="svg-step" x="444" y="164">kHighPriority</text>
+                <text class="svg-sub" text-anchor="end" x="424" y="190">6</text>
+                <rect fill="#f7f7f5" height="22" rx="4" stroke="#deded9" width="300" x="432" y="174"></rect>
+                <text class="svg-step" x="444" y="190">kNormalPriorityContinuation</text>
+                <text class="svg-sub" text-anchor="end" x="424" y="216">7</text>
+                <rect fill="#dfede5" height="22" rx="4" stroke="#367f59" width="300" x="432" y="200"></rect>
+                <text class="svg-step" x="444" y="216">kNormalPriority</text>
+                <text class="svg-sub" text-anchor="end" x="724" y="216">= kDefaultPriority</text>
+                <text class="svg-sub" text-anchor="end" x="424" y="242">8</text>
+                <rect fill="#f7f7f5" height="22" rx="4" stroke="#deded9" width="300" x="432" y="226"></rect>
+                <text class="svg-step" x="444" y="242">kLowPriorityContinuation</text>
+                <text class="svg-sub" text-anchor="end" x="424" y="268">9</text>
+                <rect fill="#e0ebf2" height="22" rx="4" stroke="#3c6f97" width="300" x="432" y="252"></rect>
+                <text class="svg-step" x="444" y="268">kLowPriority</text>
+                <text class="svg-sub" text-anchor="end" x="424" y="294">10</text>
+                <rect fill="#ece6f3" height="22" rx="4" stroke="#765b98" width="300" x="432" y="278"></rect>
+                <text class="svg-step" x="444" y="294">kBestEffortPriority</text>
+
+                <line marker-end="url(#fig-scheduler-arr-ink)" stroke="#252525" stroke-width="2.5" x1="758" x2="734" y1="55" y2="55"></line>
+                <text class="svg-step" x="766" y="50">input queues · always</text>
+                <text class="svg-sub" x="766" y="66">compositor queue under kTouchstart,</text>
+                <text class="svg-sub" x="766" y="82">main-thread gesture, kDiscreteInputResponse</text>
+                <line marker-end="url(#fig-scheduler-arr-ink)" stroke="#252525" stroke-width="2.5" x1="758" x2="734" y1="107" y2="107"></line>
+                <text class="svg-step" x="766" y="103">the default queue</text>
+                <text class="svg-sub" x="766" y="119">when IPC tasks are prioritised</text>
+                <line marker-end="url(#fig-scheduler-arr-ink)" stroke="#252525" stroke-width="2.5" x1="758" x2="734" y1="263" y2="263"></line>
+                <text class="svg-step" x="766" y="250">compositor queue</text>
+                <text class="svg-sub" x="766" y="266">under kCompositorGesture, unless</text>
+                <text class="svg-sub" x="766" y="282">blocking input is expected soon</text>
+                <line marker-end="url(#fig-scheduler-arr-ink)" stroke="#252525" stroke-width="2.5" x1="758" x2="734" y1="289" y2="289"></line>
+                <text class="svg-step" x="766" y="302">idle tasks</text>
+                <text class="svg-sub" x="766" y="318">and only inside an idle period</text>
+                <text class="svg-note" x="400" y="348">UserModel: 100 ms escalation after input · 300 ms median gesture</text>
+                <text class="svg-note" x="400" y="364">2000 ms another-gesture window · 50 ms max discrete-input deferral</text>
+
+                <line stroke="#deded9" stroke-width="1" x1="4" x2="1116" y1="364" y2="364"></line>
+                <text class="svg-lane" x="4" y="384">A BACKGROUNDED PAGE'S CLOCK</text>
+                <line stroke="#deded9" stroke-width="1" x1="300" x2="300" y1="404" y2="470"></line>
+                <line stroke="#deded9" stroke-width="1" x1="620" x2="620" y1="404" y2="470"></line>
+                <path d="M620 400L620 392L1040 392L1040 400" fill="none" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+                <text class="svg-sub" text-anchor="middle" x="830" y="386">intensive-throttling grace: 60 s once loaded, else 5 min</text>
+                <line marker-end="url(#fig-scheduler-arr-ink)" stroke="#252525" stroke-width="2.5" x1="40" x2="1100" y1="440" y2="440"></line>
+                <line stroke="#252525" stroke-width="1.5" x1="60" x2="60" y1="440" y2="416"></line>
+                <circle cx="60" cy="440" fill="#252525" r="5"></circle>
+                <text class="svg-step" text-anchor="middle" x="60" y="412">backgrounded</text>
+                <text class="svg-sub" text-anchor="middle" x="60" y="458">t = 0</text>
+                <line stroke="#3c6f97" stroke-width="1.5" x1="300" x2="300" y1="440" y2="416"></line>
+                <circle cx="300" cy="440" fill="#3c6f97" r="5"></circle>
+                <text class="svg-step" text-anchor="middle" x="300" y="412">full throttling</text>
+                <text class="svg-sub" text-anchor="middle" x="300" y="458">10 s · wake-ups every 1 s</text>
+                <text class="svg-sub" text-anchor="middle" x="300" y="474">idle periods stop being scheduled</text>
+                <line stroke="#d98226" stroke-width="1.5" x1="620" x2="620" y1="440" y2="416"></line>
+                <circle cx="620" cy="440" fill="#d98226" r="5"></circle>
+                <text class="svg-step" text-anchor="middle" x="620" y="412">freeze</text>
+                <text class="svg-sub" text-anchor="middle" x="620" y="458">60 s · only where kStopInBackground is on</text>
+                <text class="svg-sub" text-anchor="middle" x="620" y="474">elsewhere: only on SetPageFrozen()</text>
+                <line stroke="#765b98" stroke-width="1.5" x1="1040" x2="1040" y1="440" y2="416"></line>
+                <circle cx="1040" cy="440" fill="#765b98" r="5"></circle>
+                <text class="svg-step" text-anchor="end" x="1100" y="412">1 wake-up / minute</text>
+                <text class="svg-sub" text-anchor="end" x="1100" y="458">5 min, or 60 s if loaded</text>
+                <text class="svg-note" x="4" y="500">the axis is piecewise: 0–10 s, 10–60 s and 60 s–5 min each take a third of the width, so read order, not spacing</text>
+              </svg>

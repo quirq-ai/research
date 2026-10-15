@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -6 1080 508" role="img" aria-label="Four horizontal lanes on the left. Lane one: the V8 lkgr finder every six minutes feeds refs slash heads slash lkgr, which auto_push.py picks up. Lane two: create_release.py as thirteen numbered steps above a JSON state strip that is rewritten after every step, enabling resume with dash s N. Lane three: the pushed branch and tag, the PGO builder adding a minus pgo tag fifteen to twenty minutes later, and detect_roll_candidate scanning one hundred and sixty tags before force-pushing refs slash heads slash roll. Lane four: Skia's v8-chromium-autoroll opening a Roll V8 CL with fifty try jobs that lands in Chromium's DEPS. A panel on the right shows the back-merge path through Gerrit's REST API."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="-6.0" width="1080.0" height="508.0" fill="#ffffff"/>
+      <defs>
+        <marker id="fig-v8-life-arr-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+        <marker id="fig-v8-life-arr-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+        <marker id="fig-v8-life-arr-blue" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+      </defs>
+
+      <line stroke="#deded9" x1="788" x2="788" y1="8" y2="470"></line>
+
+      <text class="svg-lane" x="10" y="20">1 · TRUNK</text>
+      <rect fill="#f7f7f5" height="54" rx="8" stroke="#252525" width="216" x="10" y="30"></rect>
+      <text class="svg-step" x="24" y="53">V8 lkgr finder</text>
+      <text class="svg-sub" x="24" y="72">runs every 6 minutes</text>
+      <line marker-end="url(#fig-v8-life-arr-ink)" stroke="#252525" stroke-width="2.5" x1="226" x2="264" y1="57" y2="57"></line>
+      <rect fill="#e0ebf2" height="54" rx="8" stroke="#3c6f97" width="216" x="268" y="30"></rect>
+      <text class="svg-step" x="282" y="53">refs/heads/lkgr</text>
+      <text class="svg-sub" x="282" y="72">the candidate revision</text>
+      <line marker-end="url(#fig-v8-life-arr-ink)" stroke="#252525" stroke-width="2.5" x1="484" x2="522" y1="57" y2="57"></line>
+      <rect fill="#f7f7f5" height="54" rx="8" stroke="#252525" width="244" x="526" y="30"></rect>
+      <text class="svg-step" x="540" y="53">auto_push.py</text>
+      <text class="svg-sub" x="540" y="72">recipe v8/auto_roll_push</text>
+
+      <text class="svg-lane" x="10" y="112">2 · CREATE_RELEASE.PY — 13 STEPS, ONE STATE FILE</text>
+      <rect fill="#f7f7f5" height="32" rx="4" stroke="#b8b8b1" width="52" x="10" y="122"></rect><text class="svg-num" x="28" y="144">1</text>
+      <rect fill="#f7f7f5" height="32" rx="4" stroke="#b8b8b1" width="52" x="68" y="122"></rect><text class="svg-num" x="86" y="144">2</text>
+      <rect fill="#f7f7f5" height="32" rx="4" stroke="#b8b8b1" width="52" x="126" y="122"></rect><text class="svg-num" x="144" y="144">3</text>
+      <rect fill="#f7f7f5" height="32" rx="4" stroke="#b8b8b1" width="52" x="184" y="122"></rect><text class="svg-num" x="202" y="144">4</text>
+      <rect fill="#f7f7f5" height="32" rx="4" stroke="#b8b8b1" width="52" x="242" y="122"></rect><text class="svg-num" x="260" y="144">5</text>
+      <rect fill="#dfede5" height="32" rx="4" stroke="#367f59" width="52" x="300" y="122"></rect><text class="svg-num" x="318" y="144">6</text>
+      <rect fill="#f7f7f5" height="32" rx="4" stroke="#b8b8b1" width="52" x="358" y="122"></rect><text class="svg-num" x="376" y="144">7</text>
+      <rect fill="#dfede5" height="32" rx="4" stroke="#367f59" width="52" x="416" y="122"></rect><text class="svg-num" x="434" y="144">8</text>
+      <rect fill="#f7f7f5" height="32" rx="4" stroke="#b8b8b1" width="52" x="474" y="122"></rect><text class="svg-num" x="492" y="144">9</text>
+      <rect fill="#f7f7f5" height="32" rx="4" stroke="#b8b8b1" width="52" x="532" y="122"></rect><text class="svg-num" x="546" y="144">10</text>
+      <rect fill="#dfede5" height="32" rx="4" stroke="#367f59" width="52" x="590" y="122"></rect><text class="svg-num" x="604" y="144">11</text>
+      <rect fill="#dfede5" height="32" rx="4" stroke="#367f59" width="52" x="648" y="122"></rect><text class="svg-num" x="662" y="144">12</text>
+      <rect fill="#f7f7f5" height="32" rx="4" stroke="#b8b8b1" width="64" x="706" y="122"></rect><text class="svg-num" x="724" y="144">13</text>
+      <text class="svg-sub" x="10" y="184">1 Preparation · 2 PrepareBranchRevision · 3 IncrementVersion · 4 DetectLastRelease · 5 DeleteBranchRef · 6 PushBranchRef</text>
+      <text class="svg-sub" x="10" y="202">7 MakeBranch · 8 SetVersion · 9 EnableMergeWatchlist · 10 CommitBranch · 11 LandBranch · 12 TagRevision · 13 CleanUp</text>
+      <rect fill="#ece6f3" height="32" rx="6" stroke="#765b98" stroke-dasharray="5 4" width="760" x="10" y="214"></rect>
+      <text class="svg-sub" x="24" y="235">/tmp/create-releases-tempfile-state.json — rewritten in a finally: block after every step</text>
+      <path d="M740 234 C760 254 34 254 22 236" fill="none" marker-end="url(#fig-v8-life-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+      <text class="svg-note" x="356" y="264">a failed run resumes with -s N</text>
+
+      <text class="svg-lane" x="10" y="292">3 · WHAT IT PUSHES, AND THE GATE THAT HOLDS IT</text>
+      <rect fill="#dfede5" height="54" rx="8" stroke="#367f59" width="216" x="10" y="302"></rect>
+      <text class="svg-step" x="24" y="325">refs/heads/15.6.31</text>
+      <text class="svg-sub" x="24" y="344">+ tag 15.6.31 · candidate 0</text>
+      <line marker-end="url(#fig-v8-life-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="226" x2="264" y1="329" y2="329"></line>
+      <rect fill="#f7e3c8" height="54" rx="8" stroke="#d98226" width="216" x="268" y="302"></rect>
+      <text class="svg-step" x="282" y="325">tag 15.6.31-pgo</text>
+      <text class="svg-sub" x="282" y="344">PGO builder, 15–20 min later</text>
+      <line marker-end="url(#fig-v8-life-arr-ink)" stroke="#252525" stroke-width="2.5" x1="484" x2="522" y1="329" y2="329"></line>
+      <rect fill="#f7f7f5" height="54" rx="8" stroke="#252525" width="244" x="526" y="302"></rect>
+      <text class="svg-step" x="540" y="325">detect_roll_candidate</text>
+      <text class="svg-sub" x="540" y="344">160 newest tags → refs/heads/roll</text>
+
+      <text class="svg-lane" x="10" y="384">4 · CHROMIUM</text>
+      <rect fill="#e0ebf2" height="54" rx="8" stroke="#3c6f97" width="284" x="10" y="394"></rect>
+      <text class="svg-step" x="24" y="417">v8-chromium-autoroll (Skia)</text>
+      <text class="svg-sub" x="24" y="436">mode RUNNING · strategy BATCH</text>
+      <line marker-end="url(#fig-v8-life-arr-blue)" stroke="#3c6f97" stroke-width="1.5" x1="294" x2="332" y1="421" y2="421"></line>
+      <rect fill="#e0ebf2" height="54" rx="8" stroke="#3c6f97" width="248" x="336" y="394"></rect>
+      <text class="svg-step" x="350" y="417">"Roll V8 from A to B"</text>
+      <text class="svg-sub" x="350" y="436">50 try jobs per roll CL</text>
+      <line marker-end="url(#fig-v8-life-arr-blue)" stroke="#3c6f97" stroke-width="1.5" x1="584" x2="622" y1="421" y2="421"></line>
+      <rect fill="#dfede5" height="54" rx="8" stroke="#367f59" width="144" x="626" y="394"></rect>
+      <text class="svg-step" x="640" y="417">DEPS</text>
+      <text class="svg-sub" x="640" y="436">v8_revision = …</text>
+
+      <text class="svg-lane" x="804" y="20">BACK-MERGE · NO LOCAL GIT</text>
+      <rect fill="#ece6f3" height="70" rx="8" stroke="#765b98" width="266" x="804" y="30"></rect>
+      <text class="svg-step" x="818" y="53">merge_to_branch_gerrit.py</text>
+      <text class="svg-sub" x="818" y="71">Gerrit REST cherry-pick</text>
+      <text class="svg-sub" x="818" y="89">"Merged: " · footers stripped</text>
+      <line marker-end="url(#fig-v8-life-arr-ink)" stroke="#252525" stroke-width="2.5" x1="937" x2="937" y1="100" y2="126"></line>
+      <rect fill="#ece6f3" height="88" rx="8" stroke="#765b98" width="266" x="804" y="130"></rect>
+      <text class="svg-step" x="818" y="153">roll_merge_gerrit.py</text>
+      <text class="svg-sub" x="818" y="171">V8_PATCH_LEVEL + 1 by change edit</text>
+      <text class="svg-sub" x="818" y="189">hashtag roll-merge</text>
+      <text class="svg-sub" x="818" y="207">Owners-Override +1 · rubber-stamper</text>
+      <line marker-end="url(#fig-v8-life-arr-ink)" stroke="#252525" stroke-width="2.5" x1="937" x2="937" y1="218" y2="244"></line>
+      <rect fill="#f7e3c8" height="70" rx="8" stroke="#d98226" width="266" x="804" y="248"></rect>
+      <text class="svg-step" x="818" y="271">submit · tag · wait</text>
+      <text class="svg-sub" x="818" y="289">for the -pgo tag, 15–20 min</text>
+      <text class="svg-sub" x="818" y="307">before the roller reopens</text>
+      <text class="svg-note" x="804" y="344">The same gate closes the loop:</text>
+      <text class="svg-note" x="804" y="362">nothing rolls without PGO data.</text>
+
+      <text class="svg-note" x="10" y="478">thick black = control · thin blue = data into Chromium · dashed purple = state written or awaited</text>
+    </svg>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 434" role="img" aria-label="Three panels. Left: seven equal-height columns, one per day from Monday 14 to Sunday 20 September 2026, each filled from the bottom in purple to the roller share of that day's merged commits — 20.1, 20.6, 19.7, 17.7, 16.7, 40.6 and 68.1 percent, with a dashed line at the 20.8 percent weekly mean. Right: four horizontal bars for the weeks beginning 24 August, 31 August, 7 September and 14 September, at 21.7, 23.3, 26.3 and 20.8 percent. Bottom: one bar splitting the week's 940 roller commits into 720 template rolls and 220 PGO profile rolls."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1100.0" height="434.0" fill="#ffffff"/>
+                <text class="svg-lane" x="16" y="22">ONE WEEK ON main — 4,513 COMMITS, 940 ROLLER-OWNED</text>
+                <text class="svg-lane" x="620" y="22">FOUR WEEKS TO 2026-09-21 — 3,893 OF 16,973 (22.9%)</text>
+
+                <text class="svg-sub" text-anchor="middle" x="44" y="70">126 / 626</text>
+                <text class="svg-sub" text-anchor="middle" x="120" y="70">180 / 873</text>
+                <text class="svg-sub" text-anchor="middle" x="196" y="70">164 / 834</text>
+                <text class="svg-sub" text-anchor="middle" x="272" y="70">165 / 934</text>
+                <text class="svg-sub" text-anchor="middle" x="348" y="70">159 / 950</text>
+                <text class="svg-sub" text-anchor="middle" x="424" y="70">82 / 202</text>
+                <text class="svg-sub" text-anchor="middle" x="500" y="70">64 / 94</text>
+
+                <rect fill="#f7f7f5" height="150" stroke="#b8b8b1" width="56" x="16" y="80"></rect>
+                <rect fill="#f7f7f5" height="150" stroke="#b8b8b1" width="56" x="92" y="80"></rect>
+                <rect fill="#f7f7f5" height="150" stroke="#b8b8b1" width="56" x="168" y="80"></rect>
+                <rect fill="#f7f7f5" height="150" stroke="#b8b8b1" width="56" x="244" y="80"></rect>
+                <rect fill="#f7f7f5" height="150" stroke="#b8b8b1" width="56" x="320" y="80"></rect>
+                <rect fill="#f7f7f5" height="150" stroke="#b8b8b1" width="56" x="396" y="80"></rect>
+                <rect fill="#f7f7f5" height="150" stroke="#b8b8b1" width="56" x="472" y="80"></rect>
+
+                <rect fill="#ece6f3" height="30" stroke="#765b98" width="56" x="16" y="200"></rect>
+                <rect fill="#ece6f3" height="31" stroke="#765b98" width="56" x="92" y="199"></rect>
+                <rect fill="#ece6f3" height="30" stroke="#765b98" width="56" x="168" y="200"></rect>
+                <rect fill="#ece6f3" height="27" stroke="#765b98" width="56" x="244" y="203"></rect>
+                <rect fill="#ece6f3" height="25" stroke="#765b98" width="56" x="320" y="205"></rect>
+                <rect fill="#ece6f3" height="61" stroke="#765b98" width="56" x="396" y="169"></rect>
+                <rect fill="#ece6f3" height="102" stroke="#765b98" width="56" x="472" y="128"></rect>
+
+                <line stroke="#252525" stroke-dasharray="5 4" stroke-width="1" x1="16" x2="528" y1="199" y2="199"></line>
+                <text class="svg-sub" x="540" y="202">20.8% mean</text>
+                <text class="svg-sub" x="540" y="84">100%</text>
+
+                <text class="svg-sub" text-anchor="middle" x="44" y="248">MON</text>
+                <text class="svg-sub" text-anchor="middle" x="120" y="248">TUE</text>
+                <text class="svg-sub" text-anchor="middle" x="196" y="248">WED</text>
+                <text class="svg-sub" text-anchor="middle" x="272" y="248">THU</text>
+                <text class="svg-sub" text-anchor="middle" x="348" y="248">FRI</text>
+                <text class="svg-sub" text-anchor="middle" x="424" y="248">SAT</text>
+                <text class="svg-sub" text-anchor="middle" x="500" y="248">SUN</text>
+
+                <text class="svg-step" text-anchor="middle" x="44" y="266">20.1%</text>
+                <text class="svg-step" text-anchor="middle" x="120" y="266">20.6%</text>
+                <text class="svg-step" text-anchor="middle" x="196" y="266">19.7%</text>
+                <text class="svg-step" text-anchor="middle" x="272" y="266">17.7%</text>
+                <text class="svg-step" text-anchor="middle" x="348" y="266">16.7%</text>
+                <text class="svg-step" text-anchor="middle" x="424" y="266">40.6%</text>
+                <text class="svg-step" text-anchor="middle" x="500" y="266">68.1%</text>
+
+                <rect fill="#f7f7f5" height="24" stroke="#deded9" width="280" x="672" y="48"></rect>
+                <rect fill="#f7f7f5" height="24" stroke="#deded9" width="280" x="672" y="84"></rect>
+                <rect fill="#f7f7f5" height="24" stroke="#deded9" width="280" x="672" y="120"></rect>
+                <rect fill="#f7f7f5" height="24" stroke="#deded9" width="280" x="672" y="156"></rect>
+
+                <rect fill="#ece6f3" height="24" stroke="#765b98" width="203" x="672" y="48"></rect>
+                <rect fill="#ece6f3" height="24" stroke="#765b98" width="218" x="672" y="84"></rect>
+                <rect fill="#ece6f3" height="24" stroke="#765b98" width="245" x="672" y="120"></rect>
+                <rect fill="#ece6f3" height="24" stroke="#765b98" width="194" x="672" y="156"></rect>
+
+                <text class="svg-sub" x="620" y="64">Aug 24</text>
+                <text class="svg-sub" x="620" y="100">Aug 31</text>
+                <text class="svg-sub" x="620" y="136">Sep 7</text>
+                <text class="svg-sub" x="620" y="172">Sep 14</text>
+
+                <text class="svg-step" text-anchor="end" x="867" y="65">21.7%</text>
+                <text class="svg-step" text-anchor="end" x="882" y="101">23.3%</text>
+                <text class="svg-step" text-anchor="end" x="909" y="137">26.3%</text>
+                <text class="svg-step" text-anchor="end" x="858" y="173">20.8%</text>
+
+                <text class="svg-sub" x="960" y="65">917 of 4,223</text>
+                <text class="svg-sub" x="960" y="101">1,004 of 4,312</text>
+                <text class="svg-sub" x="960" y="137">1,032 of 3,925</text>
+                <text class="svg-sub" x="960" y="173">940 of 4,513</text>
+
+                <text class="svg-note" x="620" y="200">track = 30% · the Labor Day week peaks: humans pause, rollers do not</text>
+
+                <text class="svg-lane" x="16" y="292">THE 940 ROLLER COMMITS OF THAT WEEK, BY SHAPE</text>
+                <rect fill="#e0ebf2" height="52" stroke="#3c6f97" width="818" x="16" y="304"></rect>
+                <rect fill="#f7e3c8" height="52" stroke="#d98226" width="250" x="834" y="304"></rect>
+                <text class="svg-step" x="32" y="328">720 template rolls</text>
+                <text class="svg-sub" x="32" y="348">'Roll &lt;child&gt; from &lt;a&gt; to &lt;b&gt; (N revisions)' — 92 distinct children, 1,198 upstream revisions</text>
+                <text class="svg-step" x="850" y="328">220 PGO rolls</text>
+                <text class="svg-sub" x="850" y="348">chrome/build/&lt;platform&gt;.pgo.txt</text>
+
+                <text class="svg-note" x="16" y="378">PGO split: 79 Mac Arm · 46 Chrome PGO Profile · 28 Mac · 24 Win/Win64/Win ARM64 · 23 Linux · 20 Android = 220</text>
+                <text class="svg-note" x="16" y="396">625 of the week's 4,513 main commits (13.8%) touched DEPS at all — 591 of them roller-owned; none touched .gitmodules</text>
+                <text class="svg-note" x="16" y="424">purple and blue = machine-authored · paper ground = the human remainder · every count is of merged changes, not of CLs opened</text>
+              </svg>

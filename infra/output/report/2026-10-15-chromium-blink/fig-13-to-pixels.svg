@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -24 980 330" role="img" aria-label="Eight data structures in two rows connected by labelled arrows: PaintArtifact, cc layer list with property trees, pending layer tree, tiles, then active layer tree, CompositorFrame, aggregated frame, and framebuffer."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="-24.0" width="980.0" height="330.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-to-pixels-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="10" y="-2">IN THE RENDERER</text>
+                <text class="svg-lane" x="510" y="224">IN VIZ — ONE PROCESS FOR ALL OF CHROMIUM</text>
+
+                <rect fill="#e0ebf2" height="58" rx="8" stroke="#3c6f97" width="210" x="10" y="12"></rect>
+                <text class="svg-step" x="22" y="34">PaintArtifact</text>
+                <text class="svg-sub" x="22" y="54">display items + chunks</text>
+                <rect fill="#e0ebf2" height="58" rx="8" stroke="#3c6f97" width="210" x="260" y="12"></rect>
+                <text class="svg-step" x="272" y="34">cc::Layer list</text>
+                <text class="svg-sub" x="272" y="54">+ four cc::PropertyTrees</text>
+                <rect fill="#ece6f3" height="58" rx="8" stroke="#765b98" width="210" x="510" y="12"></rect>
+                <text class="svg-step" x="522" y="34">pending tree</text>
+                <text class="svg-sub" x="522" y="54">LayerTreeImpl copy</text>
+                <rect fill="#dfede5" height="58" rx="8" stroke="#367f59" width="210" x="760" y="12"></rect>
+                <text class="svg-step" x="772" y="34">tiles</text>
+                <text class="svg-sub" x="772" y="54">256×256 sw · 4-high gpu</text>
+
+                <line marker-end="url(#fig-to-pixels-ink)" stroke="#252525" stroke-width="2.5" x1="220" x2="256" y1="41" y2="41"></line>
+                <text class="svg-num" text-anchor="middle" x="238" y="6">LayerizeGroup</text>
+                <line marker-end="url(#fig-to-pixels-ink)" stroke="#252525" stroke-width="2.5" x1="470" x2="506" y1="41" y2="41"></line>
+                <text class="svg-num" text-anchor="middle" x="488" y="6">Commit</text>
+                <line marker-end="url(#fig-to-pixels-ink)" stroke="#252525" stroke-width="2.5" x1="720" x2="756" y1="41" y2="41"></line>
+                <text class="svg-num" text-anchor="middle" x="738" y="6">Raster</text>
+
+                <path d="M865 70 L865 104 L115 104 L115 148" fill="none" marker-end="url(#fig-to-pixels-ink)" stroke="#252525" stroke-width="2.5"></path>
+                <text class="svg-num" text-anchor="middle" x="490" y="98">Activate</text>
+
+                <rect fill="#ece6f3" height="58" rx="8" stroke="#765b98" width="210" x="10" y="150"></rect>
+                <text class="svg-step" x="22" y="172">active tree</text>
+                <text class="svg-sub" x="22" y="192">tiles ready to draw</text>
+                <rect fill="#f7e3c8" height="58" rx="8" stroke="#d98226" width="210" x="260" y="150"></rect>
+                <text class="svg-step" x="272" y="172">CompositorFrame</text>
+                <text class="svg-sub" x="272" y="192">render passes of quads</text>
+                <rect fill="#f7e3c8" height="58" rx="8" stroke="#d98226" width="210" x="510" y="150"></rect>
+                <text class="svg-step" x="522" y="172">aggregated frame</text>
+                <text class="svg-sub" x="522" y="192">every client's surfaces</text>
+                <rect fill="#ffffff" height="58" rx="8" stroke="#252525" width="210" x="760" y="150"></rect>
+                <text class="svg-step" x="772" y="172">framebuffer</text>
+                <text class="svg-sub" x="772" y="192">SkiaRenderer output</text>
+
+                <line marker-end="url(#fig-to-pixels-ink)" stroke="#252525" stroke-width="2.5" x1="220" x2="256" y1="179" y2="179"></line>
+                <text class="svg-num" text-anchor="middle" x="238" y="144">AppendQuads</text>
+                <line marker-end="url(#fig-to-pixels-ink)" stroke="#252525" stroke-width="2.5" x1="470" x2="506" y1="179" y2="179"></line>
+                <text class="svg-num" text-anchor="middle" x="488" y="144">SurfaceAggregator</text>
+                <line marker-end="url(#fig-to-pixels-ink)" stroke="#252525" stroke-width="2.5" x1="720" x2="756" y1="179" y2="179"></line>
+                <text class="svg-num" text-anchor="middle" x="738" y="144">Draw</text>
+
+                <text class="svg-note" x="10" y="240">Root render pass is last in the list; quads inside a pass run back to front; a preserve-3d context is BSP-sorted.</text>
+                <text class="svg-note" x="10" y="262">Boxes are data structures. The labels on the arrows are the operations that produce the next one.</text>
+                <text class="svg-note" x="10" y="284">Which thread runs which arrow is §04's problem, not this diagram's.</text>
+              </svg>

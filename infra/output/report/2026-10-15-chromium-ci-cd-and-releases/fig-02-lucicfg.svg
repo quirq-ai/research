@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -24 1020 520" role="img" aria-label="Three bands. Left: inputs in the tree, PACKAGE.star with its chromium-luci pin, 125 Starlark files totalling 76,580 lines, settings.json and milestones.json, and the lib constants. Middle: lucicfg 1.46.7 executing in three stages behind a tracked_files gate with fail_on_warnings set. Right: the generated tree, 3,555 files and 36.5 megabytes, split into luci, builders, and the rest. Below: after the CL lands, the LUCI Config import cron runs within a ten-minute window and the services poll every minute."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="-24.0" width="1020.0" height="520.0" fill="#ffffff"/>
+      <defs>
+        <marker id="fig-lucicfg-arr-blue" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+        <marker id="fig-lucicfg-arr-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+        <marker id="fig-lucicfg-arr-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+      </defs>
+
+      <text class="svg-lane" x="20" y="28">INPUTS · IN THE TREE</text>
+      <text class="svg-lane" x="330" y="28">LUCICFG 1.46.7</text>
+      <text class="svg-lane" x="620" y="28">GENERATED/ · IN THE TREE</text>
+
+      <rect fill="#e0ebf2" height="76" rx="8" stroke="#3c6f97" width="280" x="20" y="48"></rect>
+      <text class="svg-step" x="36" y="72">PACKAGE.star</text>
+      <text class="svg-sub" x="36" y="92">@chromium-project · lucicfg ≥ 1.44.1</text>
+      <text class="svg-sub" x="36" y="110">dep @chromium-luci @ 3c067cfc</text>
+
+      <rect fill="#e0ebf2" height="76" rx="8" stroke="#3c6f97" width="280" x="20" y="136"></rect>
+      <text class="svg-step" x="36" y="160">125 .star files · 76,580 lines</text>
+      <text class="svg-sub" x="36" y="180">main.star · dev.star (entry points)</text>
+      <text class="svg-sub" x="36" y="198">subprojects/ · gn_args/ · targets/</text>
+
+      <rect fill="#e0ebf2" height="58" rx="8" stroke="#3c6f97" width="280" x="20" y="224"></rect>
+      <text class="svg-step" x="36" y="248">settings.json · milestones.json</text>
+      <text class="svg-sub" x="36" y="268">declared in pkg.resources</text>
+
+      <rect fill="#e0ebf2" height="58" rx="8" stroke="#3c6f97" width="280" x="20" y="294"></rect>
+      <text class="svg-step" x="36" y="318">lib/ — project constants</text>
+      <text class="svg-sub" x="36" y="338">luci.chromium.ci · 3 h · 250 RBE jobs</text>
+
+      <rect fill="#f7f7f5" height="304" rx="10" stroke="#b8b8b1" width="250" x="330" y="48"></rect>
+      <rect fill="#ffffff" height="58" rx="8" stroke="#deded9" width="218" x="346" y="76"></rect>
+      <text class="svg-step" x="360" y="100"><tspan class="svg-num">1</tspan> execute main.star</text>
+      <text class="svg-sub" x="360" y="120">after fetching @chromium-luci</text>
+      <rect fill="#ffffff" height="58" rx="8" stroke="#deded9" width="218" x="346" y="148"></rect>
+      <text class="svg-step" x="360" y="172"><tspan class="svg-num">2</tspan> build the config graph</text>
+      <text class="svg-sub" x="360" y="192">luci.builder · luci.console · …</text>
+      <rect fill="#ffffff" height="58" rx="8" stroke="#deded9" width="218" x="346" y="220"></rect>
+      <text class="svg-step" x="360" y="244"><tspan class="svg-num">3</tspan> emit into generated/</text>
+      <text class="svg-sub" x="360" y="264">tracked_files owns the output</text>
+      <text class="svg-note" text-anchor="middle" x="455" y="304">fail_on_warnings = True</text>
+      <text class="svg-note" text-anchor="middle" x="455" y="328">output outside the manifest is discarded</text>
+
+      <rect fill="#dfede5" height="136" rx="8" stroke="#367f59" width="380" x="620" y="48"></rect>
+      <text class="svg-step" x="636" y="72">luci/ — 21 files</text>
+      <text class="svg-sub" x="636" y="94">cr-buildbucket.cfg  139,286 lines / 5,544,282 B</text>
+      <text class="svg-sub" x="636" y="112">luci-milo.cfg  31,964 lines · 90 consoles</text>
+      <text class="svg-sub" x="636" y="130">luci-scheduler.cfg  7,092 · 697 jobs · 5 triggers</text>
+      <text class="svg-sub" x="636" y="148">luci-notify.cfg  6,013 · 252 notifiers · 133 closers</text>
+      <text class="svg-sub" x="636" y="166">commit-queue.cfg 9,451 · realms.cfg 933 · 27 realms</text>
+
+      <rect fill="#dfede5" height="76" rx="8" stroke="#367f59" width="380" x="620" y="196"></rect>
+      <text class="svg-step" x="636" y="220">builders/ — 3,429 files</text>
+      <text class="svg-sub" x="636" y="240">properties.json · shadow-properties.json</text>
+      <text class="svg-sub" x="636" y="258">gn-args.json · targets/&lt;group&gt;.json</text>
+
+      <rect fill="#dfede5" height="68" rx="8" stroke="#367f59" width="380" x="620" y="284"></rect>
+      <text class="svg-step" x="636" y="308">the rest — 105 files</text>
+      <text class="svg-sub" x="636" y="328">builder-owners/ 49 · builders-dev/ 28 · rotations 12</text>
+      <text class="svg-sub" x="636" y="346">cq-usage/ 6 · testing/ 5 · cq-builders.md · outages.pyl</text>
+
+      <line marker-end="url(#fig-lucicfg-arr-blue)" stroke="#3c6f97" stroke-width="1.5" x1="300" x2="330" y1="200" y2="200"></line>
+      <line marker-end="url(#fig-lucicfg-arr-ink)" stroke="#252525" stroke-width="2.5" x1="580" x2="620" y1="200" y2="200"></line>
+      <text class="svg-note" text-anchor="end" x="1012" y="20">3,555 files · 36.5 MB · all committed</text>
+
+      <text class="svg-lane" x="20" y="386">AFTER THE CL LANDS · OUTSIDE THE TREE</text>
+      <rect fill="#ece6f3" height="66" rx="8" stroke="#765b98" width="280" x="20" y="400"></rect>
+      <text class="svg-step" x="36" y="424">CL lands on refs/heads/main</text>
+      <text class="svg-sub" x="36" y="444">generated/ committed beside the .star</text>
+      <rect fill="#ece6f3" height="66" rx="8" stroke="#765b98" width="320" x="350" y="400"></rect>
+      <text class="svg-step" x="366" y="424">LUCI Config import cron</text>
+      <text class="svg-sub" x="366" y="444">≤ 10 min window · ValidateConfigs gate</text>
+      <rect fill="#ece6f3" height="66" rx="8" stroke="#765b98" width="260" x="740" y="400"></rect>
+      <text class="svg-step" x="756" y="424">services poll</text>
+      <text class="svg-sub" x="756" y="444">Buildbucket · Scheduler · CV, 1 min</text>
+
+      <path d="M810 352 C810 392 260 376 160 400" fill="none" marker-end="url(#fig-lucicfg-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+      <line marker-end="url(#fig-lucicfg-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="300" x2="350" y1="433" y2="433"></line>
+      <line marker-end="url(#fig-lucicfg-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="670" x2="740" y1="433" y2="433"></line>
+      <text class="svg-note" text-anchor="middle" x="510" y="492">thin blue = inputs read · thick black = generation · dashed purple = propagation after the commit</text>
+    </svg>

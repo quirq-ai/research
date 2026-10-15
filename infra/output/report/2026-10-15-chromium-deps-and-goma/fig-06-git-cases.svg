@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 584" role="img" aria-label="A decision tree. Five questions in a column: is the solution managed, does the checkout have a .git directory, does the gitlink already equal the pinned hash, does the remote URL match DEPS, and is the revision already a local SHA. Each has an outcome box to its right: skip, clone, return without running anything, switch the remote, or fetch. Below them a box lists the five fall-through cases zero to four. On the right, a panel lists the four git config values set after update returns, and a second panel describes the git cache mirror."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="584.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-git-cases-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                </defs>
+                <text class="svg-lane" x="12" y="26">GCLIENT_SCM.PY:937–1300</text>
+                <text class="svg-lane" x="580" y="26">AFTER UPDATE RETURNS</text>
+
+                <rect fill="#ffffff" height="52" rx="8" stroke="#252525" width="300" x="12" y="44"></rect>
+                <text class="svg-step" x="28" y="76">managed?</text>
+                <rect fill="#f7f7f5" height="52" rx="8" stroke="#b8b8b1" width="216" x="336" y="44"></rect>
+                <text class="svg-sub" x="350" y="68">no → set fetch config,</text>
+                <text class="svg-sub" x="350" y="86">"unmanaged solution; skipping"</text>
+
+                <rect fill="#ffffff" height="52" rx="8" stroke="#252525" width="300" x="12" y="114"></rect>
+                <text class="svg-step" x="28" y="146">has a .git directory?</text>
+                <rect fill="#e0ebf2" height="52" rx="8" stroke="#3c6f97" width="216" x="336" y="114"></rect>
+                <text class="svg-sub" x="350" y="138">no → clone --no-checkout</text>
+                <text class="svg-sub" x="350" y="156">(or init + depth-1 fetch)</text>
+
+                <rect fill="#ffffff" height="52" rx="8" stroke="#252525" width="300" x="12" y="184"></rect>
+                <text class="svg-step" x="28" y="216">gitlink == pinned hash?</text>
+                <rect fill="#dfede5" height="52" rx="8" stroke="#367f59" width="216" x="336" y="184"></rect>
+                <text class="svg-sub" x="350" y="208">yes → return revision;</text>
+                <text class="svg-sub" x="350" y="226">no git runs at all</text>
+
+                <rect fill="#ffffff" height="52" rx="8" stroke="#252525" width="300" x="12" y="254"></rect>
+                <text class="svg-step" x="28" y="286">remote URL == DEPS URL?</text>
+                <rect fill="#f7e3c8" height="52" rx="8" stroke="#d98226" width="216" x="336" y="254"></rect>
+                <text class="svg-sub" x="350" y="278">no → switch upstream;</text>
+                <text class="svg-sub" x="350" y="296">clean tree unless --force</text>
+
+                <rect fill="#ffffff" height="52" rx="8" stroke="#252525" width="300" x="12" y="324"></rect>
+                <text class="svg-step" x="28" y="356">revision already a local SHA?</text>
+                <rect fill="#f7e3c8" height="52" rx="8" stroke="#d98226" width="216" x="336" y="324"></rect>
+                <text class="svg-sub" x="350" y="348">no → git fetch, then</text>
+                <text class="svg-sub" x="350" y="366">git remote update</text>
+
+                <line marker-end="url(#fig-git-cases-ink)" stroke="#252525" stroke-width="2.5" x1="312" x2="336" y1="70" y2="70"></line>
+                <line marker-end="url(#fig-git-cases-ink)" stroke="#252525" stroke-width="2.5" x1="312" x2="336" y1="140" y2="140"></line>
+                <line marker-end="url(#fig-git-cases-ink)" stroke="#252525" stroke-width="2.5" x1="312" x2="336" y1="210" y2="210"></line>
+                <line marker-end="url(#fig-git-cases-ink)" stroke="#252525" stroke-width="2.5" x1="312" x2="336" y1="280" y2="280"></line>
+                <line marker-end="url(#fig-git-cases-ink)" stroke="#252525" stroke-width="2.5" x1="312" x2="336" y1="350" y2="350"></line>
+                <line marker-end="url(#fig-git-cases-ink)" stroke="#252525" stroke-width="2.5" x1="162" x2="162" y1="96" y2="114"></line>
+                <line marker-end="url(#fig-git-cases-ink)" stroke="#252525" stroke-width="2.5" x1="162" x2="162" y1="166" y2="184"></line>
+                <line marker-end="url(#fig-git-cases-ink)" stroke="#252525" stroke-width="2.5" x1="162" x2="162" y1="236" y2="254"></line>
+                <line marker-end="url(#fig-git-cases-ink)" stroke="#252525" stroke-width="2.5" x1="162" x2="162" y1="306" y2="324"></line>
+                <line marker-end="url(#fig-git-cases-ink)" stroke="#252525" stroke-width="2.5" x1="162" x2="162" y1="376" y2="396"></line>
+
+                <rect fill="#ffffff" height="160" rx="8" stroke="#252525" width="540" x="12" y="396"></rect>
+                <text class="svg-lane" x="28" y="420">FALL-THROUGH — THE FIVE DOCUMENTED CASES</text>
+                <text class="svg-sub" x="28" y="446">0 · HEAD detached — the normal pinned dep; checkout --quiet</text>
+                <text class="svg-sub" x="28" y="468">1 · a branch tracking no remote — rebase onto the hash or branch</text>
+                <text class="svg-sub" x="28" y="490">2 · tracking, but DEPS now names a hash — rebase onto the hash</text>
+                <text class="svg-sub" x="28" y="512">3 · tracking, no switch — fast-forward, else ask</text>
+                <text class="svg-sub" x="28" y="534">4 · DEPS moved to another branch — needs --force, maybe --reset</text>
+
+                <rect fill="#ece6f3" height="232" rx="8" stroke="#765b98" width="408" x="580" y="44"></rect>
+                <text class="svg-lane" x="596" y="68">@SET_CONFIG — POST-CONDITIONS</text>
+                <text class="svg-sub" x="596" y="94">runs after update returns, if .git exists;</text>
+                <text class="svg-sub" x="596" y="112">reads every value first, then writes, because</text>
+                <text class="svg-sub" x="596" y="130">SetConfig evicts the GetConfig cache.</text>
+                <text class="svg-sub" x="596" y="160">blame.ignoreRevsFile → set when the file is</text>
+                <text class="svg-sub" x="596" y="178">   there, unset when it is not</text>
+                <text class="svg-sub" x="596" y="200">diff.ignoreSubmodules → dirty (warns if other)</text>
+                <text class="svg-sub" x="596" y="222">fetch.recurseSubmodules → off</text>
+                <text class="svg-sub" x="596" y="244">push.recurseSubmodules → off: "We never want</text>
+                <text class="svg-sub" x="596" y="262">   to push submodules for gclient managed…"</text>
+
+                <rect fill="#f7f7f5" height="180" rx="8" stroke="#b8b8b1" width="408" x="580" y="296"></rect>
+                <text class="svg-lane" x="596" y="320">UNDERNEATH — GIT_CACHE.MIRROR</text>
+                <text class="svg-sub" x="596" y="346">one bare repo per URL under cache_dir</text>
+                <text class="svg-sub" x="596" y="368">populated under a lock, one writer</text>
+                <text class="svg-sub" x="596" y="390">re-bootstrapped from gs://&lt;bucket&gt;/v2/&lt;dir&gt;</text>
+                <text class="svg-sub" x="596" y="412">when absent, empty, or &gt; 50 pack files</text>
+                <text class="svg-sub" x="596" y="434">only 10 googlesource hosts have snapshots</text>
+                <text class="svg-sub" x="596" y="456">--shared borrows objects; bootstrap copies</text>
+
+                <text class="svg-note" x="580" y="510">white = a question · grey = nothing to do · blue = new bytes</text>
+                <text class="svg-note" x="580" y="530">green = the skip · orange = network work · purple = state left behind</text>
+              </svg>

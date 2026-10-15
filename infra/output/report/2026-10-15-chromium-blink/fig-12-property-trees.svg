@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -24 1120 396" role="img" aria-label="Four columns. A small page of markup on the left; four paint property trees (transform, clip, effect, scroll) next; then five display items bracketed into four paint chunks, each labelled with its property tree state; then two pending layers, one merged from three chunks and one kept separate by a direct compositing reason."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="-24.0" width="1120.0" height="396.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-property-trees-blue" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                  <marker id="fig-property-trees-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                  <marker id="fig-property-trees-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="16" y="-2">A SMALL PAGE</text>
+                <text class="svg-lane" x="262" y="-2">FOUR PROPERTY TREES (PRE-PAINT)</text>
+                <text class="svg-lane" x="662" y="-2">DISPLAY ITEMS → CHUNKS (PAINT)</text>
+                <text class="svg-lane" x="908" y="-2">PENDING LAYERS</text>
+
+                <rect fill="#f7f7f5" height="150" rx="8" stroke="#b8b8b1" width="224" x="16" y="14"></rect>
+                <text class="svg-sub" x="30" y="38">&lt;header&gt; position: fixed;</text>
+                <text class="svg-sub" x="44" y="56">opacity: .9</text>
+                <text class="svg-sub" x="30" y="82">&lt;main&gt; overflow: scroll;</text>
+                <text class="svg-sub" x="44" y="100">&lt;p&gt; three lines of text</text>
+                <text class="svg-sub" x="44" y="118">&lt;div&gt; will-change:</text>
+                <text class="svg-sub" x="58" y="136">transform</text>
+                <text class="svg-note" x="30" y="156">four boxes, one scroller</text>
+
+                <rect fill="#e0ebf2" height="122" rx="8" stroke="#3c6f97" width="176" x="262" y="14"></rect>
+                <text class="svg-step" x="274" y="32">transform</text>
+                <text class="svg-sub" x="274" y="52">Root</text>
+                <text class="svg-sub" x="274" y="72">PaintOffsetTranslation</text>
+                <text class="svg-sub" x="274" y="92">ScrollTranslation (main)</text>
+                <text class="svg-sub" x="274" y="112">Transform (div)</text>
+                <text class="svg-note" x="274" y="130">4×4 matrix per node</text>
+
+                <rect fill="#e0ebf2" height="122" rx="8" stroke="#3c6f97" width="176" x="452" y="14"></rect>
+                <text class="svg-step" x="464" y="32">clip</text>
+                <text class="svg-sub" x="464" y="52">Root</text>
+                <text class="svg-sub" x="464" y="72">OverflowClip (main)</text>
+                <text class="svg-note" x="464" y="130">parent pointers only</text>
+
+                <rect fill="#ece6f3" height="104" rx="8" stroke="#765b98" width="176" x="262" y="152"></rect>
+                <text class="svg-step" x="274" y="170">effect</text>
+                <text class="svg-sub" x="274" y="190">Root</text>
+                <text class="svg-sub" x="274" y="210">Opacity .9 (header)</text>
+                <text class="svg-note" x="274" y="248">42 slots per fragment</text>
+
+                <rect fill="#dfede5" height="104" rx="8" stroke="#367f59" width="176" x="452" y="152"></rect>
+                <text class="svg-step" x="464" y="170">scroll</text>
+                <text class="svg-sub" x="464" y="190">Root</text>
+                <text class="svg-sub" x="464" y="210">Scroll (main)</text>
+                <text class="svg-note" x="464" y="248">offsets live as transforms</text>
+
+                <rect fill="#ffffff" height="24" rx="5" stroke="#deded9" width="212" x="672" y="14"></rect>
+                <text class="svg-sub" x="682" y="30">Drawing · document background</text>
+                <rect fill="#ffffff" height="24" rx="5" stroke="#deded9" width="212" x="672" y="58"></rect>
+                <text class="svg-sub" x="682" y="74">Drawing · header background</text>
+                <rect fill="#ffffff" height="24" rx="5" stroke="#deded9" width="212" x="672" y="86"></rect>
+                <text class="svg-sub" x="682" y="102">Drawing · header text</text>
+                <rect fill="#ffffff" height="24" rx="5" stroke="#deded9" width="212" x="672" y="130"></rect>
+                <text class="svg-sub" x="682" y="146">Drawing · paragraph text</text>
+                <rect fill="#ffffff" height="24" rx="5" stroke="#deded9" width="212" x="672" y="174"></rect>
+                <text class="svg-sub" x="682" y="190">Drawing · the div</text>
+
+                <path d="M668 14 L662 14 L662 38 L668 38" fill="none" stroke="#765b98" stroke-width="1.5"></path>
+                <path d="M668 58 L662 58 L662 110 L668 110" fill="none" stroke="#765b98" stroke-width="1.5"></path>
+                <path d="M668 130 L662 130 L662 154 L668 154" fill="none" stroke="#765b98" stroke-width="1.5"></path>
+                <path d="M668 174 L662 174 L662 198 L668 198" fill="none" stroke="#765b98" stroke-width="1.5"></path>
+                <text class="svg-note" x="672" y="52">chunk A · root state</text>
+                <text class="svg-note" x="672" y="124">chunk B · + Opacity .9</text>
+                <text class="svg-note" x="672" y="168">chunk C · + OverflowClip, Scroll</text>
+                <text class="svg-note" x="672" y="212">chunk D · + Transform (div)</text>
+
+                <rect fill="#dfede5" height="86" rx="8" stroke="#367f59" width="204" x="908" y="14"></rect>
+                <text class="svg-step" x="920" y="34">cc::Layer 1</text>
+                <text class="svg-sub" x="920" y="54">chunks A + B + C</text>
+                <text class="svg-note" x="920" y="74">no direct reason, no overlap,</text>
+                <text class="svg-note" x="920" y="90">sparsity within tolerance</text>
+
+                <rect fill="#e0ebf2" height="86" rx="8" stroke="#3c6f97" width="204" x="908" y="120"></rect>
+                <text class="svg-step" x="920" y="140">cc::Layer 2</text>
+                <text class="svg-sub" x="920" y="160">chunk D alone</text>
+                <text class="svg-note" x="920" y="180">direct compositing reason:</text>
+                <text class="svg-note" x="920" y="196">will-change: transform</text>
+
+                <rect fill="#f7f7f5" height="70" rx="8" stroke="#b8b8b1" width="204" x="908" y="224"></rect>
+                <text class="svg-step" x="920" y="244">merge test</text>
+                <text class="svg-note" x="920" y="264">merged_area − (home + guest)</text>
+                <text class="svg-note" x="920" y="280">≤ 10000 × dpr² · worst case O(n²)</text>
+
+                <line marker-end="url(#fig-property-trees-blue)" stroke="#3c6f97" stroke-width="1.5" x1="240" x2="258" y1="76" y2="76"></line>
+                <path d="M128 164 C128 320 600 330 668 210" fill="none" marker-end="url(#fig-property-trees-blue)" stroke="#3c6f97" stroke-width="1.5"></path>
+                <text class="svg-note" x="330" y="332">paint walks fragments in CSS 2.1 appendix E order, five phases, one PaintController</text>
+                <line marker-end="url(#fig-property-trees-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="628" x2="656" y1="90" y2="90"></line>
+                <line marker-end="url(#fig-property-trees-ink)" stroke="#252525" stroke-width="2.5" x1="884" x2="904" y1="60" y2="60"></line>
+                <line marker-end="url(#fig-property-trees-ink)" stroke="#252525" stroke-width="2.5" x1="884" x2="904" y1="186" y2="162"></line>
+                <text class="svg-note" text-anchor="middle" x="560" y="362">thin blue = data · dashed purple = property-tree state attached to a chunk · thick black = a layerization decision</text>
+              </svg>
