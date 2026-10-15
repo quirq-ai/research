@@ -43,5 +43,5 @@ From the Prompt Motion blog, quoted in [How motion graphics are made with Claude
 ## Sources
 
 - [Prompt Motion](https://prompt-motion.com/) and its [blog](https://prompt-motion.com/blog), fetched 14 October 2026.
-- suraj's [What the Parser Hears](https://quirq.ai/what-the-parser-hears/), the research the video presents.
+- suraj's [What the Parser Hears](https://github.com/sharmasuraj0123/writings/tree/a5a356d418d45b63d34624b12ec3d7809167b309/what-the-parser-hears), the research the video presents.
 - This topic's [report](../report/2026-10-15-prompt-motion.md) and [app](../app/json-vs-toml-video/).

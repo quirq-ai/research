@@ -1,7 +1,7 @@
 # JSON vs TOML, in motion
 
 A 101-second explainer video of suraj's research
-[What the Parser Hears](https://quirq.ai/what-the-parser-hears/): one config file written twice, JSON on the left
+[What the Parser Hears](https://github.com/sharmasuraj0123/writings/tree/a5a356d418d45b63d34624b12ec3d7809167b309/what-the-parser-hears): one config file written twice, JSON on the left
 and TOML on the right, edited one line at a time, with twenty real parsers under it showing what each one heard.
 Made on 14 October 2026 with the method in this topic's report,
 [How motion graphics are made with Claude](../../report/2026-10-15-prompt-motion.md).

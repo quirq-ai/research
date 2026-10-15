@@ -131,7 +131,7 @@ the gallery had grown by a day and the blog normalises text its own way. Likes w
 ## 06 · Applying it: research as a video
 
 We used the method to turn one finished piece of research, suraj's
-[What the Parser Hears](https://quirq.ai/what-the-parser-hears/), into a 101-second explainer. The result and its
+[What the Parser Hears](https://github.com/sharmasuraj0123/writings/tree/a5a356d418d45b63d34624b12ec3d7809167b309/what-the-parser-hears), into a 101-second explainer. The result and its
 full source are this topic's app, [JSON vs TOML, in motion](../app/json-vs-toml-video/).
 
 - **The brief** follows the gallery's layout with all five parts, plus the two things the explainer analysis found
@@ -161,5 +161,5 @@ full source are this topic's app, [JSON vs TOML, in motion](../app/json-vs-toml-
   [The 3D template](https://prompt-motion.com/templates/realtime).
 - The scripts that produced the *[measured]* counts: [`scrape.py`](2026-10-15-prompt-motion/scrape.py) and
   [`stats.py`](2026-10-15-prompt-motion/stats.py).
-- The research the video presents: suraj's [What the Parser Hears](https://quirq.ai/what-the-parser-hears/), and the
+- The research the video presents: suraj's [What the Parser Hears](https://github.com/sharmasuraj0123/writings/tree/a5a356d418d45b63d34624b12ec3d7809167b309/what-the-parser-hears), and the
   engineering topic's copy of it in this repo.
