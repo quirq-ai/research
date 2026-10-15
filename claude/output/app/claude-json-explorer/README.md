@@ -9,8 +9,6 @@ binary and Anthropic's documentation, or are marked as inferred.
 
 By **Suraj Sharma**, as the companion to
 [Anatomy of a Claude Code session](../../report/2026-10-08-claude-code-session.md).
-Originally published at
-[quirq.ai/claude-code-session/claude-json/](https://quirq.ai/claude-code-session/claude-json/).
 Source: [`claude-code-session/claude-json/`](https://github.com/sharmasuraj0123/writings/tree/fcdd25f9386db22028dbb2468897bf24f32a7a88/claude-code-session/claude-json)
 in sharmasuraj0123/writings at `fcdd25f`, generated there by
 `tools/build-claude-json-explorer.py` from `claude-json/_content.py`.

@@ -7,6 +7,7 @@
   },
   "devDependencies": {
     "@research/present": "*",
-    "claude-json-explorer": "*"
+    "claude-json-explorer": "*",
+    "codex-json-explorer": "*"
   }
 }

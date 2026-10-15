@@ -1,0 +1,7 @@
+{
+  "name": "codex-json-explorer",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs"
+  }
+}
