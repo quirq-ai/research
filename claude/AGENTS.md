@@ -11,6 +11,10 @@ Derived from [GOAL.md](GOAL.md), in this order:
 2. Publish the `~/.claude.json` explorer as an app.
 3. Publish a one-pager with the key findings and a link to every Claude Code
    section elsewhere in the writings.
+4. Publish the Codex session teardown as a report and its
+   `.codex-global-state.json` explorer as an app.
+5. Publish a one-pager with the key Codex findings, linked to the Claude Code
+   teardown it accompanies.
 
 ## Sources
 
@@ -18,8 +22,9 @@ Derived from [GOAL.md](GOAL.md), in this order:
 [sharmasuraj0123/writings](https://github.com/sharmasuraj0123/writings), read
 at a recorded commit, and the primary sources those posts cite.
 
-**Avoid:** restating Claude Code facts from memory or from later releases. The
-writings describe Claude Code 2.1.280.
+**Avoid:** restating Claude Code or Codex facts from memory or from later
+releases. The writings describe Claude Code 2.1.280 and
+`codex-cli 0.155.0-alpha.2.6`.
 
 ## How to verify
 

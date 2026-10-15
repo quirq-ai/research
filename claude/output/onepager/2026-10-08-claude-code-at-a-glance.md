@@ -38,12 +38,12 @@ From [Anatomy of a Claude Code session](../report/2026-10-08-claude-code-session
 
 | Post | What it says about Claude Code |
 |---|---|
-| [Anatomy of a Codex session](https://quirq.ai/codex-session/) | The companion teardown: Codex CLI 0.155 read the same way, to build a session-based OS around it |
-| [Anatomy of an Agent Control Plane](https://quirq.ai/xo-space/#write) | How xo-space drives Claude Code: a `claude` subprocess per turn with stream-json output, a pre-allocated session id, and, when a native login exists, three token variables scrubbed so it wins |
-| [XO Space: the architecture](https://quirq.ai/xo-space-architecture/#data) | Claude Code's native logs as one of five stores; the argus daemon tails them into its own SQLite database |
+| [Anatomy of a Codex session](../report/2026-10-15-codex-session.md) | The companion teardown: Codex CLI 0.155 read the same way, to build a session-based OS around it |
+| [Anatomy of an Agent Control Plane](https://github.com/sharmasuraj0123/writings/tree/a5a356d418d45b63d34624b12ec3d7809167b309/xo-space) | How xo-space drives Claude Code: a `claude` subprocess per turn with stream-json output, a pre-allocated session id, and, when a native login exists, three token variables scrubbed so it wins |
+| [XO Space: the architecture](https://github.com/sharmasuraj0123/writings/tree/a5a356d418d45b63d34624b12ec3d7809167b309/xo-space-architecture) | Claude Code's native logs as one of five stores; the argus daemon tails them into its own SQLite database |
 | [The anatomy of Space Walk](https://github.com/sharmasuraj0123/writings/blob/fcdd25f9386db22028dbb2468897bf24f32a7a88/research/spacewalk-architecture/index.html) | Replays Claude Code logs in 3D: lines are sniffed by `sessionId` or type, and `tool_use` is paired with `tool_result` by id |
-| [Anatomy of a Personal Memory Engine](https://quirq.ai/personal-memory-engine/#capture) | Four shell hooks on `SessionStart`, `UserPromptSubmit` and `Stop` capture and recall memory, the same scripts for Claude Code and Codex |
-| [What is a unit of work?](https://quirq.ai/what-is-quirq/) | Claude Code as one of the runtimes quirq observes, not replaces; its transcripts stay in its own store |
+| [Anatomy of a Personal Memory Engine](https://github.com/sharmasuraj0123/writings/tree/a5a356d418d45b63d34624b12ec3d7809167b309/personal-memory-engine) | Four shell hooks on `SessionStart`, `UserPromptSubmit` and `Stop` capture and recall memory, the same scripts for Claude Code and Codex |
+| [What is a unit of work?](https://github.com/sharmasuraj0123/writings/tree/a5a356d418d45b63d34624b12ec3d7809167b309/what-is-quirq) | Claude Code as one of the runtimes quirq observes, not replaces; its transcripts stay in its own store |
 
 ## Open questions
 

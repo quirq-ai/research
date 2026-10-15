@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" role="img" aria-labelledby="topology-title topology-desc"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }
+.svg-lane { font: 12px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 1px; }
+.svg-step { font: 600 17px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 13px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #4f4f4b; }
+.svg-note { font: 12px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }</style><rect x="0.0" y="0.0" width="900.0" height="340.0" fill="#ffffff"/><title id="topology-title">Project, thread lineage, and workspace topology</title><desc id="topology-desc">A project groups a root and fork. A subagent has a parent edge. Separate data edges bind the threads to workspaces. Sharing conversation ancestry does not imply workspace isolation.</desc>
+<rect fill="#f7f7f5" height="220" rx="10" stroke="#deded9" width="860" x="20" y="20"></rect><text class="svg-lane" x="42" y="48">PROJECT ASSIGNMENT · independently recorded</text>
+<rect fill="#e0ebf2" height="86" rx="7" stroke="#3c6f97" width="216" x="48" y="84"></rect><text class="svg-step" x="65" y="111">Root thread A</text><text class="svg-sub" x="65" y="137">id=A · sessionId=A</text>
+<rect fill="#e0ebf2" height="86" rx="7" stroke="#3c6f97" width="216" x="342" y="84"></rect><text class="svg-step" x="359" y="111">Fork B</text><text class="svg-sub" x="359" y="137">forkedFromId=A</text>
+<rect fill="#ece6f3" height="86" rx="7" stroke="#765b98" width="216" x="637" y="84"></rect><text class="svg-step" x="654" y="111">Subagent C</text><text class="svg-sub" x="654" y="137">parentThreadId=A</text>
+<path d="M264 112 H342" stroke="#252525" stroke-width="3"></path><text class="svg-note" x="284" y="96">fork</text>
+<path d="M156 170 V210 H745 V170" fill="none" stroke="#765b98" stroke-dasharray="7 5" stroke-width="2"></path><text class="svg-note" x="375" y="202">parent / agent state</text>
+<rect fill="#dfede5" height="42" rx="5" stroke="#367f59" width="270" x="70" y="280"></rect><text class="svg-sub" x="90" y="307">Workspace X · local checkout</text>
+<rect fill="#dfede5" height="42" rx="5" stroke="#367f59" width="280" x="550" y="280"></rect><text class="svg-sub" x="570" y="307">Workspace Y · optional worktree</text>
+<path d="M140 170 V280 M450 170 V252 H215 V280 M760 170 V280" fill="none" stroke="#3c6f97" stroke-width="1.5"></path>
+</svg>

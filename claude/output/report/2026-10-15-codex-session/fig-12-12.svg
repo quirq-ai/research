@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 350" role="img" aria-labelledby="offload-title offload-desc"><style>.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }
+.svg-step { font: 600 17px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 13px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #4f4f4b; }
+.svg-note { font: 12px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }</style><rect x="0.0" y="0.0" width="900.0" height="350.0" fill="#ffffff"/><title id="offload-title">Proposed Space and Codex integration</title><desc id="offload-desc">Intent enters Space's work ledger, then its scheduler and adapter, then Codex. Progress returns to the ledger. Codex can call product tools. Verified artifacts close the work item.</desc>
+<rect fill="#fff8ea" height="96" rx="7" stroke="#d98226" width="230" x="25" y="35"></rect><text class="svg-step" x="45" y="66">Space work ledger</text><text class="svg-sub" x="45" y="92">intent · owner · criteria</text><text class="svg-sub" x="45" y="115">schedule · attempts</text>
+<rect fill="#f7f7f5" height="96" rx="7" stroke="#252525" width="220" x="335" y="35"></rect><text class="svg-step" x="355" y="66">Worker + adapter</text><text class="svg-sub" x="355" y="92">host · lease · auth</text><text class="svg-sub" x="355" y="115">versioned protocol</text>
+<rect fill="#e0ebf2" height="96" rx="7" stroke="#3c6f97" width="240" x="635" y="35"></rect><text class="svg-step" x="655" y="66">Codex thread / turn</text><text class="svg-sub" x="655" y="92">context · model/tool loop</text><text class="svg-sub" x="655" y="115">typed items · approvals</text>
+<path d="M255 79 H335 M555 79 H635" stroke="#252525" stroke-width="3"></path>
+<path d="M755 131 V172 H140 V131" fill="none" stroke="#765b98" stroke-dasharray="7 5" stroke-width="2"></path><text class="svg-note" x="345" y="162">progress · waiting · errors</text>
+<rect fill="#dfede5" height="80" rx="7" stroke="#367f59" width="280" x="40" y="230"></rect><text class="svg-step" x="60" y="262">Artifacts + verification</text><text class="svg-sub" x="60" y="287">patch · report · evidence</text>
+<rect fill="#ece6f3" height="80" rx="7" stroke="#765b98" width="265" x="610" y="230"></rect><text class="svg-step" x="630" y="262">Space / product tools</text><text class="svg-sub" x="630" y="287">submit → job ID → result</text>
+<path d="M755 131 V230" stroke="#252525" stroke-width="3"></path><path d="M610 274 H320 M140 230 V172" fill="none" stroke="#3c6f97" stroke-width="1.5"></path>
+<text class="svg-note" x="365" y="267">addressable outputs</text>
+</svg>
