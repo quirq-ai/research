@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 540" role="img" aria-label="A documents row drawn as nine cells. Seven typed columns in blue: id as a uuidv7, tenant_id, kind, status, updated_at, and schema_version; version in orange because it carries optimistic concurrency. A green generated column owner_id is derived from the body by a thin blue arrow from the owner key. The body cell is purple, JSONB under 64 kB, holding the long tail: agent, usage, todos, tags, notes. To the right, three indexes: a partial B-tree on tenant, kind and updated_at for live rows, a GIN jsonb_path_ops index on the body for containment, and a B-tree on owner_id. Below, an append-only document_events table split into monthly partitions. A thick black arrow shows one transaction that updates the row and inserts an event together. A dashed purple arrow shows that the snapshot can be rebuilt by folding the events."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="540.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-hybrid-row-blue" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                  <marker id="fig-hybrid-row-ink" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="fig-hybrid-row-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="0" y="18">DOCUMENTS · ONE ROW PER THING, KEPT SMALL</text>
+                <rect fill="#e0ebf2" height="70" rx="6" stroke="#3c6f97" width="120" x="0" y="32"></rect>
+                <text class="svg-step" x="12" y="58">id</text>
+                <text class="svg-sub" x="12" y="84">uuid · v7</text>
+                <rect fill="#e0ebf2" height="70" rx="6" stroke="#3c6f97" width="104" x="124" y="32"></rect>
+                <text class="svg-step" x="136" y="58">tenant_id</text>
+                <text class="svg-sub" x="136" y="84">uuid</text>
+                <rect fill="#e0ebf2" height="70" rx="6" stroke="#3c6f97" width="84" x="232" y="32"></rect>
+                <text class="svg-step" x="244" y="58">kind</text>
+                <text class="svg-sub" x="244" y="84">text</text>
+                <rect fill="#e0ebf2" height="70" rx="6" stroke="#3c6f97" width="84" x="320" y="32"></rect>
+                <text class="svg-step" x="332" y="58">status</text>
+                <text class="svg-sub" x="332" y="84">text</text>
+                <rect fill="#f7e3c8" height="70" rx="6" stroke="#d98226" stroke-width="2" width="96" x="408" y="32"></rect>
+                <text class="svg-step" x="420" y="58">version</text>
+                <text class="svg-sub" x="420" y="84">int · OCC</text>
+                <rect fill="#e0ebf2" height="70" rx="6" stroke="#3c6f97" width="140" x="508" y="32"></rect>
+                <text class="svg-step" x="520" y="58">schema_version</text>
+                <text class="svg-sub" x="520" y="84">smallint</text>
+                <rect fill="#e0ebf2" height="70" rx="6" stroke="#3c6f97" width="118" x="652" y="32"></rect>
+                <text class="svg-step" x="664" y="58">updated_at</text>
+                <text class="svg-sub" x="664" y="84">timestamptz</text>
+                <rect fill="#dfede5" height="70" rx="6" stroke="#367f59" width="112" x="774" y="32"></rect>
+                <text class="svg-step" x="786" y="58">owner_id</text>
+                <text class="svg-sub" x="786" y="84">generated</text>
+                <rect fill="#ece6f3" height="70" rx="6" stroke="#765b98" stroke-width="2" width="230" x="890" y="32"></rect>
+                <text class="svg-step" x="902" y="58">body</text>
+                <text class="svg-sub" x="902" y="84">jsonb · object · &lt; 64 kB</text>
+
+                <text class="svg-lane" x="0" y="146">BODY · THE LONG TAIL</text>
+                <rect fill="#ece6f3" height="176" rx="6" stroke="#765b98" width="540" x="0" y="160"></rect>
+                <text class="svg-sub" x="16" y="186">{ "owner": "user-17",</text>
+                <text class="svg-sub" style="white-space:pre" x="16" y="208">  "agent": "claude_code",</text>
+                <text class="svg-sub" style="white-space:pre" x="16" y="230">  "usage": { "input_tokens": 41210, … },</text>
+                <text class="svg-sub" style="white-space:pre" x="16" y="252">  "todos": [ …24 items… ],</text>
+                <text class="svg-sub" style="white-space:pre" x="16" y="274">  "tags":  [ "xo", "space" ],</text>
+                <text class="svg-sub" style="white-space:pre" x="16" y="296">  "notes": "…600 chars…" }</text>
+                <text class="svg-note" x="16" y="324">new keys land here with no migration</text>
+                <path d="M200 182 H 830 V 104" fill="none" marker-end="url(#fig-hybrid-row-blue)" stroke="#3c6f97" stroke-width="1.4"></path>
+                <text class="svg-note" x="600" y="174">promoted: body -&gt;&gt; 'owner'</text>
+
+                <text class="svg-lane" x="580" y="214">INDEXES · EACH ONE FOR A NAMED QUERY</text>
+                <rect fill="#e0ebf2" height="52" rx="6" stroke="#3c6f97" width="540" x="580" y="226"></rect>
+                <text class="svg-step" x="594" y="246">Partial B-tree</text>
+                <text class="svg-sub" x="594" y="268">(tenant_id, kind, updated_at) WHERE status &lt;&gt; 'archived'</text>
+                <rect fill="#ece6f3" height="52" rx="6" stroke="#765b98" width="264" x="580" y="284"></rect>
+                <text class="svg-step" x="594" y="304">GIN jsonb_path_ops</text>
+                <text class="svg-sub" x="594" y="326">body @&gt; '{"agent":"codex"}'</text>
+                <rect fill="#dfede5" height="52" rx="6" stroke="#367f59" width="264" x="856" y="284"></rect>
+                <text class="svg-step" x="870" y="304">B-tree on owner_id</text>
+                <text class="svg-sub" x="870" y="326">equality and range</text>
+
+                <text class="svg-lane" x="0" y="380">DOCUMENT_EVENTS · APPEND-ONLY, ONE PARTITION PER MONTH</text>
+                <rect fill="#f7f7f5" height="84" rx="6" stroke="#b8b8b1" width="200" x="0" y="394"></rect>
+                <text class="svg-step" x="14" y="420">…_2026_08</text>
+                <text class="svg-sub" x="14" y="444">detach, archive</text>
+                <text class="svg-sub" x="14" y="464">to Parquet, drop</text>
+                <rect fill="#f7f7f5" height="84" rx="6" stroke="#b8b8b1" width="200" x="214" y="394"></rect>
+                <text class="svg-step" x="228" y="420">…_2026_09</text>
+                <text class="svg-sub" x="228" y="444">read for audit</text>
+                <text class="svg-sub" x="228" y="464">and rebuilds</text>
+                <rect fill="#e0ebf2" height="84" rx="6" stroke="#3c6f97" width="200" x="428" y="394"></rect>
+                <text class="svg-step" x="442" y="420">…_2026_10</text>
+                <text class="svg-sub" x="442" y="444">current: inserts</text>
+                <text class="svg-sub" x="442" y="464">only, never UPDATE</text>
+
+                <rect fill="#f7e3c8" height="84" rx="6" stroke="#d98226" width="400" x="720" y="394"></rect>
+                <text class="svg-lane" x="736" y="420">ONE TRANSACTION</text>
+                <text class="svg-sub" x="736" y="444">UPDATE documents … version + 1</text>
+                <text class="svg-sub" x="736" y="464">INSERT INTO document_events …</text>
+                <path d="M920 394 V 356 H 560 V 120 H 470 V 106" fill="none" marker-end="url(#fig-hybrid-row-ink)" stroke="#252525" stroke-width="2.6"></path>
+                <path d="M720 436 H 632" fill="none" marker-end="url(#fig-hybrid-row-ink)" stroke="#252525" stroke-width="2.6"></path>
+                <path d="M520 394 V 340" fill="none" marker-end="url(#fig-hybrid-row-purple)" stroke="#765b98" stroke-dasharray="6 4" stroke-width="1.6"></path>
+                <text class="svg-note" x="14" y="512">snapshot = fold(events): the row can always be rebuilt from its history</text>
+                <text class="svg-note" x="720" y="512">both or neither; a reader never sees one without the other</text>
+              </svg>

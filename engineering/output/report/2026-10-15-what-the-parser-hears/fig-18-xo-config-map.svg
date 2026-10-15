@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 560" role="img" aria-label="Diagram of how xo-space reads five agent config files. Five agent manifests, claude_code, antigravity, codex, hermes and openclaw, name config files in four formats: ~/.claude/settings.json (JSON), ~/.gemini/antigravity-cli/settings.json (JSON), ~/.codex/config.toml (TOML), ~/.hermes/config.yaml (YAML) and ~/.openclaw/openclaw.json (JSON5 according to OpenClaw's documentation). All five flow into one suffix switch at routers/cowork_agent/config.py lines 256 to 261, which sends .yaml and .yml files to yaml.safe_load and everything else to json.loads. Results in a scratch home: Claude Code's settings.json goes to the right parser and Antigravity's to json.loads, neither probed, and Antigravity's grammar was not checked; codex returns HTTP 500, Expecting value; hermes returns 200 but password: 123456 comes back unmasked because YAML typed it as an integer; openclaw returns HTTP 500, Expecting property name. A second path below: load_openclaw_config in store.py lines 27 to 35 turns any exception into an empty dict, create_agent in agents.py lines 156 and 182 to 183 appends the new agent to agents.list, and write_openclaw_config in store.py lines 38 to 43 replaces the whole file; a dashed write-back edge returns to openclaw.json, which afterwards holds only agents.list, with gateway and channels gone."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="560.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-xo-config-map-blue" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0 L10 5 L0 10 z" fill="#3c6f97"></path></marker>
+                  <marker id="fig-xo-config-map-black" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0 L10 5 L0 10 z" fill="#252525"></path></marker>
+                  <marker id="fig-xo-config-map-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0 L10 5 L0 10 z" fill="#765b98"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="0" y="18">AGENT</text>
+                <text class="svg-lane" x="180" y="18">MANIFEST LINE 7 · CONFIG_FILE</text>
+                <text class="svg-lane" x="520" y="18">SETTINGS → CONFIG ROUTE</text>
+                <text class="svg-lane" x="810" y="18">RESULT IN A SCRATCH HOME</text>
+
+                <rect fill="#f7f7f5" height="46" rx="6" stroke="#b8b8b1" width="150" x="0" y="36"></rect>
+                <text class="svg-step" x="14" y="64">claude_code</text>
+                <rect fill="#f7f7f5" height="46" rx="6" stroke="#b8b8b1" width="150" x="0" y="96"></rect>
+                <text class="svg-step" x="14" y="124">antigravity</text>
+                <rect fill="#f7f7f5" height="46" rx="6" stroke="#b8b8b1" width="150" x="0" y="156"></rect>
+                <text class="svg-step" x="14" y="184">codex</text>
+                <rect fill="#f7f7f5" height="46" rx="6" stroke="#b8b8b1" width="150" x="0" y="216"></rect>
+                <text class="svg-step" x="14" y="244">hermes</text>
+                <rect fill="#f7f7f5" height="46" rx="6" stroke="#b8b8b1" width="150" x="0" y="276"></rect>
+                <text class="svg-step" x="14" y="304">openclaw</text>
+
+                <line marker-end="url(#fig-xo-config-map-blue)" stroke="#3c6f97" stroke-width="1.25" x1="150" x2="177" y1="59" y2="59"></line>
+                <line marker-end="url(#fig-xo-config-map-blue)" stroke="#3c6f97" stroke-width="1.25" x1="150" x2="177" y1="119" y2="119"></line>
+                <line marker-end="url(#fig-xo-config-map-blue)" stroke="#3c6f97" stroke-width="1.25" x1="150" x2="177" y1="179" y2="179"></line>
+                <line marker-end="url(#fig-xo-config-map-blue)" stroke="#3c6f97" stroke-width="1.25" x1="150" x2="177" y1="239" y2="239"></line>
+                <line marker-end="url(#fig-xo-config-map-blue)" stroke="#3c6f97" stroke-width="1.25" x1="150" x2="177" y1="299" y2="299"></line>
+
+                <rect fill="#f7f7f5" height="46" rx="6" stroke="#b8b8b1" width="290" x="180" y="36"></rect>
+                <text class="svg-sub" x="194" y="55">~/.claude/settings.json</text>
+                <text class="svg-step" x="194" y="74">JSON</text>
+                <rect fill="#f7f7f5" height="46" rx="6" stroke="#b8b8b1" width="290" x="180" y="96"></rect>
+                <text class="svg-sub" x="194" y="115">~/.gemini/antigravity-cli/</text>
+                <text class="svg-step" x="194" y="134">settings.json · JSON</text>
+                <rect fill="#f7f7f5" height="46" rx="6" stroke="#b8b8b1" width="290" x="180" y="156"></rect>
+                <text class="svg-sub" x="194" y="175">~/.codex/config.toml</text>
+                <text class="svg-step" x="194" y="194">TOML</text>
+                <rect fill="#f7f7f5" height="46" rx="6" stroke="#b8b8b1" width="290" x="180" y="216"></rect>
+                <text class="svg-sub" x="194" y="235">~/.hermes/config.yaml</text>
+                <text class="svg-step" x="194" y="254">YAML</text>
+                <rect fill="#f7f7f5" height="46" rx="6" stroke="#b8b8b1" width="290" x="180" y="276"></rect>
+                <text class="svg-sub" x="194" y="295">~/.openclaw/openclaw.json</text>
+                <text class="svg-step" x="194" y="314">JSON5, per OpenClaw's docs</text>
+
+                <line marker-end="url(#fig-xo-config-map-blue)" stroke="#3c6f97" stroke-width="1.25" x1="470" x2="517" y1="59" y2="59"></line>
+                <line marker-end="url(#fig-xo-config-map-blue)" stroke="#3c6f97" stroke-width="1.25" x1="470" x2="517" y1="119" y2="119"></line>
+                <line marker-end="url(#fig-xo-config-map-blue)" stroke="#3c6f97" stroke-width="1.25" x1="470" x2="517" y1="179" y2="179"></line>
+                <line marker-end="url(#fig-xo-config-map-blue)" stroke="#3c6f97" stroke-width="1.25" x1="470" x2="517" y1="239" y2="239"></line>
+                <line marker-end="url(#fig-xo-config-map-blue)" stroke="#3c6f97" stroke-width="1.25" x1="470" x2="517" y1="299" y2="299"></line>
+
+                <rect fill="#f7f7f5" height="286" rx="8" stroke="#252525" stroke-width="1.5" width="240" x="520" y="36"></rect>
+                <text class="svg-step" x="536" y="64">Suffix switch</text>
+                <text class="svg-sub" x="536" y="84">routers/cowork_agent/</text>
+                <text class="svg-sub" x="536" y="100">config.py:256–261</text>
+                <text class="svg-sub" x="536" y="150">.yaml or .yml →</text>
+                <text class="svg-sub" x="536" y="168">yaml.safe_load</text>
+                <text class="svg-sub" x="536" y="214">anything else →</text>
+                <text class="svg-sub" x="536" y="232">json.loads</text>
+                <text class="svg-note" x="536" y="288">docstring: "json for openclaw,</text>
+                <text class="svg-note" x="536" y="304">yaml for hermes"</text>
+
+                <line marker-end="url(#fig-xo-config-map-black)" stroke="#252525" stroke-width="2.5" x1="760" x2="806" y1="59" y2="59"></line>
+                <line marker-end="url(#fig-xo-config-map-black)" stroke="#252525" stroke-width="2.5" x1="760" x2="806" y1="119" y2="119"></line>
+                <line marker-end="url(#fig-xo-config-map-black)" stroke="#252525" stroke-width="2.5" x1="760" x2="806" y1="179" y2="179"></line>
+                <line marker-end="url(#fig-xo-config-map-black)" stroke="#252525" stroke-width="2.5" x1="760" x2="806" y1="239" y2="239"></line>
+                <line marker-end="url(#fig-xo-config-map-black)" stroke="#252525" stroke-width="2.5" x1="760" x2="806" y1="299" y2="299"></line>
+
+                <rect fill="#f7f7f5" height="46" rx="6" stroke="#b8b8b1" width="310" x="810" y="36"></rect>
+                <text class="svg-step" x="824" y="55">json.loads</text>
+                <text class="svg-sub" x="824" y="74">right parser; not probed here</text>
+                <rect fill="#f7f7f5" height="46" rx="6" stroke="#b8b8b1" width="310" x="810" y="96"></rect>
+                <text class="svg-step" x="824" y="115">json.loads</text>
+                <text class="svg-sub" x="824" y="134">not probed; grammar unchecked</text>
+                <rect fill="#f3dfdc" height="46" rx="6" stroke="#ad4b43" width="310" x="810" y="156"></rect>
+                <text class="svg-step" x="824" y="175">HTTP 500</text>
+                <text class="svg-sub" x="824" y="194">json.loads: Expecting value</text>
+                <rect fill="#f7e3c8" height="46" rx="6" stroke="#d98226" width="310" x="810" y="216"></rect>
+                <text class="svg-step" x="824" y="235">200 · yaml.safe_load</text>
+                <text class="svg-sub" x="824" y="254">password: 123456 returned unmasked</text>
+                <rect fill="#f3dfdc" height="46" rx="6" stroke="#ad4b43" width="310" x="810" y="276"></rect>
+                <text class="svg-step" x="824" y="295">HTTP 500</text>
+                <text class="svg-sub" x="824" y="314">json.loads: Expecting property name</text>
+
+                <text class="svg-lane" x="0" y="404">OPENCLAW ADAPTER</text>
+                <text class="svg-lane" x="0" y="422">CREATE AGENT</text>
+                <line marker-end="url(#fig-xo-config-map-blue)" stroke="#3c6f97" stroke-width="1.25" x1="325" x2="325" y1="322" y2="373"></line>
+
+                <rect fill="#f3dfdc" height="72" rx="6" stroke="#ad4b43" width="290" x="180" y="376"></rect>
+                <text class="svg-step" x="194" y="398">load_openclaw_config</text>
+                <text class="svg-sub" x="194" y="418">store.py:27–35</text>
+                <text class="svg-sub" x="194" y="436">any exception → {}</text>
+                <line marker-end="url(#fig-xo-config-map-black)" stroke="#252525" stroke-width="2.5" x1="470" x2="516" y1="412" y2="412"></line>
+                <rect fill="#f7f7f5" height="72" rx="6" stroke="#b8b8b1" width="240" x="520" y="376"></rect>
+                <text class="svg-step" x="536" y="398">create_agent</text>
+                <text class="svg-sub" x="536" y="418">agents.py:156, 182–183</text>
+                <text class="svg-sub" x="536" y="436">appends to agents.list</text>
+                <line marker-end="url(#fig-xo-config-map-black)" stroke="#252525" stroke-width="2.5" x1="760" x2="806" y1="412" y2="412"></line>
+                <rect fill="#f7f7f5" height="72" rx="6" stroke="#b8b8b1" width="310" x="810" y="376"></rect>
+                <text class="svg-step" x="824" y="398">write_openclaw_config</text>
+                <text class="svg-sub" x="824" y="418">store.py:38–43 · json.dumps</text>
+                <text class="svg-sub" x="824" y="436">replaces the whole file</text>
+
+                <path d="M965 448 L965 470 L165 470 L165 340 L205 340 L205 326" fill="none" marker-end="url(#fig-xo-config-map-purple)" stroke="#765b98" stroke-dasharray="6 4" stroke-width="1.75"></path>
+                <text class="svg-note" x="180" y="490">write-back: openclaw.json now holds only agents.list; gateway and channels are gone</text>
+
+                <rect fill="#f3dfdc" height="14" rx="3" stroke="#ad4b43" width="14" x="0" y="514"></rect>
+                <text class="svg-sub" x="22" y="526">wrong parser, or error swallowed</text>
+                <rect fill="#f7e3c8" height="14" rx="3" stroke="#d98226" width="14" x="290" y="514"></rect>
+                <text class="svg-sub" x="312" y="526">parsed; YAML type defeats the mask</text>
+                <rect fill="#f7f7f5" height="14" rx="3" stroke="#b8b8b1" width="14" x="600" y="514"></rect>
+                <text class="svg-sub" x="622" y="526">no failure shown, or neutral step</text>
+                <line stroke="#3c6f97" stroke-width="1.25" x1="0" x2="40" y1="547" y2="547"></line>
+                <text class="svg-sub" x="48" y="551">data: path or file bytes</text>
+                <line stroke="#252525" stroke-width="2.5" x1="290" x2="330" y1="547" y2="547"></line>
+                <text class="svg-sub" x="338" y="551">dispatch or call</text>
+                <line stroke="#765b98" stroke-dasharray="6 4" stroke-width="1.75" x1="600" x2="640" y1="547" y2="547"></line>
+                <text class="svg-sub" x="648" y="551">effect: file overwritten</text>
+              </svg>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 780" role="img" aria-label="Range chart on a logarithmic axis from 10 microseconds to 100 milliseconds: the time to parse one copy of the same agent configuration, for 30 parser configurations grouped by format, each with its median as a dot and its 10th to 90th percentile as a bar, from 501 timed parses after 50 warm-ups on one contended 2-CPU machine where medians moved by up to 2.7 times between runs; medians below are rounded to one significant figure. JSON family, about 10 microseconds to 20 milliseconds: serde_json, serde_json with arbitrary precision and JSON.parse about 10 µs; Python json and Go encoding/json/v2 about 20 µs; Go encoding/json about 50 µs; jsonc-parser about 0.1 ms; Node json5 about 0.4 ms; Python json5 about 20 ms. TOML, about 30 microseconds to 4 milliseconds: go-toml/v2 about 30 µs; Rust toml about 40 µs; toml_edit about 60 µs; smol-toml about 90 µs; tomli, @iarna/toml and BurntSushi/toml about 0.2 ms; tomllib on Python 3.14 about 0.4 ms; tomlkit about 4 ms. YAML, about 0.1 to 10 milliseconds: serde_yaml about 0.1 ms; serde-saphyr, js-yaml 4, js-yaml 5 and yaml.v3 about 0.2 ms; sigs.k8s.io/yaml about 0.3 ms; goccy/go-yaml about 0.4 ms; PyYAML CSafeLoader about 0.5 ms; yaml (eemeli) about 2 ms; PyYAML safe_load about 5 ms; ruamel safe about 8 ms; ruamel round-trip about 10 ms. In 26 of the 30 bars the 90th percentile is within 2 times the median; for tomlkit, PyYAML safe_load and ruamel's two loaders it is 3 to 5 times."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="780.0" fill="#ffffff"/>
+                <text class="svg-lane" x="16" y="22">MEDIAN TIME FOR ONE PARSE · LOG SCALE · 501 PARSES AFTER 50 WARM-UPS</text>
+                <circle cx="23" cy="45" fill="#252525" r="4"></circle>
+                <text class="svg-sub" x="34" y="49">median</text>
+                <rect fill="#f7f7f5" height="8" rx="2" stroke="#252525" width="40" x="100" y="41"></rect>
+                <text class="svg-sub" x="148" y="49">p10 to p90</text>
+                <rect fill="#e0ebf2" height="12" rx="3" stroke="#3c6f97" width="12" x="248" y="39"></rect>
+                <text class="svg-sub" x="268" y="49">JSON family</text>
+                <rect fill="#dfede5" height="12" rx="3" stroke="#367f59" width="12" x="366" y="39"></rect>
+                <text class="svg-sub" x="386" y="49">TOML</text>
+                <rect fill="#ece6f3" height="12" rx="3" stroke="#765b98" width="12" x="436" y="39"></rect>
+                <text class="svg-sub" x="456" y="49">YAML</text>
+                <text class="svg-note" text-anchor="end" x="1104" y="49">one contended 2-CPU machine; compare tiers, not digits</text>
+                <line stroke="#deded9" x1="276" x2="276" y1="88" y2="708"></line>
+                <text class="svg-sub" text-anchor="middle" x="276" y="726">10 µs</text>
+                <line stroke="#deded9" x1="455" x2="455" y1="88" y2="708"></line>
+                <text class="svg-sub" text-anchor="middle" x="455" y="726">100 µs</text>
+                <line stroke="#deded9" x1="634" x2="634" y1="88" y2="708"></line>
+                <text class="svg-sub" text-anchor="middle" x="634" y="726">1 ms</text>
+                <line stroke="#deded9" x1="813" x2="813" y1="88" y2="708"></line>
+                <text class="svg-sub" text-anchor="middle" x="813" y="726">10 ms</text>
+                <line stroke="#deded9" x1="992" x2="992" y1="88" y2="708"></line>
+                <text class="svg-sub" text-anchor="middle" x="992" y="726">100 ms</text>
+                <line stroke="#b8b8b1" x1="276" x2="992" y1="708" y2="708"></line>
+                <text class="svg-lane" x="16" y="102">JSON · 1,707 BYTES</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="131">serde_json · Rust</text>
+                <rect fill="#e0ebf2" height="8" rx="2" stroke="#3c6f97" width="38.4" x="284.1" y="123"></rect>
+                <circle cx="286.2" cy="127" fill="#3c6f97" r="4"></circle>
+                <text class="svg-sub" x="1004" y="131">~10 µs</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="148">serde_json [arb. prec.] · Rust</text>
+                <rect fill="#e0ebf2" height="8" rx="2" stroke="#3c6f97" width="24.3" x="295.2" y="140"></rect>
+                <circle cx="297.6" cy="144" fill="#3c6f97" r="4"></circle>
+                <text class="svg-sub" x="1004" y="148">~10 µs</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="165">JSON.parse · Node</text>
+                <rect fill="#e0ebf2" height="8" rx="2" stroke="#3c6f97" width="54.6" x="279.0" y="157"></rect>
+                <circle cx="299.3" cy="161" fill="#3c6f97" r="4"></circle>
+                <text class="svg-sub" x="1004" y="165">~10 µs</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="182">json · Python</text>
+                <rect fill="#e0ebf2" height="8" rx="2" stroke="#3c6f97" width="15.1" x="322.6" y="174"></rect>
+                <circle cx="323.4" cy="178" fill="#3c6f97" r="4"></circle>
+                <text class="svg-sub" x="1004" y="182">~20 µs</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="199">encoding/json/v2 · Go</text>
+                <rect fill="#e0ebf2" height="8" rx="2" stroke="#3c6f97" width="46.0" x="324.7" y="191"></rect>
+                <circle cx="332.2" cy="195" fill="#3c6f97" r="4"></circle>
+                <text class="svg-sub" x="1004" y="199">~20 µs</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="216">encoding/json · Go</text>
+                <rect fill="#e0ebf2" height="8" rx="2" stroke="#3c6f97" width="53.8" x="385.5" y="208"></rect>
+                <circle cx="399.2" cy="212" fill="#3c6f97" r="4"></circle>
+                <text class="svg-sub" x="1004" y="216">~50 µs</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="233">jsonc-parser · Node</text>
+                <rect fill="#e0ebf2" height="8" rx="2" stroke="#3c6f97" width="69.6" x="412.7" y="225"></rect>
+                <circle cx="459.5" cy="229" fill="#3c6f97" r="4"></circle>
+                <text class="svg-sub" x="1004" y="233">~0.1 ms</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="250">json5 · Node</text>
+                <rect fill="#e0ebf2" height="8" rx="2" stroke="#3c6f97" width="52.4" x="544.4" y="242"></rect>
+                <circle cx="565.8" cy="246" fill="#3c6f97" r="4"></circle>
+                <text class="svg-sub" x="1004" y="250">~0.4 ms</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="267">json5 · Python</text>
+                <rect fill="#e0ebf2" height="8" rx="2" stroke="#3c6f97" width="53.7" x="854.3" y="259"></rect>
+                <circle cx="860.4" cy="263" fill="#3c6f97" r="4"></circle>
+                <text class="svg-sub" x="1004" y="267">~20 ms</text>
+                <text class="svg-lane" x="16" y="291">TOML · 1,560 BYTES</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="320">go-toml/v2 · Go</text>
+                <rect fill="#dfede5" height="8" rx="2" stroke="#367f59" width="70.0" x="327.1" y="312"></rect>
+                <circle cx="362.2" cy="316" fill="#367f59" r="4"></circle>
+                <text class="svg-sub" x="1004" y="320">~30 µs</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="337">toml · Rust</text>
+                <rect fill="#dfede5" height="8" rx="2" stroke="#367f59" width="49.6" x="380.2" y="329"></rect>
+                <circle cx="386.3" cy="333" fill="#367f59" r="4"></circle>
+                <text class="svg-sub" x="1004" y="337">~40 µs</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="354">toml_edit · Rust</text>
+                <rect fill="#dfede5" height="8" rx="2" stroke="#367f59" width="43.4" x="416.8" y="346"></rect>
+                <circle cx="420.7" cy="350" fill="#367f59" r="4"></circle>
+                <text class="svg-sub" x="1004" y="354">~60 µs</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="371">smol-toml · Node</text>
+                <rect fill="#dfede5" height="8" rx="2" stroke="#367f59" width="73.5" x="410.3" y="363"></rect>
+                <circle cx="449.9" cy="367" fill="#367f59" r="4"></circle>
+                <text class="svg-sub" x="1004" y="371">~90 µs</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="388">tomli · Python</text>
+                <rect fill="#dfede5" height="8" rx="2" stroke="#367f59" width="48.3" x="483.3" y="380"></rect>
+                <circle cx="492.5" cy="384" fill="#367f59" r="4"></circle>
+                <text class="svg-sub" x="1004" y="388">~0.2 ms</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="405">@iarna/toml · Node</text>
+                <rect fill="#dfede5" height="8" rx="2" stroke="#367f59" width="72.2" x="480.6" y="397"></rect>
+                <circle cx="502.4" cy="401" fill="#367f59" r="4"></circle>
+                <text class="svg-sub" x="1004" y="405">~0.2 ms</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="422">BurntSushi/toml · Go</text>
+                <rect fill="#dfede5" height="8" rx="2" stroke="#367f59" width="69.6" x="472.3" y="414"></rect>
+                <circle cx="513.8" cy="418" fill="#367f59" r="4"></circle>
+                <text class="svg-sub" x="1004" y="422">~0.2 ms</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="439">tomllib · Python 3.14</text>
+                <rect fill="#dfede5" height="8" rx="2" stroke="#367f59" width="50.6" x="559.8" y="431"></rect>
+                <circle cx="567.8" cy="435" fill="#367f59" r="4"></circle>
+                <text class="svg-sub" x="1004" y="439">~0.4 ms</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="456">tomlkit · Python</text>
+                <rect fill="#dfede5" height="8" rx="2" stroke="#367f59" width="150.8" x="722.5" y="448"></rect>
+                <circle cx="745.4" cy="452" fill="#367f59" r="4"></circle>
+                <text class="svg-sub" x="1004" y="456">~4 ms</text>
+                <text class="svg-lane" x="16" y="480">YAML · 1,525 BYTES</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="509">serde_yaml · Rust</text>
+                <rect fill="#ece6f3" height="8" rx="2" stroke="#765b98" width="38.8" x="456.5" y="501"></rect>
+                <circle cx="460.3" cy="505" fill="#765b98" r="4"></circle>
+                <text class="svg-sub" x="1004" y="509">~0.1 ms</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="526">serde-saphyr · Rust</text>
+                <rect fill="#ece6f3" height="8" rx="2" stroke="#765b98" width="48.7" x="489.1" y="518"></rect>
+                <circle cx="494.4" cy="522" fill="#765b98" r="4"></circle>
+                <text class="svg-sub" x="1004" y="526">~0.2 ms</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="543">js-yaml 4 · Node</text>
+                <rect fill="#ece6f3" height="8" rx="2" stroke="#765b98" width="73.6" x="451.3" y="535"></rect>
+                <circle cx="496.7" cy="539" fill="#765b98" r="4"></circle>
+                <text class="svg-sub" x="1004" y="543">~0.2 ms</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="560">js-yaml 5 · Node</text>
+                <rect fill="#ece6f3" height="8" rx="2" stroke="#765b98" width="81.2" x="469.8" y="552"></rect>
+                <circle cx="497.2" cy="556" fill="#765b98" r="4"></circle>
+                <text class="svg-sub" x="1004" y="560">~0.2 ms</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="577">yaml.v3 · Go</text>
+                <rect fill="#ece6f3" height="8" rx="2" stroke="#765b98" width="54.1" x="500.3" y="569"></rect>
+                <circle cx="510.4" cy="573" fill="#765b98" r="4"></circle>
+                <text class="svg-sub" x="1004" y="577">~0.2 ms</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="594">sigs.k8s.io/yaml · Go</text>
+                <rect fill="#ece6f3" height="8" rx="2" stroke="#765b98" width="63.1" x="522.1" y="586"></rect>
+                <circle cx="538.6" cy="590" fill="#765b98" r="4"></circle>
+                <text class="svg-sub" x="1004" y="594">~0.3 ms</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="611">goccy/go-yaml · Go</text>
+                <rect fill="#ece6f3" height="8" rx="2" stroke="#765b98" width="75.5" x="533.4" y="603"></rect>
+                <circle cx="561.4" cy="607" fill="#765b98" r="4"></circle>
+                <text class="svg-sub" x="1004" y="611">~0.4 ms</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="628">PyYAML CSafeLoader · Python</text>
+                <rect fill="#ece6f3" height="8" rx="2" stroke="#765b98" width="42.8" x="573.8" y="620"></rect>
+                <circle cx="579.8" cy="624" fill="#765b98" r="4"></circle>
+                <text class="svg-sub" x="1004" y="628">~0.5 ms</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="645">yaml (eemeli) · Node</text>
+                <rect fill="#ece6f3" height="8" rx="2" stroke="#765b98" width="70.2" x="640.7" y="637"></rect>
+                <circle cx="671.5" cy="641" fill="#765b98" r="4"></circle>
+                <text class="svg-sub" x="1004" y="645">~2 ms</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="662">PyYAML safe_load · Python</text>
+                <rect fill="#ece6f3" height="8" rx="2" stroke="#765b98" width="124.4" x="750.2" y="654"></rect>
+                <circle cx="760.3" cy="658" fill="#765b98" r="4"></circle>
+                <text class="svg-sub" x="1004" y="662">~5 ms</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="679">ruamel safe · Python</text>
+                <rect fill="#ece6f3" height="8" rx="2" stroke="#765b98" width="111.9" x="786.3" y="671"></rect>
+                <circle cx="798.4" cy="675" fill="#765b98" r="4"></circle>
+                <text class="svg-sub" x="1004" y="679">~8 ms</text>
+                <text class="svg-sub" text-anchor="end" x="264" y="696">ruamel rt · Python</text>
+                <rect fill="#ece6f3" height="8" rx="2" stroke="#765b98" width="108.0" x="814.5" y="688"></rect>
+                <circle cx="832.2" cy="692" fill="#765b98" r="4"></circle>
+                <text class="svg-sub" x="1004" y="696">~10 ms</text>
+                <text class="svg-note" x="16" y="756">Medians moved by up to 2.7× across seven runs; the cgroup was throttled in 395 of 473 scheduler periods during the final one.</text>
+              </svg>

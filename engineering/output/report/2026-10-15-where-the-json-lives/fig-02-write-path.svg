@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 430" role="img" aria-label="A client sends an UPDATE. Step one appends a WAL record to the WAL buffer, which is flushed with fsync to the WAL segment on disk before the commit is acknowledged. Step two writes a new tuple version into a heap page in shared buffers and, unless it is a HOT update, a new index entry. Step three, later and asynchronously, the background writer and checkpointer write dirty pages to the data files. Below, the MVCC detail: the old tuple version gets xmax set to the updating transaction, the new version has xmin set to it, and vacuum later reclaims the dead version once no snapshot can see it."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="430.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-write-path-blk" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="fig-write-path-blu" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                  <marker id="fig-write-path-pur" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+                <text class="svg-lane" x="0" y="18">MEMORY</text>
+                <text class="svg-lane" x="0" y="250">DISK</text>
+                <line stroke="#deded9" stroke-dasharray="4 4" x1="0" x2="1120" y1="232" y2="232"></line>
+
+                <rect fill="#f7f7f5" height="70" rx="8" stroke="#b8b8b1" width="170" x="0" y="40"></rect>
+                <text class="svg-step" x="16" y="68">Client</text>
+                <text class="svg-sub" x="16" y="92">UPDATE … COMMIT</text>
+
+                <rect fill="#e0ebf2" height="70" rx="8" stroke="#3c6f97" width="230" x="230" y="40"></rect>
+                <text class="svg-num" x="246" y="68">1</text>
+                <text class="svg-step" x="264" y="68">WAL buffer</text>
+                <text class="svg-sub" x="246" y="92">record: what changed</text>
+
+                <rect fill="#e0ebf2" height="70" rx="8" stroke="#3c6f97" stroke-width="2" width="230" x="230" y="268"></rect>
+                <text class="svg-step" x="246" y="296">pg_wal/ segment</text>
+                <text class="svg-sub" x="246" y="320">fsync before ack</text>
+
+                <rect fill="#dfede5" height="160" rx="8" stroke="#367f59" width="270" x="520" y="40"></rect>
+                <text class="svg-num" x="536" y="68">2</text>
+                <text class="svg-step" x="554" y="68">shared_buffers</text>
+                <text class="svg-sub" x="536" y="96">heap page (8 kB)</text>
+                <text class="svg-sub" x="536" y="120">+ index entry, unless</text>
+                <text class="svg-sub" x="536" y="144">HOT: same page and no</text>
+                <text class="svg-sub" x="536" y="168">indexed column changed</text>
+
+                <rect fill="#f7f7f5" height="70" rx="8" stroke="#b8b8b1" width="270" x="850" y="40"></rect>
+                <text class="svg-num" x="866" y="68">3</text>
+                <text class="svg-step" x="884" y="68">bgwriter, checkpointer</text>
+                <text class="svg-sub" x="866" y="92">later, asynchronous</text>
+
+                <rect fill="#dfede5" height="70" rx="8" stroke="#367f59" width="270" x="850" y="268"></rect>
+                <text class="svg-step" x="866" y="296">base/ data files</text>
+                <text class="svg-sub" x="866" y="320">heap + index pages</text>
+
+                <line marker-end="url(#fig-write-path-blk)" stroke="#252525" stroke-width="2.5" x1="170" x2="226" y1="75" y2="75"></line>
+                <line marker-end="url(#fig-write-path-blk)" stroke="#252525" stroke-width="2.5" x1="345" x2="345" y1="110" y2="264"></line>
+                <text class="svg-note" x="355" y="190">commit = flush</text>
+                <path d="M230 320 L120 320 L120 114" fill="none" marker-end="url(#fig-write-path-blk)" stroke="#252525" stroke-width="2.5"></path>
+                <text class="svg-note" x="128" y="200">ack returns</text>
+                <text class="svg-note" x="128" y="218">after the flush</text>
+                <line marker-end="url(#fig-write-path-blu)" stroke="#3c6f97" stroke-width="1.4" x1="460" x2="516" y1="75" y2="75"></line>
+                <line marker-end="url(#fig-write-path-blu)" stroke="#3c6f97" stroke-width="1.4" x1="790" x2="846" y1="75" y2="75"></line>
+                <line marker-end="url(#fig-write-path-blu)" stroke="#3c6f97" stroke-width="1.4" x1="985" x2="985" y1="110" y2="264"></line>
+                <text class="svg-note" x="995" y="190">dirty pages</text>
+
+                <rect fill="#ece6f3" height="66" rx="8" stroke="#765b98" width="1120" x="0" y="360"></rect>
+                <text class="svg-lane" x="16" y="384">MVCC · INSIDE THE HEAP PAGE</text>
+                <text class="svg-sub" x="16" y="410">old version: xmin=100 xmax=205</text>
+                <text class="svg-sub" x="330" y="410">new version: xmin=205 xmax=0</text>
+                <line marker-end="url(#fig-write-path-pur)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.6" x1="580" x2="660" y1="405" y2="405"></line>
+                <text class="svg-sub" x="672" y="410">VACUUM frees the old one once no snapshot sees it</text>
+              </svg>

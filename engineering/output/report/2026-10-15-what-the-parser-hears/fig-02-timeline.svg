@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 684" role="img" aria-label="Timeline from 2001 to 2026 in three lanes, filled dots for spec releases and drafts, hollow dots for events outside the spec. JSON, built for data interchange: json.org 2001; RFC 4627 July 2006; Douglas Crockford's Google+ post explaining why JSON has no comments, 30 April 2012; RFC 7159 March 2014; RFC 8259 and ECMA-404 second edition December 2017, after which the grammar is unchanged while readers keep changing; Go 1.27 ships encoding/json/v2 on 19 August 2026. YAML, built for data serialisation: draft titled Yet Another Markup Language, May 2001; 1.0 January 2004; 1.1 January 2005; PyYAML and LibYAML 2006; 1.2.0 July 2009; 1.2.1 October 2009; 1.2.2 October 2021 with no normative changes; no YAML 1.3 as of October 2026. TOML, built for configuration: first draft 23 February 2013, whose claim that the YAML spec is 600 pages was corrected to 80 one hour and forty minutes later; 0.5.0 July 2018; 1.0.0 11 January 2021; Python 3.11 adds tomllib 24 October 2022; 1.1.0 18 December 2025. Inset bar chart of spec size in words, by whitespace split: ECMA-404 second edition 2,318; RFC 8259 3,998; YAML 1.1 25,216; YAML 1.2.2 21,953; TOML 1.0.0 3,980; TOML 1.1.0 4,221. YAML 1.2.2 is about 5.5 times TOML 1.0.0 or RFC 8259."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="684.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="18">2001–2026 · SPEC RELEASES AND THE EVENTS AROUND THEM</text>
+                <circle cx="6" cy="40" fill="#252525" r="5"></circle>
+                <text class="svg-sub" x="18" y="44">spec release or draft</text>
+                <circle cx="206" cy="40" fill="#ffffff" r="5" stroke="#252525" stroke-width="2"></circle>
+                <text class="svg-sub" x="218" y="44">event outside the spec</text>
+
+                <line stroke="#deded9" x1="150" x2="150" y1="64" y2="440"></line>
+                <line stroke="#deded9" x1="294" x2="294" y1="64" y2="440"></line>
+                <line stroke="#deded9" x1="474" x2="474" y1="64" y2="440"></line>
+                <line stroke="#deded9" x1="654" x2="654" y1="64" y2="440"></line>
+                <line stroke="#deded9" x1="834" x2="834" y1="64" y2="440"></line>
+                <line stroke="#deded9" x1="1014" x2="1014" y1="64" y2="440"></line>
+                <line stroke="#deded9" x1="0" x2="1086" y1="190" y2="190"></line>
+                <line stroke="#deded9" x1="0" x2="1086" y1="310" y2="310"></line>
+
+                <rect fill="#3c6f97" height="36" rx="2" width="6" x="0" y="110"></rect>
+                <text class="svg-step" x="14" y="124">JSON</text>
+                <text class="svg-sub" x="14" y="140">interchange</text>
+                <line stroke="#3c6f97" stroke-width="1.5" x1="150" x2="1086" y1="128" y2="128"></line>
+                <circle cx="168" cy="128" fill="#3c6f97" r="5"></circle>
+                <circle cx="349" cy="128" fill="#3c6f97" r="5"></circle>
+                <circle cx="558" cy="128" fill="#ffffff" r="5" stroke="#3c6f97" stroke-width="2"></circle>
+                <circle cx="625" cy="128" fill="#3c6f97" r="5"></circle>
+                <circle cx="760" cy="128" fill="#3c6f97" r="5"></circle>
+                <circle cx="1073" cy="128" fill="#ffffff" r="5" stroke="#3c6f97" stroke-width="2"></circle>
+                <text class="svg-sub" x="150" y="114">json.org · 2001</text>
+                <text class="svg-sub" text-anchor="middle" x="349" y="152">RFC 4627 · Jul 2006</text>
+                <text class="svg-sub" text-anchor="middle" x="550" y="96">Crockford: why no comments</text>
+                <text class="svg-note" text-anchor="middle" x="550" y="114">Google+ post, 30 Apr 2012</text>
+                <text class="svg-sub" text-anchor="middle" x="625" y="152">RFC 7159 · Mar 2014</text>
+                <text class="svg-sub" text-anchor="middle" x="768" y="96">RFC 8259 · ECMA-404 2nd ed.</text>
+                <text class="svg-note" text-anchor="middle" x="768" y="114">Dec 2017</text>
+                <text class="svg-sub" text-anchor="end" x="1086" y="114">Go 1.27 json/v2 · 19 Aug 2026</text>
+                <text class="svg-note" x="790" y="152">grammar unchanged since 2017; readers change</text>
+
+                <rect fill="#765b98" height="36" rx="2" width="6" x="0" y="230"></rect>
+                <text class="svg-step" x="14" y="244">YAML</text>
+                <text class="svg-sub" x="14" y="260">serialisation</text>
+                <line stroke="#765b98" stroke-width="1.5" x1="150" x2="1086" y1="248" y2="248"></line>
+                <line stroke="#b8b8b1" x1="164" x2="164" y1="242" y2="221"></line>
+                <line stroke="#b8b8b1" x1="348" x2="348" y1="254" y2="281"></line>
+                <circle cx="164" cy="248" fill="#765b98" r="5"></circle>
+                <circle cx="261" cy="248" fill="#765b98" r="5"></circle>
+                <circle cx="296" cy="248" fill="#765b98" r="5"></circle>
+                <circle cx="348" cy="248" fill="#ffffff" r="5" stroke="#765b98" stroke-width="2"></circle>
+                <circle cx="458" cy="248" fill="#765b98" r="5"></circle>
+                <circle cx="465" cy="248" fill="#765b98" r="5" stroke="#ffffff"></circle>
+                <circle cx="897" cy="248" fill="#765b98" r="5"></circle>
+                <text class="svg-sub" x="150" y="216">Yet Another Markup Language · May 2001</text>
+                <text class="svg-sub" text-anchor="middle" x="261" y="272">1.0 · Jan 2004</text>
+                <text class="svg-sub" text-anchor="middle" x="296" y="234">1.1 · Jan 2005</text>
+                <text class="svg-sub" text-anchor="middle" x="348" y="290">PyYAML + LibYAML · 2006</text>
+                <text class="svg-sub" text-anchor="middle" x="458" y="234">1.2.0 · Jul 2009</text>
+                <text class="svg-sub" text-anchor="middle" x="465" y="272">1.2.1 · Oct 2009</text>
+                <text class="svg-note" text-anchor="middle" x="897" y="216">no normative changes</text>
+                <text class="svg-sub" text-anchor="middle" x="897" y="234">1.2.2 · Oct 2021</text>
+                <text class="svg-note" text-anchor="end" x="1086" y="272">no YAML 1.3 as of Oct 2026</text>
+
+                <rect fill="#367f59" height="36" rx="2" width="6" x="0" y="350"></rect>
+                <text class="svg-step" x="14" y="364">TOML</text>
+                <text class="svg-sub" x="14" y="380">configuration</text>
+                <line stroke="#367f59" stroke-width="1.5" x1="150" x2="1086" y1="368" y2="368"></line>
+                <line stroke="#b8b8b1" x1="935" x2="935" y1="374" y2="401"></line>
+                <line stroke="#b8b8b1" x1="1049" x2="1049" y1="362" y2="341"></line>
+                <circle cx="587" cy="368" fill="#367f59" r="5"></circle>
+                <circle cx="781" cy="368" fill="#367f59" r="5"></circle>
+                <circle cx="871" cy="368" fill="#367f59" r="5"></circle>
+                <circle cx="935" cy="368" fill="#ffffff" r="5" stroke="#367f59" stroke-width="2"></circle>
+                <circle cx="1049" cy="368" fill="#367f59" r="5"></circle>
+                <text class="svg-sub" text-anchor="middle" x="587" y="354">first draft · 23 Feb 2013</text>
+                <text class="svg-note" text-anchor="middle" x="587" y="392">“600 pages” → 80, 1 h 40 min later</text>
+                <text class="svg-sub" text-anchor="middle" x="781" y="392">0.5.0 · Jul 2018</text>
+                <text class="svg-sub" text-anchor="middle" x="871" y="354">1.0.0 · 11 Jan 2021</text>
+                <text class="svg-sub" text-anchor="middle" x="935" y="410">Python 3.11 tomllib · 24 Oct 2022</text>
+                <text class="svg-sub" text-anchor="end" x="1086" y="336">1.1.0 · 18 Dec 2025</text>
+
+                <line stroke="#b8b8b1" x1="150" x2="1086" y1="440" y2="440"></line>
+                <path d="M150 440v5M186 440v5M222 440v5M258 440v5M294 440v5M330 440v5M366 440v5M402 440v5M438 440v5M474 440v5M510 440v5M546 440v5M582 440v5M618 440v5M654 440v5M690 440v5M726 440v5M762 440v5M798 440v5M834 440v5M870 440v5M906 440v5M942 440v5M978 440v5M1014 440v5M1050 440v5M1086 440v5" stroke="#b8b8b1"></path>
+                <text class="svg-sub" text-anchor="middle" x="150" y="460">2001</text>
+                <text class="svg-sub" text-anchor="middle" x="294" y="460">2005</text>
+                <text class="svg-sub" text-anchor="middle" x="474" y="460">2010</text>
+                <text class="svg-sub" text-anchor="middle" x="654" y="460">2015</text>
+                <text class="svg-sub" text-anchor="middle" x="834" y="460">2020</text>
+                <text class="svg-sub" text-anchor="middle" x="1014" y="460">2025</text>
+
+                <rect fill="#f7f7f5" height="200" rx="8" stroke="#deded9" width="1120" x="0" y="478"></rect>
+                <text class="svg-lane" x="16" y="502">INSET · SPEC SIZE IN WORDS · WHITESPACE SPLIT, EXAMPLES AND GRAMMAR INCLUDED</text>
+                <text class="svg-sub" text-anchor="end" x="236" y="527">ECMA-404 2nd ed.</text>
+                <rect fill="#e0ebf2" height="14" rx="2" stroke="#3c6f97" width="64.3" x="248" y="516"></rect>
+                <text class="svg-sub" x="320.3" y="527">2,318</text>
+                <text class="svg-sub" text-anchor="end" x="236" y="549">RFC 8259</text>
+                <rect fill="#e0ebf2" height="14" rx="2" stroke="#3c6f97" width="111.0" x="248" y="538"></rect>
+                <text class="svg-sub" x="367.0" y="549">3,998</text>
+                <text class="svg-sub" text-anchor="end" x="236" y="571">YAML 1.1</text>
+                <rect fill="#ece6f3" height="14" rx="2" stroke="#765b98" width="700" x="248" y="560"></rect>
+                <text class="svg-sub" x="956" y="571">25,216</text>
+                <text class="svg-sub" text-anchor="end" x="236" y="593">YAML 1.2.2</text>
+                <rect fill="#ece6f3" height="14" rx="2" stroke="#765b98" width="609.4" x="248" y="582"></rect>
+                <text class="svg-sub" x="865.4" y="593">21,953</text>
+                <text class="svg-sub" text-anchor="end" x="236" y="615">TOML 1.0.0</text>
+                <rect fill="#dfede5" height="14" rx="2" stroke="#367f59" width="110.5" x="248" y="604"></rect>
+                <text class="svg-sub" x="366.5" y="615">3,980</text>
+                <text class="svg-sub" text-anchor="end" x="236" y="637">TOML 1.1.0</text>
+                <rect fill="#dfede5" height="14" rx="2" stroke="#367f59" width="117.2" x="248" y="626"></rect>
+                <text class="svg-sub" x="373.2" y="637">4,221</text>
+                <text class="svg-note" x="248" y="664">YAML 1.2.2 ≈ 5.5 × TOML 1.0.0 (21,953 ÷ 3,980) and RFC 8259 (21,953 ÷ 3,998)</text>
+              </svg>

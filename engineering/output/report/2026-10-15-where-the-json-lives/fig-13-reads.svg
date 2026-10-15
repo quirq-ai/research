@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 356" role="img" aria-label="Bar chart on a logarithmic axis from 1 microsecond to 100 milliseconds. Point read of one field: parsing a whole JSON file takes 32.1 microseconds, extracting it from SQLite by id takes 7.1, 4.5 times less. Filter on owner and status across 20,000 documents: a full scan takes 22,061.9 microseconds, the same query with an expression index takes 9.2, about 2,400 times less. The query plan reads SEARCH docs USING INDEX docs_owner_status."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="356.0" fill="#ffffff"/>
+                <line stroke="#deded9" x1="330" x2="330" y1="40" y2="208"></line>
+                <text class="svg-sub" text-anchor="middle" x="330" y="226">1 µs</text>
+                <line stroke="#deded9" x1="450" x2="450" y1="40" y2="208"></line>
+                <text class="svg-sub" text-anchor="middle" x="450" y="226">10 µs</text>
+                <line stroke="#deded9" x1="570" x2="570" y1="40" y2="208"></line>
+                <text class="svg-sub" text-anchor="middle" x="570" y="226">100 µs</text>
+                <line stroke="#deded9" x1="690" x2="690" y1="40" y2="208"></line>
+                <text class="svg-sub" text-anchor="middle" x="690" y="226">1 ms</text>
+                <line stroke="#deded9" x1="810" x2="810" y1="40" y2="208"></line>
+                <text class="svg-sub" text-anchor="middle" x="810" y="226">10 ms</text>
+                <line stroke="#deded9" x1="930" x2="930" y1="40" y2="208"></line>
+                <text class="svg-sub" text-anchor="middle" x="930" y="226">100 ms</text>
+                <line stroke="#b8b8b1" x1="330" x2="930" y1="208" y2="208"></line>
+                <text class="svg-lane" x="0" y="24">POINT READ · ONE FIELD OF ONE DOCUMENT</text>
+                <text class="svg-sub" text-anchor="end" x="318" y="55">read file, json.loads, take .status</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" width="180.8" x="330" y="42"></rect>
+                <text class="svg-sub" x="518.8" y="55">32.1 µs</text>
+                <text class="svg-sub" text-anchor="end" x="318" y="85">SQLite · body-&gt;&gt;'$.status' by id</text>
+                <rect fill="#dfede5" height="18" rx="2" stroke="#367f59" width="102.2" x="330" y="72"></rect>
+                <text class="svg-sub" x="440.2" y="85">7.1 µs</text>
+                <text class="svg-lane" x="0" y="128">FILTER · owner = ? AND status = 'failed' · 20,000 DOCUMENTS</text>
+                <text class="svg-sub" text-anchor="end" x="318" y="159">SQLite · no index (full scan)</text>
+                <rect fill="#f3dfdc" height="18" rx="2" stroke="#ad4b43" width="521.2" x="330" y="146"></rect>
+                <text class="svg-sub" x="859.2" y="159">22,061.9 µs</text>
+                <text class="svg-sub" text-anchor="end" x="318" y="189">SQLite · expression index</text>
+                <rect fill="#dfede5" height="18" rx="2" stroke="#367f59" width="115.7" x="330" y="176"></rect>
+                <text class="svg-sub" x="453.7" y="189">9.2 µs</text>
+                <rect fill="#f7f7f5" height="96" rx="8" stroke="#deded9" width="1000" x="0" y="252"></rect>
+                <text class="svg-lane" x="16" y="278">WHAT CHANGED BETWEEN THE LAST TWO BARS</text>
+                <text class="svg-sub" x="16" y="302">CREATE INDEX docs_owner_status ON docs(body-&gt;&gt;'$.owner', body-&gt;&gt;'$.status')</text>
+                <text class="svg-sub" x="16" y="326">plan: SEARCH docs USING INDEX docs_owner_status (&lt;expr&gt;=? AND &lt;expr&gt;=?)</text>
+                <text class="svg-note" text-anchor="end" x="996" y="85">4.5× less</text>
+                <text class="svg-note" text-anchor="end" x="996" y="189">≈ 2,400× less</text>
+              </svg>
