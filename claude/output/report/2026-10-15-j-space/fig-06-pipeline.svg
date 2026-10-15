@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 330" role="img" aria-label="Six-step pipeline for constructing a J-space with cost annotations"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="330.0" fill="#ffffff"/>
+              <text class="svg-lane" x="30" y="28">BUILD ONCE</text>
+              <line stroke="#deded9" x1="30" x2="620" y1="38" y2="38"></line>
+              <text class="svg-lane" x="660" y="28">USE FOREVER</text>
+              <line stroke="#deded9" x1="660" x2="1090" y1="38" y2="38"></line>
+
+              <g fill="none" stroke="#252525" stroke-width="2">
+                <line x1="216" x2="256" y1="96" y2="96"></line>
+                <line x1="442" x2="482" y1="96" y2="96"></line>
+                <line x1="620" x2="676" y1="96" y2="96"></line>
+                <line x1="862" x2="902" y1="96" y2="96"></line>
+                <line x1="780" x2="780" y1="140" y2="186"></line>
+                <line x1="1000" x2="1000" y1="140" y2="186"></line>
+              </g>
+
+              <rect fill="#f7f7f5" height="60" rx="7" stroke="#deded9" width="180" x="36" y="66"></rect>
+              <text class="svg-num" x="50" y="86">1</text>
+              <text class="svg-step" x="68" y="86">Corpus &amp; layers</text>
+              <text class="svg-sub" x="50" y="106">1,000 prompts · 25 evenly</text>
+              <text class="svg-sub" x="50" y="120">spaced layers</text>
+
+              <rect fill="#f3dfdc" height="60" rx="7" stroke="#ad4b43" stroke-width="1.8" width="186" x="256" y="66"></rect>
+              <text class="svg-num" x="270" y="86">2</text>
+              <text class="svg-step" x="288" y="86">Estimate J_ℓ</text>
+              <text class="svg-sub" x="270" y="106">the expensive step —</text>
+              <text class="svg-sub" x="270" y="120">thousands of passes</text>
+
+              <rect fill="#f7e3c8" height="60" rx="7" stroke="#d98226" stroke-width="1.6" width="138" x="482" y="66"></rect>
+              <text class="svg-num" x="496" y="86">3</text>
+              <text class="svg-step" x="514" y="86">Compose</text>
+              <text class="svg-sub" x="496" y="106">fold the norm gain,</text>
+              <text class="svg-sub" x="496" y="120">store J not W_U J</text>
+
+              <rect fill="#e0ebf2" height="60" rx="7" stroke="#3c6f97" stroke-width="1.6" width="186" x="676" y="66"></rect>
+              <text class="svg-num" x="690" y="86">4</text>
+              <text class="svg-step" x="708" y="86">Read</text>
+              <text class="svg-sub" x="690" y="106">rank · probe · sparse</text>
+              <text class="svg-sub" x="690" y="120">decomposition</text>
+
+              <rect fill="#ece6f3" height="60" rx="7" stroke="#765b98" stroke-width="1.6" width="186" x="902" y="66"></rect>
+              <text class="svg-num" x="916" y="86">5</text>
+              <text class="svg-step" x="934" y="86">Write</text>
+              <text class="svg-sub" x="916" y="106">steer · ablate · patch</text>
+
+              <rect fill="#dfede5" height="52" rx="7" stroke="#367f59" stroke-width="1.6" width="186" x="676" y="186"></rect>
+              <text class="svg-num" x="690" y="206">6</text>
+              <text class="svg-step" x="708" y="206">Validate</text>
+              <text class="svg-sub" x="690" y="226">before you believe any of it</text>
+
+              <rect fill="#dfede5" height="52" rx="7" stroke="#367f59" stroke-width="1.6" width="186" x="902" y="186"></rect>
+              <text class="svg-step" x="916" y="206">Validate the writes too</text>
+              <text class="svg-sub" x="916" y="226">a steer that does nothing is data</text>
+
+              <line stroke="#deded9" x1="30" x2="1090" y1="266" y2="266"></line>
+              <text class="svg-note" x="30" y="290">Step 2 dominates everything. Steps 4 and 5 are a matvec and a matmul — once J exists, a full lens readout is cheaper than a single token of generation.</text>
+              <text class="svg-note" x="30" y="312">That asymmetry is the method's best property: you pay once per model, then interrogate it as often as you like.</text>
+            </svg>

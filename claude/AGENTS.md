@@ -15,6 +15,8 @@ Derived from [GOAL.md](GOAL.md), in this order:
    `.codex-global-state.json` explorer as an app.
 5. Publish a one-pager with the key Codex findings, linked to the Claude Code
    teardown it accompanies.
+6. Publish the J-space post as a report and a one-pager, keeping its
+   *\[from the paper\]* and *\[reconstruction\]* labels.
 
 ## Sources
 
@@ -24,7 +26,8 @@ at a recorded commit, and the primary sources those posts cite.
 
 **Avoid:** restating Claude Code or Codex facts from memory or from later
 releases. The writings describe Claude Code 2.1.280 and
-`codex-cli 0.155.0-alpha.2.6`.
+`codex-cli 0.155.0-alpha.2.6`. Avoid restating the global-workspace paper beyond
+what the J-space post covers.
 
 ## How to verify
 

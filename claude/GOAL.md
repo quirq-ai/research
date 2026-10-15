@@ -16,6 +16,14 @@ An explorer maps the desktop app's `.codex-global-state.json`, key by key. This
 research informs the design of an operating system that can route work into
 Space and other products.
 
+This topic also covers suraj's research on Claude models themselves. The
+first piece is his close reading of Anthropic's global-workspace
+interpretability paper, *Verbalizable Representations Form a Global Workspace
+in Language Models* (Transformer Circuits, 2026), which works with Claude
+models. His post explains what a J-space is, reconstructs how to build one,
+and reports what the paper found with it. It marks which claims are from the
+paper and which are his own reconstruction. This topic keeps those marks.
+
 ## Research questions
 
 1. **What is a Claude Code session made of?** Its identities, boot, turn
@@ -29,6 +37,10 @@ Space and other products.
 4. **What is a Codex session made of?** Its identities and lineage, the thread, turn and item shape, boot and resume, the turn stream, the stores on disk, the commands, the App Server protocol, the configuration layers, forks and subagents.
 5. **What does the desktop's `.codex-global-state.json` hold?** Each field's observed type, its owning writer, and the project and thread associations.
 6. **Where should Codex's ownership end and a product's begin?** What an OS must own to offload work into Space: durable intent, routing, decisions and accepted outcomes.
+7. **What is a J-space?** The Jacobian lens, the J-lens vectors and the sparse nonnegative decomposition, as the paper defines them.
+8. **How would you build one?** suraj's reconstruction: the compute routes, numerical cautions, read and write operations, validation checks and a reference implementation.
+9. **What did the paper find with it, and where does it say not to lean on it?** The five functional properties, the sensory, workspace and motor regions, and the limitations.
+10. **What carries over to other work?** The methodological moves suraj thinks are portable.
 
 ## Research action
 
@@ -45,6 +57,13 @@ Space and other products.
   locally, read from help, documented, reconstructed, synthesized,
   interpreted or proposed.
 - Link the Codex and Claude Code teardowns to each other as companions.
+- Publish suraj's J-space post as a report without changing its meaning.
+  Credit and link the original at `a5a356d`.
+- Keep the post's two labels: *\[from the paper\]* for the paper's equations,
+  procedures and numbers, and *\[reconstruction\]* for suraj's engineering.
+- Link the paper as the primary source. Quote it only where the post does.
+- Keep the post's cost and storage figures marked as analytical. suraj has
+  not run the pipeline against a frontier model.
 
 ## Scope
 
@@ -53,6 +72,7 @@ Space and other products.
 - Claude Code research in suraj's writings repo: the session teardown, the
   `~/.claude.json` explorer, and Claude Code sections of other posts.
 - Codex research in suraj's writings repo: the session teardown (`codex-session/`) and the `.codex-global-state.json` explorer (`codex-session/codex-json/`).
+- suraj's close reading of the global-workspace paper and his construction manual for a J-space, in the writings repo at `a5a356d`.
 
 **Out of scope:**
 
@@ -63,6 +83,9 @@ Space and other products.
 - New measurements of Codex. The teardown describes `codex-cli 0.155.0-alpha.2.6`, inspected on 25 September 2026. The explorer describes one snapshot from 3 October 2026 and cites ChatGPT desktop 26.928.31416. Re-checking later releases would be new research.
 - Building or testing the proposed adapter, data model and acceptance suite. The report labels them as proposals and did not test them.
 - Values from the inspected machine. The report and the explorer publish structure and placeholders only. Keep it that way.
+- Running the pipeline or reproducing the paper's results. The post's costs are analytical; measuring them would be new research.
+- Claims from the paper that the post does not cover.
+- The philosophical implications for conscious access. The post treats them as a separate conversation.
 
 ## Related issues
 
@@ -80,6 +103,9 @@ Space and other products.
   Code appears in the writings.
 - The Codex session teardown and its explorer are published here, credited and linked to their originals.
 - A one-pager points a reader at the key Codex findings and at the Claude Code teardown it accompanies.
+- The J-space post is published here as a report, credited and linked to its original.
+- A one-pager gives its key numbers, each labelled as from the paper or as reconstruction.
+- The README lists the post's findings, the report and the one-pager.
 
 ## Requested outputs
 

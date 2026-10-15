@@ -1,6 +1,6 @@
 # claude
 
-suraj's research on coding agents: what a Claude Code or Codex session is made of, where its state lives, how a host drives it, and what an agent OS should own around it.
+suraj's research on coding agents and Claude models: what a Claude Code or Codex session is made of, where its state lives, how a host drives it, what an agent OS should own around it, and how a model's reportable concepts can be found.
 
 | | |
 |---|---|
@@ -22,6 +22,8 @@ linked to each original post. Purpose and research action live in
 [GOAL.md](GOAL.md).
 
 It also holds suraj's teardown of a Codex session, read the same way as the Claude Code one, with an explorer of the Codex desktop app's global state file, so the two agent runtimes can be compared on the same questions.
+
+It also holds suraj's close reading of Anthropic's global-workspace interpretability paper, which works with Claude models: what a J-space is, how to build one, and what the paper found with it.
 
 ## Research and findings so far
 
@@ -63,6 +65,19 @@ Each finding is suraj's, from his writings at `a5a356d`.
 - **A stored conversation does not run itself: background work needs a scheduler and an available host, and local work requires the computer and app to remain available \[Documented\].** Source: [Anatomy of a Codex session](output/report/2026-10-15-codex-session.md#15-background-work-needs-a-scheduler-and-an-available-host), §15. Verified: 2026-10-15.
 - **suraj's design commitment is that Codex owns the mechanics of its agent loop and the surrounding product owns durable intent, routing, decisions and accepted outcomes; the acceptance tests for an adapter on that boundary are proposed and were not executed.** Source: [Anatomy of a Codex session](output/report/2026-10-15-codex-session.md#18-what-must-be-proved-before-the-adapter-can-run-unattended), §18. Verified: 2026-10-15.
 
+### J-Space
+
+Each finding is suraj's, from his writings at `a5a356d`.
+
+- **Per the paper, the J-space holds on the order of 25 concepts at a time and accounts for less than 10% of activation variance at any layer; in suraj's words, it is a small channel that carries the flexible part of cognition and almost none of the automatic part.** Source: [The J-Space: a construction manual](output/report/2026-10-15-j-space.md#01-the-claim-and-why-it-needs-a-new-lens), §01. Verified: 2026-10-15.
+- **The paper's lens is one averaged Jacobian per layer, and suraj reads the averaging as the semantics: in the paper's words, it distinguishes representations that are verbalizable from those that merely happen to be verbalized in one particular context.** Source: [The J-Space: a construction manual](output/report/2026-10-15-j-space.md#03-why-averaging-is-the-whole-trick), §03. Verified: 2026-10-15.
+- **Variance is not importance: per the paper, the J-space part of a concept vector is a median 6–7% of its variance, yet swaps using it succeeded on 88% of trials against 5% for the remaining ~93%.** Source: [The J-Space: a construction manual](output/report/2026-10-15-j-space.md#05-the-j-space-itself), §05. Verified: 2026-10-15.
+- **The load-bearing evidence is a double dissociation: in the paper, a Spanish → French lens swap changed the output on ~100% of trials under explicit report and flexible inference, and had essentially no effect under continuation and anomaly detection.** Source: [The J-Space: a construction manual](output/report/2026-10-15-j-space.md#15-what-the-paper-found-with-it), §15. Verified: 2026-10-15.
+- **Per the paper, the J-space mediates internal reasoning in Claude models: swapping an intermediate step succeeded on 54% of trials for Haiku 4.5 and 70% for Sonnet and Opus 4.5, about 17% earlier in the network than answer swaps.** Source: [The J-Space: a construction manual](output/report/2026-10-15-j-space.md#15-what-the-paper-found-with-it), §15. Verified: 2026-10-15.
+- **The paper does not state how to compute the lens efficiently; in suraj's reconstruction, reverse mode, one backward pass per token of interest, is the default for a first reproduction: 2,000 corpus-passes for a 2,000-token concept set against ≈ 204,800 for the full matrix by forward mode at d = 8,192, an analytical estimate.** Source: [The J-Space: a construction manual](output/report/2026-10-15-j-space.md#09-step-2-estimating-the-averaged-jacobian), §09. Verified: 2026-10-15.
+- **The paper names its own limits, which suraj calls unusually candid: the J-lens only identifies concepts that correspond to single tokens, captures the workspace only approximately and incompletely, and is unreliable in the first third of the model.** Source: [The J-Space: a construction manual](output/report/2026-10-15-j-space.md#17-limitations-and-failure-modes), §17. Verified: 2026-10-15.
+- **suraj's portable lesson is to prefer a measured causal map to a fitted correlational one: the J-lens is a derivative, with no training set to overfit and no objective to game.** Source: [The J-Space: a construction manual](output/report/2026-10-15-j-space.md#18-what-generalizes), §18. Verified: 2026-10-15.
+
 ### Open questions
 
 Tracked as issues: [#24](https://github.com/quirq-ai/research/issues/24),
@@ -89,3 +104,5 @@ Tracked as issues: [#24](https://github.com/quirq-ai/research/issues/24),
 | onepager | [Codex sessions at a glance](output/onepager/2026-10-15-codex-at-a-glance.md) | 2026-10-15 | Key numbers and the claim from the Codex teardown, with links to the report and the explorer |
 | report | [Anatomy of a Codex session](output/report/2026-10-15-codex-session.md) | 2026-10-15 | suraj's teardown of codex-cli 0.155.0-alpha.2.6 (desktop-bundled, macOS arm64), with its 14 figures |
 | app | [Codex JSON, field by field](output/app/codex-json-explorer/) | 2026-10-15 | One page per object shape of the desktop's `.codex-global-state.json`, as of ChatGPT desktop 26.928.31416 |
+| onepager | [The J-Space at a glance](output/onepager/2026-10-15-j-space-at-a-glance.md) | 2026-10-15 | Key numbers, each labelled as from the paper or reconstruction, and the questions the post leaves open |
+| report | [The J-Space: a construction manual](output/report/2026-10-15-j-space.md) | 2026-10-15 | suraj's close reading of Anthropic's global-workspace paper (Transformer Circuits, 2026) and his reconstruction of how to build a J-space, with its 11 figures |

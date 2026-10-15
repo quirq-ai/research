@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" role="img" aria-label="Averaging Jacobians over positions and prompts"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="300.0" fill="#ffffff"/>
+              <text class="svg-lane" x="30" y="30">PER-CONTEXT</text>
+              <line stroke="#deded9" x1="30" x2="440" y1="40" y2="40"></line>
+
+              <rect fill="#e0ebf2" height="24" rx="4" stroke="#3c6f97" width="24" x="40" y="58"></rect>
+              <text class="svg-sub" x="80" y="76">prompt 1, t=14, t′=17</text>
+              <rect fill="#e0ebf2" height="24" rx="4" stroke="#3c6f97" width="24" x="40" y="94"></rect>
+              <text class="svg-sub" x="80" y="112">prompt 1, t=14, t′=18</text>
+              <rect fill="#e0ebf2" height="24" rx="4" stroke="#3c6f97" width="24" x="40" y="130"></rect>
+              <text class="svg-sub" x="80" y="148">prompt 1, t=15, t′=19</text>
+              <rect fill="#e0ebf2" height="24" rx="4" stroke="#3c6f97" width="24" x="40" y="166"></rect>
+              <text class="svg-sub" x="80" y="184">prompt 2, t=3,  t′=9</text>
+              <text class="svg-sub" x="80" y="216">⋮</text>
+              <rect fill="#e0ebf2" height="24" rx="4" stroke="#3c6f97" width="24" x="40" y="226"></rect>
+              <text class="svg-sub" x="80" y="244">prompt 1000, …</text>
+
+              <text class="svg-note" x="40" y="282">Each one is contaminated by its own context.</text>
+
+              <g fill="none" stroke="#d98226" stroke-width="1.8">
+                <line x1="470" x2="590" y1="150" y2="150"></line>
+                <path d="M590 150 l-9 -5 M590 150 l-9 5"></path>
+              </g>
+              <text class="svg-num" x="478" y="138">average</text>
+
+              <rect fill="#f7e3c8" height="108" rx="8" stroke="#d98226" stroke-width="2" width="200" x="620" y="96"></rect>
+              <text class="svg-step" text-anchor="middle" x="720" y="140">J_ℓ</text>
+              <text class="svg-sub" text-anchor="middle" x="720" y="164">one d × d matrix</text>
+              <text class="svg-sub" text-anchor="middle" x="720" y="182">per layer, fixed</text>
+
+              <text class="svg-note" x="620" y="238">What this direction tends to make the model say,</text>
+              <text class="svg-note" x="620" y="256">across every context it might find itself in.</text>
+              <text class="svg-note" x="620" y="282">Expensive once. Free thereafter.</text>
+            </svg>
