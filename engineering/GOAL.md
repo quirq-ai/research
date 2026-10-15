@@ -33,6 +33,13 @@ each kind of file wants. The source is two posts in
 repos store, send and compact data, from JSON and logs to an agent's context
 window.
 
+This topic also collects suraj's teardown of GitHub CLI, from his writings at
+`a5a356d`. It reads gh 2.102.0 at its source commit and asks which system owns
+each result: the gh process, local gh storage, the Git checkout or GitHub's
+services. It covers the pull-request utilities for review, checks and merge,
+and the three agent-related preview families. It informs how agents in the dev
+loop should call gh, and what a session OS should record when they do.
+
 ## Research questions
 
 1. **Agent and UI integration patterns.** How do agent frameworks connect an
@@ -61,6 +68,9 @@ window.
 13. **What do compression and compaction each keep?** What lossless and lossy compression, storage compaction and an agent's context compaction keep, what they drop, and whether it can come back.
 14. **Which codec, level or format does each kind of file want?** JSON, small messages, binary encodings, config files, logs, tables, images, audio, video and already-compressed files, as measured in October 2026.
 15. **Where does compression meet the XO trees and agent sessions?** The xo-space backup tarball and compaction fields, Mindwalk's compaction marks, and what agent CLIs do with their transcripts.
+16. **GitHub CLI as a tool for agents.** What can a program call through gh 2.102.0, which host, repository and credential does each call use, and where does its result live?
+17. **Review and checks through gh.** How do gh's pull-request utilities observe, check, review and merge a change, and what does an exit code prove?
+18. **gh in a session OS.** How do `gh agent-task`, `gh copilot` and `gh skill` differ in owner and lifetime, and what should a session OS own when it calls gh?
 
 ## Research action
 
@@ -94,6 +104,14 @@ window.
 - Keep the posts' own labels: from the paper, from the spec, from the docs,
   from the tree, measured here and reconstruction.
 - Publish a one-pager with the key numbers and a pointer to each report.
+- Bring suraj's "Anatomy of GitHub CLI" into `output/report/` with its text,
+  tables and 16 figures unchanged. Credit suraj and link the original post at
+  `a5a356d`.
+- Keep the report's labels for how each part was established, such as
+  measured inventory, installed help, pinned source, observed fixture,
+  synthesis and proposal.
+- Link the teardown's command inventory, configuration fixture and
+  verification record at the recorded commit.
 
 ## Scope
 
@@ -106,6 +124,7 @@ window.
 - suraj's frontend-architecture posts in the writings repo: the Next.js 16.4 routing teardown, and the page-registry essay with its MagicPath section.
 - suraj's posts on configuration formats, TOML files and storing JSON, in the writings repo at commit `a5a356d`.
 - suraj's two compression posts at `a5a356d`, What Compression Keeps and What Each File Wants, with their figures.
+- suraj's GitHub CLI teardown: gh 2.102.0 at source commit `fc4b137`, its pinned dependency go-gh v2.16.1, and the session-OS adapter it proposes.
 
 **Out of scope:**
 
@@ -119,6 +138,9 @@ window.
 - Acting on the related issue [#33 Crash consistency of agent runtime stores](https://github.com/quirq-ai/research/issues/33). It follows the repo's issue triage.
 - New compression measurements. The posts were measured on 10 October 2026 on one shared 2-CPU machine. Rerunning their harness or checking later releases would be new research.
 - Acting on the posts' suggestions for the XO trees, such as the xo-space backup tarball fix.
+- New measurements of gh. The teardown describes gh 2.102.0; re-checking later releases would be new research.
+- Running what the teardown did not exercise: authentication changes, remote mutations, GHES, Windows, hosted agent dispatch, Copilot launch, and extension or skill installation.
+- Building the session-OS adapter. The report labels it a proposal.
 
 ## Done when
 
@@ -136,6 +158,9 @@ window.
 - Both compression posts are published as reports, credited and linked to their originals.
 - A one-pager points a reader at the key numbers and at each report.
 - Each README finding names its report section and was checked against it.
+- The GitHub CLI teardown is published in `output/report/`, credited and linked to its original post at `a5a356d`.
+- A one-pager points a reader at its key numbers and the sections to read next.
+- Its findings are in the README, each with a section link.
 
 ## Requested outputs
 

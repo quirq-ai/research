@@ -64,6 +64,18 @@ Each finding is suraj's, from his writings at `a5a356d`.
 - **Wrapping already-compressed files in four general-purpose codecs saved at most 4.66% on any media file, while re-doing the inner coding saved up to 41% \[measured here\].** Source: [What Each File Wants](output/report/2026-10-15-what-each-file-wants.md#12-already-compressed-leave-it), §12. Verified: 2026-10-15.
 - **xo-space's project backup sorts its paths "for reproducible-ish tars", but its gzip header carries the time of each run, so the bytes change with it; the post gives a fix that sets `mtime=0` \[from the tree\] \[reconstruction\].** Source: [What Each File Wants](output/report/2026-10-15-what-each-file-wants.md#one-fix-in-the-xo-tree), §06. Verified: 2026-10-15.
 
+### GitHub CLI
+
+Each finding is suraj's, from his writings at `a5a356d`.
+
+- **A normal gh invocation starts a process, performs work, returns output and exits, while work it starts can have a lifetime that belongs to another system, so the two lifetimes should be recorded separately \[Source reconstruction\].** Source: [Anatomy of GitHub CLI](output/report/2026-10-15-github-cli.md#01-github-cli-is-a-client-with-several-kinds-of-effects), §01. Verified: 2026-10-15.
+- **gh 2.102.0 advertises 33 top-level command families and 228 canonical command nodes, 196 of them leaves, in a help inventory that excludes hidden helpers, help topics, extensions and aliases \[Measured help inventory\].** Source: [Anatomy of GitHub CLI](output/report/2026-10-15-github-cli.md#04-the-installed-command-surface-searchable-and-inspectable), §04. Verified: 2026-10-15.
+- **gh resolves four separate storage roots, for configuration, installed data, state and cache, and `GH_CONFIG_DIR` relocates configuration only, as read from the pinned go-gh dependency \[Pinned dependency\].** Source: [Anatomy of GitHub CLI](output/report/2026-10-15-github-cli.md#06-there-are-four-storage-roots-not-one-gh-data-directory), §06. Verified: 2026-10-15.
+- **Exit status is only one part of the result: `gh pr checks` exits 8 while checks are still pending \[Installed help\], and in this release a PR create can succeed yet exit nonzero, so a retry should first inspect remote state.** Source: [Anatomy of GitHub CLI](output/report/2026-10-15-github-cli.md#13-json-formatting-exit-codes-and-the-meaning-of-success), §13. Verified: 2026-10-15.
+- **An agent workflow should store a PR's identity with the head commit it observed, because the branch can move while the PR number stays stable, and should record merge requested, queued and merged as distinct outcomes \[Adapter design\].** Source: [Anatomy of GitHub CLI](output/report/2026-10-15-github-cli.md#14-pr-utilities-span-observation-git-review-and-merge), §14. Verified: 2026-10-15.
+- **gh 2.102.0 has three agent-related preview families with three owners: `agent-task` submits work to a hosted Copilot service, `copilot` launches a separate local CLI that owns its agent runtime and session storage, and `skill` installs instruction packages into agent-specific directories \[Installed help + source\].** Source: [Anatomy of GitHub CLI](output/report/2026-10-15-github-cli.md#20-agent-tasks-copilot-cli-and-skills-have-different-lifetimes), §20. Verified: 2026-10-15.
+- **A session OS should own durable job identity, scheduling, leases, authorization, attempts, outcomes and artifacts, while GitHub owns its service objects and gh translates one invocation into operations against them \[Proposal\].** Source: [Anatomy of GitHub CLI](output/report/2026-10-15-github-cli.md#24-a-session-os-should-own-jobs-gh-should-perform-github-operations), §24. Verified: 2026-10-15.
+
 <!--
 Add one bullet per verified finding:
 - **Finding in one sentence.** Source: [title](link). Verified: YYYY-MM-DD.
@@ -96,3 +108,5 @@ _None recorded yet._
 | onepager | [Compression at a glance](output/onepager/2026-10-15-compression-at-a-glance.md) | 2026-10-15 | Key numbers from both compression posts, how they connect to the XO trees, and where to read each part |
 | report | [What Compression Keeps](output/report/2026-10-15-what-compression-keeps.md) | 2026-10-15 | suraj's explainer of compression and compaction, sources as of 9 October 2026, with its 22 figures |
 | report | [What Each File Wants](output/report/2026-10-15-what-each-file-wants.md) | 2026-10-15 | suraj's measured guide to the codec, level or format each kind of file wants, October 2026, with its 21 figures |
+| onepager | [GitHub CLI at a glance](output/onepager/2026-10-15-github-cli-at-a-glance.md) | 2026-10-15 | Key numbers from the GitHub CLI teardown and the sections to read next |
+| report | [Anatomy of GitHub CLI](output/report/2026-10-15-github-cli.md) | 2026-10-15 | suraj's teardown of GitHub CLI 2.102.0 at source commit `fc4b137`, with its 16 figures |
