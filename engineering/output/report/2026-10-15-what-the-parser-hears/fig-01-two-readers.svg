@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 640" role="img" aria-label="Four kinds of disagreement between a config file's author and its parsers, one per row, each read left to right from what the author meant, through the bytes on disk, to what the measured parsers heard. 1, syntax: the author meant the JSON object {&quot;a&quot;: 1} but the editor saved a UTF-8 byte-order mark first; 3 of 10 JSON parsers (jq and both json5 parsers) skip it silently and hear {&quot;a&quot;: 1}; 7 of 10 report an error or flag it, and one of those, jsonc-parser, flags it but still returns {&quot;a&quot;: 1}. 2, typing, three rows: the YAML line countries: [GB, IE, FR, DE, NO, SE], where NO means Norway, is heard as the string NO by 8 of 12 YAML loaders and as false by 4 (PyYAML twice, sigs.k8s.io/yaml, serde-saphyr); python: 3.10 is heard as the float 3.1 by all 12; a file mode written a: 0755 is heard as 493 by 5 loaders (PyYAML twice and the three Go loaders), as 755 by 6 and as the string 0755 by 1. 3, structure: a TOML file with a [server] table and debug = true appended at the end under a comment saying it is meant as a top-level setting; all 10 TOML parsers put debug inside server, with no error. 4, write-back: PyYAML 6.0.3 loads the agent config, changes max_tokens to 4096 and dumps it; the rewritten file says - false where it said NO, and all 3 re-readers (PyYAML, ruamel.yaml, eemeli yaml) hear false; keys are sorted and 0 of 6 comments survive. Thick black arrows mark the author writing, thin blue arrows parsers reading, a dashed purple arrow the program writing back. Green marks a reading that matches the author's intent, red a different reading with no error, grey an error reported or flagged."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="640.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-two-readers-ink" markerHeight="4" markerWidth="4" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="fig-two-readers-blu" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                  <marker id="fig-two-readers-pur" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="0" y="16">KIND</text>
+                <text class="svg-lane" x="112" y="16">WHAT THE AUTHOR MEANT</text>
+                <text class="svg-lane" x="396" y="16">THE BYTES ON DISK</text>
+                <text class="svg-lane" x="756" y="16">WHAT THE PARSERS HEARD</text>
+
+                <text class="svg-num" x="0" y="52">1</text>
+                <text class="svg-step" x="16" y="52">Syntax</text>
+                <text class="svg-note" x="0" y="70">mostly loud</text>
+                <rect fill="#f7f7f5" height="56" rx="6" stroke="#deded9" width="244" x="112" y="30"></rect>
+                <text class="svg-sub" x="124" y="53">{"a": 1}</text>
+                <text class="svg-note" x="124" y="73">an object; the editor saved a BOM</text>
+                <line marker-end="url(#fig-two-readers-ink)" stroke="#252525" stroke-width="2.4" x1="356" x2="391" y1="58" y2="58"></line>
+                <rect fill="#f7f7f5" height="56" rx="6" stroke="#b8b8b1" width="316" x="396" y="30"></rect>
+                <text class="svg-sub" x="408" y="53">EF BB BF {"a": 1}</text>
+                <text class="svg-note" x="408" y="73">_cases/json/bom.json · first 3 bytes in hex</text>
+                <line marker-end="url(#fig-two-readers-blu)" stroke="#3c6f97" stroke-width="1.4" x1="712" x2="751" y1="58" y2="58"></line>
+                <rect fill="#dfede5" height="22" rx="11" stroke="#367f59" width="128" x="756" y="36"></rect>
+                <text class="svg-sub" x="768" y="51">{"a": 1} · 3/10</text>
+                <rect fill="#f7f7f5" height="22" rx="11" stroke="#b8b8b1" width="174" x="892" y="36"></rect>
+                <text class="svg-sub" x="904" y="51">error or flag · 7/10</text>
+                <text class="svg-note" x="756" y="78">jq and json5 ×2 skip it; jsonc-parser flags it but returns it</text>
+
+                <path d="M94 102 H100 V286 H94" fill="none" stroke="#b8b8b1"></path>
+                <text class="svg-num" x="0" y="124">2</text>
+                <text class="svg-step" x="16" y="124">Typing</text>
+                <text class="svg-note" x="0" y="142">silent</text>
+                <rect fill="#f7f7f5" height="56" rx="6" stroke="#deded9" width="244" x="112" y="102"></rect>
+                <text class="svg-sub" x="124" y="125">"NO"</text>
+                <text class="svg-note" x="124" y="145">Norway, one of six country codes</text>
+                <line marker-end="url(#fig-two-readers-ink)" stroke="#252525" stroke-width="2.4" x1="356" x2="391" y1="130" y2="130"></line>
+                <rect fill="#f7f7f5" height="56" rx="6" stroke="#b8b8b1" width="316" x="396" y="102"></rect>
+                <text class="svg-sub" x="408" y="125">countries: [GB, IE, FR, DE, NO, SE]</text>
+                <text class="svg-note" x="408" y="145">_cases/yaml/norway.yaml</text>
+                <line marker-end="url(#fig-two-readers-blu)" stroke="#3c6f97" stroke-width="1.4" x1="712" x2="751" y1="130" y2="130"></line>
+                <rect fill="#dfede5" height="22" rx="11" stroke="#367f59" width="104" x="756" y="108"></rect>
+                <text class="svg-sub" x="768" y="123">"NO" · 8/12</text>
+                <rect fill="#f3dfdc" height="22" rx="11" stroke="#ad4b43" width="110" x="868" y="108"></rect>
+                <text class="svg-sub" x="880" y="123">false · 4/12</text>
+                <text class="svg-note" x="756" y="150">false: PyYAML ×2, sigs.k8s.io/yaml, serde-saphyr</text>
+
+                <rect fill="#f7f7f5" height="56" rx="6" stroke="#deded9" width="244" x="112" y="166"></rect>
+                <text class="svg-sub" x="124" y="189">"3.10"</text>
+                <text class="svg-note" x="124" y="209">a Python version, as text</text>
+                <line marker-end="url(#fig-two-readers-ink)" stroke="#252525" stroke-width="2.4" x1="356" x2="391" y1="194" y2="194"></line>
+                <rect fill="#f7f7f5" height="56" rx="6" stroke="#b8b8b1" width="316" x="396" y="166"></rect>
+                <text class="svg-sub" x="408" y="189">python: 3.10</text>
+                <text class="svg-note" x="408" y="209">_cases/yaml/versions.yaml, line 1</text>
+                <line marker-end="url(#fig-two-readers-blu)" stroke="#3c6f97" stroke-width="1.4" x1="712" x2="751" y1="194" y2="194"></line>
+                <rect fill="#f3dfdc" height="22" rx="11" stroke="#ad4b43" width="104" x="756" y="172"></rect>
+                <text class="svg-sub" x="768" y="187">3.1 · 12/12</text>
+                <text class="svg-note" x="756" y="214">a float in every loader measured</text>
+
+                <rect fill="#f7f7f5" height="56" rx="6" stroke="#deded9" width="244" x="112" y="230"></rect>
+                <text class="svg-sub" x="124" y="253">rwxr-xr-x</text>
+                <text class="svg-note" x="124" y="273">a file mode: octal 755, i.e. 493</text>
+                <line marker-end="url(#fig-two-readers-ink)" stroke="#252525" stroke-width="2.4" x1="356" x2="391" y1="258" y2="258"></line>
+                <rect fill="#f7f7f5" height="56" rx="6" stroke="#b8b8b1" width="316" x="396" y="230"></rect>
+                <text class="svg-sub" x="408" y="253">a: 0755</text>
+                <text class="svg-note" x="408" y="273">_cases/yaml/octal.yaml, line 1</text>
+                <line marker-end="url(#fig-two-readers-blu)" stroke="#3c6f97" stroke-width="1.4" x1="712" x2="751" y1="258" y2="258"></line>
+                <rect fill="#dfede5" height="22" rx="11" stroke="#367f59" width="96" x="756" y="236"></rect>
+                <text class="svg-sub" x="768" y="251">493 · 5/12</text>
+                <rect fill="#f3dfdc" height="22" rx="11" stroke="#ad4b43" width="96" x="860" y="236"></rect>
+                <text class="svg-sub" x="872" y="251">755 · 6/12</text>
+                <rect fill="#f3dfdc" height="22" rx="11" stroke="#ad4b43" width="118" x="964" y="236"></rect>
+                <text class="svg-sub" x="976" y="251">"0755" · 1/12</text>
+                <text class="svg-note" x="756" y="278">493: PyYAML ×2 and the three Go loaders</text>
+
+                <text class="svg-num" x="0" y="324">3</text>
+                <text class="svg-step" x="16" y="324">Structure</text>
+                <text class="svg-note" x="0" y="342">often silent</text>
+                <rect fill="#f7f7f5" height="142" rx="6" stroke="#deded9" width="244" x="112" y="302"></rect>
+                <text class="svg-sub" x="124" y="325">debug = true</text>
+                <text class="svg-note" x="124" y="345">a top-level setting, appended</text>
+                <text class="svg-note" x="124" y="363">at the end of the file</text>
+                <text class="svg-sub" x="124" y="395">{"debug": true, "server": …}</text>
+                <line marker-end="url(#fig-two-readers-ink)" stroke="#252525" stroke-width="2.4" x1="356" x2="391" y1="373" y2="373"></line>
+                <rect fill="#f7f7f5" height="142" rx="6" stroke="#b8b8b1" width="316" x="396" y="302"></rect>
+                <rect fill="#f3dfdc" height="17" rx="3" width="100" x="404" y="406"></rect>
+                <text class="svg-sub" x="408" y="322">title = "app"</text>
+                <text class="svg-sub" x="408" y="338">[server]</text>
+                <text class="svg-sub" x="408" y="354">host = "0.0.0.0"</text>
+                <text class="svg-sub" x="408" y="370">port = 8080</text>
+                <text class="svg-sub" x="408" y="402"># meant as a top-level setting</text>
+                <text class="svg-sub" x="408" y="418">debug = true</text>
+                <text class="svg-note" x="408" y="437">_cases/toml/scope_trap.toml</text>
+                <line marker-end="url(#fig-two-readers-blu)" stroke="#3c6f97" stroke-width="1.4" x1="712" x2="751" y1="373" y2="373"></line>
+                <rect fill="#f3dfdc" height="22" rx="11" stroke="#ad4b43" width="172" x="756" y="316"></rect>
+                <text class="svg-sub" x="768" y="331">server.debug · 10/10</text>
+                <text class="svg-sub" x="756" y="362">{"server": {"debug": true, …}, "title": "app"}</text>
+                <text class="svg-note" x="756" y="386">all ten move it into server; none errs</text>
+
+                <text class="svg-num" x="0" y="484">4</text>
+                <text class="svg-step" x="16" y="484">Write-back</text>
+                <text class="svg-note" x="0" y="502">silent, lasting</text>
+                <rect fill="#f7f7f5" height="100" rx="6" stroke="#deded9" width="244" x="112" y="462"></rect>
+                <text class="svg-sub" x="124" y="485">max_tokens: 4096</text>
+                <text class="svg-note" x="124" y="505">change one value, nothing else;</text>
+                <text class="svg-note" x="124" y="523">done by PyYAML 6.0.3:</text>
+                <text class="svg-sub" x="124" y="543">safe_load → edit → safe_dump</text>
+                <path d="M356 512 H391" fill="none" marker-end="url(#fig-two-readers-pur)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.6"></path>
+                <rect fill="#f7f7f5" height="100" rx="6" stroke="#b8b8b1" width="316" x="396" y="462"></rect>
+                <text class="svg-note" x="408" y="481">agent.yaml after the dump, lines 68–71 of 77</text>
+                <rect fill="#f3dfdc" height="17" rx="3" width="64" x="404" y="521"></rect>
+                <text class="svg-sub" x="408" y="501">- FR</text>
+                <text class="svg-sub" x="408" y="517">- DE</text>
+                <text class="svg-sub" x="408" y="533">- false</text>
+                <text class="svg-sub" x="408" y="549">- SE</text>
+                <line marker-end="url(#fig-two-readers-blu)" stroke="#3c6f97" stroke-width="1.4" x1="712" x2="751" y1="512" y2="512"></line>
+                <rect fill="#f3dfdc" height="22" rx="11" stroke="#ad4b43" width="182" x="756" y="470"></rect>
+                <text class="svg-sub" x="768" y="485">false · 3/3 re-readers</text>
+                <text class="svg-note" x="756" y="512">PyYAML, ruamel.yaml and yaml (eemeli);</text>
+                <text class="svg-note" x="756" y="530">the last two heard NO before the dump</text>
+                <text class="svg-note" x="756" y="548">keys sorted, 0 of 6 comments kept</text>
+
+                <line stroke="#deded9" x1="0" x2="1120" y1="574" y2="574"></line>
+                <rect fill="#dfede5" height="14" rx="3" stroke="#367f59" width="14" x="0" y="586"></rect>
+                <text class="svg-sub" x="22" y="597">heard what the author meant</text>
+                <rect fill="#f3dfdc" height="14" rx="3" stroke="#ad4b43" width="14" x="248" y="586"></rect>
+                <text class="svg-sub" x="270" y="597">heard something else, no error</text>
+                <rect fill="#f7f7f5" height="14" rx="3" stroke="#b8b8b1" width="14" x="520" y="586"></rect>
+                <text class="svg-sub" x="542" y="597">reported an error</text>
+                <text class="svg-sub" x="740" y="597">n/N: parsers hearing it / measured</text>
+                <line marker-end="url(#fig-two-readers-ink)" stroke="#252525" stroke-width="2.4" x1="0" x2="30" y1="621" y2="621"></line>
+                <text class="svg-sub" x="40" y="625">author writes</text>
+                <line marker-end="url(#fig-two-readers-blu)" stroke="#3c6f97" stroke-width="1.4" x1="170" x2="200" y1="621" y2="621"></line>
+                <text class="svg-sub" x="210" y="625">parser reads</text>
+                <path d="M330 621 H360" fill="none" marker-end="url(#fig-two-readers-pur)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.6"></path>
+                <text class="svg-sub" x="370" y="625">program writes back</text>
+              </svg>

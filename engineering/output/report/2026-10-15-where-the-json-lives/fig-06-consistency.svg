@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 410" role="img" aria-label="A ladder of seven rungs from weakest at the bottom to strongest at the top: eventual, read-your-writes, causal, read committed, snapshot, serializable, strict serializable. Defaults are marked: Cassandra at consistency level ONE and asynchronous Valkey replicas at eventual; MongoDB causally consistent sessions at causal; PostgreSQL default at read committed; PostgreSQL repeatable read and TiDB at snapshot; SQLite, PostgreSQL serializable, and CockroachDB default at serializable; FoundationDB and etcd at strict serializable or linearizable. Higher rungs cost more coordination latency."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="410.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-consistency-blk" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                </defs>
+                <text class="svg-lane" x="0" y="18">GUARANTEE</text>
+                <text class="svg-lane" x="400" y="18">WHO SITS HERE BY DEFAULT (OR ON ONE SETTING)</text>
+
+                <rect fill="#dfede5" height="42" rx="6" stroke="#367f59" stroke-width="2" width="360" x="0" y="32"></rect>
+                <text class="svg-step" x="16" y="59">strict serializable</text>
+                <text class="svg-sub" x="400" y="59">FoundationDB; etcd (linearizable keys)</text>
+
+                <rect fill="#dfede5" height="42" rx="6" stroke="#367f59" width="360" x="0" y="84"></rect>
+                <text class="svg-step" x="16" y="111">serializable</text>
+                <text class="svg-sub" x="400" y="111">SQLite; CockroachDB default; Postgres SERIALIZABLE</text>
+
+                <rect fill="#e0ebf2" height="42" rx="6" stroke="#3c6f97" width="360" x="0" y="136"></rect>
+                <text class="svg-step" x="16" y="163">snapshot</text>
+                <text class="svg-sub" x="400" y="163">Postgres REPEATABLE READ; TiDB default</text>
+
+                <rect fill="#e0ebf2" height="42" rx="6" stroke="#3c6f97" stroke-width="2" width="360" x="0" y="188"></rect>
+                <text class="svg-step" x="16" y="215">read committed</text>
+                <text class="svg-sub" x="400" y="215">PostgreSQL default</text>
+
+                <rect fill="#f7e3c8" height="42" rx="6" stroke="#d98226" width="360" x="0" y="240"></rect>
+                <text class="svg-step" x="16" y="267">causal</text>
+                <text class="svg-sub" x="400" y="267">MongoDB causally consistent sessions</text>
+
+                <rect fill="#f7e3c8" height="42" rx="6" stroke="#d98226" width="360" x="0" y="292"></rect>
+                <text class="svg-step" x="16" y="319">read-your-writes</text>
+                <text class="svg-sub" x="400" y="319">read from the leader; sticky sessions</text>
+
+                <rect fill="#f3dfdc" height="42" rx="6" stroke="#ad4b43" width="360" x="0" y="344"></rect>
+                <text class="svg-step" x="16" y="371">eventual</text>
+                <text class="svg-sub" x="400" y="371">Cassandra at ONE; async Valkey replicas</text>
+
+                <line marker-end="url(#fig-consistency-blk)" stroke="#252525" stroke-width="2.5" x1="380" x2="380" y1="384" y2="40"></line>
+                <text class="svg-note" x="400" y="402">upward: more coordination per operation, so more latency and less availability under partition</text>
+              </svg>

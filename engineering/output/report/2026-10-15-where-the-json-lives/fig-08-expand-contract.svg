@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 420" role="img" aria-label="Expand, migrate, contract shown as six alternating steps on two lanes. Schema lane: step 1 expand, add nullable owner_id and create its index concurrently; step 3 backfill in batches with lock_timeout set and validate a NOT VALID foreign key; step 6 contract, drop the old owner column. Application lane: step 2 version 2 writes both columns and reads the old one; step 4 version 3 reads owner_id and still writes both; step 5 version 4 writes owner_id only. A bottom row shows the oldest app version you can still roll back to after each step: v1, v1, v2, v2, v3, and after the contract step none earlier than v4."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }</style><rect x="0.0" y="0.0" width="1120.0" height="420.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-expand-contract-arr" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                </defs>
+                <text class="svg-lane" x="0" y="18">SCHEMA CLOCK · MIGRATIONS</text>
+                <text class="svg-lane" x="0" y="198">DEPLOY CLOCK · APPLICATION</text>
+
+                <rect fill="#ece6f3" height="120" rx="6" stroke="#765b98" width="172" x="0" y="32"></rect>
+                <text class="svg-num" x="12" y="54">1</text>
+                <text class="svg-step" x="28" y="54">Expand</text>
+                <text class="svg-sub" x="12" y="78">ADD COLUMN owner_id</text>
+                <text class="svg-sub" x="12" y="98">bigint, nullable</text>
+                <text class="svg-sub" x="12" y="118">CREATE INDEX</text>
+                <text class="svg-sub" style="white-space:pre" x="12" y="138">  CONCURRENTLY</text>
+
+                <rect fill="#e0ebf2" height="120" rx="6" stroke="#3c6f97" width="172" x="190" y="212"></rect>
+                <text class="svg-num" x="202" y="234">2</text>
+                <text class="svg-step" x="218" y="234">App v2</text>
+                <text class="svg-sub" x="202" y="258">writes owner AND</text>
+                <text class="svg-sub" style="white-space:pre" x="202" y="278">  owner_id</text>
+                <text class="svg-sub" x="202" y="298">reads owner</text>
+
+                <rect fill="#ece6f3" height="120" rx="6" stroke="#765b98" width="172" x="380" y="32"></rect>
+                <text class="svg-num" x="392" y="54">3</text>
+                <text class="svg-step" x="408" y="54">Backfill</text>
+                <text class="svg-sub" x="392" y="78">5k-row batches</text>
+                <text class="svg-sub" x="392" y="98">lock_timeout = 2s</text>
+                <text class="svg-sub" x="392" y="118">FK … NOT VALID,</text>
+                <text class="svg-sub" style="white-space:pre" x="392" y="138">  then VALIDATE</text>
+
+                <rect fill="#e0ebf2" height="120" rx="6" stroke="#3c6f97" width="172" x="570" y="212"></rect>
+                <text class="svg-num" x="582" y="234">4</text>
+                <text class="svg-step" x="598" y="234">App v3</text>
+                <text class="svg-sub" x="582" y="258">reads owner_id</text>
+                <text class="svg-sub" x="582" y="278">still writes both</text>
+
+                <rect fill="#e0ebf2" height="120" rx="6" stroke="#3c6f97" width="172" x="760" y="212"></rect>
+                <text class="svg-num" x="772" y="234">5</text>
+                <text class="svg-step" x="788" y="234">App v4</text>
+                <text class="svg-sub" x="772" y="258">writes owner_id</text>
+                <text class="svg-sub" style="white-space:pre" x="772" y="278">  only</text>
+                <text class="svg-sub" x="772" y="298">owner is now dead</text>
+
+                <rect fill="#ece6f3" height="120" rx="6" stroke="#765b98" width="172" x="948" y="32"></rect>
+                <text class="svg-num" x="960" y="54">6</text>
+                <text class="svg-step" x="976" y="54">Contract</text>
+                <text class="svg-sub" x="960" y="78">DROP COLUMN</text>
+                <text class="svg-sub" style="white-space:pre" x="960" y="98">  owner, once no</text>
+                <text class="svg-sub" x="960" y="118">v2/v3 pod runs</text>
+
+                <g fill="none" marker-end="url(#fig-expand-contract-arr)" stroke="#252525" stroke-width="2.4">
+                  <path d="M172 140 L196 206"></path>
+                  <path d="M362 222 L386 158"></path>
+                  <path d="M552 140 L576 206"></path>
+                  <path d="M742 272 L754 272"></path>
+                  <path d="M932 222 L954 158"></path>
+                </g>
+
+                <line stroke="#b8b8b1" x1="0" x2="1120" y1="352" y2="352"></line>
+                <text class="svg-lane" x="0" y="372">OLDEST SAFE ROLLBACK</text>
+                <rect fill="#dfede5" height="30" rx="4" stroke="#367f59" width="172" x="0" y="382"></rect>
+                <text class="svg-sub" x="12" y="402">v1</text>
+                <rect fill="#dfede5" height="30" rx="4" stroke="#367f59" width="172" x="190" y="382"></rect>
+                <text class="svg-sub" x="202" y="402">v1</text>
+                <rect fill="#dfede5" height="30" rx="4" stroke="#367f59" width="172" x="380" y="382"></rect>
+                <text class="svg-sub" x="392" y="402">v2</text>
+                <rect fill="#dfede5" height="30" rx="4" stroke="#367f59" width="172" x="570" y="382"></rect>
+                <text class="svg-sub" x="582" y="402">v2</text>
+                <rect fill="#dfede5" height="30" rx="4" stroke="#367f59" width="172" x="760" y="382"></rect>
+                <text class="svg-sub" x="772" y="402">v3</text>
+                <rect fill="#f3dfdc" height="30" rx="4" stroke="#ad4b43" width="172" x="948" y="382"></rect>
+                <text class="svg-sub" x="960" y="402">v4 only</text>
+              </svg>

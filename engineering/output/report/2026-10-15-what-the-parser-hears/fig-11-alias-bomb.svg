@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 604" role="img" aria-label="Bar chart on a logarithmic axis showing how many strings each level of the 446-byte CVE-2019-11253 alias bomb names: level a 9, b 81, c 729, d 6,561, e 59,049, f 531,441, g 4,782,969, h 43,046,721, i 387,420,489. The whole document expands to 435,848,053 leaves. Green callouts mark where loaders refuse it: eemeli's yaml 2.9.1 (maxAliasCount 100), yaml.v3 and sigs.k8s.io/yaml (alias-ratio check) on level d; serde-saphyr (max_nodes 250,000) and serde_yaml (alias jumps above 100 times the event count) on level f. An orange panel lists the loaders that return shared references in under 10 milliseconds each: PyYAML 6.0.3 pure and C, ruamel 0.19.1 safe and round-trip, js-yaml 4.3.2 and 5.4.3, goccy/go-yaml v1.19.2. A red panel shows the six-level, 335-byte version serialised: 4,334,696 bytes from Python json.dumps, 12,939 times the input, and 3,736,811 bytes from JavaScript and Go."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="604.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-alias-bomb-arr" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+                <text class="svg-lane" x="0" y="18">STRINGS EACH LEVEL NAMES · LOG SCALE · CVE-2019-11253 PAYLOAD, 446 BYTES</text>
+
+                <rect fill="#e0ebf2" height="14" rx="3" stroke="#3c6f97" width="14" x="0" y="38"></rect>
+                <text class="svg-sub" x="22" y="50">strings named at that level</text>
+                <rect fill="#dfede5" height="14" rx="3" stroke="#367f59" width="14" x="250" y="38"></rect>
+                <text class="svg-sub" x="272" y="50">loaders refuse there (their limit)</text>
+                <rect fill="#f7e3c8" height="14" rx="3" stroke="#d98226" width="14" x="560" y="38"></rect>
+                <text class="svg-sub" x="582" y="50">return shared references</text>
+                <rect fill="#f3dfdc" height="14" rx="3" stroke="#ad4b43" width="14" x="800" y="38"></rect>
+                <text class="svg-sub" x="822" y="50">bytes once serialised</text>
+
+                <rect fill="#dfede5" height="78" rx="6" stroke="#367f59" width="250" x="96" y="62"></rect>
+                <text class="svg-step" x="108" y="86">Refused on level d</text>
+                <text class="svg-sub" x="108" y="108">yaml 2.9.1 · maxAliasCount 100</text>
+                <text class="svg-sub" x="108" y="128">yaml.v3, sigs · alias ratio</text>
+                <line stroke="#367f59" stroke-width="2" x1="320" x2="320" y1="140" y2="334"></line>
+
+                <rect fill="#dfede5" height="78" rx="6" stroke="#367f59" width="290" x="372" y="62"></rect>
+                <text class="svg-step" x="384" y="86">Refused on level f</text>
+                <text class="svg-sub" x="384" y="108">serde-saphyr · max_nodes 250,000</text>
+                <text class="svg-sub" x="384" y="128">serde_yaml · jumps &gt; 100 × events</text>
+                <line stroke="#367f59" stroke-width="2" x1="448" x2="448" y1="140" y2="278"></line>
+
+                <line stroke="#b8b8b1" x1="96" x2="96" y1="200" y2="470"></line>
+                <line stroke="#b8b8b1" x1="90" x2="96" y1="200" y2="200"></line>
+                <line stroke="#b8b8b1" x1="90" x2="96" y1="290" y2="290"></line>
+                <line stroke="#b8b8b1" x1="90" x2="96" y1="380" y2="380"></line>
+                <line stroke="#b8b8b1" x1="96" x2="668" y1="470" y2="470"></line>
+                <text class="svg-sub" text-anchor="end" x="84" y="204">10⁹</text>
+                <text class="svg-sub" text-anchor="end" x="84" y="294">10⁶</text>
+                <text class="svg-sub" text-anchor="end" x="84" y="384">10³</text>
+                <text class="svg-sub" text-anchor="end" x="84" y="474">1</text>
+
+                <rect fill="#e0ebf2" height="28.6" rx="2" stroke="#3c6f97" width="48" x="104" y="441.4"></rect>
+                <rect fill="#e0ebf2" height="57.3" rx="2" stroke="#3c6f97" width="48" x="168" y="412.7"></rect>
+                <rect fill="#e0ebf2" height="85.9" rx="2" stroke="#3c6f97" width="48" x="232" y="384.1"></rect>
+                <rect fill="#e0ebf2" height="114.5" rx="2" stroke="#3c6f97" width="48" x="296" y="355.5"></rect>
+                <rect fill="#e0ebf2" height="143.1" rx="2" stroke="#3c6f97" width="48" x="360" y="326.9"></rect>
+                <rect fill="#e0ebf2" height="171.8" rx="2" stroke="#3c6f97" width="48" x="424" y="298.2"></rect>
+                <rect fill="#e0ebf2" height="200.4" rx="2" stroke="#3c6f97" width="48" x="488" y="269.6"></rect>
+                <rect fill="#e0ebf2" height="229.0" rx="2" stroke="#3c6f97" width="48" x="552" y="241.0"></rect>
+                <rect fill="#e0ebf2" height="257.6" rx="2" stroke="#3c6f97" width="48" x="616" y="212.4"></rect>
+
+                <text class="svg-sub" text-anchor="middle" x="128" y="433">9</text>
+                <text class="svg-sub" text-anchor="middle" x="192" y="405">81</text>
+                <text class="svg-sub" text-anchor="middle" x="256" y="376">729</text>
+                <text class="svg-sub" text-anchor="middle" x="320" y="347">6,561</text>
+                <text class="svg-sub" text-anchor="middle" x="384" y="319">59,049</text>
+                <text class="svg-sub" text-anchor="middle" x="448" y="290">531,441</text>
+                <text class="svg-sub" text-anchor="middle" x="512" y="262">4.78 M</text>
+                <text class="svg-sub" text-anchor="middle" x="576" y="233">43.0 M</text>
+                <text class="svg-sub" text-anchor="middle" x="640" y="204">387.4 M</text>
+
+                <text class="svg-sub" text-anchor="end" x="88" y="492">level</text>
+                <text class="svg-sub" text-anchor="middle" x="128" y="492">a</text>
+                <text class="svg-sub" text-anchor="middle" x="192" y="492">b</text>
+                <text class="svg-sub" text-anchor="middle" x="256" y="492">c</text>
+                <text class="svg-sub" text-anchor="middle" x="320" y="492">d</text>
+                <text class="svg-sub" text-anchor="middle" x="384" y="492">e</text>
+                <text class="svg-sub" text-anchor="middle" x="448" y="492">f</text>
+                <text class="svg-sub" text-anchor="middle" x="512" y="492">g</text>
+                <text class="svg-sub" text-anchor="middle" x="576" y="492">h</text>
+                <text class="svg-sub" text-anchor="middle" x="640" y="492">i</text>
+
+                <path d="M104 500 L104 508 L472 508 L472 500" fill="none" stroke="#b8b8b1" stroke-width="1.5"></path>
+                <text class="svg-sub" x="104" y="526">y_bomb6 · levels a–f · 335 B · 597,874 leaves</text>
+                <path d="M104 538 L104 546 L664 546 L664 538" fill="none" stroke="#b8b8b1" stroke-width="1.5"></path>
+                <text class="svg-sub" x="104" y="564">y_bomb9 · levels a–i · 446 B · 435,848,053 leaves</text>
+                <text class="svg-note" x="104" y="592">Each level after a is one 37-byte line of nine aliases to the level before, so each adds a factor of 9.</text>
+
+                <rect fill="#f7e3c8" height="232" rx="8" stroke="#d98226" width="400" x="720" y="62"></rect>
+                <text class="svg-step" x="736" y="88">Loaded as shared references</text>
+                <text class="svg-sub" x="736" y="114">PyYAML 6.0.3 · pure and C</text>
+                <text class="svg-sub" x="736" y="134">ruamel 0.19.1 · safe and rt</text>
+                <text class="svg-sub" x="736" y="154">js-yaml 4.3.2 and 5.4.3</text>
+                <text class="svg-sub" x="736" y="174">goccy/go-yaml v1.19.2</text>
+                <text class="svg-note" x="736" y="204">Under 10 ms each in the final run;</text>
+                <text class="svg-note" x="736" y="226">a graph of 12 containers that a walk</text>
+                <text class="svg-note" x="736" y="248">expands to 435,848,053 leaves.</text>
+                <text class="svg-note" x="736" y="274">No limit fires; the cost moves on.</text>
+
+                <line marker-end="url(#fig-alias-bomb-arr)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.6" x1="920" x2="920" y1="296" y2="318"></line>
+
+                <rect fill="#f3dfdc" height="150" rx="8" stroke="#ad4b43" width="400" x="720" y="322"></rect>
+                <text class="svg-step" x="736" y="348">Then serialised (y_bomb6)</text>
+                <text class="svg-sub" x="736" y="374">335 B of YAML in</text>
+                <text class="svg-sub" x="736" y="394">4,334,696 B out · Python json.dumps</text>
+                <text class="svg-sub" x="736" y="414">3,736,811 B out · JS and Go</text>
+                <text class="svg-note" x="736" y="442">Python: 12,939× the input at six levels;</text>
+                <text class="svg-note" x="736" y="462">nine levels would be about 729× more.</text>
+              </svg>

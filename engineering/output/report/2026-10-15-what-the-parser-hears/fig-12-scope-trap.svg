@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 470" role="img" aria-label="Left: the seven-line TOML file from case t_scope_trap. Line 1 title = &quot;app&quot; is the whole root table. Line 2 opens [server], whose scope runs to the end of the file. Lines 3 and 4 are host = &quot;0.0.0.0&quot; and port = 8080, line 5 is blank, line 6 is the comment # meant as a top-level setting, and line 7 is debug = true. Middle: the tree all 10 parser configurations returned: a root table with title = &quot;app&quot; and a server table holding host, port and debug = true. An arrow runs from line 7 to debug inside server. Right: the tree the author meant, with debug = true in the root beside title, crossed out because no parser produced it. Below: no error and no warning in 10 of 10 configurations here and 16 of 16 in the research probe; the fixes are to move the key above the first header, where the root table ends, or to have no root keys at all, as Alacritty 0.14 did by removing its root-level options and adding a [general] table (PR #8192)."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="470.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-scope-trap-blu" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="0" y="18">WHAT THE AUTHOR WROTE</text>
+                <text class="svg-lane" x="440" y="18">WHAT ALL 10 PARSERS HEARD</text>
+                <text class="svg-lane" x="800" y="18">WHAT THE AUTHOR MEANT</text>
+
+                <rect fill="#f7f7f5" height="250" rx="8" stroke="#b8b8b1" width="400" x="0" y="36"></rect>
+                <text class="svg-sub" style="fill:#b8b8b1" x="16" y="66">1</text>
+                <text class="svg-sub" x="44" y="66">title = "app"</text>
+                <text class="svg-sub" style="fill:#b8b8b1" x="16" y="94">2</text>
+                <text class="svg-sub" x="44" y="94">[server]</text>
+                <text class="svg-sub" style="fill:#b8b8b1" x="16" y="122">3</text>
+                <text class="svg-sub" x="44" y="122">host = "0.0.0.0"</text>
+                <text class="svg-sub" style="fill:#b8b8b1" x="16" y="150">4</text>
+                <text class="svg-sub" x="44" y="150">port = 8080</text>
+                <text class="svg-sub" style="fill:#b8b8b1" x="16" y="178">5</text>
+                <text class="svg-sub" style="fill:#b8b8b1" x="16" y="206">6</text>
+                <text class="svg-sub" x="44" y="206"># meant as a top-level setting</text>
+                <rect fill="#f7e3c8" height="26" rx="4" stroke="#d98226" width="150" x="36" y="216"></rect>
+                <text class="svg-sub" style="fill:#b8b8b1" x="16" y="234">7</text>
+                <text class="svg-sub" x="44" y="234">debug = true</text>
+                <text class="svg-sub" style="fill:#b8b8b1" x="16" y="270">EOF</text>
+
+                <path d="M376 52 L386 52 L386 74 L376 74" fill="none" stroke="#367f59" stroke-width="2.5"></path>
+                <text class="svg-sub" text-anchor="end" x="368" y="68">root table</text>
+                <path d="M376 80 L386 80 L386 274 L376 274" fill="none" stroke="#d98226" stroke-width="2.5"></path>
+                <text class="svg-sub" text-anchor="end" x="368" y="96">[server] opens</text>
+                <text class="svg-sub" text-anchor="end" x="368" y="270">and runs to EOF</text>
+
+                <path d="M190 229 C 300 229, 360 211, 462 211" fill="none" marker-end="url(#fig-scope-trap-blu)" stroke="#3c6f97" stroke-width="1.4"></path>
+
+                <rect fill="#e0ebf2" height="250" rx="8" stroke="#3c6f97" width="320" x="440" y="36"></rect>
+                <text class="svg-step" x="456" y="62">root table</text>
+                <text class="svg-sub" x="456" y="90">title = "app"</text>
+                <rect fill="#f7f7f5" height="166" rx="6" stroke="#3c6f97" width="288" x="456" y="104"></rect>
+                <text class="svg-step" x="472" y="130">server</text>
+                <text class="svg-sub" x="472" y="158">host = "0.0.0.0"</text>
+                <text class="svg-sub" x="472" y="184">port = 8080</text>
+                <rect fill="#f7e3c8" height="26" rx="4" stroke="#d98226" width="150" x="466" y="198"></rect>
+                <text class="svg-sub" x="474" y="216">debug = true</text>
+                <text class="svg-sub" x="628" y="216">server.debug</text>
+                <text class="svg-note" x="472" y="254">no error, no warning</text>
+
+                <rect fill="#f7f7f5" height="250" rx="8" stroke="#ad4b43" stroke-dasharray="6 4" width="320" x="800" y="36"></rect>
+                <text class="svg-step" x="816" y="62">root table</text>
+                <text class="svg-sub" x="816" y="90">title = "app"</text>
+                <rect fill="#f7e3c8" height="26" rx="4" stroke="#d98226" width="150" x="810" y="100"></rect>
+                <text class="svg-sub" x="818" y="118">debug = true</text>
+                <rect fill="#f7f7f5" height="100" rx="6" stroke="#b8b8b1" width="288" x="816" y="140"></rect>
+                <text class="svg-step" x="832" y="166">server</text>
+                <text class="svg-sub" x="832" y="194">host = "0.0.0.0"</text>
+                <text class="svg-sub" x="832" y="220">port = 8080</text>
+                <line stroke="#ad4b43" stroke-opacity="0.6" stroke-width="2" x1="800" x2="1120" y1="36" y2="286"></line>
+                <line stroke="#ad4b43" stroke-opacity="0.6" stroke-width="2" x1="1120" x2="800" y1="36" y2="286"></line>
+
+                <rect fill="#f7f7f5" height="96" rx="8" stroke="#deded9" width="540" x="0" y="310"></rect>
+                <text class="svg-lane" x="16" y="336">HOW MANY PARSERS OBJECT</text>
+                <text class="svg-sub" x="16" y="362">none: 10 of 10 configurations in this harness,</text>
+                <text class="svg-sub" x="16" y="384">16 of 16 in the wider research probe</text>
+
+                <rect fill="#f7f7f5" height="96" rx="8" stroke="#deded9" width="540" x="580" y="310"></rect>
+                <text class="svg-lane" x="596" y="336">TWO FIXES: MOVE THE LINE UP, OR DROP ROOT KEYS</text>
+                <text class="svg-sub" x="596" y="362">move it above the first header, where the root ends</text>
+                <text class="svg-sub" x="596" y="384">Alacritty 0.14, PR #8192: root keys removed, [general] added</text>
+
+                <rect fill="#e0ebf2" height="14" rx="3" stroke="#3c6f97" width="14" x="0" y="430"></rect>
+                <text class="svg-sub" x="22" y="442">table as parsed</text>
+                <rect fill="#f7e3c8" height="14" rx="3" stroke="#d98226" width="14" x="160" y="430"></rect>
+                <text class="svg-sub" x="182" y="442">appended key; [server] scope</text>
+                <line stroke="#367f59" stroke-width="2.5" x1="410" x2="428" y1="437" y2="437"></line>
+                <text class="svg-sub" x="436" y="442">root scope</text>
+                <line marker-end="url(#fig-scope-trap-blu)" stroke="#3c6f97" stroke-width="1.4" x1="540" x2="572" y1="437" y2="437"></line>
+                <text class="svg-sub" x="580" y="442">data: line to value</text>
+                <line stroke="#ad4b43" stroke-width="2" x1="752" x2="766" y1="430" y2="444"></line>
+                <line stroke="#ad4b43" stroke-width="2" x1="766" x2="752" y1="430" y2="444"></line>
+                <text class="svg-sub" x="776" y="442">a tree no parser produced</text>
+              </svg>

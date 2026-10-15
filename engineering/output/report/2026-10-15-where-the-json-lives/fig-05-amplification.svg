@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 400" role="img" aria-label="Left, a B-tree: a root page, two inner pages and four leaf pages. A write descends to one leaf and rewrites that page in place, plus a WAL record. Reads are cheap, one root-to-leaf path. Writes pay a whole page per small change, and pages are kept partly empty. Right, an LSM tree: writes go to a memtable and WAL, the memtable flushes to an immutable level-0 SSTable, and compaction merges level 0 into levels 1 and 2. Writes are sequential and cheap. Reads may check the memtable and several levels, helped by bloom filters, and compaction rewrites the same data several times. Space holds obsolete versions until compaction."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="400.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-amplification-blu" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                  <marker id="fig-amplification-pur" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+                <text class="svg-lane" x="0" y="18">B-TREE · UPDATE IN PLACE</text>
+                <rect fill="#e0ebf2" height="34" rx="5" stroke="#3c6f97" width="110" x="210" y="36"></rect>
+                <text class="svg-sub" x="246" y="58">root</text>
+                <rect fill="#e0ebf2" height="34" rx="5" stroke="#3c6f97" width="110" x="90" y="96"></rect>
+                <rect fill="#e0ebf2" height="34" rx="5" stroke="#3c6f97" width="110" x="330" y="96"></rect>
+                <line stroke="#b8b8b1" x1="240" x2="150" y1="70" y2="96"></line>
+                <line stroke="#b8b8b1" x1="290" x2="380" y1="70" y2="96"></line>
+                <rect fill="#f7f7f5" height="34" rx="5" stroke="#b8b8b1" width="110" x="20" y="156"></rect>
+                <rect fill="#f7f7f5" height="34" rx="5" stroke="#b8b8b1" width="110" x="150" y="156"></rect>
+                <rect fill="#f7e3c8" height="34" rx="5" stroke="#d98226" stroke-width="2" width="110" x="290" y="156"></rect>
+                <rect fill="#f7f7f5" height="34" rx="5" stroke="#b8b8b1" width="110" x="420" y="156"></rect>
+                <line stroke="#b8b8b1" x1="130" x2="75" y1="130" y2="156"></line>
+                <line stroke="#b8b8b1" x1="160" x2="205" y1="130" y2="156"></line>
+                <line stroke="#3c6f97" stroke-width="1.6" x1="370" x2="345" y1="130" y2="156"></line>
+                <line stroke="#b8b8b1" x1="410" x2="475" y1="130" y2="156"></line>
+                <text class="svg-sub" x="296" y="178">rewrite</text>
+                <text class="svg-note" x="20" y="222">one write = one WAL record + one whole page, rewritten in place</text>
+
+                <line stroke="#deded9" x1="560" x2="560" y1="10" y2="250"></line>
+
+                <text class="svg-lane" x="590" y="18">LSM-TREE · APPEND, THEN MERGE</text>
+                <rect fill="#dfede5" height="40" rx="6" stroke="#367f59" width="150" x="590" y="36"></rect>
+                <text class="svg-sub" x="604" y="61">memtable</text>
+                <line marker-end="url(#fig-amplification-blu)" stroke="#3c6f97" stroke-width="1.4" x1="740" x2="796" y1="56" y2="56"></line>
+                <text class="svg-sub" x="746" y="48">flush</text>
+                <rect fill="#f7f7f5" height="40" rx="5" stroke="#b8b8b1" width="64" x="800" y="36"></rect>
+                <rect fill="#f7f7f5" height="40" rx="5" stroke="#b8b8b1" width="64" x="872" y="36"></rect>
+                <rect fill="#f7f7f5" height="40" rx="5" stroke="#b8b8b1" width="64" x="944" y="36"></rect>
+                <text class="svg-sub" x="1020" y="61">L0</text>
+                <rect fill="#f7f7f5" height="40" rx="5" stroke="#b8b8b1" width="208" x="800" y="106"></rect>
+                <text class="svg-sub" x="1020" y="131">L1</text>
+                <rect fill="#f7f7f5" height="40" rx="5" stroke="#b8b8b1" width="280" x="800" y="176"></rect>
+                <text class="svg-sub" x="1088" y="201">L2</text>
+                <path d="M790 66 Q760 90 790 120" fill="none" marker-end="url(#fig-amplification-pur)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.6"></path>
+                <path d="M790 136 Q760 160 790 190" fill="none" marker-end="url(#fig-amplification-pur)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.6"></path>
+                <text class="svg-sub" x="604" y="140">compaction</text>
+                <text class="svg-sub" x="604" y="160">rewrites data</text>
+                <text class="svg-note" x="590" y="240">one write = one WAL record + a memtable insert; merged later, repeatedly</text>
+
+                <rect fill="#f7f7f5" height="130" rx="8" stroke="#deded9" width="1120" x="0" y="266"></rect>
+                <text class="svg-lane" x="16" y="292">AMPLIFICATION</text>
+                <text class="svg-lane" x="200" y="292">B-TREE</text>
+                <text class="svg-lane" x="660" y="292">LSM-TREE</text>
+                <text class="svg-step" x="16" y="320">read</text>
+                <text class="svg-sub" x="200" y="320">low: one root-to-leaf path</text>
+                <text class="svg-sub" x="660" y="320">higher: memtable + levels, bloom filters help</text>
+                <text class="svg-step" x="16" y="348">write</text>
+                <text class="svg-sub" x="200" y="348">high: a page per small change, random I/O</text>
+                <text class="svg-sub" x="660" y="348">low on ingest, paid back by compaction</text>
+                <text class="svg-step" x="16" y="376">space</text>
+                <text class="svg-sub" x="200" y="376">pages kept partly empty to absorb inserts</text>
+                <text class="svg-sub" x="660" y="376">old versions linger until compaction</text>
+              </svg>

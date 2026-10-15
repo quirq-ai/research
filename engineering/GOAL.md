@@ -16,6 +16,15 @@ name in your data to the code allowed to draw it. Together they inform how
 quirq engineers build web frontends: what a Next.js App Router app costs to
 build, serve and navigate, and how to render pages from data.
 
+This topic also collects suraj's research on data formats: JSON, YAML and
+TOML as configuration that people write and programs load, what a TOML file
+is and how a program turns it into behaviour, and where JSON that a system
+loads and stores all day should live. The source is suraj's writing at
+[github.com/sharmasuraj0123/writings](https://github.com/sharmasuraj0123/writings),
+read at commit `a5a356d`. The research informs how xo-space reads, writes
+back and stores its configuration and state, and how quirq could write down
+its outcome spec.
+
 ## Research questions
 
 1. **Agent and UI integration patterns.** How do agent frameworks connect an
@@ -37,6 +46,10 @@ build, serve and navigate, and how to render pages from data.
 6. **Which practices move those costs, and which common beliefs about Next.js routing fail at 16.4?**
 7. **How should a page registry be built?** Its shapes, the ways to build the table, what one entry carries, where to validate, how to version and how it fails.
 8. **What does MagicPath add to a registry, and what does it cost?**
+9. **Configuration formats.** Where do JSON, YAML and TOML parsers hear something other than what the author wrote, and which format and guardrails fit which kind of file?
+10. **TOML files.** How does a `.toml` file become typed data and then program behaviour, and which decisions belong to the application?
+11. **Storing JSON.** Where should JSON that a system loads and stores all day live, and how is that built from free, open-source parts?
+12. **Our own trees.** How do xo-space and the other XO trees read, write and store configuration and JSON state today?
 
 ## Research action
 
@@ -57,6 +70,14 @@ build, serve and navigate, and how to render pages from data.
   essay uses \[documented\], \[house design\] and \[third-party, unverified\].
 - Trace every number in the one-pager and the README findings to a report
   line.
+- Bring the three data-format posts into this topic as reports without
+  changing their meaning: *What the Parser Hears*, *What is a TOML file?*
+  and *Where the JSON Lives*. Credit suraj and link each original post at
+  commit `a5a356d`.
+- Keep each post's own labels for what was taken from a spec, the docs or
+  the tree, measured, reconstructed or proposed.
+- Publish a one-pager with the key numbers and a link to each report section
+  it draws on.
 
 ## Scope
 
@@ -67,6 +88,7 @@ build, serve and navigate, and how to render pages from data.
 - Agent and UI integration frameworks, for question 1: CopilotKit/AG-UI,
   LangGraph's React SDK, the Vercel AI SDK and assistant-ui.
 - suraj's frontend-architecture posts in the writings repo: the Next.js 16.4 routing teardown, and the page-registry essay with its MagicPath section.
+- suraj's posts on configuration formats, TOML files and storing JSON, in the writings repo at commit `a5a356d`.
 
 **Out of scope:**
 
@@ -75,6 +97,9 @@ build, serve and navigate, and how to render pages from data.
 - Product strategy and design. Those are the `product` and `design` topics.
 - New measurements of Next.js. The teardown describes `next@16.4.0`, measured on 9 October 2026 on one shared 2-vCPU container. Re-running the lab on later releases would be new research.
 - Re-checking MagicPath's docs, pricing or output quality. The essay could not read the vendor docs and ran no generation.
+- New measurements of the data formats. The posts describe formats, parsers and databases as of October 2026. Re-running their harnesses or checking later releases would be new research.
+- Changing the XO trees the posts read. The posts read them and left them unchanged.
+- Acting on the related issue [#33 Crash consistency of agent runtime stores](https://github.com/quirq-ai/research/issues/33). It follows the repo's issue triage.
 
 ## Done when
 
@@ -86,6 +111,9 @@ build, serve and navigate, and how to render pages from data.
 - Both frontend-architecture posts are published here as reports, credited and linked to their originals at `a5a356d`.
 - A one-pager points a reader at the key numbers and findings of both.
 - Each README finding from them cites a report section and was checked against it.
+- The three data-format posts are published as reports, credited to suraj and linked to their originals at `a5a356d`.
+- The data-formats one-pager is published and listed in the README.
+- Each data-format finding in the README links the report section it comes from.
 
 ## Requested outputs
 

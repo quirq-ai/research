@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 610" role="img" aria-label="An application box on the left, running FastAPI with Pydantic v2, orjson and psycopg 3. A dashed purple edge goes to Valkey 9, which holds sessions, presence, rate limits, pub/sub and caches, all with TTLs. A thin blue edge goes through PgBouncer in transaction mode to PostgreSQL 18, which holds hybrid documents, monthly event partitions, an outbox, and blob pointer rows. PostgreSQL ships WAL to pgBackRest, which stores backups in S3-compatible object storage. A second thin blue edge sends large blobs from the application straight to object storage: SeaweedFS, Garage or Ceph RGW. Below PostgreSQL, the outbox feeds Debezium or logical replication into NATS JetStream or Kafka 4, which loads ClickHouse with its JSON type or Parquet files that DuckDB reads in place from object storage."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="610.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-stack-blue" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                  <marker id="fig-stack-ink" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="fig-stack-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+
+                <rect fill="#f7f7f5" height="510" rx="8" stroke="#b8b8b1" width="200" x="0" y="30"></rect>
+                <text class="svg-lane" x="14" y="20">APPLICATION</text>
+                <text class="svg-step" x="14" y="58">FastAPI service</text>
+                <text class="svg-sub" x="14" y="82">pydantic v2: validate</text>
+                <text class="svg-sub" x="14" y="102">orjson / msgspec</text>
+                <text class="svg-sub" x="14" y="122">psycopg 3 / asyncpg</text>
+                <text class="svg-note" x="14" y="160">validates at the edge,</text>
+                <text class="svg-note" x="14" y="178">coalesces hot counters,</text>
+                <text class="svg-note" x="14" y="196">writes snapshot + event</text>
+                <text class="svg-note" x="14" y="214">+ outbox row together</text>
+
+                <text class="svg-lane" x="260" y="20">HOT, EPHEMERAL</text>
+                <rect fill="#ece6f3" height="86" rx="8" stroke="#765b98" width="330" x="260" y="30"></rect>
+                <text class="svg-step" x="276" y="54">Valkey 9 · BSD-3 · Linux Foundation</text>
+                <text class="svg-sub" x="276" y="78">sessions · presence · rate limits</text>
+                <text class="svg-sub" x="276" y="98">pub/sub · caches · every key has a TTL</text>
+                <path d="M200 72 H 256" fill="none" marker-end="url(#fig-stack-purple)" stroke="#765b98" stroke-dasharray="6 4" stroke-width="1.6"></path>
+
+                <text class="svg-lane" x="260" y="152">SYSTEM OF RECORD</text>
+                <rect fill="#e0ebf2" height="78" rx="8" stroke="#3c6f97" width="150" x="260" y="188"></rect>
+                <text class="svg-step" x="274" y="214">PgBouncer</text>
+                <text class="svg-sub" x="274" y="238">ISC · pool_mode</text>
+                <text class="svg-sub" x="274" y="256">= transaction</text>
+                <rect fill="#e0ebf2" height="140" rx="8" stroke="#3c6f97" stroke-width="2" width="340" x="460" y="162"></rect>
+                <text class="svg-step" x="476" y="188">PostgreSQL 18 · PostgreSQL licence · PGDG</text>
+                <text class="svg-sub" style="white-space:pre" x="476" y="214">documents        hybrid rows (§9)</text>
+                <text class="svg-sub" style="white-space:pre" x="476" y="234">document_events  monthly partitions</text>
+                <text class="svg-sub" style="white-space:pre" x="476" y="254">outbox           rows for the relay</text>
+                <text class="svg-sub" style="white-space:pre" x="476" y="274">blob_refs        key, sha256, bytes</text>
+                <path d="M200 227 H 256" fill="none" marker-end="url(#fig-stack-blue)" stroke="#3c6f97" stroke-width="1.4"></path>
+                <path d="M410 227 H 456" fill="none" marker-end="url(#fig-stack-blue)" stroke="#3c6f97" stroke-width="1.4"></path>
+
+                <rect fill="#dfede5" height="78" rx="8" stroke="#367f59" width="260" x="860" y="188"></rect>
+                <text class="svg-step" x="876" y="214">pgBackRest · MIT</text>
+                <text class="svg-sub" x="876" y="238">WAL archive + full/diff</text>
+                <text class="svg-sub" x="876" y="256">backups · tested PITR</text>
+                <path d="M800 227 H 856" fill="none" marker-end="url(#fig-stack-blue)" stroke="#3c6f97" stroke-width="1.4"></path>
+
+                <text class="svg-lane" x="460" y="340">HISTORY PIPE</text>
+                <rect fill="#f7e3c8" height="86" rx="8" stroke="#d98226" width="340" x="460" y="352"></rect>
+                <text class="svg-step" x="476" y="376">Outbox relay</text>
+                <text class="svg-sub" x="476" y="400">Debezium or logical replication</text>
+                <text class="svg-sub" x="476" y="420">→ NATS JetStream (or Kafka 4)</text>
+                <path d="M630 302 V 348" fill="none" marker-end="url(#fig-stack-ink)" stroke="#252525" stroke-width="2.6"></path>
+                <text class="svg-note" x="640" y="330">after commit</text>
+
+                <rect fill="#f7e3c8" height="86" rx="8" stroke="#d98226" width="200" x="860" y="352"></rect>
+                <text class="svg-step" x="876" y="376">ClickHouse · JSON</text>
+                <text class="svg-sub" x="876" y="400">or DuckDB over</text>
+                <text class="svg-sub" x="876" y="420">Parquet in place</text>
+                <path d="M800 395 H 856" fill="none" marker-end="url(#fig-stack-blue)" stroke="#3c6f97" stroke-width="1.4"></path>
+
+                <text class="svg-lane" x="260" y="470">LARGE, WRITE-ONCE</text>
+                <rect fill="#dfede5" height="60" rx="8" stroke="#367f59" width="860" x="260" y="480"></rect>
+                <text class="svg-step" x="276" y="504">Object storage, S3 API · SeaweedFS (Apache 2.0) · Garage (AGPLv3) · Ceph RGW</text>
+                <text class="svg-sub" x="276" y="526">blobs over ~1 MB, addressed by a pointer row · pgBackRest repository · Parquet exports</text>
+                <path d="M1100 266 V 476" fill="none" marker-end="url(#fig-stack-blue)" stroke="#3c6f97" stroke-width="1.4"></path>
+                <path d="M960 438 V 476" fill="none" marker-end="url(#fig-stack-blue)" stroke="#3c6f97" stroke-width="1.4"></path>
+                <path d="M200 510 H 256" fill="none" marker-end="url(#fig-stack-blue)" stroke="#3c6f97" stroke-width="1.4"></path>
+
+                <line stroke="#deded9" x1="0" x2="1120" y1="566" y2="566"></line>
+                <line stroke="#3c6f97" stroke-width="1.4" x1="0" x2="40" y1="590" y2="590"></line>
+                <text class="svg-sub" x="50" y="594">data</text>
+                <line stroke="#252525" stroke-width="2.6" x1="130" x2="170" y1="590" y2="590"></line>
+                <text class="svg-sub" x="180" y="594">sequence: only after commit</text>
+                <line stroke="#765b98" stroke-dasharray="6 4" stroke-width="1.6" x1="420" x2="460" y1="590" y2="590"></line>
+                <text class="svg-sub" x="470" y="594">ephemeral state, safe to lose</text>
+                <text class="svg-note" x="760" y="594">blue box = record · purple = cache · green = durable copies</text>
+              </svg>

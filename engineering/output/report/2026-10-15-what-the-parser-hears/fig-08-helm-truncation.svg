@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 510" role="img" aria-label="Left, the twelve-line values.yaml from Helm issue 9793, 436 bytes. Lines 1 to 3 are indented two spaces: kind: DaemonSet, podLabels:, and under it es-index: traefik2-ingress-controller. Line 4 is blank. Line 5, additionalArguments:, starts in column 1, followed by six quoted command-line flags and one commented-out flag on lines 6 to 12. Right, what twelve YAML loaders heard. yaml.v3 v3.0.1, sigs.k8s.io/yaml v1.6.0 and serde-saphyr 1.3.0 return only kind: DaemonSet and podLabels with es-index: traefik2-ingress-controller, with no error and no warning; additionalArguments and its six flags are absent. Nine loaders refuse the file: PyYAML safe_load and CSafeLoader, ruamel safe and rt, js-yaml 4 and 5, yaml 2.9.1, goccy and serde_yaml; eight of them point at line 5, column 1. PyYAML says expected document start but found block mapping start; serde_yaml says deserializing from YAML containing more than one document is not supported. Lines 1 to 3 are tinted green as heard as written by the three, lines 5 to 12 red as lost with no error."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="510.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-helm-truncation-blu" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                </defs>
+                <text class="svg-lane" x="0" y="18">WHAT THE AUTHOR WROTE · VALUES.YAML, HELM #9793</text>
+                <text class="svg-lane" x="650" y="18">WHAT TWELVE LOADERS HEARD</text>
+
+                <rect fill="#f7f7f5" height="338" rx="8" stroke="#deded9" width="616" x="0" y="32"></rect>
+                <rect fill="#dfede5" height="75" rx="4" width="600" x="8" y="45"></rect>
+                <rect fill="#f3dfdc" height="200" rx="4" width="600" x="8" y="145"></rect>
+                <text class="svg-sub" text-anchor="end" x="34" y="62">1</text>
+                <text class="svg-sub" x="48" xml:space="preserve" y="62">  kind: DaemonSet</text>
+                <text class="svg-sub" text-anchor="end" x="34" y="87">2</text>
+                <text class="svg-sub" x="48" xml:space="preserve" y="87">  podLabels:</text>
+                <text class="svg-sub" text-anchor="end" x="34" y="112">3</text>
+                <text class="svg-sub" x="48" xml:space="preserve" y="112">    es-index: traefik2-ingress-controller</text>
+                <text class="svg-sub" text-anchor="end" x="34" y="137">4</text>
+                <text class="svg-sub" text-anchor="end" x="34" y="162">5</text>
+                <text class="svg-sub" x="48" y="162">additionalArguments:</text>
+                <text class="svg-sub" text-anchor="end" x="34" y="187">6</text>
+                <text class="svg-sub" x="48" xml:space="preserve" y="187">  - "--providers.kubernetesingress.ingressclass=traefik2"</text>
+                <text class="svg-sub" text-anchor="end" x="34" y="212">7</text>
+                <text class="svg-sub" x="48" xml:space="preserve" y="212">  - "--providers.kubernetescrd.ingressclass=traefik2"</text>
+                <text class="svg-sub" text-anchor="end" x="34" y="237">8</text>
+                <text class="svg-sub" x="48" xml:space="preserve" y="237">  - "--entryPoints.web.forwardedHeaders.insecure"</text>
+                <text class="svg-sub" text-anchor="end" x="34" y="262">9</text>
+                <text class="svg-sub" x="48" xml:space="preserve" y="262">  #- "--entryPoints.web.proxyProtocol.insecure"</text>
+                <text class="svg-sub" text-anchor="end" x="34" y="287">10</text>
+                <text class="svg-sub" x="48" xml:space="preserve" y="287">  - "--api.insecure=true"</text>
+                <text class="svg-sub" text-anchor="end" x="34" y="312">11</text>
+                <text class="svg-sub" x="48" xml:space="preserve" y="312">  - "--metrics.prometheus=true"</text>
+                <text class="svg-sub" text-anchor="end" x="34" y="337">12</text>
+                <text class="svg-sub" x="48" xml:space="preserve" y="337">  - "--entryPoints.web.transport.lifeCycle.requestAcceptGraceTimeout=20"</text>
+                <text class="svg-note" x="380" y="62">two spaces set the root's indent</text>
+                <text class="svg-note" x="230" y="162">column 1 is less indented: the mapping ends</text>
+                <text class="svg-note" x="0" y="398">The issue's bytes with CRLF normalised to LF. Line 9 is a comment.</text>
+                <text class="svg-note" x="0" y="420">Helm 3.6's ReadValues decodes with sigs.k8s.io/yaml, one of the three.</text>
+
+                <path d="M618 120 L646 120" fill="none" marker-end="url(#fig-helm-truncation-blu)" stroke="#3c6f97" stroke-width="1.4"></path>
+                <path d="M618 330 L646 330" fill="none" marker-end="url(#fig-helm-truncation-blu)" stroke="#3c6f97" stroke-width="1.4"></path>
+
+                <rect fill="#f3dfdc" height="176" rx="8" stroke="#ad4b43" width="470" x="650" y="32"></rect>
+                <text class="svg-step" x="666" y="58">yaml.v3 · sigs.k8s.io/yaml · serde-saphyr</text>
+                <text class="svg-sub" x="666" y="80">v3.0.1 · v1.6.0 · 1.3.0 · no error, no warning</text>
+                <text class="svg-sub" x="666" y="108">kind: "DaemonSet"</text>
+                <text class="svg-sub" x="666" y="130">podLabels:</text>
+                <text class="svg-sub" x="666" xml:space="preserve" y="152">  es-index: "traefik2-ingress-controller"</text>
+                <text class="svg-note" x="666" y="186">additionalArguments and its six flags: absent</text>
+
+                <rect fill="#f7f7f5" height="232" rx="8" stroke="#b8b8b1" width="470" x="650" y="226"></rect>
+                <text class="svg-step" x="666" y="252">Nine loaders refuse the file</text>
+                <text class="svg-sub" x="666" y="276">PyYAML safe_load, CSafeLoader · ruamel safe, rt</text>
+                <text class="svg-sub" x="666" y="298">js-yaml 4, 5 · yaml 2.9.1 · goccy · serde_yaml</text>
+                <text class="svg-note" x="666" y="326">PyYAML safe_load, at line 5, column 1:</text>
+                <text class="svg-sub" x="666" y="348">expected '&lt;document start&gt;', but found</text>
+                <text class="svg-sub" x="666" y="368">'&lt;block mapping start&gt;'</text>
+                <text class="svg-note" x="666" y="396">serde_yaml:</text>
+                <text class="svg-sub" x="666" y="418">deserializing from YAML containing more than</text>
+                <text class="svg-sub" x="666" y="438">one document is not supported</text>
+
+                <rect fill="#dfede5" height="14" rx="3" stroke="#367f59" width="14" x="0" y="474"></rect>
+                <text class="svg-sub" x="22" y="486">heard as written</text>
+                <rect fill="#f3dfdc" height="14" rx="3" stroke="#ad4b43" width="14" x="180" y="474"></rect>
+                <text class="svg-sub" x="202" y="486">lost, no error</text>
+                <rect fill="#f7f7f5" height="14" rx="3" stroke="#b8b8b1" width="14" x="340" y="474"></rect>
+                <text class="svg-sub" x="362" y="486">refused with an error</text>
+                <line marker-end="url(#fig-helm-truncation-blu)" stroke="#3c6f97" stroke-width="1.4" x1="560" x2="596" y1="481" y2="481"></line>
+                <text class="svg-sub" x="604" y="486">a loader reads the file</text>
+              </svg>
