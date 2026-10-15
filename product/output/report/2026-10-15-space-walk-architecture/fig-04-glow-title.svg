@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" role="img" aria-labelledby="fig-glow-title"><rect x="0.0" y="0.0" width="960.0" height="430.0" fill="#ffffff"/>
+                <defs>
+                  <linearGradient id="colgrad" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0" stop-color="#c4e97a"></stop>
+                    <stop offset="0.5" stop-color="#78a31e"></stop>
+                    <stop offset="1" stop-color="#222d0a"></stop>
+                  </linearGradient>
+                </defs>
+                <rect fill="#0b0c0f" height="414" rx="16" stroke="#242832" width="944" x="8" y="8"></rect>
+                <line stroke="#242832" x1="340" x2="340" y1="30" y2="360"></line>
+                <line stroke="#242832" x1="646" x2="646" y1="30" y2="360"></line>
+                
+                <text fill="#7d786d" font-size="11" font-weight="700" letter-spacing="1.5" x="40" y="46">1 · COLOR = WHAT HAPPENED</text>
+                <circle cx="95" cy="118" fill="#a8a24e" opacity="0.16" r="24"></circle>
+                <circle cx="95" cy="118" fill="#a8a24e" opacity="0.42" r="14"></circle>
+                <circle cx="95" cy="118" fill="#a8a24e" r="7"></circle>
+                <circle cx="190" cy="118" fill="#9dc0e8" opacity="0.16" r="24"></circle>
+                <circle cx="190" cy="118" fill="#9dc0e8" opacity="0.42" r="14"></circle>
+                <circle cx="190" cy="118" fill="#9dc0e8" r="7"></circle>
+                <circle cx="285" cy="118" fill="#a8d94f" opacity="0.16" r="24"></circle>
+                <circle cx="285" cy="118" fill="#a8d94f" opacity="0.42" r="14"></circle>
+                <circle cx="285" cy="118" fill="#a8d94f" r="7"></circle>
+                <text fill="#e9e4d9" font-size="12" font-weight="600" text-anchor="middle" x="95" y="168">seen</text>
+                <text fill="#7d786d" font-size="9.5" text-anchor="middle" x="95" y="185">#a8a24e lit · #6a6700 flat</text>
+                <text fill="#e9e4d9" font-size="12" font-weight="600" text-anchor="middle" x="190" y="168">read</text>
+                <text fill="#7d786d" font-size="9.5" text-anchor="middle" x="190" y="185">#9dc0e8 lit · #5399d1 flat</text>
+                <text fill="#e9e4d9" font-size="12" font-weight="600" text-anchor="middle" x="285" y="168">edited</text>
+                <text fill="#7d786d" font-size="9.5" text-anchor="middle" x="285" y="185">#a8d94f lit · #78a31e flat</text>
+                
+                <text fill="#7d786d" font-size="11" font-weight="700" letter-spacing="1.5" x="40" y="232">HALO RADIUS = REVISITS ONLY</text>
+                <ellipse cx="90" cy="286" fill="#e9e4d9" opacity="0.13" rx="18" ry="7"></ellipse>
+                <ellipse cx="180" cy="286" fill="#e9e4d9" opacity="0.17" rx="26" ry="10"></ellipse>
+                <ellipse cx="278" cy="286" fill="#e9e4d9" opacity="0.21" rx="35" ry="13"></ellipse>
+                <text fill="#b3ada0" font-size="10.5" text-anchor="middle" x="90" y="318">v = 1</text>
+                <text fill="#b3ada0" font-size="10.5" text-anchor="middle" x="180" y="318">v = 2</text>
+                <text fill="#b3ada0" font-size="10.5" text-anchor="middle" x="278" y="318">v = 4</text>
+                <text fill="#b3ada0" font-family="SFMono-Regular, Consolas, monospace" font-size="11" x="40" y="352">r = min(1.8·(1 + 0.45·log₂v), 4.8)</text>
+                
+                <text fill="#7d786d" font-size="11" font-weight="700" letter-spacing="1.5" x="370" y="46">2 · HEIGHT = HOW MUCH</text>
+                <rect fill="#d9f19a" height="4" width="70" x="428" y="86"></rect>
+                <rect fill="url(#colgrad)" height="210" width="70" x="428" y="90"></rect>
+                <rect fill="#101318" height="8" stroke="#242832" width="110" x="408" y="302"></rect>
+                <line stroke="#7d786d" x1="500" x2="560" y1="88" y2="76"></line>
+                <text fill="#b3ada0" font-size="10.5" x="566" y="80">crest rim 1.0</text>
+                <line stroke="#7d786d" x1="498" x2="560" y1="100" y2="106"></line>
+                <text fill="#b3ada0" font-size="10.5" x="566" y="110">top face 0.82</text>
+                <line stroke="#7d786d" x1="498" x2="560" y1="190" y2="190"></line>
+                <text fill="#b3ada0" font-size="10.5" x="566" y="194">side = 0.34 + 0.66·t²</text>
+                <line stroke="#7d786d" x1="498" x2="560" y1="296" y2="286"></line>
+                <text fill="#b3ada0" font-size="10.5" x="566" y="290">base 0.34</text>
+                <text fill="#7d786d" font-size="10" x="526" y="312">tile h = 0.14</text>
+                <text fill="#b3ada0" font-family="SFMono-Regular, Consolas, monospace" font-size="11" x="370" y="344">h = base × (1 + 0.35·log₂v)</text>
+                <text fill="#7d786d" font-size="10.5" x="370" y="362">the rim outshines the top: edges catch, the crest pools</text>
+                
+                <text fill="#7d786d" font-size="11" font-weight="700" letter-spacing="1.5" x="676" y="46">3 · TRAIL = WHERE, LATELY</text>
+                <path d="M700,300 Q722,208 744,300" fill="none" opacity="0.11" stroke="#c8674c" stroke-width="2"></path>
+                <path d="M744,300 Q770,192 796,300" fill="none" opacity="0.29" stroke="#c8674c" stroke-width="2"></path>
+                <path d="M796,300 Q824,180 852,300" fill="none" opacity="0.58" stroke="#c8674c" stroke-width="2"></path>
+                <path d="M852,300 Q878,172 904,300" fill="none" opacity="1" stroke="#c8674c" stroke-width="2.5"></path>
+                <circle cx="904" cy="300" fill="#f2fadf" opacity="0.22" r="12"></circle>
+                <circle cx="904" cy="300" fill="#f2fadf" r="5.5"></circle>
+                <text fill="#b3ada0" font-family="SFMono-Regular, Consolas, monospace" font-size="11" x="676" y="336">fade = 0.05 + 0.95·recency²</text>
+                <text fill="#7d786d" font-size="10.5" x="676" y="356">11 arcs × 14 segments · additive ember #c8674c</text>
+                
+                <text fill="#7d786d" font-size="10.5" text-anchor="middle" x="480" y="402">no bloom, no composer — brightness is baked into vertices and sprites; the tree’s data meshes also opt out of fog, the terrain’s columns do not</text>
+              </svg>

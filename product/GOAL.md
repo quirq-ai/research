@@ -21,6 +21,14 @@ The source is suraj's writing at
 [github.com/sharmasuraj0123/writings](https://github.com/sharmasuraj0123/writings),
 read at commit `a5a356d`.
 
+This part of the topic adds two tools that suraj read for quirq. Space Walk is
+XO Labs' fork of mindwalk. It replays a coding agent's session as light over a
+3D map of the repository, and suraj proposes it as the evidence layer for the
+quirq. iai-pme is a local personal memory engine by Areg Aramovich Noya and
+Lilli Noya. suraj's independent teardown reads it as a working Mₜ and asks what
+that means for quirq's tenure hypothesis. The material informs how quirq can
+explain a score with evidence, and how it could meter memory.
+
 ## Research questions
 
 1. **What is a unit of work, and what is a quirq?** The unit's commitments,
@@ -34,6 +42,10 @@ read at commit `a5a356d`.
 5. **What does xo-space store, where, and for how long?** The three storage tiers, the five stores, the twelve entities and their identities, and what bounds each file.
 6. **What does xo-space give a unit of work, and what is missing?** What is already in place, what cannot yet be verified, and the marked proposals for consolidating the data plane.
 7. **Could a hosted sync layer make a Space shareable?** Liveblocks read against xo-space: where it would sit, what installs in the container, and what it costs.
+8. **How does Space Walk turn agent logs into evidence for a unit of work?** What it reads, what it computes, and what it still needs before a trace can join a unit.
+9. **What would let an xo-project folder carry its own evidence?** What the folder holds today and what Space Walk needs from it.
+10. **How does a working personal memory engine capture, store, recall and forget?** iai-pme v2.7.3, with suraj's measurements and the project's own benchmarks kept apart.
+11. **What does a working, meterable Mₜ mean for quirq's tenure hypothesis?** What the memory engine and Space Walk can measure, and what needs a randomized trial.
 
 ## Research action
 
@@ -56,6 +68,14 @@ read at commit `a5a356d`.
 - Keep the source's own labels: read from the source at a commit, measured on
   one workspace, from the Liveblocks docs, or a proposal.
 - Publish a one-pager with the key numbers and a link to each report.
+- Publish suraj's "The anatomy of Space Walk" and "Anatomy of a Personal
+  Memory Engine" as reports. Keep their text, tables and figures unchanged.
+- Credit suraj and link each original post at commit `a5a356d`.
+- Keep each source's labels: measured on suraj's install, the project's own
+  benchmark, the spec's worked or illustrative example, proposal, open.
+- Publish a onepager with the key numbers from both reports and links to
+  their quirq sections.
+- Link issues #23 and #36 from the onepager. Do not act on them here.
 
 ## Scope
 
@@ -67,6 +87,8 @@ read at commit `a5a356d`.
 - The quirq product as these pieces describe it: what is available now and
   what is still to prove.
 - suraj's XO Space posts: the control-plane teardown (xo-space at commit `f1fecdd`), the architecture reference (the working tree in August 2026) and the Liveblocks reading (the docs as of 18 September 2026).
+- suraj's Space Walk architecture note (`research/spacewalk-architecture`) and his iai-pme teardown (`personal-memory-engine`).
+- The quirq sections of both: Space Walk §12 to §14 and the memory engine §18.
 
 **Out of scope:**
 
@@ -79,6 +101,9 @@ read at commit `a5a356d`.
   triage.
 - New measurements of xo-space. Reading later commits or re-running the one-workspace measurements would be new research.
 - Building any proposal in the posts: the lean redesign, the clock, the consolidated session record or the Liveblocks pilot.
+- New measurements of Space Walk or iai-pme. The writings describe the Space Walk working tree in August 2026 and iai-pme v2.7.3.
+- Building what Space Walk proposes: the scope overlay, the QER dashboard, bunching detection and the raw mirror.
+- Running the memory-ablation trial. It follows the repo's issue triage under #23 and #36.
 
 ## Related issues
 
@@ -93,6 +118,7 @@ read at commit `a5a356d`.
 - [#24 One provider-neutral agent session record](https://github.com/quirq-ai/research/issues/24)
 - [#32 Long-lived agent session manager](https://github.com/quirq-ai/research/issues/32)
 - [#37 Is the 69% attribution loss mostly subagents run outside the projects root?](https://github.com/quirq-ai/research/issues/37)
+- [#36 What does "memory off" mean for a memory-ablation trial?](https://github.com/quirq-ai/research/issues/36)
 
 ## Done when
 
@@ -105,6 +131,9 @@ read at commit `a5a356d`.
 - The three XO Space posts are published here as reports, credited and linked to their originals at `a5a356d`.
 - The one-pager "XO Space at a glance" points a reader at the key numbers and at each report.
 - Every XO Space finding in the README names its report section and was checked against it.
+- Both posts are published here as reports, credited to suraj and linked to their originals at `a5a356d`.
+- A onepager gives the key numbers from both reports and links each quirq section.
+- Every number in the onepager and the README findings is traced to a report line.
 
 ## Requested outputs
 

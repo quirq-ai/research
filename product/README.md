@@ -1,6 +1,6 @@
 # product
 
-suraj's research on quirq and the workspace it runs in: what a unit of work is, how a quirq is minted from verified work, how XO Space hosts the work, and what is still to prove.
+suraj's research on quirq and the tools around it: what a unit of work is, how a quirq is minted from verified work, how XO Space hosts the work, where its evidence and memory come from, and what is still to prove.
 
 | | |
 |---|---|
@@ -24,6 +24,8 @@ linked to each original post. Purpose and research action live in
 [GOAL.md](GOAL.md).
 
 It also holds suraj's research on XO Space, the local agent control plane behind an XO Cowork workspace: how it puts several agent runtimes behind one API, what it stores and where, and what it would take to share a Space. xo-space is where a unit of work gets its workspace, its durable result and its metered spend.
+
+It also holds suraj's readings of two tools for quirq. Space Walk, XO Labs' fork of mindwalk, replays agent sessions over a 3D map of the repository, and suraj proposes it as quirq's evidence layer. iai-pme is a personal memory engine by Areg Aramovich Noya and Lilli Noya; suraj's independent teardown reads it as a working Mₜ for quirq's tenure hypothesis.
 
 ## Research and findings so far
 
@@ -53,6 +55,19 @@ Each finding is suraj's, from his writings at `a5a356d`.
 - **Measured on one workspace over eleven days, 69% of observed sessions were dropped on attribution because they ran outside the projects root, and 171 of 178 argus rows were subagent runs, which `.xo/` has no concept of.** Source: [XO Space: the architecture](output/report/2026-10-15-xo-space-architecture.md#5-1-consolidating-the-plane), §5.1. Verified: 2026-10-15.
 - **suraj proposes Liveblocks as a mirror that the watcher publishes, never a second writer, and only half of it installs inside the container: the SDKs do, the room server does not.** Source: [Liveblocks, read for XO Space](output/report/2026-10-15-liveblocks-for-xo-space.md#01-why-read-liveblocks-now), §01. Verified: 2026-10-15.
 
+### Evidence and memory
+
+Each finding is suraj's, from his writings at `a5a356d`.
+
+- **Space Walk normalizes Claude Code, Codex and pi logs into one trace whose unit is the event, one tool call joined with its result, and computes every event on request from the harnesses' own logs, writing almost nothing to disk.** Source: [The anatomy of Space Walk](output/report/2026-10-15-space-walk-architecture.md#three-dialects-one-trace), §03. Verified: 2026-10-15.
+- **Space Walk's judge runs sealed and never gets the last word: at most two toolless calls, findings left without valid evidence are dropped, and Go rolls up every verdict mechanically.** Source: [The anatomy of Space Walk](output/report/2026-10-15-space-walk-architecture.md#the-sealed-judge), §09. Verified: 2026-10-15.
+- **A Space Walk trace is transcript-derived, so under the calculus's assumption A2 it can never be a check; that is what frees it to be the audit and evidence layer that explains a score without touching it.** Source: [The anatomy of Space Walk](output/report/2026-10-15-space-walk-architecture.md#proving-the-quirq), §12. Verified: 2026-10-15.
+- **Half of the join key from a trace to a unit is missing: all three adapters record `session.cwd`, but only the Codex adapter populates `session.commit`, and suraj names that as the one small upstream change the quirq integration needs.** Source: [The anatomy of Space Walk](output/report/2026-10-15-space-walk-architecture.md#proving-the-quirq), §12. Verified: 2026-10-15.
+- **An xo-project folder indexes its sessions but does not contain them; suraj proposes one more watcher sink, a raw mirror under `.xo/sessions/raw/`, so each project becomes a self-contained trace bundle that Space Walk loads with zero new code.** Source: [The anatomy of Space Walk](output/report/2026-10-15-space-walk-architecture.md#a-folder-that-carries-its-own-evidence), §14. Verified: 2026-10-15.
+- **iai-pme's capture layer is four shell hooks that end in `exit 0` on every path and keep a language model out of the capture path, because a memory system must never cost you a session.** Source: [Anatomy of a Personal Memory Engine](output/report/2026-10-15-personal-memory-engine.md#03-capture-four-fail-safe-hooks), §03. Verified: 2026-10-15.
+- **suraj reads iai-pme as a working Mₜ for quirq's tenure hypothesis: persistent across sessions, non-decreasing and meterable, with an economy panel that measures the context an agent no longer has to rebuild, the quantity Equation 8 predicts should shrink.** Source: [Anatomy of a Personal Memory Engine](output/report/2026-10-15-personal-memory-engine.md#18-what-this-means-for-quirq), §18. Verified: 2026-10-15.
+- **iai-pme's store is ledger-shaped where it matters: verbatim write-once records, contradictions kept as archiving edges, tombstones instead of deletes, so it can answer what the environment believed at time t, the property quirq's audit-gap machinery needs.** Source: [Anatomy of a Personal Memory Engine](output/report/2026-10-15-personal-memory-engine.md#18-what-this-means-for-quirq), §18. Verified: 2026-10-15.
+
 <!--
 Add one bullet per verified finding:
 - **Finding in one sentence.** Source: [title](link). Verified: YYYY-MM-DD.
@@ -74,6 +89,8 @@ XO Space questions are tracked as [#37](https://github.com/quirq-ai/research/iss
 [#24](https://github.com/quirq-ai/research/issues/24),
 [#32](https://github.com/quirq-ai/research/issues/32) and
 [#23](https://github.com/quirq-ai/research/issues/23); human rescue, #31, applies to both.
+What "memory off" means for the memory-ablation trial is
+[#36](https://github.com/quirq-ai/research/issues/36).
 
 ## Status and progress
 
@@ -94,3 +111,6 @@ XO Space questions are tracked as [#37](https://github.com/quirq-ai/research/iss
 | report | [Anatomy of an Agent Control Plane](output/report/2026-10-15-xo-space-control-plane.md) | 2026-10-15 | suraj's component-by-component teardown of xo-space at commit `f1fecdd`, with its 12 figures |
 | report | [XO Space: the architecture](output/report/2026-10-15-xo-space-architecture.md) | 2026-10-15 | suraj's implementation reference for xo-space, verified against the working tree in August 2026, with its 22 figures |
 | report | [Liveblocks, read for XO Space](output/report/2026-10-15-liveblocks-for-xo-space.md) | 2026-10-15 | suraj's reading of the Liveblocks docs as of 18 September 2026 against xo-space, with a proposed integration and pilot; 9 figures |
+| onepager | [Evidence and memory at a glance](output/onepager/2026-10-15-evidence-and-memory-at-a-glance.md) | 2026-10-15 | Key numbers from Space Walk and the memory engine, and what each means for quirq |
+| report | [The anatomy of Space Walk](output/report/2026-10-15-space-walk-architecture.md) | 2026-10-15 | suraj's architecture note on Space Walk, XO Labs' fork of mindwalk, as verified against its working tree in August 2026, with its 7 figures |
+| report | [Anatomy of a Personal Memory Engine](output/report/2026-10-15-personal-memory-engine.md) | 2026-10-15 | suraj's teardown of iai-pme v2.7.3 and what a working Mₜ means for quirq's tenure hypothesis, with its 16 figures |

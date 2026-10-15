@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" role="img" aria-labelledby="figd-desc"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="520.0" fill="#ffffff"/>
+              <desc id="figd-desc">A specimen render of the dashboard's memory graph on the left with annotated node and edge states, and a legend of what each visual channel encodes on the right.</desc>
+              <defs>
+                <radialGradient id="glowEpi"><stop offset="0" stop-color="#ffffff" stop-opacity="0.95"></stop><stop offset="0.25" stop-color="#8fe7ff" stop-opacity="0.9"></stop><stop offset="1" stop-color="#8fe7ff" stop-opacity="0"></stop></radialGradient>
+                <radialGradient id="glowSem"><stop offset="0" stop-color="#ffffff" stop-opacity="0.95"></stop><stop offset="0.25" stop-color="#e79bff" stop-opacity="0.9"></stop><stop offset="1" stop-color="#e79bff" stop-opacity="0"></stop></radialGradient>
+                <radialGradient id="glowPro"><stop offset="0" stop-color="#ffffff" stop-opacity="0.95"></stop><stop offset="0.25" stop-color="#a9ffd0" stop-opacity="0.9"></stop><stop offset="1" stop-color="#a9ffd0" stop-opacity="0"></stop></radialGradient>
+              </defs>
+
+              <rect fill="#ffffff" height="520" width="1000"></rect>
+              <rect fill="#07050f" height="520" rx="10" width="560" x="0" y="0"></rect>
+
+              <text class="svg-lane" fill="#7d8da3" x="24" y="30">SPECIMEN RENDER</text>
+
+              <g fill="none" stroke="#8fe7ff" stroke-opacity="0.10">
+                <path d="M 120 300 Q 190 250 250 210"></path>
+                <path d="M 250 210 Q 300 190 360 230"></path>
+                <path d="M 120 300 Q 200 350 280 360"></path>
+                <path d="M 280 360 Q 340 340 400 330"></path>
+                <path d="M 360 230 Q 400 280 400 330"></path>
+                <path d="M 190 150 Q 230 180 250 210"></path>
+              </g>
+              <path d="M 250 210 Q 330 140 430 150" fill="none" stroke="#e79bff" stroke-opacity="0.30" stroke-width="0.8"></path>
+              <path d="M 120 300 Q 250 420 430 400" fill="none" stroke="#ff6b7d" stroke-dasharray="3 6" stroke-opacity="0.7" stroke-width="1.2"></path>
+
+              <circle cx="250" cy="210" fill="url(#glowEpi)" opacity="0.85" r="26"></circle>
+              <circle cx="250" cy="210" fill="#d8f6ff" r="5"></circle>
+              <circle cx="120" cy="300" fill="url(#glowEpi)" opacity="0.7" r="22"></circle>
+              <circle cx="120" cy="300" fill="#d8f6ff" r="4"></circle>
+              <circle cx="190" cy="150" fill="url(#glowEpi)" opacity="0.4" r="15"></circle>
+              <circle cx="280" cy="360" fill="url(#glowEpi)" opacity="0.55" r="18"></circle>
+
+              <circle cx="430" cy="150" fill="url(#glowSem)" opacity="0.85" r="26"></circle>
+              <circle cx="430" cy="150" fill="#f5dcff" r="5"></circle>
+              <circle cx="360" cy="230" fill="url(#glowSem)" opacity="0.6" r="19"></circle>
+
+              <circle cx="400" cy="330" fill="url(#glowPro)" opacity="0.7" r="20"></circle>
+              <circle cx="400" cy="330" fill="#d8ffe9" r="4"></circle>
+
+              <circle cx="430" cy="400" fill="url(#glowEpi)" opacity="0.5" r="20"></circle>
+              <circle cx="430" cy="400" fill="#d8f6ff" r="4"></circle>
+              <circle cx="430" cy="400" fill="none" r="11" stroke="#ffd166" stroke-width="1.2"></circle>
+
+              <circle cx="150" cy="430" fill="url(#glowEpi)" opacity="0.28" r="16"></circle>
+              <circle cx="150" cy="430" fill="#d8f6ff" opacity="0.5" r="3"></circle>
+              <circle cx="150" cy="430" fill="none" r="11" stroke="#ffd166" stroke-dasharray="2 4" stroke-opacity="0.75" stroke-width="1"></circle>
+
+              <circle cx="300" cy="460" fill="none" r="9" stroke="#7a8ba0" stroke-dasharray="2 3" stroke-opacity="0.45" stroke-width="1"></circle>
+              <rect fill="#7a8ba0" height="1.5" opacity="0.5" width="1.5" x="308" y="446"></rect>
+              <rect fill="#7a8ba0" height="1.5" opacity="0.35" width="1.5" x="294" y="440"></rect>
+
+              <circle cx="250" cy="210" fill="none" r="16" stroke="#ffffff" stroke-opacity="0.9" stroke-width="1"></circle>
+
+              <circle cx="200" cy="252" fill="#eaf4f8" r="3.5"></circle>
+              <circle cx="330" cy="181" fill="#ff6b7d" r="3"></circle>
+
+              <text class="svg-sub" fill="#eaf4f8" x="272" y="200">selected — white ring, pulsing</text>
+              <text class="svg-sub" fill="#ffd166" x="452" y="404">pinned — solid gold ring</text>
+              <text class="svg-sub" fill="#ffd166" x="24" y="470">fading — dashed ring, node flickers</text>
+              <text class="svg-sub" fill="#7a8ba0" x="316" y="464">forgotten — ghost + dust</text>
+              <text class="svg-sub" fill="#ff6b7d" x="196" y="424">contradiction — red dashed synapse</text>
+              <text class="svg-sub" fill="#eaf4f8" x="342" y="176">action potentials travel the curve</text>
+
+              <text class="svg-lane" x="600" y="30">WHAT EACH CHANNEL ENCODES</text>
+              <line stroke="#deded9" x1="600" x2="976" y1="40" y2="40"></line>
+
+              <text class="svg-step" x="600" y="66">Position</text>
+              <text class="svg-sub" x="600" y="84">brain region by tier, jittered by a hash of</text>
+              <text class="svg-sub" x="600" y="99">the record's UUID — stable across reloads</text>
+
+              <text class="svg-step" x="600" y="126">Depth</text>
+              <text class="svg-sub" x="600" y="144">semantic on the cortex shell, procedural in</text>
+              <text class="svg-sub" x="600" y="159">the cerebellum, episodic in deep structures</text>
+
+              <text class="svg-step" x="600" y="186">Colour</text>
+              <text class="svg-sub" x="600" y="204">tier — and the UI never says "episodic":</text>
+              <text class="svg-sub" x="600" y="219">moments · knowledge · skills</text>
+
+              <text class="svg-step" x="600" y="246">Size</text>
+              <text class="svg-sub" x="600" y="264">centrality as a rank outlier — a value shared</text>
+              <text class="svg-sub" x="600" y="279">by &gt;5% of the corpus stays at base radius</text>
+
+              <text class="svg-step" x="600" y="306">Ring</text>
+              <text class="svg-sub" x="600" y="324">gold solid = pinned, gold dashed = queued to</text>
+              <text class="svg-sub" x="600" y="339">fade, white = selected, grey dashed = ghost</text>
+
+              <text class="svg-step" x="600" y="366">Brightness</text>
+              <text class="svg-sub" x="600" y="384">perspective depth, plus focus dimming to as</text>
+              <text class="svg-sub" x="600" y="399">little as 4% when a tunnel is selected</text>
+
+              <text class="svg-step" x="600" y="426">Motion</text>
+              <text class="svg-sub" x="600" y="444">every node breathes on a sine offset by its x;</text>
+              <text class="svg-sub" x="600" y="459">all of it stops under prefers-reduced-motion</text>
+
+              <line stroke="#deded9" x1="600" x2="976" y1="478" y2="478"></line>
+              <text class="svg-note" x="600" y="500">Synapses idle at 3–6% opacity. The graph is nearly</text>
+              <text class="svg-note" x="600" y="516">dark until you touch it — then a neighbourhood lights.</text>
+            </svg>

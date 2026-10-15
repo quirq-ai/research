@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" role="img" aria-labelledby="fig12-desc"><style>.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="400.0" fill="#ffffff"/>
+              <desc id="fig12-desc">Linear pipeline from rotated buffer through drain rails, shield, embed, dedup, encryption, insert, and graph linking.</desc>
+              <defs>
+                <marker id="arrowE" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#777772"></path>
+                </marker>
+              </defs>
+              <rect fill="#ffffff" height="400" width="1000"></rect>
+
+              <rect fill="#f7f7f5" height="62" rx="7" stroke="#b8b8b1" width="150" x="24" y="40"></rect>
+              <text class="svg-num" x="34" y="58">01</text>
+              <text class="svg-step" x="54" y="58">rotated buffer</text>
+              <text class="svg-sub" x="34" y="76">.live-&lt;epoch&gt;.jsonl</text>
+              <text class="svg-sub" x="34" y="92">claimed by marker</text>
+
+              <rect fill="#e0ebf2" height="62" rx="7" stroke="#3c6f97" width="150" x="198" y="40"></rect>
+              <text class="svg-num" x="208" y="58">02</text>
+              <text class="svg-step" x="228" y="58">drain rails</text>
+              <text class="svg-sub" x="208" y="76">single-flight · 5000/run</text>
+              <text class="svg-sub" x="208" y="92">2.5 GiB RSS soft cap</text>
+
+              <rect fill="#f7e3c8" height="62" rx="7" stroke="#d98226" width="150" x="372" y="40"></rect>
+              <text class="svg-num" x="382" y="58">03</text>
+              <text class="svg-step" x="402" y="58">length + tier gate</text>
+              <text class="svg-sub" x="382" y="76">12 – 8000 chars</text>
+              <text class="svg-sub" x="382" y="92">then injection shield</text>
+
+              <rect fill="#dfede5" height="62" rx="7" stroke="#367f59" width="150" x="546" y="40"></rect>
+              <text class="svg-num" x="556" y="58">04</text>
+              <text class="svg-step" x="576" y="58">embed</text>
+              <text class="svg-sub" x="556" y="76">text only — never</text>
+              <text class="svg-sub" x="556" y="92">the cue</text>
+
+              <rect fill="#f3dfdc" height="62" rx="7" stroke="#ad4b43" width="256" x="720" y="40"></rect>
+              <text class="svg-num" x="730" y="58">05</text>
+              <text class="svg-step" x="750" y="58">three dedup gates</text>
+              <text class="svg-sub" x="730" y="76">idempotency tag → cosine 0.95 →</text>
+              <text class="svg-sub" x="730" y="92">0.92 prefilter confirmed by exact scan</text>
+
+              <rect fill="#ece6f3" height="62" rx="7" stroke="#765b98" width="256" x="720" y="150"></rect>
+              <text class="svg-num" x="730" y="168">06</text>
+              <text class="svg-step" x="750" y="168">project to hypervector</text>
+              <text class="svg-sub" x="730" y="186">frozen 384 × 10000 matrix</text>
+              <text class="svg-sub" x="730" y="202">bind 19 role→filler pairs</text>
+
+              <rect fill="#f3dfdc" height="62" rx="7" stroke="#ad4b43" width="150" x="546" y="150"></rect>
+              <text class="svg-num" x="556" y="168">07</text>
+              <text class="svg-step" x="576" y="168">encrypt fields</text>
+              <text class="svg-sub" x="556" y="186">AES-256-GCM</text>
+              <text class="svg-sub" x="556" y="202">AAD = row UUID</text>
+
+              <rect fill="#e0ebf2" height="62" rx="7" stroke="#3c6f97" width="150" x="372" y="150"></rect>
+              <text class="svg-num" x="382" y="168">08</text>
+              <text class="svg-step" x="402" y="168">buffer + flush</text>
+              <text class="svg-sub" x="382" y="186">size or 5 s age</text>
+              <text class="svg-sub" x="382" y="202">clear only on success</text>
+
+              <rect fill="#dfede5" height="62" rx="7" stroke="#367f59" width="150" x="198" y="150"></rect>
+              <text class="svg-num" x="208" y="168">09</text>
+              <text class="svg-step" x="228" y="168">index + link</text>
+              <text class="svg-sub" x="208" y="186">vector add, self-loop,</text>
+              <text class="svg-sub" x="208" y="202">separation seeds</text>
+
+              <rect fill="#f7f7f5" height="62" rx="7" stroke="#b8b8b1" width="150" x="24" y="150"></rect>
+              <text class="svg-num" x="34" y="168">10</text>
+              <text class="svg-step" x="54" y="168">durable</text>
+              <text class="svg-sub" x="34" y="186">row + edges + event</text>
+              <text class="svg-sub" x="34" y="202">recall can find it</text>
+
+              <line marker-end="url(#arrowE)" stroke="#777772" x1="174" x2="198" y1="71" y2="71"></line>
+              <line marker-end="url(#arrowE)" stroke="#777772" x1="348" x2="372" y1="71" y2="71"></line>
+              <line marker-end="url(#arrowE)" stroke="#777772" x1="522" x2="546" y1="71" y2="71"></line>
+              <line marker-end="url(#arrowE)" stroke="#777772" x1="696" x2="720" y1="71" y2="71"></line>
+              <path d="M 848 102 L 848 150" fill="none" marker-end="url(#arrowE)" stroke="#777772"></path>
+              <line marker-end="url(#arrowE)" stroke="#777772" x1="720" x2="696" y1="181" y2="181"></line>
+              <line marker-end="url(#arrowE)" stroke="#777772" x1="546" x2="522" y1="181" y2="181"></line>
+              <line marker-end="url(#arrowE)" stroke="#777772" x1="372" x2="348" y1="181" y2="181"></line>
+              <line marker-end="url(#arrowE)" stroke="#777772" x1="198" x2="174" y1="181" y2="181"></line>
+
+              <path d="M 976 71 L 992 71 L 992 250 L 500 250" fill="none" marker-end="url(#arrowE)" stroke="#ad4b43" stroke-dasharray="4 3"></path>
+              <text class="svg-sub" x="512" y="254">duplicate → reinforce the survivor instead, no new row</text>
+
+              <line stroke="#deded9" x1="24" x2="976" y1="288" y2="288"></line>
+              <text class="svg-note" x="24" y="312">If no embedder is warm, the row is inserted with embedding_pending = 1 — encrypted identically, so a pending row is</text>
+              <text class="svg-note" x="24" y="330">indistinguishable on disk — and healed later by a dedicated wake pass. Capture is never blocked on inference.</text>
+              <text class="svg-note" x="24" y="358">Failure escalation: a file that crashes the drain is retried, then quarantined; three failures move it to permanent-failed</text>
+              <text class="svg-note" x="24" y="376">with a critical event. Verbatim content is never dropped silently.</text>
+            </svg>
