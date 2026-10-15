@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 280" role="img" aria-label="Two flows. Turborepo: the agent reads AGENTS.md and llms.txt, then shells out to turbo query or turbo run with affected, and parses the text output. Nx: the agent calls the Nx MCP server, which answers from the project graph and Nx Cloud, including CI failures and proposed fixes, and the agent can apply generators and migrations through it."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="280.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="a-ctl" markerHeight="6" markerWidth="6" orient="auto" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0,0 L10,5 L0,10 z" fill="#252525"></path></marker>
+                  <marker id="a-data" markerHeight="7" markerWidth="7" orient="auto" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0,0 L10,5 L0,10 z" fill="#3c6f97"></path></marker>
+                </defs>
+                <text class="svg-lane" x="0" y="20">TURBOREPO · READ, THEN SHELL OUT</text>
+                <rect fill="#f7f7f5" height="56" rx="4" stroke="#252525" stroke-width="1.5" width="160" x="0" y="36"></rect><text class="svg-step" x="18" y="70">coding agent</text>
+                <rect fill="#f7f7f5" height="56" rx="4" stroke="#b8b8b1" width="260" x="250" y="36"></rect><text class="svg-step" x="266" y="60">AGENTS.md block · skill</text><text class="svg-sub" x="266" y="80">llms.txt · turbo docs</text>
+                <rect fill="#e0ebf2" height="56" rx="4" stroke="#3c6f97" width="260" x="600" y="36"></rect><text class="svg-step" x="616" y="60">turbo query · run --affected</text><text class="svg-sub" x="616" y="80">text / JSON on stdout</text>
+                <line marker-end="url(#a-ctl)" stroke="#252525" stroke-width="2.2" x1="160" x2="246" y1="56" y2="56"></line>
+                <line marker-end="url(#a-ctl)" stroke="#252525" stroke-width="2.2" x1="510" x2="596" y1="56" y2="56"></line>
+                <path d="M730,92 C730,120 80,120 80,96" fill="none" marker-end="url(#a-data)" stroke="#3c6f97" stroke-width="1.5"></path>
+
+                <text class="svg-lane" x="0" y="152">NX · CALL A SERVER</text>
+                <rect fill="#f7f7f5" height="56" rx="4" stroke="#252525" stroke-width="1.5" width="160" x="0" y="168"></rect><text class="svg-step" x="18" y="202">coding agent</text>
+                <rect fill="#e0ebf2" height="56" rx="4" stroke="#3c6f97" width="260" x="250" y="168"></rect><text class="svg-step" x="266" y="192">Nx MCP server</text><text class="svg-sub" x="266" y="212">graph · generators · docs</text>
+                <rect fill="#ece6f3" height="56" rx="4" stroke="#765b98" width="260" x="600" y="168"></rect><text class="svg-step" x="616" y="192">Nx Cloud</text><text class="svg-sub" x="616" y="212">CI runs · failures · fixes</text>
+                <line marker-end="url(#a-ctl)" stroke="#252525" stroke-width="2.2" x1="160" x2="246" y1="188" y2="188"></line>
+                <line marker-end="url(#a-ctl)" stroke="#252525" stroke-width="2.2" x1="510" x2="596" y1="188" y2="188"></line>
+                <line marker-end="url(#a-data)" stroke="#3c6f97" stroke-width="1.5" x1="246" x2="164" y1="210" y2="210"></line>
+                <path d="M730,224 C730,250 380,250 380,228" fill="none" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+                <text class="svg-note" x="0" y="272">thick black = call · thin blue = answer · dashed purple = CI state</text>
+              </svg>

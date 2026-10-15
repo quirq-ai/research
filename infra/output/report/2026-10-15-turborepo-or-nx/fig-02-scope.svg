@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 380" role="img" aria-label="Two stacked columns of capability layers. Both columns share the bottom three layers: task graph and scheduling, content-hashed local cache, and remote cache protocol. Turborepo's column then adds pruning for Docker, generators, and experimental boundaries, drawn thin. Nx's column adds inferred tasks from plugins, generators and migrations, lint-enforced module boundaries, release versioning, distributed CI agents, self-healing CI, and an MCP server."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="380.0" fill="#ffffff"/>
+                <text class="svg-lane" x="40" y="24">TURBOREPO 2.11</text>
+                <text class="svg-lane" x="540" y="24">NX 23.2 + NX CLOUD</text>
+                
+                <g>
+                  <rect fill="#e0ebf2" height="40" rx="4" stroke="#3c6f97" width="420" x="40" y="300"></rect>
+                  <text class="svg-step" x="56" y="325">Task graph · scheduling</text>
+                  <rect fill="#e0ebf2" height="40" rx="4" stroke="#3c6f97" width="420" x="40" y="252"></rect>
+                  <text class="svg-step" x="56" y="277">Content-hashed local cache</text>
+                  <rect fill="#e0ebf2" height="40" rx="4" stroke="#3c6f97" width="420" x="40" y="204"></rect>
+                  <text class="svg-step" x="56" y="229">Remote cache (HTTP, OpenAPI)</text>
+                  <rect fill="#f7f7f5" height="40" rx="4" stroke="#b8b8b1" width="420" x="40" y="156"></rect>
+                  <text class="svg-sub" x="56" y="181">prune --docker · gen (Plop) · boundaries β</text>
+                </g>
+                <g>
+                  <rect fill="#e0ebf2" height="40" rx="4" stroke="#3c6f97" width="420" x="540" y="300"></rect>
+                  <text class="svg-step" x="556" y="325">Task graph · scheduling</text>
+                  <rect fill="#e0ebf2" height="40" rx="4" stroke="#3c6f97" width="420" x="540" y="252"></rect>
+                  <text class="svg-step" x="556" y="277">Content-hashed local cache</text>
+                  <rect fill="#e0ebf2" height="40" rx="4" stroke="#3c6f97" width="420" x="540" y="204"></rect>
+                  <text class="svg-step" x="556" y="229">Remote cache (Nx Replay)</text>
+                  <rect fill="#dfede5" height="40" rx="4" stroke="#367f59" width="420" x="540" y="156"></rect>
+                  <text class="svg-step" x="556" y="181">Plugins · inferred tasks</text>
+                  <rect fill="#dfede5" height="40" rx="4" stroke="#367f59" width="420" x="540" y="108"></rect>
+                  <text class="svg-step" x="556" y="133">Generators · migrate · boundaries · release</text>
+                  <rect fill="#ece6f3" height="40" rx="4" stroke="#765b98" width="420" x="540" y="60"></rect>
+                  <text class="svg-step" x="556" y="85">Agents (DTE) · self-healing CI · MCP</text>
+                </g>
+                <text class="svg-note" x="40" y="368">blue = shared core · green = open-source extras · purple = Nx Cloud (paid tiers)</text>
+              </svg>

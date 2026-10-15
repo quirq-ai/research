@@ -128,6 +128,18 @@ Each finding is suraj's, from his writings at `a5a356d`.
 - **Rollers write about a fifth of chromium/src's `main`: in the week of 2026-09-14 to 2026-09-21, 940 of 4,513 commits (20.8%) came from the two Skia autoroll accounts, and of 3,893 roll commits in four weeks, 3,428 carry a `Tbr:` footer and 14 a `Reviewed-by` (counted 2026-09-22).** Source: [DEPS, gclient and what replaced goma](output/report/2026-10-15-chromium-deps-and-goma.md#08-the-roller-fleet), §08. Verified: 2026-10-15.
 - **The declarative file is easy to change and the ecosystem around it is not, so Chromium keeps the old interface alive while the new mechanism carries the load: `git_dependencies = 'SYNC'` is still in `src/DEPS` three years after a submodule stage two scheduled for 2023 Q4, and reclient is still pinned nearly a year past its announced removal.** Source: [DEPS, gclient and what replaced goma](output/report/2026-10-15-chromium-deps-and-goma.md#12-what-this-design-buys-and-what-it-costs), §12. Verified: 2026-10-15.
 
+### Turborepo or Nx
+
+Each finding is suraj's, from his writings at `a5a356d`.
+
+- **Default to Turborepo for a JavaScript or TypeScript monorepo whose CI is slow mainly because it rebuilds things that have not changed; choose Nx when one of four needs is real: tasks spread over several CI machines, first-party Java, .NET or Gradle builds in the same graph, enforced import boundaries, or codemod-driven framework upgrades across hundreds of projects.** Source: [Turborepo or Nx](output/report/2026-10-15-turborepo-or-nx.md#01-the-short-answer), §01. Verified: 2026-10-15.
+- **Both tools trust the cache key you give them: an Nx build whose narrowed `inputs` named `src` without its `^src` twin exited 0, printed "Cache: 11/12 hit (92%)" and restored five stale packages after one leaf edit \[measured here\], a state Turborepo cannot be configured into through `inputs`.** Source: [Turborepo or Nx](output/report/2026-10-15-turborepo-or-nx.md#04-the-cache-key-is-the-product), §04. Verified: 2026-10-15.
+- **On one twelve-package workspace, Turborepo confirmed a full cache hit in 48 ms and Nx without its daemon in 724 ms \[measured here\]; the gap is a fixed cost per run, visible in an editor loop or a pre-commit hook and invisible in a 20-minute CI pipeline.** Source: [Turborepo or Nx](output/report/2026-10-15-turborepo-or-nx.md#05-measured-on-one-workspace), §05. Verified: 2026-10-15.
+- **If you want a remote cache you run yourself, Turborepo's path is shorter and better trodden; Nx's four self-hosted cache plugins are deprecated as of 21 May 2026, with CREEP (CVE-2025-36852) named as a flaw in their design that "cannot be patched" \[from the docs\].** Source: [Turborepo or Nx](output/report/2026-10-15-turborepo-or-nx.md#06-remote-caching-and-who-runs-it), §06. Verified: 2026-10-15.
+- **Past the cache the two tools stop being comparable: Nx sells a fleet, Nx Agents, that spreads CI tasks across machines, while suraj found no first-party distributed execution in Turborepo's docs, so spreading its work means sharding `--filter` sets across CI matrix jobs by hand \[reconstruction\].** Source: [Turborepo or Nx](output/report/2026-10-15-turborepo-or-nx.md#07-ci-beyond-the-cache), §07. Verified: 2026-10-15.
+- **For an agent loop like the one quirq measures, the useful property is the one both tools share, a deterministic answer to "which checks does this diff require?", at 48 ms in Turborepo on a warm cache and about 0.7 s in Nx, and Nx adds a record of why CI failed \[reconstruction\].** Source: [Turborepo or Nx](output/report/2026-10-15-turborepo-or-nx.md#10-what-each-offers-a-coding-agent), §10. Verified: 2026-10-15.
+- **Removing Turborepo means deleting `turbo.json` and replacing `turbo run build` with the package manager's recursive run; removing Nx means re-creating every inferred target as an explicit script, replacing generators, the boundaries rule and `nx release`, and re-plumbing CI if it used Nx Agents \[reconstruction\].** Source: [Turborepo or Nx](output/report/2026-10-15-turborepo-or-nx.md#what-it-costs-to-leave), §11. Verified: 2026-10-15.
+
 ### Open questions
 
 - Which repos the applied rulesets cover, and whether "Allow auto-merge" is on
@@ -165,6 +177,8 @@ Each finding is suraj's, from his writings at `a5a356d`.
 | report | [Blink, taken apart](output/report/2026-10-15-chromium-blink.md) | 2026-10-15 | suraj's teardown of the Blink rendering engine, at `chromium/src@f288fed6` (Chrome 156.0.8067.0, V8 15.6.19); 16 figures |
 | report | [The Sea of Nodes, explained simply](output/report/2026-10-15-sea-of-nodes.md) | 2026-10-15 | suraj's explainer of V8 TurboFan's Sea of Nodes IR and why V8 left it (Click & Paleczny, 1995); 7 figures |
 | report | [One Graph, No Boxes](output/report/2026-10-15-sea-of-nodes-paper.md) | 2026-10-15 | suraj's close reading of Click and Paleczny's IR'95 paper, and the general recipe it implies; 11 figures |
+| onepager | [Turborepo or Nx at a glance](output/onepager/2026-10-15-turborepo-or-nx-at-a-glance.md) | 2026-10-15 | The claim, ten numbers and the open questions from suraj's Turborepo or Nx report, linked into its sections |
+| report | [Turborepo or Nx](output/report/2026-10-15-turborepo-or-nx.md) | 2026-10-15 | suraj's comparison of Turborepo and Nx, with its 13 figures and a twelve-package benchmark; describes turbo 2.11.6 and nx 23.2.1 as read on 2 October 2026 |
 
 The hub site (`npm run build`) publishes the app, the onepager, the reports
 and the slides PDF for this topic. To
