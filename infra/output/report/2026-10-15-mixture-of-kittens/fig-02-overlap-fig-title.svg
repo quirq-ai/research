@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" role="img" aria-labelledby="overlap-fig-title"><rect x="0.0" y="0.0" width="960.0" height="300.0" fill="#ffffff"/>
+                
+                <g fill="#4f4f4b" font-size="11.5">
+                  <rect fill="#c67210" height="12" rx="3" width="12" x="20" y="14"></rect>
+                  <text x="38" y="24">Communication (dispatch / combine)</text>
+                  <rect fill="#2f74ab" height="12" rx="3" width="12" x="290" y="14"></rect>
+                  <text x="308" y="24">Expert computation</text>
+                  <rect fill="#dfede5" height="12" rx="3" stroke="#367f59" width="12" x="470" y="14"></rect>
+                  <text x="488" y="24">Shared expert</text>
+                </g>
+                
+                <text fill="#777772" font-size="11" font-weight="700" letter-spacing="1" x="20" y="66">SEQUENTIAL (BASELINE) — ONE RESOURCE IDLE AT A TIME</text>
+                <g>
+                  <rect fill="#c67210" height="34" rx="4" width="240" x="20" y="78"></rect>
+                  <text fill="#ffffff" font-size="12" font-weight="600" text-anchor="middle" x="140" y="100">Dispatch</text>
+                  <rect fill="#2f74ab" height="34" rx="4" width="300" x="264" y="78"></rect>
+                  <text fill="#ffffff" font-size="12" font-weight="600" text-anchor="middle" x="414" y="100">Expert FFNs</text>
+                  <rect fill="#c67210" height="34" rx="4" width="240" x="568" y="78"></rect>
+                  <text fill="#ffffff" font-size="12" font-weight="600" text-anchor="middle" x="688" y="100">Combine</text>
+                  <text fill="#777772" font-size="11.5" x="826" y="100">t = 100%</text>
+                </g>
+                
+                <text fill="#777772" font-size="11" font-weight="700" letter-spacing="1" x="20" y="164">MOK — COMMUNICATION SMs AND COMPUTATION SMs RUN TOGETHER</text>
+                <text fill="#777772" font-size="10.5" x="20" y="196">comm SMs</text>
+                <g>
+                  <rect fill="#c67210" height="26" rx="4" width="118" x="100" y="180"></rect>
+                  <text fill="#ffffff" font-size="10.5" text-anchor="middle" x="159" y="197">pull mb₁</text>
+                  <rect fill="#c67210" height="26" rx="4" width="118" x="222" y="180"></rect>
+                  <text fill="#ffffff" font-size="10.5" text-anchor="middle" x="281" y="197">pull mb₂</text>
+                  <rect fill="#c67210" height="26" rx="4" width="118" x="344" y="180"></rect>
+                  <text fill="#ffffff" font-size="10.5" text-anchor="middle" x="403" y="197">push mb₁</text>
+                  <rect fill="#c67210" height="26" rx="4" width="118" x="466" y="180"></rect>
+                  <text fill="#ffffff" font-size="10.5" text-anchor="middle" x="525" y="197">push mb₂</text>
+                </g>
+                <text fill="#777772" font-size="10.5" x="20" y="232">comp SMs</text>
+                <g>
+                  <rect fill="#dfede5" height="26" rx="4" stroke="#367f59" width="118" x="100" y="216"></rect>
+                  <text fill="#252525" font-size="10.5" text-anchor="middle" x="159" y="233">shared expert</text>
+                  <rect fill="#2f74ab" height="26" rx="4" width="118" x="222" y="216"></rect>
+                  <text fill="#ffffff" font-size="10.5" text-anchor="middle" x="281" y="233">FFN mb₁</text>
+                  <rect fill="#2f74ab" height="26" rx="4" width="118" x="344" y="216"></rect>
+                  <text fill="#ffffff" font-size="10.5" text-anchor="middle" x="403" y="233">FFN mb₂</text>
+                </g>
+                <line stroke="#b8b8b1" stroke-dasharray="4 4" x1="588" x2="588" y1="172" y2="250"></line>
+                <text fill="#777772" font-size="11.5" x="600" y="233">t ≈ far less — the timeline compresses to</text>
+                <text fill="#777772" font-size="11.5" x="600" y="250">whichever team finishes last</text>
+                <text fill="#777772" font-size="11.5" x="20" y="284">Backward pass adds a twist: weight gradients are deferred until all data gradients finish, so they overlap with reverse-dispatch.</text>
+              </svg>

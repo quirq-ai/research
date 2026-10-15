@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 170" role="img" aria-labelledby="e2e-chart-title"><rect x="0.0" y="0.0" width="960.0" height="170.0" fill="#ffffff"/>
+                
+                <g fill="#4f4f4b" font-size="12">
+                  <text text-anchor="end" x="196" y="56">Previous stack (DeepEP)</text>
+                  <text text-anchor="end" x="196" y="106">Mixture-of-Kittens</text>
+                </g>
+                <g stroke="#deded9" stroke-width="1">
+                  <line x1="210" x2="210" y1="26" y2="128"></line>
+                  <line x1="443" x2="443" y1="26" y2="128"></line>
+                  <line x1="676" x2="676" y1="26" y2="128"></line>
+                  <line x1="909" x2="909" y1="26" y2="128"></line>
+                </g>
+                <g fill="#777772" font-size="10.5">
+                  <text text-anchor="middle" x="210" y="146">0</text>
+                  <text text-anchor="middle" x="443" y="146">400</text>
+                  <text text-anchor="middle" x="676" y="146">800</text>
+                  <text text-anchor="middle" x="909" y="146">1200</text>
+                  <text text-anchor="middle" x="909" y="162">tokens / sec / GPU</text>
+                </g>
+                <path d="M210 40 H649.8 a4 4 0 0 1 4 4 v14 a4 4 0 0 1 -4 4 H210 z" data-bar="" data-label="Previous DeepEP-based stack" data-value="760.9 tokens/sec/GPU" fill="#c67210"></path>
+                <path d="M210 90 H830.1 a4 4 0 0 1 4 4 v14 a4 4 0 0 1 -4 4 H210 z" data-bar="" data-label="Mixture-of-Kittens" data-value="1,070.2 tokens/sec/GPU — 1.41× the previous stack" fill="#2f74ab"></path>
+                <g fill="#252525" font-size="12.5" font-weight="700">
+                  <text x="664" y="56">760.9</text>
+                  <text x="844" y="106">1,070.2</text>
+                </g>
+              </svg>
