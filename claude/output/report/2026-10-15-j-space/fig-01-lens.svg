@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 380" role="img" aria-label="Comparison of logit lens, tuned lens and Jacobian lens pipelines"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="380.0" fill="#ffffff"/>
+              <text class="svg-lane" x="30" y="30">LOGIT LENS</text>
+              <line stroke="#deded9" x1="30" x2="1080" y1="40" y2="40"></line>
+              <g fill="none" stroke="#3c6f97" stroke-width="1.3">
+                <line x1="180" x2="240" y1="74" y2="74"></line>
+                <line x1="380" x2="440" y1="74" y2="74"></line>
+                <line x1="580" x2="640" y1="74" y2="74"></line>
+                <line x1="780" x2="840" y1="74" y2="74"></line>
+              </g>
+              <rect fill="#e0ebf2" height="32" rx="6" stroke="#3c6f97" width="120" x="60" y="58"></rect>
+              <text class="svg-step" text-anchor="middle" x="120" y="79">h at layer ℓ</text>
+              <rect fill="#f7f7f5" height="32" rx="6" stroke="#b8b8b1" stroke-dasharray="4 3" width="140" x="240" y="58"></rect>
+              <text class="svg-sub" text-anchor="middle" x="310" y="79">identity  (J = I)</text>
+              <rect fill="#f7f7f5" height="32" rx="6" stroke="#deded9" width="140" x="440" y="58"></rect>
+              <text class="svg-sub" text-anchor="middle" x="510" y="79">norm</text>
+              <rect fill="#f7f7f5" height="32" rx="6" stroke="#deded9" width="140" x="640" y="58"></rect>
+              <text class="svg-sub" text-anchor="middle" x="710" y="79">W_U · softmax</text>
+              <text class="svg-note" x="840" y="72">Works near the output.</text>
+              <text class="svg-note" x="840" y="90">Noisy in the middle.</text>
+
+              <text class="svg-lane" x="30" y="146">TUNED LENS</text>
+              <line stroke="#deded9" x1="30" x2="1080" y1="156" y2="156"></line>
+              <g fill="none" stroke="#3c6f97" stroke-width="1.3">
+                <line x1="180" x2="240" y1="190" y2="190"></line>
+                <line x1="380" x2="440" y1="190" y2="190"></line>
+                <line x1="580" x2="640" y1="190" y2="190"></line>
+                <line x1="780" x2="840" y1="190" y2="190"></line>
+              </g>
+              <rect fill="#e0ebf2" height="32" rx="6" stroke="#3c6f97" width="120" x="60" y="174"></rect>
+              <text class="svg-step" text-anchor="middle" x="120" y="195">h at layer ℓ</text>
+              <rect fill="#f3dfdc" height="32" rx="6" stroke="#ad4b43" stroke-width="1.6" width="140" x="240" y="174"></rect>
+              <text class="svg-sub" text-anchor="middle" x="310" y="195">A_ℓ  (trained)</text>
+              <rect fill="#f7f7f5" height="32" rx="6" stroke="#deded9" width="140" x="440" y="174"></rect>
+              <text class="svg-sub" text-anchor="middle" x="510" y="195">norm</text>
+              <rect fill="#f7f7f5" height="32" rx="6" stroke="#deded9" width="140" x="640" y="174"></rect>
+              <text class="svg-sub" text-anchor="middle" x="710" y="195">W_U · softmax</text>
+              <text class="svg-note" x="840" y="188">Trained to match the output —</text>
+              <text class="svg-note" x="840" y="206">so it skips ahead to the answer.</text>
+
+              <text class="svg-lane" x="30" y="262">JACOBIAN LENS</text>
+              <line stroke="#deded9" x1="30" x2="1080" y1="272" y2="272"></line>
+              <g fill="none" stroke="#3c6f97" stroke-width="1.3">
+                <line x1="180" x2="240" y1="306" y2="306"></line>
+                <line x1="380" x2="440" y1="306" y2="306"></line>
+                <line x1="580" x2="640" y1="306" y2="306"></line>
+                <line x1="780" x2="840" y1="306" y2="306"></line>
+              </g>
+              <rect fill="#e0ebf2" height="32" rx="6" stroke="#3c6f97" width="120" x="60" y="290"></rect>
+              <text class="svg-step" text-anchor="middle" x="120" y="311">h at layer ℓ</text>
+              <rect fill="#f7e3c8" height="32" rx="6" stroke="#d98226" stroke-width="1.8" width="140" x="240" y="290"></rect>
+              <text class="svg-sub" text-anchor="middle" x="310" y="311">J_ℓ  (measured)</text>
+              <rect fill="#f7f7f5" height="32" rx="6" stroke="#deded9" width="140" x="440" y="290"></rect>
+              <text class="svg-sub" text-anchor="middle" x="510" y="311">norm</text>
+              <rect fill="#f7f7f5" height="32" rx="6" stroke="#deded9" width="140" x="640" y="290"></rect>
+              <text class="svg-sub" text-anchor="middle" x="710" y="311">W_U · softmax</text>
+              <text class="svg-note" x="840" y="304">Averaged causal effect —</text>
+              <text class="svg-note" x="840" y="322">what this activation would say,</text>
+              <text class="svg-note" x="840" y="340">in any context, if nudged.</text>
+
+              <line stroke="#deded9" x1="30" x2="1080" y1="358" y2="358"></line>
+              <text class="svg-note" x="30" y="376">The logit lens is the special case J = I. The tuned lens fits A_ℓ to a correlational objective. The J-lens measures a causal one and never trains anything.</text>
+            </svg>

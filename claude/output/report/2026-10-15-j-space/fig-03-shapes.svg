@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 280" role="img" aria-label="Matrix shapes showing W_U times J_l producing the J-lens vector matrix"><style>.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="280.0" fill="#ffffff"/>
+              <rect fill="#f7f7f5" height="120" rx="6" stroke="#deded9" width="150" x="60" y="60"></rect>
+              <text class="svg-step" text-anchor="middle" x="135" y="112">W_U</text>
+              <text class="svg-sub" text-anchor="middle" x="135" y="134">n_vocab × d</text>
+              <text class="svg-num" text-anchor="middle" x="135" y="200">the unembedding</text>
+
+              <text class="svg-step" x="240" y="126">×</text>
+
+              <rect fill="#f7e3c8" height="120" rx="6" stroke="#d98226" stroke-width="1.8" width="120" x="276" y="60"></rect>
+              <text class="svg-step" text-anchor="middle" x="336" y="112">J_ℓ</text>
+              <text class="svg-sub" text-anchor="middle" x="336" y="134">d × d</text>
+              <text class="svg-num" text-anchor="middle" x="336" y="200">the averaged Jacobian</text>
+
+              <text class="svg-step" x="424" y="126">=</text>
+
+              <rect fill="#e0ebf2" height="120" rx="6" stroke="#3c6f97" stroke-width="1.8" width="150" x="466" y="60"></rect>
+              <text class="svg-step" text-anchor="middle" x="541" y="106">W_U J_ℓ</text>
+              <text class="svg-sub" text-anchor="middle" x="541" y="128">n_vocab × d</text>
+              <line stroke="#3c6f97" stroke-width="2.4" x1="466" x2="616" y1="148" y2="148"></line>
+              <text class="svg-num" text-anchor="middle" x="541" y="200">one row per token</text>
+
+              <g fill="none" stroke="#3c6f97" stroke-width="1.3">
+                <line x1="616" x2="700" y1="148" y2="148"></line>
+                <path d="M700 148 l-8 -4 M700 148 l-8 4"></path>
+              </g>
+              <rect fill="#e0ebf2" height="32" rx="6" stroke="#3c6f97" stroke-width="1.8" width="230" x="704" y="132"></rect>
+              <text class="svg-sub" text-anchor="middle" x="819" y="153">v_t — the J-lens vector for token t</text>
+
+              <line stroke="#deded9" x1="60" x2="940" y1="228" y2="228"></line>
+              <text class="svg-note" x="60" y="250">Read a row as: "the residual-stream direction whose first-order causal effect, averaged over contexts, is to raise the logit of token t."</text>
+              <text class="svg-note" x="60" y="270">Because n_vocab &gt; d, these directions cannot be orthogonal — which is exactly why identifying which are active needs sparse decomposition rather than a projection.</text>
+            </svg>

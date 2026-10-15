@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 260" role="img" aria-label="Decomposition of an activation into a small J-space component and a large remainder"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }</style><rect x="0.0" y="0.0" width="1000.0" height="260.0" fill="#ffffff"/>
+              <text class="svg-lane" x="30" y="30">ONE CONCEPT VECTOR, DECOMPOSED</text>
+              <line stroke="#deded9" x1="30" x2="970" y1="40" y2="40"></line>
+
+              <rect fill="#f7f7f5" height="40" rx="6" stroke="#deded9" width="880" x="40" y="62"></rect>
+              <rect fill="#f7e3c8" height="40" rx="6" stroke="#d98226" stroke-width="1.8" width="62" x="40" y="62"></rect>
+              <text class="svg-sub" text-anchor="middle" x="71" y="87">6–7%</text>
+              <text class="svg-sub" text-anchor="middle" x="500" y="87">the remaining ~93% — outside the J-space</text>
+
+              <text class="svg-num" x="40" y="126">J-space component</text>
+              <text class="svg-sub" x="40" y="146">a sparse nonnegative combination of ≤25 J-lens vectors</text>
+
+              <line stroke="#deded9" x1="40" x2="970" y1="170" y2="170"></line>
+              <text class="svg-lane" x="40" y="196">WHEN USED ALONE TO SWAP AN IMPLANTED CONCEPT</text>
+
+              <rect fill="#dfede5" height="30" rx="6" stroke="#367f59" stroke-width="1.6" width="360" x="40" y="210"></rect>
+              <text class="svg-sub" text-anchor="middle" x="220" y="230">J-space component — succeeds on 88% of trials</text>
+
+              <rect fill="#f3dfdc" height="30" rx="6" stroke="#ad4b43" stroke-width="1.6" width="60" x="430" y="210"></rect>
+              <text class="svg-sub" x="520" y="230">non-J-space component — 5%</text>
+            </svg>
