@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 250" role="img" aria-labelledby="speedup-chart-title"><rect x="0.0" y="0.0" width="960.0" height="250.0" fill="#ffffff"/>
+                
+                <g fill="#4f4f4b" font-size="12">
+                  <text text-anchor="end" x="196" y="52">Forward · MXFP8</text>
+                  <text text-anchor="end" x="196" y="98">Forward · BF16</text>
+                  <text text-anchor="end" x="196" y="144">Backward · MXFP8</text>
+                  <text text-anchor="end" x="196" y="190">Backward · BF16</text>
+                </g>
+                
+                <g stroke="#deded9" stroke-width="1">
+                  <line x1="210" x2="210" y1="24" y2="206"></line>
+                  <line x1="490" x2="490" y1="24" y2="206"></line>
+                  <line x1="770" x2="770" y1="24" y2="206"></line>
+                </g>
+                <g fill="#777772" font-size="10.5">
+                  <text text-anchor="middle" x="210" y="222">0×</text>
+                  <text text-anchor="middle" x="490" y="222">1×</text>
+                  <text text-anchor="middle" x="770" y="222">2×</text>
+                </g>
+                
+                <line stroke="#b8b8b1" stroke-dasharray="5 4" stroke-width="1.5" x1="490" x2="490" y1="24" y2="206"></line>
+                <text fill="#777772" font-size="10.5" text-anchor="middle" x="490" y="16">parity with fastest baseline</text>
+                
+                <g fill="#2f74ab">
+                  <path d="M210 36 H867.6 a4 4 0 0 1 4 4 v16 a4 4 0 0 1 -4 4 H210 z" data-bar="" data-label="Forward pass · MXFP8" data-value="2.37× vs fastest public baseline"></path>
+                  <path d="M210 82 H741.6 a4 4 0 0 1 4 4 v16 a4 4 0 0 1 -4 4 H210 z" data-bar="" data-label="Forward pass · BF16" data-value="1.92× vs fastest public baseline"></path>
+                  <path d="M210 128 H702.4 a4 4 0 0 1 4 4 v16 a4 4 0 0 1 -4 4 H210 z" data-bar="" data-label="Backward pass · MXFP8" data-value="1.78× vs fastest public baseline"></path>
+                  <path d="M210 174 H646.4 a4 4 0 0 1 4 4 v16 a4 4 0 0 1 -4 4 H210 z" data-bar="" data-label="Backward pass · BF16" data-value="1.58× vs fastest public baseline"></path>
+                </g>
+                
+                <g fill="#252525" font-size="12.5" font-weight="700">
+                  <text x="880" y="52">2.37×</text>
+                  <text x="754" y="98">1.92×</text>
+                  <text x="715" y="144">1.78×</text>
+                  <text x="659" y="190">1.58×</text>
+                </g>
+              </svg>

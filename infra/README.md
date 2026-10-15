@@ -8,7 +8,7 @@ fits together across its 13 public repos.
 | Status | Published |
 | Owner | suraj |
 | Started | 2026-10-05 |
-| Last updated | 2026-10-07 |
+| Last updated | 2026-10-15 |
 
 Status is one of: Proposed, Researching, Published, Paused, Archived.
 
@@ -101,6 +101,18 @@ summary, badges and link list rest on the same READMEs and pins.
   [the phases report](output/report/2026-10-05-qq-phases.md). Verified:
   2026-10-05.
 
+### Mixture of Kittens (GPU training infrastructure)
+
+Each finding is suraj's, from his writings at `a5a356d`.
+
+- **When Cursor profiled the training runs behind Composer, the mixture-of-experts layer consumed more than half of end-to-end training time; MoK fuses all of that layer's communication and computation into a single, fully deterministic megakernel.** Source: [Mixture of Kittens](output/report/2026-10-15-mixture-of-kittens.md#the-last-bottleneck), §01. Verified: 2026-10-15.
+- **MoK pulls on forward dispatch and pushes on forward combine, and the backward pass mirrors them; pull-based dispatch delivers up to 29% higher NVLink utilization when experts are imbalanced, and Cursor measured its initiation at 18 µs against 103 µs push-based.** Source: [Mixture of Kittens](output/report/2026-10-15-mixture-of-kittens.md#push-or-pull), §03. Verified: 2026-10-15.
+- **With TMA-driven loads and stores, less than a third of the 148 SMs can saturate NVLink bandwidth, so MoK splits the chip into communication SMs and computation SMs that run simultaneously and hand off minibatch by minibatch.** Source: [Mixture of Kittens](output/report/2026-10-15-mixture-of-kittens.md#splitting-the-chip), §05. Verified: 2026-10-15.
+- **Incoming tokens land in a fixed-size ring buffer of a few hundred megabytes, so MoK drops no tokens, keeps memory bounded and never asks the slow Grace CPUs to size buffers; the ring buffer is the piece that makes the megakernel viable at all.** Source: [Mixture of Kittens](output/report/2026-10-15-mixture-of-kittens.md#ring-token-buffers), §06. Verified: 2026-10-15.
+- **MoK's open-source release is a working production artifact under Apache-2.0 that requires Blackwell SM100/SM103 hardware (GB200/GB300 NVL72), CUDA 13.0+, Python 3.12+ and PyTorch 2.10+.** Source: [Mixture of Kittens](output/report/2026-10-15-mixture-of-kittens.md#the-megakernel-dividend), §07. Verified: 2026-10-15.
+- **In Cursor's benchmarks the fused MoK layer reached a peak 2.37× MXFP8 forward-pass speedup over the fastest of four public baselines on one NVL72, and the production run on 512 GPUs went from 760.9 to 1,070.2 tokens/sec/GPU, a 1.41× end-to-end gain; the gap between the two is Amdahl's law.** Source: [Mixture of Kittens](output/report/2026-10-15-mixture-of-kittens.md#the-numbers), §08. Verified: 2026-10-15.
+- **suraj reads MoK as a sign that the abstraction stack is collapsing, that determinism is becoming a feature, with bitwise-reproducible training close to a requirement for clean on-policy RL, and that the unit of optimization is now the 72-GPU rack.** Source: [Mixture of Kittens](output/report/2026-10-15-mixture-of-kittens.md#why-it-matters), §09. Verified: 2026-10-15.
+
 ### Open questions
 
 - Which repos the applied rulesets cover, and whether "Allow auto-merge" is on
@@ -130,6 +142,8 @@ summary, badges and link list rest on the same READMEs and pins.
 | report | [output/report/2026-10-06-qq-guide.md](output/report/2026-10-06-qq-guide.md) | 2026-10-06 | Snapshot of the qq guide as of 2026-10-06; the maintained version is [docs.quirq.dev/docs/qq](https://docs.quirq.dev/docs/qq). |
 | slide | [output/slide/2026-10-05-qq-v0-how-to-use.pdf](output/slide/2026-10-05-qq-v0-how-to-use.pdf) | 2026-10-05 | 32-slide deck "quirq infra v0: how to use it", status refreshed, with a sources slide. |
 | slide | [output/slide/2026-10-05-qq-v0-how-to-use/](output/slide/2026-10-05-qq-v0-how-to-use/) | 2026-10-05 | The deck's source: `deck.json`, one HTML file per slide, `gen/gen.py` (phase and repo slides) and `gen/render.js` (overflow check and PDF). |
+| report | [Mixture of Kittens](output/report/2026-10-15-mixture-of-kittens.md) | 2026-10-15 | suraj's research note on Mixture-of-Kittens, Cursor's open-source MoE training megakernel for GB300 NVL72 racks, as open-sourced on 4 August 2026; with its 4 figures |
+| onepager | [Mixture of Kittens at a glance](output/onepager/2026-10-15-mixture-of-kittens-at-a-glance.md) | 2026-10-15 | The note's claim and key numbers in one page, with links into the report |
 
 The hub site (`npm run build`) publishes the app, the onepager, the reports
 and the slides PDF for this topic. To
