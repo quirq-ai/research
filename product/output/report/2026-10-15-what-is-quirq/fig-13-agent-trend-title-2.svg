@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 158" role="img" aria-label="Cost per verified outcome by quarter, US dollars: Q1 $18.4, Q2 $16.1, Q3 $13.2, Q4 $11.4, Q5 $8.9, Q6 $6.1."><style>line { opacity: 0.3; }
+.tr-grid { stroke: #deded9; stroke-width: 1; }
+.tr-tick { fill: #777772; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 9.5px; }
+.tr-area { fill: #2f6ea4; opacity: 0.1; }
+.tr-line { fill: none; stroke: #2f6ea4; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.tr-dot { fill: #2f6ea4; stroke: #ffffff; stroke-width: 2; }
+.tr-val { fill: #777772; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 10px; }
+.tr-val.is-end { fill: #252525; font-size: 12px; font-weight: 700; }
+.tr-hit { fill: transparent; cursor: default; }</style><rect x="0.0" y="0.0" width="320.0" height="158.0" fill="#ffffff"/>
+                    <line class="tr-grid" x1="40.0" x2="308.0" y1="130.0" y2="130.0"></line>
+                    <text class="tr-tick" text-anchor="end" x="35.0" y="133.2">$0</text>
+                    <line class="tr-grid" x1="40.0" x2="308.0" y1="77.0" y2="77.0"></line>
+                    <text class="tr-tick" text-anchor="end" x="35.0" y="80.2">$10</text>
+                    <line class="tr-grid" x1="40.0" x2="308.0" y1="24.0" y2="24.0"></line>
+                    <text class="tr-tick" text-anchor="end" x="35.0" y="27.2">$20</text>
+                    <path class="tr-area" d="M 46.0 32.5 L 97.6 44.7 L 149.2 60.0 L 200.8 69.6 L 252.4 82.8 L 304.0 97.7 L 304.0 130.0 L 46.0 130.0 Z"></path>
+                    <path class="tr-line" d="M 46.0 32.5 L 97.6 44.7 L 149.2 60.0 L 200.8 69.6 L 252.4 82.8 L 304.0 97.7"></path>
+                    <circle class="tr-dot" cx="46.0" cy="32.5" r="4"></circle><circle class="tr-dot is-end" cx="304.0" cy="97.7" r="4.5"></circle>
+                    <text class="tr-val" text-anchor="start" x="55.0" y="24.5">$18.4</text><text class="tr-val is-end" text-anchor="end" x="302.0" y="86.7">$6.1</text>
+                    <text class="tr-tick" text-anchor="middle" x="46.0" y="148">Q1</text>
+                    <text class="tr-tick" text-anchor="middle" x="97.6" y="148">Q2</text>
+                    <text class="tr-tick" text-anchor="middle" x="149.2" y="148">Q3</text>
+                    <text class="tr-tick" text-anchor="middle" x="200.8" y="148">Q4</text>
+                    <text class="tr-tick" text-anchor="middle" x="252.4" y="148">Q5</text>
+                    <text class="tr-tick" text-anchor="middle" x="304.0" y="148">Q6</text>
+                    <circle class="tr-hit" cx="46.0" cy="32.5" r="13"><title>Q1: $18.4</title></circle>
+                    <circle class="tr-hit" cx="97.6" cy="44.7" r="13"><title>Q2: $16.1</title></circle>
+                    <circle class="tr-hit" cx="149.2" cy="60.0" r="13"><title>Q3: $13.2</title></circle>
+                    <circle class="tr-hit" cx="200.8" cy="69.6" r="13"><title>Q4: $11.4</title></circle>
+                    <circle class="tr-hit" cx="252.4" cy="82.8" r="13"><title>Q5: $8.9</title></circle>
+                    <circle class="tr-hit" cx="304.0" cy="97.7" r="13"><title>Q6: $6.1</title></circle>
+                  </svg>

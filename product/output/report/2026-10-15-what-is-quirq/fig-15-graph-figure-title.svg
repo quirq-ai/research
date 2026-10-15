@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 404" role="img" aria-label="Business intents on the left; work drawn as a path of state changes taken by an agent or a person; an outcome space on the right divided by the declared definition of done into a region of good outcomes above and bad outcomes below. Two of the four paths land in the good region, two in the bad."><style>.os-band { fill: #252525; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 0.09em; }
+.os-sub { fill: #777772; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 10px; }
+.os-chip { fill: #252525; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; font-size: 13.5px; font-weight: 620; }
+.os-track { fill: none; stroke: #b8b8b1; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.os-step { stroke: #ffffff; stroke-width: 2; }
+.os-step.is-agent { fill: #3c6f97; }
+.os-step.is-human { fill: #d98226; }
+.os-land { stroke: #ffffff; stroke-width: 2.5; }
+.os-land.is-good { fill: #367f59; }
+.os-land.is-bad { fill: #ad4b43; }
+.os-region.is-good { fill: #dfede5; }
+.os-region.is-bad { fill: #f3dfdc; opacity: 0.75; }
+.os-boundary { fill: none; stroke: #4f4f4b; stroke-width: 1.6; }
+.os-region-name { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; font-size: 15px; font-weight: 650; }
+.os-region-name.is-good { fill: #367f59; }
+.os-region-name.is-bad { fill: #ad4b43; }
+.os-region-sub { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 10px; }
+.os-region-sub.is-good { fill: #4a8b6b; }
+.os-region-sub.is-bad { fill: #b0665f; }
+.os-note { fill: #777772; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 9.5px; font-weight: 700; letter-spacing: 0.07em; }
+.os-key { fill: #777772; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 10px; }</style><rect x="0.0" y="0.0" width="1000.0" height="404.0" fill="#ffffff"/>
+                  <text class="os-band" x="20" y="26">01 · BUSINESS INTENT</text>
+                  <text class="os-sub" x="20" y="44">what somebody wants to be true</text>
+                  <text class="os-band" x="262" y="26">02 · WORK</text>
+                  <text class="os-sub" x="262" y="44">state changes, taken by a person or an agent</text>
+                  <text class="os-band" x="670" y="26">03 · OUTCOME SPACE</text>
+                  <text class="os-sub" x="670" y="44">where the work actually landed</text>
+
+                  <rect fill="#ffffff" height="300" rx="6" stroke="#b8b8b1" width="310" x="670" y="60"></rect>
+                  <path class="os-region is-good" d="M 670 60 L 980 60 L 980 168 C 922 150, 878 204, 820 190 C 762 176, 720 215, 670 196 Z"></path>
+                  <path class="os-region is-bad" d="M 670 196 C 720 215, 762 176, 820 190 C 878 204, 922 150, 980 168 L 980 360 L 670 360 Z"></path>
+                  <path class="os-boundary" d="M 670 196 C 720 215, 762 176, 820 190 C 878 204, 922 150, 980 168"></path>
+
+                  <text class="os-region-name is-good" text-anchor="end" x="958" y="98">Good outcomes</text>
+                  <text class="os-region-sub is-good" text-anchor="end" x="958" y="117">the declared checks pass</text>
+                  <text class="os-region-name is-bad" x="692" y="312">Bad outcomes</text>
+                  <text class="os-region-sub is-bad" x="692" y="331">they do not, near misses included</text>
+
+                  <rect fill="#ffffff" height="46" rx="5" stroke="#b8b8b1" width="210" x="20" y="60"></rect>
+                  <text class="os-chip" x="36" y="88">Resolve ticket #4821</text>
+                  <circle cx="230" cy="83" fill="#777772" r="3.5"></circle>
+                  <rect fill="#ffffff" height="46" rx="5" stroke="#b8b8b1" width="210" x="20" y="118"></rect>
+                  <text class="os-chip" x="36" y="146">Review the vendor MSA</text>
+                  <circle cx="230" cy="141" fill="#777772" r="3.5"></circle>
+                  <rect fill="#ffffff" height="46" rx="5" stroke="#b8b8b1" width="210" x="20" y="176"></rect>
+                  <text class="os-chip" x="36" y="204">Refresh the Q3 model</text>
+                  <circle cx="230" cy="199" fill="#777772" r="3.5"></circle>
+                  <rect fill="#ffffff" height="46" rx="5" stroke="#b8b8b1" width="210" x="20" y="234"></rect>
+                  <text class="os-chip" x="36" y="262">Fix the flaky test</text>
+                  <circle cx="230" cy="257" fill="#777772" r="3.5"></circle>
+
+                  <path class="os-track" d="M 230 83 L 300 76 L 372 94 L 444 80 L 516 88 L 712 118"></path>
+                  <path class="os-track" d="M 230 141 L 300 150 L 372 132 L 444 142 L 516 132 L 776 148"></path>
+                  <path class="os-track" d="M 230 199 L 300 208 L 372 224 L 444 210 L 516 222 L 726 232"></path>
+                  <path class="os-track" d="M 230 257 L 300 264 L 372 250 L 444 272 L 516 282 L 896 292"></path>
+
+                  <circle class="os-step is-agent" cx="300" cy="76" r="5"></circle>
+                  <circle class="os-step is-agent" cx="372" cy="94" r="5"></circle>
+                  <circle class="os-step is-agent" cx="444" cy="80" r="5"></circle>
+                  <circle class="os-step is-agent" cx="516" cy="88" r="5"></circle>
+                  <circle class="os-land is-good" cx="712" cy="118" r="6.5"></circle>
+                  <circle class="os-step is-agent" cx="300" cy="150" r="5"></circle>
+                  <circle class="os-step is-agent" cx="372" cy="132" r="5"></circle>
+                  <rect class="os-step is-human" height="9" rx="1.5" width="9" x="439" y="137"></rect>
+                  <circle class="os-step is-agent" cx="516" cy="132" r="5"></circle>
+                  <circle class="os-land is-good" cx="776" cy="148" r="6.5"></circle>
+                  <circle class="os-step is-agent" cx="300" cy="208" r="5"></circle>
+                  <rect class="os-step is-human" height="9" rx="1.5" width="9" x="367" y="219"></rect>
+                  <circle class="os-step is-agent" cx="444" cy="210" r="5"></circle>
+                  <circle class="os-step is-agent" cx="516" cy="222" r="5"></circle>
+                  <circle class="os-land is-bad" cx="726" cy="232" r="6.5"></circle>
+                  <circle class="os-step is-agent" cx="300" cy="264" r="5"></circle>
+                  <circle class="os-step is-agent" cx="372" cy="250" r="5"></circle>
+                  <circle class="os-step is-agent" cx="444" cy="272" r="5"></circle>
+                  <circle class="os-step is-agent" cx="516" cy="282" r="5"></circle>
+                  <circle class="os-land is-bad" cx="896" cy="292" r="6.5"></circle>
+
+                  <text class="os-note" x="670" y="384">THE CURVE IS THE DEFINITION OF DONE, SET FIRST</text>
+                  <g class="os-legend">
+                    <circle class="os-step is-agent" cx="266" cy="368" r="5"></circle>
+                    <text class="os-key" x="278" y="372">agent step</text>
+                    <rect class="os-step is-human" height="9" rx="1.5" width="9" x="360" y="363.5"></rect>
+                    <text class="os-key" x="378" y="372">human step</text>
+                    <circle class="os-land is-good" cx="470" cy="368" r="6"></circle>
+                    <text class="os-key" x="483" y="372">where it landed</text>
+                  </g>
+                </svg>

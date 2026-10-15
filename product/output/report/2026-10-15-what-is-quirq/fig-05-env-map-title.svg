@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-label="A dashed boundary drawn around runtime, agent harness, skills and outputs, labelled the environment; outside the boundary sit unobserved items that cannot be credited."><style>.env-map-eyebrow { fill: #777772; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.11em; }
+.env-map-eyebrow.accent { fill: #94500d; }
+.env-map-name { fill: #252525; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; font-size: 14.5px; font-weight: 650; }
+.env-map-name.out { fill: #367f59; }
+.env-map-sub { fill: #777772; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 10.5px; }
+.env-map-sub.out { fill: #367f59; }
+.env-map-sub.accent { fill: #94500d; }
+.env-map-muted { fill: #777772; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; font-size: 13.5px; }
+.env-map-join { fill: #777772; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; font-size: 17px; font-weight: 600; }</style><rect x="0.0" y="0.0" width="900.0" height="440.0" fill="#ffffff"/>
+                            <text class="env-map-eyebrow" x="16" y="30">THE WORLD · EVERYTHING THAT ACTUALLY HAPPENS</text>
+                            <rect fill="#fbfbf9" height="376" rx="12" stroke="#deded9" stroke-dasharray="3 4" width="872" x="14" y="42"></rect>
+
+                            <rect fill="#ffffff" height="316" rx="10" stroke="#d98226" stroke-dasharray="7 5" stroke-width="1.75" width="470" x="42" y="70"></rect>
+                            <text class="env-map-eyebrow accent" x="60" y="96">THE ENVIRONMENT · WHAT YOU DECIDED TO OBSERVE</text>
+
+                            <rect fill="#f7f7f5" height="46" rx="4" stroke="#b8b8b1" width="422" x="66" y="110"></rect>
+                            <text class="env-map-name" x="82" y="131">Runtime</text>
+                            <text class="env-map-sub" x="82" y="147">wherever the work can act and be snapshotted</text>
+
+                            <text class="env-map-join" x="277" y="174">+</text>
+
+                            <rect fill="#f7f7f5" height="46" rx="4" stroke="#b8b8b1" width="422" x="66" y="180"></rect>
+                            <text class="env-map-name" x="82" y="201">Agent harness</text>
+                            <text class="env-map-sub" x="82" y="217">the loop that acts, retries, and gets metered</text>
+
+                            <text class="env-map-join" x="277" y="244">+</text>
+
+                            <rect fill="#f7f7f5" height="46" rx="4" stroke="#b8b8b1" width="422" x="66" y="250"></rect>
+                            <text class="env-map-name" x="82" y="271">Skills, prompts, memory, tools</text>
+                            <text class="env-map-sub" x="82" y="287">the authored layer that carries intent forward</text>
+
+                            <text class="env-map-join" x="277" y="314">↓</text>
+                            <text class="env-map-sub" x="292" y="314">produce</text>
+
+                            <rect fill="#dfede5" height="46" rx="4" stroke="#367f59" width="422" x="66" y="320"></rect>
+                            <text class="env-map-name out" x="82" y="341">Outputs · outcomes, artifacts, work done</text>
+                            <text class="env-map-sub out" x="82" y="357">the captured after-state — the only scoreable layer</text>
+
+                            <text class="env-map-eyebrow" x="540" y="96">OUTSIDE THE LINE</text>
+                            <g fill="none" stroke="#b8b8b1" stroke-dasharray="4 4">
+                              <rect height="46" rx="4" width="330" x="540" y="110"></rect>
+                              <rect height="46" rx="4" width="330" x="540" y="180"></rect>
+                              <rect height="46" rx="4" width="330" x="540" y="250"></rect>
+                            </g>
+                            <text class="env-map-muted" x="558" y="138">A decision taken in a meeting</text>
+                            <text class="env-map-muted" x="558" y="208">A vendor system you cannot reach</text>
+                            <text class="env-map-muted" x="558" y="278">A spreadsheet on one laptop</text>
+                            <text class="env-map-sub" x="540" y="326">Real work. No reading. Nothing to credit.</text>
+
+                            <text class="env-map-sub accent" x="42" y="406">↔  Move this line and what counts changes. Nothing else about the work has to.</text>
+                          </svg>
