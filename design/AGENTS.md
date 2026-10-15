@@ -40,4 +40,11 @@ and run `npm run topics` at the repo root.
 
 ## Topic-specific notes
 
-_None yet._
+- The JSON vs TOML video in `output/app/json-vs-toml-video/` is built from its
+  `source/`: change the page there, render stills with `render.mjs beats` and
+  look at them before rendering the full video, then copy the MP4 into `site/`.
+- Every verdict in the video comes from `source/measure/results.json`; never
+  edit a number in `source/data.js` by hand.
+- Prompt Motion counts in the motion report come from `scrape.py` and
+  `stats.py` beside the report; the gallery grows, so re-running them gives new
+  numbers that need a new dated report.

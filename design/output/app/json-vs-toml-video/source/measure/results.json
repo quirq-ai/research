@@ -1,0 +1,2320 @@
+{
+ "about": "exact video snippets through the What the Parser Hears harness (JSON + TOML parsers only)",
+ "harness": "what-the-parser-hears/_compute.py in sharmasuraj0123/writings at a5a356d",
+ "measured_utc": "2026-10-14T21:50:31Z",
+ "versions": {
+  "py:json": "stdlib (Python 3.14.4)",
+  "py:json5": "0.15.0",
+  "py:tomllib": "stdlib (Python 3.14.4)",
+  "py:tomli": "2.5.0",
+  "py:tomlkit": "0.15.1",
+  "py315:tomllib": "stdlib (Python 3.15.0rc1, release candidate)",
+  "jq": "jq-1.8.1",
+  "js:JSON.parse": "node v24.21.0 (V8 13.6.233.17-node.53)",
+  "js:json5": "2.2.3",
+  "js:jsonc-parser": "3.3.1",
+  "js:smol-toml": "1.9.0",
+  "js:@iarna/toml": "2.2.5",
+  "rs:serde_json": "1.0.151",
+  "rs:toml": "1.1.7+spec-1.1.0",
+  "rs:toml_edit": "0.25.16+spec-1.1.0",
+  "rs:serde_json[arbitrary_precision]": "1.0.151 +arbitrary_precision",
+  "go:BurntSushi/toml": "v1.6.0",
+  "go:encoding/json": "go1.27.2",
+  "go:encoding/json/v2": "go1.27.2",
+  "go:go-toml/v2": "v2.4.3"
+ },
+ "skipped": {},
+ "cases": [
+  {
+   "id": "v_base_json",
+   "format": "json",
+   "scene": "base",
+   "input": "{\n  \"title\": \"app\",\n  \"server\": {\n    \"host\": \"0.0.0.0\",\n    \"port\": 8080\n  }\n}\n",
+   "heard": [
+    {
+     "heard": "{\"server\":{\"host\":\"0.0.0.0\",\"port\":8080},\"title\":\"app\"}",
+     "parsers": [
+      "go:encoding/json",
+      "go:encoding/json/v2",
+      "jq",
+      "js:JSON.parse",
+      "js:json5",
+      "js:jsonc-parser",
+      "py:json",
+      "py:json5",
+      "rs:serde_json",
+      "rs:serde_json[arbitrary_precision]"
+     ]
+    }
+   ],
+   "raw": {
+    "go:encoding/json": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "float64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "go:encoding/json/v2": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "float64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "jq": {
+     "ok": true,
+     "type": "jq output text",
+     "output": "{\"title\":\"app\",\"server\":{\"host\":\"0.0.0.0\",\"port\":8080}}",
+     "value": {
+      "title": "jq-string:\"app\"",
+      "server": {
+       "host": "jq-string:\"0.0.0.0\"",
+       "port": "jq-number:8080"
+      }
+     }
+    },
+    "js:JSON.parse": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "js:json5": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "js:jsonc-parser": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "py:json": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:json5": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "rs:serde_json": {
+     "ok": true,
+     "type": "serde_json::Value::Object",
+     "value": {
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Number(i64):8080"
+      },
+      "title": "String:\"app\""
+     }
+    },
+    "rs:serde_json[arbitrary_precision]": {
+     "ok": true,
+     "type": "serde_json::Value::Object",
+     "value": {
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Number(arbitrary_precision):8080"
+      },
+      "title": "String:\"app\""
+     }
+    }
+   }
+  },
+  {
+   "id": "v_base_toml",
+   "format": "toml",
+   "scene": "base",
+   "input": "title = \"app\"\n\n[server]\nhost = \"0.0.0.0\"\nport = 8080\n",
+   "heard": [
+    {
+     "heard": "{\"server\":{\"host\":\"0.0.0.0\",\"port\":8080},\"title\":\"app\"}",
+     "parsers": [
+      "go:BurntSushi/toml",
+      "go:go-toml/v2",
+      "js:@iarna/toml",
+      "js:smol-toml",
+      "py315:tomllib",
+      "py:tomli",
+      "py:tomlkit",
+      "py:tomllib",
+      "rs:toml",
+      "rs:toml_edit"
+     ]
+    }
+   ],
+   "raw": {
+    "go:BurntSushi/toml": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "int64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "go:go-toml/v2": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "int64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "js:@iarna/toml": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "js:smol-toml": {
+     "ok": true,
+     "type": "null-prototype",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "py315:tomllib": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:tomli": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:tomlkit": {
+     "ok": true,
+     "type": "TOMLDocument",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:tomllib": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "rs:toml": {
+     "ok": true,
+     "type": "toml::Table",
+     "value": {
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Integer(i64):8080"
+      },
+      "title": "String:\"app\""
+     }
+    },
+    "rs:toml_edit": {
+     "ok": true,
+     "type": "toml_edit::DocumentMut",
+     "value": {
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Integer(i64):8080"
+      },
+      "title": "String:\"app\""
+     }
+    }
+   }
+  },
+  {
+   "id": "v_comment_json",
+   "format": "json",
+   "scene": "comment",
+   "input": "{\n  \"title\": \"app\",\n  \"server\": {\n    \"host\": \"0.0.0.0\",\n    // admin UI port\n    \"port\": 8080\n  }\n}\n",
+   "heard": [
+    {
+     "heard": "ERROR",
+     "parsers": [
+      "go:encoding/json",
+      "go:encoding/json/v2",
+      "jq",
+      "js:JSON.parse",
+      "py:json",
+      "rs:serde_json",
+      "rs:serde_json[arbitrary_precision]"
+     ]
+    },
+    {
+     "heard": "{\"server\":{\"host\":\"0.0.0.0\",\"port\":8080},\"title\":\"app\"}",
+     "parsers": [
+      "js:json5",
+      "js:jsonc-parser",
+      "py:json5"
+     ]
+    }
+   ],
+   "raw": {
+    "go:encoding/json": {
+     "error": "invalid character '/' looking for beginning of object key string",
+     "ok": false
+    },
+    "go:encoding/json/v2": {
+     "error": "jsontext: invalid character '/' at start of value within \"/server\" after offset 61",
+     "ok": false
+    },
+    "jq": {
+     "ok": false,
+     "error": "jq: parse error: Invalid numeric literal at line 5, column 7"
+    },
+    "js:JSON.parse": {
+     "ok": false,
+     "error": "SyntaxError: Expected double-quoted property name in JSON at position 61 (line 5 column 5)"
+    },
+    "js:json5": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "js:jsonc-parser": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "py:json": {
+     "ok": false,
+     "error": "JSONDecodeError: Expecting property name enclosed in double quotes: line 5 column 5 (char 61)"
+    },
+    "py:json5": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "rs:serde_json": {
+     "error": "key must be a string at line 5 column 5",
+     "ok": false
+    },
+    "rs:serde_json[arbitrary_precision]": {
+     "error": "key must be a string at line 5 column 5",
+     "ok": false
+    }
+   }
+  },
+  {
+   "id": "v_comment_toml",
+   "format": "toml",
+   "scene": "comment",
+   "input": "title = \"app\"\n\n[server]\nhost = \"0.0.0.0\"\n# admin UI port\nport = 8080\n",
+   "heard": [
+    {
+     "heard": "{\"server\":{\"host\":\"0.0.0.0\",\"port\":8080},\"title\":\"app\"}",
+     "parsers": [
+      "go:BurntSushi/toml",
+      "go:go-toml/v2",
+      "js:@iarna/toml",
+      "js:smol-toml",
+      "py315:tomllib",
+      "py:tomli",
+      "py:tomlkit",
+      "py:tomllib",
+      "rs:toml",
+      "rs:toml_edit"
+     ]
+    }
+   ],
+   "raw": {
+    "go:BurntSushi/toml": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "int64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "go:go-toml/v2": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "int64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "js:@iarna/toml": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "js:smol-toml": {
+     "ok": true,
+     "type": "null-prototype",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "py315:tomllib": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:tomli": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:tomlkit": {
+     "ok": true,
+     "type": "TOMLDocument",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:tomllib": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "rs:toml": {
+     "ok": true,
+     "type": "toml::Table",
+     "value": {
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Integer(i64):8080"
+      },
+      "title": "String:\"app\""
+     }
+    },
+    "rs:toml_edit": {
+     "ok": true,
+     "type": "toml_edit::DocumentMut",
+     "value": {
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Integer(i64):8080"
+      },
+      "title": "String:\"app\""
+     }
+    }
+   }
+  },
+  {
+   "id": "v_trailing_comma_json",
+   "format": "json",
+   "scene": "trailing_comma",
+   "input": "{\n  \"title\": \"app\",\n  \"server\": {\n    \"host\": \"0.0.0.0\",\n    \"port\": 8080,\n  }\n}\n",
+   "heard": [
+    {
+     "heard": "ERROR",
+     "parsers": [
+      "go:encoding/json",
+      "go:encoding/json/v2",
+      "jq",
+      "js:JSON.parse",
+      "js:jsonc-parser",
+      "py:json",
+      "rs:serde_json",
+      "rs:serde_json[arbitrary_precision]"
+     ]
+    },
+    {
+     "heard": "{\"server\":{\"host\":\"0.0.0.0\",\"port\":8080},\"title\":\"app\"}",
+     "parsers": [
+      "js:json5",
+      "py:json5"
+     ]
+    }
+   ],
+   "raw": {
+    "go:encoding/json": {
+     "error": "invalid character '}' looking for beginning of object key string",
+     "ok": false
+    },
+    "go:encoding/json/v2": {
+     "error": "jsontext: invalid character ',' at start of value within \"/server\" after offset 73",
+     "ok": false
+    },
+    "jq": {
+     "ok": false,
+     "error": "jq: parse error: Expected another key-value pair at line 6, column 3"
+    },
+    "js:JSON.parse": {
+     "ok": false,
+     "error": "SyntaxError: Expected double-quoted property name in JSON at position 77 (line 6 column 3)"
+    },
+    "js:json5": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "js:jsonc-parser": {
+     "ok": false,
+     "error": "ParseErrors: PropertyNameExpected@77, ValueExpected@77",
+     "value_despite_errors": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "py:json": {
+     "ok": false,
+     "error": "JSONDecodeError: Illegal trailing comma before end of object: line 5 column 17 (char 73)"
+    },
+    "py:json5": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "rs:serde_json": {
+     "error": "trailing comma at line 6 column 3",
+     "ok": false
+    },
+    "rs:serde_json[arbitrary_precision]": {
+     "error": "trailing comma at line 6 column 3",
+     "ok": false
+    }
+   }
+  },
+  {
+   "id": "v_trailing_comma_toml",
+   "format": "toml",
+   "scene": "trailing_comma",
+   "input": "title = \"app\"\n\n[server]\nhost = \"0.0.0.0\"\nport = 8080\n",
+   "heard": [
+    {
+     "heard": "{\"server\":{\"host\":\"0.0.0.0\",\"port\":8080},\"title\":\"app\"}",
+     "parsers": [
+      "go:BurntSushi/toml",
+      "go:go-toml/v2",
+      "js:@iarna/toml",
+      "js:smol-toml",
+      "py315:tomllib",
+      "py:tomli",
+      "py:tomlkit",
+      "py:tomllib",
+      "rs:toml",
+      "rs:toml_edit"
+     ]
+    }
+   ],
+   "raw": {
+    "go:BurntSushi/toml": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "int64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "go:go-toml/v2": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "int64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "js:@iarna/toml": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "js:smol-toml": {
+     "ok": true,
+     "type": "null-prototype",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "py315:tomllib": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:tomli": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:tomlkit": {
+     "ok": true,
+     "type": "TOMLDocument",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:tomllib": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "rs:toml": {
+     "ok": true,
+     "type": "toml::Table",
+     "value": {
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Integer(i64):8080"
+      },
+      "title": "String:\"app\""
+     }
+    },
+    "rs:toml_edit": {
+     "ok": true,
+     "type": "toml_edit::DocumentMut",
+     "value": {
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Integer(i64):8080"
+      },
+      "title": "String:\"app\""
+     }
+    }
+   }
+  },
+  {
+   "id": "v_duplicate_json",
+   "format": "json",
+   "scene": "duplicate",
+   "input": "{\n  \"title\": \"app\",\n  \"server\": {\n    \"host\": \"0.0.0.0\",\n    \"port\": 8080,\n    \"port\": 9090\n  }\n}\n",
+   "heard": [
+    {
+     "heard": "{\"server\":{\"host\":\"0.0.0.0\",\"port\":9090},\"title\":\"app\"}",
+     "parsers": [
+      "go:encoding/json",
+      "jq",
+      "js:JSON.parse",
+      "js:json5",
+      "js:jsonc-parser",
+      "py:json",
+      "py:json5",
+      "rs:serde_json",
+      "rs:serde_json[arbitrary_precision]"
+     ]
+    },
+    {
+     "heard": "ERROR",
+     "parsers": [
+      "go:encoding/json/v2"
+     ]
+    }
+   ],
+   "raw": {
+    "go:encoding/json": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "float64:9090"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "go:encoding/json/v2": {
+     "error": "jsontext: duplicate object member name \"port\" within \"/server\"",
+     "ok": false
+    },
+    "jq": {
+     "ok": true,
+     "type": "jq output text",
+     "output": "{\"title\":\"app\",\"server\":{\"host\":\"0.0.0.0\",\"port\":9090}}",
+     "value": {
+      "title": "jq-string:\"app\"",
+      "server": {
+       "host": "jq-string:\"0.0.0.0\"",
+       "port": "jq-number:9090"
+      }
+     }
+    },
+    "js:JSON.parse": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:9090"
+      }
+     }
+    },
+    "js:json5": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:9090"
+      }
+     }
+    },
+    "js:jsonc-parser": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:9090"
+      }
+     }
+    },
+    "py:json": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:9090"
+      }
+     }
+    },
+    "py:json5": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:9090"
+      }
+     }
+    },
+    "rs:serde_json": {
+     "ok": true,
+     "type": "serde_json::Value::Object",
+     "value": {
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Number(i64):9090"
+      },
+      "title": "String:\"app\""
+     }
+    },
+    "rs:serde_json[arbitrary_precision]": {
+     "ok": true,
+     "type": "serde_json::Value::Object",
+     "value": {
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Number(arbitrary_precision):9090"
+      },
+      "title": "String:\"app\""
+     }
+    }
+   }
+  },
+  {
+   "id": "v_duplicate_toml",
+   "format": "toml",
+   "scene": "duplicate",
+   "input": "title = \"app\"\n\n[server]\nhost = \"0.0.0.0\"\nport = 8080\nport = 9090\n",
+   "heard": [
+    {
+     "heard": "ERROR",
+     "parsers": [
+      "go:BurntSushi/toml",
+      "go:go-toml/v2",
+      "js:@iarna/toml",
+      "js:smol-toml",
+      "py315:tomllib",
+      "py:tomli",
+      "py:tomlkit",
+      "py:tomllib",
+      "rs:toml",
+      "rs:toml_edit"
+     ]
+    }
+   ],
+   "raw": {
+    "go:BurntSushi/toml": {
+     "error": "toml: line 6 (last key \"server.port\"): Key 'server.port' has already been defined.",
+     "ok": false
+    },
+    "go:go-toml/v2": {
+     "error": "toml: key port is already defined",
+     "ok": false
+    },
+    "js:@iarna/toml": {
+     "ok": false,
+     "error": "TomlError: Can't redefine existing key at row 6, col 12, pos 65:\n5: port = 8080\n6> port = 9090\n              ^\n7: \n\n"
+    },
+    "js:smol-toml": {
+     "ok": false,
+     "error": "Error: Invalid TOML document: trying to redefine an already defined table or value\n\n5:  port = 8080\n6:  port = 9090\n    ^\n"
+    },
+    "py315:tomllib": {
+     "ok": false,
+     "error": "TOMLDecodeError: Cannot overwrite a value (at line 6, column 12)"
+    },
+    "py:tomli": {
+     "ok": false,
+     "error": "TOMLDecodeError: Cannot overwrite a value (at line 6, column 12)"
+    },
+    "py:tomlkit": {
+     "ok": false,
+     "error": "KeyAlreadyPresent: Key \"port\" already exists."
+    },
+    "py:tomllib": {
+     "ok": false,
+     "error": "TOMLDecodeError: Cannot overwrite a value (at line 6, column 12)"
+    },
+    "rs:toml": {
+     "error": "TOML parse error at line 6, column 1\n  |\n6 | port = 9090\n  | ^^^^\nduplicate key\n",
+     "ok": false
+    },
+    "rs:toml_edit": {
+     "error": "TOML parse error at line 6, column 1\n  |\n6 | port = 9090\n  | ^^^^\nduplicate key\n",
+     "ok": false
+    }
+   }
+  },
+  {
+   "id": "v_big_int_json",
+   "format": "json",
+   "scene": "big_int",
+   "input": "{\n  \"title\": \"app\",\n  \"id\": 9007199254740993,\n  \"server\": {\n    \"host\": \"0.0.0.0\",\n    \"port\": 8080\n  }\n}\n",
+   "heard": [
+    {
+     "heard": "{\"id\":9007199254740993,\"server\":{\"host\":\"0.0.0.0\",\"port\":8080},\"title\":\"app\"}",
+     "parsers": [
+      "jq",
+      "py:json",
+      "py:json5",
+      "rs:serde_json",
+      "rs:serde_json[arbitrary_precision]"
+     ]
+    },
+    {
+     "heard": "{\"id\":9007199254740992,\"server\":{\"host\":\"0.0.0.0\",\"port\":8080},\"title\":\"app\"}",
+     "parsers": [
+      "go:encoding/json",
+      "go:encoding/json/v2",
+      "js:JSON.parse",
+      "js:json5",
+      "js:jsonc-parser"
+     ]
+    }
+   ],
+   "raw": {
+    "go:encoding/json": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "id": "float64:9.007199254740992e+15",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "float64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "go:encoding/json/v2": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "id": "float64:9.007199254740992e+15",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "float64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "jq": {
+     "ok": true,
+     "type": "jq output text",
+     "output": "{\"title\":\"app\",\"id\":9007199254740993,\"server\":{\"host\":\"0.0.0.0\",\"port\":8080}}",
+     "value": {
+      "title": "jq-string:\"app\"",
+      "id": "jq-number:9007199254740993",
+      "server": {
+       "host": "jq-string:\"0.0.0.0\"",
+       "port": "jq-number:8080"
+      }
+     }
+    },
+    "js:JSON.parse": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "id": "number:9007199254740992",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "js:json5": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "id": "number:9007199254740992",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "js:jsonc-parser": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "id": "number:9007199254740992",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "py:json": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "id": "int:9007199254740993",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:json5": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "id": "int:9007199254740993",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "rs:serde_json": {
+     "ok": true,
+     "type": "serde_json::Value::Object",
+     "value": {
+      "id": "Number(i64):9007199254740993",
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Number(i64):8080"
+      },
+      "title": "String:\"app\""
+     }
+    },
+    "rs:serde_json[arbitrary_precision]": {
+     "ok": true,
+     "type": "serde_json::Value::Object",
+     "value": {
+      "id": "Number(arbitrary_precision):9007199254740993",
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Number(arbitrary_precision):8080"
+      },
+      "title": "String:\"app\""
+     }
+    }
+   }
+  },
+  {
+   "id": "v_big_int_toml",
+   "format": "toml",
+   "scene": "big_int",
+   "input": "title = \"app\"\nid = 9007199254740993\n\n[server]\nhost = \"0.0.0.0\"\nport = 8080\n",
+   "heard": [
+    {
+     "heard": "{\"id\":9007199254740993,\"server\":{\"host\":\"0.0.0.0\",\"port\":8080},\"title\":\"app\"}",
+     "parsers": [
+      "go:BurntSushi/toml",
+      "go:go-toml/v2",
+      "js:@iarna/toml",
+      "py315:tomllib",
+      "py:tomli",
+      "py:tomlkit",
+      "py:tomllib",
+      "rs:toml",
+      "rs:toml_edit"
+     ]
+    },
+    {
+     "heard": "ERROR",
+     "parsers": [
+      "js:smol-toml"
+     ]
+    }
+   ],
+   "raw": {
+    "go:BurntSushi/toml": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "id": "int64:9007199254740993",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "int64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "go:go-toml/v2": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "id": "int64:9007199254740993",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "int64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "js:@iarna/toml": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "id": "bigint:9007199254740993",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "js:smol-toml": {
+     "ok": false,
+     "error": "Error: Invalid TOML document: integer value cannot be represented losslessly\n\n1:  title = \"app\"\n2:  id = 9007199254740993\n         ^\n"
+    },
+    "py315:tomllib": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "id": "int:9007199254740993",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:tomli": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "id": "int:9007199254740993",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:tomlkit": {
+     "ok": true,
+     "type": "TOMLDocument",
+     "value": {
+      "title": "str:\"app\"",
+      "id": "int:9007199254740993",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:tomllib": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "id": "int:9007199254740993",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "rs:toml": {
+     "ok": true,
+     "type": "toml::Table",
+     "value": {
+      "id": "Integer(i64):9007199254740993",
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Integer(i64):8080"
+      },
+      "title": "String:\"app\""
+     }
+    },
+    "rs:toml_edit": {
+     "ok": true,
+     "type": "toml_edit::DocumentMut",
+     "value": {
+      "id": "Integer(i64):9007199254740993",
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Integer(i64):8080"
+      },
+      "title": "String:\"app\""
+     }
+    }
+   }
+  },
+  {
+   "id": "v_date_json",
+   "format": "json",
+   "scene": "date",
+   "input": "{\n  \"title\": \"app\",\n  \"deployed\": \"2026-10-09T09:30:00Z\",\n  \"server\": {\n    \"host\": \"0.0.0.0\",\n    \"port\": 8080\n  }\n}\n",
+   "heard": [
+    {
+     "heard": "{\"deployed\":\"2026-10-09T09:30:00Z\",\"server\":{\"host\":\"0.0.0.0\",\"port\":8080},\"title\":\"app\"}",
+     "parsers": [
+      "go:encoding/json",
+      "go:encoding/json/v2",
+      "jq",
+      "js:JSON.parse",
+      "js:json5",
+      "js:jsonc-parser",
+      "py:json",
+      "py:json5",
+      "rs:serde_json",
+      "rs:serde_json[arbitrary_precision]"
+     ]
+    }
+   ],
+   "raw": {
+    "go:encoding/json": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "deployed": "string:\"2026-10-09T09:30:00Z\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "float64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "go:encoding/json/v2": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "deployed": "string:\"2026-10-09T09:30:00Z\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "float64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "jq": {
+     "ok": true,
+     "type": "jq output text",
+     "output": "{\"title\":\"app\",\"deployed\":\"2026-10-09T09:30:00Z\",\"server\":{\"host\":\"0.0.0.0\",\"port\":8080}}",
+     "value": {
+      "title": "jq-string:\"app\"",
+      "deployed": "jq-string:\"2026-10-09T09:30:00Z\"",
+      "server": {
+       "host": "jq-string:\"0.0.0.0\"",
+       "port": "jq-number:8080"
+      }
+     }
+    },
+    "js:JSON.parse": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "deployed": "string:\"2026-10-09T09:30:00Z\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "js:json5": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "deployed": "string:\"2026-10-09T09:30:00Z\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "js:jsonc-parser": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "deployed": "string:\"2026-10-09T09:30:00Z\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "py:json": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "deployed": "str:\"2026-10-09T09:30:00Z\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:json5": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "deployed": "str:\"2026-10-09T09:30:00Z\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "rs:serde_json": {
+     "ok": true,
+     "type": "serde_json::Value::Object",
+     "value": {
+      "deployed": "String:\"2026-10-09T09:30:00Z\"",
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Number(i64):8080"
+      },
+      "title": "String:\"app\""
+     }
+    },
+    "rs:serde_json[arbitrary_precision]": {
+     "ok": true,
+     "type": "serde_json::Value::Object",
+     "value": {
+      "deployed": "String:\"2026-10-09T09:30:00Z\"",
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Number(arbitrary_precision):8080"
+      },
+      "title": "String:\"app\""
+     }
+    }
+   }
+  },
+  {
+   "id": "v_date_toml",
+   "format": "toml",
+   "scene": "date",
+   "input": "title = \"app\"\ndeployed = 2026-10-09T09:30:00Z\n\n[server]\nhost = \"0.0.0.0\"\nport = 8080\n",
+   "heard": [
+    {
+     "heard": "{\"deployed\":<datetime 2026-10-09T09:30:00+00:00>,\"server\":{\"host\":\"0.0.0.0\",\"port\":8080},\"title\":\"app\"}",
+     "parsers": [
+      "py315:tomllib",
+      "py:tomli",
+      "py:tomlkit",
+      "py:tomllib"
+     ]
+    },
+    {
+     "heard": "{\"deployed\":<Datetime(offset-datetime) 2026-10-09T09:30:00Z>,\"server\":{\"host\":\"0.0.0.0\",\"port\":8080},\"title\":\"app\"}",
+     "parsers": [
+      "rs:toml",
+      "rs:toml_edit"
+     ]
+    },
+    {
+     "heard": "{\"deployed\":<time.Time 2026-10-09T09:30:00Z (loc=UTC)>,\"server\":{\"host\":\"0.0.0.0\",\"port\":8080},\"title\":\"app\"}",
+     "parsers": [
+      "go:BurntSushi/toml",
+      "go:go-toml/v2"
+     ]
+    },
+    {
+     "heard": "{\"deployed\":<TomlDate 2026-10-09T09:30:00.000Z>,\"server\":{\"host\":\"0.0.0.0\",\"port\":8080},\"title\":\"app\"}",
+     "parsers": [
+      "js:smol-toml"
+     ]
+    },
+    {
+     "heard": "{\"deployed\":<Date 2026-10-09T09:30:00.000Z>,\"server\":{\"host\":\"0.0.0.0\",\"port\":8080},\"title\":\"app\"}",
+     "parsers": [
+      "js:@iarna/toml"
+     ]
+    }
+   ],
+   "raw": {
+    "go:BurntSushi/toml": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "deployed": "time.Time:2026-10-09T09:30:00Z (loc=UTC)",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "int64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "go:go-toml/v2": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "deployed": "time.Time:2026-10-09T09:30:00Z (loc=UTC)",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "int64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "js:@iarna/toml": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "deployed": "Date:2026-10-09T09:30:00.000Z",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "js:smol-toml": {
+     "ok": true,
+     "type": "null-prototype",
+     "value": {
+      "title": "string:\"app\"",
+      "deployed": "TomlDate:2026-10-09T09:30:00.000Z",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "py315:tomllib": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "deployed": "datetime:2026-10-09T09:30:00+00:00",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:tomli": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "deployed": "datetime:2026-10-09T09:30:00+00:00",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:tomlkit": {
+     "ok": true,
+     "type": "TOMLDocument",
+     "value": {
+      "title": "str:\"app\"",
+      "deployed": "datetime:2026-10-09T09:30:00+00:00",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:tomllib": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "deployed": "datetime:2026-10-09T09:30:00+00:00",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "rs:toml": {
+     "ok": true,
+     "type": "toml::Table",
+     "value": {
+      "deployed": "Datetime(offset-datetime):2026-10-09T09:30:00Z",
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Integer(i64):8080"
+      },
+      "title": "String:\"app\""
+     }
+    },
+    "rs:toml_edit": {
+     "ok": true,
+     "type": "toml_edit::DocumentMut",
+     "value": {
+      "deployed": "Datetime(offset-datetime):2026-10-09T09:30:00Z",
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Integer(i64):8080"
+      },
+      "title": "String:\"app\""
+     }
+    }
+   }
+  },
+  {
+   "id": "v_null_json",
+   "format": "json",
+   "scene": "null",
+   "input": "{\n  \"title\": \"app\",\n  \"proxy\": null,\n  \"server\": {\n    \"host\": \"0.0.0.0\",\n    \"port\": 8080\n  }\n}\n",
+   "heard": [
+    {
+     "heard": "{\"proxy\":null,\"server\":{\"host\":\"0.0.0.0\",\"port\":8080},\"title\":\"app\"}",
+     "parsers": [
+      "go:encoding/json",
+      "go:encoding/json/v2",
+      "jq",
+      "js:JSON.parse",
+      "js:json5",
+      "js:jsonc-parser",
+      "py:json",
+      "py:json5",
+      "rs:serde_json",
+      "rs:serde_json[arbitrary_precision]"
+     ]
+    }
+   ],
+   "raw": {
+    "go:encoding/json": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "proxy": "nil:null",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "float64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "go:encoding/json/v2": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "proxy": "nil:null",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "float64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "jq": {
+     "ok": true,
+     "type": "jq output text",
+     "output": "{\"title\":\"app\",\"proxy\":null,\"server\":{\"host\":\"0.0.0.0\",\"port\":8080}}",
+     "value": {
+      "title": "jq-string:\"app\"",
+      "proxy": "jq-null:null",
+      "server": {
+       "host": "jq-string:\"0.0.0.0\"",
+       "port": "jq-number:8080"
+      }
+     }
+    },
+    "js:JSON.parse": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "proxy": "null:null",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "js:json5": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "proxy": "null:null",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "js:jsonc-parser": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "proxy": "null:null",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "py:json": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "proxy": "NoneType:None",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:json5": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "proxy": "NoneType:None",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "rs:serde_json": {
+     "ok": true,
+     "type": "serde_json::Value::Object",
+     "value": {
+      "proxy": "Null:null",
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Number(i64):8080"
+      },
+      "title": "String:\"app\""
+     }
+    },
+    "rs:serde_json[arbitrary_precision]": {
+     "ok": true,
+     "type": "serde_json::Value::Object",
+     "value": {
+      "proxy": "Null:null",
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Number(arbitrary_precision):8080"
+      },
+      "title": "String:\"app\""
+     }
+    }
+   }
+  },
+  {
+   "id": "v_null_toml",
+   "format": "toml",
+   "scene": "null",
+   "input": "title = \"app\"\nproxy =\n\n[server]\nhost = \"0.0.0.0\"\nport = 8080\n",
+   "heard": [
+    {
+     "heard": "ERROR",
+     "parsers": [
+      "go:BurntSushi/toml",
+      "go:go-toml/v2",
+      "js:@iarna/toml",
+      "js:smol-toml",
+      "py315:tomllib",
+      "py:tomli",
+      "py:tomlkit",
+      "py:tomllib",
+      "rs:toml",
+      "rs:toml_edit"
+     ]
+    }
+   ],
+   "raw": {
+    "go:BurntSushi/toml": {
+     "error": "toml: line 2 (last key \"proxy\"): expected value but found '\\n' instead",
+     "ok": false
+    },
+    "go:go-toml/v2": {
+     "error": "toml: unexpected character U+000A at start of value",
+     "ok": false
+    },
+    "js:@iarna/toml": {
+     "ok": false,
+     "error": "TomlError: Unexpected character, expecting string, number, datetime, boolean, inline array or inline table at row 2, col 8, pos 22:\n1: title = \"app\"\n2> proxy =\n          ^\n3: \n\n"
+    },
+    "js:smol-toml": {
+     "ok": false,
+     "error": "Error: Invalid TOML document: invalid value\n\n1:  title = \"app\"\n2:  proxy =\n           ^\n"
+    },
+    "py315:tomllib": {
+     "ok": false,
+     "error": "TOMLDecodeError: Invalid value (at line 2, column 8)"
+    },
+    "py:tomli": {
+     "ok": false,
+     "error": "TOMLDecodeError: Invalid value (at line 2, column 8)"
+    },
+    "py:tomlkit": {
+     "ok": false,
+     "error": "UnexpectedCharError: Unexpected character: '\\n' at line 2 col 7"
+    },
+    "py:tomllib": {
+     "ok": false,
+     "error": "TOMLDecodeError: Invalid value (at line 2, column 8)"
+    },
+    "rs:toml": {
+     "error": "TOML parse error at line 2, column 8\n  |\n2 | proxy =\n  |        ^\nstring values must be quoted, expected literal string\n",
+     "ok": false
+    },
+    "rs:toml_edit": {
+     "error": "TOML parse error at line 2, column 8\n  |\n2 | proxy =\n  |        ^\nstring values must be quoted, expected literal string\n",
+     "ok": false
+    }
+   }
+  },
+  {
+   "id": "v_scope_json",
+   "format": "json",
+   "scene": "scope",
+   "input": "{\n  \"title\": \"app\",\n  \"server\": {\n    \"host\": \"0.0.0.0\",\n    \"port\": 8080\n  },\n  \"debug\": true\n}\n",
+   "heard": [
+    {
+     "heard": "{\"debug\":true,\"server\":{\"host\":\"0.0.0.0\",\"port\":8080},\"title\":\"app\"}",
+     "parsers": [
+      "go:encoding/json",
+      "go:encoding/json/v2",
+      "jq",
+      "js:JSON.parse",
+      "js:json5",
+      "js:jsonc-parser",
+      "py:json",
+      "py:json5",
+      "rs:serde_json",
+      "rs:serde_json[arbitrary_precision]"
+     ]
+    }
+   ],
+   "raw": {
+    "go:encoding/json": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "debug": "bool:true",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "float64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "go:encoding/json/v2": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "debug": "bool:true",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "float64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "jq": {
+     "ok": true,
+     "type": "jq output text",
+     "output": "{\"title\":\"app\",\"server\":{\"host\":\"0.0.0.0\",\"port\":8080},\"debug\":true}",
+     "value": {
+      "title": "jq-string:\"app\"",
+      "server": {
+       "host": "jq-string:\"0.0.0.0\"",
+       "port": "jq-number:8080"
+      },
+      "debug": "jq-boolean:true"
+     }
+    },
+    "js:JSON.parse": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      },
+      "debug": "boolean:true"
+     }
+    },
+    "js:json5": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      },
+      "debug": "boolean:true"
+     }
+    },
+    "js:jsonc-parser": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      },
+      "debug": "boolean:true"
+     }
+    },
+    "py:json": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      },
+      "debug": "bool:True"
+     }
+    },
+    "py:json5": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      },
+      "debug": "bool:True"
+     }
+    },
+    "rs:serde_json": {
+     "ok": true,
+     "type": "serde_json::Value::Object",
+     "value": {
+      "debug": "Bool:true",
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Number(i64):8080"
+      },
+      "title": "String:\"app\""
+     }
+    },
+    "rs:serde_json[arbitrary_precision]": {
+     "ok": true,
+     "type": "serde_json::Value::Object",
+     "value": {
+      "debug": "Bool:true",
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Number(arbitrary_precision):8080"
+      },
+      "title": "String:\"app\""
+     }
+    }
+   }
+  },
+  {
+   "id": "v_scope_toml",
+   "format": "toml",
+   "scene": "scope",
+   "input": "title = \"app\"\n\n[server]\nhost = \"0.0.0.0\"\nport = 8080\n\n# top-level switch\ndebug = true\n",
+   "heard": [
+    {
+     "heard": "{\"server\":{\"debug\":true,\"host\":\"0.0.0.0\",\"port\":8080},\"title\":\"app\"}",
+     "parsers": [
+      "go:BurntSushi/toml",
+      "go:go-toml/v2",
+      "js:@iarna/toml",
+      "js:smol-toml",
+      "py315:tomllib",
+      "py:tomli",
+      "py:tomlkit",
+      "py:tomllib",
+      "rs:toml",
+      "rs:toml_edit"
+     ]
+    }
+   ],
+   "raw": {
+    "go:BurntSushi/toml": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "server": {
+       "debug": "bool:true",
+       "host": "string:\"0.0.0.0\"",
+       "port": "int64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "go:go-toml/v2": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "server": {
+       "debug": "bool:true",
+       "host": "string:\"0.0.0.0\"",
+       "port": "int64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "js:@iarna/toml": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080",
+       "debug": "boolean:true"
+      }
+     }
+    },
+    "js:smol-toml": {
+     "ok": true,
+     "type": "null-prototype",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080",
+       "debug": "boolean:true"
+      }
+     }
+    },
+    "py315:tomllib": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080",
+       "debug": "bool:True"
+      }
+     }
+    },
+    "py:tomli": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080",
+       "debug": "bool:True"
+      }
+     }
+    },
+    "py:tomlkit": {
+     "ok": true,
+     "type": "TOMLDocument",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080",
+       "debug": "bool:True"
+      }
+     }
+    },
+    "py:tomllib": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080",
+       "debug": "bool:True"
+      }
+     }
+    },
+    "rs:toml": {
+     "ok": true,
+     "type": "toml::Table",
+     "value": {
+      "server": {
+       "debug": "Boolean:true",
+       "host": "String:\"0.0.0.0\"",
+       "port": "Integer(i64):8080"
+      },
+      "title": "String:\"app\""
+     }
+    },
+    "rs:toml_edit": {
+     "ok": true,
+     "type": "toml_edit::DocumentMut",
+     "value": {
+      "server": {
+       "debug": "Boolean:true",
+       "host": "String:\"0.0.0.0\"",
+       "port": "Integer(i64):8080"
+      },
+      "title": "String:\"app\""
+     }
+    }
+   }
+  },
+  {
+   "id": "v_toml11_json",
+   "format": "json",
+   "scene": "toml11",
+   "input": "{\n  \"title\": \"app\",\n  \"server\": {\n    \"host\": \"0.0.0.0\",\n    \"port\": 8080\n  }\n}\n",
+   "heard": [
+    {
+     "heard": "{\"server\":{\"host\":\"0.0.0.0\",\"port\":8080},\"title\":\"app\"}",
+     "parsers": [
+      "go:encoding/json",
+      "go:encoding/json/v2",
+      "jq",
+      "js:JSON.parse",
+      "js:json5",
+      "js:jsonc-parser",
+      "py:json",
+      "py:json5",
+      "rs:serde_json",
+      "rs:serde_json[arbitrary_precision]"
+     ]
+    }
+   ],
+   "raw": {
+    "go:encoding/json": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "float64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "go:encoding/json/v2": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "float64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "jq": {
+     "ok": true,
+     "type": "jq output text",
+     "output": "{\"title\":\"app\",\"server\":{\"host\":\"0.0.0.0\",\"port\":8080}}",
+     "value": {
+      "title": "jq-string:\"app\"",
+      "server": {
+       "host": "jq-string:\"0.0.0.0\"",
+       "port": "jq-number:8080"
+      }
+     }
+    },
+    "js:JSON.parse": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "js:json5": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "js:jsonc-parser": {
+     "ok": true,
+     "type": "Object",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "py:json": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:json5": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "rs:serde_json": {
+     "ok": true,
+     "type": "serde_json::Value::Object",
+     "value": {
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Number(i64):8080"
+      },
+      "title": "String:\"app\""
+     }
+    },
+    "rs:serde_json[arbitrary_precision]": {
+     "ok": true,
+     "type": "serde_json::Value::Object",
+     "value": {
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Number(arbitrary_precision):8080"
+      },
+      "title": "String:\"app\""
+     }
+    }
+   }
+  },
+  {
+   "id": "v_toml11_toml",
+   "format": "toml",
+   "scene": "toml11",
+   "input": "title = \"app\"\n\nserver = {\n  host = \"0.0.0.0\",\n  port = 8080,\n}\n",
+   "heard": [
+    {
+     "heard": "{\"server\":{\"host\":\"0.0.0.0\",\"port\":8080},\"title\":\"app\"}",
+     "parsers": [
+      "go:BurntSushi/toml",
+      "go:go-toml/v2",
+      "js:smol-toml",
+      "py315:tomllib",
+      "py:tomli",
+      "py:tomlkit",
+      "rs:toml",
+      "rs:toml_edit"
+     ]
+    },
+    {
+     "heard": "ERROR",
+     "parsers": [
+      "js:@iarna/toml",
+      "py:tomllib"
+     ]
+    }
+   ],
+   "raw": {
+    "go:BurntSushi/toml": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "int64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "go:go-toml/v2": {
+     "ok": true,
+     "type": "map[string]interface {}",
+     "value": {
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "int64:8080"
+      },
+      "title": "string:\"app\""
+     }
+    },
+    "js:@iarna/toml": {
+     "ok": false,
+     "error": "TomlError: Unterminated inline array at row 3, col 11, pos 26:\n2: \n3> server = {\n             ^\n4:   host = \"0.0.0.0\",\n\n"
+    },
+    "js:smol-toml": {
+     "ok": true,
+     "type": "null-prototype",
+     "value": {
+      "title": "string:\"app\"",
+      "server": {
+       "host": "string:\"0.0.0.0\"",
+       "port": "number:8080"
+      }
+     }
+    },
+    "py315:tomllib": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:tomli": {
+     "ok": true,
+     "type": "dict",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:tomlkit": {
+     "ok": true,
+     "type": "TOMLDocument",
+     "value": {
+      "title": "str:\"app\"",
+      "server": {
+       "host": "str:\"0.0.0.0\"",
+       "port": "int:8080"
+      }
+     }
+    },
+    "py:tomllib": {
+     "ok": false,
+     "error": "TOMLDecodeError: Invalid initial character for a key part (at line 3, column 11)"
+    },
+    "rs:toml": {
+     "ok": true,
+     "type": "toml::Table",
+     "value": {
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Integer(i64):8080"
+      },
+      "title": "String:\"app\""
+     }
+    },
+    "rs:toml_edit": {
+     "ok": true,
+     "type": "toml_edit::DocumentMut",
+     "value": {
+      "server": {
+       "host": "String:\"0.0.0.0\"",
+       "port": "Integer(i64):8080"
+      },
+      "title": "String:\"app\""
+     }
+    }
+   }
+  }
+ ]
+}

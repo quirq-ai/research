@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JSON vs TOML · What the Parser Hears</title>
+<style>
+@font-face { font-family: "SerifV"; src: url("fonts/SourceSerif4.ttf"); font-weight: 200 900; }
+@font-face { font-family: "SansV"; src: url("fonts/Inter.ttf"); font-weight: 100 900; }
+@font-face { font-family: "MonoV"; src: url("fonts/JetBrainsMono.ttf"); font-weight: 100 800; }
+:root {
+  --paper: #f6f5f1; --card: #ffffff; --ink: #252525; --soft: #4f4f4b; --faint: #8a8a84; --line: #deded9; --line2: #b8b8b1;
+  --blue: #3c6f97; --purple: #765b98; --green: #367f59; --red: #ad4b43; --orange: #d98226;
+}
+html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--paper); }
+#stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: var(--paper);
+  font-family: SansV, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+.abs { position: absolute; }
+#hook { left: 0; width: 1920px; top: 380px; text-align: center; font-family: SerifV, serif; font-size: 112px;
+  font-weight: 560; letter-spacing: -0.02em; line-height: 1.05; white-space: nowrap; }
+#hookSub { left: 0; width: 1920px; top: 540px; text-align: center; font-size: 40px; color: var(--soft); white-space: nowrap; }
+#caption { left: 120px; width: 1680px; top: 44px; text-align: center; font-family: SerifV, serif; font-size: 50px;
+  font-weight: 560; letter-spacing: -0.012em; line-height: 1.12; }
+#caption .w, #hook .w, #hookSub .w { display: inline-block; white-space: pre; }
+#sub { left: 160px; width: 1600px; top: 120px; text-align: center; font-size: 25px; color: var(--soft); line-height: 1.3; }
+.col { top: 0; width: 828px; height: 1080px; }
+.colhead { top: 214px; left: 0; width: 828px; height: 40px; }
+.colhead .fmt { position: absolute; left: 4px; top: 0; font-size: 30px; font-weight: 750; letter-spacing: 0.04em; }
+.colhead .spec { position: absolute; right: 4px; top: 9px; font-size: 19px; color: var(--faint); font-family: MonoV, monospace; }
+.card { top: 262px; left: 0; width: 828px; height: 388px; background: var(--card); border: 1px solid var(--line);
+  border-radius: 14px; overflow: hidden; box-sizing: border-box; }
+.tab { position: absolute; left: 0; top: 0; width: 828px; height: 42px; border-bottom: 1px solid var(--line); box-sizing: border-box;
+  font-family: MonoV, monospace; font-size: 18px; color: var(--faint); padding: 10px 0 0 22px; }
+.tab b { color: var(--soft); font-weight: 600; }
+.ln { position: absolute; left: 0; width: 826px; height: 37px; font-family: MonoV, monospace; font-size: 25px; line-height: 37px;
+  white-space: pre; }
+.ln .hl { position: absolute; left: 0; top: 0; width: 826px; height: 37px; }
+.ln .no { position: absolute; left: 0; width: 46px; text-align: right; color: #b9b8b2; font-size: 18px; }
+.ln .tx { position: absolute; left: 70px; top: 0; }
+.ln .caret { position: absolute; top: 5px; width: 3px; height: 27px; background: var(--ink); }
+.k { color: var(--ink); font-weight: 650; } .s { color: #5d5d58; } .n { color: var(--ink); } .p { color: #9a9a93; }
+.c { color: #8f8e87; font-style: italic; } .h { color: var(--ink); font-weight: 750; } .d { color: var(--ink); }
+.pill { width: 404px; height: 46px; border-radius: 23px; box-sizing: border-box; border: 1px solid var(--line); }
+.pill .dot { position: absolute; left: 16px; top: 15px; width: 14px; height: 14px; border-radius: 7px; }
+.pill .nm { position: absolute; left: 42px; top: 11px; font-size: 20px; font-weight: 520; white-space: nowrap; }
+.pill .vl { position: absolute; right: 18px; top: 13px; font-family: MonoV, monospace; font-size: 18px; font-weight: 600; white-space: nowrap; }
+.tally { top: 992px; left: 0; width: 828px; text-align: center; font-size: 23px; color: var(--soft); white-space: nowrap; }
+.tally .sw { display: inline-block; width: 12px; height: 12px; border-radius: 6px; margin: 0 8px 1px 0; }
+.tally .gap { display: inline-block; width: 36px; }
+.sendbar { height: 2px; background: var(--blue); }
+.bracket { width: 10px; border: 3px solid var(--purple); border-right: none; border-radius: 8px 0 0 8px; box-sizing: border-box; }
+.bracketLbl { font-family: MonoV, monospace; font-size: 21px; color: var(--purple); font-weight: 700; white-space: nowrap; }
+#rules { left: 240px; width: 1440px; top: 330px; }
+.rule { left: 0; width: 1440px; height: 150px; }
+.rule .chip { position: absolute; left: 0; top: 8px; width: 120px; height: 46px; border-radius: 23px; text-align: center;
+  font-size: 22px; font-weight: 750; letter-spacing: 0.06em; line-height: 46px; box-sizing: border-box; }
+.rule .rt { position: absolute; left: 160px; top: 0; width: 1280px; font-family: SerifV, serif; font-size: 42px;
+  font-weight: 500; line-height: 1.25; }
+#end { left: 0; width: 1920px; top: 0; height: 1080px; text-align: center; }
+#end .t1 { position: absolute; left: 0; width: 1920px; top: 330px; font-family: SerifV, serif; font-size: 104px; font-weight: 600; letter-spacing: -0.02em; }
+#end .t2 { position: absolute; left: 0; width: 1920px; top: 480px; font-size: 34px; color: var(--soft); }
+#end .t3 { position: absolute; left: 0; width: 1920px; top: 556px; font-family: MonoV, monospace; font-size: 25px; color: var(--faint); }
+#end .t4 { position: absolute; left: 0; width: 1920px; top: 650px; font-size: 32px; font-weight: 600; }
+#end .t4 span { color: var(--orange); }
+#end .t5 { position: absolute; left: 0; width: 1920px; top: 716px; font-size: 21px; color: var(--faint); }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<script src="data.js"></script>
+<script>
+"use strict";
+// ---------------------------------------------------------------------------------------------
+// Time base: 90 BPM. Every event below is placed in beats; seek(t) is a pure function of t.
+// ---------------------------------------------------------------------------------------------
+const BPM = 90, BEAT = 60 / BPM, b = n => n * BEAT;
+const DURATION = b(152);
+const M = window.MEASURED;
+
+const C = { ink: "#252525", soft: "#4f4f4b", faint: "#8a8a84", line: "#deded9", paper: "#f6f5f1", blue: "#3c6f97",
+  purple: "#765b98", green: "#367f59", red: "#ad4b43", orange: "#d98226" };
+const STATE = {
+  neutral: { bg: "#efeee9", border: "#deded9", dot: "#c9c8c2", nm: "#6b6b66", vl: "#8a8a84" },
+  ok: { bg: "#dfede5", border: "#a9cbb8", dot: "#367f59", nm: "#252525", vl: "#2c6a4a" },
+  err: { bg: "#f3dfdc", border: "#dcb0aa", dot: "#ad4b43", nm: "#252525", vl: "#963c35" },
+  diff: { bg: "#f7e3c8", border: "#e7bd85", dot: "#d98226", nm: "#252525", vl: "#9c5810" },
+};
+
+// ---------- math -------------------------------------------------------------------------------
+const clamp = (x, a = 0, b2 = 1) => Math.min(b2, Math.max(a, x));
+const lerp = (a, b2, x) => a + (b2 - a) * x;
+const easeOut = x => 1 - Math.pow(1 - clamp(x), 3);
+const easeIn = x => Math.pow(clamp(x), 3);
+const easeInOut = x => { x = clamp(x); return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+// closed-form spring step response (zeta 0.78: about 2% overshoot), settles in roughly `dur` seconds
+function spring(x, dur = 0.45, zeta = 0.78) {
+  if (x <= 0) return 0;
+  const wn = 4.6 / (zeta * dur), wd = wn * Math.sqrt(1 - zeta * zeta);
+  return 1 - Math.exp(-zeta * wn * x) * (Math.cos(wd * x) + (zeta * wn / wd) * Math.sin(wd * x));
+}
+const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+function mix(a, b2, x) {
+  const A = hex(a), B = hex(b2); x = clamp(x);
+  return "rgb(" + A.map((v, i) => Math.round(lerp(v, B[i], x))).join(",") + ")";
+}
+function esc(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+
+// ---------- DOM ---------------------------------------------------------------------------------
+const stage = document.getElementById("stage");
+function el(tag, cls, parent = stage, html = "") {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (html) e.innerHTML = html;
+  parent.appendChild(e);
+  return e;
+}
+
+// ---------- the two files ---------------------------------------------------------------------
+// Each line has one or more "lives": typed in over [a, b], optionally erased over [ea, eb].
+// Suffix edits append characters to a line for a while (a trailing comma, say).
+const COLX = { json: 96, toml: 996 };
+function L(id, text, lives, suffixes = []) { return { id, text, lives, suffixes }; }
+const CPS = 26; // typing speed, characters per second
+function typed(text, a) { return [a, a + Math.max(0.12, text.length / CPS)]; }
+
+// Setup typing: JSON first, then TOML.
+const JSON_BASE = ['{', '  "title": "app",', '  "server": {', '    "host": "0.0.0.0",', '    "port": 8080', '  }', '}'];
+const TOML_BASE = ['title = "app"', '', '[server]', 'host = "0.0.0.0"', 'port = 8080'];
+function seq(lines, start, cps = 30, gap = 0.12) {
+  const out = []; let t = start;
+  for (const s of lines) { const w = [t, t + Math.max(0.12, s.length / cps)]; out.push(w); t = w[1] + gap; }
+  return out;
+}
+// both files are typed at once in the setup, and both are finished before the parsers appear (b15)
+const JW = seq(JSON_BASE, b(9.5)), TW = seq(TOML_BASE, b(10.5));
+
+function life(text, a, ea, eb) { const w = typed(text, a); return { a: w[0], b: w[1], ea, eb }; }
+const E = (n0, n1) => [b(n0), b(n1)]; // erase window helper
+
+const FILES = {
+  json: [
+    L("j0", JSON_BASE[0], [{ a: JW[0][0], b: JW[0][1] }]),
+    L("j1", JSON_BASE[1], [{ a: JW[1][0], b: JW[1][1] }]),
+    L("jBig", '  "id": 9007199254740993,', [life('  "id": 9007199254740993,', b(64), ...E(75, 76.5))]),
+    L("jDate", '  "deployed": "2026-10-09T09:30:00Z",', [life('  "deployed": "2026-10-09T09:30:00Z",', b(78), ...E(87, 88))]),
+    L("jNull", '  "proxy": null,', [life('  "proxy": null,', b(89), ...E(98, 99))]),
+    L("j2", JSON_BASE[2], [{ a: JW[2][0], b: JW[2][1] }]),
+    L("j3", JSON_BASE[3], [{ a: JW[3][0], b: JW[3][1] }]),
+    L("jCmt", '    // admin UI port', [life('    // admin UI port', b(25), ...E(36, 37))]),
+    L("j4", JSON_BASE[4], [{ a: JW[4][0], b: JW[4][1] }],
+      [{ text: ",", a: b(40), b: b(40) + 0.12, ea: b(46), eb: b(46) + 0.12 },
+       { text: ",", a: b(49), b: b(49) + 0.12, ea: b(62.2), eb: b(62.2) + 0.12 }]),
+    L("jDup", '    "port": 9090', [life('    "port": 9090', b(49.4), ...E(61, 62))]),
+    L("j5", JSON_BASE[5], [{ a: JW[5][0], b: JW[5][1] }],
+      [{ text: ",", a: b(100), b: b(100) + 0.12, ea: b(113.2), eb: b(113.2) + 0.12 }]),
+    L("jDbg", '  "debug": true', [life('  "debug": true', b(100.4), ...E(112, 113))]),
+    L("j6", JSON_BASE[6], [{ a: JW[6][0], b: JW[6][1] }]),
+  ],
+  toml: [
+    L("t0", TOML_BASE[0], [{ a: TW[0][0], b: TW[0][1] }]),
+    L("tBig", 'id = 9007199254740993', [life('id = 9007199254740993', b(65), ...E(75, 76.5))]),
+    L("tDate", 'deployed = 2026-10-09T09:30:00Z', [life('deployed = 2026-10-09T09:30:00Z', b(79), ...E(87, 88))]),
+    L("tNull", 'proxy =', [life('proxy =', b(89.6), ...E(98, 99))]),
+    L("t1", TOML_BASE[1], [{ a: TW[1][0], b: TW[1][1] }]),
+    L("tS0", 'server = {', [life('server = {', b(116.6), ...E(126, 126.6))]),
+    L("tS1", '  host = "0.0.0.0",', [life('  host = "0.0.0.0",', b(116.6) + 0.55, ...E(126, 126.7))]),
+    L("tS2", '  port = 8080,', [life('  port = 8080,', b(116.6) + 1.45, ...E(126, 126.6))]),
+    L("tS3", '}', [life('}', b(116.6) + 2.1, ...E(126, 126.3))]),
+    L("t2", TOML_BASE[2], [{ a: TW[2][0], b: TW[2][1], ea: b(115.2), eb: b(115.9) }, life(TOML_BASE[2], b(127))]),
+    L("t3", TOML_BASE[3], [{ a: TW[3][0], b: TW[3][1], ea: b(115.0), eb: b(115.8) }, life(TOML_BASE[3], b(127) + 0.45)]),
+    L("tCmt", '# admin UI port', [life('# admin UI port', b(25.6), ...E(36, 37))]),
+    L("t4", TOML_BASE[4], [{ a: TW[4][0], b: TW[4][1], ea: b(114.8), eb: b(115.6) }, life(TOML_BASE[4], b(127) + 1.2)]),
+    L("tDup", 'port = 9090', [life('port = 9090', b(50), ...E(61, 62))]),
+    L("tBl2", '', [{ a: b(100.5), b: b(100.5), ea: b(113), eb: b(113) }]),
+    L("tTop", '# top-level switch', [life('# top-level switch', b(100.6), ...E(112, 113))]),
+    L("tDbg", 'debug = true', [life('debug = true', b(101.8), ...E(112, 112.8))]),
+  ],
+};
+// lines that carry the edit in each scene (tinted while the scene runs)
+const EDITS = [
+  { lines: ["jCmt", "tCmt"], a: b(25), z: b(37) },
+  { lines: ["j4"], a: b(40), z: b(46.3) },
+  { lines: ["jDup", "tDup"], a: b(49), z: b(62) },
+  { lines: ["jBig", "tBig"], a: b(64), z: b(76.5) },
+  { lines: ["jDate", "tDate"], a: b(78), z: b(88) },
+  { lines: ["jNull", "tNull"], a: b(89), z: b(99) },
+  { lines: ["jDbg", "tTop", "tDbg"], a: b(100), z: b(113) },
+  { lines: ["tS0", "tS1", "tS2", "tS3"], a: b(116.6), z: b(126.7) },
+];
+// squiggles under what a parser objected to or silently changed, shown after the verdict lands
+const MARKS = [
+  { line: "jCmt", from: 4, to: 20, color: C.red, a: b(28.6), z: b(36) },
+  { line: "j4", from: 16, to: 17, color: C.red, a: b(41.6), z: b(46) },
+  { line: "j4", from: 4, to: 16, color: C.orange, a: b(52.6), z: b(61), suffixWindow: 1 },
+  { line: "tDup", from: 0, to: 11, color: C.red, a: b(52.6), z: b(61) },
+  { line: "jBig", from: 8, to: 24, color: C.orange, a: b(67.6), z: b(75) },
+  { line: "tNull", from: 0, to: 7, color: C.red, a: b(91.6), z: b(98) },
+  { line: "tDbg", from: 0, to: 12, color: C.orange, a: b(104.6), z: b(112) },
+  { line: "tS0", from: 0, to: 10, color: C.red, a: b(120.6), z: b(126) },
+];
+
+// ---------- syntax colouring (greyscale only: colour is reserved for meaning) -------------------
+function tokens(fmt, s) {
+  const out = []; // [text, cls]
+  const push = (t, c) => { if (t) out.push([t, c]); };
+  if (fmt === "json") {
+    const m = s.match(/^(\s*)(\/\/.*)$/);
+    if (m) { push(m[1], "p"); push(m[2], "c"); return out; }
+    const re = /("(?:[^"\\]|\\.)*")(\s*:)?|(-?\d[\d.eE+-]*)|(true|false|null)|([{}\[\],:])|(\s+)|(.)/g;
+    let r;
+    while ((r = re.exec(s))) {
+      if (r[1]) { push(r[1], r[2] ? "k" : "s"); if (r[2]) push(r[2], "p"); }
+      else if (r[3]) push(r[3], "n"); else if (r[4]) push(r[4], "n"); else if (r[5]) push(r[5], "p");
+      else push(r[0], "p");
+    }
+    return out;
+  }
+  if (/^\s*#/.test(s)) { push(s, "c"); return out; }
+  if (/^\s*\[/.test(s)) { push(s, "h"); return out; }
+  const kv = s.match(/^(\s*)([A-Za-z0-9_.-]+)(\s*=\s*)?(.*)$/);
+  if (!kv) { push(s, "p"); return out; }
+  push(kv[1], "p"); push(kv[2], kv[3] ? "k" : "p"); push(kv[3] || "", "p");
+  const re = /("(?:[^"\\]|\\.)*")|(\d{4}-\d\d-\d\dT[\d:]+Z?)|(-?\d[\d_]*)|(true|false)|([{}\[\],])|(\s+)|(.)/g;
+  let r;
+  while ((r = re.exec(kv[4]))) {
+    if (r[1]) push(r[1], "s"); else if (r[2]) push(r[2], "d"); else if (r[3]) push(r[3], "n");
+    else if (r[4]) push(r[4], "n"); else if (r[5]) push(r[5], "p"); else push(r[0], "p");
+  }
+  return out;
+}
+
+// ---------- build the static scene --------------------------------------------------------------
+const hook = el("div", "abs", stage); hook.id = "hook";
+const HOOK_WORDS = [["A ", C.ink], ["config ", C.ink], ["file ", C.ink], ["has ", C.ink], ["two ", C.orange], ["readers.", C.orange]];
+const hookW = HOOK_WORDS.map(([w, c]) => { const s = el("span", "w", hook, esc(w)); s.style.color = c; return s; });
+const hookSub = el("div", "abs", stage); hookSub.id = "hookSub";
+const SUB_WORDS = ["The ", "person ", "who ", "writes ", "it, ", "and ", "the ", "program ", "that ", "loads ", "it."];
+const hookSubW = SUB_WORDS.map(w => el("span", "w", hookSub, esc(w)));
+
+const caption = el("div", "abs", stage); caption.id = "caption";
+const sub = el("div", "abs", stage); sub.id = "sub";
+
+const COLS = {};
+for (const fmt of ["json", "toml"]) {
+  const x = COLX[fmt];
+  const col = el("div", "abs col", stage); col.style.left = x + "px";
+  const head = el("div", "abs colhead", col);
+  const f = el("div", "fmt", head, fmt.toUpperCase()); f.style.color = fmt === "json" ? C.blue : C.purple;
+  el("div", "spec", head, fmt === "json" ? "RFC 8259 · ECMA-404" : "TOML 1.0.0 · 1.1.0");
+  const card = el("div", "abs card", col);
+  el("div", "tab", card, "<b>" + (fmt === "json" ? "config.json" : "config.toml") + "</b>");
+  const pool = [];
+  for (let i = 0; i < 14; i++) {
+    const ln = el("div", "ln", card);
+    const hl = el("div", "hl", ln), no = el("div", "no", ln), tx = el("div", "tx", ln), caret = el("div", "caret", ln);
+    pool.push({ ln, hl, no, tx, caret, key: "" });
+  }
+  const send = el("div", "abs sendbar", col);
+  const pills = M[fmt].map((name, i) => {
+    const p = el("div", "abs pill", col);
+    p.style.left = (i % 2) * 424 + "px"; p.style.top = 684 + Math.floor(i / 2) * 58 + "px";
+    const dot = el("div", "dot", p), nm = el("div", "nm", p, esc(name)), vl = el("div", "vl", p);
+    return { p, dot, nm, vl, i };
+  });
+  const tally = el("div", "abs tally", col);
+  let bracket = null, bracketLbl = null;
+  if (fmt === "toml") { bracket = el("div", "abs bracket", col); bracketLbl = el("div", "abs bracketLbl", col, "[server]"); }
+  COLS[fmt] = { col, head, card, pool, send, pills, tally, bracket, bracketLbl, lines: FILES[fmt] };
+}
+
+const rulesBox = el("div", "abs", stage); rulesBox.id = "rules";
+const RULES = [
+  { chip: "JSON", color: C.blue, text: "Keep it strict wherever a program writes it.", t: b(130.5) },
+  { chip: "TOML", color: C.purple, text: "Put top-level keys before the first table. Write the 1.0 subset unless every reader is pinned.", t: b(133) },
+  { chip: "ANY", color: C.ink, text: "Name the parser and its version, validate against a schema, reject duplicate keys.", t: b(136.5) },
+];
+const ruleEls = RULES.map((r, i) => {
+  const row = el("div", "abs rule", rulesBox); row.style.top = [0, 130, 300][i] + "px";
+  const chip = el("div", "chip", row, r.chip); chip.style.border = "2px solid " + r.color; chip.style.color = r.color;
+  el("div", "rt", row, esc(r.text));
+  return row;
+});
+const endBox = el("div", "abs", stage); endBox.id = "end";
+const endEls = [
+  el("div", "t1", endBox, "What the Parser Hears"),
+  el("div", "t2", endBox, "A field guide to JSON, YAML and TOML as configuration files"),
+  el("div", "t3", endBox, "71 cases · 34 parser configurations · measured October 2026"),
+  el("div", "t4", endBox, "XO Research <span>·</span> quirq.ai/what-the-parser-hears"),
+  el("div", "t5", endBox, "Every snippet in this video re-measured on 14 October 2026 with the same 20 parsers."),
+];
+
+// ---------- captions -----------------------------------------------------------------------------
+// segments: [text, colour?]; colour keys r g o b p
+const CAPTIONS = [
+  { t: b(9), segs: [["The same settings, written twice."]], sub: "config.json and config.toml: a title, and a server with a host and a port." },
+  { t: b(15), segs: [["Twenty parsers read them: ten for JSON, ten for TOML."]], sub: "Real libraries at pinned versions, the ones the research measured." },
+  { t: b(19), segs: [["All twenty hear the same thing."]], sub: "Every snippet in this video was run through all twenty." },
+  { t: b(24), segs: [["Explain the port with a comment."]], sub: "" },
+  { t: b(29), segs: [["JSON has no comments: "], ["7 of 10", "r"], [" parsers stop."]], sub: "jsonc-parser and the two json5 parsers read on. All ten TOML parsers skip the # line." },
+  { t: b(38), segs: [["Leave a trailing comma."]], sub: "TOML has no commas between keys, so only the JSON file changes." },
+  { t: b(42), segs: [["A trailing comma stops "], ["8 of 10", "r"], ["."]], sub: "Only the two json5 parsers accept it." },
+  { t: b(48), segs: [["Paste the port twice."]], sub: "" },
+  { t: b(53), segs: [["JSON keeps the last one, silently: "], ["9 of 10", "o"], [". TOML refuses: "], ["10 of 10", "r"], ["."]],
+    sub: "RFC 8259: names “SHOULD be unique.”  TOML 1.0: “Defining a key multiple times is invalid.”" },
+  { t: b(63), segs: [["Add an ID: 2⁵³ + 1."]], sub: "9007199254740993, the first integer a 64-bit float cannot hold." },
+  { t: b(68), segs: [["Half the JSON parsers hear "], ["9007199254740992", "o"], ["."]],
+    sub: "TOML 1.0: integers are “handled losslessly”, or “an error must be thrown”. smol-toml throws." },
+  { t: b(77), segs: [["Add a deployment date."]], sub: "" },
+  { t: b(82), segs: [["JSON hears a "], ["string", "g"], [". TOML hears a "], ["date-time", "g"], ["."]],
+    sub: "The ten TOML parsers return five different native types for the same instant." },
+  { t: b(88), segs: [["Now leave a value empty."]], sub: "" },
+  { t: b(92), segs: [["JSON has null. TOML has no null: "], ["10 of 10", "r"], [" refuse."]],
+    sub: "TOML 1.0: “Unspecified values are invalid.” Leave the key out instead." },
+  { t: b(99), segs: [["Add a top-level switch at the end of the file."]], sub: "" },
+  { t: b(105), segs: [["TOML files it under "], ["[server]", "o"], [". All 10 parsers agree."]],
+    sub: "A key belongs to the table above it “until the next header or EOF” (TOML 1.0). Only the writer is surprised." },
+  { t: b(114), segs: [["Rewrite the table in TOML 1.1 syntax."]], sub: "A multi-line inline table with a trailing comma, new in TOML 1.1.0 (December 2025)." },
+  { t: b(121), segs: [["8 of 10", "g"], [" read it. Python 3.14’s tomllib and @iarna/toml "], ["refuse", "r"], ["."]],
+    sub: "tomllib says “Invalid initial character for a key part”. A TOML file cannot say which version it is." },
+  { t: b(129), segs: [["What the research says to do."]], sub: "From the practice section of What the Parser Hears." },
+  { t: b(144), segs: [[""]], sub: "" },
+];
+const CAPCOL = { r: C.red, g: C.green, o: C.orange, b: C.blue, p: C.purple };
+const capEls = CAPTIONS.map(c => {
+  const box = el("div", "", caption);
+  box.style.position = "absolute"; box.style.left = "0"; box.style.top = "0"; box.style.width = "1680px";
+  const words = [];
+  for (const [text, col] of c.segs) {
+    for (const w of text.split(/(?<= )/)) {
+      if (!w) continue;
+      const s = el("span", "w", box, esc(w));
+      s.style.color = col ? CAPCOL[col] : C.ink;
+      words.push(s);
+    }
+  }
+  const sb = el("div", "", sub, esc(c.sub)); sb.style.position = "absolute"; sb.style.left = "0"; sb.style.width = "1600px";
+  return { box, words, sb };
+});
+
+// ---------- scenes: when each file is sent and when its verdict clears -------------------------
+const SENDS = [
+  { scene: "base", t: b(18), clear: b(24) },
+  { scene: "comment", t: b(28), clear: b(36) },
+  { scene: "trailing_comma", t: b(41), clear: b(46) },
+  { scene: "duplicate", t: b(52), clear: b(61) },
+  { scene: "big_int", t: b(67), clear: b(75) },
+  { scene: "date", t: b(81), clear: b(87) },
+  { scene: "null", t: b(91), clear: b(98) },
+  { scene: "scope", t: b(104), clear: b(112) },
+  { scene: "toml11", t: b(120), clear: b(126) },
+];
+const DIM = { toml: [[b(38), b(47)]], json: [[b(114), b(127)]] };
+const STAGGER = 0.045, FLIP = 0.16;
+
+function pillState(fmt, i, t) {
+  // returns {from, to, x} for colour mixing, plus label and pulse
+  let cur = { s: "neutral", v: "" }, prev = { s: "neutral", v: "" }, since = -1e9;
+  for (const S of SENDS) {
+    const st = M.scenes[S.scene][fmt];
+    if (!st) continue;
+    const on = S.t + 0.24 + i * STAGGER, off = S.clear + i * 0.02;
+    if (t >= on) { prev = cur; cur = { s: st[i][0], v: st[i][1] }; since = on; }
+    if (t >= off) { prev = cur; cur = { s: "neutral", v: "" }; since = off; }
+  }
+  return { cur, prev, x: clamp((t - since) / FLIP), since };
+}
+
+// ---------- file layout at time t ---------------------------------------------------------------
+function lineState(Lx, t) {
+  let h = 0, n = 0, active = false;
+  for (const lf of Lx.lives) {
+    const grow = spring(t - (lf.a - 0.08), 0.32);
+    let shrink = 0;
+    if (lf.eb !== undefined) shrink = easeInOut((t - lf.eb) / 0.22);
+    const hh = clamp(grow) * (1 - shrink);
+    if (t >= lf.a - 0.08 && (lf.eb === undefined || t <= lf.eb + 0.22)) {
+      h = Math.max(h, Math.min(1.02, grow) * (1 - shrink));
+      let k = clamp((t - lf.a) / Math.max(1e-6, lf.b - lf.a));
+      if (lf.ea !== undefined && t >= lf.ea) k = 1 - clamp((t - lf.ea) / Math.max(1e-6, lf.eb - lf.ea));
+      n = Math.round(k * Lx.text.length);
+      if ((t >= lf.a && t <= lf.b + 0.3) || (lf.ea !== undefined && t >= lf.ea - 0.15 && t <= lf.eb)) active = true;
+    }
+    void hh;
+  }
+  let text = Lx.text.slice(0, n), sfx = "";
+  for (const s of Lx.suffixes) {
+    if (t < s.a || t > s.eb) continue;
+    let k = clamp((t - s.a) / (s.b - s.a));
+    if (t >= s.ea) k = 1 - clamp((t - s.ea) / (s.eb - s.ea));
+    sfx = s.text.slice(0, Math.round(k * s.text.length));
+    if (t <= s.b + 0.3 || t >= s.ea - 0.15) active = true;
+  }
+  return { h, text: text + sfx, n: text.length + sfx.length, active };
+}
+
+const LH = 37, TOP = 52;
+function renderFile(fmt, t) {
+  const S = COLS[fmt];
+  let y = TOP, used = 0, num = 0;
+  const pos = {};
+  for (const Lx of S.lines) {
+    const st = lineState(Lx, t);
+    if (st.h <= 0.001) continue;
+    const slot = S.pool[used++];
+    if (st.h > 0.5) num++;
+    slot.ln.style.display = "block";
+    slot.ln.style.top = y + "px";
+    slot.ln.style.opacity = clamp(st.h * 1.4).toFixed(3);
+    slot.ln.style.transform = `translateY(${((1 - Math.min(1, st.h)) * -8).toFixed(2)}px)`;
+    // edit tint
+    let tint = 0;
+    for (const E2 of EDITS) if (E2.lines.includes(Lx.id)) tint = Math.max(tint, clamp((t - E2.a) / 0.25) * (1 - clamp((t - E2.z) / 0.3)));
+    slot.hl.style.background = tint > 0 ? `rgba(217,130,38,${(0.13 * tint).toFixed(3)})` : "transparent";
+    slot.no.textContent = st.h > 0.5 ? String(num) : "";
+    // text with marks
+    const marks = MARKS.filter(m => m.line === Lx.id && t >= m.a && t <= m.z + 0.25 && !(m.suffixWindow && t < b(49)));
+    const toks = tokens(fmt, Lx.text + (st.text.length > Lx.text.length ? st.text.slice(Lx.text.length) : ""));
+    let html = "", pos2 = 0, left = st.n;
+    for (const [tx, cls] of toks) {
+      if (left <= 0) break;
+      const part = tx.slice(0, left); left -= part.length;
+      for (let i = 0; i < part.length; i++) {
+        const ch = part[i], at = pos2 + i;
+        const mk = marks.find(m => at >= m.from && at < m.to);
+        if (mk) {
+          const a = clamp((t - mk.a) / 0.2) * (1 - clamp((t - mk.z) / 0.25));
+          const [r, g, bb] = hex(mk.color);
+          html += `<span class="${cls}" style="text-decoration:underline wavy rgba(${r},${g},${bb},${a.toFixed(3)});text-decoration-thickness:2px;text-underline-offset:7px">${esc(ch)}</span>`;
+        } else html += `<span class="${cls}">${esc(ch)}</span>`;
+      }
+      pos2 += tx.length;
+    }
+    slot.tx.innerHTML = html;
+    slot.caret.style.display = st.active ? "block" : "none";
+    slot.caret.style.left = (70 + st.n * CHW) + "px";
+    pos[Lx.id] = { y, h: st.h };
+    y += LH * Math.min(1, st.h);
+  }
+  for (let i = used; i < S.pool.length; i++) S.pool[i].ln.style.display = "none";
+  return pos;
+}
+
+// ---------- seek ----------------------------------------------------------------------------------
+let CHW = 15;
+function measureChar() {
+  const c = document.createElement("canvas").getContext("2d");
+  c.font = "25px MonoV";
+  CHW = c.measureText("0000000000").width / 10;
+}
+
+function seek(t) {
+  t = clamp(t, 0, DURATION);
+  // hook ------------------------------------------------------------------------------------
+  const hookIn = i => spring(t - (0.25 + i * 0.16), 0.5);
+  const hookOut = easeIn((t - b(7.6)) / 0.5);
+  hookW.forEach((w, i) => {
+    const k = hookIn(i);
+    w.style.opacity = (clamp(k * 1.3) * (1 - hookOut)).toFixed(3);
+    w.style.transform = `translateY(${((1 - k) * 40 - hookOut * 120).toFixed(2)}px)`;
+  });
+  const subOut = easeIn((t - b(7.3)) / 0.45);
+  hookSubW.forEach((w, i) => {
+    const k = spring(t - (b(3.2) + i * 0.07), 0.45);
+    w.style.opacity = (clamp(k * 1.3) * (1 - subOut)).toFixed(3);
+    w.style.transform = `translateY(${((1 - k) * 22 + subOut * 30).toFixed(2)}px)`;
+  });
+  hook.style.display = t < b(9) ? "block" : "none";
+  hookSub.style.display = t < b(9) ? "block" : "none";
+
+  // captions --------------------------------------------------------------------------------
+  let ci = -1;
+  for (let i = 0; i < CAPTIONS.length; i++) if (t >= CAPTIONS[i].t) ci = i;
+  capEls.forEach((c, i) => {
+    const start = CAPTIONS[i].t, next = i + 1 < CAPTIONS.length ? CAPTIONS[i + 1].t : 1e9;
+    const out = clamp((t - next) / 0.22);
+    const vis = t >= start && t < next + 0.22;
+    c.box.style.display = vis ? "block" : "none";
+    c.sb.style.display = vis ? "block" : "none";
+    if (!vis) return;
+    c.words.forEach((w, j) => {
+      const k = spring(t - (start + 0.12 + j * 0.035), 0.42);
+      w.style.opacity = (clamp(k * 1.25) * (1 - out)).toFixed(3);
+      w.style.transform = `translateY(${((1 - k) * 26 - out * 18).toFixed(2)}px)`;
+    });
+    const ks = spring(t - (start + 0.45), 0.45);
+    c.sb.style.opacity = (clamp(ks * 1.2) * (1 - out)).toFixed(3);
+    c.sb.style.transform = `translateY(${((1 - ks) * 14 - out * 10).toFixed(2)}px)`;
+    // sub sits under the caption: one or two lines of caption
+    const capH = c.box.offsetHeight || 56;
+    c.sb.style.top = (capH - 44) + "px";
+  });
+  void ci;
+
+  // columns ---------------------------------------------------------------------------------
+  const colIn = fmt => spring(t - (b(8.2) + (fmt === "toml" ? 0.14 : 0)), 0.55);
+  const colOut = easeIn((t - b(129)) / 0.6);
+  for (const fmt of ["json", "toml"]) {
+    const S = COLS[fmt];
+    const k = colIn(fmt);
+    let dim = 0;
+    for (const [a, z] of DIM[fmt]) dim = Math.max(dim, clamp((t - a) / 0.3) * (1 - clamp((t - z) / 0.3)));
+    S.col.style.opacity = (clamp(k * 1.3) * (1 - 0.62 * dim)).toFixed(3);
+    S.col.style.transform = `translateY(${((1 - k) * 60 + colOut * 820).toFixed(2)}px)`;
+    S.col.style.display = t < b(9.6) - 1.4 || t > b(131) ? "none" : "block";
+    if (S.col.style.display === "none") continue;
+    const pos = renderFile(fmt, t);
+    // pills appear at b15
+    S.pills.forEach((P, i) => {
+      const kp = spring(t - (b(15) + 0.1 + i * 0.05), 0.45);
+      const ps = pillState(fmt, i, t);
+      const A = STATE[ps.prev.s], B = STATE[ps.cur.s];
+      P.p.style.background = mix(A.bg, B.bg, ps.x);
+      P.p.style.borderColor = mix(A.border, B.border, ps.x);
+      P.dot.style.background = mix(A.dot, B.dot, ps.x);
+      P.nm.style.color = mix(A.nm, B.nm, ps.x);
+      P.vl.style.color = B.vl;
+      P.vl.textContent = ps.cur.v;
+      P.vl.style.opacity = ps.cur.v ? clamp((t - ps.since) / 0.18).toFixed(3) : "0";
+      const pulse = ps.cur.s !== "neutral" ? Math.sin(Math.PI * clamp((t - ps.since) / 0.3)) * 0.035 : 0;
+      P.p.style.opacity = clamp(kp * 1.3).toFixed(3);
+      P.p.style.transform = `translateY(${((1 - kp) * 24).toFixed(2)}px) scale(${(1 + pulse).toFixed(4)})`;
+    });
+    // tally
+    let active = null;
+    for (const Sx of SENDS) if (M.scenes[Sx.scene][fmt] && t >= Sx.t + 0.24 + 9 * STAGGER && t < Sx.clear) active = Sx;
+    if (active) {
+      const st = M.scenes[active.scene][fmt];
+      const n = { ok: 0, err: 0, diff: 0 };
+      st.forEach(([s]) => n[s]++);
+      const parts = [];
+      if (n.ok) parts.push(`<span class="sw" style="background:${C.green}"></span>${n.ok} heard what was written`);
+      if (n.diff) parts.push(`<span class="sw" style="background:${C.orange}"></span>${n.diff} heard something else`);
+      if (n.err) parts.push(`<span class="sw" style="background:${C.red}"></span>${n.err} refused`);
+      S.tally.innerHTML = parts.join('<span class="gap"></span>');
+      const kt = clamp((t - (active.t + 0.24 + 9 * STAGGER)) / 0.25) * (1 - clamp((t - active.clear + 0.25) / 0.25));
+      S.tally.style.opacity = kt.toFixed(3);
+    } else S.tally.style.opacity = "0";
+    // send bar: the file is sent to the readers
+    let sendK = -1;
+    for (const Sx of SENDS) if (M.scenes[Sx.scene][fmt] && t >= Sx.t && t < Sx.t + 0.5) sendK = (t - Sx.t) / 0.5;
+    if (sendK >= 0) {
+      const yy = lerp(650, 684, easeInOut(sendK * 1.4));
+      S.send.style.display = "block";
+      S.send.style.top = yy + "px";
+      S.send.style.left = lerp(300, 0, easeOut(sendK * 1.6)) + "px";
+      S.send.style.width = lerp(228, 828, easeOut(sendK * 1.6)) + "px";
+      S.send.style.opacity = (1 - clamp((sendK - 0.6) / 0.4)).toFixed(3);
+    } else S.send.style.display = "none";
+    // the scope bracket (TOML only): [server] down to debug
+    if (S.bracket) {
+      const a = pos["t2"], z = pos["tDbg"];
+      const kb = spring(t - b(104.6), 0.5) * (1 - clamp((t - b(112)) / 0.25));
+      if (a && z && kb > 0.001) {
+        const top = 262 + a.y + 4, bottom = 262 + z.y + LH - 4;
+        S.bracket.style.display = "block"; S.bracketLbl.style.display = "block";
+        S.bracket.style.left = "54px"; S.bracket.style.top = top + "px";
+        S.bracket.style.height = Math.max(0, (bottom - top) * clamp(kb)) + "px";
+        S.bracket.style.opacity = clamp(kb * 1.5).toFixed(3);
+        S.bracketLbl.style.left = "340px"; S.bracketLbl.style.top = (262 + z.y + 6) + "px";
+        S.bracketLbl.textContent = "→ server.debug";
+        S.bracketLbl.style.opacity = clamp((t - b(105)) / 0.3) * (1 - clamp((t - b(112)) / 0.25));
+      } else { S.bracket.style.display = "none"; S.bracketLbl.style.display = "none"; }
+    }
+  }
+
+  // practice rules --------------------------------------------------------------------------
+  const rulesOut = easeIn((t - b(143.2)) / 0.5);
+  rulesBox.style.display = t > b(129.5) && t < b(144) ? "block" : "none";
+  ruleEls.forEach((row, i) => {
+    const k = spring(t - RULES[i].t, 0.55);
+    row.style.opacity = (clamp(k * 1.3) * (1 - rulesOut)).toFixed(3);
+    row.style.transform = `translateY(${((1 - k) * 40 - rulesOut * 60).toFixed(2)}px)`;
+  });
+
+  // end card ----------------------------------------------------------------------------------
+  endBox.style.display = t > b(143.8) ? "block" : "none";
+  endEls.forEach((e, i) => {
+    const k = spring(t - (b(144.2) + i * 0.32), 0.6);
+    e.style.opacity = clamp(k * 1.3).toFixed(3);
+    e.style.transform = `translateY(${((1 - k) * 34).toFixed(2)}px)`;
+  });
+  return t;
+}
+
+// ---------- soundtrack: written in code, rendered offline, deterministic ------------------------
+function rng(seed) { let s = seed >>> 0; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296); }
+async function renderAudio() {
+  const SR = 48000, N = Math.ceil(DURATION * SR);
+  const ctx = new OfflineAudioContext(2, N, SR);
+  const master = ctx.createGain(); master.gain.value = 0.9; master.connect(ctx.destination);
+  const R = rng(20261014);
+  // noise buffer for key clicks
+  const nb = ctx.createBuffer(1, 2048, SR); const nd = nb.getChannelData(0);
+  for (let i = 0; i < nd.length; i++) nd[i] = (R() * 2 - 1) * Math.exp(-i / 120);
+  function click(t, gain = 0.05, f = 3200) {
+    const s = ctx.createBufferSource(); s.buffer = nb;
+    const bp = ctx.createBiquadFilter(); bp.type = "bandpass"; bp.frequency.value = f; bp.Q.value = 1.2;
+    const g = ctx.createGain(); g.gain.value = gain;
+    s.connect(bp); bp.connect(g); g.connect(master); s.start(t);
+  }
+  function tone(t, f, dur, gain, type = "sine", f2) {
+    const o = ctx.createOscillator(); o.type = type; o.frequency.setValueAtTime(f, t);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, t + dur);
+    const g = ctx.createGain(); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(gain, t + 0.006);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g); g.connect(master); o.start(t); o.stop(t + dur + 0.05);
+  }
+  // pad: one chord per scene, slow attack and release
+  const CH = { A: [110.0, 164.81, 261.63, 329.63], F: [87.31, 130.81, 220.0, 261.63], C: [130.81, 196.0, 261.63, 329.63],
+    G: [98.0, 146.83, 246.94, 293.66], D: [146.83, 220.0, 293.66, 349.23] };
+  const PADS = [[0, 9, "A"], [9, 24, "A"], [24, 38, "F"], [38, 48, "C"], [48, 63, "G"], [63, 77, "A"], [77, 88, "F"], [88, 99, "C"],
+    [99, 114, "D"], [114, 129, "G"], [129, 144, "F"], [144, 152, "A"]];
+  for (const [a, z, ch] of PADS) {
+    const t0 = b(a), t1 = b(z);
+    CH[ch].forEach((f, i) => {
+      for (const det of [-0.12, 0.12]) {
+        const o = ctx.createOscillator(); o.type = i === 0 ? "triangle" : "sine"; o.frequency.value = f; o.detune.value = det * 100 / 12 * 12;
+        const lp = ctx.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 900;
+        const g = ctx.createGain(); const peak = (i === 0 ? 0.030 : 0.016);
+        g.gain.setValueAtTime(0, t0); g.gain.linearRampToValueAtTime(peak, t0 + 1.2);
+        g.gain.setValueAtTime(peak, Math.max(t0 + 1.2, t1 - 0.8)); g.gain.linearRampToValueAtTime(0, t1 + 0.6);
+        o.connect(lp); lp.connect(g); g.connect(master); o.start(t0); o.stop(t1 + 0.7);
+      }
+    });
+  }
+  // a soft pulse on each bar while files are on screen
+  for (let n = 8; n < 128; n += 4) tone(b(n), 70, 0.16, 0.10, "sine", 46);
+  // key clicks for every typed or erased character
+  for (const fmt of ["json", "toml"]) {
+    for (const Lx of FILES[fmt]) {
+      for (const lf of Lx.lives) {
+        const len = Lx.text.length;
+        for (let i = 0; i < len; i++) {
+          if (Lx.text[i] === " " && i < 4) continue;
+          click(lf.a + (i + 1) * (lf.b - lf.a) / len, 0.035 + R() * 0.02, 2600 + R() * 1400);
+        }
+        if (lf.ea !== undefined) for (let i = 0; i < Math.min(len, 6); i++) click(lf.ea + i * (lf.eb - lf.ea) / 6, 0.025, 1800);
+      }
+      for (const s of Lx.suffixes) { click(s.b, 0.05, 3000); click(s.eb, 0.03, 1800); }
+    }
+  }
+  // sends and verdicts
+  for (const S of SENDS) {
+    tone(S.t, 520, 0.22, 0.05, "sine", 880);
+    for (const fmt of ["json", "toml"]) {
+      const st = M.scenes[S.scene][fmt]; if (!st) continue;
+      st.forEach(([s], i) => {
+        const at = S.t + 0.24 + i * STAGGER;
+        if (s === "ok") tone(at, 1318.5, 0.09, 0.022);
+        else if (s === "err") tone(at, 207.65, 0.14, 0.05, "triangle");
+        else tone(at, 659.25, 0.12, 0.03, "sine", 622.25);
+      });
+    }
+  }
+  // end: a resolving chime
+  tone(b(144.2), 440, 1.6, 0.04); tone(b(144.2) + 0.32, 659.25, 1.4, 0.03); tone(b(144.2) + 0.64, 880, 1.8, 0.025);
+  const buf = await ctx.startRendering();
+  // encode 16-bit PCM WAV, base64
+  const ch0 = buf.getChannelData(0), ch1 = buf.getChannelData(1), n = buf.length;
+  const out = new DataView(new ArrayBuffer(44 + n * 4));
+  const W = (o, s) => { for (let i = 0; i < s.length; i++) out.setUint8(o + i, s.charCodeAt(i)); };
+  W(0, "RIFF"); out.setUint32(4, 36 + n * 4, true); W(8, "WAVE"); W(12, "fmt "); out.setUint32(16, 16, true);
+  out.setUint16(20, 1, true); out.setUint16(22, 2, true); out.setUint32(24, SR, true); out.setUint32(28, SR * 4, true);
+  out.setUint16(32, 4, true); out.setUint16(34, 16, true); W(36, "data"); out.setUint32(40, n * 4, true);
+  for (let i = 0; i < n; i++) {
+    out.setInt16(44 + i * 4, Math.max(-1, Math.min(1, ch0[i])) * 32767, true);
+    out.setInt16(46 + i * 4, Math.max(-1, Math.min(1, ch1[i])) * 32767, true);
+  }
+  const bytes = new Uint8Array(out.buffer); let s = "";
+  for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+  return btoa(s);
+}
+
+window.DURATION = DURATION;
+window.seek = seek;
+window.renderAudio = renderAudio;
+function fitText() {
+  // one line per caption and per sub-caption: shrink the type to fit, never below a readable floor
+  for (const c of capEls) {
+    c.box.style.display = "block"; c.sb.style.display = "block";
+    let fs = 50;
+    c.box.style.fontSize = fs + "px";
+    const width = () => c.words.reduce((a, w) => a + w.offsetWidth, 0);
+    while (width() > 1660 && fs > 40) { fs -= 1; c.box.style.fontSize = fs + "px"; }
+    c.fontSize = fs;
+    let ss = 25; c.sb.style.whiteSpace = "nowrap"; c.sb.style.fontSize = ss + "px";
+    while (c.sb.scrollWidth > 1600 && ss > 20) { ss -= 1; c.sb.style.fontSize = ss + "px"; }
+    c.box.style.display = "none"; c.sb.style.display = "none";
+  }
+}
+window.ready = document.fonts.ready.then(() => { measureChar(); fitText(); seek(0); return true; });
+</script>
+</body>
+</html>
