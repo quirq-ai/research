@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" role="img" aria-label="Dependency graph. Leaves p01 to p04 on the left. p05 depends on p01 and p02, p06 on p02 and p03, p07 on p03 and p04, p08 on p01 and p04. p09 depends on p05 and p06, p10 on p06 and p07, p11 on p07 and p08. p12 depends on p09, p10 and p11. The six packages reached from p01 are highlighted: p01, p05, p08, p09, p11, p12."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="300.0" fill="#ffffff"/>
+                <defs><marker id="b-ctl" markerHeight="6" markerWidth="6" orient="auto" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0,0 L10,5 L0,10 z" fill="#252525"></path></marker></defs>
+                <text class="svg-lane" x="40" y="20">LEAVES</text><text class="svg-lane" x="300" y="20">LAYER 2</text><text class="svg-lane" x="560" y="20">LAYER 3</text><text class="svg-lane" x="820" y="20">APP</text>
+                <g fill="none" marker-end="url(#b-ctl)" stroke="#252525" stroke-width="1.6">
+                  <path d="M120,55 L296,55"></path><path d="M120,115 L296,62"></path>
+                  <path d="M120,115 L296,115"></path><path d="M120,175 L296,122"></path>
+                  <path d="M120,175 L296,175"></path><path d="M120,235 L296,182"></path>
+                  <path d="M120,55 L296,228"></path><path d="M120,235 L296,238"></path>
+                  <path d="M380,55 L556,82"></path><path d="M380,115 L556,88"></path>
+                  <path d="M380,115 L556,148"></path><path d="M380,175 L556,154"></path>
+                  <path d="M380,175 L556,208"></path><path d="M380,235 L556,214"></path>
+                  <path d="M640,85 L816,140"></path><path d="M640,150 L816,150"></path><path d="M640,210 L816,160"></path>
+                </g>
+                <g>
+                  <rect fill="#f7e3c8" height="34" rx="4" stroke="#d98226" width="80" x="40" y="38"></rect><text class="svg-step" x="62" y="60">p01</text>
+                  <rect fill="#f7f7f5" height="34" rx="4" stroke="#b8b8b1" width="80" x="40" y="98"></rect><text class="svg-step" x="62" y="120">p02</text>
+                  <rect fill="#f7f7f5" height="34" rx="4" stroke="#b8b8b1" width="80" x="40" y="158"></rect><text class="svg-step" x="62" y="180">p03</text>
+                  <rect fill="#f7f7f5" height="34" rx="4" stroke="#b8b8b1" width="80" x="40" y="218"></rect><text class="svg-step" x="62" y="240">p04</text>
+                  <rect fill="#f7e3c8" height="34" rx="4" stroke="#d98226" width="80" x="300" y="38"></rect><text class="svg-step" x="322" y="60">p05</text>
+                  <rect fill="#f7f7f5" height="34" rx="4" stroke="#b8b8b1" width="80" x="300" y="98"></rect><text class="svg-step" x="322" y="120">p06</text>
+                  <rect fill="#f7f7f5" height="34" rx="4" stroke="#b8b8b1" width="80" x="300" y="158"></rect><text class="svg-step" x="322" y="180">p07</text>
+                  <rect fill="#f7e3c8" height="34" rx="4" stroke="#d98226" width="80" x="300" y="218"></rect><text class="svg-step" x="322" y="240">p08</text>
+                  <rect fill="#f7e3c8" height="34" rx="4" stroke="#d98226" width="80" x="560" y="68"></rect><text class="svg-step" x="582" y="90">p09</text>
+                  <rect fill="#f7f7f5" height="34" rx="4" stroke="#b8b8b1" width="80" x="560" y="133"></rect><text class="svg-step" x="582" y="155">p10</text>
+                  <rect fill="#f7e3c8" height="34" rx="4" stroke="#d98226" width="80" x="560" y="198"></rect><text class="svg-step" x="582" y="220">p11</text>
+                  <rect fill="#f7e3c8" height="34" rx="4" stroke="#d98226" width="80" x="820" y="133"></rect><text class="svg-step" x="842" y="155">p12</text>
+                </g>
+                <text class="svg-note" x="40" y="288">orange = the six tasks a change to p01 must re-run · thick black = build-order edge (^build)</text>
+              </svg>
