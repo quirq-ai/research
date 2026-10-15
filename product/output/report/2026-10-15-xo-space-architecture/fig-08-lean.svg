@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 560" role="img" aria-labelledby="fig-lean"><rect x="0.0" y="0.0" width="1160.0" height="560.0" fill="#ffffff"/>
+              
+              <rect fill="#fff8ea" height="120" rx="10" stroke="#d98226" stroke-width="1.6" width="200" x="20" y="210"></rect>
+              <text fill="#252525" font-size="13" text-anchor="middle" x="120" y="244">.quirq/xo.json</text>
+              <text fill="#d98226" font-family="SFMono-Regular, Consolas, monospace" font-size="9.5" text-anchor="middle" x="120" y="264">the one authority</text>
+              <text fill="#777772" font-family="SFMono-Regular, Consolas, monospace" font-size="9.5" text-anchor="middle" x="120" y="282">roster · config · agent</text>
+              <text fill="#777772" font-family="SFMono-Regular, Consolas, monospace" font-size="9.5" text-anchor="middle" x="120" y="300">revision · pins · sources</text>
+              <line stroke="#d98226" stroke-width="2" x1="220" x2="286" y1="270" y2="270"></line>
+              <path d="M286 270 l-9 -5 v10 z" fill="#d98226"></path>
+              <text fill="#d98226" font-family="SFMono-Regular, Consolas, monospace" font-size="9" text-anchor="middle" x="253" y="258">decides</text>
+
+              
+              <rect fill="#252525" height="320" rx="12" width="290" x="290" y="120"></rect>
+              <text fill="#ffffff" font-size="14" text-anchor="middle" x="435" y="152">the kernel</text>
+              <g fill="#b8b8b1" font-family="SFMono-Regular, Consolas, monospace" font-size="10.5">
+                <text text-anchor="middle" x="435" y="180">boot — installs nothing</text>
+                <text text-anchor="middle" x="435" y="202">config — sole xo.json writer</text>
+                <text text-anchor="middle" x="435" y="224">apphost — mount · spawn · gate</text>
+                <text text-anchor="middle" x="435" y="246">vfs — scopes as grant tables</text>
+                <text text-anchor="middle" x="435" y="268">clock — tick bus + (turn, tick)</text>
+                <text text-anchor="middle" x="435" y="290">journal — seq ids · rotation</text>
+                <text text-anchor="middle" x="435" y="312">auth · /kernel/* · text status</text>
+                <text text-anchor="middle" x="435" y="334">quirq CLI — thin client</text>
+              </g>
+              <text fill="#777772" font-family="SFMono-Regular, Consolas, monospace" font-size="9.5" text-anchor="middle" x="435" y="372">~1,400 lines, mostly moved</text>
+              <text fill="#777772" font-family="SFMono-Regular, Consolas, monospace" font-size="9.5" text-anchor="middle" x="435" y="390">serves no HTML shell</text>
+              <text fill="#ad4b43" font-family="SFMono-Regular, Consolas, monospace" font-size="9.5" text-anchor="middle" x="435" y="420">no supervisor · exec-restart only</text>
+
+              
+              <text fill="#777772" font-family="SFMono-Regular, Consolas, monospace" font-size="10.5" font-weight="700" letter-spacing="1.2" x="640" y="106">APPS · HOSTED, GRANTED, DISPOSABLE</text>
+              <line stroke="#3c6f97" stroke-width="2" x1="580" x2="632" y1="200" y2="200"></line>
+              <path d="M632 200 l-9 -5 v10 z" fill="#3c6f97"></path>
+              <text fill="#3c6f97" font-family="SFMono-Regular, Consolas, monospace" font-size="9" text-anchor="middle" x="606" y="188">hosts</text>
+
+              <g fill="#252525" font-size="11.5">
+                <rect fill="#e0ebf2" height="44" rx="8" stroke="#3c6f97" width="150" x="640" y="120"></rect>
+                <text text-anchor="middle" x="715" y="139">watcher</text>
+                <text fill="#3c6f97" font-family="SFMono-Regular, Consolas, monospace" font-size="8.5" text-anchor="middle" x="715" y="155">service</text>
+                <rect fill="#e0ebf2" height="44" rx="8" stroke="#3c6f97" width="150" x="810" y="120"></rect>
+                <text text-anchor="middle" x="885" y="139">graphs</text>
+                <text fill="#3c6f97" font-family="SFMono-Regular, Consolas, monospace" font-size="8.5" text-anchor="middle" x="885" y="155">service</text>
+                <rect fill="#e0ebf2" height="44" rx="8" stroke="#3c6f97" width="160" x="980" y="120"></rect>
+                <text text-anchor="middle" x="1060" y="139">telemetry-argus</text>
+                <text fill="#3c6f97" font-family="SFMono-Regular, Consolas, monospace" font-size="8.5" text-anchor="middle" x="1060" y="155">service</text>
+
+                <rect fill="#dfede5" height="44" rx="8" stroke="#367f59" width="150" x="640" y="180"></rect>
+                <text text-anchor="middle" x="715" y="199">images</text>
+                <text fill="#367f59" font-family="SFMono-Regular, Consolas, monospace" font-size="8.5" text-anchor="middle" x="715" y="215">engine · egress</text>
+                <rect fill="#dfede5" height="44" rx="8" stroke="#367f59" width="150" x="810" y="180"></rect>
+                <text text-anchor="middle" x="885" y="199">judge</text>
+                <text fill="#367f59" font-family="SFMono-Regular, Consolas, monospace" font-size="8.5" text-anchor="middle" x="885" y="215">engine · off by default</text>
+                <rect fill="#f7f7f5" height="44" rx="8" stroke="#b8b8b1" width="160" x="980" y="180"></rect>
+                <text text-anchor="middle" x="1060" y="199">shell · setup · views</text>
+                <text fill="#777772" font-family="SFMono-Regular, Consolas, monospace" font-size="8.5" text-anchor="middle" x="1060" y="215">view apps</text>
+
+                <rect fill="#ece6f3" height="44" rx="8" stroke="#765b98" width="320" x="640" y="240"></rect>
+                <text text-anchor="middle" x="800" y="259">driver-claude-code · codex · pi · openclaw · hermes …</text>
+                <text fill="#765b98" font-family="SFMono-Regular, Consolas, monospace" font-size="8.5" text-anchor="middle" x="800" y="275">drivers — adapters, verbatim</text>
+
+                <rect fill="#fff8ea" height="52" rx="8" stroke="#d98226" stroke-dasharray="6 4" width="320" x="640" y="300"></rect>
+                <text text-anchor="middle" x="800" y="321">spacewalk — external, installed from a path</text>
+                <text fill="#d98226" font-family="SFMono-Regular, Consolas, monospace" font-size="8.5" text-anchor="middle" x="800" y="339">bridge · own binary · proxied view · reviewed grants</text>
+              </g>
+
+              
+              <line stroke="#b8b8b1" stroke-dasharray="8 5" x1="20" x2="1140" y1="480" y2="480"></line>
+              <g fill="#4f4f4b" font-family="SFMono-Regular, Consolas, monospace" font-size="10">
+                <text x="30" y="472">STORAGE — unchanged tiers, now behind grants:</text>
+                <text x="30" y="516">projects root (.xo proc entries · kernel tables)</text>
+                <text x="440" y="516">.quirq/apps/&lt;id&gt;/state/ — uniform app state</text>
+                <text x="830" y="516">native logs · image store</text>
+              </g>
+              <line stroke="#3c6f97" stroke-width="1.6" x1="435" x2="435" y1="440" y2="478"></line>
+              <path d="M435 478 l-4.5 -8 h9 z" fill="#3c6f97"></path>
+              <line stroke="#3c6f97" stroke-width="1.2" x1="800" x2="700" y1="352" y2="478"></line>
+              <path d="M700 478 l-1 -9 8 3 z" fill="#3c6f97"></path>
+            </svg>

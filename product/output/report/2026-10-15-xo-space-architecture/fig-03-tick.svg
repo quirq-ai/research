@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 460" role="img" aria-labelledby="fig-tick"><rect x="0.0" y="0.0" width="1160.0" height="460.0" fill="#ffffff"/>
+              
+              <text fill="#777772" font-family="SFMono-Regular, Consolas, monospace" font-size="10.5" font-weight="700" letter-spacing="1.2" x="24" y="30">THE TICK · SIX STEPS, EVERY SECOND, IN THIS ORDER</text>
+              <circle cx="310" cy="240" fill="none" r="150" stroke="#deded9" stroke-width="2"></circle>
+              <circle cx="310" cy="240" fill="#252525" r="52"></circle>
+              <text fill="#ffffff" font-size="15" text-anchor="middle" x="310" y="235">1 s</text>
+              <text fill="#b8b8b1" font-family="SFMono-Regular, Consolas, monospace" font-size="8.5" text-anchor="middle" x="310" y="254">clamp 0.25–60</text>
+
+              
+              <g fill="#252525" font-size="11">
+                <rect fill="#e0ebf2" height="40" rx="8" stroke="#3c6f97" width="120" x="250" y="52"></rect>
+                <text text-anchor="middle" x="310" y="70">1 · poll drivers</text>
+                <text fill="#3c6f97" font-family="SFMono-Regular, Consolas, monospace" font-size="8.5" text-anchor="middle" x="310" y="85">resume from cursors</text>
+
+                <rect fill="#e0ebf2" height="40" rx="8" stroke="#3c6f97" width="128" x="420" y="130"></rect>
+                <text text-anchor="middle" x="484" y="148">2 · PII filter</text>
+                <text fill="#3c6f97" font-family="SFMono-Regular, Consolas, monospace" font-size="8.5" text-anchor="middle" x="484" y="163">raw lines → typed events</text>
+
+                <rect fill="#e0ebf2" height="40" rx="8" stroke="#3c6f97" width="128" x="430" y="290"></rect>
+                <text text-anchor="middle" x="494" y="308">3 · group by unit</text>
+                <text fill="#3c6f97" font-family="SFMono-Regular, Consolas, monospace" font-size="8.5" text-anchor="middle" x="494" y="323">unattributable → dropped</text>
+
+                <rect fill="#78a31e22" height="46" rx="8" stroke="#367f59" width="120" x="250" y="382"></rect>
+                <text text-anchor="middle" x="310" y="400">4 · sinks, in order</text>
+                <text fill="#367f59" font-family="SFMono-Regular, Consolas, monospace" font-size="8" text-anchor="middle" x="310" y="416">identity·augment·todos·stats·journal</text>
+
+                <rect fill="#fff8ea" height="40" rx="8" stroke="#d98226" width="132" x="70" y="290"></rect>
+                <text text-anchor="middle" x="136" y="308">5 · presence sweep</text>
+                <text fill="#d98226" font-family="SFMono-Regular, Consolas, monospace" font-size="8.5" text-anchor="middle" x="136" y="323">every unit, even eventless</text>
+
+                <rect fill="#dfede5" height="40" rx="8" stroke="#367f59" width="142" x="60" y="130"></rect>
+                <text text-anchor="middle" x="131" y="148">6 · workspace tables</text>
+                <text fill="#367f59" font-family="SFMono-Regular, Consolas, monospace" font-size="8.5" text-anchor="middle" x="131" y="163">re-aggregate the root's .xo</text>
+              </g>
+              
+              <g fill="none" stroke="#252525" stroke-width="2">
+                <path d="M372 95 A150 150 0 0 1 448 130"></path>
+                <path d="M462 175 A150 150 0 0 1 460 288"></path>
+                <path d="M428 335 A150 150 0 0 1 372 385"></path>
+                <path d="M248 385 A150 150 0 0 1 195 335"></path>
+                <path d="M160 288 A150 150 0 0 1 162 175"></path>
+                <path d="M196 142 A150 150 0 0 1 248 95"></path>
+              </g>
+              <g fill="#252525">
+                <path d="M448 130 l-9.5 -1 5 -8 z"></path>
+                <path d="M460 288 l-4 -8.5 9 -0.5 z"></path>
+                <path d="M372 385 l-1 -9.5 8.5 4 z"></path>
+                <path d="M195 335 l9 -2 -3.5 8.5 z"></path>
+                <path d="M162 175 l4.5 8.5 -9 0.5 z"></path>
+                <path d="M248 95 l0.5 9.5 -8.5 -4 z"></path>
+              </g>
+              <text fill="#777772" font-family="SFMono-Regular, Consolas, monospace" font-size="9.5" text-anchor="middle" x="310" y="448">exceptions swallowed and logged — a bad line never stops the loop</text>
+
+              
+              <text fill="#777772" font-family="SFMono-Regular, Consolas, monospace" font-size="10.5" font-weight="700" letter-spacing="1.2" x="640" y="30">THE OUTER LOOPS · TIMERS</text>
+              <g font-family="SFMono-Regular, Consolas, monospace" font-size="10.5">
+                <rect fill="#e0ebf2" height="26" rx="13" stroke="#3c6f97" width="86" x="640" y="48"></rect>
+                <text fill="#3c6f97" text-anchor="middle" x="683" y="65">5 s</text>
+                <text fill="#4f4f4b" x="742" y="65">session list TTL — ?fresh=1 forces a rescan</text>
+                <rect fill="#e0ebf2" height="26" rx="13" stroke="#3c6f97" width="86" x="640" y="86"></rect>
+                <text fill="#3c6f97" text-anchor="middle" x="683" y="103">30 s</text>
+                <text fill="#4f4f4b" x="742" y="103">map cache — inside it: 10 s build deadline, 5 s git/unit</text>
+                <rect fill="#e0ebf2" height="26" rx="13" stroke="#3c6f97" width="86" x="640" y="124"></rect>
+                <text fill="#3c6f97" text-anchor="middle" x="683" y="141">2.5 s</text>
+                <text fill="#4f4f4b" x="742" y="141">judge status poll (client), 5 s retry while unknown</text>
+                <rect fill="#e0ebf2" height="26" rx="13" stroke="#3c6f97" width="86" x="640" y="162"></rect>
+                <text fill="#3c6f97" text-anchor="middle" x="683" y="179">10 min</text>
+                <text fill="#4f4f4b" x="742" y="179">profiler's trace cache (its own process, §4.3)</text>
+              </g>
+              <text fill="#777772" font-family="SFMono-Regular, Consolas, monospace" font-size="10.5" font-weight="700" letter-spacing="1.2" x="640" y="228">THE COUNTERS · BOUNDS, NOT TIMERS</text>
+              <g font-family="SFMono-Regular, Consolas, monospace" font-size="10.5">
+                <rect fill="#fff8ea" height="26" rx="6" stroke="#d98226" width="86" x="640" y="246"></rect>
+                <text fill="#d98226" text-anchor="middle" x="683" y="263">8 MB</text>
+                <text fill="#4f4f4b" x="742" y="263">journal rotation, newest 5 kept — per unit only</text>
+                <rect fill="#fff8ea" height="26" rx="6" stroke="#d98226" width="86" x="640" y="284"></rect>
+                <text fill="#d98226" text-anchor="middle" x="683" y="301">35</text>
+                <text fill="#4f4f4b" x="742" y="301">stats day-buckets (30 d window + buffer)</text>
+                <rect fill="#fff8ea" height="26" rx="6" stroke="#d98226" width="86" x="640" y="322"></rect>
+                <text fill="#d98226" text-anchor="middle" x="683" y="339">10</text>
+                <text fill="#4f4f4b" x="742" y="339">images retained per unit, pruned pre-push</text>
+              </g>
+              <text fill="#ad4b43" font-family="SFMono-Regular, Consolas, monospace" font-size="11" x="640" y="392">no interrupts anywhere: freshness = the loop you are waiting on</text>
+              <text fill="#777772" font-family="SFMono-Regular, Consolas, monospace" font-size="10" x="640" y="412">known gap: the workspace journal has a timer's traffic and no counter (§3.5)</text>
+            </svg>

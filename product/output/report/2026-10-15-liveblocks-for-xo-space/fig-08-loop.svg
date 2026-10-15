@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" role="img" aria-label="A cycle of four nodes: agent works, watcher derives, room publishes, viewers see. A human enters at the viewers node through a comment, which returns to the agent as a prompt."><style>.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="700.0" height="300.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="l-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="l-blue" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                  <marker id="l-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+                <rect fill="#dfede5" height="70" rx="10" stroke="#367f59" width="150" x="40" y="110"></rect>
+                <text class="svg-step" text-anchor="middle" x="115" y="140">Agent works</text>
+                <text class="svg-sub" text-anchor="middle" x="115" y="160">in the folder, in its runtime</text>
+
+                <rect fill="#ffffff" height="70" rx="10" stroke="#252525" width="150" x="275" y="30"></rect>
+                <text class="svg-step" text-anchor="middle" x="350" y="60">Watcher derives</text>
+                <text class="svg-sub" text-anchor="middle" x="350" y="80">.xo/ (existing) + publish</text>
+
+                <rect fill="#e0ebf2" height="70" rx="10" stroke="#3c6f97" width="150" x="510" y="110"></rect>
+                <text class="svg-step" text-anchor="middle" x="585" y="140">Room fans out</text>
+                <text class="svg-sub" text-anchor="middle" x="585" y="160">presence · storage · feed</text>
+
+                <rect fill="#ece6f3" height="70" rx="10" stroke="#765b98" width="150" x="275" y="200"></rect>
+                <text class="svg-step" text-anchor="middle" x="350" y="230">Viewers see, reply</text>
+                <text class="svg-sub" text-anchor="middle" x="350" y="250">any device · Threads</text>
+
+                <path d="M190 130 Q230 65 275 65" fill="none" marker-end="url(#l-ink)" stroke="#252525" stroke-width="2.5"></path>
+                <path d="M425 65 Q470 65 510 130" fill="none" marker-end="url(#l-blue)" stroke="#3c6f97" stroke-width="1.5"></path>
+                <path d="M585 180 Q560 235 425 235" fill="none" marker-end="url(#l-blue)" stroke="#3c6f97" stroke-width="1.5"></path>
+                <path d="M275 235 Q140 235 115 180" fill="none" marker-end="url(#l-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+                <text class="svg-note" x="180" y="262">comment → webhook / poll → prompt</text>
+                <text class="svg-note" text-anchor="middle" x="350" y="148">no person required for</text>
+                <text class="svg-note" text-anchor="middle" x="350" y="164">three of the four edges</text>
+              </svg>

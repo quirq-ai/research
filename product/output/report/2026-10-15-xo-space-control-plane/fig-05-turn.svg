@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 470" role="img" aria-label="Sequence diagram of a chat turn through xo-space"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }</style><rect x="0.0" y="0.0" width="1120.0" height="470.0" fill="#ffffff"/>
+              <text class="svg-lane" x="18" y="26">CLIENT</text>
+              <text class="svg-lane" x="18" y="150">ROUTER</text>
+              <text class="svg-lane" x="18" y="300">ADAPTER</text>
+              <text class="svg-lane" x="18" y="424">DISK</text>
+              <line stroke="#deded9" x1="0" x2="1120" y1="38" y2="38"></line>
+              <line stroke="#deded9" x1="0" x2="1120" y1="162" y2="162"></line>
+              <line stroke="#deded9" x1="0" x2="1120" y1="312" y2="312"></line>
+              <line stroke="#deded9" x1="0" x2="1120" y1="436" y2="436"></line>
+
+              <rect fill="#f7f7f5" height="60" rx="7" stroke="#deded9" width="210" x="100" y="52"></rect>
+              <text class="svg-num" x="114" y="72">1</text>
+              <text class="svg-step" x="132" y="72">POST /api/chat/prompt</text>
+              <text class="svg-sub" x="114" y="92">{ text, session_id?, agent_name?,</text>
+              <text class="svg-sub" x="114" y="105">  model?, workspace? }</text>
+
+              <rect fill="#f7f7f5" height="60" rx="7" stroke="#deded9" width="230" x="810" y="52"></rect>
+              <text class="svg-num" x="824" y="72">6</text>
+              <text class="svg-step" x="842" y="72">GET /api/chat/stream/&lt;id&gt;</text>
+              <text class="svg-sub" x="824" y="92">EventSource — text-delta ×N,</text>
+              <text class="svg-sub" x="824" y="105">heartbeat, done</text>
+
+              <rect fill="#e0ebf2" height="74" rx="7" stroke="#3c6f97" width="200" x="100" y="180"></rect>
+              <text class="svg-num" x="114" y="200">2</text>
+              <text class="svg-step" x="132" y="200">Resolve the backend</text>
+              <text class="svg-sub" x="114" y="220">explicit agent_name, else</text>
+              <text class="svg-sub" x="114" y="234">find_session_backend(sid),</text>
+              <text class="svg-sub" x="114" y="248">else AGENT_NAME</text>
+
+              <rect fill="#f7e3c8" height="74" rx="7" stroke="#d98226" width="196" x="322" y="180"></rect>
+              <text class="svg-num" x="336" y="200">3</text>
+              <text class="svg-step" x="354" y="200">Switch detection</text>
+              <text class="svg-sub" x="336" y="220">session's backend ≠ the</text>
+              <text class="svg-sub" x="336" y="234">selected agent ⇒ drop the</text>
+              <text class="svg-sub" x="336" y="248">session id, start fresh</text>
+
+              <rect fill="#f7f7f5" height="74" rx="7" stroke="#deded9" width="196" x="540" y="180"></rect>
+              <text class="svg-num" x="554" y="200">4</text>
+              <text class="svg-step" x="572" y="200">Resolve agent_id</text>
+              <text class="svg-sub" x="554" y="220">explicit → workspace path</text>
+              <text class="svg-sub" x="554" y="234">under xo-projects → the</text>
+              <text class="svg-sub" x="554" y="248">agent's own resolver hook</text>
+
+              <rect fill="#ece6f3" height="74" rx="7" stroke="#765b98" width="282" x="758" y="180"></rect>
+              <text class="svg-num" x="772" y="200">5</text>
+              <text class="svg-step" x="790" y="200">try_load_capability("chat")</text>
+              <text class="svg-sub" x="772" y="220">present ⇒ the adapter owns the whole</text>
+              <text class="svg-sub" x="772" y="234">prompt path. absent ⇒ register the</text>
+              <text class="svg-sub" x="772" y="248">stream and return {stream_id, session_id}</text>
+
+              <rect fill="#dfede5" height="74" rx="7" stroke="#367f59" width="270" x="100" y="330"></rect>
+              <text class="svg-step" x="114" y="350">Shared path — AgentDispatcher</text>
+              <text class="svg-sub" x="114" y="370">load_agent_config → get_adapter → .stream()</text>
+              <text class="svg-sub" x="114" y="384">events pumped into an asyncio.Queue by a</text>
+              <text class="svg-sub" x="114" y="398">producer task; 20 s of silence ⇒ heartbeat</text>
+
+              <rect fill="#ece6f3" height="74" rx="7" stroke="#765b98" width="256" x="392" y="330"></rect>
+              <text class="svg-step" x="406" y="350">Adapter-owned path</text>
+              <text class="svg-sub" x="406" y="370">openclaw: bootstrap the session, poll</text>
+              <text class="svg-sub" x="406" y="384">for its id up to 20×1 s, then replay the</text>
+              <text class="svg-sub" x="406" y="398">buffered answer as simulated deltas</text>
+
+              <rect fill="#f7f7f5" height="74" rx="7" stroke="#deded9" width="370" x="670" y="330"></rect>
+              <text class="svg-step" x="684" y="350">Both paths converge on one event vocabulary</text>
+              <text class="svg-sub" x="684" y="370">session-created · text-delta · model-loading · heartbeat</text>
+              <text class="svg-sub" x="684" y="384">agent-error · done — each line carries a monotonic id:</text>
+              <text class="svg-sub" x="684" y="398">so a reconnecting EventSource can be reasoned about</text>
+
+              <text class="svg-step" x="100" y="458">~/xo-projects/&lt;id&gt;/.xo/sessions/sessionslist.json — metadata only</text>
+              <text class="svg-sub" x="620" y="458">…and the runtime's own home gets the messages. Core never writes there.</text>
+            </svg>
