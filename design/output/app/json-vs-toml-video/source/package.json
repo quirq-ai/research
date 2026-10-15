@@ -1,0 +1,9 @@
+{
+  "name": "json-vs-toml-video-source",
+  "private": true,
+  "type": "module",
+  "description": "Renders the JSON vs TOML explainer: one HTML page rendered frame by frame (not a workspace of the research repo)",
+  "dependencies": {
+    "playwright-core": "1.62.1"
+  }
+}

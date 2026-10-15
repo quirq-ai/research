@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSON vs TOML in Motion</title>
+<link rel="icon" href="poster.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+<style>
+:root {
+  --ground: #f6f5f1; --surface: #ffffff; --ink: #252525; --soft: #55554f; --faint: #85847e; --line: #deded9;
+  --accent: #b8691c; --json: #3c6f97; --toml: #765b98; --ok: #367f59; --err: #ad4b43; --diff: #b8691c;
+  --ok-bg: #dfede5; --err-bg: #f3dfdc; --diff-bg: #f7e3c8; --none-bg: #efeee9;
+  --serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --sans: Inter, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ground: #161614; --surface: #1f1f1c; --ink: #ecebe6; --soft: #bab9b1; --faint: #8f8e87; --line: #34332f;
+    --accent: #e39a52; --json: #86b5da; --toml: #b8a0d9; --ok: #74c497; --err: #e58d83; --diff: #e7a560;
+    --ok-bg: #1f3329; --err-bg: #3a2522; --diff-bg: #3a2c1b; --none-bg: #262623;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ground: #161614; --surface: #1f1f1c; --ink: #ecebe6; --soft: #bab9b1; --faint: #8f8e87; --line: #34332f;
+  --accent: #e39a52; --json: #86b5da; --toml: #b8a0d9; --ok: #74c497; --err: #e58d83; --diff: #e7a560;
+  --ok-bg: #1f3329; --err-bg: #3a2522; --diff-bg: #3a2c1b; --none-bg: #262623;
+}
+body { background: var(--ground); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.6; }
+.wrap { max-width: 1040px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 64px; display: grid; gap: 40px; }
+header { display: grid; gap: 12px; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); margin: 0; }
+h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(30px, 5vw, 46px); line-height: 1.1; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+h1 .two { color: var(--accent); }
+.dek { margin: 0; max-width: 66ch; color: var(--soft); font-size: 17px; }
+figure { margin: 0; display: grid; gap: 10px; }
+video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 16 / 9; background: #f6f5f1; border: 1px solid var(--line); border-radius: 10px; }
+figcaption { font-size: 13px; color: var(--faint); font-family: var(--mono); }
+h2 { font-family: var(--serif); font-weight: 600; font-size: 26px; line-height: 1.2; margin: 0 0 6px; text-wrap: balance; }
+section { display: grid; gap: 12px; }
+section > p { margin: 0; max-width: 68ch; color: var(--soft); }
+.table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 720px; font-size: 14px; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+th { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); font-weight: 600; }
+th.json { color: var(--json); } th.toml { color: var(--toml); }
+td code, .edit code { font-family: var(--mono); font-size: 13px; white-space: nowrap; }
+td.scene { font-weight: 600; white-space: nowrap; }
+.v { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-family: var(--mono); font-size: 12px; font-variant-numeric: tabular-nums; border-radius: 999px; padding: 2px 10px; white-space: nowrap; }
+.ok { background: var(--ok-bg); color: var(--ok); } .err { background: var(--err-bg); color: var(--err); }
+.diff { background: var(--diff-bg); color: var(--diff); } .none { background: var(--none-bg); color: var(--faint); }
+.note { display: block; color: var(--faint); font-size: 12.5px; margin-top: 4px; }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: var(--soft); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.steps { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; counter-reset: step; }
+.steps li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; max-width: 76ch; }
+.steps li::before { counter-increment: step; content: counter(step); font-family: var(--mono); font-size: 13px; color: var(--accent);
+  border: 1px solid var(--line); border-radius: 50%; width: 28px; height: 28px; display: grid; place-items: center; background: var(--surface); }
+.steps b { font-weight: 600; }
+.steps p { margin: 2px 0 0; color: var(--soft); }
+footer { font-size: 13px; color: var(--faint); border-top: 1px solid var(--line); padding-top: 16px; display: grid; gap: 4px; }
+footer code { font-family: var(--mono); font-size: 12px; }
+a { color: var(--json); }
+a:focus-visible, video:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">quirq research · design · video · 1 min 41 s · <a href="../../../index.html">design topic</a> · <a href="../../report/2026-10-15-prompt-motion.html">how it was made</a></p>
+    <h1>A config file has <span class="two">two readers</span>.</h1>
+    <p class="dek">One settings file, written as JSON and as TOML, edited one line at a time. After each edit, twenty real parsers
+      read it, ten per format, and each one shows what it heard. Every count on screen was measured on the exact bytes shown.</p>
+  </header>
+
+  <figure>
+    <video id="film" controls playsinline preload="metadata" poster="poster.jpg" width="1920" height="1080">
+      <source src="json-vs-toml.mp4" type="video/mp4">
+    </video>
+    <figcaption>1920 × 1080 · 60 fps · sound on (a soft pad, key clicks and one tone per verdict)</figcaption>
+  </figure>
+
+  <section aria-labelledby="ledger">
+    <h2 id="ledger">What the twenty parsers heard</h2>
+    <p>Each row is one scene. The base file is a title and a server table with a host and a port; each edit is reverted
+      before the next.</p>
+    <div class="legend" aria-hidden="true">
+      <span><i class="dot" style="background: var(--ok)"></i>heard what was written</span>
+      <span><i class="dot" style="background: var(--diff)"></i>heard something else, silently</span>
+      <span><i class="dot" style="background: var(--err)"></i>refused the file</span>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Scene</th><th>Edit</th><th class="json">JSON · 10 parsers</th><th class="toml">TOML · 10 parsers</th></tr></thead>
+        <tbody>
+          <tr><td class="scene">Setup</td><td class="edit">the base file</td>
+            <td><div class="v"><span class="chip ok">10 same data</span></div></td>
+            <td><div class="v"><span class="chip ok">10 same data</span></div></td></tr>
+          <tr><td class="scene">Comment</td><td class="edit"><code>// admin UI port</code> · <code># admin UI port</code></td>
+            <td><div class="v"><span class="chip err">7 refuse</span><span class="chip ok">3 read on</span></div><span class="note">jsonc-parser and both json5 parsers read on</span></td>
+            <td><div class="v"><span class="chip ok">10 skip it</span></div></td></tr>
+          <tr><td class="scene">Trailing comma</td><td class="edit"><code>"port": 8080,</code></td>
+            <td><div class="v"><span class="chip err">8 refuse</span><span class="chip ok">2 accept</span></div><span class="note">only the two json5 parsers accept it</span></td>
+            <td><div class="v"><span class="chip none">not sent</span></div><span class="note">TOML has no commas between keys</span></td></tr>
+          <tr><td class="scene">Duplicate key</td><td class="edit"><code>port</code> twice: 8080, then 9090</td>
+            <td><div class="v"><span class="chip diff">9 keep 9090</span><span class="chip err">1 refuses</span></div><span class="note">only Go's encoding/json/v2 refuses</span></td>
+            <td><div class="v"><span class="chip err">10 refuse</span></div></td></tr>
+          <tr><td class="scene">2⁵³ + 1</td><td class="edit"><code>9007199254740993</code></td>
+            <td><div class="v"><span class="chip diff">5 hear …992</span><span class="chip ok">5 exact</span></div><span class="note">Go v1 and v2, JSON.parse, json5 (JS), jsonc-parser round it</span></td>
+            <td><div class="v"><span class="chip ok">9 exact</span><span class="chip err">1 refuses</span></div><span class="note">smol-toml: “cannot be represented losslessly”</span></td></tr>
+          <tr><td class="scene">Date</td><td class="edit"><code>2026-10-09T09:30:00Z</code></td>
+            <td><div class="v"><span class="chip ok">10 hear a string</span></div></td>
+            <td><div class="v"><span class="chip ok">10 hear a date-time</span></div><span class="note">five different native types for one instant</span></td></tr>
+          <tr><td class="scene">Empty value</td><td class="edit"><code>"proxy": null</code> · <code>proxy =</code></td>
+            <td><div class="v"><span class="chip ok">10 hear null</span></div></td>
+            <td><div class="v"><span class="chip err">10 refuse</span></div><span class="note">TOML has no null</span></td></tr>
+          <tr><td class="scene">Scope trap</td><td class="edit"><code>debug = true</code> at the end, after <code>[server]</code></td>
+            <td><div class="v"><span class="chip ok">10 top level</span></div></td>
+            <td><div class="v"><span class="chip diff">10 server.debug</span></div><span class="note">all ten agree; only the writer is surprised</span></td></tr>
+          <tr><td class="scene">TOML 1.1</td><td class="edit">multi-line inline table with a trailing comma</td>
+            <td><div class="v"><span class="chip none">not sent</span></div></td>
+            <td><div class="v"><span class="chip ok">8 read it</span><span class="chip err">2 refuse</span></div><span class="note">Python 3.14’s tomllib and @iarna/toml refuse</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="how">
+    <h2 id="how">How it was made</h2>
+    <p>The method comes from <a href="https://prompt-motion.com/" target="_blank" rel="noopener">Prompt Motion</a>, a gallery of
+      234 motion videos made with Claude Opus 5.5, each shown with the prompt behind it, and from its analyses of what the
+      best-received prompts share.</p>
+    <ol class="steps">
+      <li><div><b>A brief in the gallery’s own structure.</b><p>Inputs, direction with a banned list (no glows, crossfades,
+        bouncy easing or text in the corners), a structure on a 90 BPM beat grid, a build recipe, gotchas, and a start step.
+        It adds the two things the gallery’s explainer study found almost every prompt leaves out: who the video is for,
+        and an accuracy rule.</p></div></li>
+      <li><div><b>Measured before drawn.</b><p>Every snippet went through the harness behind <i>What the Parser Hears</i>:
+        the same 10 JSON and 10 TOML parser configurations at pinned versions. The page reads its verdicts from that
+        output; none is typed by hand.</p></div></li>
+      <li><div><b>Reviewed before rendering.</b><p>A desk check caught a send that fired before the TOML file had finished
+        typing. One still per scene beat, laid out on a contact sheet, caught four layout problems, all fixed before the
+        full render.</p></div></li>
+      <li><div><b>One HTML page, rendered frame by frame.</b><p>Every frame is a pure function of time. Playwright drives
+        headless Chrome through all 6,080 frames, ffmpeg encodes them, and the soundtrack is written in code with the
+        Web Audio API.</p></div></li>
+    </ol>
+  </section>
+
+  <footer>
+    <span>Source research: <i>What the Parser Hears</i>, XO Research, quirq.ai/what-the-parser-hears. 71 cases, 34 parser configurations, measured 9 October 2026.</span>
+    <span>Video snippets re-measured 14 October 2026 · parsers: JSON.parse, json, json5 ×2, jsonc-parser, serde_json ×2, encoding/json v1 and v2, jq; tomllib 3.14 and 3.15, tomli, tomlkit, toml, toml_edit, BurntSushi/toml, go-toml/v2, smol-toml, @iarna/toml.</span>
+  </footer>
+</div>
+
+</body>
+</html>

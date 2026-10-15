@@ -1,0 +1,8 @@
+{
+  "name": "json-vs-toml-video",
+  "private": true,
+  "description": "JSON vs TOML, in motion: the What the Parser Hears findings as a 101-second explainer video",
+  "scripts": {
+    "build": "node build.mjs"
+  }
+}

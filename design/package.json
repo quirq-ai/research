@@ -6,6 +6,7 @@
     "dev": "present dev"
   },
   "devDependencies": {
-    "@research/present": "*"
+    "@research/present": "*",
+    "json-vs-toml-video": "*"
   }
 }
