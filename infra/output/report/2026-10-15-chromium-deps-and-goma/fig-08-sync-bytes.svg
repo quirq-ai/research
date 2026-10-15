@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 432" role="img" aria-label="A stacked bar of 25.08 gigabytes of unique content: the chromium/src git mirror is 15.48 GB or 61.7 percent, the deduplicated dependency mirrors 8.06 GB or 32.1 percent, GCS objects 0.92 GB or 3.7 percent, CIPD packages 0.62 GB or 2.5 percent, with a dashed tail for the 0.63 GB of paths counted more than once. Below, two area-proportional treemaps: the 46 GCS objects dominated by test data and toolchains, and the 26 CIPD packages dominated by the JDK."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="432.0" fill="#ffffff"/>
+                <text class="svg-lane" x="48" y="24">UNIQUE CONTENT A DEFAULT LINUX x64 SYNC MOVES — 25,075,599,060 B</text>
+
+                <rect fill="#e0ebf2" height="46" stroke="#3c6f97" width="556" x="48" y="40"></rect>
+                <text class="svg-step" x="62" y="62">git src mirror</text>
+                <text class="svg-sub" x="62" y="80">15,481,300,760 B · 61.7%</text>
+                <rect fill="#dfede5" height="46" stroke="#367f59" width="289" x="604" y="40"></rect>
+                <text class="svg-step" x="618" y="62">git dep mirrors</text>
+                <text class="svg-sub" x="618" y="80">8,055,808,935 B · 32.1%</text>
+                <rect fill="#f7e3c8" height="46" stroke="#d98226" width="33" x="893" y="40"></rect>
+                <rect fill="#ece6f3" height="46" stroke="#765b98" width="22" x="926" y="40"></rect>
+                <rect fill="none" height="46" stroke="#b8b8b1" stroke-dasharray="4 3" width="23" x="948" y="40"></rect>
+
+                <rect fill="#f7e3c8" height="12" stroke="#d98226" width="12" x="48" y="100"></rect>
+                <text class="svg-sub" x="68" y="110">GCS 917,327,049 B · 3.7% — 46 objects, every size declared in DEPS</text>
+                <rect fill="#ece6f3" height="12" stroke="#765b98" width="12" x="48" y="120"></rect>
+                <text class="svg-sub" x="68" y="130">CIPD 621,162,316 B · 2.5% — 26 packages, sizes resolved live 2026-09-22</text>
+                <rect fill="none" height="12" stroke="#b8b8b1" stroke-dasharray="4 3" width="12" x="48" y="140"></rect>
+                <text class="svg-sub" x="68" y="150">+625,932,990 B counted twice or more → 25,701,532,050 B summed by checkout path</text>
+                <text class="svg-note" x="48" y="174">blue and green = git mirrors · orange and purple = the non-git payload, 6.1% of the bytes for 41 of 195 active entries</text>
+
+                <text class="svg-lane" x="48" y="202">THE 46 GCS OBJECTS — 917.3 MB</text>
+                <rect fill="#f7e3c8" height="150" stroke="#d98226" width="195" x="48" y="210"></rect>
+                <text class="svg-step" x="60" y="234">test data</text>
+                <text class="svg-sub" x="60" y="252">425.3 MB · 46.4%</text>
+                <text class="svg-sub" x="60" y="268">35 objects</text>
+                <text class="svg-sub" x="60" y="292">Meet GPU bundle</text>
+                <text class="svg-sub" x="60" y="308">277.0 MB alone</text>
+                <rect fill="#f7e3c8" height="111" stroke="#d98226" width="225" x="243" y="210"></rect>
+                <text class="svg-step" x="255" y="234">toolchains</text>
+                <text class="svg-sub" x="255" y="252">362.6 MB · 39.5% · 4 objects</text>
+                <text class="svg-sub" x="255" y="270">Rust 276.5 · clang 63.2</text>
+                <rect fill="#f7e3c8" height="39" stroke="#d98226" width="150" x="243" y="321"></rect>
+                <text class="svg-sub" x="255" y="345">node+npm 86.2</text>
+                <rect fill="#f7e3c8" height="39" stroke="#d98226" width="68" x="393" y="321"></rect>
+                <rect fill="#f7e3c8" height="39" stroke="#d98226" width="7" x="461" y="321"></rect>
+                <text class="svg-note" x="48" y="380">unlabelled tiles: sysroots 39.5 MB (4.3%), clang-format 3.8 MB (0.4%)</text>
+
+                <text class="svg-lane" x="530" y="202">THE 26 CIPD PACKAGES — 621.2 MB</text>
+                <rect fill="#ece6f3" height="150" stroke="#765b98" width="101" x="530" y="210"></rect>
+                <text class="svg-step" x="542" y="234">JDK 25</text>
+                <text class="svg-sub" x="542" y="252">148.8 MB</text>
+                <text class="svg-sub" x="542" y="268">24.0%</text>
+                <rect fill="#ece6f3" height="78" stroke="#765b98" width="101" x="631" y="210"></rect>
+                <text class="svg-step" x="643" y="234">screen-ai</text>
+                <text class="svg-sub" x="643" y="252">77.4 MB</text>
+                <rect fill="#ece6f3" height="78" stroke="#765b98" width="93" x="732" y="210"></rect>
+                <text class="svg-step" x="744" y="234">ktfmt</text>
+                <text class="svg-sub" x="744" y="252">71.4 MB</text>
+                <rect fill="#ece6f3" height="78" stroke="#765b98" width="62" x="825" y="210"></rect>
+                <text class="svg-sub" x="833" y="234">cpython3</text>
+                <text class="svg-sub" x="833" y="250">48.6 MB</text>
+                <rect fill="#ece6f3" height="78" stroke="#765b98" width="63" x="887" y="210"></rect>
+                <text class="svg-sub" x="895" y="234">same</text>
+                <text class="svg-sub" x="895" y="250">instance</text>
+                <rect fill="#ece6f3" height="72" stroke="#765b98" width="42" x="631" y="288"></rect>
+                <rect fill="#ece6f3" height="72" stroke="#765b98" width="33" x="673" y="288"></rect>
+                <rect fill="#ece6f3" height="72" stroke="#765b98" width="28" x="706" y="288"></rect>
+                <rect fill="#ece6f3" height="72" stroke="#765b98" width="216" x="734" y="288"></rect>
+                <text class="svg-step" x="746" y="314">18 smaller packages</text>
+                <text class="svg-sub" x="746" y="332">152.2 MB · 24.5%</text>
+                <text class="svg-note" x="530" y="380">unlabelled tiles: siso 30.1 MB, goldctl 23.9 MB, httpd-php 20.0 MB</text>
+
+                <text class="svg-note" x="48" y="412">Tile areas are proportional to bytes. Both treemaps are of the default Linux x64 configuration at chromium/src@f288fed6.</text>
+              </svg>

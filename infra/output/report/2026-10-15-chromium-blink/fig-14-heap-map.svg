@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 452" role="img" aria-label="Three panels. Left: the 4 GiB caged reservation, containing normal size-bucketed page spaces, a large-object space for objects over 64 KiB, and Blink's six custom spaces with indices zero to five. Middle: one 128 KiB page with per-object 8-byte headers, and the header's bitfields listed. Right: a 64-bit address inside the cage shifted right into a 32-bit compressed Member, and decompressed by sign-extending, shifting and masking with the cage base."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="452.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-heap-map-arr-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="fig-heap-map-arr-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="16" y="18">THE CAGE</text>
+                <text class="svg-lane" x="564" y="18">ONE PAGE, AND ONE OBJECT HEADER</text>
+                <text class="svg-lane" x="884" y="18">MEMBER&lt;T&gt;</text>
+
+                <rect fill="#f7f7f5" height="404" rx="10" stroke="#b8b8b1" width="524" x="16" y="30"></rect>
+                <text class="svg-step" x="32" y="54">Caged reservation — 4 GiB</text>
+                <text class="svg-sub" x="32" y="72">16 GiB with CPPGC_ENABLE_LARGER_CAGE</text>
+
+                <rect fill="#e0ebf2" height="50" rx="8" stroke="#3c6f97" width="492" x="32" y="86"></rect>
+                <text class="svg-step" x="46" y="108">Normal page spaces</text>
+                <text class="svg-sub" x="46" y="126">bucketed by object size</text>
+
+                <rect fill="#f3dfdc" height="50" rx="8" stroke="#ad4b43" width="492" x="32" y="146"></rect>
+                <text class="svg-step" x="46" y="168">Large object space</text>
+                <text class="svg-sub" x="46" y="186">objects &gt; 64 KiB = kPageSize / 2</text>
+
+                <text class="svg-lane" x="32" y="224">SIX CUSTOM SPACES · INDEX 0–5</text>
+
+                <rect fill="#dfede5" height="38" rx="8" stroke="#367f59" width="492" x="32" y="234"></rect>
+                <text class="svg-sub" x="44" y="250">0 · CompactableHeapVectorBackingSpace</text>
+                <text class="svg-note" x="44" y="266">kSupportsCompaction = true</text>
+
+                <rect fill="#dfede5" height="38" rx="8" stroke="#367f59" width="492" x="32" y="276"></rect>
+                <text class="svg-sub" x="44" y="292">1 · CompactableHeapHashTableBackingSpace</text>
+                <text class="svg-note" x="44" y="308">kSupportsCompaction = true</text>
+
+                <rect fill="#ece6f3" height="50" rx="8" stroke="#765b98" width="236" x="32" y="318"></rect>
+                <text class="svg-sub" x="44" y="340">2 · NodeSpace</text>
+                <text class="svg-note" x="44" y="358">Text, Comment, the rest of Node</text>
+
+                <rect fill="#ece6f3" height="50" rx="8" stroke="#765b98" width="236" x="288" y="318"></rect>
+                <text class="svg-sub" x="300" y="340">3 · CSSValueSpace</text>
+                <text class="svg-note" x="300" y="358">one space per hot type</text>
+
+                <rect fill="#ece6f3" height="50" rx="8" stroke="#765b98" width="236" x="32" y="372"></rect>
+                <text class="svg-sub" x="44" y="394">4 · LayoutObjectSpace</text>
+                <text class="svg-note" x="44" y="412">added 2021-03-31</text>
+
+                <rect fill="#ece6f3" height="50" rx="8" stroke="#765b98" width="236" x="288" y="372"></rect>
+                <text class="svg-sub" x="300" y="394">5 · ElementSpace</text>
+                <text class="svg-note" x="300" y="412">split from NodeSpace, 2026-06</text>
+
+                <rect fill="#ffffff" height="118" rx="10" stroke="#252525" width="296" x="564" y="30"></rect>
+                <text class="svg-step" x="578" y="54">One page — 128 KiB</text>
+                <text class="svg-sub" x="578" y="72">kPageSizeBits = 17</text>
+                <rect fill="#d98226" height="28" width="10" x="578" y="88"></rect>
+                <rect fill="#e0ebf2" height="28" stroke="#3c6f97" width="62" x="588" y="88"></rect>
+                <rect fill="#d98226" height="28" width="10" x="654" y="88"></rect>
+                <rect fill="#e0ebf2" height="28" stroke="#3c6f97" width="94" x="664" y="88"></rect>
+                <rect fill="#d98226" height="28" width="10" x="762" y="88"></rect>
+                <rect fill="#e0ebf2" height="28" stroke="#3c6f97" width="34" x="772" y="88"></rect>
+                <text class="svg-note" x="578" y="136">orange = the 8-byte header prepended to every object</text>
+
+                <text class="svg-lane" x="564" y="176">HEAPOBJECTHEADER · 64 BITS</text>
+                <rect fill="#f7f7f5" height="24" stroke="#deded9" width="296" x="564" y="186"></rect>
+                <text class="svg-sub" x="576" y="202">padding · 32 — 64-bit platforms only</text>
+                <rect fill="#ffffff" height="24" stroke="#deded9" width="296" x="564" y="212"></rect>
+                <text class="svg-sub" x="576" y="228">GCInfoIndex · 14</text>
+                <rect fill="#f7f7f5" height="24" stroke="#deded9" width="296" x="564" y="238"></rect>
+                <text class="svg-sub" x="576" y="254">unused · 1</text>
+                <rect fill="#ffffff" height="24" stroke="#deded9" width="296" x="564" y="264"></rect>
+                <text class="svg-sub" x="576" y="280">in construction · 1 — encoded as false</text>
+                <rect fill="#f7f7f5" height="24" stroke="#deded9" width="296" x="564" y="290"></rect>
+                <text class="svg-sub" x="576" y="306">size · 15 — up to 2^17; 0 = large object</text>
+                <rect fill="#ffffff" height="24" stroke="#deded9" width="296" x="564" y="316"></rect>
+                <text class="svg-sub" x="576" y="332">mark bit · 1</text>
+                <text class="svg-note" x="564" y="360">mark and in-construction sit in separate</text>
+                <text class="svg-note" x="564" y="378">16-bit halves, so each can be read alone</text>
+
+                <rect fill="#ece6f3" height="52" rx="8" stroke="#765b98" width="220" x="884" y="30"></rect>
+                <text class="svg-step" x="896" y="52">64-bit address</text>
+                <text class="svg-sub" x="896" y="70">inside the cage</text>
+                <line marker-end="url(#fig-heap-map-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="994" x2="994" y1="82" y2="122"></line>
+                <text class="svg-note" x="1004" y="100">&gt;&gt; 1, or 3</text>
+                <text class="svg-note" x="1004" y="116">with the larger cage</text>
+
+                <rect fill="#e0ebf2" height="52" rx="8" stroke="#3c6f97" width="220" x="884" y="128"></rect>
+                <text class="svg-step" x="896" y="150">uint32_t offset</text>
+                <text class="svg-sub" x="896" y="168">4 bytes, not 8</text>
+                <line marker-end="url(#fig-heap-map-arr-ink)" stroke="#252525" stroke-width="2.5" x1="994" x2="994" y1="180" y2="216"></line>
+
+                <rect fill="#ffffff" height="70" rx="8" stroke="#252525" width="220" x="884" y="222"></rect>
+                <text class="svg-step" x="896" y="244">Decompress</text>
+                <text class="svg-sub" x="896" y="262">sign-extend · shift left</text>
+                <text class="svg-sub" x="896" y="280">AND the cage base</text>
+                <text class="svg-note" x="884" y="316">nullptr and the sentinel survive</text>
+                <text class="svg-note" x="884" y="334">the round trip unchanged</text>
+                <text class="svg-note" x="884" y="366">static_assert: sizeof(Member&lt;void*&gt;)</text>
+                <text class="svg-note" x="884" y="384">&lt;= sizeof(void*)</text>
+              </svg>

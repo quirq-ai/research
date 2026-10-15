@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -8 1100 410" role="img" aria-label="Two columns. On the left, trunk: the branch point at main commit position 1697595, the MAJOR version bump to 156, the Activate chromium M155 commit editing milestones.json, the regenerated configs, and a result of 1,211 builders in 139,286 lines. On the right, the branch: the chrome_branch_deps.json commit, the VERSION bump to 155.0.8059.1, the Update LUCI config for M155 commit across 3,019 files, the rewritten settings.json, and a result of 256 builders in 30,255 lines. Between the two results sits a funnel labelled branch_selector."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="-8.0" width="1100.0" height="410.0" fill="#ffffff"/>
+      <defs>
+        <marker id="fig-branch-day-arr-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+        <marker id="fig-branch-day-arr-blue" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+        <marker id="fig-branch-day-arr-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+      </defs>
+
+      <text class="svg-lane" x="20" y="14">TRUNK · refs/heads/main</text>
+      <text class="svg-lane" x="750" y="14">BRANCH · refs/branch-heads/8059</text>
+
+      <rect fill="#ffffff" height="52" rx="8" stroke="#252525" width="330" x="20" y="24"></rect>
+      <text class="svg-step" x="34" y="46">main@{#1697595}</text>
+      <text class="svg-sub" x="34" y="66">2026-09-14 22:23 UTC · the cut</text>
+
+      <rect fill="#e0ebf2" height="52" rx="8" stroke="#3c6f97" width="330" x="20" y="96"></rect>
+      <text class="svg-step" x="34" y="118">VERSION 8059.0 → 8060.0, MAJOR → 156</text>
+      <text class="svg-sub" x="34" y="138">chrome-official-brancher · 03:01:06Z</text>
+
+      <rect fill="#ece6f3" height="52" rx="8" stroke="#765b98" width="330" x="20" y="168"></rect>
+      <text class="svg-step" x="34" y="190">"Activate chromium M155"</text>
+      <text class="svg-sub" x="34" y="210">chrome-branch-day · 10:28:54Z · milestones.json</text>
+
+      <rect fill="#f7f7f5" height="52" rx="8" stroke="#b8b8b1" width="330" x="20" y="240"></rect>
+      <text class="svg-step" x="34" y="262">regenerated on main</text>
+      <text class="svg-sub" x="34" y="282">commit-queue.cfg · luci-milo.cfg · realms.cfg</text>
+
+      <rect fill="#e0ebf2" height="56" rx="8" stroke="#3c6f97" stroke-width="1.6" width="330" x="20" y="318"></rect>
+      <text class="svg-step" x="34" y="342">project "chromium"</text>
+      <text class="svg-sub" x="34" y="362">1,211 builders · 139,286 lines of cfg</text>
+
+      <rect fill="#ffffff" height="52" rx="8" stroke="#252525" width="330" x="750" y="24"></rect>
+      <text class="svg-step" x="764" y="46">@{#1} chrome_branch_deps.json</text>
+      <text class="svg-sub" x="764" y="66">chrome-official-brancher · 03:04:20Z</text>
+
+      <rect fill="#e0ebf2" height="52" rx="8" stroke="#3c6f97" width="330" x="750" y="96"></rect>
+      <text class="svg-step" x="764" y="118">@{#2} "Incrementing VERSION to 155.0.8059.1"</text>
+      <text class="svg-sub" x="764" y="138">PATCH starts moving; MAJOR and BUILD are frozen</text>
+
+      <rect fill="#ece6f3" height="52" rx="8" stroke="#765b98" width="330" x="750" y="168"></rect>
+      <text class="svg-step" x="764" y="190">@{#4} "Update LUCI config for M155"</text>
+      <text class="svg-sub" x="764" y="210">chrome-branch-day · 10:27:17Z · 3,019 files</text>
+
+      <rect fill="#f7f7f5" height="64" rx="8" stroke="#b8b8b1" width="330" x="750" y="240"></rect>
+      <text class="svg-step" x="764" y="262">settings.json rewritten</text>
+      <text class="svg-sub" x="764" y="280">chromium-m155 · is_main: false</text>
+      <text class="svg-sub" x="764" y="296">7 platforms marked beta/stable</text>
+
+      <rect fill="#dfede5" height="56" rx="8" stroke="#367f59" stroke-width="1.6" width="330" x="750" y="318"></rect>
+      <text class="svg-step" x="764" y="342">project "chromium-m155"</text>
+      <text class="svg-sub" x="764" y="362">256 builders · 30,255 lines · same Starlark</text>
+
+      <line marker-end="url(#fig-branch-day-arr-ink)" stroke="#252525" stroke-width="2.5" x1="185" x2="185" y1="76" y2="94"></line>
+      <line marker-end="url(#fig-branch-day-arr-ink)" stroke="#252525" stroke-width="2.5" x1="185" x2="185" y1="148" y2="166"></line>
+      <line marker-end="url(#fig-branch-day-arr-ink)" stroke="#252525" stroke-width="2.5" x1="185" x2="185" y1="220" y2="238"></line>
+      <line marker-end="url(#fig-branch-day-arr-ink)" stroke="#252525" stroke-width="2.5" x1="185" x2="185" y1="292" y2="316"></line>
+      <line marker-end="url(#fig-branch-day-arr-ink)" stroke="#252525" stroke-width="2.5" x1="915" x2="915" y1="76" y2="94"></line>
+      <line marker-end="url(#fig-branch-day-arr-ink)" stroke="#252525" stroke-width="2.5" x1="915" x2="915" y1="148" y2="166"></line>
+      <line marker-end="url(#fig-branch-day-arr-ink)" stroke="#252525" stroke-width="2.5" x1="915" x2="915" y1="220" y2="238"></line>
+      <line marker-end="url(#fig-branch-day-arr-ink)" stroke="#252525" stroke-width="2.5" x1="915" x2="915" y1="292" y2="316"></line>
+
+      <line marker-end="url(#fig-branch-day-arr-blue)" stroke="#3c6f97" stroke-width="1.5" x1="350" x2="748" y1="50" y2="50"></line>
+      <text class="svg-note" text-anchor="middle" x="549" y="42">every file in the tree, copied once</text>
+
+      <polygon fill="#f7f7f5" points="404,296 404,386 700,372 700,314" stroke="#b8b8b1"></polygon>
+      <text class="svg-sub" text-anchor="middle" x="552" y="322">branch_selector ∩ platforms</text>
+      <text class="svg-step" text-anchor="middle" x="552" y="344">1,211 → 256 builders</text>
+      <text class="svg-sub" text-anchor="middle" x="552" y="364">139,286 → 30,255 lines</text>
+      <line marker-end="url(#fig-branch-day-arr-ink)" stroke="#252525" stroke-width="2.5" x1="352" x2="400" y1="341" y2="341"></line>
+      <line marker-end="url(#fig-branch-day-arr-ink)" stroke="#252525" stroke-width="2.5" x1="702" x2="746" y1="341" y2="341"></line>
+      <path d="M760 292 C680 306 640 300 606 310" fill="none" marker-end="url(#fig-branch-day-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5"></path>
+      <text class="svg-note" text-anchor="middle" x="552" y="300">MAIN selectors drop out here</text>
+    </svg>

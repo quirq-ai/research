@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -8 1100 470" role="img" aria-label="A Gantt chart of Chrome milestones 152 through 160. Each milestone has a blue stabilisation bar from its branch point to its stable date, then a green stable bar. M152 runs four weeks from branch to stable; M153 and everything after run three weeks, starting two weeks apart, except M159 and M160, which are stretched around the holidays. A dashed orange seam marks 8 September 2026. Purple bars extend M152, M156 and M160 as extended stable. Beneath, a ruler of trunk BUILD numbers from 7977 to 8067 with the branch numbers called out, and a magnified week showing two bumps per weekday."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="-8.0" width="1100.0" height="470.0" fill="#ffffff"/>
+      <defs>
+        <marker id="fig-cadence-arr-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+        <marker id="fig-cadence-arr-line" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#b8b8b1"></path></marker>
+      </defs>
+
+      <text class="svg-lane" x="20" y="14">MILESTONE</text>
+      <text class="svg-lane" x="120" y="14">2026 — 2027</text>
+
+      <line stroke="#deded9" stroke-width="1" x1="146" x2="146" y1="24" y2="300"></line>
+      <line stroke="#deded9" stroke-width="1" x1="307.2" x2="307.2" y1="24" y2="300"></line>
+      <line stroke="#deded9" stroke-width="1" x1="463.2" x2="463.2" y1="24" y2="300"></line>
+      <line stroke="#deded9" stroke-width="1" x1="624.4" x2="624.4" y1="24" y2="300"></line>
+      <line stroke="#deded9" stroke-width="1" x1="780.4" x2="780.4" y1="24" y2="300"></line>
+      <line stroke="#deded9" stroke-width="1" x1="941.6" x2="941.6" y1="24" y2="300"></line>
+      <text class="svg-sub" text-anchor="middle" x="146" y="36">Aug</text>
+      <text class="svg-sub" text-anchor="middle" x="307.2" y="36">Sep</text>
+      <text class="svg-sub" text-anchor="middle" x="463.2" y="36">Oct</text>
+      <text class="svg-sub" text-anchor="middle" x="624.4" y="36">Nov</text>
+      <text class="svg-sub" text-anchor="middle" x="780.4" y="36">Dec</text>
+      <text class="svg-sub" text-anchor="middle" x="941.6" y="36">Jan</text>
+
+      <line stroke="#d98226" stroke-dasharray="5 4" stroke-width="1.5" x1="343.6" x2="343.6" y1="44" y2="302"></line>
+      <text class="svg-note" fill="#d98226" x="348" y="56">2026-09-08 · M153 stable · the seam</text>
+
+      <text class="svg-step" x="20" y="67">M152</text>
+      <rect fill="#e0ebf2" height="15" rx="3" stroke="#3c6f97" width="150.8" x="120" y="56"></rect>
+      <rect fill="#dfede5" height="15" rx="3" stroke="#367f59" width="72.8" x="270.8" y="56"></rect>
+      <rect fill="#ece6f3" height="15" rx="3" stroke="#765b98" width="218.4" x="343.6" y="56"></rect>
+      <text class="svg-sub" fill="#765b98" x="570" y="67">extended stable · branch 7977</text>
+
+      <text class="svg-step" x="20" y="95">M153</text>
+      <rect fill="#e0ebf2" height="15" rx="3" stroke="#3c6f97" width="114.4" x="229.2" y="84"></rect>
+      <rect fill="#dfede5" height="15" rx="3" stroke="#367f59" width="72.8" x="343.6" y="84"></rect>
+      <circle cx="239.6" cy="91.5" fill="#ffffff" r="3.4" stroke="#3c6f97"></circle>
+      <circle cx="307.2" cy="91.5" fill="#ffffff" r="3.4" stroke="#3c6f97"></circle>
+      <text class="svg-sub" x="424" y="95">branch 8010 · first two-week milestone</text>
+
+      <text class="svg-step" x="20" y="123">M154</text>
+      <rect fill="#e0ebf2" height="15" rx="3" stroke="#3c6f97" width="114.4" x="302" y="112"></rect>
+      <rect fill="#dfede5" height="15" rx="3" stroke="#367f59" width="72.8" x="416.4" y="112"></rect>
+      <text class="svg-sub" x="497" y="123">branch 8037</text>
+
+      <text class="svg-step" x="20" y="151">M155</text>
+      <rect fill="#e0ebf2" height="15" rx="3" stroke="#3c6f97" width="114.4" x="374.8" y="140"></rect>
+      <rect fill="#dfede5" height="15" rx="3" stroke="#367f59" width="72.8" x="489.2" y="140"></rect>
+      <text class="svg-sub" x="570" y="151">branch 8059 · beta at f288fed6</text>
+
+      <text class="svg-step" x="20" y="179">M156</text>
+      <rect fill="#e0ebf2" height="15" rx="3" stroke="#3c6f97" width="114.4" x="447.6" y="168"></rect>
+      <rect fill="#dfede5" height="15" rx="3" stroke="#367f59" width="72.8" x="562" y="168"></rect>
+      <rect fill="#ece6f3" height="15" rx="3" stroke="#765b98" width="218.4" x="634.8" y="168"></rect>
+      <circle cx="494.4" cy="175.5" fill="#ffffff" r="3.4" stroke="#3c6f97"></circle>
+      <circle cx="525.6" cy="175.5" fill="#ffffff" r="3.4" stroke="#3c6f97"></circle>
+      <text class="svg-sub" fill="#765b98" x="861" y="179">extended stable</text>
+
+      <text class="svg-step" x="20" y="207">M157</text>
+      <rect fill="#e0ebf2" height="15" rx="3" stroke="#3c6f97" width="114.4" x="520.4" y="196"></rect>
+      <rect fill="#dfede5" height="15" rx="3" stroke="#367f59" width="72.8" x="634.8" y="196"></rect>
+
+      <text class="svg-step" x="20" y="235">M158</text>
+      <rect fill="#e0ebf2" height="15" rx="3" stroke="#3c6f97" width="114.4" x="593.2" y="224"></rect>
+      <rect fill="#dfede5" height="15" rx="3" stroke="#367f59" width="72.8" x="707.6" y="224"></rect>
+
+      <text class="svg-step" x="20" y="263">M159</text>
+      <rect fill="#e0ebf2" height="15" rx="3" stroke="#3c6f97" width="150.8" x="666" y="252"></rect>
+      <rect fill="#dfede5" height="15" rx="3" stroke="#367f59" width="72.8" x="816.8" y="252"></rect>
+
+      <text class="svg-step" x="20" y="291">M160</text>
+      <rect fill="#e0ebf2" height="15" rx="3" stroke="#3c6f97" width="187.2" x="775.2" y="280"></rect>
+      <rect fill="#dfede5" height="15" rx="3" stroke="#367f59" width="57.2" x="962.4" y="280"></rect>
+
+      <rect fill="none" height="55" rx="6" stroke="#d98226" stroke-dasharray="4 4" stroke-width="1.5" width="304.4" x="662" y="246"></rect>
+      <text class="svg-note" fill="#d98226" x="666" y="315">holiday stretch: 29 and 36 days branch→stable, not 21</text>
+
+      <text class="svg-sub" x="700" y="14">blue = branch→stable</text>
+      <text class="svg-sub" fill="#367f59" x="800" y="67">green = first two weeks on stable</text>
+
+      <line stroke="#deded9" stroke-width="1" x1="20" x2="1080" y1="336" y2="336"></line>
+      <text class="svg-lane" x="20" y="360">TRUNK BUILD NUMBERS</text>
+
+      <line stroke="#252525" stroke-width="2" x1="120" x2="395.6" y1="386" y2="386"></line>
+      <line marker-end="url(#fig-cadence-arr-line)" stroke="#b8b8b1" stroke-dasharray="6 5" stroke-width="2" x1="395.6" x2="1020" y1="386" y2="386"></line>
+      <line stroke="#252525" stroke-width="2" x1="120" x2="120" y1="380" y2="392"></line>
+      <line stroke="#252525" stroke-width="2" x1="229.2" x2="229.2" y1="380" y2="392"></line>
+      <line stroke="#252525" stroke-width="2" x1="302" x2="302" y1="380" y2="392"></line>
+      <line stroke="#252525" stroke-width="2" x1="374.8" x2="374.8" y1="380" y2="392"></line>
+      <line stroke="#252525" stroke-width="2" x1="395.6" x2="395.6" y1="380" y2="392"></line>
+      <text class="svg-num" text-anchor="middle" x="120" y="408">7977</text>
+      <text class="svg-num" text-anchor="middle" x="229.2" y="408">8010</text>
+      <text class="svg-num" text-anchor="middle" x="302" y="408">8037</text>
+      <text class="svg-num" text-anchor="middle" x="374.8" y="408">8059</text>
+      <text class="svg-num" text-anchor="middle" x="414" y="424">8067</text>
+      <text class="svg-sub" text-anchor="middle" x="120" y="422">M152</text>
+      <text class="svg-sub" text-anchor="middle" x="229.2" y="422">M153</text>
+      <text class="svg-sub" text-anchor="middle" x="302" y="422">M154</text>
+      <text class="svg-sub" text-anchor="middle" x="374.8" y="422">M155</text>
+      <text class="svg-sub" x="440" y="424">trunk head at f288fed6 · 156.0.8067.0</text>
+      <text class="svg-note" x="440" y="440">future BUILD numbers are not yet minted; the dashed run is the axis, not data</text>
+
+      <rect fill="#f7f7f5" height="26" rx="4" stroke="#deded9" width="320" x="700" y="352"></rect>
+      <text class="svg-sub" x="710" y="346">one week of trunk, magnified</text>
+      <line stroke="#3c6f97" stroke-width="1.5" x1="714" x2="714" y1="356" y2="374"></line>
+      <line stroke="#3c6f97" stroke-width="1.5" x1="726" x2="726" y1="356" y2="374"></line>
+      <line stroke="#3c6f97" stroke-width="1.5" x1="756" x2="756" y1="356" y2="374"></line>
+      <line stroke="#3c6f97" stroke-width="1.5" x1="768" x2="768" y1="356" y2="374"></line>
+      <line stroke="#3c6f97" stroke-width="1.5" x1="798" x2="798" y1="356" y2="374"></line>
+      <line stroke="#3c6f97" stroke-width="1.5" x1="810" x2="810" y1="356" y2="374"></line>
+      <line stroke="#3c6f97" stroke-width="1.5" x1="840" x2="840" y1="356" y2="374"></line>
+      <line stroke="#3c6f97" stroke-width="1.5" x1="852" x2="852" y1="356" y2="374"></line>
+      <line stroke="#3c6f97" stroke-width="1.5" x1="882" x2="882" y1="356" y2="374"></line>
+      <line stroke="#3c6f97" stroke-width="1.5" x1="894" x2="894" y1="356" y2="374"></line>
+      <line stroke="#deded9" stroke-width="1" x1="924" x2="924" y1="352" y2="378"></line>
+      <text class="svg-sub" text-anchor="middle" x="960" y="370">Sat · Sun</text>
+      <text class="svg-note" x="710" y="392">two bumps per weekday — 20 by that rule,</text>
+      <text class="svg-note" x="710" y="408">against M155's observed 22 builds</text>
+    </svg>

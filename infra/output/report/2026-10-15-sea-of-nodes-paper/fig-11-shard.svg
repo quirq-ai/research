@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 400" role="img" aria-label="A single global effect chain compared with four independent per-resource effect chains"><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="400.0" fill="#ffffff"/>
+              <text class="svg-lane" x="30" y="30">ONE GLOBAL TOKEN — the paper's coarse STORE</text>
+              <line stroke="#deded9" x1="30" x2="1080" y1="40" y2="40"></line>
+
+              <g fill="none" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.9">
+                <line x1="200" x2="270" y1="76" y2="76"></line>
+                <line x1="410" x2="480" y1="76" y2="76"></line>
+                <line x1="620" x2="690" y1="76" y2="76"></line>
+                <line x1="830" x2="900" y1="76" y2="76"></line>
+              </g>
+              <rect fill="#f7f7f5" height="32" rx="6" stroke="#252525" stroke-width="1.4" width="140" x="60" y="60"></rect>
+              <text class="svg-sub" text-anchor="middle" x="130" y="81">world₀</text>
+              <rect fill="#ece6f3" height="32" rx="6" stroke="#765b98" stroke-width="1.6" width="140" x="270" y="60"></rect>
+              <text class="svg-sub" text-anchor="middle" x="340" y="81">registry.push</text>
+              <rect fill="#ece6f3" height="32" rx="6" stroke="#765b98" stroke-width="1.6" width="140" x="480" y="60"></rect>
+              <text class="svg-sub" text-anchor="middle" x="550" y="81">db.migrate</text>
+              <rect fill="#ece6f3" height="32" rx="6" stroke="#765b98" stroke-width="1.6" width="140" x="690" y="60"></rect>
+              <text class="svg-sub" text-anchor="middle" x="760" y="81">cluster.deploy</text>
+              <rect fill="#ece6f3" height="32" rx="6" stroke="#765b98" stroke-width="1.6" width="140" x="900" y="60"></rect>
+              <text class="svg-sub" text-anchor="middle" x="970" y="81">slack.post</text>
+
+              <text class="svg-note" x="60" y="124">Strictly serial. The database migration waits on the image upload for no reason at all — they touch</text>
+              <text class="svg-note" x="60" y="142">nothing in common. The token said "the world," and the world is one thing, so everything queues.</text>
+
+              <line stroke="#deded9" x1="30" x2="1080" y1="176" y2="176"></line>
+              <text class="svg-lane" x="30" y="206">FOUR TOKENS — one per resource</text>
+              <line stroke="#deded9" x1="30" x2="1080" y1="216" y2="216"></line>
+
+              <text class="svg-sub" x="60" y="256">registry</text>
+              <g fill="none" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.9">
+                <line x1="150" x2="270" y1="250" y2="250"></line>
+              </g>
+              <rect fill="#ece6f3" height="32" rx="6" stroke="#765b98" stroke-width="1.6" width="140" x="270" y="234"></rect>
+              <text class="svg-sub" text-anchor="middle" x="340" y="255">registry.push</text>
+
+              <text class="svg-sub" x="60" y="304">database</text>
+              <g fill="none" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.9">
+                <line x1="150" x2="270" y1="298" y2="298"></line>
+              </g>
+              <rect fill="#ece6f3" height="32" rx="6" stroke="#765b98" stroke-width="1.6" width="140" x="270" y="282"></rect>
+              <text class="svg-sub" text-anchor="middle" x="340" y="303">db.migrate</text>
+
+              <g fill="none" stroke="#252525" stroke-width="2.4">
+                <line x1="410" x2="500" y1="250" y2="266"></line>
+                <line x1="410" x2="500" y1="298" y2="282"></line>
+                <line x1="640" x2="740" y1="274" y2="274"></line>
+              </g>
+              <rect fill="#ffffff" height="32" rx="6" stroke="#252525" stroke-width="1.8" width="140" x="500" y="258"></rect>
+              <text class="svg-sub" text-anchor="middle" x="570" y="279">join</text>
+              <rect fill="#ece6f3" height="32" rx="6" stroke="#765b98" stroke-width="1.6" width="140" x="740" y="258"></rect>
+              <text class="svg-sub" text-anchor="middle" x="810" y="279">cluster.deploy</text>
+              <g fill="none" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.9">
+                <line x1="880" x2="940" y1="274" y2="274"></line>
+              </g>
+              <rect fill="#ece6f3" height="32" rx="6" stroke="#765b98" stroke-width="1.6" width="120" x="940" y="258"></rect>
+              <text class="svg-sub" text-anchor="middle" x="1000" y="279">slack.post</text>
+
+              <text class="svg-note" x="60" y="352">Push and migrate now have no edge between them, so they run together. Deploy genuinely needs both,</text>
+              <text class="svg-note" x="60" y="370">so it takes a sequencing edge from each. The notification needs only the deployment.</text>
+              <text class="svg-note" x="60" y="394">The pipeline got shorter and nothing about the work changed. Only the honesty of the dependencies did.</text>
+            </svg>

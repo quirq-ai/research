@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -24 1020 650" role="img" aria-label="A tree map of Swarming pools drawn to scale by bot count. The chromium.tests pool fills the top block, split into a GCE band subdivided by cloud zone and a physical band subdivided by lab. A dashed outline around it shows the larger reading taken the previous afternoon. Below, a row holds the avd, gpu and try pools at the same scale. A third row holds the small builder pools and the long tail, not to scale. A footer strip shows twenty-four-hour task counts as horizontal bars."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="-24.0" width="1020.0" height="650.0" fill="#ffffff"/>
+      <defs>
+        <pattern height="8" id="fig-fleet-hatch" patternTransform="rotate(45)" patternUnits="userSpaceOnUse" width="8">
+          <rect fill="#f7f7f5" height="8" width="8"></rect>
+          <line stroke="#b8b8b1" stroke-width="1.5" x1="0" x2="0" y1="0" y2="8"></line>
+        </pattern>
+      </defs>
+
+      <text class="svg-lane" x="20" y="28">chromium.tests · 20,320–20,694 BOTS · AREA IS PROPORTIONAL TO BOT COUNT</text>
+
+      <rect fill="none" height="229" rx="4" stroke="#b8b8b1" stroke-dasharray="6 5" stroke-width="1.5" width="980" x="20" y="40"></rect>
+      <text class="svg-note" text-anchor="end" x="990" y="264">24,172 — the previous afternoon</text>
+
+      <rect fill="#e0ebf2" height="126" stroke="#3c6f97" width="342" x="20" y="40"></rect>
+      <text class="svg-step" x="34" y="66">us-central1 · 4,588</text>
+      <text class="svg-sub" x="34" y="86">GCE VMs, Robocrop-autoscaled</text>
+      <rect fill="#e0ebf2" height="126" stroke="#3c6f97" width="297" x="362" y="40"></rect>
+      <text class="svg-step" x="376" y="66">us-east1 · 3,999</text>
+      <rect fill="#e0ebf2" height="126" stroke="#3c6f97" width="259" x="659" y="40"></rect>
+      <text class="svg-step" x="673" y="66">us-west1 · 3,488</text>
+      <rect fill="url(#fig-fleet-hatch)" height="126" stroke="#3c6f97" width="82" x="918" y="40"></rect>
+      <text class="svg-sub" x="928" y="66">+3 zones</text>
+      <text class="svg-sub" x="928" y="84">1,105</text>
+      <text class="svg-lane" x="34" y="152">GCE · 13,180</text>
+
+      <rect fill="#dfede5" height="70" stroke="#367f59" width="426" x="20" y="166"></rect>
+      <text class="svg-step" x="34" y="192">us-iad-golo · 3,214</text>
+      <rect fill="#dfede5" height="70" stroke="#367f59" width="294" x="446" y="166"></rect>
+      <text class="svg-step" x="460" y="192">us-atl-golo · 2,218</text>
+      <rect fill="#dfede5" height="70" stroke="#367f59" width="260" x="740" y="166"></rect>
+      <text class="svg-step" x="754" y="192">us-sfo-golo · 1,963</text>
+      <text class="svg-lane" x="34" y="224">PHYSICAL · 7,395 · THREE LABS</text>
+
+      <rect fill="#e0ebf2" height="91" stroke="#3c6f97" width="391" x="20" y="285"></rect>
+      <text class="svg-step" x="34" y="309">chromium.tests.avd · 3,761–3,814</text>
+      <text class="svg-sub" x="34" y="329">Android emulators, effectively all GCE</text>
+      <text class="svg-sub" x="34" y="347">us-east1 1,730 · us-west1 1,620 · us-east5 403</text>
+
+      <rect fill="#dfede5" height="91" stroke="#367f59" width="335" x="429" y="285"></rect>
+      <text class="svg-step" x="443" y="309">chromium.tests.gpu · 3,266</text>
+      <text class="svg-sub" x="443" y="329">3,118 physical · 1,500 Android devices</text>
+      <text class="svg-sub" x="443" y="347">Intel 548 · NVIDIA 391 · AMD 380 · Apple 370</text>
+
+      <rect fill="#ece6f3" height="91" stroke="#765b98" width="217" x="782" y="285"></rect>
+      <text class="svg-step" x="796" y="309">luci.chromium.try</text>
+      <text class="svg-step" x="796" y="329">2,113</text>
+      <text class="svg-sub" x="796" y="347">513 builderless</text>
+
+      <text class="svg-lane" x="20" y="392">THE SMALL POOLS · NOT DRAWN TO SCALE</text>
+
+      <rect fill="#ece6f3" height="56" rx="6" stroke="#765b98" width="236" x="20" y="402"></rect>
+      <text class="svg-step" x="32" y="426">luci.chromium.ci · 590</text>
+      <text class="svg-sub" x="32" y="446">490 declared builders</text>
+      <rect fill="#ece6f3" height="56" rx="6" stroke="#765b98" width="236" x="268" y="402"></rect>
+      <text class="svg-step" x="280" y="426">luci.chromium.gpu.ci · 351</text>
+      <text class="svg-sub" x="280" y="446">281 busy at 09:45Z</text>
+      <rect fill="#ece6f3" height="56" rx="6" stroke="#765b98" width="236" x="516" y="402"></rect>
+      <text class="svg-step" x="528" y="426">luci.chromium.gpu.try · 287</text>
+      <text class="svg-sub" x="528" y="446">80 busy at 09:45Z</text>
+      <rect fill="url(#fig-fleet-hatch)" height="56" rx="6" stroke="#b8b8b1" width="236" x="764" y="402"></rect>
+      <text class="svg-step" x="776" y="426">long tail · 487</text>
+      <text class="svg-sub" x="776" y="446">iosbeta 129 · finch 110 · 15 more</text>
+
+      <text class="svg-lane" x="20" y="494">TASKS CREATED IN THE 24 h TO 2026-09-22T09:59:47Z</text>
+
+      <text class="svg-sub" x="20" y="518">chromium.tests</text>
+      <text class="svg-sub" text-anchor="end" x="300" y="518">2,417,399</text>
+      <rect fill="#3c6f97" height="12" width="680" x="310" y="508"></rect>
+      <text class="svg-sub" x="20" y="540">chromium.tests.avd</text>
+      <text class="svg-sub" text-anchor="end" x="300" y="540">545,729</text>
+      <rect fill="#3c6f97" height="12" width="154" x="310" y="530"></rect>
+      <text class="svg-sub" x="20" y="562">chromium.tests.gpu</text>
+      <text class="svg-sub" text-anchor="end" x="300" y="562">372,101</text>
+      <rect fill="#367f59" height="12" width="105" x="310" y="552"></rect>
+      <text class="svg-sub" x="20" y="584">luci.chromium.try</text>
+      <text class="svg-sub" text-anchor="end" x="300" y="584">132,837</text>
+      <rect fill="#765b98" height="12" width="37" x="310" y="574"></rect>
+      <text class="svg-sub" x="20" y="606">luci.chromium.ci</text>
+      <text class="svg-sub" text-anchor="end" x="300" y="606">43,933</text>
+      <rect fill="#765b98" height="12" width="12" x="310" y="596"></rect>
+    </svg>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -14 1120 392" role="img" aria-label="A wide timeline of one ProxyMain::BeginMainFrame task, divided into eleven bands left to right: ApplyCompositorChanges, ApplyMutatorEvents, WillBeginMainFrame, rAF-aligned input, Page::Animate to ServiceScriptedAnimations, AnimateLayers, UpdateAllLifecyclePhases, mark paint timing then paint, UpdateLayers, commit with the main thread blocked, and DidBeginMainFrame running post-lifecycle steps. A second row gives each band its HTML spec step number and a third row flags whether author script can run in it. Below, two microtask traces: a browser-dispatched click drains the queue between its two listeners, while el.click() from script defers both drains to the end of the outer scope."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="-14.0" width="1120.0" height="392.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-begin-main-frame-arr-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="4" y="2">ONE TASK ON THE COMPOSITOR QUEUE (TASKTYPE 38)</text>
+
+                <text class="svg-sub" text-anchor="middle" x="451" y="14">LayerTreeHost::BeginMainFrame</text>
+                <path d="M306 24 L306 19 L596 19 L596 24" fill="none" stroke="#b8b8b1"></path>
+                <text class="svg-sub" text-anchor="middle" x="772" y="14">RequestMainFrameUpdate</text>
+                <path d="M650 24 L650 19 L894 19 L894 24" fill="none" stroke="#b8b8b1"></path>
+
+                <rect fill="#f7f7f5" height="62" rx="6" stroke="#b8b8b1" width="72" x="112" y="26"></rect>
+                <text class="svg-sub" text-anchor="middle" x="148" y="44">Apply</text>
+                <text class="svg-sub" text-anchor="middle" x="148" y="58">Compositor</text>
+                <text class="svg-sub" text-anchor="middle" x="148" y="72">Changes</text>
+
+                <rect fill="#f7f7f5" height="62" rx="6" stroke="#b8b8b1" width="58" x="184" y="26"></rect>
+                <text class="svg-sub" text-anchor="middle" x="213" y="44">Apply</text>
+                <text class="svg-sub" text-anchor="middle" x="213" y="58">Mutator</text>
+                <text class="svg-sub" text-anchor="middle" x="213" y="72">Events</text>
+
+                <rect fill="#f7f7f5" height="62" rx="6" stroke="#b8b8b1" width="64" x="242" y="26"></rect>
+                <text class="svg-sub" text-anchor="middle" x="274" y="51">WillBegin</text>
+                <text class="svg-sub" text-anchor="middle" x="274" y="65">MainFrame</text>
+
+                <rect fill="#e0ebf2" height="62" rx="6" stroke="#3c6f97" stroke-width="1.5" width="62" x="306" y="26"></rect>
+                <text class="svg-sub" text-anchor="middle" x="337" y="44">rAF-</text>
+                <text class="svg-sub" text-anchor="middle" x="337" y="58">aligned</text>
+                <text class="svg-sub" text-anchor="middle" x="337" y="72">input</text>
+
+                <rect fill="#e0ebf2" height="62" rx="6" stroke="#3c6f97" stroke-width="1.5" width="228" x="368" y="26"></rect>
+                <text class="svg-step" text-anchor="middle" x="482" y="44">Page::Animate →</text>
+                <text class="svg-step" text-anchor="middle" x="482" y="60">ServiceScriptedAnimations</text>
+                <text class="svg-sub" text-anchor="middle" x="482" y="76">resize · scroll · mql · rAF</text>
+
+                <rect fill="#f7f7f5" height="62" rx="6" stroke="#b8b8b1" width="54" x="596" y="26"></rect>
+                <text class="svg-sub" text-anchor="middle" x="623" y="51">Animate</text>
+                <text class="svg-sub" text-anchor="middle" x="623" y="65">Layers</text>
+
+                <rect fill="#e0ebf2" height="62" rx="6" stroke="#3c6f97" stroke-width="1.5" width="174" x="650" y="26"></rect>
+                <text class="svg-step" text-anchor="middle" x="737" y="44">UpdateAll-</text>
+                <text class="svg-step" text-anchor="middle" x="737" y="60">LifecyclePhases</text>
+                <text class="svg-sub" text-anchor="middle" x="737" y="76">style+layout · pre-paint</text>
+
+                <rect fill="#dfede5" height="62" rx="6" stroke="#367f59" width="70" x="824" y="26"></rect>
+                <text class="svg-sub" text-anchor="middle" x="859" y="44">mark paint</text>
+                <text class="svg-sub" text-anchor="middle" x="859" y="58">timing,</text>
+                <text class="svg-sub" text-anchor="middle" x="859" y="72">then paint</text>
+
+                <rect fill="#f7f7f5" height="62" rx="6" stroke="#b8b8b1" width="56" x="894" y="26"></rect>
+                <text class="svg-sub" text-anchor="middle" x="922" y="51">Update</text>
+                <text class="svg-sub" text-anchor="middle" x="922" y="65">Layers</text>
+
+                <rect fill="#ece6f3" height="62" rx="6" stroke="#765b98" stroke-width="1.5" width="72" x="950" y="26"></rect>
+                <text class="svg-sub" text-anchor="middle" x="986" y="44">commit</text>
+                <text class="svg-sub" text-anchor="middle" x="986" y="58">main thread</text>
+                <text class="svg-sub" text-anchor="middle" x="986" y="72">blocked</text>
+
+                <rect fill="#f7f7f5" height="62" rx="6" stroke="#b8b8b1" width="94" x="1022" y="26"></rect>
+                <text class="svg-sub" text-anchor="middle" x="1069" y="44">DidBeginMain</text>
+                <text class="svg-sub" text-anchor="middle" x="1069" y="58">Frame → Run</text>
+                <text class="svg-sub" text-anchor="middle" x="1069" y="72">PostLifecycle</text>
+
+                <text class="svg-lane" x="4" y="111">HTML SPEC STEP</text>
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="256" x="112" y="96"></rect>
+                <text class="svg-sub" text-anchor="middle" x="240" y="111">no spec step — cc bookkeeping</text>
+                <rect fill="#f7e3c8" height="22" rx="4" stroke="#d98226" width="228" x="368" y="96"></rect>
+                <text class="svg-num" text-anchor="middle" x="482" y="111">6 7 8 9 10 11 12 · rVFC · 14</text>
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="54" x="596" y="96"></rect>
+                <text class="svg-sub" text-anchor="middle" x="623" y="111">—</text>
+                <rect fill="#f7e3c8" height="22" rx="4" stroke="#d98226" width="174" x="650" y="96"></rect>
+                <text class="svg-num" text-anchor="middle" x="737" y="111">16 (the loop)</text>
+                <rect fill="#f7e3c8" height="22" rx="4" stroke="#d98226" width="70" x="824" y="96"></rect>
+                <text class="svg-num" text-anchor="middle" x="859" y="111">21</text>
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="56" x="894" y="96"></rect>
+                <text class="svg-sub" text-anchor="middle" x="922" y="111">—</text>
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="72" x="950" y="96"></rect>
+                <text class="svg-num" text-anchor="middle" x="986" y="111">22</text>
+                <rect fill="#f7e3c8" height="22" rx="4" stroke="#d98226" width="94" x="1022" y="96"></rect>
+                <text class="svg-num" text-anchor="middle" x="1069" y="111">19</text>
+
+                <text class="svg-lane" x="4" y="139">RUNS SCRIPT?</text>
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="194" x="112" y="124"></rect>
+                <text class="svg-sub" text-anchor="middle" x="209" y="139">no</text>
+                <rect fill="#e0ebf2" height="22" rx="4" stroke="#3c6f97" width="290" x="306" y="124"></rect>
+                <text class="svg-sub" text-anchor="middle" x="451" y="139">yes — listeners, rAF callbacks</text>
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="54" x="596" y="124"></rect>
+                <text class="svg-sub" text-anchor="middle" x="623" y="139">no</text>
+                <rect fill="#e0ebf2" height="22" rx="4" stroke="#3c6f97" width="174" x="650" y="124"></rect>
+                <text class="svg-sub" text-anchor="middle" x="737" y="139">yes — ResizeObserver only</text>
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="198" x="824" y="124"></rect>
+                <text class="svg-sub" text-anchor="middle" x="923" y="139">no</text>
+                <rect fill="#ffffff" height="22" rx="4" stroke="#deded9" width="94" x="1022" y="124"></rect>
+                <text class="svg-sub" text-anchor="middle" x="1069" y="139">no — JS IOs</text>
+
+                <line marker-end="url(#fig-begin-main-frame-arr-ink)" stroke="#252525" stroke-width="2.5" x1="112" x2="1116" y1="162" y2="162"></line>
+                <text class="svg-note" x="112" y="180">One main-thread task. Nothing else interleaves — not a timer, not a message, not a microtask from another agent.</text>
+
+                <line stroke="#deded9" x1="4" x2="1116" y1="196" y2="196"></line>
+
+                <text class="svg-lane" x="4" y="216">MICROTASK TRACES — TWO PATHS TO THE SAME TWO LISTENERS</text>
+
+                <text class="svg-sub" x="4" y="246">(a) browser</text>
+                <text class="svg-sub" x="4" y="260">click</text>
+                <rect fill="#f7f7f5" height="40" rx="6" stroke="#b8b8b1" width="150" x="112" y="228"></rect>
+                <text class="svg-sub" text-anchor="middle" x="187" y="246">click task starts</text>
+                <text class="svg-sub" text-anchor="middle" x="187" y="260">depth 0</text>
+                <rect fill="#e0ebf2" height="40" rx="6" stroke="#3c6f97" stroke-width="1.5" width="190" x="262" y="228"></rect>
+                <text class="svg-sub" text-anchor="middle" x="357" y="246">listener 1</text>
+                <text class="svg-sub" text-anchor="middle" x="357" y="260">scope 0 → 1 → 0</text>
+                <rect fill="#f7e3c8" height="40" rx="6" stroke="#d98226" stroke-width="1.5" width="70" x="452" y="228"></rect>
+                <text class="svg-num" text-anchor="middle" x="487" y="252">drain</text>
+                <rect fill="#e0ebf2" height="40" rx="6" stroke="#3c6f97" stroke-width="1.5" width="190" x="522" y="228"></rect>
+                <text class="svg-sub" text-anchor="middle" x="617" y="246">listener 2</text>
+                <text class="svg-sub" text-anchor="middle" x="617" y="260">scope 0 → 1 → 0</text>
+                <rect fill="#f7e3c8" height="40" rx="6" stroke="#d98226" stroke-width="1.5" width="70" x="712" y="228"></rect>
+                <text class="svg-num" text-anchor="middle" x="747" y="252">drain</text>
+                <rect fill="#f7f7f5" height="40" rx="6" stroke="#b8b8b1" width="334" x="782" y="228"></rect>
+                <text class="svg-sub" text-anchor="middle" x="949" y="246">task ends → OnTaskCompleted checkpoint</text>
+                <text class="svg-sub" text-anchor="middle" x="949" y="260">(queue already empty)</text>
+
+                <text class="svg-sub" x="4" y="302">(b) el.click()</text>
+                <text class="svg-sub" x="4" y="316">from script</text>
+                <rect fill="#f7f7f5" height="48" rx="6" stroke="#b8b8b1" width="110" x="112" y="284"></rect>
+                <text class="svg-sub" text-anchor="middle" x="167" y="304">script task</text>
+                <text class="svg-sub" text-anchor="middle" x="167" y="318">starts</text>
+                <rect fill="#e0ebf2" height="48" rx="6" stroke="#3c6f97" stroke-width="1.5" width="724" x="222" y="284"></rect>
+                <text class="svg-sub" x="232" y="299">outer V8RunMicrotasksScope — depth never returns to 0</text>
+                <rect fill="#ffffff" height="22" rx="4" stroke="#3c6f97" width="200" x="262" y="304"></rect>
+                <text class="svg-sub" text-anchor="middle" x="362" y="319">el.click() → listener 1</text>
+                <rect fill="#ffffff" height="22" rx="4" stroke="#3c6f97" width="200" x="482" y="304"></rect>
+                <text class="svg-sub" text-anchor="middle" x="582" y="319">listener 2 (depth 2)</text>
+                <text class="svg-note" x="702" y="319">no checkpoint between them</text>
+                <rect fill="#f7e3c8" height="48" rx="6" stroke="#d98226" stroke-width="1.5" width="70" x="946" y="284"></rect>
+                <text class="svg-num" text-anchor="middle" x="981" y="311">drain</text>
+                <rect fill="#f7f7f5" height="48" rx="6" stroke="#b8b8b1" width="100" x="1016" y="284"></rect>
+                <text class="svg-sub" text-anchor="middle" x="1066" y="304">task ends →</text>
+                <text class="svg-sub" text-anchor="middle" x="1066" y="318">checkpoint</text>
+
+                <text class="svg-note" x="4" y="354">Blue = author script can run · orange = a microtask checkpoint · purple = hand-off to the compositor thread · thick black = one task, start to end.</text>
+                <text class="svg-note" x="4" y="370">Band widths are ordering, not duration: nothing here is timed.</text>
+              </svg>

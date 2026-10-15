@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -24 1020 574" role="img" aria-label="A tree map of the eighteen Buildbucket buckets. The ci bucket with 641 builders and the try bucket with 500 fill the top row at proportional widths, each subdivided into horizontal bands for its largest builder groups with a hatched remainder band. Below, ten equal tiles carry the small buckets with their builder counts and a one-line role each. A strip of six hairlines at the bottom stands for the six empty shadow buckets."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }</style><rect x="0.0" y="-24.0" width="1020.0" height="574.0" fill="#ffffff"/>
+      <defs>
+        <pattern height="8" id="fig-buckets-hatch" patternTransform="rotate(45)" patternUnits="userSpaceOnUse" width="8">
+          <rect fill="#f7f7f5" height="8" width="8"></rect>
+          <line stroke="#b8b8b1" stroke-width="1.5" x1="0" x2="0" y1="0" y2="8"></line>
+        </pattern>
+      </defs>
+
+      <text class="svg-lane" x="20" y="28">CI · 641 BUILDERS · 30 NAMED GROUPS + 6 GROUP-LESS</text>
+      <text class="svg-lane" x="572" y="28">TRY · 500 · 21 + 9</text>
+
+      <rect fill="#f7f7f5" height="268" rx="6" stroke="#3c6f97" width="548" x="20" y="40"></rect>
+      <rect fill="#e0ebf2" height="26" stroke="#3c6f97" stroke-width="0.5" width="532" x="28" y="76"></rect>
+      <text class="svg-sub" x="38" y="94">chromium.gpu.fyi · 74</text>
+      <rect fill="#e0ebf2" height="21" stroke="#3c6f97" stroke-width="0.5" width="532" x="28" y="102"></rect>
+      <text class="svg-sub" x="38" y="117">chromium.dawn · 60</text>
+      <rect fill="#e0ebf2" height="20" stroke="#3c6f97" stroke-width="0.5" width="532" x="28" y="123"></rect>
+      <text class="svg-sub" x="38" y="138">chromium.android · 58</text>
+      <rect fill="#e0ebf2" height="20" stroke="#3c6f97" stroke-width="0.5" width="532" x="28" y="143"></rect>
+      <text class="svg-sub" x="38" y="158">chromium.fyi · 56</text>
+      <rect fill="#e0ebf2" height="18" stroke="#3c6f97" stroke-width="0.5" width="532" x="28" y="163"></rect>
+      <text class="svg-sub" x="38" y="176">chromium.fuzz · 51</text>
+      <rect fill="#e0ebf2" height="16" stroke="#3c6f97" stroke-width="0.5" width="532" x="28" y="181"></rect>
+      <text class="svg-sub" x="38" y="193">chromium.clang · 47</text>
+      <rect fill="url(#fig-buckets-hatch)" height="103" stroke="#3c6f97" stroke-width="0.5" width="532" x="28" y="197"></rect>
+      <text class="svg-step" x="38" y="226">remainder · 295</text>
+      <text class="svg-sub" x="38" y="248">24 more named groups, incl. chromium.updater 35,</text>
+      <text class="svg-sub" x="38" y="266">chromium.linux 24, chromium.memory 22, chromium 19,</text>
+      <text class="svg-sub" x="38" y="284">chromium.win 16 — plus 6 builders with no group</text>
+
+      <rect fill="#f7f7f5" height="268" rx="6" stroke="#765b98" width="428" x="572" y="40"></rect>
+      <rect fill="#ece6f3" height="48" stroke="#765b98" stroke-width="0.5" width="412" x="580" y="76"></rect>
+      <text class="svg-sub" x="590" y="106">tryserver.chromium.android · 106</text>
+      <rect fill="#ece6f3" height="37" stroke="#765b98" stroke-width="0.5" width="412" x="580" y="124"></rect>
+      <text class="svg-sub" x="590" y="148">tryserver.chromium.linux · 83</text>
+      <rect fill="#ece6f3" height="32" stroke="#765b98" stroke-width="0.5" width="412" x="580" y="161"></rect>
+      <text class="svg-sub" x="590" y="182">tryserver.chromium.mac · 72</text>
+      <rect fill="#ece6f3" height="22" stroke="#765b98" stroke-width="0.5" width="412" x="580" y="193"></rect>
+      <text class="svg-sub" x="590" y="209">tryserver.chromium.win · 49</text>
+      <rect fill="url(#fig-buckets-hatch)" height="85" stroke="#765b98" stroke-width="0.5" width="412" x="580" y="215"></rect>
+      <text class="svg-step" x="590" y="244">remainder · 190</text>
+      <text class="svg-sub" x="590" y="266">17 more named groups, incl. dawn 38,</text>
+      <text class="svg-sub" x="590" y="284">fuzz 30, chromiumos 18 — plus 9 with no group</text>
+
+      <text class="svg-lane" x="20" y="336">THE OTHER TEN BUCKETS · 70 BUILDERS · NOT DRAWN TO SCALE</text>
+
+      <rect fill="#dfede5" height="58" rx="6" stroke="#367f59" width="192" x="20" y="348"></rect>
+      <text class="svg-step" x="32" y="370">build · 20</text>
+      <text class="svg-sub" x="32" y="390">measures Siso/RBE speed</text>
+      <rect fill="#dfede5" height="58" rx="6" stroke="#367f59" width="192" x="217" y="348"></rect>
+      <text class="svg-step" x="229" y="370">webrtc.fyi · 14</text>
+      <text class="svg-sub" x="229" y="390">WebRTC in Chromium, FYI</text>
+      <rect fill="#dfede5" height="58" rx="6" stroke="#367f59" width="192" x="414" y="348"></rect>
+      <text class="svg-step" x="426" y="370">reviver · 12</text>
+      <text class="svg-sub" x="426" y="390">reruns disabled tests</text>
+      <rect fill="#dfede5" height="58" rx="6" stroke="#367f59" width="192" x="611" y="348"></rect>
+      <text class="svg-step" x="623" y="370">codesearch · 8</text>
+      <text class="svg-sub" x="623" y="390">Kythe extract, no kzip upload</text>
+      <rect fill="#dfede5" height="58" rx="6" stroke="#367f59" width="192" x="808" y="348"></rect>
+      <text class="svg-step" x="820" y="370">webrtc · 8</text>
+      <text class="svg-sub" x="820" y="390">WebRTC in Chromium</text>
+
+      <rect fill="#dfede5" height="58" rx="6" stroke="#367f59" width="192" x="20" y="412"></rect>
+      <text class="svg-step" x="32" y="434">findit · 2</text>
+      <text class="svg-sub" x="32" y="454">LUCI Bisection rerun fleet</text>
+      <rect fill="#dfede5" height="58" rx="6" stroke="#367f59" width="192" x="217" y="412"></rect>
+      <text class="svg-step" x="229" y="434">infra · 2</text>
+      <text class="svg-sub" x="229" y="454">the autosharder + its tester</text>
+      <rect fill="#dfede5" height="58" rx="6" stroke="#367f59" width="192" x="414" y="412"></rect>
+      <text class="svg-step" x="426" y="434">trusted.robots · 2</text>
+      <text class="svg-sub" x="426" y="454">Clang builds in Lexan</text>
+      <rect fill="#dfede5" height="58" rx="6" stroke="#367f59" width="192" x="611" y="412"></rect>
+      <text class="svg-step" x="623" y="434">flaky-reproducer · 1</text>
+      <text class="svg-sub" x="623" y="454">replays one flaky task</text>
+      <rect fill="#dfede5" height="58" rx="6" stroke="#367f59" width="192" x="808" y="412"></rect>
+      <text class="svg-step" x="820" y="434">ssci · 1</text>
+      <text class="svg-sub" x="820" y="454">third-party vendoring trigger</text>
+
+      <text class="svg-lane" x="20" y="500">SIX EMPTY DYNAMIC BUCKETS · 0 BUILDERS EACH</text>
+      <rect fill="#f7f7f5" height="6" stroke="#b8b8b1" width="150" x="20" y="510"></rect>
+      <rect fill="#f7f7f5" height="6" stroke="#b8b8b1" width="150" x="180" y="510"></rect>
+      <rect fill="#f7f7f5" height="6" stroke="#b8b8b1" width="150" x="340" y="510"></rect>
+      <rect fill="#f7f7f5" height="6" stroke="#b8b8b1" width="150" x="500" y="510"></rect>
+      <rect fill="#f7f7f5" height="6" stroke="#b8b8b1" width="150" x="660" y="510"></rect>
+      <rect fill="#f7f7f5" height="6" stroke="#b8b8b1" width="150" x="820" y="510"></rect>
+      <text class="svg-sub" x="20" y="536">build.shadow · ci.shadow · findit.shadow · infra.shadow · try.shadow · webrtc.fyi.shadow — "for led builds"</text>
+    </svg>

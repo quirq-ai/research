@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -14 1120 602" role="img" aria-label="Two parallel sequences over a shared bottom strip. The left column follows the text div class=x from HTMLTokenizer through LookupHtmlTag, AtomicHTMLToken, HTMLTreeBuilder and HTMLConstructionSite::CreateElement, which branches into a custom-element definition path and a plain HTMLElementFactory path. The right column follows the text width: 50% from CSSTokenizer through ConsumeDeclaration, the gperf hash, CSSPropertyID::kWidth, Width::ParseSingleValue and ApplyValue. Below both, one bar shows 153 HTML tags collapsing onto 90 C++ classes, and one bar shows the CSSPropertyID number line from 0 to 829."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="-14.0" width="1120.0" height="602.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-front-doors-arr-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="fig-front-doors-arr-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="4" y="2">LIFE OF &lt;div class=x&gt;</text>
+                <text class="svg-lane" x="574" y="2">LIFE OF width: 50%</text>
+
+                <rect fill="#e0ebf2" height="46" rx="8" stroke="#3c6f97" width="546" x="4" y="24"></rect>
+                <text class="svg-step" x="20" y="45">HTMLTokenizer → HTMLToken</text>
+                <text class="svg-sub" x="20" y="62">76 states · one start-tag token</text>
+                <line marker-end="url(#fig-front-doors-arr-ink)" stroke="#252525" stroke-width="2.5" x1="30" x2="30" y1="70" y2="82"></line>
+                <rect fill="#e0ebf2" height="46" rx="8" stroke="#3c6f97" width="546" x="4" y="84"></rect>
+                <text class="svg-step" x="20" y="105">LookupHtmlTag(name) → HTMLTag::kDiv</text>
+                <text class="svg-sub" x="20" y="122">generated switch on length, then characters · 2,093 lines</text>
+                <line marker-end="url(#fig-front-doors-arr-ink)" stroke="#252525" stroke-width="2.5" x1="30" x2="30" y1="130" y2="142"></line>
+                <rect fill="#e0ebf2" height="46" rx="8" stroke="#3c6f97" width="546" x="4" y="144"></rect>
+                <text class="svg-step" x="20" y="165">AtomicHTMLToken</text>
+                <text class="svg-sub" x="20" y="182">caches the tag and the AtomicString · looked up once</text>
+                <line marker-end="url(#fig-front-doors-arr-ink)" stroke="#252525" stroke-width="2.5" x1="30" x2="30" y1="190" y2="202"></line>
+                <rect fill="#e0ebf2" height="46" rx="8" stroke="#3c6f97" width="546" x="4" y="204"></rect>
+                <text class="svg-step" x="20" y="225">HTMLTreeBuilder</text>
+                <text class="svg-sub" x="20" y="242">switch (token-&gt;GetHTMLTag()) · 21 insertion modes</text>
+                <line marker-end="url(#fig-front-doors-arr-ink)" stroke="#252525" stroke-width="2.5" x1="30" x2="30" y1="250" y2="262"></line>
+                <rect fill="#ffffff" height="46" rx="8" stroke="#252525" stroke-width="1.5" width="546" x="4" y="264"></rect>
+                <text class="svg-step" x="20" y="285">HTMLConstructionSite::CreateElement</text>
+                <text class="svg-sub" x="20" y="302">TagToQualifiedName → html_names::kDivTag · registry?</text>
+                <line marker-end="url(#fig-front-doors-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="150" x2="150" y1="310" y2="322"></line>
+                <line marker-end="url(#fig-front-doors-arr-ink)" stroke="#252525" stroke-width="2.5" x1="410" x2="410" y1="310" y2="322"></line>
+                <rect fill="#ece6f3" height="46" rx="8" stroke="#765b98" width="266" x="4" y="324"></rect>
+                <text class="svg-step" x="18" y="345">definition found</text>
+                <text class="svg-sub" x="18" y="362">checkpoint · CEReactionsScope</text>
+                <rect fill="#e0ebf2" height="46" rx="8" stroke="#3c6f97" width="266" x="284" y="324"></rect>
+                <text class="svg-step" x="298" y="345">no definition</text>
+                <text class="svg-sub" x="298" y="362">HTMLElementFactory → HTMLDivElement</text>
+
+                <rect fill="#dfede5" height="46" rx="8" stroke="#367f59" width="542" x="574" y="24"></rect>
+                <text class="svg-step" x="590" y="45">CSSTokenizer</text>
+                <text class="svg-sub" x="590" y="62">stateless lookahead · 33 token types</text>
+                <line marker-end="url(#fig-front-doors-arr-ink)" stroke="#252525" stroke-width="2.5" x1="600" x2="600" y1="70" y2="82"></line>
+                <rect fill="#dfede5" height="46" rx="8" stroke="#367f59" width="542" x="574" y="84"></rect>
+                <text class="svg-step" x="590" y="105">CSSParserImpl::ConsumeDeclaration</text>
+                <text class="svg-sub" x="590" y="122">the ident before ':' → ParseAsUnresolvedCSSPropertyID</text>
+                <line marker-end="url(#fig-front-doors-arr-ink)" stroke="#252525" stroke-width="2.5" x1="600" x2="600" y1="130" y2="142"></line>
+                <rect fill="#dfede5" height="46" rx="8" stroke="#367f59" width="542" x="574" y="144"></rect>
+                <text class="svg-step" x="590" y="165">QuasiLowercase + gperf FindProperty</text>
+                <text class="svg-sub" x="590" y="182">825 (name, id) pairs · 110 carry 0x8000</text>
+                <line marker-end="url(#fig-front-doors-arr-ink)" stroke="#252525" stroke-width="2.5" x1="600" x2="600" y1="190" y2="202"></line>
+                <rect fill="#ffffff" height="46" rx="8" stroke="#252525" stroke-width="1.5" width="542" x="574" y="204"></rect>
+                <text class="svg-step" x="590" y="225">CSSPropertyID::kWidth</text>
+                <text class="svg-sub" x="590" y="242">10 bits from here on · the name is gone</text>
+                <line marker-end="url(#fig-front-doors-arr-ink)" stroke="#252525" stroke-width="2.5" x1="600" x2="600" y1="250" y2="262"></line>
+                <rect fill="#dfede5" height="46" rx="8" stroke="#367f59" width="542" x="574" y="264"></rect>
+                <text class="svg-step" x="590" y="285">Width::ParseSingleValue</text>
+                <text class="svg-sub" x="590" y="302">CSSPropertyValue → ImmutableCSSPropertyValueSet</text>
+                <line marker-end="url(#fig-front-doors-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="600" x2="600" y1="310" y2="322"></line>
+                <rect fill="#ece6f3" height="46" rx="8" stroke="#765b98" width="542" x="574" y="324"></rect>
+                <text class="svg-step" x="590" y="345">To&lt;Longhand&gt;(property).ApplyValue</text>
+                <text class="svg-sub" x="590" y="362">one of 424 generated bodies in longhands.cc</text>
+
+                <text class="svg-lane" x="4" y="398">HTML · 153 TAG ENTRIES → 90 C++ CLASSES</text>
+                <rect fill="#f7f7f5" height="46" rx="6" stroke="#b8b8b1" width="342" x="4" y="410"></rect>
+                <text class="svg-step" x="18" y="431">47 tags</text>
+                <text class="svg-sub" x="18" y="448">plain HTMLElement</text>
+                <rect fill="#f3dfdc" height="46" rx="6" stroke="#ad4b43" width="36" x="350" y="410"></rect>
+                <text class="svg-step" x="358" y="431">5</text>
+                <rect fill="#e0ebf2" height="46" rx="6" stroke="#3c6f97" width="726" x="390" y="410"></rect>
+                <text class="svg-step" x="404" y="431">101 tags → 88 distinct classes</text>
+                <text class="svg-sub" x="404" y="448">mostly one to one; h1–h6 share HTMLHeadingElement</text>
+                <text class="svg-note" x="350" y="472">5 legacy tags → HTMLUnknownElement: applet, bgsound, command, image, keygen</text>
+
+                <text class="svg-lane" x="4" y="504">CSS · CSSPropertyID, 0 … 829 (SEGMENTS NOT TO SCALE)</text>
+                <rect fill="#f7f7f5" height="46" rx="6" stroke="#b8b8b1" width="76" x="4" y="516"></rect>
+                <text class="svg-step" x="16" y="537">0</text>
+                <text class="svg-sub" x="16" y="554">kInvalid</text>
+                <rect fill="#f7f7f5" height="46" rx="6" stroke="#b8b8b1" width="76" x="84" y="516"></rect>
+                <text class="svg-step" x="96" y="537">1</text>
+                <text class="svg-sub" x="96" y="554">kVariable</text>
+                <rect fill="#f7e3c8" height="46" rx="6" stroke="#d98226" width="184" x="164" y="516"></rect>
+                <text class="svg-step" x="178" y="537">2 … 43</text>
+                <text class="svg-sub" x="178" y="554">42 high priority</text>
+                <rect fill="#dfede5" height="46" rx="6" stroke="#367f59" width="464" x="352" y="516"></rect>
+                <text class="svg-step" x="366" y="537">44 … 710</text>
+                <text class="svg-sub" x="366" y="554">the rest of 568 longhands, then 141 shorthands</text>
+                <rect fill="#f7f7f5" height="46" rx="6" stroke="#b8b8b1" width="296" x="820" y="516"></rect>
+                <text class="svg-step" x="834" y="537">711 … 829</text>
+                <text class="svg-sub" x="834" y="554">119 aliases · 106 of them -webkit-</text>
+                <text class="svg-note" x="4" y="580">thick black = sequence · dashed purple = author code or style effect · 2…43 are kColorScheme…kZoom, the 42 high-priority properties · order is (−priority, internal-visited first, name)</text>
+              </svg>

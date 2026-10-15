@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 480" role="img" aria-label="Two panels. On the left, an area treemap of third_party/blink's 213,000 files: a dominant web_tests block of 189,644 files subdivided into external/wpt, platform baselines and the rest; a thin renderer band of 18,997; and a hairline band for public, perf_tests, manual_tests, tools and common. Below it the renderer band is exploded into core, modules, platform, bindings, build, controller and extensions. On the right, nine stacked layer rows from public/web down to //base and V8, with a single downward arrow beside them and, to their right, the DEPS file and line number that enforces each edge; underneath, a panel showing web_string.h presenting an opaque handle outside Blink and WTF types inside INSIDE_BLINK."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="480.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-tree-and-order-arr-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="fig-tree-and-order-arr-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                </defs>
+
+                <line stroke="#deded9" stroke-width="1" x1="536" x2="536" y1="8" y2="466"></line>
+
+                <text class="svg-lane" x="16" y="20">THIRD_PARTY/BLINK BY FILE COUNT — 213,000</text>
+
+                <rect fill="#f2f2ef" height="267" stroke="#b8b8b1" width="255" x="16" y="32"></rect>
+                <rect fill="#fafaf8" height="267" stroke="#b8b8b1" width="74" x="271" y="32"></rect>
+                <rect fill="#f2f2ef" height="267" stroke="#b8b8b1" width="171" x="345" y="32"></rect>
+                <text class="svg-step" x="26" y="52">web_tests — 189,644 files</text>
+                <text class="svg-sub" x="26" y="70">89% of Blink. Owned by §11.</text>
+                <text class="svg-step" x="26" y="268">external/wpt</text>
+                <text class="svg-sub" x="26" y="286">96,670</text>
+                <text class="svg-step" x="277" y="268">platform/</text>
+                <text class="svg-sub" x="277" y="286">28,217</text>
+                <text class="svg-step" x="355" y="268">the rest</text>
+                <text class="svg-sub" x="355" y="286">64,757</text>
+
+                <rect fill="#e0ebf2" height="27" stroke="#3c6f97" width="500" x="16" y="299"></rect>
+                <text class="svg-step" x="26" y="317">renderer/ — 18,997 files (8.9% of Blink)</text>
+
+                <rect fill="#f7f7f5" height="6" stroke="#b8b8b1" width="500" x="16" y="326"></rect>
+                <text class="svg-sub" x="16" y="348">public 1,560 · perf_tests 1,400 · manual_tests 631</text>
+                <text class="svg-sub" x="16" y="362">tools 396 · common 359 · 13 loose files</text>
+
+                <path d="M16 332 L16 386" fill="none" stroke="#3c6f97" stroke-dasharray="3 3" stroke-width="1"></path>
+                <path d="M516 332 L516 386" fill="none" stroke="#3c6f97" stroke-dasharray="3 3" stroke-width="1"></path>
+
+                <rect fill="#e0ebf2" height="38" stroke="#3c6f97" width="241" x="16" y="386"></rect>
+                <rect fill="#ece6f3" height="38" stroke="#765b98" width="136" x="257" y="386"></rect>
+                <rect fill="#dfede5" height="38" stroke="#367f59" width="100" x="393" y="386"></rect>
+                <rect fill="#f7e3c8" height="38" stroke="#d98226" width="15" x="493" y="386"></rect>
+                <rect fill="#f7f7f5" height="38" stroke="#b8b8b1" width="5" x="508" y="386"></rect>
+                <rect fill="#f7f7f5" height="38" stroke="#b8b8b1" width="2" x="513" y="386"></rect>
+                <rect fill="#f7f7f5" height="38" stroke="#b8b8b1" width="1" x="515" y="386"></rect>
+                <text class="svg-step" x="26" y="404">core/</text>
+                <text class="svg-sub" x="26" y="419">9,191</text>
+                <text class="svg-step" x="267" y="404">modules/</text>
+                <text class="svg-sub" x="267" y="419">5,163</text>
+                <text class="svg-step" x="403" y="404">platform/</text>
+                <text class="svg-sub" x="403" y="419">3,783</text>
+                <path d="M493 430 L493 436 L516 436 L516 430" fill="none" stroke="#b8b8b1" stroke-width="1"></path>
+                <text class="svg-sub" text-anchor="end" x="516" y="452">bindings 588 · build 182 · controller 61 · extensions 22</text>
+
+                <text class="svg-lane" x="556" y="20">THE ORDER, AND THE LINE THAT ENFORCES EACH EDGE</text>
+                <text class="svg-sub" text-anchor="middle" transform="rotate(-90 566 200)" x="566" y="200">DEPENDENCIES ONLY FLOW DOWN</text>
+                <line marker-end="url(#fig-tree-and-order-arr-ink)" stroke="#252525" stroke-width="2.5" x1="584" x2="584" y1="36" y2="352"></line>
+
+                <rect fill="#f7f7f5" height="30" stroke="#b8b8b1" stroke-dasharray="4 3" width="250" x="596" y="36"></rect>
+                <text class="svg-step" x="608" y="55">public/web</text>
+                <rect fill="#f7e3c8" height="30" stroke="#d98226" width="250" x="596" y="71"></rect>
+                <text class="svg-step" x="608" y="90">controller/</text>
+                <rect fill="#f7f7f5" height="30" stroke="#b8b8b1" width="250" x="596" y="106"></rect>
+                <text class="svg-step" x="608" y="125">extensions/</text>
+                <rect fill="#ece6f3" height="30" stroke="#765b98" width="250" x="596" y="141"></rect>
+                <text class="svg-step" x="608" y="160">modules/ + bindings/modules</text>
+                <rect fill="#e0ebf2" height="30" stroke="#3c6f97" width="250" x="596" y="176"></rect>
+                <text class="svg-step" x="608" y="195">core/ + bindings/core</text>
+                <rect fill="#dfede5" height="30" stroke="#367f59" width="250" x="596" y="211"></rect>
+                <text class="svg-step" x="608" y="230">platform/</text>
+                <rect fill="#f7f7f5" height="30" stroke="#b8b8b1" stroke-dasharray="4 3" width="250" x="596" y="246"></rect>
+                <text class="svg-step" x="608" y="265">public/platform</text>
+                <rect fill="#f7f7f5" height="30" stroke="#b8b8b1" stroke-dasharray="4 3" width="250" x="596" y="281"></rect>
+                <text class="svg-step" x="608" y="300">public/common</text>
+                <rect fill="#ffffff" height="30" stroke="#b8b8b1" stroke-dasharray="4 3" width="250" x="596" y="316"></rect>
+                <text class="svg-step" x="608" y="335">//base, V8 etc.</text>
+
+                <line stroke="#deded9" stroke-width="1" x1="846" x2="858" y1="86" y2="86"></line>
+                <text class="svg-sub" x="864" y="82">controller/DEPS:2</text>
+                <text class="svg-sub" x="864" y="96">"+base" — the only blanket one</text>
+                <line stroke="#deded9" stroke-width="1" x1="846" x2="858" y1="156" y2="156"></line>
+                <text class="svg-sub" x="864" y="152">modules/DEPS:19-20</text>
+                <text class="svg-sub" x="864" y="166">"+…/bindings"  "+…/core"</text>
+                <line stroke="#deded9" stroke-width="1" x1="846" x2="858" y1="191" y2="191"></line>
+                <text class="svg-sub" x="864" y="187">core/DEPS:111,113</text>
+                <text class="svg-sub" x="864" y="201">"-…/bindings/modules" "-…/modules"</text>
+                <line stroke="#deded9" stroke-width="1" x1="846" x2="858" y1="226" y2="226"></line>
+                <text class="svg-sub" x="864" y="222">platform/DEPS:97-99</text>
+                <text class="svg-sub" x="864" y="236">"-…/bindings" "-…/core" "-…/modules"</text>
+                <line stroke="#deded9" stroke-width="1" x1="846" x2="858" y1="281" y2="281"></line>
+                <text class="svg-sub" x="864" y="277">public/DEPS:6-8</text>
+                <text class="svg-sub" x="864" y="291">bans bindings, core, modules</text>
+
+                <rect fill="#f7f7f5" height="94" stroke="#deded9" width="548" x="556" y="372"></rect>
+                <text class="svg-lane" x="568" y="392">ONE HEADER, TWO SHAPES — PUBLIC/PLATFORM/WEB_STRING.H</text>
+                <rect fill="#ffffff" height="44" stroke="#b8b8b1" stroke-dasharray="4 3" width="230" x="568" y="400"></rect>
+                <text class="svg-step" x="578" y="418">outside Blink</text>
+                <text class="svg-sub" x="578" y="434">an opaque handle</text>
+                <line marker-end="url(#fig-tree-and-order-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="800" x2="822" y1="422" y2="422"></line>
+                <rect fill="#e0ebf2" height="44" stroke="#3c6f97" width="264" x="828" y="400"></rect>
+                <text class="svg-step" x="838" y="418">#if INSIDE_BLINK</text>
+                <text class="svg-sub" x="838" y="434">String · StringView · AtomicString</text>
+                <text class="svg-note" x="568" y="459">public/DEPS:11-13 admits platform/heap and platform/wtf only here.</text>
+              </svg>

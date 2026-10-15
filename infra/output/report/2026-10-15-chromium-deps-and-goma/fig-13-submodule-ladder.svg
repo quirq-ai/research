@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 764" role="img" aria-label="Top band: the three announced submodule migration stages as boxes, stage one green and closed, stage two open with an ETA of 2023 Q4, stage three aspirational, with a you-are-here marker under stage one. Middle band: one dependency, third_party/fontconfig, shown three times — as a DEPS entry, as a .gitmodules section with a gclient-condition key, and as a 160000 gitlink in the index — with the counts 273, 273, 273 beside them. Right inset: the three repositories that reached SUBMODULES, and lists of repositories still in SYNC or never migrated. Bottom band: six labelled rows naming what stage two is waiting on."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1100.0" height="764.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="fig-submodule-ladder-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="fig-submodule-ladder-grey" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#b8b8b1"></path></marker>
+                </defs>
+
+                <text class="svg-lane" x="16" y="22">THE THREE ANNOUNCED STAGES — CHROMIUM-DEV, 2 MARCH 2023</text>
+                <text class="svg-lane" x="828" y="22">REACHED STAGE 2</text>
+
+                <rect fill="#dfede5" height="116" rx="8" stroke="#367f59" width="240" x="16" y="36"></rect>
+                <text class="svg-step" x="30" y="60">Stage 1 · alongside DEPS</text>
+                <text class="svg-sub" x="30" y="82">crbug 1409737 · ETA 2023 Q2</text>
+                <text class="svg-sub" x="30" y="102">landed 2023-08-23 ef72622958e9</text>
+                <text class="svg-sub" x="30" y="122">FIXED · modified 2023-09-20</text>
+
+                <rect fill="#f7e3c8" height="116" rx="8" stroke="#d98226" width="240" x="288" y="36"></rect>
+                <text class="svg-step" x="302" y="60">Stage 2 · submodules are truth</text>
+                <text class="svg-sub" x="302" y="82">crbug 1409734 · ETA 2023 Q4</text>
+                <text class="svg-sub" x="302" y="102">git deps removed from DEPS</text>
+                <text class="svg-sub" x="302" y="122">open · modified 2025-03-24</text>
+
+                <rect fill="#f7f7f5" height="116" rx="8" stroke="#b8b8b1" width="240" x="560" y="36"></rect>
+                <text class="svg-step" x="574" y="60">Stage 3 · git manages them</text>
+                <text class="svg-sub" x="574" y="82">crbug 1417344 · ETA unknown</text>
+                <text class="svg-sub" x="574" y="102">aspirational; needs git changes</text>
+                <text class="svg-sub" x="574" y="122">NEW · P3 · modified 2025-07-09</text>
+
+                <line marker-end="url(#fig-submodule-ladder-ink)" stroke="#252525" stroke-width="2.5" x1="256" x2="288" y1="94" y2="94"></line>
+                <line marker-end="url(#fig-submodule-ladder-grey)" stroke="#b8b8b1" stroke-dasharray="5 4" stroke-width="2.5" x1="528" x2="560" y1="94" y2="94"></line>
+
+                <polygon fill="#d98226" points="136,154 126,170 146,170"></polygon>
+                <rect fill="#f7e3c8" height="44" rx="8" stroke="#d98226" stroke-width="2" width="240" x="16" y="168"></rect>
+                <text class="svg-num" x="30" y="188">YOU ARE HERE</text>
+                <text class="svg-sub" x="30" y="204">2026-09-18 · 1,122 days</text>
+                <text class="svg-note" x="302" y="186">Stage 2 has no landed change and</text>
+                <text class="svg-note" x="302" y="202">no public re-scheduling since 2023.</text>
+
+                <text class="svg-lane" x="16" y="246">THE 2026 TREE — ONE DEP IN THREE PLACES, 273 TIMES</text>
+
+                <rect fill="#e0ebf2" height="56" rx="8" stroke="#3c6f97" width="624" x="16" y="260"></rect>
+                <text class="svg-step" x="32" y="282">src/DEPS:2263–2266</text>
+                <text class="svg-sub" x="32" y="303">'src/third_party/fontconfig/src' @ bd8f7b59… · condition: 'checkout_linux'</text>
+                <rect fill="#ffffff" height="56" rx="8" stroke="#3c6f97" width="144" x="656" y="260"></rect>
+                <text class="svg-step" x="672" y="284">273 git deps</text>
+                <text class="svg-sub" x="672" y="303">of 451 entries</text>
+
+                <rect fill="#ece6f3" height="56" rx="8" stroke="#765b98" width="624" x="16" y="328"></rect>
+                <text class="svg-step" x="32" y="350">src/.gitmodules:210–213</text>
+                <text class="svg-sub" x="32" y="371">path = third_party/fontconfig/src · gclient-condition = checkout_linux</text>
+                <rect fill="#ffffff" height="56" rx="8" stroke="#765b98" width="144" x="656" y="328"></rect>
+                <text class="svg-step" x="672" y="352">273 sections</text>
+                <text class="svg-sub" x="672" y="371">144 conditional</text>
+
+                <rect fill="#dfede5" height="56" rx="8" stroke="#367f59" width="624" x="16" y="396"></rect>
+                <text class="svg-step" x="32" y="418">git ls-files -s — the index</text>
+                <text class="svg-sub" x="32" y="439">160000 bd8f7b597de96761750d0365abb49b19d2f8d5c3 0  third_party/fontconfig/src</text>
+                <rect fill="#ffffff" height="56" rx="8" stroke="#367f59" width="144" x="656" y="396"></rect>
+                <text class="svg-step" x="672" y="420">273 gitlinks</text>
+                <text class="svg-sub" x="672" y="439">0 mismatches</text>
+
+                <rect fill="#f7f7f5" height="32" rx="8" stroke="#b8b8b1" width="784" x="16" y="464"></rect>
+                <text class="svg-sub" x="32" y="485">273 = 273 = 273 · same path, same SHA, held there by presubmit · git ignores all 144 gclient-condition keys</text>
+
+                <rect fill="#dfede5" height="72" rx="8" stroke="#367f59" width="256" x="828" y="36"></rect>
+                <text class="svg-step" x="844" y="60">infra/infra_superproject</text>
+                <text class="svg-sub" x="844" y="80">2023-09-08 · 16 days after</text>
+                <text class="svg-sub" x="844" y="97">chromium/src entered SYNC</text>
+
+                <rect fill="#dfede5" height="72" rx="8" stroke="#367f59" width="256" x="828" y="122"></rect>
+                <text class="svg-step" x="844" y="146">infra/infra</text>
+                <text class="svg-sub" x="844" y="166">2025-03-07 · "pretty annoying</text>
+                <text class="svg-sub" x="844" y="183">for dev-ex" in SYNC</text>
+
+                <rect fill="#dfede5" height="72" rx="8" stroke="#367f59" width="256" x="828" y="208"></rect>
+                <text class="svg-step" x="844" y="232">infra/luci/luci-py</text>
+                <text class="svg-sub" x="844" y="252">2025-04-30 · adopted it for</text>
+                <text class="svg-sub" x="844" y="269">its first submodule</text>
+
+                <rect fill="#f7e3c8" height="112" rx="8" stroke="#d98226" width="256" x="828" y="294"></rect>
+                <text class="svg-step" x="844" y="316">Still in SYNC</text>
+                <text class="svg-sub" x="844" y="336">chromium/src, ANGLE, Dawn,</text>
+                <text class="svg-sub" x="844" y="353">DevTools frontend, Open</text>
+                <text class="svg-sub" x="844" y="370">Screen, WebPageReplay,</text>
+                <text class="svg-sub" x="844" y="387">catapult, vulkan-deps</text>
+
+                <rect fill="#f7f7f5" height="76" rx="8" stroke="#b8b8b1" width="256" x="828" y="420"></rect>
+                <text class="svg-step" x="844" y="442">Never entered</text>
+                <text class="svg-sub" x="844" y="462">V8, Skia, WebRTC, PDFium —</text>
+                <text class="svg-sub" x="844" y="479">no key, no .gitmodules, 0 gitlinks</text>
+
+                <text class="svg-lane" x="16" y="530">WHAT STAGE 2 IS WAITING ON — EACH ROW MEASURED IN THE 2026 TREE</text>
+
+                <rect fill="#f3dfdc" height="30" rx="6" stroke="#ad4b43" width="228" x="16" y="544"></rect>
+                <text class="svg-step" x="30" y="564">Tools that parse DEPS</text>
+                <text class="svg-sub" x="252" y="564">WebRTC + ANGLE rollers exec() src/DEPS from gitiles; V8 roll_bisect.py regexes 'v8_revision'; CheckLibcxxRevisionsMatch</text>
+
+                <rect fill="#f7e3c8" height="30" rx="6" stroke="#d98226" width="228" x="16" y="580"></rect>
+                <text class="svg-step" x="30" y="600">49 *_revision vars</text>
+                <text class="svg-sub" x="252" y="600">src/DEPS:266–568; 47 names dereferenced through Var() — the override pattern SUBMODULES mode removes</text>
+
+                <rect fill="#f7e3c8" height="30" rx="6" stroke="#d98226" width="228" x="16" y="616"></rect>
+                <text class="svg-step" x="30" y="636">recursedeps</text>
+                <text class="svg-sub" x="252" y="636">9 entries, no git equivalent; gclient-recursedeps written [gclient.py:4043], never read [:1248–1249]; 0 in .gitmodules</text>
+
+                <rect fill="#f7e3c8" height="30" rx="6" stroke="#d98226" width="228" x="16" y="652"></rect>
+                <text class="svg-step" x="30" y="672">use_relative_paths</text>
+                <text class="svg-sub" x="252" y="672">absent from src/DEPS, so still False; infra/infra set it True before switching</text>
+
+                <rect fill="#f7e3c8" height="30" rx="6" stroke="#d98226" width="228" x="16" y="688"></rect>
+                <text class="svg-step" x="30" y="708">ANGLE and Dawn</text>
+                <text class="svg-sub" x="252" y="708">placeholder chromium deps with no gitlink; the SYNC parity presubmit hard-codes an exception for both</text>
+
+                <rect fill="#f3dfdc" height="30" rx="6" stroke="#ad4b43" width="228" x="16" y="724"></rect>
+                <text class="svg-step" x="30" y="744">Cog</text>
+                <text class="svg-sub" x="252" y="744">gclient gitmodules raises "updating git submodules is not supported" [gclient.py:3944–3948]</text>
+              </svg>

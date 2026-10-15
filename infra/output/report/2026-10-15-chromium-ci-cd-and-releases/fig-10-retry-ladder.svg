@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -24 1064 560" role="img" aria-label="A two-lane sequence diagram over a truth table. The compilator lane holds phase one, compile affected suites, and phase four's recompile without the CL. The orchestrator lane holds phase two, all shards with patch, phase three, failed shard indices only, and phase four, each failing test ten times. A LUCI Analysis QueryStability box below the orchestrator lane feeds a ResultDB TestExoneration box. Below, a three-row truth table: fail then pass is ignored; fail, fail, fail is exonerated as occurs-on-mainline; fail, fail, pass fails the build."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-num { font: 700 10px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #d98226; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="-24.0" width="1064.0" height="560.0" fill="#ffffff"/>
+      <defs>
+        <marker id="fig-retry-ladder-arr-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+        <marker id="fig-retry-ladder-arr-blue" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+        <marker id="fig-retry-ladder-arr-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+      </defs>
+
+      <text class="svg-num" x="128" y="4">1</text><text class="svg-lane" x="142" y="4">COMPILE</text>
+      <text class="svg-num" x="360" y="4">2</text><text class="svg-lane" x="374" y="4">(WITH PATCH)</text>
+      <text class="svg-num" x="592" y="4">3</text><text class="svg-lane" x="606" y="4">(RETRY SHARDS WITH PATCH)</text>
+      <text class="svg-num" x="824" y="4">4</text><text class="svg-lane" x="838" y="4">(WITHOUT PATCH)</text>
+
+      <text class="svg-lane" x="8" y="60">COMPILATOR</text>
+      <text class="svg-lane" x="8" y="150">ORCHESTRATOR</text>
+
+      <rect fill="#e0ebf2" height="62" rx="8" stroke="#3c6f97" width="216" x="128" y="24"></rect>
+      <text class="svg-step" x="142" y="48">Compile affected suites</text>
+      <text class="svg-sub" x="142" y="68">&gt;=16 cores · uploads isolates</text>
+
+      <rect fill="#e0ebf2" height="62" rx="8" stroke="#3c6f97" width="216" x="824" y="24"></rect>
+      <text class="svg-step" x="838" y="48">Recompile, patch reverted</text>
+      <text class="svg-sub" x="838" y="68">only the failing suites</text>
+
+      <rect fill="#ffffff" height="74" rx="8" stroke="#252525" width="216" x="360" y="116"></rect>
+      <text class="svg-step" x="374" y="140">All shards</text>
+      <text class="svg-sub" x="374" y="160">Swarming tasks</text>
+      <text class="svg-sub" x="374" y="178">retry-limit 3 per test</text>
+
+      <rect fill="#ffffff" height="74" rx="8" stroke="#252525" width="216" x="592" y="116"></rect>
+      <text class="svg-step" x="606" y="140">Failed shard indices</text>
+      <text class="svg-sub" x="606" y="160">identical configuration</text>
+      <text class="svg-sub" x="606" y="178">non-idempotent tasks</text>
+
+      <rect fill="#ffffff" height="74" rx="8" stroke="#252525" width="216" x="824" y="116"></rect>
+      <text class="svg-step" x="838" y="140">Each failing test × 10</text>
+      <text class="svg-sub" x="838" y="160">retry-limit 0, in isolation</text>
+      <text class="svg-sub" x="838" y="178">guard: only if &lt;= 100 tests</text>
+
+      <line marker-end="url(#fig-retry-ladder-arr-blue)" stroke="#3c6f97" stroke-width="1.5" x1="236" x2="400" y1="86" y2="116"></line>
+      <text class="svg-note" x="252" y="108">isolates</text>
+      <line marker-end="url(#fig-retry-ladder-arr-ink)" stroke="#252525" stroke-width="2.5" x1="576" x2="592" y1="153" y2="153"></line>
+      <path d="M700 116 V 55 H 816" fill="none" marker-end="url(#fig-retry-ladder-arr-ink)" stroke="#252525" stroke-width="2.5"></path>
+      <text class="svg-note" x="714" y="46">trigger recompile</text>
+      <line marker-end="url(#fig-retry-ladder-arr-blue)" stroke="#3c6f97" stroke-width="1.5" x1="932" x2="932" y1="86" y2="116"></line>
+
+      <rect fill="#f7f7f5" height="60" rx="8" stroke="#b8b8b1" width="448" x="360" y="216"></rect>
+      <text class="svg-step" x="374" y="240">LUCI Analysis · QueryStability, per failing variant</text>
+      <text class="svg-sub" x="374" y="260">failure_threshold 6 · consecutive 3 · flake_threshold 3</text>
+
+      <rect fill="#ece6f3" height="92" rx="8" stroke="#765b98" width="216" x="824" y="216"></rect>
+      <text class="svg-step" x="838" y="240">ResultDB TestExoneration</text>
+      <text class="svg-sub" x="838" y="262">OCCURS_ON_MAINLINE</text>
+      <text class="svg-sub" x="838" y="280">OCCURS_ON_OTHER_CLS</text>
+      <text class="svg-sub" x="838" y="298">NOT_CRITICAL</text>
+
+      <line marker-end="url(#fig-retry-ladder-arr-blue)" stroke="#3c6f97" stroke-width="1.5" x1="452" x2="452" y1="190" y2="216"></line>
+      <line marker-end="url(#fig-retry-ladder-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="808" x2="824" y1="246" y2="246"></line>
+      <line marker-end="url(#fig-retry-ladder-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="990" x2="990" y1="190" y2="216"></line>
+
+      <rect fill="#f7f7f5" height="30" stroke="#deded9" width="216" x="128" y="316"></rect>
+      <rect fill="#f7f7f5" height="30" stroke="#deded9" width="216" x="344" y="316"></rect>
+      <rect fill="#f7f7f5" height="30" stroke="#deded9" width="216" x="560" y="316"></rect>
+      <rect fill="#f7f7f5" height="30" stroke="#deded9" width="264" x="776" y="316"></rect>
+      <text class="svg-lane" x="142" y="336">(WITH PATCH)</text>
+      <text class="svg-lane" x="358" y="336">(RETRY SHARDS)</text>
+      <text class="svg-lane" x="574" y="336">(WITHOUT PATCH)</text>
+      <text class="svg-lane" x="790" y="336">OUTCOME FOR THE CL</text>
+
+      <rect fill="#ffffff" height="44" stroke="#deded9" width="216" x="128" y="346"></rect>
+      <rect fill="#ffffff" height="44" stroke="#deded9" width="216" x="344" y="346"></rect>
+      <rect fill="#ffffff" height="44" stroke="#deded9" width="216" x="560" y="346"></rect>
+      <rect fill="#dfede5" height="44" stroke="#367f59" width="264" x="776" y="346"></rect>
+      <text class="svg-sub" x="142" y="373">failed</text>
+      <text class="svg-sub" x="358" y="373">passed</text>
+      <text class="svg-sub" x="574" y="373">not run</text>
+      <text class="svg-step" x="790" y="373">Ignored. The shard was flaky.</text>
+
+      <rect fill="#ffffff" height="44" stroke="#deded9" width="216" x="128" y="390"></rect>
+      <rect fill="#ffffff" height="44" stroke="#deded9" width="216" x="344" y="390"></rect>
+      <rect fill="#ffffff" height="44" stroke="#deded9" width="216" x="560" y="390"></rect>
+      <rect fill="#dfede5" height="44" stroke="#367f59" width="264" x="776" y="390"></rect>
+      <text class="svg-sub" x="142" y="417">failed</text>
+      <text class="svg-sub" x="358" y="417">failed</text>
+      <text class="svg-sub" x="574" y="417">failed</text>
+      <text class="svg-step" x="790" y="417">Exonerated: OCCURS_ON_MAINLINE</text>
+
+      <rect fill="#ffffff" height="44" stroke="#deded9" width="216" x="128" y="434"></rect>
+      <rect fill="#ffffff" height="44" stroke="#deded9" width="216" x="344" y="434"></rect>
+      <rect fill="#ffffff" height="44" stroke="#deded9" width="216" x="560" y="434"></rect>
+      <rect fill="#f3dfdc" height="44" stroke="#ad4b43" width="264" x="776" y="434"></rect>
+      <text class="svg-sub" x="142" y="461">failed</text>
+      <text class="svg-sub" x="358" y="461">failed</text>
+      <text class="svg-sub" x="574" y="461">passed</text>
+      <text class="svg-step" x="790" y="461">Build fails. The CL is blamed.</text>
+
+      <text class="svg-note" text-anchor="middle" x="532" y="510">thin blue = data (isolates, stability query) · thick black = control/sequence · dashed purple = effect (exoneration records)</text>
+    </svg>

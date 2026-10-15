@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -24 1020 730" role="img" aria-label="A sequence diagram. A blue header shows the recipe module invoking vpython3 on bot_update.py. Below it, eight command rows run down the page with an elapsed-time gutter in the middle and an effect column on the right: cat-file misses, populate takes 0.2 minutes, clone is local, fetch, checkout --force takes 66 seconds, clean, gclient sync takes 3.5 minutes, revinfo takes 0.4 minutes, totalling 5 minutes 17 seconds; gclient runhooks is a separate step at 1 minute 42 seconds. A four-box inset at the bottom shows the try-build patch path: patch_ref, fetch, cherry-pick with keep-redundant-commits, and a soft reset back to the base commit."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="-24.0" width="1020.0" height="730.0" fill="#ffffff"/>
+      <defs>
+        <marker id="fig-bot-update-arr-ink" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+        <marker id="fig-bot-update-arr-purple" markerHeight="7" markerWidth="7" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+      </defs>
+
+      <text class="svg-lane" x="20" y="28">COMMAND · ci/Linux Builder #228485, 2026-09-22</text>
+      <text class="svg-lane" x="450" y="28">ELAPSED</text>
+      <text class="svg-lane" x="650" y="28">WHAT IT TOUCHES</text>
+
+      <rect fill="#e0ebf2" height="44" rx="8" stroke="#3c6f97" width="980" x="20" y="44"></rect>
+      <text class="svg-step" x="36" y="62">Layer 1 runs one step: “bot_update”</text>
+      <text class="svg-sub" x="36" y="80">vpython3 -u bot_update.py --spec-path … --git-cache-dir [CACHE]/git --patch_root … --output_json …</text>
+
+      <rect fill="#dfede5" height="36" rx="6" stroke="#367f59" width="410" x="20" y="104"></rect>
+      <text class="svg-sub" x="34" y="127">git cat-file -e ed7c7c79… (in the mirror)</text>
+      <text class="svg-sub" text-anchor="end" x="512" y="127">miss</text>
+      <text class="svg-sub" x="650" y="127">the pin is not in [CACHE]/git yet</text>
+
+      <rect fill="#ece6f3" height="36" rx="6" stroke="#765b98" width="410" x="20" y="148"></rect>
+      <text class="svg-sub" x="34" y="171">git_cache.py populate --commit &lt;pin&gt; --ref refs/heads/main</text>
+      <text class="svg-sub" text-anchor="end" x="512" y="171">0.2 min</text>
+      <rect fill="#d98226" height="14" width="6" x="520" y="159"></rect>
+      <text class="svg-sub" x="650" y="171">mirror fetches the pin · 12 .pack files</text>
+
+      <rect fill="#dfede5" height="36" rx="6" stroke="#367f59" width="410" x="20" y="192"></rect>
+      <text class="svg-sub" x="34" y="215">git clone --no-checkout --local --shared &lt;mirror&gt; src</text>
+      <text class="svg-sub" text-anchor="end" x="512" y="215">local</text>
+      <text class="svg-sub" x="650" y="215">[CACHE]/builder/src · gc.auto/autodetach/autopacklimit = 0</text>
+
+      <rect fill="#dfede5" height="36" rx="6" stroke="#367f59" width="410" x="20" y="236"></rect>
+      <text class="svg-sub" x="34" y="259">git fetch origin ed7c7c79…</text>
+      <text class="svg-sub" text-anchor="end" x="512" y="259">—</text>
+      <text class="svg-sub" x="650" y="259">pin lands in the worktree repo</text>
+
+      <rect fill="#dfede5" height="36" rx="6" stroke="#367f59" width="410" x="20" y="280"></rect>
+      <text class="svg-sub" x="34" y="303">git checkout --force ed7c7c79… --</text>
+      <text class="svg-sub" text-anchor="end" x="512" y="303">66 s</text>
+      <rect fill="#d98226" height="14" width="33" x="520" y="291"></rect>
+      <text class="svg-sub" x="650" y="303">the src tree appears on disk</text>
+
+      <rect fill="#dfede5" height="36" rx="6" stroke="#367f59" width="410" x="20" y="324"></rect>
+      <text class="svg-sub" x="34" y="347">git clean -dff</text>
+      <text class="svg-sub" text-anchor="end" x="512" y="347">—</text>
+      <text class="svg-sub" x="650" y="347">untracked leftovers removed</text>
+
+      <rect fill="#ece6f3" height="36" rx="6" stroke="#765b98" width="410" x="20" y="368"></rect>
+      <text class="svg-sub" x="34" y="391">gclient sync --reset --force --nohooks --revision src@unmanaged</text>
+      <text class="svg-sub" text-anchor="end" x="512" y="391">3.5 min</text>
+      <rect fill="#d98226" height="14" width="105" x="520" y="379"></rect>
+      <text class="svg-sub" x="650" y="391">DEPS walked · 168 repos, all --shared</text>
+
+      <rect fill="#ece6f3" height="36" rx="6" stroke="#765b98" width="410" x="20" y="412"></rect>
+      <text class="svg-sub" x="34" y="435">gclient revinfo -a --ignore-dep-type cipd</text>
+      <text class="svg-sub" text-anchor="end" x="512" y="435">0.4 min</text>
+      <rect fill="#d98226" height="14" width="12" x="520" y="423"></rect>
+      <text class="svg-sub" x="650" y="435">the manifest, into the output JSON</text>
+
+      <line stroke="#b8b8b1" stroke-width="1" x1="20" x2="1000" y1="464" y2="464"></line>
+      <text class="svg-step" x="34" y="484">step total: 5 min 17 s</text>
+      <text class="svg-sub" x="650" y="484">disk 154 GB → 178 GB of 290 GB</text>
+
+      <rect fill="#f7f7f5" height="36" rx="6" stroke="#b8b8b1" stroke-dasharray="5 4" width="410" x="20" y="498"></rect>
+      <text class="svg-sub" x="34" y="521">gclient runhooks — a separate step, not bot_update</text>
+      <text class="svg-sub" text-anchor="end" x="512" y="521">1 min 42 s</text>
+      <rect fill="#f7e3c8" height="14" stroke="#d98226" width="51" x="520" y="509"></rect>
+      <text class="svg-sub" x="650" y="521">DEPS hooks: LASTCHANGE, toolchains, …</text>
+
+      <line stroke="#deded9" stroke-width="1" x1="20" x2="1000" y1="562" y2="562"></line>
+      <text class="svg-lane" x="20" y="586">TRY BUILD ONLY · THE PATCH PATH</text>
+
+      <rect fill="#e0ebf2" height="62" rx="8" stroke="#3c6f97" width="230" x="20" y="598"></rect>
+      <text class="svg-step" x="34" y="620">--patch_ref</text>
+      <text class="svg-sub" x="34" y="640">…/chromium/src@refs/heads/main:</text>
+      <text class="svg-sub" x="34" y="654">refs/changes/48/8420748/2</text>
+
+      <rect fill="#dfede5" height="62" rx="8" stroke="#367f59" width="230" x="270" y="598"></rect>
+      <text class="svg-step" x="284" y="620">git fetch --no-tags</text>
+      <text class="svg-sub" x="284" y="640">the patch ref, from the</text>
+      <text class="svg-sub" x="284" y="654">Gerrit host</text>
+
+      <rect fill="#dfede5" height="62" rx="8" stroke="#367f59" width="230" x="520" y="598"></rect>
+      <text class="svg-step" x="534" y="620">git cherry-pick</text>
+      <text class="svg-sub" x="534" y="640">target..patch</text>
+      <text class="svg-sub" x="534" y="654">--keep-redundant-commits</text>
+
+      <rect fill="#ece6f3" height="62" rx="8" stroke="#765b98" width="230" x="770" y="598"></rect>
+      <text class="svg-step" x="784" y="620">git reset --soft base</text>
+      <text class="svg-sub" x="784" y="640">HEAD = base commit,</text>
+      <text class="svg-sub" x="784" y="654">CL stays in the index</text>
+
+      <line marker-end="url(#fig-bot-update-arr-ink)" stroke="#252525" stroke-width="2.5" x1="250" x2="270" y1="629" y2="629"></line>
+      <line marker-end="url(#fig-bot-update-arr-ink)" stroke="#252525" stroke-width="2.5" x1="500" x2="520" y1="629" y2="629"></line>
+      <line marker-end="url(#fig-bot-update-arr-purple)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.5" x1="750" x2="770" y1="629" y2="629"></line>
+      <text class="svg-note" text-anchor="middle" x="510" y="694">the soft reset is why got_revision on a try build is the base commit, not the CL</text>
+    </svg>
