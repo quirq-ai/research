@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 440" role="img" aria-label="A directed graph of eight pages. Pages A, B and C form a closed cycle. D links into A and C. E, F and G form a feeder component. H has no outgoing links. Computed PageRank values at damping 0.85 are shown at each node. A panel compares the ranks at damping 0.85 against damping 0.99, where D, E, F and G collapse from 0.0365 to 0.0028, and lists iteration counts to converge."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="440.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="pr-arr" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#3c6f97"></path></marker>
+                </defs>
+                <text class="svg-lane" x="0" y="18">THE LINK GRAPH · NODE LABEL = COMPUTED RANK AT d = 0.85</text>
+
+                <path d="M186 132 C 240 160 250 168 278 182" fill="none" marker-end="url(#pr-arr)" stroke="#3c6f97" stroke-width="1.6"></path>
+                <path d="M286 172 C 254 140 246 132 190 104" fill="none" marker-end="url(#pr-arr)" stroke="#3c6f97" stroke-width="1.6"></path>
+                <path d="M170 136 L 170 254" fill="none" marker-end="url(#pr-arr)" stroke="#3c6f97" stroke-width="1.6"></path>
+                <path d="M196 290 C 340 330 420 320 548 288" fill="none" marker-end="url(#pr-arr)" stroke="#3c6f97" stroke-width="1.6"></path>
+                <path d="M326 190 L 404 190" fill="none" marker-end="url(#pr-arr)" stroke="#3c6f97" stroke-width="1.6"></path>
+                <path d="M448 172 L 538 124" fill="none" marker-end="url(#pr-arr)" stroke="#3c6f97" stroke-width="1.6"></path>
+                <path d="M450 208 L 538 258" fill="none" marker-end="url(#pr-arr)" stroke="#3c6f97" stroke-width="1.6"></path>
+                <path d="M584 128 L 656 172" fill="none" marker-end="url(#pr-arr)" stroke="#3c6f97" stroke-width="2.2"></path>
+                <path d="M656 208 L 584 252" fill="none" marker-end="url(#pr-arr)" stroke="#3c6f97" stroke-width="2.2"></path>
+                <path d="M560 244 L 560 136" fill="none" marker-end="url(#pr-arr)" stroke="#3c6f97" stroke-width="2.2"></path>
+
+                <circle cx="170" cy="110" fill="#e0ebf2" r="26" stroke="#3c6f97"></circle><text class="svg-step" text-anchor="middle" x="170" y="116">F</text><text class="svg-sub" text-anchor="middle" x="170" y="74">0.0365</text>
+                <circle cx="300" cy="190" fill="#e0ebf2" r="26" stroke="#3c6f97"></circle><text class="svg-step" text-anchor="middle" x="300" y="196">E</text><text class="svg-sub" text-anchor="middle" x="300" y="236">0.0365</text>
+                <circle cx="170" cy="280" fill="#e0ebf2" r="26" stroke="#3c6f97"></circle><text class="svg-step" text-anchor="middle" x="170" y="286">G</text><text class="svg-sub" text-anchor="middle" x="112" y="286">0.0365</text>
+                <circle cx="430" cy="190" fill="#e0ebf2" r="26" stroke="#3c6f97"></circle><text class="svg-step" text-anchor="middle" x="430" y="196">D</text><text class="svg-sub" text-anchor="middle" x="430" y="152">0.0365</text>
+                <circle cx="560" cy="110" fill="#dfede5" r="30" stroke="#367f59" stroke-width="2"></circle><text class="svg-step" text-anchor="middle" x="560" y="116">A</text><text class="svg-sub" text-anchor="middle" x="560" y="66">0.3287</text>
+                <circle cx="682" cy="190" fill="#dfede5" r="26" stroke="#367f59" stroke-width="2"></circle><text class="svg-step" text-anchor="middle" x="682" y="196">B</text><text class="svg-sub" text-anchor="middle" x="740" y="196">0.1607</text>
+                <circle cx="560" cy="270" fill="#dfede5" r="30" stroke="#367f59" stroke-width="2"></circle><text class="svg-step" text-anchor="middle" x="560" y="276">C</text><text class="svg-sub" text-anchor="middle" x="560" y="322">0.3437</text>
+                <circle cx="60" cy="190" fill="#f3dfdc" r="26" stroke="#ad4b43" stroke-dasharray="4 3"></circle><text class="svg-step" text-anchor="middle" x="60" y="196">H</text><text class="svg-sub" text-anchor="middle" x="60" y="152">0.0210</text>
+
+                <text class="svg-note" x="0" y="360">A → B → C → A is a closed class: without damping it absorbs all the mass.</text>
+                <text class="svg-note" x="0" y="382">H has no outgoing links: without a correction it drains the mass instead.</text>
+                <text class="svg-note" x="0" y="404">D, E, F, G feed the sink and get nothing back — their rank is the teleport floor.</text>
+                <text class="svg-note" x="0" y="430">Sum of all eight ranks = 1.0000. Order: C &gt; A &gt; B &gt; D = E = F = G &gt; H.</text>
+
+                <line stroke="#deded9" x1="790" x2="790" y1="10" y2="440"></line>
+                <text class="svg-lane" x="816" y="18">WHAT d CONTROLS</text>
+                <text class="svg-sub" x="816" y="48">node     d = 0.85    d = 0.99</text>
+                <line stroke="#deded9" x1="816" x2="1108" y1="58" y2="58"></line>
+                <text class="svg-sub" x="816" y="80">A         0.3287      0.3947</text>
+                <text class="svg-sub" x="816" y="102">B         0.1607      0.1968</text>
+                <text class="svg-sub" x="816" y="124">C         0.3437      0.3958</text>
+                <text class="svg-sub" x="816" y="146">D E F G   0.0365      0.0028</text>
+                <text class="svg-sub" x="816" y="168">H         0.0210      0.0014</text>
+                <rect fill="#f7e3c8" height="72" rx="6" stroke="#d98226" width="300" x="810" y="186"></rect>
+                <text class="svg-note" x="822" y="210">At d = 0.99 the feeder pages lose 13× their</text>
+                <text class="svg-note" x="822" y="230">rank to the sink. Damping is not a model of</text>
+                <text class="svg-note" x="822" y="250">boredom; it is how much sink you tolerate.</text>
+
+                <text class="svg-lane" x="816" y="292">POWER ITERATIONS TO L1 &lt; 1e−6</text>
+                <text class="svg-sub" x="816" y="320">d = 0.50    13 iterations</text>
+                <text class="svg-sub" x="816" y="342">d = 0.85    27 iterations</text>
+                <text class="svg-sub" x="816" y="364">d = 0.99    37 iterations</text>
+                <text class="svg-note" x="816" y="398">|λ₂| ≤ d, so cost grows as log ε / log d.</text>
+                <text class="svg-note" x="816" y="420">0.85 buys a well-conditioned problem cheaply.</text>
+              </svg>

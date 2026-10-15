@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 470" role="img" aria-label="A trellis with two hidden states, Human and Bot, over four observations: page, api, api, asset. Each cell shows the best path probability reaching it. Bold arrows mark surviving backpointers, thin grey arrows mark losing candidates. The best path is Human, Bot, Bot, Human with probability 0.0013328 out of a total observation probability of 0.005389625, so the single best path carries 24.7 percent of the posterior mass."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="470.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="vit-arr" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="vit-arr-l" markerHeight="5" markerWidth="5" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#c9c9c2"></path></marker>
+                </defs>
+                <text class="svg-lane" x="0" y="18">MODEL</text>
+                <text class="svg-sub" x="0" y="44">start: Human 0.85, Bot 0.15</text>
+                <text class="svg-sub" x="0" y="66">transition: H→H 0.9  H→B 0.1  B→H 0.2  B→B 0.8</text>
+                <text class="svg-sub" x="0" y="88">emission:  H page 0.5 asset 0.4 api 0.1   |   B page 0.25 asset 0.05 api 0.7</text>
+
+                <text class="svg-lane" text-anchor="middle" x="120" y="140">t=1 · page</text>
+                <text class="svg-lane" text-anchor="middle" x="380" y="140">t=2 · api</text>
+                <text class="svg-lane" text-anchor="middle" x="640" y="140">t=3 · api</text>
+                <text class="svg-lane" text-anchor="middle" x="900" y="140">t=4 · asset</text>
+                <text class="svg-lane" x="1040" y="196">HUMAN</text>
+                <text class="svg-lane" x="1040" y="336">BOT</text>
+
+                <line marker-end="url(#vit-arr)" stroke="#252525" stroke-width="2.4" x1="176" x2="320" y1="190" y2="190"></line>
+                <line marker-end="url(#vit-arr)" stroke="#252525" stroke-width="2.4" x1="176" x2="322" y1="206" y2="306"></line>
+                <line marker-end="url(#vit-arr-l)" stroke="#c9c9c2" stroke-width="1.4" x1="176" x2="322" y1="316" y2="206"></line>
+                <line marker-end="url(#vit-arr-l)" stroke="#c9c9c2" stroke-width="1.4" x1="176" x2="320" y1="330" y2="330"></line>
+
+                <line marker-end="url(#vit-arr)" stroke="#252525" stroke-width="2.4" x1="436" x2="580" y1="190" y2="190"></line>
+                <line marker-end="url(#vit-arr-l)" stroke="#c9c9c2" stroke-width="1.4" x1="436" x2="582" y1="206" y2="306"></line>
+                <line marker-end="url(#vit-arr-l)" stroke="#c9c9c2" stroke-width="1.4" x1="436" x2="582" y1="316" y2="206"></line>
+                <line marker-end="url(#vit-arr)" stroke="#252525" stroke-width="2.4" x1="436" x2="580" y1="330" y2="330"></line>
+
+                <line marker-end="url(#vit-arr-l)" stroke="#c9c9c2" stroke-width="1.4" x1="696" x2="840" y1="190" y2="190"></line>
+                <line marker-end="url(#vit-arr-l)" stroke="#c9c9c2" stroke-width="1.4" x1="696" x2="842" y1="206" y2="306"></line>
+                <line marker-end="url(#vit-arr)" stroke="#252525" stroke-width="2.4" x1="696" x2="842" y1="316" y2="206"></line>
+                <line marker-end="url(#vit-arr)" stroke="#252525" stroke-width="2.4" x1="696" x2="840" y1="330" y2="330"></line>
+
+                <rect fill="#dfede5" height="54" rx="8" stroke="#367f59" stroke-width="2" width="136" x="40" y="166"></rect>
+                <text class="svg-step" text-anchor="middle" x="108" y="190">0.425</text>
+                <text class="svg-note" text-anchor="middle" x="108" y="210">0.85 × 0.5</text>
+                <rect fill="#f7f7f5" height="54" rx="8" stroke="#b8b8b1" width="136" x="40" y="290"></rect>
+                <text class="svg-step" text-anchor="middle" x="108" y="314">0.0375</text>
+                <text class="svg-note" text-anchor="middle" x="108" y="334">0.15 × 0.25</text>
+
+                <rect fill="#dfede5" height="54" rx="8" stroke="#367f59" stroke-width="2" width="136" x="300" y="166"></rect>
+                <text class="svg-step" text-anchor="middle" x="368" y="190">0.03825</text>
+                <text class="svg-note" text-anchor="middle" x="368" y="210">from Human</text>
+                <rect fill="#dfede5" height="54" rx="8" stroke="#367f59" stroke-width="2" width="136" x="300" y="290"></rect>
+                <text class="svg-step" text-anchor="middle" x="368" y="314">0.02975</text>
+                <text class="svg-note" text-anchor="middle" x="368" y="334">from Human</text>
+
+                <rect fill="#f7f7f5" height="54" rx="8" stroke="#b8b8b1" width="136" x="560" y="166"></rect>
+                <text class="svg-step" text-anchor="middle" x="628" y="190">0.0034425</text>
+                <text class="svg-note" text-anchor="middle" x="628" y="210">from Human</text>
+                <rect fill="#dfede5" height="54" rx="8" stroke="#367f59" stroke-width="2" width="136" x="560" y="290"></rect>
+                <text class="svg-step" text-anchor="middle" x="628" y="314">0.01666</text>
+                <text class="svg-note" text-anchor="middle" x="628" y="334">from Bot</text>
+
+                <rect fill="#f7e3c8" height="54" rx="8" stroke="#d98226" stroke-width="2.5" width="136" x="820" y="166"></rect>
+                <text class="svg-step" text-anchor="middle" x="888" y="190">0.0013328</text>
+                <text class="svg-note" text-anchor="middle" x="888" y="210">from Bot ← best</text>
+                <rect fill="#f7f7f5" height="54" rx="8" stroke="#b8b8b1" width="136" x="820" y="290"></rect>
+                <text class="svg-step" text-anchor="middle" x="888" y="314">0.0006664</text>
+                <text class="svg-note" text-anchor="middle" x="888" y="334">from Bot</text>
+
+                <line stroke="#deded9" x1="0" x2="1120" y1="378" y2="378"></line>
+                <text class="svg-lane" x="0" y="404">READING IT OFF</text>
+                <text class="svg-sub" x="0" y="428">Best path: Human → Bot → Bot → Human,  probability 0.0013328</text>
+                <text class="svg-sub" x="0" y="450">Forward: P(observations) = 0.005389625 over all 16 paths</text>
+                <text class="svg-lane" x="600" y="404">THE CAVEAT</text>
+                <text class="svg-sub" x="600" y="428">The single best path carries 0.0013328 / 0.005389625 = 24.7%</text>
+                <text class="svg-sub" x="600" y="450">of the posterior. Three quarters of the mass is on other paths.</text>
+              </svg>

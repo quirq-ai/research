@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" role="img" aria-label="The critical strip of the Riemann zeta function, showing the critical line at real part one half, the zero-free region near real part one, and the region controlled only by zero-density estimates"><style>.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }
+.svg-hd { font: 700 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.09em; }</style><rect x="0.0" y="0.0" width="1000.0" height="440.0" fill="#ffffff"/>
+                <rect fill="#f7f7f5" height="330" stroke="#deded9" width="540" x="120" y="34"></rect>
+
+                <path d="M660 364 C 620 300, 606 190, 600 34 L660 34 Z" fill="#dfede5"></path>
+                <path d="M660 364 C 620 300, 606 190, 600 34" fill="none" stroke="#367f59" stroke-dasharray="5 4" stroke-width="1.6"></path>
+
+                <rect fill="#f7e3c8" height="330" opacity="0.6" width="75" x="525" y="34"></rect>
+
+                <line stroke="#d98226" stroke-width="2.2" x1="390" x2="390" y1="26" y2="372"></line>
+
+                <circle cx="390" cy="70" fill="#d98226" r="4.5"></circle>
+                <circle cx="390" cy="104" fill="#d98226" r="4.5"></circle>
+                <circle cx="390" cy="150" fill="#d98226" r="4.5"></circle>
+                <circle cx="390" cy="186" fill="#d98226" r="4.5"></circle>
+                <circle cx="390" cy="226" fill="#d98226" r="4.5"></circle>
+                <circle cx="390" cy="258" fill="#d98226" r="4.5"></circle>
+                <circle cx="390" cy="300" fill="#d98226" r="4.5"></circle>
+                <circle cx="390" cy="338" fill="#d98226" r="4.5"></circle>
+
+                <line stroke="#252525" stroke-width="1.4" x1="120" x2="660" y1="390" y2="390"></line>
+                <line stroke="#252525" stroke-width="1.4" x1="120" x2="120" y1="386" y2="394"></line>
+                <line stroke="#252525" stroke-width="1.4" x1="390" x2="390" y1="386" y2="394"></line>
+                <line stroke="#252525" stroke-width="1.4" x1="525" x2="525" y1="386" y2="394"></line>
+                <line stroke="#252525" stroke-width="1.4" x1="660" x2="660" y1="386" y2="394"></line>
+                <text class="svg-sub" text-anchor="middle" x="120" y="410">Re(s) = 0</text>
+                <text class="svg-sub" text-anchor="middle" x="390" y="410">1/2</text>
+                <text class="svg-sub" text-anchor="middle" x="525" y="410">3/4</text>
+                <text class="svg-sub" text-anchor="middle" x="660" y="410">1</text>
+
+                <line stroke="#252525" stroke-width="1.4" x1="86" x2="86" y1="364" y2="34"></line>
+                <polyline fill="none" points="82,44 86,30 90,44" stroke="#252525" stroke-width="1.4"></polyline>
+                <text class="svg-sub" text-anchor="middle" transform="rotate(-90 76 200)" x="76" y="200">height t</text>
+
+                <line stroke="#b8b8b1" stroke-width="1" x1="394" x2="676" y1="90" y2="66"></line>
+                <text class="svg-hd" x="686" y="60">THE CRITICAL LINE</text>
+                <text class="svg-note" x="686" y="80">Hardy, 1914: infinitely many zeros lie here.</text>
+                <text class="svg-note" x="686" y="98">Pratt–Robles–Zaharescu–Zeindler, 2020:</text>
+                <text class="svg-note" x="686" y="116">at least 5/12 ≈ 41.7% of all zeros do.</text>
+                <text class="svg-note" x="686" y="134">Platt–Trudgian, 2021: the first 12.36 trillion,</text>
+                <text class="svg-note" x="686" y="152">to height 3 × 10¹² — all here, all simple.</text>
+
+                <line stroke="#b8b8b1" stroke-width="1" x1="562" x2="676" y1="220" y2="206"></line>
+                <text class="svg-hd" x="686" y="200">COUNTED, NEVER FOUND</text>
+                <text class="svg-note" x="686" y="220">Zero-density estimates bound how many zeros</text>
+                <text class="svg-note" x="686" y="238">could sit off the line. At σ = 3/4, Ingham's 1940</text>
+                <text class="svg-note" x="686" y="256">bound T⁰·⁶⁰⁰ stood 84 years; Guth–Maynard</text>
+                <text class="svg-note" x="686" y="274">cut it to T⁰·⁵⁷⁷ in 2024. No off-line zero has</text>
+                <text class="svg-note" x="686" y="292">ever been exhibited — or excluded.</text>
+
+                <line stroke="#b8b8b1" stroke-width="1" x1="634" x2="676" y1="330" y2="326"></line>
+                <text class="svg-hd" x="686" y="320">ZERO-FREE</text>
+                <text class="svg-note" x="686" y="340">Hadamard and de la Vallée Poussin, 1896.</text>
+                <text class="svg-note" x="686" y="358">This region alone gives the prime number theorem.</text>
+
+                <text class="svg-note" x="132" y="356">Mirror of the right half.</text>
+              </svg>

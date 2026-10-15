@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" role="img" aria-label="A table of an illustrative skip-price model in which gems equal 74.28 times hours to the power 0.6. One hour costs 74 gems or 62 cents, at 62 cents per hour saved. Twenty-four hours costs 500 gems or 4 dollars 17, at 17 cents per hour saved. One hundred and sixty-eight hours costs 1,607 gems or 13 dollars 39, at 8 cents per hour saved. The price per hour falls as the wait grows."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }</style><rect x="0.0" y="0.0" width="1000.0" height="300.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="18">MODEL — NOT A SHIPPED TABLE:  gems = 74.28 × hours^0.6,  gems priced at $10 / 1,200</text>
+                <text class="svg-sub" x="0" y="56">remaining      gems     gems/hour        $        $ per hour saved</text>
+                <line stroke="#deded9" x1="0" x2="800" y1="66" y2="66"></line>
+                <text class="svg-sub" x="0" y="90">1 hour           74       74.0       0.62          0.617</text>
+                <text class="svg-sub" x="0" y="114">6 hours         218       36.3       1.82          0.303</text>
+                <text class="svg-sub" x="0" y="138">12 hours        330       27.5       2.75          0.229</text>
+                <text class="svg-sub" x="0" y="162">1 day           500       20.8       4.17          0.174</text>
+                <text class="svg-sub" x="0" y="186">3 days          967       13.4       8.06          0.112</text>
+                <text class="svg-sub" x="0" y="210">7 days        1,607        9.6      13.39          0.080</text>
+
+                <rect fill="#f7e3c8" height="62" rx="8" stroke="#d98226" width="1000" x="0" y="232"></rect>
+                <text class="svg-sub" x="16" y="256">The curve is concave, so the longest waits are the cheapest per hour —</text>
+                <text class="svg-sub" x="16" y="280">which is how you would price it if you wanted the largest purchase to feel like the sensible one.</text>
+              </svg>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 430" role="img" aria-label="A table of five state designs over the same observation stream. Row one, the raw observation, costs one symbol and is usually not Markov. Row two, a fixed window of k symbols, costs alphabet size to the power k. Row three, a hand-chosen summary such as a congestion window or a saturating counter, costs a few bytes. Row four, a belief state, is a probability vector over hidden states and is exactly Markov but continuous. Row five, a learned state vector as used by recurrent and state-space models, is a fixed number of bytes trained to be sufficient."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="430.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="18">DESIGN</text>
+                <text class="svg-lane" x="300" y="18">WHAT THE STATE IS</text>
+                <text class="svg-lane" x="640" y="18">SIZE</text>
+                <text class="svg-lane" x="860" y="18">WHERE IT IS USED</text>
+                <line stroke="#b8b8b1" x1="0" x2="1120" y1="28" y2="28"></line>
+
+                <rect fill="#f3dfdc" height="66" rx="6" stroke="#ad4b43" width="1120" x="0" y="40"></rect>
+                <text class="svg-step" x="16" y="66">1 · The raw observation</text>
+                <text class="svg-note" x="16" y="90">the tempting default</text>
+                <text class="svg-sub" x="300" y="72">xₜ alone</text>
+                <text class="svg-sub" x="640" y="72">1 symbol</text>
+                <text class="svg-sub" x="860" y="66">Almost never Markov.</text>
+                <text class="svg-note" x="860" y="90">A chess board without castling rights.</text>
+
+                <rect fill="#e0ebf2" height="66" rx="6" stroke="#3c6f97" width="1120" x="0" y="116"></rect>
+                <text class="svg-step" x="16" y="142">2 · A fixed window</text>
+                <text class="svg-note" x="16" y="166">order-k augmentation</text>
+                <text class="svg-sub" x="300" y="148">(x₍ₜ₋ₖ₊₁₎ … xₜ)</text>
+                <text class="svg-sub" x="640" y="148">mᵏ states</text>
+                <text class="svg-sub" x="860" y="142">n-grams, gshare, frame stacking.</text>
+                <text class="svg-note" x="860" y="166">5-gram over 50k tokens: 3.1 × 10²² states.</text>
+
+                <rect fill="#dfede5" height="66" rx="6" stroke="#367f59" width="1120" x="0" y="192"></rect>
+                <text class="svg-step" x="16" y="218">3 · A hand-chosen summary</text>
+                <text class="svg-note" x="16" y="242">domain knowledge as compression</text>
+                <text class="svg-sub" x="300" y="224">counters, windows, timers, EWMAs</text>
+                <text class="svg-sub" x="640" y="224">bytes</text>
+                <text class="svg-sub" x="860" y="218">TCP control block, 2-bit predictor.</text>
+                <text class="svg-note" x="860" y="242">Cheapest thing that works, when it works.</text>
+
+                <rect fill="#ece6f3" height="66" rx="6" stroke="#765b98" width="1120" x="0" y="268"></rect>
+                <text class="svg-step" x="16" y="294">4 · A belief state</text>
+                <text class="svg-note" x="16" y="318">the principled answer</text>
+                <text class="svg-sub" x="300" y="300">b(s) = Pr[ hidden = s | everything seen ]</text>
+                <text class="svg-sub" x="640" y="300">a simplex in ℝⁿ</text>
+                <text class="svg-sub" x="860" y="294">POMDPs, Kalman filters, SLAM.</text>
+                <text class="svg-note" x="860" y="318">Exactly Markov — and continuous.</text>
+
+                <rect fill="#f7e3c8" height="66" rx="6" stroke="#d98226" width="1120" x="0" y="344"></rect>
+                <text class="svg-step" x="16" y="370">5 · A learned state</text>
+                <text class="svg-note" x="16" y="394">sufficiency by gradient descent</text>
+                <text class="svg-sub" x="300" y="376">hₜ = f₍θ₎(h₍ₜ₋₁₎, xₜ)</text>
+                <text class="svg-sub" x="640" y="376">fixed d, chosen</text>
+                <text class="svg-sub" x="860" y="370">RNNs, S4/Mamba, RWKV.</text>
+                <text class="svg-note" x="860" y="394">Sufficiency is a training objective, not a proof.</text>
+
+                <text class="svg-note" x="0" y="426">Rows 2–5 are the same move — carry more forward — priced differently. Row 4 is the only one that is exactly correct, and the only one that is usually intractable.</text>
+              </svg>

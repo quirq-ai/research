@@ -76,6 +76,19 @@ Each finding is suraj's, from his writings at `a5a356d`.
 - **gh 2.102.0 has three agent-related preview families with three owners: `agent-task` submits work to a hosted Copilot service, `copilot` launches a separate local CLI that owns its agent runtime and session storage, and `skill` installs instruction packages into agent-specific directories \[Installed help + source\].** Source: [Anatomy of GitHub CLI](output/report/2026-10-15-github-cli.md#20-agent-tasks-copilot-cli-and-skills-have-different-lifetimes), §20. Verified: 2026-10-15.
 - **A session OS should own durable job identity, scheduling, leases, authorization, attempts, outcomes and artifacts, while GitHub owns its service objects and gh translates one invocation into operations against them \[Proposal\].** Source: [Anatomy of GitHub CLI](output/report/2026-10-15-github-cli.md#24-a-session-os-should-own-jobs-gh-should-perform-github-operations), §24. Verified: 2026-10-15.
 
+### Foundations
+
+Each finding is suraj's, from his writings at `a5a356d`.
+
+- **A Markov process is a bet that you can choose a description of "now" so complete that the past adds nothing, and naming that state well is the engineering.** Source: [The State Is Enough](output/report/2026-10-15-markov-processes.md#the-question-is-never-is-it-markov), §01. Verified: 2026-10-15.
+- **Markov models are excellent at telling you which way things move and unreliable about how far, so use them for structure and comparisons and take tails from measurement.** Source: [The State Is Enough](output/report/2026-10-15-markov-processes.md#what-to-do-about-all-of-it), §14. Verified: 2026-10-15.
+- **In an agent session the state is the environment and the context window is an observation, so evidence about what an agent did has to be captured from the environment \[my framing\].** Source: [The State Is Enough](output/report/2026-10-15-markov-processes.md#13-agent-loops-as-processes), §13. Verified: 2026-10-15.
+- **The rule timer games run on, as suraj reconstructs it from play, is to never schedule work for something that is a pure function of elapsed time and to derive it on read from a timestamp and a rate; in his model that is 28,800 times less work than a tick loop \[computed here\].** Source: [Nothing Runs While You're Gone](output/report/2026-10-15-game-timers.md#03-nothing-runs-while-you-are-gone), §03. Verified: 2026-10-15.
+- **A battle replay is a snapshot plus a command list plus a deterministic engine, so it can be re-executed to check a claim, while agent sessions are usually stored the wrong way round, as a transcript.** Source: [Nothing Runs While You're Gone](output/report/2026-10-15-game-timers.md#the-audit-case-which-is-where-i-actually-use-this), §09. Verified: 2026-10-15.
+- **A timer loop turns extractive where revenue depends on regret, and that point is visible in the data model as a field whose only purpose is to be taken away.** Source: [Nothing Runs While You're Gone](output/report/2026-10-15-game-timers.md#the-structural-problem-not-the-individual-trick), §08. Verified: 2026-10-15.
+- **No single conjecture is NP-hard, because NP-hardness belongs to families of problems with an input; bounded-length proof search is the canonical NP-complete problem, and Gödel asked about it in a 1956 letter to von Neumann.** Source: [The ten hardest open problems in mathematics](output/report/2026-10-15-hardest-problems.md#01-what-hard-means-and-why-the-riemann-hypothesis-is-not-np-hard), §01. Verified: 2026-10-15.
+- **As of August 2026 no machine has produced a proof of a first-rank open conjecture; machines have done search, verification and bookkeeping, and none of those roles is conception.** Source: [The ten hardest open problems in mathematics](output/report/2026-10-15-hardest-problems.md#the-machine-question), §15. Verified: 2026-10-15.
+
 <!--
 Add one bullet per verified finding:
 - **Finding in one sentence.** Source: [title](link). Verified: YYYY-MM-DD.
@@ -110,3 +123,7 @@ _None recorded yet._
 | report | [What Each File Wants](output/report/2026-10-15-what-each-file-wants.md) | 2026-10-15 | suraj's measured guide to the codec, level or format each kind of file wants, October 2026, with its 21 figures |
 | onepager | [GitHub CLI at a glance](output/onepager/2026-10-15-github-cli-at-a-glance.md) | 2026-10-15 | Key numbers from the GitHub CLI teardown and the sections to read next |
 | report | [Anatomy of GitHub CLI](output/report/2026-10-15-github-cli.md) | 2026-10-15 | suraj's teardown of GitHub CLI 2.102.0 at source commit `fc4b137`, with its 16 figures |
+| onepager | [Foundations at a glance](output/onepager/2026-10-15-foundations-at-a-glance.md) | 2026-10-15 | Key numbers from three of suraj's explainers, and their passages on agents |
+| report | [The State Is Enough](output/report/2026-10-15-markov-processes.md) | 2026-10-15 | suraj's explainer on Markov processes in computing, first published 28 September 2026, with its 21 figures |
+| report | [Nothing Runs While You're Gone](output/report/2026-10-15-game-timers.md) | 2026-10-15 | suraj's note on how timer-driven mobile games store state, reconstructed from play and first published 28 September 2026, with its 10 figures |
+| report | [The ten hardest open problems in mathematics](output/report/2026-10-15-hardest-problems.md) | 2026-10-15 | suraj's survey of ten open problems as of August 2026, with a dated forecast to 2050 and its 15 figures |

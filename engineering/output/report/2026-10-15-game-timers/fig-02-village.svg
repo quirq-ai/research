@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 410" role="img" aria-label="On the left, a packed player record: one hundred buildings at nine bytes each, three hundred walls at four bytes each, thirty-two bytes of resources, two hundred bytes of army state and two hundred bytes of progression, totalling 2,532 bytes, against 18.2 kibibytes for the same thing as JSON. On the right, the shipped config table keyed by type and level holding cost, build time, capacity and hit points, with a note that the save stores only ids and levels."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="410.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="18">THE SAVE · WHAT IS PER PLAYER</text>
+                <rect fill="#e0ebf2" height="40" rx="6" stroke="#3c6f97" width="470" x="0" y="32"></rect>
+                <text class="svg-sub" x="14" y="58">100 buildings × 9 B</text>
+                <text class="svg-sub" x="330" y="58">900 B</text>
+                <rect fill="#e0ebf2" height="40" rx="6" stroke="#3c6f97" width="470" x="0" y="80"></rect>
+                <text class="svg-sub" x="14" y="106">300 walls × 4 B</text>
+                <text class="svg-sub" x="330" y="106">1,200 B</text>
+                <rect fill="#dfede5" height="40" rx="6" stroke="#367f59" width="470" x="0" y="128"></rect>
+                <text class="svg-sub" x="14" y="154">4 resources × (amount + last_collected)</text>
+                <text class="svg-sub" x="330" y="154">32 B</text>
+                <rect fill="#f7f7f5" height="40" rx="6" stroke="#b8b8b1" width="470" x="0" y="176"></rect>
+                <text class="svg-sub" x="14" y="202">army, lab, hero levels</text>
+                <text class="svg-sub" x="330" y="202">200 B</text>
+                <rect fill="#f7f7f5" height="40" rx="6" stroke="#b8b8b1" width="470" x="0" y="224"></rect>
+                <text class="svg-sub" x="14" y="250">progression counters, unlocks</text>
+                <text class="svg-sub" x="330" y="250">200 B</text>
+                <rect fill="#f7e3c8" height="44" rx="6" stroke="#d98226" stroke-width="2" width="470" x="0" y="274"></rect>
+                <text class="svg-sub" x="14" y="302">packed total</text>
+                <text class="svg-sub" x="330" y="302">2,532 B</text>
+                <text class="svg-note" x="14" y="344">The same record as JSON with short keys: 18.2 KiB — 7.3× larger,</text>
+                <text class="svg-note" x="14" y="364">and still nothing. One building is nine bytes:</text>
+                <text class="svg-sub" x="14" y="390">type u16 · x u8 · y u8 · level u8 · finish_at u32</text>
+
+                <line stroke="#deded9" x1="520" x2="520" y1="10" y2="410"></line>
+
+                <text class="svg-lane" x="550" y="18">THE CONFIG · WHAT IS SHIPPED, NOT SAVED</text>
+                <rect fill="#ece6f3" height="196" rx="6" stroke="#765b98" width="570" x="550" y="32"></rect>
+                <text class="svg-sub" x="566" y="58">type  level   cost   build_time   capacity   hp</text>
+                <line stroke="#b8b8b1" x1="566" x2="1104" y1="68" y2="68"></line>
+                <text class="svg-sub" x="566" y="92">  41      6   90,000       8 h        —      780</text>
+                <text class="svg-sub" x="566" y="116">  41      7  180,000      24 h        —      880</text>
+                <text class="svg-sub" x="566" y="140">  41      8  400,000      72 h        —      980</text>
+                <text class="svg-sub" x="566" y="164">  12      9  250,000      12 h   200,000     620</text>
+                <text class="svg-note" x="566" y="196">One row per (type, level), identical for every player,</text>
+                <text class="svg-note" x="566" y="216">shipped to the client and held by the server.</text>
+
+                <rect fill="#f7f7f5" height="146" rx="6" stroke="#deded9" width="570" x="550" y="248"></rect>
+                <text class="svg-lane" x="566" y="276">WHAT THE SPLIT BUYS</text>
+                <text class="svg-sub" x="566" y="304">· a balance change is a data deploy, not a migration</text>
+                <text class="svg-sub" x="566" y="328">· saves never store a number a designer might edit</text>
+                <text class="svg-sub" x="566" y="352">· client and server compute from the same table</text>
+                <text class="svg-sub" x="566" y="376">· the table is versioned, so old replays still resolve</text>
+              </svg>

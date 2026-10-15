@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 440" role="img" aria-label="A log-scale survival plot comparing an exponential distribution with mean 100 milliseconds against a Pareto distribution with the same mean and tail index 1.5. The exponential falls off a cliff; the Pareto decays slowly. A table gives the probability of exceeding 200, 500, 1000 and 10000 milliseconds for each, and the 99th, 99.9th and 99.99th percentiles: 460, 691 and 921 milliseconds for the exponential against 718, 3333 and 15472 for the Pareto."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }</style><rect x="0.0" y="0.0" width="1120.0" height="440.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="18">P(X &gt; x) · LOG SCALE · BOTH HAVE MEAN 100 ms</text>
+                <line stroke="#b8b8b1" x1="110" x2="110" y1="56" y2="300"></line>
+                <line stroke="#b8b8b1" x1="110" x2="1010" y1="300" y2="300"></line>
+                <text class="svg-sub" x="56" y="64">1</text>
+                <text class="svg-sub" x="42" y="104">1e−1</text>
+                <text class="svg-sub" x="42" y="144">1e−2</text>
+                <text class="svg-sub" x="42" y="184">1e−3</text>
+                <text class="svg-sub" x="42" y="224">1e−4</text>
+                <text class="svg-sub" x="42" y="264">1e−5</text>
+                <text class="svg-sub" x="42" y="304">1e−6</text>
+                <line stroke="#f0f0ee" x1="110" x2="1010" y1="140" y2="140"></line>
+                <line stroke="#f0f0ee" x1="110" x2="1010" y1="180" y2="180"></line>
+                <line stroke="#f0f0ee" x1="110" x2="1010" y1="220" y2="220"></line>
+                <line stroke="#f0f0ee" x1="110" x2="1010" y1="260" y2="260"></line>
+
+                <polyline fill="none" points="132.2,68.7 154.5,77.4 176.8,86.1 199.0,94.7 221.2,103.4 243.5,112.1 265.8,120.8 288.0,129.5 310.2,138.2 332.5,146.9 354.8,155.5 377.0,164.2 399.2,172.9 421.5,181.6 443.8,190.3 466.0,199.0 488.2,207.7 510.5,216.3 532.8,225.0 555.0,233.7 577.2,242.4 599.5,251.1 621.8,259.8 644.0,268.5 666.2,277.1 688.5,285.8 710.8,294.5" stroke="#3c6f97" stroke-width="2.4"></polyline>
+                <polyline fill="none" points="132.2,70.6 154.5,88.6 176.8,99.2 199.0,106.7 221.2,112.5 243.5,117.3 265.8,121.3 288.0,124.8 310.2,127.8 332.5,130.6 354.8,133.0 377.0,135.3 399.2,137.4 421.5,139.3 443.8,141.1 466.0,142.8 488.2,144.4 510.5,145.9 532.8,147.3 555.0,148.6 577.2,149.9 599.5,151.1 621.8,152.3 644.0,153.4 666.2,154.4 688.5,155.5 710.8,156.4 733.0,157.4 755.2,158.3 777.5,159.2 799.8,160.0 822.0,160.9 844.2,161.7 866.5,162.5 888.8,163.2 911.0,163.9 933.2,164.7 955.5,165.4 977.8,166.0 1000.0,166.7" stroke="#ad4b43" stroke-width="2.4"></polyline>
+
+                <text class="svg-sub" x="104" y="322">0</text>
+                <text class="svg-sub" x="316" y="322">500</text>
+                <text class="svg-sub" x="534" y="322">1000</text>
+                <text class="svg-sub" x="756" y="322">1500</text>
+                <text class="svg-sub" x="978" y="322">2000</text>
+                <text class="svg-lane" x="500" y="346">MILLISECONDS</text>
+                <text class="svg-sub" style="fill:#3c6f97" x="724" y="292">Exponential(mean 100)</text>
+                <text class="svg-sub" style="fill:#ad4b43" x="1014" y="170">Pareto</text>
+                <text class="svg-sub" style="fill:#ad4b43" x="1014" y="190">α = 1.5</text>
+
+                <line stroke="#deded9" x1="0" x2="1120" y1="360" y2="360"></line>
+                <text class="svg-sub" x="0" y="384">P(X&gt;200ms)   exp 0.135    Pareto 0.068          p99     exp  460 ms    Pareto    718 ms</text>
+                <text class="svg-sub" x="0" y="406">P(X&gt;1s)      exp 4.5e−5   Pareto 6.1e−3         p99.9   exp  691 ms    Pareto  3,333 ms</text>
+                <text class="svg-sub" x="0" y="428">P(X&gt;10s)     exp 3.7e−44  Pareto 1.9e−4         p99.99  exp  921 ms    Pareto 15,472 ms</text>
+              </svg>

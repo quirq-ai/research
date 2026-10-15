@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 470" role="img" aria-label="A two by two grid. Columns are discrete state and continuous state; rows are discrete time and continuous time. Each cell names the model family, the mathematical object that defines it, and computing examples: discrete time discrete state gives Markov chains defined by a transition matrix, used for PageRank, n-grams and branch predictors; discrete time continuous state gives state space models defined by a transition kernel, used for Kalman filters and diffusion models; continuous time discrete state gives continuous time Markov chains defined by a generator matrix, used for queueing and reliability; continuous time continuous state gives diffusions defined by a stochastic differential equation, used for Brownian motion and Langevin dynamics. A band below shows two extensions: Markov random fields and Markov decision processes."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="470.0" fill="#ffffff"/>
+                <text class="svg-lane" text-anchor="middle" x="300" y="24">DISCRETE STATE — COUNTABLE S</text>
+                <text class="svg-lane" text-anchor="middle" x="800" y="24">CONTINUOUS STATE — S ⊆ ℝᵈ</text>
+                <text class="svg-lane" x="16" y="120">DISCRETE</text><text class="svg-lane" x="16" y="138">TIME</text>
+                <text class="svg-lane" x="16" y="284">CONTINUOUS</text><text class="svg-lane" x="16" y="302">TIME</text>
+
+                <rect fill="#e0ebf2" height="150" rx="10" stroke="#3c6f97" width="408" x="96" y="40"></rect>
+                <text class="svg-step" x="116" y="68">Markov chain (DTMC)</text>
+                <text class="svg-sub" x="116" y="92">defined by: a row-stochastic matrix P</text>
+                <text class="svg-sub" x="116" y="116">step: μ₍ₜ₊₁₎ = μₜ P</text>
+                <text class="svg-note" x="116" y="146">PageRank · n-gram models · branch predictors ·</text>
+                <text class="svg-note" x="116" y="166">MCMC on configurations · board-game engines</text>
+
+                <rect fill="#ece6f3" height="150" rx="10" stroke="#765b98" width="408" x="596" y="40"></rect>
+                <text class="svg-step" x="616" y="68">State-space model</text>
+                <text class="svg-sub" x="616" y="92">defined by: a transition kernel K(x, ·)</text>
+                <text class="svg-sub" x="616" y="116">step: x₍ₜ₊₁₎ = f(xₜ) + noise</text>
+                <text class="svg-note" x="616" y="146">Kalman filter · particle filters · DDPM diffusion ·</text>
+                <text class="svg-note" x="616" y="166">SGD viewed as a chain on weights</text>
+
+                <rect fill="#dfede5" height="150" rx="10" stroke="#367f59" width="408" x="96" y="212"></rect>
+                <text class="svg-step" x="116" y="240">CTMC / Markov jump process</text>
+                <text class="svg-sub" x="116" y="264">defined by: a generator matrix Q</text>
+                <text class="svg-sub" x="116" y="288">step: P(t) = e^(Qt)</text>
+                <text class="svg-note" x="116" y="318">M/M/1 and M/M/c queues · availability models ·</text>
+                <text class="svg-note" x="116" y="338">epidemic and gossip protocols · Petri nets</text>
+
+                <rect fill="#f7e3c8" height="150" rx="10" stroke="#d98226" width="408" x="596" y="212"></rect>
+                <text class="svg-step" x="616" y="240">Diffusion / SDE</text>
+                <text class="svg-sub" x="616" y="264">defined by: dXₜ = b(Xₜ)dt + σ(Xₜ)dWₜ</text>
+                <text class="svg-sub" x="616" y="288">step: simulate, usually Euler–Maruyama</text>
+                <text class="svg-note" x="616" y="318">Brownian motion · Ornstein–Uhlenbeck ·</text>
+                <text class="svg-note" x="616" y="338">Langevin sampling · continuous-time score models</text>
+
+                <line stroke="#deded9" x1="96" x2="1004" y1="386" y2="386"></line>
+                <text class="svg-lane" x="96" y="412">TWO EXTENSIONS THAT KEEP THE NAME</text>
+                <text class="svg-sub" x="96" y="438"><tspan style="fill:#ad4b43">Markov random field</tspan> — the index set is a graph, not a clock; a node is independent of the rest given its neighbours.</text>
+                <text class="svg-sub" x="96" y="460"><tspan style="fill:#ad4b43">Markov decision process</tspan> — an action enters the transition: P(s′ | s, a). The chain acquires a steering wheel.</text>
+              </svg>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 330" role="img" aria-label="A chain of four attempt states leading to two absorbing states, success and permanent failure. Each attempt succeeds with probability 0.70, retries with probability 0.25 and fails permanently with probability 0.05. The fundamental matrix gives an expected 1.3281 attempts, a 92.97 percent success rate and a 7.03 percent failure rate."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }</style><rect x="0.0" y="0.0" width="1000.0" height="330.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="abs-arr" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                  <marker id="abs-arr-g" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#367f59"></path></marker>
+                  <marker id="abs-arr-r" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#ad4b43"></path></marker>
+                </defs>
+                <g>
+                  <rect fill="#e0ebf2" height="46" rx="8" stroke="#3c6f97" width="96" x="20" y="96"></rect><text class="svg-step" text-anchor="middle" x="68" y="124">try 1</text>
+                  <rect fill="#e0ebf2" height="46" rx="8" stroke="#3c6f97" width="96" x="176" y="96"></rect><text class="svg-step" text-anchor="middle" x="224" y="124">try 2</text>
+                  <rect fill="#e0ebf2" height="46" rx="8" stroke="#3c6f97" width="96" x="332" y="96"></rect><text class="svg-step" text-anchor="middle" x="380" y="124">try 3</text>
+                  <rect fill="#e0ebf2" height="46" rx="8" stroke="#3c6f97" width="96" x="488" y="96"></rect><text class="svg-step" text-anchor="middle" x="536" y="124">try 4</text>
+                  <rect fill="#dfede5" height="46" rx="8" stroke="#367f59" stroke-width="2" width="140" x="660" y="26"></rect><text class="svg-step" text-anchor="middle" x="730" y="54">Success</text>
+                  <rect fill="#f3dfdc" height="46" rx="8" stroke="#ad4b43" stroke-width="2" width="140" x="660" y="180"></rect><text class="svg-step" text-anchor="middle" x="730" y="208">Given up</text>
+                </g>
+                <line marker-end="url(#abs-arr)" stroke="#252525" stroke-width="1.8" x1="116" x2="168" y1="119" y2="119"></line>
+                <line marker-end="url(#abs-arr)" stroke="#252525" stroke-width="1.8" x1="272" x2="324" y1="119" y2="119"></line>
+                <line marker-end="url(#abs-arr)" stroke="#252525" stroke-width="1.8" x1="428" x2="480" y1="119" y2="119"></line>
+                <text class="svg-sub" x="118" y="110">0.25</text>
+                <text class="svg-sub" x="274" y="110">0.25</text>
+                <text class="svg-sub" x="430" y="110">0.25</text>
+                <path d="M68 92 C 100 30 520 20 656 46" fill="none" marker-end="url(#abs-arr-g)" stroke="#367f59" stroke-width="1.8"></path>
+                <text class="svg-sub" style="fill:#367f59" x="240" y="34">0.70 from every attempt</text>
+                <path d="M68 146 C 110 230 500 244 656 208" fill="none" marker-end="url(#abs-arr-r)" stroke="#ad4b43" stroke-width="1.8"></path>
+                <text class="svg-sub" style="fill:#ad4b43" x="228" y="256">0.05 hard failure from every attempt · plus 0.25 at try 4</text>
+
+                <line stroke="#deded9" x1="20" x2="980" y1="278" y2="278"></line>
+                <text class="svg-lane" x="20" y="302">N = (I − Q)⁻¹, ROW 1</text>
+                <text class="svg-sub" x="20" y="324">1.0000  0.2500  0.0625  0.0156  → expected attempts = 1.3281</text>
+                <text class="svg-lane" x="560" y="302">B = N R, ROW 1</text>
+                <text class="svg-sub" x="560" y="324">P(success) = 0.9297   P(given up) = 0.0703</text>
+              </svg>

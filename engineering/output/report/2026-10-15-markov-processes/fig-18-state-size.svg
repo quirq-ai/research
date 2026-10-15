@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 440" role="img" aria-label="A table of five architectures and the size of the state each carries between tokens. An n-gram carries 16 bytes and recalls the last four tokens exactly. A recurrent network carries a fixed hidden vector. A state space model carries 16 mebibytes fixed, computed from 64 layers times 8192 inner dimension times 16 state dimension times 2 bytes. Sliding window attention carries window size times 320 kibibytes. Full attention carries 320 kibibytes per token, reaching 40 gibibytes at 128 thousand tokens and 320 gibibytes at one million tokens."><style>.svg-lane { font: 600 11px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; letter-spacing: 0.06em; }
+.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1120.0" height="440.0" fill="#ffffff"/>
+                <text class="svg-lane" x="0" y="18">ARCHITECTURE</text>
+                <text class="svg-lane" x="300" y="18">STATE CARRIED BETWEEN TOKENS</text>
+                <text class="svg-lane" x="700" y="18">GROWS WITH t?</text>
+                <text class="svg-lane" x="880" y="18">WHAT IT CAN RECALL</text>
+                <line stroke="#b8b8b1" x1="0" x2="1120" y1="28" y2="28"></line>
+
+                <rect fill="#f7f7f5" height="62" rx="6" stroke="#deded9" width="1120" x="0" y="38"></rect>
+                <text class="svg-step" x="14" y="64">n-gram (order 5)</text>
+                <text class="svg-note" x="14" y="88">Shannon 1948 · counting</text>
+                <text class="svg-sub" x="300" y="72">last 4 token ids — 16 bytes</text>
+                <text class="svg-sub" x="700" y="72">no · fixed</text>
+                <text class="svg-sub" x="880" y="64">exactly 4 tokens</text>
+                <text class="svg-note" x="880" y="88">nothing before that exists</text>
+
+                <rect fill="#e0ebf2" height="62" rx="6" stroke="#3c6f97" width="1120" x="0" y="108"></rect>
+                <text class="svg-step" x="14" y="134">RNN / LSTM</text>
+                <text class="svg-note" x="14" y="158">learned compression</text>
+                <text class="svg-sub" x="300" y="142">hidden vector h — kilobytes</text>
+                <text class="svg-sub" x="700" y="142">no · fixed</text>
+                <text class="svg-sub" x="880" y="134">a lossy summary</text>
+                <text class="svg-note" x="880" y="158">trained, not guaranteed</text>
+
+                <rect fill="#dfede5" height="62" rx="6" stroke="#367f59" width="1120" x="0" y="178"></rect>
+                <text class="svg-step" x="14" y="204">SSM · S4, Mamba, RWKV</text>
+                <text class="svg-note" x="14" y="228">structured recurrence</text>
+                <text class="svg-sub" x="300" y="212">64 × 8192 × 16 × 2 B = 16 MiB</text>
+                <text class="svg-sub" x="700" y="212">no · fixed</text>
+                <text class="svg-sub" x="880" y="204">a much larger summary</text>
+                <text class="svg-note" x="880" y="228">still a summary</text>
+
+                <rect fill="#f7e3c8" height="62" rx="6" stroke="#d98226" width="1120" x="0" y="248"></rect>
+                <text class="svg-step" x="14" y="274">Sliding-window attention</text>
+                <text class="svg-note" x="14" y="298">order-k, in a transformer</text>
+                <text class="svg-sub" x="300" y="282">W × 320 KiB (W = 4096 → 1.25 GiB)</text>
+                <text class="svg-sub" x="700" y="282">no · capped at W</text>
+                <text class="svg-sub" x="880" y="274">last W tokens exactly</text>
+                <text class="svg-note" x="880" y="298">a hard horizon</text>
+
+                <rect fill="#ece6f3" height="62" rx="6" stroke="#765b98" width="1120" x="0" y="318"></rect>
+                <text class="svg-step" x="14" y="344">Full attention · KV cache</text>
+                <text class="svg-note" x="14" y="368">no compression at all</text>
+                <text class="svg-sub" x="300" y="352">320 KiB per token, cumulative</text>
+                <text class="svg-sub" x="700" y="352">YES · linear in t</text>
+                <text class="svg-sub" x="880" y="344">every token exactly</text>
+                <text class="svg-note" x="880" y="368">at linear memory cost</text>
+
+                <line stroke="#deded9" x1="0" x2="1120" y1="394" y2="394"></line>
+                <text class="svg-sub" x="0" y="418">KV arithmetic: 2 (K and V) × 80 layers × 8 KV heads × 128 head-dim × 2 B = 327,680 B per token.</text>
+                <text class="svg-sub" x="0" y="438">→ 40 GiB at 128k tokens, 320 GiB at 1M. Without grouped-query attention (64 KV heads): 2.5 MiB per token, 320 GiB at 128k.</text>
+              </svg>

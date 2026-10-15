@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 350" role="img" aria-label="Three player actors each own their own village state and write periodic snapshots to storage. Above them a clan actor owns chat, donations and war state. Messages flow between player actors and the clan actor, labelled as idempotent and eventually consistent. A caption notes that no player actor ever reads another player actor's memory."><style>.svg-step { font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; fill: #252525; }
+.svg-sub { font: 400 10.5px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #777772; }
+.svg-note { font: italic 11px "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; fill: #4f4f4b; }</style><rect x="0.0" y="0.0" width="1000.0" height="350.0" fill="#ffffff"/>
+                <defs>
+                  <marker id="ac-arr" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#765b98"></path></marker>
+                  <marker id="ac-arr-k" markerHeight="6" markerWidth="6" orient="auto-start-reverse" refX="9" refY="5" viewBox="0 0 10 10"><path d="M0 0L10 5L0 10z" fill="#252525"></path></marker>
+                </defs>
+                <rect fill="#ece6f3" height="66" rx="10" stroke="#765b98" stroke-width="2.2" width="340" x="330" y="26"></rect>
+                <text class="svg-step" text-anchor="middle" x="500" y="54">Clan actor</text>
+                <text class="svg-note" text-anchor="middle" x="500" y="78">chat · donations · war — the only shared mutable state</text>
+
+                <rect fill="#e0ebf2" height="76" rx="10" stroke="#3c6f97" width="260" x="20" y="160"></rect>
+                <text class="svg-step" text-anchor="middle" x="150" y="188">Player actor</text>
+                <text class="svg-note" text-anchor="middle" x="150" y="212">village in memory · one thread</text>
+                <rect fill="#e0ebf2" height="76" rx="10" stroke="#3c6f97" width="260" x="370" y="160"></rect>
+                <text class="svg-step" text-anchor="middle" x="500" y="188">Player actor</text>
+                <text class="svg-note" text-anchor="middle" x="500" y="212">village in memory · one thread</text>
+                <rect fill="#e0ebf2" height="76" rx="10" stroke="#3c6f97" width="260" x="720" y="160"></rect>
+                <text class="svg-step" text-anchor="middle" x="850" y="188">Player actor</text>
+                <text class="svg-note" text-anchor="middle" x="850" y="212">village in memory · one thread</text>
+
+                <line marker-end="url(#ac-arr)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.8" x1="200" x2="330" y1="156" y2="80"></line>
+                <line marker-end="url(#ac-arr)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.8" x1="500" x2="500" y1="156" y2="98"></line>
+                <line marker-end="url(#ac-arr)" stroke="#765b98" stroke-dasharray="5 4" stroke-width="1.8" x1="800" x2="670" y1="156" y2="80"></line>
+                <text class="svg-sub" style="fill:#765b98" x="210" y="120">messages — idempotent, eventual</text>
+
+                <rect fill="#f7f7f5" height="52" rx="8" stroke="#b8b8b1" width="340" x="330" y="278"></rect>
+                <text class="svg-sub" text-anchor="middle" x="500" y="309">durable storage · periodic snapshots</text>
+                <line marker-end="url(#ac-arr-k)" stroke="#252525" stroke-width="1.6" x1="150" x2="340" y1="240" y2="278"></line>
+                <line marker-end="url(#ac-arr-k)" stroke="#252525" stroke-width="1.6" x1="500" x2="500" y1="240" y2="272"></line>
+                <line marker-end="url(#ac-arr-k)" stroke="#252525" stroke-width="1.6" x1="850" x2="662" y1="240" y2="278"></line>
+
+                <text class="svg-note" x="20" y="270">No player actor ever reads another's memory.</text>
+              </svg>
